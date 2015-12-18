@@ -1,0 +1,115 @@
+namespace Fanex.Age.UI
+{
+    using System;
+    using System.Text;
+    using System.Web;
+
+    public static class Json
+    {
+        /// <summary>
+        /// Convert a list of DictionaryEntry to JSON format.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static string Render(JsonData data)
+        {
+            if (null == data)
+            {
+                return "null";
+            }
+
+            int count = data.Count;
+
+            StringBuilder builder = new StringBuilder();
+            builder.Append('{');
+
+            for (int i = 0; i < count; i++)
+            {
+                builder.Append(ObjectToJson(data[i].Key, data[i].Value));
+                if (i < count - 1)
+                {
+                    builder.Append(',');
+                }
+            }
+
+            builder.Append('}');
+            return builder.ToString();
+        }
+
+        /// <summary>
+        /// Declare an object as JSON format.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        private static string ObjectToJson(object name, object value)
+        {
+            return null == name
+                ? null
+                : string.Format("'{0}':{1}", name, ToJson(value));
+        }
+
+        /// <summary>
+        /// Convert an object to JSON format.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        private static string ToJson(object value)
+        {
+            if (null == value)
+            {
+                return "null";
+            }
+
+            string text = value.ToString();
+
+            if (value is string)
+            {
+                return string.Format("'{0}'", HttpUtility.JavaScriptStringEncode(text));
+            }
+
+            if (value is JsonData)
+            {
+                return Render((JsonData)value);
+            }
+
+            if (value is bool)
+            {
+                return text.ToLower();
+            }
+
+            if (value is Array)
+            {
+                return ArrayToJson((object[])value);
+            }
+
+            // Return default ToString() method
+            return text;
+        }
+
+        private static string ArrayToJson(object[] values)
+        {
+            if (null == values)
+            {
+                return "null";
+            }
+
+            int c = values.Length;
+
+            var builder = new StringBuilder();
+            builder.Append('[');
+
+            for (int i = 0; i < c; i++)
+            {
+                builder.Append(ToJson(values[i]));
+                if (i < c - 1)
+                {
+                    builder.Append(',');
+                }
+            }
+
+            builder.Append(']');
+            return builder.ToString();
+        }
+    }
+}

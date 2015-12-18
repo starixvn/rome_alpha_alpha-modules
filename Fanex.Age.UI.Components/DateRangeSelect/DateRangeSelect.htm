@@ -1,0 +1,172 @@
+<!--ExternalResources-->
+<link href="DateRangeSelect.css" rel="stylesheet" type="text/css" />
+<script src="DateRangeSelect.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var max_server_date = '{static:System.DateTime.Today.ToShortDateString()}';
+</script>
+<!--/ExternalResources-->
+<div id="spDateTimeSearch">
+    <table cellpadding="0" cellspacing="0" border="0">
+        <tr style="height: 32px;">
+            <!--DateFilter--><!--/DateFilter-->
+            <!--BetListOption-->
+            <!--/BetListOption-->
+            <!--LimitDateRange-->
+            <td id="tdfdatetext" style="padding-left: 6px;" class="l">
+                <span id="spfdatetext">{DateFromText}:</span>
+            </td>
+            <td id="tdFromDateCal" class="l">
+                <span id="spFromDateCal">{load:Fanex.Age.UI.Components.DateTimeControl.Calendar.Calendar_Control CalendarFrom=new Fanex.Age.UI.Components.DateTimeControl.Calendar.Calendar_Control(this,"fdate","fdate_trigger",DateTime.Today)}</span>
+            </td>
+            <!--LimitToDate-->
+            <td id="tdtdatetext" class="l no-wrap">
+                &nbsp;&nbsp; <span id="sptdatetext">{static:LocalResources.UIComponentsLang.to}:</span>
+            </td>
+            <td id="tdToDateCal" class="l">
+                <span id="spToDateCal">{load:Fanex.Age.UI.Components.DateTimeControl.Calendar.Calendar_Control CalendarTo=new Fanex.Age.UI.Components.DateTimeControl.Calendar.Calendar_Control(this,"tdate","tdate_trigger",DateTime.Today)}</span>
+            </td>
+            <!--/LimitToDate-->
+            <!--/LimitDateRange-->
+            <!--LimitHistoryDateRange-->
+            <!--OneMonthYearCalendar-->
+            <td>{static:LocalResources.UIComponentsLang.ViewDataInMonth}&nbsp;&nbsp;</td>
+            <td id="td1" class="l">
+                <input type="hidden" name="fdate" id="fdate" value="{DateFrom}" />
+                <input type="hidden" name="tdate" id="tdate" value="{DateTo}" />
+                <span id="spfdatetext">
+                    	<div class="monthPicker">
+		                    <a href="javascript:PrevMonth();" id="btnPrevMonth" class="prev{DisablePrev}" title="Previous Month"></a>
+		                    <span id="lblSelectedMonth" onclick="ShowMonth();" title='{SelectedMonth}'>{CurrentMonthYear}</span>
+		                    <a href="javascript:NextMonth();" id="btnNextMonth" class="next{DisableNext}" title="Next Month"></a>
+	                    </div>
+                        <div id="monthPickerDropDown">
+                            <ul class="monthPickerDropDownInner">
+                                <!--YearOption-->
+                                <li class="year">
+                                    <a id="ID_{Year}" {selectedClass} href="javascript:SelectedYear('{Year}');" year="{Year}"><span class="bullet">{Year}</span></a>
+                                </li>
+                                <!--/YearOption-->
+
+                                <!--MonthOption-->
+                                <li class="month" id="LI_{Year}_{Month}" {Display}>
+                                    <a id="{MonthValue}" {selectedClass} href="javascript:SetSelectedMonth('{MonthValue}', true);" title="{MonthText}">{MonthText}</a>
+                                </li>
+                                <!--/MonthOption-->
+                            </ul>
+                            <input type="hidden" name="listYear" id="listYear" value="{ListYear}" />
+                            <input id="maxDate" name="maxDate" type="hidden" value="{MaxDate}" />
+                            <input id="minDate" name="minDate" type="hidden" value="{MinDate}" />
+                        </div>
+                </span>
+            </td>
+            <!--/OneMonthYearCalendar-->
+            <!--MonthYear-->
+            <td>&nbsp;{static:LocalResources.UIComponentsLang.from}&nbsp;&nbsp;</td>
+            <td id="td2" class="l">
+                <input type="hidden" name="fdate" id="fdate" value="{DateFrom}" />
+                <input type="hidden" name="tdate" id="tdate" value="{DateTo}" />
+                <div id="spfdatetext">
+                    	<div class="monthPicker">
+		                    <a href="javascript:PrevMonthV2('btnPrevMonth', 'lblSelectedMonth', 'monthPickerDropDown');" id="btnPrevMonth" class="prev{DisablePrev}" title="Previous Month"></a>
+		                    <span id="lblSelectedMonth" onclick="ShowMonthV2('monthPickerDropDown', 'btnPrevMonth', 'btnNextMonth');" title='{SelectedMonth}'>{CurrentMonthYear}</span>
+		                    <a href="javascript:NextMonthV2('btnNextMonth', 'lblSelectedMonth', 'monthPickerDropDown');" id="btnNextMonth" class="next{DisableNext}" title="Next Month"></a>
+	                    </div>
+                        <div id="monthPickerDropDown">
+                            <ul class="monthPickerDropDownInner">
+                                <!--YearOption-->
+                                <li class="year">
+                                    <a id="ID_{Year}" {selectedClass} href="javascript:SelectedYear('{Year}');" year="{Year}"><span class="bullet">{Year}</span></a>
+                                </li>
+                                <!--/YearOption-->
+
+                                <!--MonthOption-->
+                                <li class="month" id="LI_{Year}_{Month}" {Display}>
+                                    <a id="{MonthValue}" {selectedClass} href="javascript:SetSelectedMonthV2('{MonthValue}', true, 'lblSelectedMonth', 'monthPickerDropDown');" title="{MonthText}">{MonthText}</a>
+                                </li>
+                                <!--/MonthOption-->
+                            </ul>
+                            <input type="hidden" name="listYear" id="listYear" value="{ListYear}" />
+                            <input id="maxDate" name="maxDate" type="hidden" value="{MaxDate}" />
+                            <input id="minDate" name="minDate" type="hidden" value="{MinDate}" />
+                        </div>
+                </div>
+            </td>
+            <td>&nbsp;&nbsp;{static:LocalResources.UIComponentsLang.to}&nbsp;&nbsp;</td>
+            <td id="td3" class="l">
+                <div id="spfdatetext2">
+                    	<div class="monthPicker">
+		                    <a href="javascript:PrevMonthV2('btnPrevMonth2', 'lblSelectedMonth2', 'monthPickerDropDown2');" id="btnPrevMonth2" class="prev" title="Previous Month"></a>
+		                    <span id="lblSelectedMonth2" onclick="ShowMonthV2('monthPickerDropDown2', 'btnPrevMonth2', 'btnNextMonth2');" title='{SelectedMonth2}'>{CurrentMonthYear2}</span>
+		                    <a href="javascript:NextMonthV2('btnNextMonth2', 'lblSelectedMonth2', 'monthPickerDropDown2');" id="btnNextMonth2" class="next{DisablePrev2}" title="Next Month"></a>
+	                    </div>
+                        <div id="monthPickerDropDown2">
+                            <ul class="monthPickerDropDownInner">
+                                <!--YearOption2-->
+                                <li class="year">
+                                    <a id="ID2_{Year}" {selectedClass} href="javascript:SelectedYear('{Year}', 2);" year="{Year}"><span class="bullet">{Year}</span></a>
+                                </li>
+                                <!--/YearOption2-->
+
+                                <!--MonthOption2-->
+                                <li class="month" id="LI2_{Year}_{Month}" {Display2}>
+                                    <a id="{MonthValue}_LI2" {selectedClass} href="javascript:SetSelectedMonthV2('{MonthValue}', true, 'lblSelectedMonth2', 'monthPickerDropDown2');" title="{MonthText}">{MonthText}</a>
+                                </li>
+                                <!--/MonthOption2-->
+                            </ul>
+                            <input id="maxDateTo" name="maxDateTo" type="hidden" value="{MaxDateTo}" />
+                            <input id="minDateTo" name="minDateTo" type="hidden" value="{MinDateTo}" />
+                        </div>
+                </div>
+            </td>
+            <!--/MonthYear-->
+            <!--DateFromTo-->
+            <td>
+                &nbsp;&nbsp;{static:LocalResources.UIComponentsLang.from}&nbsp;
+            </td>
+            <td>
+                <span id="spfdate">
+                    <select name="ddlDateFrom" id="ddlDateFrom" onchange="ChangeDateFrom();">
+                        <!--DateFromOption-->
+                        <option value="{OptionValue}" {Selected}>{OptionText}</option>
+                        <!--/DateFromOption-->
+                    </select>
+                </span>
+            </td>
+            <td>
+                &nbsp;{static:LocalResources.UIComponentsLang.to}&nbsp;
+            </td>
+            <td>
+                <span id="sptdate">
+                    <select name="ddlDateTo" id="ddlDateTo" onchange="ChangeDateTo();">
+                        <!--DateToOption-->
+                        <option value="{OptionValue}" {Selected}>{OptionText}</option>
+                        <!--/DateToOption-->
+                    </select>
+                </span>
+            </td>
+            <!--/DateFromTo-->
+            <!--/LimitHistoryDateRange-->
+            <!--BetListGetAll-->
+            <!--/BetListGetAll-->
+            <!--CurrencyFilter-->
+            <!--/CurrencyFilter-->
+            <td class="l no-wrap">
+                &nbsp;&nbsp;
+                <input type="button" class="btn" style="width: 55px" id="dSubmit" value="{static:LocalResources.UIComponentsLang.submit}"
+                    onclick="DisableButton(); {SearchByDateFunction};" />
+                    <!--TodayYesterdayButton-->
+                &nbsp;<input type="button" id="dToday" class="btn" style="width: 80px" value="{static:DateTime.Now.ToShortDateString()}"
+                    onclick="DisableButton(); {SearchOneDayFunction};" />&nbsp;
+                <input type="button" id="dYesterday" class="btn" style="width: 80px" value="{static:DateTime.Now.AddDays(-1).ToShortDateString()}"
+                    onclick="DisableButton(); {SearchOneDayFunction};" />
+                    <!--/TodayYesterdayButton-->
+                <!--AdditionalContent-->
+                <!--/AdditionalContent-->
+            </td>
+            <td valign="top">
+                <div id="loading" class="" style="float: left;">
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

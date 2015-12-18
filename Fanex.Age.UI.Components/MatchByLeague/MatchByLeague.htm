@@ -1,0 +1,49 @@
+﻿<div id="BoxMatchWL" style="display:none">
+    <table cellpadding="0" cellspacing="0" border="0">
+        <tr height="20">
+            <td id="iconSelMatch">{static:LocalResources.UIComponentsLang.SelectMatch}</td>
+            <td style="background-color:#FFEFDE; width:540px">
+                <table border="0" cellpadding="0" cellspacing="0" width="40%" id="tblMsgMatch" style="display: none;">
+                    <tr>
+                        <td class="emsg_1_1">&nbsp;</td>
+                        <td class="emsg_1_2">&nbsp;</td>
+                        <td class="emsg_1_3">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="emsg_2_1">&nbsp;</td>
+                        <td valign="top" id="msgMatchErr" class="msgerr"></td>
+                        <td class="emsg_2_2">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="emsg_3_1">&nbsp;</td>
+                        <td class="emsg_3_2">&nbsp;</td>
+                        <td class="emsg_3_3">&nbsp;</td>
+                    </tr>
+                </table>
+                </td>            
+            <td id="closeBoxMatch"></td>
+        </tr>
+        <tr>
+        <td id="boderBoxMatch" colspan="3">
+            <div id="ContentMatchWL">
+            <!--ContentMatch-->
+                <ul class="ListMatch">
+                    <!--ColMatch-->
+                    <li>
+                        <input class="hand" type="checkbox" {checkAll} id="chL{Match}">
+                        <label class="hand" for="chL{Match}">{MatchName}</label>
+                    </li>
+                    <!--/ColMatch-->
+                </ul>
+            <!--/ContentMatch-->
+            </div>
+            <div align="center" style="padding-top:5px">
+                <input type="button" class="btn" id="dSubmitInMatch" value="{static:LocalResources.UIComponentsLang.select}">
+            </div>
+        </td>
+        </tr>
+    </table>
+</div>
+<input id="MatchIds" name="MatchIds" type="hidden" value="{MatchIds}"/>
+<input id="MatchFull" name="MatchFull" type="hidden" value="-1"/>
+<input id="isChanged" name="isChanged" type="hidden" value="0"/>

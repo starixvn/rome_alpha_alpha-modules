@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{static:LocalResources.UIForecastLang.lblForecast}</title>
+    <link href="../_GlobalResources/Css/Agent.css" rel="stylesheet" type="text/css" />
+    <link href="Resources/FC.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    {load:Fanex.Age.UI.Components.RefreshCountDown_Control RefreshCountDown = new Fanex.Age.UI.Components.RefreshCountDown_Control(this,15,"FCAH","RefreshFC")}
+    <div id="sContent">
+        <!--Content-->
+        <!--ForecastContent-->
+        <table class="tblRpt" cellpadding="0" cellspacing="1" border="0" style="width: 100%;">
+            <tr class="RptHeader">
+                <td>
+                    {static:LocalResources.UIForecastLang.lblTeam}
+                </td>
+                <td>
+                    {static:LocalResources.UIForecastLang.lblScore}
+                </td>
+            </tr>
+            <tr class="even_row c">
+                <td>
+                    {Home} -vs- {Away}
+                </td>
+                <td>
+                    {LiveHomeScore} : {LiveAwayScore}
+                </td>
+            </tr>
+        </table>
+        <br />
+        <table class="tblRpt" cellpadding="0" cellspacing="1" border="0" style="width: 100%;">
+            <tr class="even_row" align="center">
+                <td bgcolor="#cccccc">
+                    <b>{Title}</b>
+                </td>
+                <td colspan="4">
+                    <!--ForecastPointContent-->
+                    <a href='javascript:GetFCAH({MatchId},{ForecastPoint},{BetType})'>{ForecastPointValue}</a>&nbsp;
+                    <!--/ForecastPointContent-->
+                </td>
+            </tr>
+            <!--ForecastValue-->
+            <tr class="even_row" align="center">
+                <td>
+                    {VScore4}
+                </td>
+                <td>
+                    {VScore3}
+                </td>
+                <td>
+                    {VScore2}
+                </td>
+                <td>
+                    {VScore1}
+                </td>
+                <td>
+                    {VScore}
+                </td>
+            </tr>
+            <tr class="even_row" align="center">
+                <td>
+                    {FCValue4}
+                </td>
+                <td>
+                    {FCValue3}
+                </td>
+                <td>
+                    {FCValue2}
+                </td>
+                <td>
+                    {FCValue1}
+                </td>
+                <td>
+                    {FCValue0}
+                </td>
+            </tr>
+            <!--/ForecastValue-->
+             <!--NoInfo-->
+            <tr class="no_info">
+                <td colspan="5">{static:LocalResources.UIForecastLang.noInfo}</td>
+            </tr>
+            <!--/NoInfo-->
+            <tr class="even_row">
+                <td colspan="5">
+                    <!--BetListLink-->
+                    <a class="forecast_betlist_link" href="../_BetList/BetList.aspx?matchid={MatchId}&bettype={BetType}&type={BetTypeValue}">
+                        {static:LocalResources.UIForecastLang.lblBetLists}</a>
+                    <!--/BetListLink-->
+                    <a class="forecast_toggle_link" href='javascript:GetFCAH({MatchId},0,{ToggleBetType})'>{ToggleFC}</a>
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" id="bettype_vl" value="{BetType}" />
+        <input type="hidden" id="score_vl" value="{ScoreValue}" />
+        <!--/ForecastContent-->
+        <!--NoInfo-->
+        <table class="tblRpt" cellpadding="0" cellspacing="1" border="0" style="width: 100%;">
+            <tr class="no_info">
+                <td>{static:LocalResources.UIForecastLang.noInfo}</td>
+            </tr>
+        </table>
+        <!--/NoInfo-->
+        <!--/Content-->
+    </div>
+
+    <script src="../_GlobalResources/Js/Core.js" type="text/javascript"></script>
+    <script src="Resources/FC.js" type="text/javascript"></script>
+
+    <!--FPSArea-->
+    <input type="hidden" id="userId" value="{userId}" />
+    <script src="{static:Sunplus.Agent.Model.BL.Definitions.AppSettings.FPSApi}" type="text/javascript"></script>
+    <!--/FPSArea-->
+</body>
+</html>

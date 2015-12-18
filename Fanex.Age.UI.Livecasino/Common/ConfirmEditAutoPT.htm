@@ -1,0 +1,25 @@
+﻿<link rel="Stylesheet" type="text/css" href="../Resources/LiveCasino.css" />
+<form id="fConfirmEditMaster">
+	<input id="iptConfirm" type="text" style="width:0px; height:0px; border: 0px;" />
+    <table id="tblConfirm" width="340px">
+        <tr>
+            <td class="c">
+                {information}
+            </td>
+        </tr>
+        <tr class="c">
+            <td>
+                <select id="ddlMemberPT" name="ddlMemberPT">
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="c" style="padding: 3px 0px 3px 0px">
+                <input type="button" id="btnYes" onclick="ButtonClick(true);" name="btnYes" value="{static:LocalResources.UILiveCasinoLang.lblYes}"/>
+                &nbsp;
+                <input type="button" id="btnNo" onclick="ButtonClick(false);" name="btnNo" value="{static:LocalResources.UILiveCasinoLang.lblNo}"/>
+            </td>
+        </tr>
+    </table>
+</form>
+<script type="text/javascript" src="../_MemberInfo/LiveCasino/Resources/ConfirmAutoPT.js"></script>

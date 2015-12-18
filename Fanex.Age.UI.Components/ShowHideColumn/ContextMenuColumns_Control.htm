@@ -1,0 +1,30 @@
+﻿<!--ExternalResources-->
+<link href="Resources/ContextMenuColumns_Control.css" rel="stylesheet" type="text/css" />
+<!--/ExternalResources-->
+<div id="PopupCtx" class="divMenuPopup">
+    <table id="Popup" cellspacing="2" cellpadding="1" cols="{columns}">
+        <!--checkbox-->
+        <tr>
+            <td>
+                <input class="padding" onclick="onChangeColumn('{colName}', 'chk_{colName}', '{colId}', '{colspan}', {showLcs});" type="checkbox" id="chk_{colName}" /><label for="chk_{colName}"><span class="padding">{text}</span></label>
+            </td>
+        </tr>
+        <!--/checkbox-->
+    </table>
+</div>
+<div id="menuPopupAd">
+    <div class="left">
+    </div>
+    <div class="bg">
+        <div class="normal">
+            <div style="margin: 5px 5px;">
+                {PopupMsg}
+            </div>
+            <div>
+                <input id="chkAd" type="checkbox" onclick="hidePopupAd();" /><label for="chkAd">{DoNotShowAgain}</label>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿<!--HiddenBlock-->
+<link href="../../_MemberInfo/CreditBalance/Resources/CreditBalance.css" rel="stylesheet"
+    type="text/css" />
+<!--/HiddenBlock-->
+
+<div id="divIntroduction">    
+    {Content}
+    <!--<div id="containner">    
+        <div class="paneright">
+            <div style="margin-top:15px; margin-bottom:12px; color:#f8d350; font-family:">
+              <span><em ><strong style="font-size:22px;">Valued Agents,</strong></em></span>
+            </div>
+            <div><em style="font-size:12px">We will offer Australian Racing to all members with effect from <span class="text_small">19/07/2011</span>.
+              <br />
+              Your current commission and position taking settings for UK racing will be transferred to Australian Racing.
+              <br />
+              Please amend these settings should you wish to have different settings for Australian racing.</em>
+            </div>
+        </div>
+    </div>-->
+
+    <div class="closeAd">
+        <a href="#" onclick="$('divIntroduction').style.display='none'; NextPopup();" title="{static:LocalResources.UIComponentsLang.close}">
+            <img style="border: 0px" src="../../_GlobalResources/Images/close.png" />
+        </a>
+    </div>
+    <div class="notshowAd">
+        <input type="checkbox" id="chkHide" onclick="SetAdCookie('LoadIntroduction', this.checked, _page.userid, _page.subid);" class="CursorP"/>
+        <label for="chkHide" class="CursorP">{static:LocalResources.UIComponentsLang.donotshowagain}</label>
+    </div>
+</div>

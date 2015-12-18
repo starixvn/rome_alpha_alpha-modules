@@ -1,0 +1,53 @@
+namespace Sunplus.Agent.Model.DL.Statistic
+{
+    using System;
+    using System.Collections;
+
+    [Obsolete("Should rename to Sunplus.Agent.Model.Auth")]
+    public class StatisticDAO : Base.DAOBase
+    {
+        public void Age_UpdPageVisit(int roleId, string pageUrl)
+        {
+            var parameters = new Hashtable
+            {
+                { "role", roleId },
+                { "pageurl", pageUrl }
+            };
+            ExecSp("Age_UpdPageVisit", parameters);
+        }
+
+        public void IS_UpdFunctionUsage(
+            string pageUrl, 
+            int serverId, 
+            string function, 
+            string subFunction,
+            string site, 
+            string lang)
+        {
+            var parameters = new Hashtable
+            {
+                { "pageurl", pageUrl },
+                { "serverid", serverId },
+                { "function", function },
+                { "subfunction", subFunction },
+                { "site", site },
+                { "lang", lang }
+            };
+
+            ExecSp("IS_UpdFunctionUsage", parameters);  
+        }
+
+        public void Agm_UpdFunctionUsage(int serverId, string function, string subFunction, string lang)
+        {
+            var parameters = new Hashtable
+            {
+                { "serverid", serverId },
+                { "function", function },
+                { "subfunction", subFunction },
+                { "lang", lang }
+            };
+
+            ExecSp("Agm_UpdFunctionUsage", parameters);
+        }
+    }
+}

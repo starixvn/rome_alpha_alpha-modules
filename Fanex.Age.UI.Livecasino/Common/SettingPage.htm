@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>{EditGame}</title>
+        <link href="../../../_Components/PT_Control/PT_Control.css" rel="stylesheet" type="text/css" />
+        <link href="../../../_GlobalResources/Css/Agent.css" rel="Stylesheet" type="text/css" />
+        <link href="../Resources/LiveCasino.css" rel="Stylesheet" type="text/css" />
+        <link href="../../../_Components/AGEWnd/AGEWnd.css" rel="Stylesheet" type="text/css" />
+	</head>
+	<body>
+        <form id="formLiveCasino" runat="server">
+            <div class="{mainDiv}">
+                <!--Msg-->
+                <div id="errMsg">
+                    {ErrorMsg}
+                </div>
+                <!--/Msg-->
+                <div style="display: none" id="custids">{UserIDs}</div>
+                <div class="l b liveCsTitle">
+                    {EditGame}
+                </div>
+                <div id="warningMsg" class="warningMsg"></div>
+                <div class="tableDiv">
+	                <table id="liveCasino">
+                        <tr>
+                            <td id="custnames" colspan="4" class="justify b">
+                                {UserNames}
+                            </td>
+                        </tr>
+                        <!--Enable-->
+                        <tr>
+                            <td colspan="4" class="b">
+                                <div style="float: right; color:#9D1C1C">{Enable_vl}</div></td>
+                        </tr>
+                        <!--/Enable-->
+                        <!--CustInfo-->
+                        <tr>
+                            <td class="r b width">{UserName}</td>
+                            <td class="l width">{UserName_vl}</td>
+                            <td class="r b width">{NickName}</td>
+                            <td class="l width">{NickName_vl}</td>
+                        </tr>
+                        <tr>
+                            <td class="r b">{FirstName}</td>
+                            <td class="l">{FirstName_vl}</td>
+                            <td class="r b">{Phone}</td>
+                            <td class="l">{Phone_vl}</td>
+                        </tr>
+                        <tr>
+                            <td class="b r">{LastName}</td>
+                            <td class="l">{LastName_vl}</td>
+                            <td class="b r">{Mobile}</td>
+                            <td class="l">{Mobile_vl}</td>
+                        </tr>
+                        <tr>
+                            <td class="b r">{Fax}</td>
+                            <td class="l">{Fax_vl}</td>
+                            <td class="b r">{Enable}</td>
+                            <td class="l b">{Enable_vl}</td>
+                        </tr>
+                        <!--/CustInfo-->
+                        <tr class="b innerHeader l">
+                            <td colspan="4">
+                                <div class="leftTitle" id="ptComm">{PTComm}</div>
+                                <div class="saveDiv">
+                                    <input accountpermisssion="[B]" {btndisabled} type="button" class="save" title="{SavePTComm}" onclick="savePTComm();" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" id="tdInnerTable">{PTCommDetail}</td>
+                        </tr>
+                        <!--MemberWin-->
+                        <tr class="b innerHeader l">
+                            <td colspan="4">
+                                <div class="leftTitle" id="memberWinLimit">{MemberWinLimit}</div>
+                                <div class="saveDiv">
+                                    <input accountpermisssion="[B]" {btndisabled} type="button" class="save" title="{SaveMemberWinLimit}" onclick="saveMemberWinLimit();" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" id="tdMemberWinLimitDetail" style="padding: 0px">{load:Fanex.Age.UI.LiveCasino.Common.WinLimitCtrl_Template detail = new Fanex.Age.UI.LiveCasino.Common.WinLimitCtrl_Template()}</td>
+                        </tr>
+                        <!--/MemberWin-->
+                        <tr class="b innerHeader l">
+                            <td colspan="4">
+                                <div class="leftTitle" id="gameSetting">{GameSetting}</div>
+                                <div class="saveDiv">
+                                    <input accountpermisssion="[B]" {btndisabled} type="button" class="save" title="{SaveGameSetting}" onclick="saveGameSetting();" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="r b">{GameType}</td>
+                            <td colspan="3" class="b l">{BettingLimit}</td>
+                        </tr>
+                        <!--GameRow-->
+                        <tr>
+                            <td class="r"><div id="gameType{order}">{GameType_vl}</div><span style="display: none" id="betTypeID{order}">{betTypeID}</span><span style="display: none" id="gameTypeID{order}">{gameTypeID}</span></td>
+                            <td colspan="3" class="l">{BettingLimit_vl}</td>
+                        </tr>
+                        <!--/GameRow-->
+                    </table>
+                </div>
+                <div class="btnLeft">
+                    <input accountpermisssion="[B]" type="button" id="btnSubmit" {btndisabled} type="button" value="{Submit}" onclick="btnSubmitClick();" class="btnMain" />
+                </div>
+            </div>
+        </form>
+
+        <script src="../../_GlobalResources/Js/Core.js" type="text/javascript"></script>
+        <script src="../../_Components/AGEWnd/AGEWnd.js" type="text/javascript"></script>
+        <script src="../../_Components/PT_Control/PT_Control.js" type="text/javascript"></script>
+        <script src="../_MemberInfo/LiveCasino/Resources/LiveCasino.js" type="text/javascript"></script>
+	</body>
+</html>

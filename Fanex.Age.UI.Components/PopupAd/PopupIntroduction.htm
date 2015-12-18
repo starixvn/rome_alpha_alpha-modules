@@ -1,0 +1,24 @@
+﻿<!--HiddenBlock-->
+<link href="../../_MemberInfo/CreditBalance/Resources/CreditBalance.css" rel="stylesheet" type="text/css" />
+<!--/HiddenBlock-->
+
+<div id="divIntroduction">    
+    <div align="center">
+        <object width="600" height="380" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" id="Object2">
+            <param name="movie" {static:"value=\"" + TplCore.TplSettings.GetBaseUrl() + "Flash/Introduction/IphoneIntro_"+Sunplus.Agent.Model.Entities.UserSession.Current.Language + ".swf\""} />
+            <param name="quality" value="high" />
+            <param name="wmode" value="transparent" />
+            <embed width="600" height="380" {static:"src=\"" + TplCore.TplSettings.GetBaseUrl() + "Flash/Introduction/IphoneIntro_"+Sunplus.Agent.Model.Entities.UserSession.Current.Language + ".swf\""} quality="high" pluginspage="https://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent"></embed>
+        </object>
+    </div>
+    
+    <div class="close">
+        <a href="#" onclick="$('divIntroduction').style.display='none'; NextPopup();" title="{static:LocalResources.UIComponentsLang.close}">
+            <img alt="" style="border: 0px" src="../../_GlobalResources/Images/close.png" />
+        </a>
+    </div>
+    <div class="notshow">
+        <input type="checkbox" id="chkHideVL" onclick="SetAdCookie('LoadIntroduction', this.checked, _page.userid, _page.subid);" class="CursorP"/>
+        <label for="chkHideVL" class="CursorP">{static:LocalResources.UIComponentsLang.donotshowagain}</label>
+    </div>
+</div>

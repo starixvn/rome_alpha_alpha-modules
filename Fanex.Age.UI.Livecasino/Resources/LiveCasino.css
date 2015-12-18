@@ -1,0 +1,241 @@
+﻿html
+{
+	font-family: "Roboto",Tahoma,Arial,helvetica,sans-serif;
+	font-size: 11px;
+	color: #171717;
+	margin: 0px;
+	text-align: left;
+	cursor: default;
+}
+
+body
+{
+	background: #f5f6f8 url(Images/bg_conts.jpg) repeat-x fixed 50% top;
+	padding: 2px 2px 2px 2px;
+	margin: 0px 0px 0px 0px;
+}
+
+input[type=button]
+{
+	font-size: 8px;
+	font-size: 11px;
+	-moz-border-radius: 3px; /* Firefox */
+	-webkit-border-radius: 3px; /* Safari and Chrome */
+	border-radius: 3px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+}
+
+input[type=submit]
+{
+	-moz-border-radius: 3px; /* Firefox */
+	-webkit-border-radius: 3px; /* Safari and Chrome */
+	border-radius: 3px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+}
+
+.l
+{
+	text-align: left;
+}
+
+.r
+{
+	text-align: right;
+}
+
+.c
+{
+	text-align: center;
+}
+
+.b
+{
+	font-weight: bold;
+}
+
+#liveCasino
+{
+    background: #F7F0E4 !important;
+    background-repeat: repeat-x;
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+}
+
+#liveCasino td
+{
+	vertical-align: middle;
+    height: 20px;
+    border: solid 1px #999;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.btnRight
+{
+    border-style: none;
+	border-color: inherit;
+	border-width: medium;
+	font-size: 11px;
+    font-weight: bold;
+    color: #333;
+    float: left;
+    min-width: 64px;
+    display: block;
+    background: url(Images/b_right.gif) no-repeat right top;
+    padding: 4px 17px 4px 5px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.btnLeft
+{
+	background: url(Images/b_left.gif) no-repeat left top;
+	padding: 0px 0px 0px 5px;
+	height: 23px;
+	font-weight: bold;	
+}
+
+.innerHeader
+{
+	background: url(Images/bgHeader.jpg) repeat-x left top;
+	color: #fff;
+}
+
+.liveCsTitle
+{
+	background: url(Images/titleHeader.jpg) no-repeat left bottom;
+	color: #9D1C1C;
+	padding-left: 12px;
+	padding-bottom: 5px;
+}
+
+.saveDiv
+{
+	float: right;
+	height: 18px;
+}
+
+.leftTitle
+{	
+	padding: 2px;
+	height: 18px;
+	display:inline-table;
+	float:left;
+	margin-left:10px;
+	
+}
+   
+.save
+{
+	border-style: none;
+	border-color: inherit;
+	border-width: medium;
+	cursor: pointer;	
+	width: 20px;
+	height: 20px;
+	background-image: url(Images/save.png);
+	background-repeat: no-repeat;
+	background-color: transparent;
+}
+
+.justify
+{
+	text-align: justify;
+}
+
+.tableDiv
+{
+	padding-bottom: 5px;
+}
+
+#errMsg
+{
+	overflow: auto;
+	display: none;
+}
+
+.innerTable
+{
+	width: 100%;	
+}
+
+select
+{
+	width: 60px;
+	height: 18px;
+	font-size: 11px;
+}
+
+a
+{
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+img
+{
+	border: none;
+}
+
+.mainDiv
+{
+	width: 850px;
+}
+
+.width
+{
+	width: 25%;
+}
+
+#liveCasino #tdInnerTable
+{
+	padding: 0px;
+}
+
+.tdPT
+{
+}
+
+.tdAutoPT
+{
+	width: 190px;
+}
+
+.upBtn
+{
+	background-image: url('../Resources/Images/b_up.jpg');
+	border: none;
+	height: 18px;
+	width: 18px;
+	cursor: pointer;
+	padding: 0px;
+}
+
+.downBtn
+{
+	background-image: url('../Resources/Images/b_down.jpg');
+	border: none;
+	height: 18px;
+	width: 18px;
+	cursor: pointer;
+	padding: 0px;
+}
+
+.addBtn
+{
+	background-image: url('../Resources/Images/b_add.jpg');
+	border: none;
+	height: 18px;
+	width: 18px;
+	cursor: pointer;
+	padding: 0px;
+}
+
+.subBtn
+{
+	background-image: url('../Resources/Images/b_sub.jpg');
+	border: none;
+	height: 18px;
+	width: 18px;
+	cursor: pointer;
+	padding: 0px;
+}

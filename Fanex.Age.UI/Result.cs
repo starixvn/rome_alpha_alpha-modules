@@ -1,0 +1,32 @@
+namespace Fanex.Age.UI
+{
+    public class Result
+    {
+        public Result()
+        {
+        }
+
+        public Result(int code, string msg)
+        {
+            ErrCode = code;
+            ErrMsg = msg;
+        }
+
+        public Result(ErrorType type, string msg)
+        {
+            ErrCode = (int)type;
+            ErrMsg = msg;
+        }
+
+        public string ErrMsg { get; set; }
+
+        public int ErrCode { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var result = obj as Result;
+
+            return null != result;
+        }
+    }
+}

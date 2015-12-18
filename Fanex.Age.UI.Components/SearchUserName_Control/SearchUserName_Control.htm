@@ -1,0 +1,36 @@
+﻿<!--ExternalResources-->
+<link href="SearchUserName_Control.css" rel="stylesheet" type="text/css" />
+<link href="styles.css" rel="stylesheet" type="text/css" /> 
+<!--/ExternalResources-->
+<table id="tblSearch" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td>
+            {username}
+        </td>
+        <td>
+            <input type="text" style="width:145px;" class="{textClass}" name="txtUserName" id="txtUserName" value="{value}" onkeypress="onKeyPressUser('dSubmit',event);"  onclick="onclickUser('{enterusername}')" onblur="onblurUser('{enterusername}')" autocomplete="off"  />
+        </td>                                    
+            
+        <td>{status}</td>
+        <td>
+            <div id="box_option">
+                <select id="statusFilter" name="statusFilter">
+                    <!--option-->
+                    <option value="{optionValue}" {selected}>{optionText}</option>                                              
+                    <!--/option-->
+                </select>
+            </div>
+            <!--CheckingFilter-->
+            <div id="box_checking_filter"> <input type="checkbox" id="{chkId}" name="{chkId}" onclick="CheckingFilter();" {ischecked} /> {CheckBoxText}  </div>
+            <!--/CheckingFilter-->
+            <div style="width:65px; float:right; text-align:right">
+                <input id="dSubmit" type="button" value="{submit}" class="buttonSubmit" onclick="{onClick_function}" />
+            </div>
+            <div class="shadow" id="shadow" />
+            <div class="output" id="output" />
+            <script src="SearchUserName_Control.js" type="text/javascript"></script>
+            <script src="autocomplete.js" type="text/javascript"></script> 
+        </td>                               
+    </tr>        
+</table>
+

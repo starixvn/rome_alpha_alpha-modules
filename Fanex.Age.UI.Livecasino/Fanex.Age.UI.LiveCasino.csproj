@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9889BAAA-6D07-4094-8A5A-E272B3617FB9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fanex.Age.UI.LiveCasino</RootNamespace>
+    <AssemblyName>Fanex.Age.UI.LiveCasino</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="TplCore, Version=1.0.4854.17253, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TplCore.1.0.4854.17254\lib\net40\TplCore.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Agent\AgentEditMemberPT.htm.cs" />
+    <Content Include="App_Code\TplCore\Common\SettingPage.htm.cs" />
+    <Compile Include="CasinoUI.cs" />
+    <Compile Include="Common\BettingLimitCtrl.htm.cs" />
+    <Compile Include="Common\CommissionCtrl.htm.cs" />
+    <Compile Include="Common\ConfirmEditAutoPT.htm.cs" />
+    <Compile Include="Common\PositionTakingCtrl.htm.cs" />
+    <Compile Include="Common\SettingPage.htm.cs" />
+    <Compile Include="Common\WinLimitCtrl.htm.cs" />
+    <Compile Include="Master\MasterEditAgentPT.htm.cs" />
+    <Compile Include="Master\MasterEditMemberPT.htm.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LocalResources\UILiveCasinoLang.Designer.cs">
+      <DependentUpon>UILiveCasinoLang.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Super\SuperEditMasterPT.htm.cs" />
+    <Compile Include="Super\SuperEditMemberPT.htm.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Agent\AgentEditMemberPT.htm" />
+    <Content Include="Common\BettingLimitCtrl.htm" />
+    <Content Include="Common\CommissionCtrl.htm" />
+    <Content Include="Common\ConfirmEditAutoPT.htm" />
+    <Content Include="Common\PositionTakingCtrl.htm" />
+    <Content Include="Common\SettingPage.htm" />
+    <Content Include="Common\WinLimitCtrl.htm" />
+    <Content Include="Master\MasterEditAgentPT.htm" />
+    <Content Include="Master\MasterEditMemberPT.htm" />
+    <Content Include="Resources\Images\bgHeader.jpg" />
+    <Content Include="Resources\Images\bg_conts.jpg" />
+    <Content Include="Resources\Images\b_add.jpg" />
+    <Content Include="Resources\Images\b_down.jpg" />
+    <Content Include="Resources\Images\b_left.gif" />
+    <Content Include="Resources\Images\b_right.gif" />
+    <Content Include="Resources\Images\b_sub.jpg" />
+    <Content Include="Resources\Images\b_up.jpg" />
+    <Content Include="Resources\Images\loading.gif" />
+    <Content Include="Resources\Images\save.png" />
+    <Content Include="Resources\Images\titleHeader.jpg" />
+    <Content Include="Resources\LiveCasino.css" />
+    <Content Include="Super\SuperEditMasterPT.htm" />
+    <Content Include="Super\SuperEditMemberPT.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LocalResources\UILiveCasinoLang.ja-JP.resx" />
+    <EmbeddedResource Include="LocalResources\UILiveCasinoLang.ko-KR.resx" />
+    <EmbeddedResource Include="LocalResources\UILiveCasinoLang.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UILiveCasinoLang.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocalResources\UILiveCasinoLang.th-TH.resx" />
+    <EmbeddedResource Include="LocalResources\UILiveCasinoLang.vi-VN.resx" />
+    <EmbeddedResource Include="LocalResources\UILiveCasinoLang.zh-CN.resx" />
+    <EmbeddedResource Include="LocalResources\UILiveCasinoLang.zh-TW.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55295</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

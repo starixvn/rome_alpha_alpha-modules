@@ -1,0 +1,26 @@
+﻿<!--ExternalResources-->
+<link href="RefreshCountDown.css" rel="stylesheet" type="text/css" />
+<script src="RefreshCountDown.js" type="text/javascript"></script>
+<!--/ExternalResources-->
+
+<div class="btnCountDown">
+    <div id="CountDownRefresh" class="btnRefresh" onclick="return CountDownRefresh_Refresh()" title="{static:LocalResources.UIComponentsLang.refresh}"></div>
+    <div class="btnDown" onclick="CountDownRefresh_DoOpenOption(this);" ></div>
+</div>
+<div style="clear:both;"></div>
+<div id="CountDownMenu" style="display:none;" class="panelDown">
+    <!--Seconds-->
+        <div id="option{i}" class="menuitem {OptionClass}" onclick="CountDownRefresh_SaveOption(this.id);">
+            {SecondNum}{static:LocalResources.UIComponentsLang.sec}
+        </div>
+     <!--/Seconds--> 
+</div>
+ 
+<script type="text/javascript">
+    var refreshCountDownId = "{RefreshCountDownId}";
+    var initCountDown = {initCountDown};
+    var loadingTxt = "<span class='miniloading'>{static:LocalResources.UIComponentsLang.loading}</span>";
+    var countDownRefreshFunc="{CountDownRefreshFunc}()";
+</script>
+
+

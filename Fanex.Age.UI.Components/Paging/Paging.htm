@@ -1,0 +1,31 @@
+﻿<!--ExternalResources-->
+
+<link href="Paging.css" rel="stylesheet" type="text/css" />
+<script src="Paging.js" type="text/javascript"></script>
+
+<!--/ExternalResources-->
+
+<div id="{id}" class="{pageclass}" pagesize="{pagesize}" currentindex="{currentindex}" rowcount="{rowcount}" pagecount="{pagecount}">
+
+        <input {disabledFirst} id="btnFirst{id}" type="button" onclick="{id}.First()" class="icon pagingFirst" />
+        <input {disabledPrev} id="btnPrev{id}" type="button" onclick="{id}.Move(-1)" class="icon pagingPrev" />
+        
+        <span class="pagingSeperator"></span>
+        {static:LocalResources.UIComponentsLang.tpage}
+        <input id="txt{id}" type="text" class="pagingCurrent" maxlength="4" size="2" value="{currentindex}" onkeydown="{id}.DoEnter(event, '{id}.Go()')" />
+        {static:LocalResources.UIComponentsLang.of} {pagecount}
+        <span class="pagingSeperator"></span>
+        
+        <input {disabledNext} id="btnNext{id}" type="button" onclick="{id}.Move(1)" class="icon pagingNext" />
+        <input {disabledLast} id="btnLast{id}" type="button" onclick="{id}.Last()" class="icon pagingLast" />
+        <!--SelPageSize-->
+        {selPageSize}
+        <!--/SelPageSize-->
+</div>
+
+<script type="text/javascript">
+    var {id} = new Paging('{id}');
+</script>
+
+
+

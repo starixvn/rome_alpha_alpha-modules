@@ -1,0 +1,51 @@
+﻿<!--RefeshContent-->
+<div id="RefreshContent{matchId}" class="paddingTopMatch">
+<!--/RefeshContent-->
+    <!--FullSiteMatchName-->
+     <div class="button_left"></div>          
+     <div class="button_mid" onclick="GroupScoreMap('scoreMap{matchId}')"><div style="margin-top:4px"><span class="lnkGroup" id="lnkGroupscoreMap{matchId}">{Home}-vs-{Away}</span></div></div>
+     <div class="button_right"><span title="{static:LocalResources.UIScoreMapLang.refresh}" class="lnkRefresh" onclick="RefreshScoreMap('{matchId}')" id="lnkRefresh{matchId}"></span></div>
+     <div style="clear:both"></div>
+    <!--/FullSiteMatchName-->
+    <!--SmartPhoneMatchName-->
+    <div id="titleMatch">
+        <div class="float_l matchname">{Home}-vs-{Away}</div>
+        <div class="float_r"><span class="lnkRefresh" onclick="RefreshScoreMap('{matchId}')" id="lnkRefresh{matchId}"></span></div>
+    </div>
+    <!--/SmartPhoneMatchName-->
+    <div class="scoreMap" id="scoreMap{matchId}">
+        <table class="tblScoreMap" id="tblSM{matchId}" cellpadding="0" cellspacing="1" border="0">
+            <thead>
+                <tr class="vsmHomeWay" align="center">
+                    <td rowspan="2" class="smTitle">
+                        {static:LocalResources.UIScoreMapLang.away}
+                    </td>
+                    <td colspan="7" class="smTitle">
+                        {static:LocalResources.UIScoreMapLang.home}
+                    </td>
+                </tr>
+                <tr class="vsm" align="center">
+                    <td width="13%">
+                        0
+                    </td>
+                    <td width="13%">
+                        1
+                    </td>
+                    <td width="13%">
+                        2
+                    </td>
+                    <td width="13%">
+                        3
+                    </td>
+                    <td width="13%">
+                        4
+                    </td>
+                    <td width="13%">
+                        5
+                    </td>
+                    <td width="13%">
+                        6
+                    </td>
+                </tr>
+            </thead>
+{Content}

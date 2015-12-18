@@ -1,0 +1,106 @@
+﻿<table id="tblBetSlip" border="1" cellpadding="2" cellspacing="0" class="tblBetSlip" bordercolor="#DBD9D3">
+    <tbody>
+    <tr class="RptHeader">
+        <th width="70">
+            {static:LocalResources.BetSlipUILang.betid}
+        </th>
+        <th width="70">
+            {static:LocalResources.BetSlipUILang.transtime}
+        </th>
+        <th width="50">
+            {static:LocalResources.BetSlipUILang.lblCode}
+        </th>
+        <th>
+            {static:LocalResources.BetSlipUILang.match}
+        </th>
+        <th width="60">
+            {ChoiceLabel}
+        </th>
+        <th width="50">
+            {static:LocalResources.BetSlipUILang.hdp}
+        </th>
+        <th width="50">
+            {static:LocalResources.BetSlipUILang.odds}
+        </th>
+        <th width="50">
+            {static:LocalResources.BetSlipUILang.stake}
+        </th>
+        <th width="65">
+            {static:LocalResources.BetSlipUILang.status}
+        </th>
+    </tr>
+    <tr align="center" onmouseout="this.className='even_row'" onmouseover="this.className='c live_row'" class="even_row">
+        <td class="informal">
+            {BetId}
+        </td>
+        <td class="bl_time">
+            {TransTime}
+        </td>
+        <td class="informal">
+            {MatchCode}
+        </td>
+        <td>
+            {Home} {VS} {Away}
+        </td>
+        <td>
+            {Choice}
+        </td>
+        <td class="bl_underdog">
+            {Hdp}
+        </td>
+        <td class="bl_underdog" style="white-space: normal;">
+            {Odds}<br />
+            {OddsType}
+        </td>
+        <td class="bl_underdog">
+            {Stake}
+        </td>
+        <td class="bl_status">
+            {Status}
+        </td>
+    </tr>
+    <tr class="RptHeader">
+        <th colspan="2">
+            {static:LocalResources.BetSlipUILang.lblPotentialWinning}
+        </th>
+        <th>
+            {static:LocalResources.BetSlipUILang.lblWinning}
+        </th>
+        <th colspan="2">
+            {IsLiveBettingLabel}
+        </th>
+        <th colspan="2">
+            {static:LocalResources.BetSlipUILang.ResultTime}
+        </th>
+        <th colspan="2">
+            {FinalScoreLabel}
+        </th>
+    </tr>
+    <tr align="center" onmouseout="this.className='even_row'" onmouseover="this.className='c live_row'" class="even_row">
+        <td colspan="2" class="bl_underdog">
+            {PotentialWinning}
+        </td>
+        <td class="bl_underdog">
+            {Winning}
+        </td>
+        <td>
+            {IsLiveValue}
+        </td>
+        <td class="bl_underdog">
+            {LiveScore}
+        </td>
+        <td colspan="2" class="bl_time">
+            {ResultTime}
+        </td>
+        <td colspan="2" class="bl_underdog">
+            {FinalScore}
+        </td>
+    </tr>
+    <tr align="center" onmouseout="this.className='even_row'" onmouseover="this.className='c live_row'" class="even_row">
+        <td colspan="9" class="informal">
+            {RefNoEncode}
+        </td>
+    </tr>
+    </tbody>
+</table>
+

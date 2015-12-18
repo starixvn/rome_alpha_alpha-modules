@@ -1,0 +1,23 @@
+﻿<!--HiddenBlock-->
+<link rel="Stylesheet" type="text/css" href="../Resources/LiveCasino.css" />
+<!--/HiddenBlock-->
+
+
+<!--AutoPT-->
+<div class="leftTitle">    
+    <input id="chkAutoPT" onclick="javascript:checkPT()" type="checkbox" {isChecked} />
+</div>
+<!--/AutoPT-->
+<div class="leftTitle">
+    <select {disabled} id="pt_{level}">
+        <!--Items-->
+        <option {selected} value="{_Value}">{Text}</option>
+        <!--/Items-->
+    </select>
+</div>
+<div class="leftTitle">    
+    <input {disabled} name="pt_{level}" class="upBtn" type="button" onclick="javascript:increase('pt_{level}')" />
+    <input {disabled} name="pt_{level}" class="downBtn" type="button" onclick="javascript:decrease('pt_{level}')" />
+    <input {disabled} name="pt_{level}" class="addBtn" type="button" onclick="javascript:addition('pt_{level}')" />
+    <input {disabled} name="pt_{level}" class="subBtn" type="button" onclick="javascript:subtract('pt_{level}')" />
+</div>

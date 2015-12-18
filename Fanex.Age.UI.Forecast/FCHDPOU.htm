@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{static:LocalResources.UIForecastLang.lblForecast}</title>
+    <link href="../_GlobalResources/Css/Agent.css" rel="stylesheet" type="text/css" />
+    <link href="Resources/FC.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="page_main">
+        <div id="header_main">
+            <span id="leagueName">{static:LocalResources.UIForecastLang.lblHOUL}</span>
+        </div>
+        {load:Fanex.Age.UI.Components.RefreshCountDown_Control RefreshCountDown = new Fanex.Age.UI.Components.RefreshCountDown_Control(this,15,"FCHDPOU","RefreshFC")}
+        <div id="sContent">
+            <!--Content-->
+            <!--LimitLeagueList-->
+            <div id="box_header" style="width: 600px">
+                <table border="0" cellpadding="0" cellspacing="1" style="height:35px;">
+                    <tr>
+                        <td>
+                            {static:LocalResources.UIForecastLang.league}
+                        </td>
+                        <td id="selLeague">
+                            <select id='ddlLeague' name='ddlLeague' onchange='GetForecastByLeague();'>
+                                {LeagueList}
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--/LimitLeagueList-->
+            <table class="tblRpt" cellpadding="0" cellspacing="1" border="0" style="width: 600px">
+                <tr class="RptHeader">
+                    <td colspan="2">
+                        {static:LocalResources.UIForecastLang.lblTeam}
+                    </td>
+                    <td colspan="3">
+                        {static:LocalResources.UIForecastLang.lblHandicapFC}
+                    </td>
+                    <td colspan="3">
+                        {static:LocalResources.UIForecastLang.lblOverUnder}
+                    </td>
+                </tr>
+                <!--RowContent-->
+                 <tr align="center">
+                    <td class="l league" colspan="8" style="padding-left: 20px;">
+                        {Home}-vs-{Away}
+                    </td>
+                </tr>
+                <tr class="even_row" align="center">
+                    <td colspan="2" style="height: 20px">
+                        <span>{Time}</span>
+                    </td>
+                    <td class="bold" width="8%">
+                        <span>{OffsetHDPMinus1}</span>
+                    </td>
+                    <td class="bold" width="8%" bgcolor="#FFEFDE">
+                        <span>{OffsetHDP}</span>
+                    </td>
+                    <td class="bold" width="8%">
+                        <span>{OffsetHDPPlus1}</span>
+                    </td>
+                    <td class="bold" width="8%">
+                        <span>{OffsetOUPlus2}</span>
+                    </td>
+                    <td class="bold" width="8%">
+                        <span>{OffsetOUPlus1}</span>
+                    </td>
+                    <td class="bold" width="8%" bgcolor="#FFEFDE">
+                        <span>{OffsetOU}</span>
+                    </td>
+                </tr>
+                <tr class="even_row" align="center">
+                    <td width="15%">
+                        <font color="#38536A">{static:LocalResources.UIForecastLang.fulltime}</font>
+                    </td>
+                    <td width="1%">
+                        <a href="javascript:openForecastPopup('{MatchId}','1')" class="btnInfo"></a>
+                    </td>
+                    <td class="bold" width="8%">
+                        <span>{HDPM1}</span>
+                    </td>
+                    <td class="bold" width="8%">
+                        <span>{HDPBase}</span>
+                    </td>
+                    <td class="bold" width="8%">
+                        <span>{HDPP1}</span>
+                    </td>
+                    <td class="bold" width="8%">
+                        <span>{OUP2}</span>
+                    </td>
+                    <td class="bold" width="8%">
+                        <span>{OUP1}</span>
+                    </td>
+                    <td class="bold" width="8%">
+                        <span>{OUBase}</span>
+                    </td>
+                </tr>
+                <tr class="even_row" align="center">
+                    <td width="15%">
+                        <font color="#38536A">{static:LocalResources.UIForecastLang.halftime}</font>
+                    </td>
+                    <td width="1%">
+                        <a href="javascript:openForecastPopup('{MatchId}','7')" class="btnInfo"></a>
+                    </td>
+                    <td class="bold" width="8%">
+                        <span>{HTHDPM1}</span>
+                    </td>
+                    <td class="bold" width="8%">
+                        <span>{HTHDPBase}</span>
+                    </td>
+                    <td class="bold" width="8%">
+                        <span>{HTHDPP1}</span>
+                    </td>
+                    <td class="bold" width="8%">
+                        <span>{HTOUP2}</span>
+                    </td>
+                    <td class="bold" width="8%">
+                        <span>{HTOUP1}</span>
+                    </td> 
+                    <td class="bold" width="8%">
+                        <span>{HTOUBase}</span>
+                    </td>
+                </tr>
+                <!--/RowContent-->
+                <!--NotFoundContent-->
+                <tr class="bg_white">
+                    <td colspan="8" class="c nobold">
+                        {static:LocalResources.UIForecastLang.noInfo}
+                    </td>
+                </tr>
+                <!--/NotFoundContent-->
+            </table>
+            <!--/Content-->
+        </div>
+    </div>
+
+    <script src="../_GlobalResources/Js/Core.js" type="text/javascript"></script>
+    <script src="../_Components/AGEWnd/AGEWnd.js" type="text/javascript"></script>
+    <script src="Resources/FC.js" type="text/javascript"></script>
+
+    <!--Piwik-->
+    <script type="text/javascript">
+        var _pkUrl = '{static:Sunplus.Agent.Model.BL.Definitions.AppSettings.PiwikUrl}',
+            _pkScript = '{static:Sunplus.Agent.Model.BL.Definitions.AppSettings.PiwikScript}',
+            _pkSiteId = '{static:Sunplus.Agent.Model.BL.Definitions.AppSettings.PiwikSiteId}';
+    </script>
+    <script src="../_GlobalResources/Js/piwikLoader.js" type="text/javascript"></script>
+    <noscript><p><img src='{PiwikUrl}' style="border:0;" alt="" /></p></noscript>
+    <!--/Piwik-->
+</body>
+</html>

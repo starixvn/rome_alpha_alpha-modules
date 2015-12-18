@@ -1,0 +1,25 @@
+﻿<table id="liveCasino" class="innerTable">
+    <tr>
+        <td class="b r">
+        {MaximumWin}
+        </td>
+        <td>
+        <span class="spanMWL">{MaximumWinValues}</span>&nbsp;{OnGivenCredit}
+        </td>
+        <td>
+            <input id="chkAutoReset" type="checkbox" {Checked} {Disabled}/><label for="chkAutoReset">&nbsp;{autoReset}</label>
+        </td>
+    </tr>
+    <!--WinLimit-->
+    <tr>
+        <td class="b r" id="winLimitTitle">
+        </td>
+        <td>
+        <div onclick="viewCurrentWinLimit()" class="currentWinLimit" id="currentWinLimit">{ClickToViewCurrentWinLimit}</div>
+        <div id="winLimitValue"></div>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <!--/WinLimit-->
+</table>

@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AB0F7FCA-F8A6-407F-B9CC-CEF619FD42BE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fanex.Age.UI.Components</RootNamespace>
+    <AssemblyName>Fanex.Age.UI.Components</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <FileUpgradeFlags>40</FileUpgradeFlags>
+    <UpgradeBackupLocation>Q:\GitSCM\after-login-website\Backup3\</UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Fanex.Age.UI, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Age.UI.3.0.0.1-beta2\lib\net40\Fanex.Age.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Common, Version=1.0.404.97, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Common.1.0.404.97\lib\net40\Fanex.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.CustomerSetting.Module.KenoStatus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.CustomerSetting.Module.KenoStatus.1.0.0.2\lib\net40\Fanex.CustomerSetting.Module.KenoStatus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Logging.1.0.0.0\lib\net40\Fanex.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Common.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Logging.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.Unity.Interception.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Base.3.0.0.1-beta2\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sunplus.Agent.Model.Definitions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Model.Definitions.3.0.0.1-beta\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sunplus.Agent.Utilities, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Agent.Utilities.3.0.0.1-beta\lib\net40\Sunplus.Agent.Utilities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.XML" />
+    <Reference Include="TplCore, Version=1.0.4854.17253, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TplCore.1.0.4854.17254\lib\net40\TplCore.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DoubleCommissionSearchUserName_Control\DoubleCommissionSearchUserName_Control.htm" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="AnalysisReportFilter\AnalysisReportFilter.htm" />
+    <Content Include="AnalysisReportFilter\AnalysisReportFilterOnChart.htm" />
+    <Content Include="AutoCheckBox_Control\AutoCheckBox_Control.htm" />
+    <Content Include="CopyFromCheckBox_Control\CopyFromCheckBox_Control.htm" />
+    <Content Include="CurrencyFilter\CurrencyFilter.htm" />
+    <Content Include="DateRangeSelect\DateRangeSelect.htm" />
+    <Content Include="DateTimeControl\JSCalendar\JSCalendar.htm" />
+    <Content Include="DateTimeFilter\DateTimeFilter.htm" />
+    <Content Include="ErrorMsg\ErrorMsg.htm" />
+    <Content Include="ErrorPage\ErrorPage.htm" />
+    <Content Include="MatchByLeague\MatchByLeague.htm" />
+    <Content Include="PagingHeader\PagingHeader.htm" />
+    <Content Include="Paging\Paging.htm" />
+    <Content Include="PopupAd\FlashAd.htm" />
+    <Content Include="PopupAd\PopupAd.htm" />
+    <Content Include="PopupAd\PopupIntroduction.htm" />
+    <Content Include="PopupMessage\PopupMessage.htm" />
+    <Content Include="PT_Control\PT_Control.htm" />
+    <Content Include="RefreshCountDown\RefreshCountDown.htm" />
+    <Content Include="SearchUserName_Control\SearchUserName_Control.htm" />
+    <Content Include="ShowHideColumn\ContextMenuColumns_Control.htm" />
+    <Content Include="WinlossReportFilter\WinlossReportFilter.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnalysisReportFilter\AnalysisReportFilter.cs" />
+    <Compile Include="AnalysisReportFilter\AnalysisReportFilter.htm.cs" />
+    <Compile Include="AnalysisReportFilter\AnalysisReportFilterOnChart.cs" />
+    <Compile Include="AnalysisReportFilter\AnalysisReportFilterOnChart.htm.cs" />
+    <Compile Include="AutoCheckBox_Control\AutoCheckBox_Control.cs" />
+    <Compile Include="AutoCheckBox_Control\AutoCheckBox_Control.htm.cs" />
+    <Compile Include="CopyFromCheckBox_Control\CopyFromCheckBox_Control.cs" />
+    <Compile Include="CopyFromCheckBox_Control\CopyFromCheckBox_Control.htm.cs" />
+    <Compile Include="CurrencyFilter\CurrencyFilter.cs" />
+    <Compile Include="CurrencyFilter\CurrencyFilter.htm.cs" />
+    <Compile Include="DateRangeSelect\DateRangeSelect.htm.cs" />
+    <Compile Include="DateRangeSelect\DateRangeSelect_Control.cs" />
+    <Compile Include="DateTimeControl\Calendar\Calendar_Control.cs" />
+    <Compile Include="DateTimeControl\JSCalendar\Calendar_Control.cs" />
+    <Compile Include="DateTimeControl\JSCalendar\JSCalendar.htm.cs" />
+    <Compile Include="DateTimeFilter\DateTimeFilter.cs" />
+    <Compile Include="DateTimeFilter\DateTimeFilter.htm.cs" />
+    <Compile Include="DoubleCommissionSearchUserName_Control\DoubleCommissionSearchUserName_Control.cs" />
+    <Compile Include="DoubleCommissionSearchUserName_Control\DoubleCommissionSearchUserName_Control.htm.cs" />
+    <Compile Include="ErrorMsg\ErrorMsg.htm.cs" />
+    <Compile Include="ErrorMsg\ErrorMsg_Control.cs" />
+    <Compile Include="ErrorPage\ErrorPage.cs" />
+    <Compile Include="ErrorPage\ErrorPage.htm.cs" />
+    <Compile Include="MatchByLeague\MatchByLeague.htm.cs" />
+    <Compile Include="PagingHeader\PagingHeader.htm.cs" />
+    <Compile Include="Paging\Paging.htm.cs" />
+    <Compile Include="Paging\Paging_Control.cs" />
+    <Compile Include="PopupAd\FlashAd.htm.cs" />
+    <Compile Include="PopupAd\PopupAd.htm.cs" />
+    <Compile Include="PopupAd\PopupIntroduction.htm.cs" />
+    <Compile Include="PopupMessage\PopupMessage.cs" />
+    <Compile Include="PopupMessage\PopupMessage.htm.cs" />
+    <Compile Include="PT_Control\PT_Control.cs" />
+    <Compile Include="PT_Control\PT_Control.htm.cs" />
+    <Compile Include="RefreshCountDown\RefreshCountDown.htm.cs" />
+    <Compile Include="RefreshCountDown\RefreshCountDown_Control.cs" />
+    <Compile Include="RefreshLeague\RefreshLeague.cs" />
+    <Compile Include="LocalResources\UIComponentsLang.Designer.cs">
+      <DependentUpon>UIComponentsLang.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SearchUserName_Control\SearchUserName_Control.cs" />
+    <Compile Include="SearchUserName_Control\SearchUserName_Control.htm.cs" />
+    <Compile Include="ShowHideColumn\ContextMenuColumns.cs" />
+    <Compile Include="ShowHideColumn\ContextMenuColumnsBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowHideColumn\ContextMenuColumns_Control.htm.cs" />
+    <Compile Include="ShowHideColumn\IContextMenuColumns.cs" />
+    <Compile Include="WinlossReportFilter\FilterElement.cs" />
+    <Compile Include="WinlossReportFilter\Filter_Control.cs" />
+    <Compile Include="WinlossReportFilter\WinlossReportFilter.htm.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinlossReportFilter\WinlossReportFilterManager.cs" />
+    <Compile Include="WinlossReportFilter\WinlossReportFilter_Control.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Transfer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LocalResources\UIComponentsLang.ja-JP.resx" />
+    <EmbeddedResource Include="LocalResources\UIComponentsLang.ko-KR.resx" />
+    <EmbeddedResource Include="LocalResources\UIComponentsLang.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UIComponentsLang.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocalResources\UIComponentsLang.th-TH.resx" />
+    <EmbeddedResource Include="LocalResources\UIComponentsLang.vi-VN.resx" />
+    <EmbeddedResource Include="LocalResources\UIComponentsLang.zh-CN.resx" />
+    <EmbeddedResource Include="LocalResources\UIComponentsLang.zh-TW.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55265</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
