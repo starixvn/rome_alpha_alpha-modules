@@ -1441,6 +1441,34 @@ namespace Sunplus.Agent.Model.Entities
             }
         }
 
+        public bool IsHideCockFighting
+        {
+            get
+            {
+                object value = this.GetProperty(HIDECOCKFIGHTING);
+                return (null == value) ? true : (bool)value;
+            }
+
+            set
+            {
+                this.SetProperty(HIDECOCKFIGHTING, value);
+            }
+        }
+
+        public bool DisableCockFighting
+        {
+            get
+            {
+                object value = this.GetProperty(DISABLECOCKFIGHTING);
+                return (null == value) ? true : (bool)value;
+            }
+
+            set
+            {
+                this.SetProperty(DISABLECOCKFIGHTING, value);
+            }
+        }
+
         #region TotalBalanceTransfer
 
         public bool IsAllowedTotalBalanceTransfer

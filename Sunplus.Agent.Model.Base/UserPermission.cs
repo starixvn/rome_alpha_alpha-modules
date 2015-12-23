@@ -241,6 +241,14 @@ namespace Sunplus.Agent.Model.Entities.Permission
             }
         }
 
+        public static bool IsShowCockFighting
+        {
+            get
+            {
+                return AppSettings.IsShowCockFighting && !CurrentUserSession.IsHideCockFighting;
+            }
+        }
+
         public static bool IsShowHRFixedOdds
         {
             get

@@ -251,6 +251,9 @@ namespace Sunplus.Agent.Model.BL
             session.IsHideSportsbook2 = !values.Contains("hidemuaythai") || Converter.ToBool(values["hidemuaythai"]);
             session.DisableSportsbook2 = !values.Contains("disablemuaythai") || Converter.ToBool(values["disablemuaythai"]);
 
+            session.IsHideCockFighting = values.Contains("hidecockfighting") ? Converter.ToBool(values["hidecockfighting"]) : true;
+            session.DisableCockFighting = values.Contains("disablecockfighting") ? Converter.ToBool(values["disablecockfighting"]) : true;
+
             session.IsDisabledFI = (bool)values["disablefi"];
             session.IsDisabledAutoMPT = (bool)values["disableautompt"];
             session.SRecommendId = (int)values["srecommend"];

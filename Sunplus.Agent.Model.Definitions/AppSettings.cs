@@ -160,6 +160,14 @@ namespace Sunplus.Agent.Model.BL.Definitions
             }
         }
 
+        public static bool IsShowCockFighting
+        {
+            get
+            {
+                return GetValue("IsShowCockFighting") == "1";
+            }
+        }
+
         #region Domain Section
 
         /// <summary>

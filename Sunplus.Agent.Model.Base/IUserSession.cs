@@ -629,5 +629,9 @@ namespace Sunplus.Agent.Model.Entities
         bool IsMyanmarOdds { get; set; }
 
         bool IsDisabledSuperLive { get; set; }
+
+        bool IsHideCockFighting { get; set; }
+
+        bool DisableCockFighting { get; set; }
     }
 }
