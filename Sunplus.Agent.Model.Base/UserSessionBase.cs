@@ -114,6 +114,9 @@ namespace Sunplus.Agent.Model.Entities
         private const string ISHIDESPORTSBOOK2 = "ISHIDESPORTSBOOK2";
         private const string DISABLESPORTSBOOK2 = "DISABLESPORTSBOOK2";
 
+        private const string HIDECOCKFIGHTING = "ISHIDECOCKFIGHTING";
+        private const string DISABLECOCKFIGHTING = "DISABLECOCKFIGHTING";
+
         private const string DISABLESUPERLIVE = "DISABLESUPERLIVE";
 
         private string asNetSessionId;
