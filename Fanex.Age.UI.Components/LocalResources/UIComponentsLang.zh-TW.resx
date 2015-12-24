@@ -2561,4 +2561,10 @@
   <data name="EditSingleSportsbook2" xml:space="preserve">
     <value>修改體育博彩2</value>
   </data>
+  <data name="CockFighting" xml:space="preserve">
+    <value>Cockfighting</value>
+  </data>
+  <data name="Progressivebonus" xml:space="preserve">
+    <value>Progressive Bonus</value>
+  </data>
 </root>

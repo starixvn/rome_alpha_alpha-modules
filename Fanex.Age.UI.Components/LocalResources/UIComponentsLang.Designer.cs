@@ -865,6 +865,15 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cockfighting.
+        /// </summary>
+        internal static string CockFighting {
+            get {
+                return ResourceManager.GetString("CockFighting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Coin Size.
         /// </summary>
         internal static string coinsize {
@@ -5645,6 +5654,15 @@ namespace Fanex.Age.UI.Components.LocalResources {
         internal static string product {
             get {
                 return ResourceManager.GetString("product", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Progressive Bonus.
+        /// </summary>
+        internal static string Progressivebonus {
+            get {
+                return ResourceManager.GetString("Progressivebonus", resourceCulture);
             }
         }
         
