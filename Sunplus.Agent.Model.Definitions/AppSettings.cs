@@ -160,14 +160,6 @@ namespace Sunplus.Agent.Model.BL.Definitions
             }
         }
 
-        public static bool IsShowCockFighting
-        {
-            get
-            {
-                return GetValue("IsShowCockFighting") == "1";
-            }
-        }
-
         #region Domain Section
 
         /// <summary>
@@ -889,5 +881,10 @@ namespace Sunplus.Agent.Model.BL.Definitions
         }
 
         #endregion Configurations
+
+        public static bool IsEnabledProduct(int product)
+        {
+            return GetValue("EnableProduct-" + product) == "1";
+        }
     }
 }
