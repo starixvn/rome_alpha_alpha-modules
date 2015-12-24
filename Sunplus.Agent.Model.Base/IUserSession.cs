@@ -1,6 +1,7 @@
 namespace Sunplus.Agent.Model.Entities
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Runtime.Serialization;
@@ -630,8 +631,8 @@ namespace Sunplus.Agent.Model.Entities
 
         bool IsDisabledSuperLive { get; set; }
 
-        bool IsHideCockFighting { get; set; }
+        Dictionary<int, bool> HideProducts { get; set; }
 
-        bool DisableCockFighting { get; set; }
+        Dictionary<int, bool> DisableProducts { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 namespace Sunplus.Agent.Model.Entities
 {
     using System;
+    using System.Collections.Generic;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
@@ -114,10 +115,10 @@ namespace Sunplus.Agent.Model.Entities
         private const string ISHIDESPORTSBOOK2 = "ISHIDESPORTSBOOK2";
         private const string DISABLESPORTSBOOK2 = "DISABLESPORTSBOOK2";
 
-        private const string HIDECOCKFIGHTING = "ISHIDECOCKFIGHTING";
-        private const string DISABLECOCKFIGHTING = "DISABLECOCKFIGHTING";
-
         private const string DISABLESUPERLIVE = "DISABLESUPERLIVE";
+
+        private const string HIDEPRODUCTS = "HIDEPRODUCTS";
+        private const string DISABLEPRODUCTS = "DISABLEPRODUCTS";
 
         private string asNetSessionId;
 
@@ -1444,31 +1445,31 @@ namespace Sunplus.Agent.Model.Entities
             }
         }
 
-        public bool IsHideCockFighting
+        public Dictionary<int, bool> HideProducts
         {
             get
             {
-                object value = this.GetProperty(HIDECOCKFIGHTING);
-                return (null == value) ? true : (bool)value;
+                object value = GetProperty(HIDEPRODUCTS);
+                return value as Dictionary<int, bool>;
             }
 
             set
             {
-                this.SetProperty(HIDECOCKFIGHTING, value);
+                SetProperty(HIDEPRODUCTS, value);
             }
         }
 
-        public bool DisableCockFighting
+        public Dictionary<int, bool> DisableProducts
         {
             get
             {
-                object value = this.GetProperty(DISABLECOCKFIGHTING);
-                return (null == value) ? true : (bool)value;
+                object value = GetProperty(DISABLEPRODUCTS);
+                return value as Dictionary<int, bool>;
             }
 
             set
             {
-                this.SetProperty(DISABLECOCKFIGHTING, value);
+                SetProperty(DISABLEPRODUCTS, value);
             }
         }
 

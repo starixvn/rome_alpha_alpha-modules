@@ -241,14 +241,6 @@ namespace Sunplus.Agent.Model.Entities.Permission
             }
         }
 
-        public static bool IsShowCockFighting
-        {
-            get
-            {
-                return AppSettings.IsShowCockFighting && !CurrentUserSession.IsHideCockFighting;
-            }
-        }
-
         public static bool IsShowHRFixedOdds
         {
             get
@@ -328,6 +320,11 @@ namespace Sunplus.Agent.Model.Entities.Permission
             {
                 return Sunplus.Agent.Model.Entities.UserSession.Current;
             }
+        }
+
+        public static bool IsEnableProduct(int product)
+        {
+            return AppSettings.IsEnabledProduct(product) && !CurrentUserSession.HideProducts[product];
         }
     }
 }
