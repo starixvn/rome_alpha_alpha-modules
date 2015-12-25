@@ -77,6 +77,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunplus.Shared.ViewLogLib",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Data.DbSettingProviderExtension", "Fanex.Data.DbSettingProviderExtension\Fanex.Data.DbSettingProviderExtension.csproj", "{B09D404A-53CE-4BCD-B283-D32BCA6B8500}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.SecurityCode", "Alpha.SecurityCode\Alpha.SecurityCode.csproj", "{F61CEF75-60DC-4A7B-BF04-8D347FF45984}"
+EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -219,6 +222,11 @@ Global
 		{B09D404A-53CE-4BCD-B283-D32BCA6B8500}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B09D404A-53CE-4BCD-B283-D32BCA6B8500}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B09D404A-53CE-4BCD-B283-D32BCA6B8500}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F61CEF75-60DC-4A7B-BF04-8D347FF45984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F61CEF75-60DC-4A7B-BF04-8D347FF45984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F61CEF75-60DC-4A7B-BF04-8D347FF45984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F61CEF75-60DC-4A7B-BF04-8D347FF45984}.Release|Any CPU.Build.0 = Release|Any CPU
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -258,5 +266,6 @@ Global
 		{8542F564-E19A-4DA0-AB5F-93668EA9D84E} = {DD2F2521-65E2-47CD-A12C-5B4B818EAEB9}
 		{DB53C8B9-5982-4033-9ECB-C1D5426FAAB3} = {DD2F2521-65E2-47CD-A12C-5B4B818EAEB9}
 		{B09D404A-53CE-4BCD-B283-D32BCA6B8500} = {B0039864-7DF1-4AC1-9367-571915A28E62}
+		{F61CEF75-60DC-4A7B-BF04-8D347FF45984} = {9EDDB460-C8A7-4419-B2FF-AB41AA670726}
 	EndGlobalSection
 EndGlobal
