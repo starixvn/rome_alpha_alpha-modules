@@ -1,29 +1,34 @@
+using RemotingRef;
+
 namespace Sunplus.Agent.Model.BL.Cache
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Threading;
-    using RemotingRef;
 
     [Obsolete("Should rename to Sunplus.Agent.Model.RemotingRef")]
+    [SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1200:UsingDirectivesMustBePlacedWithinNamespace", Justification = "Reviewed.")]
     public static class CacheRef
     {
         private const string DefaultLanguage = "en";
-        private static readonly Dictionary<string, string> LanguageCodeMappingTable = new Dictionary<string, string>() 
-            {{ "en-US", DefaultLanguage }, 
-            { "zh-TW", "ch" }, 
-            { "zh-CN", "cs" }, 
-            { "ja-JP", "jp" }, 
-            { "ko-KR", "ko" }, 
-            { "vi-VN", "vn" }};
 
+        private static readonly Dictionary<string, string> LanguageCodeMappingTable = new Dictionary<string, string>()
+            {
+                { "en-US", DefaultLanguage },
+                { "zh-TW", "ch" },
+                { "zh-CN", "cs" },
+                { "ja-JP", "jp" },
+                { "ko-KR", "ko" },
+                { "vi-VN", "vn" }
+            };
 
         private static string RemotingRefLanguageCode
         {
             get
             {
-                return LanguageCodeMappingTable.ContainsKey(Thread.CurrentThread.CurrentCulture.Name) 
-                    ? LanguageCodeMappingTable[Thread.CurrentThread.CurrentCulture.Name] 
+                return LanguageCodeMappingTable.ContainsKey(Thread.CurrentThread.CurrentCulture.Name)
+                    ? LanguageCodeMappingTable[Thread.CurrentThread.CurrentCulture.Name]
                     : DefaultLanguage;
             }
         }
@@ -47,8 +52,8 @@ namespace Sunplus.Agent.Model.BL.Cache
 
         public static string GetBetTypeName(object bettypeId)
         {
-            return bettypeId != null 
-                ? RefData.GetBetTypeName(bettypeId.ToString(), RemotingRefLanguageCode) 
+            return bettypeId != null
+                ? RefData.GetBetTypeName(bettypeId.ToString(), RemotingRefLanguageCode)
                 : string.Empty;
         }
 
