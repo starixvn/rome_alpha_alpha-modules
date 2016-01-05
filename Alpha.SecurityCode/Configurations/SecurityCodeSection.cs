@@ -9,9 +9,11 @@
         private const string ForceChangeSecurityCodeUrlAttributeName = "forceChangeSecurityCodeUrl";
         private const string ForceChangeSecurityCodeWithoutValidationUrlAttributeName = "forceChangeSecurityCodeWithoutValidationUrl";
         private const string IgnoreUrlsElementName = "ignoreUrl";
+        private const string SiteMainName = "siteMain";
+        private const string CurrentSiteName = "currentSite";
 
         private static SecurityCodeSection instance
-            = ConfigurationManager.GetSection("AlphaSecurityCodeSection") as SecurityCodeSection;
+            = ConfigurationManager.GetSection("SecurityCodeSection") as SecurityCodeSection;
 
         public static SecurityCodeSection Instance
         {
@@ -30,7 +32,25 @@
             }
         }
 
-        [ConfigurationProperty(SecurityCodeVerifyUrlAttributeName, DefaultValue = "/site-main/Security/SecurityCode/VerifySecurityCode", IsRequired = false)]
+        [ConfigurationProperty(SiteMainName, IsRequired = true)]
+        public string SiteMain
+        {
+            get
+            {
+                return (string)this[SiteMainName];
+            }
+        }
+
+        [ConfigurationProperty(CurrentSiteName, IsRequired = true)]
+        public string CurrentSite
+        {
+            get
+            {
+                return (string)this[CurrentSiteName];
+            }
+        }
+
+        [ConfigurationProperty(SecurityCodeVerifyUrlAttributeName, DefaultValue = "Security/SecurityCode/VerifySecurityCode", IsRequired = false)]
         public string SecurityCodeVerifyUrl
         {
             get
@@ -39,7 +59,7 @@
             }
         }
 
-        [ConfigurationProperty(ForceChangeSecurityCodeUrlAttributeName, DefaultValue = "/site-main/Security/SecurityCode/ForceChangeSecurityCode", IsRequired = false)]
+        [ConfigurationProperty(ForceChangeSecurityCodeUrlAttributeName, DefaultValue = "Security/SecurityCode/ForceChangeSecurityCode", IsRequired = false)]
         public string ForceChangeSecurityCodeUrl
         {
             get
@@ -48,7 +68,7 @@
             }
         }
 
-        [ConfigurationProperty(ForceChangeSecurityCodeWithoutValidationUrlAttributeName, DefaultValue = "/site-main/Security/SecurityCode/ForceChangeSecurityCodeWithoutValidation", IsRequired = false)]
+        [ConfigurationProperty(ForceChangeSecurityCodeWithoutValidationUrlAttributeName, DefaultValue = "Security/SecurityCode/ForceChangeSecurityCodeWithoutValidation", IsRequired = false)]
         public string ForceChangeSecurityCodeWithoutValidationUrl
         {
             get
