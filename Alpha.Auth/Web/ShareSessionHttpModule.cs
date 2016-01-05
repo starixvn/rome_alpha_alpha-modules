@@ -1,19 +1,12 @@
-﻿namespace Alpha.Auth.HttpModules
+﻿namespace Alpha.Auth.Web
 {
     using System.Configuration;
     using System.Reflection;
     using System.Web;
 
-    public class ShareSessionHttpModule : IHttpModule
+    public static class ShareSession
     {
-        #region IHttpModule Members
-
-        public void Dispose()
-        {
-            //clean-up code here.
-        }
-
-        public void Init(HttpApplication context)
+        public static void Init()
         {
             string applicationName = ConfigurationManager.AppSettings["ApplicationName"];
 
@@ -26,7 +19,5 @@
 
             appNameInfo.SetValue(theRuntime, applicationName);
         }
-
-        #endregion IHttpModule Members
     }
 }
