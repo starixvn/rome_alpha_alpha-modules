@@ -1,5 +1,6 @@
 ﻿namespace Alpha.SecurityCode.Services
 {
+    using System.Text.RegularExpressions;
     using System.Web;
     using Alpha.SecurityCode.Configurations;
     using Alpha.SecurityCode.Entities;
@@ -62,6 +63,12 @@
                 default:
                     break;
             }
+
+            var rootUrl = HttpContext.Current.Response.ApplyAppPathModifier("~");
+
+            rootUrl = Regex.Replace(rootUrl, SecurityCodeSection.Instance.CurrentSite, SecurityCodeSection.Instance.SiteMain, RegexOptions.IgnoreCase);
+
+            redirectUrl = rootUrl + redirectUrl;
 
             return redirectUrl;
         }

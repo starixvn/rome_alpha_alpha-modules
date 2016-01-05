@@ -14,10 +14,10 @@
 
         public void Init(HttpApplication context)
         {
-            context.PreRequestHandlerExecute += new EventHandler(PreRequestHandlerExecute);
+            context.AcquireRequestState += new EventHandler(AcquireRequestState);
         }
 
-        private void PreRequestHandlerExecute(object sender, EventArgs e)
+        private void AcquireRequestState(object sender, EventArgs e)
         {
             string redirectUrl = SecurityCodeChecker.GetRedirectUrl();
 

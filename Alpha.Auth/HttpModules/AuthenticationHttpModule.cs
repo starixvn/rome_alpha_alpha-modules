@@ -3,7 +3,7 @@
     using System;
     using System.Web;
     using System.Web.Security;
-
+    using Sunplus.Agent.Model.Entities;
     public class AuthenticationHttpModule : IHttpModule
     {
         #region IHttpModule Members
@@ -14,12 +14,13 @@
 
         public void Init(HttpApplication context)
         {
-            context.PreRequestHandlerExecute += new EventHandler(PreRequestHandlerExecute);
+            context.AcquireRequestState += new EventHandler(AcquireRequestState);
         }
 
-        private void PreRequestHandlerExecute(object sender, EventArgs e)
+        private void AcquireRequestState(object sender, EventArgs e)
         {
-            if (!HttpContext.Current.User.Identity.IsAuthenticated)
+            if (!HttpContext.Current.User.Identity.IsAuthenticated
+                || UserSession.Current.CustId == 0)
             {
                 HttpContext.Current.Response.Redirect(FormsAuthentication.LoginUrl, true);
             }
