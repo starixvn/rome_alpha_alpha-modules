@@ -4,6 +4,7 @@
     using System.Web;
     using System.Web.Security;
     using Sunplus.Agent.Model.Entities;
+
     public class AuthenticationHttpModule : IHttpModule
     {
         #region IHttpModule Members
