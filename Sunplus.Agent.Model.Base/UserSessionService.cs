@@ -2,6 +2,7 @@ namespace Sunplus.Agent.Model.BL
 {
     using System;
     using System.Collections;
+    using System.Collections.Generic;
     using System.Text.RegularExpressions;
     using Fanex.Common;
     using Sunplus.Agent.Model.BL.Definitions;
@@ -251,6 +252,18 @@ namespace Sunplus.Agent.Model.BL
             session.IsHideSportsbook2 = !values.Contains("hidemuaythai") || Converter.ToBool(values["hidemuaythai"]);
             session.DisableSportsbook2 = !values.Contains("disablemuaythai") || Converter.ToBool(values["disablemuaythai"]);
 
+            session.HideProducts = new Dictionary<int, bool>();
+            session.DisableProducts = new Dictionary<int, bool>();
+            var products = ProductSpNames();
+            foreach (var product in products)
+            {
+                var storedProcedureName = "hide" + product.Value;
+                session.HideProducts[product.Key] = values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : true;
+
+                storedProcedureName = "disable" + product.Value;
+                session.DisableProducts[product.Key] = values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : true;
+            }
+
             session.IsDisabledFI = (bool)values["disablefi"];
             session.IsDisabledAutoMPT = (bool)values["disableautompt"];
             session.SRecommendId = (int)values["srecommend"];
@@ -282,6 +295,13 @@ namespace Sunplus.Agent.Model.BL
             }
 
             session.IsDisabledSuperLive = !values.Contains("disablesuperlive") || (bool)values["disablesuperlive"];
+        }
+
+        private static Dictionary<int, string> ProductSpNames()
+        {
+            var result = new Dictionary<int, string>();
+            result.Add(19, "cockfighting");
+            return result;
         }
     }
 }

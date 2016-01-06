@@ -1,6 +1,7 @@
 namespace Sunplus.Agent.Model.Entities
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Runtime.Serialization;
@@ -629,5 +630,9 @@ namespace Sunplus.Agent.Model.Entities
         bool IsMyanmarOdds { get; set; }
 
         bool IsDisabledSuperLive { get; set; }
+
+        Dictionary<int, bool> HideProducts { get; set; }
+
+        Dictionary<int, bool> DisableProducts { get; set; }
     }
 }

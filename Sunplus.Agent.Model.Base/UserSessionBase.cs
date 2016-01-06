@@ -1,6 +1,7 @@
 namespace Sunplus.Agent.Model.Entities
 {
     using System;
+    using System.Collections.Generic;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
@@ -115,6 +116,9 @@ namespace Sunplus.Agent.Model.Entities
         private const string DISABLESPORTSBOOK2 = "DISABLESPORTSBOOK2";
 
         private const string DISABLESUPERLIVE = "DISABLESUPERLIVE";
+
+        private const string HIDEPRODUCTS = "HIDEPRODUCTS";
+        private const string DISABLEPRODUCTS = "DISABLEPRODUCTS";
 
         private string asNetSessionId;
 
@@ -1438,6 +1442,34 @@ namespace Sunplus.Agent.Model.Entities
             set
             {
                 this.SetProperty(DISABLESUPERLIVE, value);
+            }
+        }
+
+        public Dictionary<int, bool> HideProducts
+        {
+            get
+            {
+                object value = GetProperty(HIDEPRODUCTS);
+                return value as Dictionary<int, bool>;
+            }
+
+            set
+            {
+                SetProperty(HIDEPRODUCTS, value);
+            }
+        }
+
+        public Dictionary<int, bool> DisableProducts
+        {
+            get
+            {
+                object value = GetProperty(DISABLEPRODUCTS);
+                return value as Dictionary<int, bool>;
+            }
+
+            set
+            {
+                SetProperty(DISABLEPRODUCTS, value);
             }
         }
 

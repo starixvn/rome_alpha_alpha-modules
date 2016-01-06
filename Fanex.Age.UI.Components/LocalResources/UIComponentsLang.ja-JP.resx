@@ -2600,4 +2600,10 @@ Please use the form below to set your Security Code now.</value>
   <data name="EditSingleSportsbook2" xml:space="preserve">
     <value>Edit Sportsbook 2</value>
   </data>
+  <data name="CockFighting" xml:space="preserve">
+    <value>Cockfighting</value>
+  </data>
+  <data name="Progressivebonus" xml:space="preserve">
+    <value>Progressive Bonus</value>
+  </data>
 </root>

@@ -321,5 +321,10 @@ namespace Sunplus.Agent.Model.Entities.Permission
                 return Sunplus.Agent.Model.Entities.UserSession.Current;
             }
         }
+
+        public static bool IsEnableProduct(int product)
+        {
+            return AppSettings.IsEnabledProduct(product) && !CurrentUserSession.HideProducts[product];
+        }
     }
 }
