@@ -1,0 +1,77 @@
+﻿namespace Fanex.Razorbill.Security.Configurations.AuthenticationSection
+{
+    using System.Configuration;
+
+    /// <summary>
+    /// TODO: Update summary.
+    /// </summary>
+    public class PageAccessElement : ConfigurationElement
+    {
+        public PageAccessElement()
+        {
+        }
+
+        [ConfigurationProperty("id", IsRequired = true, IsKey = true)]
+        public string Id
+        {
+            get { return (string)this["id"]; }
+            set { this["id"] = value; }
+        }
+
+        [ConfigurationProperty("permission", DefaultValue = "", IsRequired = true, IsKey = false)]
+        public string Permission
+        {
+            get { return (string)this["permission"]; }
+            set { this["permission"] = value; }
+        }
+
+        [ConfigurationProperty("mainfuncname", DefaultValue = "", IsRequired = false, IsKey = false)]
+        public string MainFunctionName
+        {
+            get { return (string)this["mainfuncname"]; }
+            set { this["mainfuncname"] = value; }
+        }
+
+        [ConfigurationProperty("subfuncname", DefaultValue = "", IsRequired = false, IsKey = false)]
+        public string SubFunctionName
+        {
+            get { return (string)this["subfuncname"]; }
+            set { this["subfuncname"] = value; }
+        }
+
+        [ConfigurationProperty("url", DefaultValue = "", IsRequired = true, IsKey = false)]
+        public string Url
+        {
+            get { return (string)this["url"]; }
+            set { this["url"] = value; }
+        }
+
+        [ConfigurationProperty("note", DefaultValue = "", IsRequired = false, IsKey = false)]
+        public string Note
+        {
+            get { return (string)this["note"]; }
+            set { this["note"] = value; }
+        }
+
+        [ConfigurationProperty("ischeckbelonging", DefaultValue = false, IsRequired = false, IsKey = false)]
+        public bool IsCheckBelonging
+        {
+            get { return (bool)this["ischeckbelonging"]; }
+            set { this["ischeckbelonging"] = value; }
+        }
+
+        [ConfigurationProperty("isallowtodobythemselves", DefaultValue = false, IsRequired = false, IsKey = false)]
+        public bool IsAllowToDoByThemselves
+        {
+            get { return (bool)this["isallowtodobythemselves"]; }
+            set { this["isallowtodobythemselves"] = value; }
+        }
+
+        [ConfigurationProperty("isviewedbygroupheadline", DefaultValue = false, IsRequired = false, IsKey = false)]
+        public bool IsViewedByGroupHeadline
+        {
+            get { return (bool)this["isviewedbygroupheadline"]; }
+            set { this["isviewedbygroupheadline"] = value; }
+        }
+    }
+}
