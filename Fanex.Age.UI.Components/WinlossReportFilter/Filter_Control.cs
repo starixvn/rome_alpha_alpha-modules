@@ -28,28 +28,9 @@ namespace Fanex.Age.UI.Components
             set { _isShowed = value; }
         }
 
-        public static Dictionary<int, string> ProductCheckBoxNames { get; set; }
-
-        public static Dictionary<string, int> ProductCheckBoxIdFromNames { get; set; }
-
-        public static Dictionary<int, string> ProductCheckBoxLabels { get; set; }
-
-        public static Dictionary<string, FilterElement> ProductFilters { get; set; }
-
-        public static Dictionary<int, string> ProductCheckBoxURLQueryNames { get; set; }
-
         #endregion
 
         #region Constructors
-
-        static Filter_Control()
-        {
-            ProductCheckBoxNames = GetProductCheckBoxNames();
-            ProductCheckBoxLabels = GetProductCheckBoxLabels();
-            ProductFilters = GetProductFilters();
-            ProductCheckBoxURLQueryNames = GetProductCheckBoxURLQueryNames();
-            ProductCheckBoxIdFromNames = GetProductCheckBoxIdFromNames();
-        }
 
         public Filter_Control(IDictionary<string, FilterElement> filterCollections, HttpRequest request, DateTime dateFrom)
         {
@@ -69,11 +50,6 @@ namespace Fanex.Age.UI.Components
             CheckPermission();
 
             _template = new WinlossReportFilter_Template();
-            ProductCheckBoxNames = GetProductCheckBoxNames();
-            ProductCheckBoxLabels = GetProductCheckBoxLabels();
-            ProductFilters = GetProductFilters();
-            ProductCheckBoxURLQueryNames = GetProductCheckBoxURLQueryNames();
-            ProductCheckBoxIdFromNames = GetProductCheckBoxIdFromNames();
         }
 
         #endregion
@@ -82,8 +58,10 @@ namespace Fanex.Age.UI.Components
 
         public static KeyValuePair<string, FilterElement> GetCheckbox(int productId)
         {
-            var checkBoxName = ProductCheckBoxNames[productId];
-            return new KeyValuePair<string, FilterElement>(checkBoxName, new FilterElement(checkBoxName, ProductCheckBoxLabels[productId], productId == 0 ? "CheckAll()" : "IsCheck()"));
+            var productCheckBoxNames = GetProductCheckBoxNames();
+            var checkBoxName = productCheckBoxNames[productId];
+            var checkboxLabels = GetProductCheckBoxLabels();
+            return new KeyValuePair<string, FilterElement>(checkBoxName, new FilterElement(checkBoxName, checkboxLabels[productId], productId == 0 ? "CheckAll()" : "IsCheck()"));
         }
 
         public static Dictionary<int, string> GetProductCheckBoxNames()
@@ -125,18 +103,20 @@ namespace Fanex.Age.UI.Components
             checkboxNames.Add(ProductIdConstants.CockFighting, LocalResources.UIComponentsLang.CockFighting);
             return checkboxNames;
         }
-        
+
         public static Dictionary<string, FilterElement> GetProductFilters()
         {
             var filterCollection = new Dictionary<string, FilterElement>();
-            var checkboxName = Filter_Control.ProductCheckBoxNames[0];
-            filterCollection.Add(checkboxName, new FilterElement(checkboxName, ProductCheckBoxLabels[0], "CheckAll()"));
+            var productCheckBoxNames = GetProductCheckBoxNames();
+            var checkboxName = productCheckBoxNames[0];
+            var checkboxLabels = GetProductCheckBoxLabels();
+            filterCollection.Add(checkboxName, new FilterElement(checkboxName, checkboxLabels[0], "CheckAll()"));
 
             var products = ProductRenderUtility.GetProductHasReport();
             foreach (var product in products)
             {
-                checkboxName = Filter_Control.ProductCheckBoxNames[product];
-                filterCollection.Add(checkboxName, new FilterElement(checkboxName, ProductCheckBoxLabels[product], "IsCheck()"));
+                checkboxName = productCheckBoxNames[product];
+                filterCollection.Add(checkboxName, new FilterElement(checkboxName, checkboxLabels[product], "IsCheck()"));
             }
 
             return filterCollection;
@@ -183,7 +163,8 @@ namespace Fanex.Age.UI.Components
         public ICollection<KeyValuePair<string, bool>> AsCollection()
         {
             List<KeyValuePair<string, bool>> list = new List<KeyValuePair<string, bool>>();
-            var checkboxAll = ProductCheckBoxNames[0];
+            var productCheckBoxNames = GetProductCheckBoxNames();
+            var checkboxAll = productCheckBoxNames[0];
             foreach (string elementName in _filterCollections.Keys)
             {
                 if (string.Compare(elementName, checkboxAll) == 0)
@@ -204,8 +185,8 @@ namespace Fanex.Age.UI.Components
         {
             var result = new StringBuilder();
             var products = ProductRenderUtility.GetProductHasReport();
-            var checkboxLabels = ProductCheckBoxLabels;
-            var checkboxNames = ProductCheckBoxNames;
+            var checkboxLabels = GetProductCheckBoxLabels();
+            var checkboxNames = GetProductCheckBoxNames();
             var permissions = ProductRenderUtility.GetPermissionDictionary();
 
             var checkboxId = "chk_all";
@@ -214,14 +195,15 @@ namespace Fanex.Age.UI.Components
             result.Append(string.Format(inputFormat, checkboxId, checkboxId));
             result.Append(string.Format(labelFormat, checkboxId, checkboxLabels[0]));
 
+            var productCheckBoxURLQueryNames = GetProductCheckBoxURLQueryNames();
             foreach (var product in products)
             {
-                if (!ProductCheckBoxURLQueryNames.ContainsKey(product))
+                if (!productCheckBoxURLQueryNames.ContainsKey(product))
                 {
                     continue;
                 }
 
-                checkboxId = ProductCheckBoxURLQueryNames[product];
+                checkboxId = productCheckBoxURLQueryNames[product];
                 if (permissions[product])
                 {
                     result.Append(string.Format(inputFormat, checkboxId, checkboxNames[product]));
@@ -258,7 +240,7 @@ namespace Fanex.Age.UI.Components
         private void CheckPermission()
         {
             var permissions = ProductRenderUtility.GetPermissionDictionary();
-            var checkBoxIdFromNames = ProductCheckBoxIdFromNames;
+            var checkBoxIdFromNames = GetProductCheckBoxIdFromNames();
             foreach (string elementName in _filterCollections.Keys)
             {
                 var productId = checkBoxIdFromNames[elementName];
@@ -321,8 +303,9 @@ namespace Fanex.Age.UI.Components
             //Set constraint of SB, HR, FI if FromDate is before the boundDate
             if (_dateFrom < boundDate)
             {
-                var sportBook = ProductCheckBoxNames[ProductIdConstants.Sportsbook];
-                var racing = ProductCheckBoxNames[ProductIdConstants.Racing];
+                var productCheckBoxNames = GetProductCheckBoxNames();
+                var sportBook = productCheckBoxNames[ProductIdConstants.Sportsbook];
+                var racing = productCheckBoxNames[ProductIdConstants.Racing];
                 foreach (string elementName in _filterCollections.Keys)
                 {
                     if (elementName == sportBook || elementName == racing)
@@ -356,7 +339,8 @@ namespace Fanex.Age.UI.Components
                 }
             }
 
-            var checkboxName = ProductCheckBoxNames[ProductIdConstants.Sportsbook];
+            var productCheckBoxNames = GetProductCheckBoxNames();
+            var checkboxName = productCheckBoxNames[ProductIdConstants.Sportsbook];
             // If user have permission, set sportbook item as request param
             if (isNoPermission)
             {
@@ -393,7 +377,8 @@ namespace Fanex.Age.UI.Components
                 }
             }
 
-            var checkboxName = ProductCheckBoxNames[0];
+            var productCheckBoxNames = GetProductCheckBoxNames();
+            var checkboxName = productCheckBoxNames[0];
             // If user have permission on any item
             if (isNoPermission)
             {
