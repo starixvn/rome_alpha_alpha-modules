@@ -13,23 +13,23 @@
 
         public StatisticService()
         {
-            this._userSession = UserSessionService.GetUserSessionInstance(HttpContext.Current.Session.SessionID);
+            _userSession = UserSessionService.GetUserSessionInstance(HttpContext.Current.Session.SessionID);
             _dataAccess = new StatisticDataAccess();
         }
 
         public void UpdatePageVisit_Old(string url)
         {
-            _dataAccess.Age_UpdPageVisit(_userSession.RoleId, url);
+            _dataAccess.UpdatePageVisit(_userSession.RoleId, url);
         }
 
         public void UpdateFunctionUsage(string url, string function, string subFunction, string site)
         {
-            _dataAccess.IS_UpdFunctionUsage(url, _userSession.ServerId, function, subFunction, site, _userSession.LangKey);
+            _dataAccess.UpdateFunctionUsage(url, _userSession.ServerId, function, subFunction, site, _userSession.LangKey);
         }
 
         public void UpdateFunctionUsage(string function, string subFunction)
         {
-            _dataAccess.Agm_UpdFunctionUsage(_userSession.ServerId, function, subFunction, _userSession.LangKey);
+            _dataAccess.UpdateFunctionUsage(_userSession.ServerId, function, subFunction, _userSession.LangKey);
         }
     }
 }

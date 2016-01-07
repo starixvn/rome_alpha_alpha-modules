@@ -1,14 +1,14 @@
-﻿namespace Fanex.Razorbill.Security.Configurations.AuthenticationSection
+﻿namespace Alpha.Auth.Configurations
 {
     using System.Configuration;
     using System.Web;
 
-    public class AuthenticationSection : ConfigurationSection
+    public class AuthorizationSection : ConfigurationSection
     {
-        private static AuthenticationSection instance
-           = ConfigurationManager.GetSection("AuthenticationSection") as AuthenticationSection;
+        private static AuthorizationSection instance
+           = ConfigurationManager.GetSection("AuthorizationSection") as AuthorizationSection;
 
-        public static AuthenticationSection Instance
+        public static AuthorizationSection Instance
         {
             get
             {
@@ -57,6 +57,27 @@
             {
                 this["VirtualDirectory"] = value;
             }
+        }
+
+        [ConfigurationProperty("IndexUrl", IsRequired = true, DefaultValue = "~/Index.aspx")]
+        public string IndexUrl
+        {
+            get { return (string)this["IndexUrl"]; }
+            set { this["IndexUrl"] = value; }
+        }
+
+        [ConfigurationProperty("SignOutUrl", IsRequired = true, DefaultValue = "~/SignOut.aspx")]
+        public string SignOutUrl
+        {
+            get { return (string)this["SignOutUrl"]; }
+            set { this["SignOutUrl"] = value; }
+        }
+
+        [ConfigurationProperty("AccessDeniedUrl", IsRequired = true, DefaultValue = "~/AccessDenied.aspx")]
+        public string AccessDeniedUrl
+        {
+            get { return (string)this["AccessDeniedUrl"]; }
+            set { this["AccessDeniedUrl"] = value; }
         }
     }
 }

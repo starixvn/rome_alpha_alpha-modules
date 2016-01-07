@@ -8,34 +8,28 @@
     using Alpha.Auth.DataAccesses;
     using Alpha.Auth.DataAccesses.Impl;
     using Alpha.Auth.Services;
+    using Configurations;
     using Entities;
     using Fanex.Common;
-    using Fanex.Razorbill.Security.Configurations.AuthenticationSection;
     using Sunplus.Agent.Model.BL;
     using Sunplus.Agent.Model.Entities;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
-    public class AuthenticationService : IAuthenticationService
+    public class AuthorizationService : IAuthorizationService
     {
         private const string CustomerClosedStatusSessionKey = "Fanex.Razorbill.Security.Services.Authentication.CheckingClosedStatus";
         private const string SubAccountPermissionSessionKey = "Fanex.Razorbill.Security.Services.Authentication.CheckingCustomerPermission";
-        private const string IndexPage = "~/Index.aspx";
-        private const string SignOutPage = "~/SignOut.aspx";
-        private const string AccessDeniedPage = "~/AccessDenied.aspx";
 
         private readonly IUserSession _currentUserSession;
-        private readonly IAuthenticationDataAccess _authenticationRepsitory;
+        private readonly IAuthenticationDataAccess _dataAccess;
         private readonly IStatisticService _statisticService;
 
         private string _urlRequest;
         private object _blockStatus = new object();
 
-        public AuthenticationService(string urlRequest)
+        public AuthorizationService(string urlRequest)
         {
             _currentUserSession = UserSessionService.GetUserSessionInstance(HttpContext.Current.Session.SessionID);
-            _authenticationRepsitory = new AuthenticationDataAccess();
+            _dataAccess = new AuthenticationDataAccess();
             _urlRequest = urlRequest;
             _statisticService = new StatisticService();
         }
@@ -66,10 +60,6 @@
             }
         }
 
-        /// <summary>
-        /// Checking customer status.
-        /// </summary>
-        /// <returns>Return result.</returns>
         public bool CheckingClosedStatus()
         {
             lock (_blockStatus)
@@ -94,7 +84,7 @@
                     }
                 }
 
-                var isActive = _authenticationRepsitory.CheckingCustomerStatus(_currentUserSession.CustId, _currentUserSession.SubAccId);
+                var isActive = _dataAccess.IsActive(_currentUserSession.CustId, _currentUserSession.SubAccId);
                 if (!isActive)
                 {
                     return true;
@@ -107,13 +97,6 @@
             }
         }
 
-        /// <summary>
-        /// Function to check belonging.
-        /// </summary>
-        /// <param name="custId">The Customer ID.</param>
-        /// <param name="transId">Transaction ID.</param>
-        /// <param name="isDataWarehouse">Is Data warehouse.</param>
-        /// <returns>Return belonging status.</returns>
         public bool CheckBelonging(int custId, long transId, bool isDataWarehouse)
         {
             if (HttpContext.Current.Session == null)
@@ -134,25 +117,18 @@
             return isBelonging;
         }
 
-        /// <summary>
-        /// Checking Customer's Permission.
-        /// </summary>
-        /// <param name="custId">Customer ID.</param>
-        /// <param name="transId">Transaction ID.</param>
-        /// <param name="isDataWarehouse">Is Data Warehouse.</param>
-        /// <returns>Return result.</returns>
         public PermissionResult CheckingCustomerPermission(int custId, long transId, bool isDataWarehouse)
         {
             var customerPermission = new PermissionResult()
             {
                 IsHasPermission = false,
-                RedirectUrl = IndexPage
+                RedirectUrl = AuthorizationSection.Instance.IndexUrl
             };
 
             // session is null
             if (HttpContext.Current.Session == null)
             {
-                customerPermission.RedirectUrl = SignOutPage;
+                customerPermission.RedirectUrl = AuthorizationSection.Instance.SignOutUrl;
                 return customerPermission;
             }
 
@@ -163,7 +139,7 @@
                 return customerPermission;
             }
 
-            var authenticationSection = AuthenticationSection.Instance;
+            var authenticationSection = AuthorizationSection.Instance;
             var permission = authenticationSection.FullPermission;
             if (_currentUserSession.SubAccId > 0)
             {
@@ -192,7 +168,7 @@
 
         private string GetUrlAccessByCustomerWithoutDirectoryPath()
         {
-            var virtualDirectory = AuthenticationSection.Instance.VirtualDirectory;
+            var virtualDirectory = AuthorizationSection.Instance.VirtualDirectory;
             if (!string.IsNullOrWhiteSpace(virtualDirectory))
             {
                 var regex = new Regex(string.Format("{0}/", virtualDirectory), RegexOptions.IgnoreCase);
@@ -207,7 +183,7 @@
         private bool VerifyRequestingUrlAgainstConfigFile(int custId, long transId, bool isDataWarehouse, string currentUrlAccess)
         {
             var isBelonging = true;
-            var authenticationSection = AuthenticationSection.Instance;
+            var authenticationSection = AuthorizationSection.Instance;
             var permission = authenticationSection.FullPermission;
 
             // get all urls that allow he/she access by his/her level
@@ -244,14 +220,14 @@
                                     }
 
                                     if (pageElement.IsViewedByGroupHeadline
-                                        && _authenticationRepsitory.Age_Rpt_CustomerConsolidatedGroup_CheckBelonging(custId, _currentUserSession.CustId, _currentUserSession.SubAccId, transId, _currentUserSession.IsInternal))
+                                        && _dataAccess.IsCustomerConsolidatedGroupBelonging(custId, _currentUserSession.CustId, _currentUserSession.SubAccId, transId, _currentUserSession.IsInternal))
                                     {
                                         return true;
                                     }
 
                                     return isDataWarehouse
-                                        ? _authenticationRepsitory.Age_CustomerSelCheckBelonging_OLD(custId, _currentUserSession.CustId, transId)
-                                        : _authenticationRepsitory.Age_CustomerSelCheckBelonging(custId, _currentUserSession.CustId, _currentUserSession.SubAccId, transId, _currentUserSession.IsInternal);
+                                        ? _dataAccess.IsBelongingOld(custId, _currentUserSession.CustId, transId)
+                                        : _dataAccess.IsBelonging(custId, _currentUserSession.CustId, _currentUserSession.SubAccId, transId, _currentUserSession.IsInternal);
                                 }
                             }
 
@@ -264,18 +240,9 @@
             return isBelonging;
         }
 
-        /// <summary>
-        /// Page access authentication.
-        /// </summary>
-        /// <param name="customerPermission">Customer's Permission.</param>
-        /// <param name="authenticationSection">Authentication Section.</param>
-        /// <param name="custId">Customer ID.</param>
-        /// <param name="transId">Transaction ID.</param>
-        /// <param name="isDataWarehouse">IS Data Warehouse.</param>
-        /// <returns>Return result.</returns>
         private PermissionResult CheckingPageAccess(
             string customerPermission,
-            AuthenticationSection authenticationSection,
+            AuthorizationSection authenticationSection,
             int custId,
             long transId,
             bool isDataWarehouse)
@@ -288,8 +255,8 @@
             var levels = from q in authenticationSection.GroupLevel.Cast<GroupLevelElement>() where q.RoleId <= _currentUserSession.RoleId select q;
             if (levels.Any())
             {
-                var urlWithOutVirtualDirectory = !string.IsNullOrWhiteSpace(AuthenticationSection.Instance.VirtualDirectory) ?
-                    _urlRequest.ToUpper().Replace(string.Format("{0}/", AuthenticationSection.Instance.VirtualDirectory).ToUpper(), string.Empty) :
+                var urlWithOutVirtualDirectory = !string.IsNullOrWhiteSpace(AuthorizationSection.Instance.VirtualDirectory) ?
+                    _urlRequest.ToUpper().Replace(string.Format("{0}/", AuthorizationSection.Instance.VirtualDirectory).ToUpper(), string.Empty) :
                     string.Empty;
 
                 foreach (GroupLevelElement level in levels)
@@ -310,7 +277,7 @@
                                     if (!customerPermission.Contains(item))
                                     {
                                         permissionResult.IsHasPermission = false;
-                                        permissionResult.RedirectUrl = AccessDeniedPage;
+                                        permissionResult.RedirectUrl = AuthorizationSection.Instance.AccessDeniedUrl;
                                         continue;
                                     }
 
@@ -320,12 +287,12 @@
                                         !(pageElement.IsAllowToDoByThemselves && UserSession.Current.CustId == custId))
                                     {
                                         var hasPermission = isDataWarehouse
-                                            ? (new AuthorizationDataAccess()).Age_CustomerSelCheckBelonging_OLD(custId, _currentUserSession.CustId, transId)
-                                            : (new AuthorizationDataAccess()).Age_CustomerSelCheckBelonging(custId, _currentUserSession.CustId, _currentUserSession.SubAccId, transId, _currentUserSession.IsInternal);
+                                            ? _dataAccess.IsBelongingOld(custId, _currentUserSession.CustId, transId)
+                                            : _dataAccess.IsBelonging(custId, _currentUserSession.CustId, _currentUserSession.SubAccId, transId, _currentUserSession.IsInternal);
                                         if (!hasPermission)
                                         {
                                             permissionResult.IsHasPermission = false;
-                                            permissionResult.RedirectUrl = AccessDeniedPage;
+                                            permissionResult.RedirectUrl = AuthorizationSection.Instance.AccessDeniedUrl;
                                         }
                                     }
 
@@ -347,10 +314,6 @@
             return permissionResult;
         }
 
-        /// <summary>
-        /// Get Sub Account permission.
-        /// </summary>
-        /// <returns>Return result.</returns>
         private string GetSubPermission()
         {
             if (!string.IsNullOrEmpty(CustomerCurrentPermission))
@@ -363,7 +326,7 @@
                 }
             }
 
-            var newPermission = _authenticationRepsitory.GetSubAccountPermission(_currentUserSession.SubAccId);
+            var newPermission = _dataAccess.GetSubAccountPermission(_currentUserSession.SubAccId);
             CustomerCurrentPermission =
                 string.Format("{0}_{1}", newPermission, DateTime.Now.AddSeconds(Converter.ToInt(ConfigurationManager.AppSettings["CustomerStatusExpireTime"])));
 

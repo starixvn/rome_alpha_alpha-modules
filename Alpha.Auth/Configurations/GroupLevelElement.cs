@@ -1,10 +1,7 @@
-﻿namespace Fanex.Razorbill.Security.Configurations.AuthenticationSection
+﻿namespace Alpha.Auth.Configurations
 {
     using System.Configuration;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class GroupLevelElement : ConfigurationElement
     {
         [ConfigurationProperty("roleid", DefaultValue = 2, IsRequired = false, IsKey = false)]

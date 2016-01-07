@@ -2,9 +2,9 @@
 {
     public interface IStatisticDataAccess
     {
-        void Age_UpdPageVisit(int roleId, string pageUrl);
+        void UpdatePageVisit(int roleId, string pageUrl);
 
-        void IS_UpdFunctionUsage(
+        void UpdateFunctionUsage(
             string pageUrl,
             int serverId,
             string function,
@@ -12,6 +12,6 @@
             string site,
             string lang);
 
-        void Agm_UpdFunctionUsage(int serverId, string function, string subFunction, string lang);
+        void UpdateFunctionUsage(int serverId, string function, string subFunction, string lang);
     }
 }

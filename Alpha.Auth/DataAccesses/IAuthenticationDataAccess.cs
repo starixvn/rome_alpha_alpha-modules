@@ -1,18 +1,21 @@
 ﻿namespace Alpha.Auth.DataAccesses
 {
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public interface IAuthenticationDataAccess
     {
-        bool CheckingCustomerStatus(int customerId, int subAccountId);
+        bool IsActive(int customerId, int subAccountId);
 
         string GetSubAccountPermission(int subAccountId);
 
-        bool Age_CustomerSelCheckBelonging_OLD(int custId, int currentCustId, long transId);
+        bool IsBelongingOld(int custId, int currentCustId, long transId);
 
-        bool Age_CustomerSelCheckBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal);
+        bool IsBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal);
 
-        bool Age_Rpt_CustomerConsolidatedGroup_CheckBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal);
+        bool IsCustomerConsolidatedGroupBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal);
+
+        bool IsMultipleCustomersBelonging(
+            string custIds,
+            int currentCustId,
+            int subAccountId,
+            bool isInternal);
     }
 }

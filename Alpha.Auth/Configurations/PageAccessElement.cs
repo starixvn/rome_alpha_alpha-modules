@@ -1,16 +1,9 @@
-﻿namespace Fanex.Razorbill.Security.Configurations.AuthenticationSection
+﻿namespace Alpha.Auth.Configurations
 {
     using System.Configuration;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class PageAccessElement : ConfigurationElement
     {
-        public PageAccessElement()
-        {
-        }
-
         [ConfigurationProperty("id", IsRequired = true, IsKey = true)]
         public string Id
         {

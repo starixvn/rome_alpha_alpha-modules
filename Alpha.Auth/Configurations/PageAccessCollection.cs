@@ -1,10 +1,7 @@
-﻿namespace Fanex.Razorbill.Security.Configurations.AuthenticationSection
+﻿namespace Alpha.Auth.Configurations
 {
     using System.Configuration;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class PageAccessCollection : ConfigurationElementCollection
     {
         public override ConfigurationElementCollectionType CollectionType
@@ -46,10 +43,6 @@
             BaseAdd(authenticationLevelElement);
         }
 
-        /// <summary>
-        /// Remove element.
-        /// </summary>
-        /// <param name="authenticationLevelElement">Authentication Level Element.</param>
         public void Remove(PageAccessElement authenticationLevelElement)
         {
             if (BaseIndexOf(authenticationLevelElement) >= 0)
@@ -73,11 +66,6 @@
             BaseClear();
         }
 
-        /// <summary>
-        /// Get Index of.
-        /// </summary>
-        /// <param name="authenticationLevelElement">Authentication Level Element.</param>
-        /// <returns>Return index.</returns>
         public int IndexOf(PageAccessElement authenticationLevelElement)
         {
             return BaseIndexOf(authenticationLevelElement);

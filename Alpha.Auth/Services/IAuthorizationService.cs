@@ -2,10 +2,7 @@
 {
     using Alpha.Auth.Entities;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
-    public interface IAuthenticationService
+    public interface IAuthorizationService
     {
         bool CheckingClosedStatus();
 

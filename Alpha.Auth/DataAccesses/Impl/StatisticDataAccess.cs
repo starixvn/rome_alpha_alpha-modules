@@ -6,17 +6,18 @@ namespace Alpha.Auth.DataAccesses.Impl
 
     public class StatisticDataAccess : DAOBase, IStatisticDataAccess
     {
-        public void Age_UpdPageVisit(int roleId, string pageUrl)
+        public void UpdatePageVisit(int roleId, string pageUrl)
         {
             var parameters = new Hashtable
             {
                 { "role", roleId },
                 { "pageurl", pageUrl }
             };
+
             ExecSp("Age_UpdPageVisit", parameters);
         }
 
-        public void IS_UpdFunctionUsage(
+        public void UpdateFunctionUsage(
             string pageUrl,
             int serverId,
             string function,
@@ -37,7 +38,7 @@ namespace Alpha.Auth.DataAccesses.Impl
             ExecSp("IS_UpdFunctionUsage", parameters);
         }
 
-        public void Agm_UpdFunctionUsage(int serverId, string function, string subFunction, string lang)
+        public void UpdateFunctionUsage(int serverId, string function, string subFunction, string lang)
         {
             var parameters = new Hashtable
             {

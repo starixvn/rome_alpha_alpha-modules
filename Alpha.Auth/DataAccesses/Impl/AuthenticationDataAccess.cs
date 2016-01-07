@@ -4,9 +4,6 @@
     using Fanex.Common;
     using Fanex.Data;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class AuthenticationDataAccess : IAuthenticationDataAccess
     {
         /// <summary>
@@ -15,7 +12,7 @@
         /// <param name="customerId">Customer ID.</param>
         /// <param name="subAccountId">SUB ACC ID.</param>
         /// <returns>Return status: 1 - is active, 2 - is closed.</returns>
-        public bool CheckingCustomerStatus(int customerId, int subAccountId)
+        public bool IsActive(int customerId, int subAccountId)
         {
             using (var objectDb = new ObjectDb("Age_CustomerStatusSel"))
             {
@@ -38,12 +35,14 @@
         /// <returns>Return result.</returns>
         public string GetSubAccountPermission(int subAccountId)
         {
+            var inputParams = new Hashtable
+            {
+                { "subaccid", subAccountId },
+                { "pageaccess", string.Empty }
+            };
+
             using (var objectDb = new ObjectDb("Age_CustSubPageAccessSel"))
             {
-                Hashtable inputParams = new Hashtable();
-                inputParams.Add("subaccid", subAccountId);
-                inputParams.Add("pageaccess", string.Empty);
-
                 objectDb.AssignParamValues(inputParams);
                 objectDb.ExecuteNonQuery();
 
@@ -51,58 +50,55 @@
             }
         }
 
-        public bool Age_CustomerSelCheckBelonging_OLD(int custId, int currentCustId, long transId)
+        public bool IsBelongingOld(int custId, int currentCustId, long transId)
         {
-            Hashtable parameters = new Hashtable();
-            parameters.Add("sessioncustid", currentCustId);
+            var parameters = new Hashtable
+            {
+                { "sessioncustid", currentCustId },
+                { "transid", transId },
+                { "roleid", 0 }
+            };
+
             if (custId != 0)
             {
                 parameters.Add("custid", custId);
             }
 
-            parameters.Add("transid", transId);
-            parameters.Add("roleid", 0);
-
-            var isBelonging = false;
             using (var objectDb = new ObjectDb("Age_CustomerSelCheckBelonging_OLD"))
             {
                 objectDb.AssignParamValues(parameters);
                 objectDb.ExecuteNonQuery();
                 var outputs = objectDb.GetOuputParams();
-                isBelonging = (short)outputs["roleid"] > 0;
+                return (short)outputs["roleid"] > 0;
             }
-
-            return isBelonging;
         }
 
-        public bool Age_CustomerSelCheckBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal)
+        public bool IsBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal)
         {
-            Hashtable parameters = new Hashtable();
+            var parameters = new Hashtable
+            {
+                { "sessioncustid", currentCustId },
+                { "subaccountid", subAccountId },
+                { "transid", transId },
+                { "roleid", 0 },
+                { "isactive", true },
+            };
 
-            parameters.Add("sessioncustid", currentCustId);
-            parameters.Add("subaccountid", subAccountId);
             if (custId != 0)
             {
                 parameters.Add("custid", custId);
             }
 
-            parameters.Add("transid", transId);
-            parameters.Add("roleid", 0);
-            parameters.Add("isactive", true);
-
-            var isBelonging = false;
             using (var objectDb = new ObjectDb("Age_CustomerSelCheckBelonging"))
             {
                 objectDb.AssignParamValues(parameters);
                 objectDb.ExecuteNonQuery();
                 var outputs = objectDb.GetOuputParams();
-                isBelonging = Converter.To<byte>(outputs["roleid"]) > 0 && (isInternal ? true : Converter.ToBool(outputs["isactive"]));
+                return Converter.To<byte>(outputs["roleid"]) > 0 && (isInternal ? true : Converter.ToBool(outputs["isactive"]));
             }
-
-            return isBelonging;
         }
 
-        public bool Age_Rpt_CustomerConsolidatedGroup_CheckBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal)
+        public bool IsCustomerConsolidatedGroupBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal)
         {
             Hashtable parameters = new Hashtable();
 
@@ -117,16 +113,33 @@
             parameters.Add("roleid", 0);
             parameters.Add("isactive", true);
 
-            var isBelonging = false;
             using (var objectDb = new ObjectDb("Age_Rpt_CustomerConsolidatedGroup_CheckBelonging"))
             {
                 objectDb.AssignParamValues(parameters);
                 objectDb.ExecuteNonQuery();
                 var outputs = objectDb.GetOuputParams();
-                isBelonging = Converter.To<byte>(outputs["roleid"]) > 0 && (isInternal ? true : Converter.ToBool(outputs["isactive"]));
+                return Converter.To<byte>(outputs["roleid"]) > 0 && (isInternal ? true : Converter.ToBool(outputs["isactive"]));
             }
+        }
 
-            return isBelonging;
+        public bool IsMultipleCustomersBelonging(string custIds, int currentCustId, int subAccountId, bool isInternal)
+        {
+            var parameters = new Hashtable
+            {
+                { "sessioncustid", currentCustId },
+                { "subaccountid", subAccountId },
+                { "custid", custIds },
+                { "roleid", 0 },
+                { "isactive", true }
+            };
+
+            using (var objectDb = new ObjectDb("Age_CustomerSelCheckBelonging_MultiCust"))
+            {
+                objectDb.AssignParamValues(parameters);
+                objectDb.ExecuteNonQuery();
+                var outputs = objectDb.GetOuputParams();
+                return Converter.To<byte>(outputs["roleid"]) > 0 && (isInternal || Converter.ToBool(outputs["isactive"]));
+            }
         }
     }
 }

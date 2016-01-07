@@ -128,10 +128,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccesses\IAuthorizationDataAccess.cs" />
+    <Compile Include="Configurations\AuthorizationSection.cs" />
     <Compile Include="Configurations\AlphaAuthSection.cs" />
-    <Compile Include="DataAccesses\Impl\AuthorizationDataAccess.cs" />
-    <Compile Include="Configurations\AuthenticationSection.cs" />
     <Compile Include="Configurations\GroupLevelCollection.cs" />
     <Compile Include="Configurations\GroupLevelElement.cs" />
     <Compile Include="Configurations\PageAccessCollection.cs" />
@@ -144,8 +142,8 @@
     <Compile Include="DataAccesses\Impl\AuthenticationDataAccess.cs" />
     <Compile Include="DataAccesses\IAuthenticationDataAccess.cs" />
     <Compile Include="DataAccesses\IStatisticDataAccess.cs" />
-    <Compile Include="Services\Impl\AuthenticationService.cs" />
-    <Compile Include="Services\IAuthenticationService.cs" />
+    <Compile Include="Services\Impl\AuthorizationService.cs" />
+    <Compile Include="Services\IAuthorizationService.cs" />
     <Compile Include="Services\IStatisticService.cs" />
     <Compile Include="Services\Impl\StatisticService.cs" />
     <Compile Include="DataAccesses\Impl\StatisticDataAccess.cs" />
