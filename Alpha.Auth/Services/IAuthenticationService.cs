@@ -1,6 +1,6 @@
-﻿namespace Fanex.Razorbill.Security.Services.Authentication
+﻿namespace Alpha.Auth.Services
 {
-    using Fanex.Razorbill.Security.Entities;
+    using Alpha.Auth.Entities;
 
     /// <summary>
     /// TODO: Update summary.

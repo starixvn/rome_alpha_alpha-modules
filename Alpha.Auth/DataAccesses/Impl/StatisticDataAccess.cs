@@ -1,6 +1,5 @@
 namespace Alpha.Auth.DataAccesses.Impl
 {
-    using System;
     using System.Collections;
     using Alpha.Auth.Repositories;
     using Sunplus.Agent.Model.DL.Base;
@@ -18,11 +17,11 @@ namespace Alpha.Auth.DataAccesses.Impl
         }
 
         public void IS_UpdFunctionUsage(
-            string pageUrl, 
-            int serverId, 
-            string function, 
+            string pageUrl,
+            int serverId,
+            string function,
             string subFunction,
-            string site, 
+            string site,
             string lang)
         {
             var parameters = new Hashtable
@@ -35,7 +34,7 @@ namespace Alpha.Auth.DataAccesses.Impl
                 { "lang", lang }
             };
 
-            ExecSp("IS_UpdFunctionUsage", parameters);  
+            ExecSp("IS_UpdFunctionUsage", parameters);
         }
 
         public void Agm_UpdFunctionUsage(int serverId, string function, string subFunction, string lang)

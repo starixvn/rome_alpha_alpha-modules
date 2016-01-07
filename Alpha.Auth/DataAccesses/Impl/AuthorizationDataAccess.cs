@@ -1,14 +1,10 @@
-namespace Sunplus.Agent.Model.DL.Authorization
+namespace Alpha.Auth.DataAccesses.Impl
 {
-    using System;
     using System.Collections;
-    using System.Data;
     using Fanex.Common;
     using Sunplus.Agent.Model.DL.Base;
-    using Sunplus.Agent.Utilities;
 
-    [Obsolete("Should rename to Sunplus.Agent.Model.Auth")]
-    public class AuthorizationDAO : DAOBase
+    public class AuthorizationDataAccess : DAOBase, IAuthorizationDataAccess
     {
         public bool Age_CustomerSelCheckBelonging_OLD(int custId, int currentCustId, long transId)
         {
@@ -76,6 +72,5 @@ namespace Sunplus.Agent.Model.DL.Authorization
 
             return Converter.To<byte>(outputs["roleid"]) > 0 && (isInternal || Converter.ToBool(outputs["isactive"]));
         }
-
     }
 }

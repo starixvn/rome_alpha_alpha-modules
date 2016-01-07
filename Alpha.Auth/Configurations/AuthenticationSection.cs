@@ -1,19 +1,18 @@
 ﻿namespace Fanex.Razorbill.Security.Configurations.AuthenticationSection
 {
     using System.Configuration;
+    using System.Web;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class AuthenticationSection : ConfigurationSection
     {
+        private static AuthenticationSection instance
+           = ConfigurationManager.GetSection("AuthenticationSection") as AuthenticationSection;
+
         public static AuthenticationSection Instance
         {
             get
             {
-                var authenticationSection =
-                 ConfigurationManager.GetSection("AuthenticationSection") as AuthenticationSection;
-                return authenticationSection;
+                return instance;
             }
         }
 
@@ -31,6 +30,33 @@
         {
             get { return (string)this["fullpermission"]; }
             set { this["fullpermission"] = value.ToLower(); }
+        }
+
+        [ConfigurationProperty("BelongingParams", IsRequired = true)]
+        public string BelongingParams
+        {
+            get { return (string)this["BelongingParams"]; }
+            set { this["BelongingParams"] = value; }
+        }
+
+        [ConfigurationProperty("VirtualDirectory", IsRequired = false)]
+        public string VirtualDirectory
+        {
+            get
+            {
+                var virtualDirectory = (string)this["VirtualDirectory"];
+                if (string.IsNullOrEmpty(virtualDirectory))
+                {
+                    virtualDirectory = HttpRuntime.AppDomainAppVirtualPath.Substring(1);
+                }
+
+                return virtualDirectory;
+            }
+
+            set
+            {
+                this["VirtualDirectory"] = value;
+            }
         }
     }
 }

@@ -128,19 +128,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccesses\Impl\AuthorizationDAO.cs" />
+    <Compile Include="DataAccesses\IAuthorizationDataAccess.cs" />
     <Compile Include="Configurations\AlphaAuthSection.cs" />
+    <Compile Include="DataAccesses\Impl\AuthorizationDataAccess.cs" />
     <Compile Include="Configurations\AuthenticationSection.cs" />
     <Compile Include="Configurations\GroupLevelCollection.cs" />
     <Compile Include="Configurations\GroupLevelElement.cs" />
     <Compile Include="Configurations\PageAccessCollection.cs" />
     <Compile Include="Configurations\PageAccessElement.cs" />
-    <Compile Include="Configurations\WebAppSettings.cs" />
-    <Compile Include="Services\Impl\AuthenticateCustomer.cs" />
-    <Compile Include="Services\IAuthenticate.cs" />
-    <Compile Include="Entities\AuthenticationType.cs" />
     <Compile Include="Entities\PermissionResult.cs" />
-    <Compile Include="Entities\SecurityCodeStatus.cs" />
     <Compile Include="HttpModules\AuthenticationHttpModule.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Web\ShareSession.cs" />
@@ -153,6 +149,7 @@
     <Compile Include="Services\IStatisticService.cs" />
     <Compile Include="Services\Impl\StatisticService.cs" />
     <Compile Include="DataAccesses\Impl\StatisticDataAccess.cs" />
+    <Compile Include="Web\ShareSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\Validators\AntiForgeryValidator.cs" />
     <Compile Include="Web\Validators\SessionValidator.cs" />

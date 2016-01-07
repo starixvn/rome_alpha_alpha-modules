@@ -12,7 +12,7 @@
         /// <summary>
         /// Checking customer status.
         /// </summary>
-        /// <param name="customerId">Customer ID.</param>        
+        /// <param name="customerId">Customer ID.</param>
         /// <param name="subAccountId">SUB ACC ID.</param>
         /// <returns>Return status: 1 - is active, 2 - is closed.</returns>
         public bool CheckingCustomerStatus(int customerId, int subAccountId)

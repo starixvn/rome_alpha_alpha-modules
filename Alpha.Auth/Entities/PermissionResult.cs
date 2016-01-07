@@ -1,4 +1,4 @@
-﻿namespace Fanex.Razorbill.Security.Entities
+﻿namespace Alpha.Auth.Entities
 {
     public class PermissionResult
     {
