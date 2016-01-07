@@ -8,8 +8,6 @@
 
     public class ProductRenderUtility
     {
-        public static Dictionary<int, bool> PermissionDictionary { get; set; }
-
         public static List<int> GetProductHasReport()
         {
             var result = new List<int>();
@@ -30,23 +28,23 @@
 
         public static Dictionary<int, bool> GetPermissionDictionary()
         {
-            PermissionDictionary = new Dictionary<int, bool>();
-            PermissionDictionary.Add(ProductIdConstants.Sportsbook, true);
-            PermissionDictionary.Add(ProductIdConstants.Racing, UserPermission.IsShowRacing);
-            PermissionDictionary.Add(ProductIdConstants.RNGCasino, UserPermission.IsShowCasino);
-            PermissionDictionary.Add(ProductIdConstants.Bingo, UserPermission.IsShowBingo && !AppSettings.DisabledBingoCommission);
-            PermissionDictionary.Add(ProductIdConstants.LiveCasino, UserPermission.IsShowLiveCasino);
-            PermissionDictionary.Add(ProductIdConstants.GoldDeluxe, UserPermission.IsShowGoldDeluxeSettingForCredit);
-            PermissionDictionary.Add(ProductIdConstants.NumberGame, UserPermission.IsShowNumberGame);
-            PermissionDictionary.Add(ProductIdConstants.VirtualSports, UserPermission.IsShowVirtualSports);
-            PermissionDictionary.Add(ProductIdConstants.Keno, UserPermission.IsShowKenoSetting && KenoSection.Instance.ShowSetting);
-            PermissionDictionary.Add(ProductIdConstants.Sportsbook2, UserPermission.IsShowSportsbook2);
-            PermissionDictionary.Add(ProductIdConstants.CockFighting, UserPermission.IsEnableProduct(ProductIdConstants.CockFighting));
-            PermissionDictionary.Add(ProductIdConstants.ColossusBets, UserPermission.IsShowColossusBets);
-            PermissionDictionary.Add(ProductIdConstants.P2P, AppSettings.IsEnableP2P);
-            PermissionDictionary.Add(ProductIdConstants.ProgressiveBonus, UserPermission.IsShowCasino);
-
-            return PermissionDictionary;
+            var result = new Dictionary<int, bool>();
+            result.Add(ProductIdConstants.Sportsbook, true);
+            result.Add(ProductIdConstants.Racing, UserPermission.IsShowRacing);
+            result.Add(ProductIdConstants.RNGCasino, UserPermission.IsShowCasino);
+            result.Add(ProductIdConstants.Bingo, UserPermission.IsShowBingo && !AppSettings.DisabledBingoCommission);
+            result.Add(ProductIdConstants.LiveCasino, UserPermission.IsShowLiveCasino);
+            result.Add(ProductIdConstants.GoldDeluxe, UserPermission.IsShowGoldDeluxeSettingForCredit);
+            result.Add(ProductIdConstants.NumberGame, UserPermission.IsShowNumberGame);
+            result.Add(ProductIdConstants.VirtualSports, UserPermission.IsShowVirtualSports);
+            result.Add(ProductIdConstants.Keno, UserPermission.IsShowKenoSetting && KenoSection.Instance.ShowSetting);
+            result.Add(ProductIdConstants.Sportsbook2, UserPermission.IsShowSportsbook2);
+            result.Add(ProductIdConstants.CockFighting, UserPermission.IsEnableProduct(ProductIdConstants.CockFighting));
+            result.Add(ProductIdConstants.ColossusBets, UserPermission.IsShowColossusBets);
+            result.Add(ProductIdConstants.P2P, AppSettings.IsEnableP2P);
+            result.Add(ProductIdConstants.ProgressiveBonus, UserPermission.IsShowCasino);
+            
+            return result;
         }
     }
 }
