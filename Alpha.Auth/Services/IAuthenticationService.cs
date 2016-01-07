@@ -9,7 +9,7 @@
     {
         bool CheckingClosedStatus();
 
-        CustomerPermissionResult CheckingCustomerPermission(int custId, long transId, bool isDataWarehouse);
+        PermissionResult CheckingCustomerPermission(int custId, long transId, bool isDataWarehouse);
 
         bool CheckBelonging(int custId, long transId, bool isDataWarehouse);
     }

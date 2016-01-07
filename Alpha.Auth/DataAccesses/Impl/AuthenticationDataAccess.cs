@@ -1,4 +1,4 @@
-﻿namespace Fanex.Razorbill.Security.Repositories.Authentication
+﻿namespace Alpha.Auth.DataAccesses.Impl
 {
     using System.Collections;
     using Fanex.Common;
@@ -7,7 +7,7 @@
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public class AuthenticationRepository : IAuthenticationRepository
+    public class AuthenticationDataAccess : IAuthenticationDataAccess
     {
         /// <summary>
         /// Checking customer status.

@@ -1,9 +1,9 @@
-﻿namespace Fanex.Razorbill.Security.Repositories.Authentication
+﻿namespace Alpha.Auth.DataAccesses
 {
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public interface IAuthenticationRepository
+    public interface IAuthenticationDataAccess
     {
         bool CheckingCustomerStatus(int customerId, int subAccountId);
 

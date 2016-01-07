@@ -1,13 +1,14 @@
-﻿namespace Fanex.Razorbill.Security.Customer
+﻿namespace Alpha.Auth.Services.Impl
 {
     using System.Text.RegularExpressions;
     using System.Web;
+    using Alpha.Auth.Entities;
+    using Alpha.Auth.Services;
     using Fanex.Common;
-    using Fanex.CustomerSetting.Security.Authenticate;
-    using Sunplus.Agent.Model.BL;
-    using Sunplus.Agent.Model.BL.Authorization;
-    using Sunplus.Agent.Model.Entities;
     using Fanex.Razorbill.Security.Configurations;
+    using Sunplus.Agent.Model.BL;
+    using Sunplus.Agent.Model.DL.Authorization;
+    using Sunplus.Agent.Model.Entities;
 
     /// <summary>
     /// TODO: Update summary.
@@ -16,7 +17,7 @@
     {
         private IUserSession _currentUserSession;
 
-        public AuthenticateAction.AuthenticationType Policy { get; set; }
+        public AuthenticationType Policy { get; set; }
 
         public string Function { get; set; }
 
@@ -95,14 +96,13 @@
             }
 
             var isValid = false;
-            var authorization = new AuthorizationBO(CurrentUserSession.NetSessionId);
-            isValid = authorization.CheckBelonging(targetCustomerId, 0, false);
+            isValid = CheckBelonging(targetCustomerId, 0, false);
 
             return isValid;
         }
 
         private int GetCustomerIdFromRequest()
-        {            
+        {
             var custId = 0;
             var trackingValue = string.Empty;
             if (HttpContext.Current.Request.Form["model"] != null)
@@ -155,7 +155,7 @@
                 if (custId > 0)
                 {
                     break;
-                }                    
+                }
             }
 
             return custId;
@@ -168,8 +168,7 @@
         /// <returns>Allow to read or not.</returns>
         public bool AllowReadDepenOnCustIdBelong(int custId)
         {
-            var authorization = new AuthorizationBO(CurrentUserSession.NetSessionId);
-            return authorization.CheckBelonging(custId, 0, false);
+            return CheckBelonging(custId, 0, false);
         }
 
         /// <summary>
@@ -180,9 +179,8 @@
         /// <returns>Allow to update or not.</returns>
         public bool AllowUpdateDepenOnCustIdBelong(int custId)
         {
-            var authorization = new AuthorizationBO(CurrentUserSession.NetSessionId);
             bool subAccountPermission = !CurrentUserSession.IsSubAcc || CurrentUserSession.SubPageAccess.UpdateAccount;
-            return !CurrentUserSession.IsInternal && subAccountPermission && authorization.CheckBelonging(custId, 0, false);
+            return !CurrentUserSession.IsInternal && subAccountPermission && CheckBelonging(custId, 0, false);
         }
 
         /// <summary>
@@ -194,13 +192,13 @@
         public bool CheckBelonging(int custId, long transId, bool isDataWareHouse)
         {
             return isDataWareHouse
-                ? this.dao.Age_CustomerSelCheckBelonging_OLD(custId, CurrentUserSession.CustId, transId)
-                : this.dao.Age_CustomerSelCheckBelonging(custId, CurrentUserSession.CustId, CurrentUserSession.SubAccId, transId, CurrentUserSession.IsInternal);
+                ? (new AuthorizationDAO()).Age_CustomerSelCheckBelonging_OLD(custId, CurrentUserSession.CustId, transId)
+                : (new AuthorizationDAO()).Age_CustomerSelCheckBelonging(custId, CurrentUserSession.CustId, CurrentUserSession.SubAccId, transId, CurrentUserSession.IsInternal);
         }
 
         public bool CheckBelonging(string custIds)
         {
-            return this.dao.Age_CustomerSelCheckBelonging_Multi(custIds, CurrentUserSession.CustId, CurrentUserSession.SubAccId, CurrentUserSession.IsInternal);
+            return (new AuthorizationDAO()).Age_CustomerSelCheckBelonging_Multi(custIds, CurrentUserSession.CustId, CurrentUserSession.SubAccId, CurrentUserSession.IsInternal);
         }
     }
 }

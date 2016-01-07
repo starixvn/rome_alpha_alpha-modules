@@ -1,9 +1,6 @@
 ﻿namespace Fanex.Razorbill.Security.Entities
 {
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
-    public class CustomerPermissionResult
+    public class PermissionResult
     {
         public bool IsHasPermission { get; set; }
 

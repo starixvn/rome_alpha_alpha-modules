@@ -1,19 +1,21 @@
-﻿namespace Fanex.Razorbill.Security.Services.Authentication
+﻿namespace Alpha.Auth.Services.Impl
 {
     using System;
     using System.Configuration;
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Web;
+    using Alpha.Auth.DataAccesses;
+    using Alpha.Auth.DataAccesses.Impl;
+    using Alpha.Auth.Services;
     using Fanex.Common;
-    //using Fanex.Razorbill.Module.Common.Configurations;
+    using Fanex.Razorbill.Security.Configurations;
     using Fanex.Razorbill.Security.Configurations.AuthenticationSection;
     using Fanex.Razorbill.Security.Entities;
-    using Fanex.Razorbill.Security.Repositories.Authentication;
+    using Fanex.Razorbill.Security.Services.Authentication;
     using Sunplus.Agent.Model.BL;
-    using Sunplus.Agent.Model.BL.Authorization;
+    using Sunplus.Agent.Model.DL.Authorization;
     using Sunplus.Agent.Model.Entities;
-    using Fanex.Razorbill.Security.Configurations;
 
     /// <summary>
     /// TODO: Update summary.
@@ -23,8 +25,9 @@
         private string _customerClosedStatusSessionKey = "Fanex.Razorbill.Security.Services.Authentication.CheckingClosedStatus";
         private string _subAccountPermissionSessionKey = "Fanex.Razorbill.Security.Services.Authentication.CheckingCustomerPermission";
         private IUserSession _currentUserSession;
-        private IAuthenticationRepository _authenticationRepsitory;
+        private IAuthenticationDataAccess _authenticationRepsitory;
         private IUserSession _userSession;
+        private readonly IStatisticService _statisticService;
 
         private string _urlRequest;
         private object _blockStatus = new object();
@@ -35,8 +38,9 @@
         public AuthenticationService(string urlRequest)
         {
             _currentUserSession = UserSessionService.GetUserSessionInstance(HttpContext.Current.Session.SessionID);
-            _authenticationRepsitory = new AuthenticationRepository();
+            _authenticationRepsitory = new AuthenticationDataAccess();
             _urlRequest = urlRequest;
+            _statisticService = new StatisticService();
         }
 
         public string CustomerCurrentStatus
@@ -140,9 +144,9 @@
         /// <param name="transId">Transaction ID.</param>
         /// <param name="isDataWarehouse">Is Data Warehouse.</param>
         /// <returns>Return result.</returns>
-        public CustomerPermissionResult CheckingCustomerPermission(int custId, long transId, bool isDataWarehouse)
+        public PermissionResult CheckingCustomerPermission(int custId, long transId, bool isDataWarehouse)
         {
-            var customerPermission = new CustomerPermissionResult()
+            var customerPermission = new PermissionResult()
             {
                 IsHasPermission = false,
                 RedirectUrl = _indexPage
@@ -245,7 +249,7 @@
                                     var netSessionId = HttpContext.Current.Session.SessionID;
                                     _userSession = UserSessionService.GetUserSessionInstance(netSessionId);
 
-                                    if (pageElement.IsViewedByGroupHeadline 
+                                    if (pageElement.IsViewedByGroupHeadline
                                         && _authenticationRepsitory.Age_Rpt_CustomerConsolidatedGroup_CheckBelonging(custId, _userSession.CustId, _userSession.SubAccId, transId, _userSession.IsInternal))
                                     {
                                         return true;
@@ -275,14 +279,14 @@
         /// <param name="transId">Transaction ID.</param>
         /// <param name="isDataWarehouse">IS Data Warehouse.</param>
         /// <returns>Return result.</returns>
-        private CustomerPermissionResult CheckingPageAccess(
+        private PermissionResult CheckingPageAccess(
             string customerPermission,
             AuthenticationSection authenticationSection,
             int custId,
             long transId,
             bool isDataWarehouse)
         {
-            var permissionResult = new CustomerPermissionResult()
+            var permissionResult = new PermissionResult()
             {
                 IsHasPermission = true
             };
@@ -321,8 +325,10 @@
                                         pageElement.IsCheckBelonging &&
                                         !(pageElement.IsAllowToDoByThemselves && UserSession.Current.CustId == custId))
                                     {
-                                        AuthorizationBO authorization = new AuthorizationBO(HttpContext.Current.Session.SessionID);
-                                        if (!authorization.CheckBelonging(custId, transId, isDataWarehouse))
+                                        var hasPermission = isDataWarehouse
+                                            ? (new AuthorizationDAO()).Age_CustomerSelCheckBelonging_OLD(custId, _currentUserSession.CustId, transId)
+                                            : (new AuthorizationDAO()).Age_CustomerSelCheckBelonging(custId, _currentUserSession.CustId, _currentUserSession.SubAccId, transId, _currentUserSession.IsInternal);
+                                        if (!hasPermission)
                                         {
                                             permissionResult.IsHasPermission = false;
                                             permissionResult.RedirectUrl = _accessDeniedPage;
@@ -331,8 +337,7 @@
 
                                     if (!_currentUserSession.IsInternal && permissionResult.IsHasPermission)
                                     {
-                                        var statistic = new Sunplus.Agent.Model.BL.Statistic.StatisticBO(HttpContext.Current.Session.SessionID);
-                                        statistic.UpdateFunctionUsage(pageElement.Url, pageElement.MainFunctionName, pageElement.SubFunctionName, _currentUserSession.Site);
+                                        _statisticService.UpdateFunctionUsage(pageElement.Url, pageElement.MainFunctionName, pageElement.SubFunctionName, _currentUserSession.Site);
                                     }
 
                                     break;
