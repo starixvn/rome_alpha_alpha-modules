@@ -2,7 +2,7 @@
 {
     public interface IStatisticService
     {
-        void UpdatePageVisit_Old(string url);
+        void UpdatePageVisit(string url);
 
         void UpdateFunctionUsage(string url, string function, string subFunction, string site);
 

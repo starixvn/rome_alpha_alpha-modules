@@ -7,24 +7,11 @@
     using Services;
     using Services.Impl;
     using Sunplus.Agent.Model.Entities;
+    using Web;
 
     public class CheckBelongingHttpModule : IHttpModule
     {
         private string rngArea = "CustomerSetting/Casino";
-
-        private bool IsRnGCasinoUri
-        {
-            get
-            {
-                var url = HttpContext.Current.Request.Path.ToString();
-                if (url.IndexOf(rngArea, StringComparison.OrdinalIgnoreCase) != -1)
-                {
-                    return true;
-                }
-
-                return false;
-            }
-        }
 
         #region IHttpModule Members
 
@@ -39,7 +26,8 @@
 
         private void AcquireRequestState(object sender, EventArgs e)
         {
-            int custId = 0; long transId = 0;
+            int custId = 0;
+            long transId = 0;
             int masterId = 0;
 
             bool isDataWarehouse;
@@ -47,7 +35,7 @@
             GetRequestParams(ref custId, ref transId, ref masterId, out isDataWarehouse, out url);
 
             if (string.IsNullOrEmpty(url) ||
-                url.Replace("/", "").Equals(AuthorizationSection.Instance.VirtualDirectory, StringComparison.OrdinalIgnoreCase))
+                url.Replace("/", string.Empty).Equals(AuthorizationSection.Instance.VirtualDirectory, StringComparison.OrdinalIgnoreCase))
             {
                 HttpContext.Current.Response.Redirect("~/Index.aspx", true);
                 return;
@@ -92,10 +80,21 @@
             custId = GetCustomerIdFromRequest();
         }
 
+        private bool IsRnGCasinoUri()
+        {
+            var url = HttpContext.Current.Request.Path.ToString();
+            if (url.IndexOf(rngArea, StringComparison.OrdinalIgnoreCase) != -1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         private string GetRequestPath()
         {
             var url = HttpContext.Current.Request.Path;
-            if (IsRnGCasinoUri)
+            if (IsRnGCasinoUri())
             {
                 url = GetRnGCasinoUri();
             }
@@ -139,32 +138,16 @@
             if (custId == 0 &&
                 !string.IsNullOrEmpty(request["txtCustomerObject"]))
             {
-                custId = GetCustIdFromOject(request["txtCustomerObject"]);
+                custId = RequestAnalyst.GetCustomerId(request["txtCustomerObject"]);
             }
 
             if (custId == 0 &&
                 !string.IsNullOrEmpty(request["newCustomer"]))
             {
-                custId = GetCustIdFromOject(request["newCustomer"]);
+                custId = RequestAnalyst.GetCustomerId(request["newCustomer"]);
             }
 
             return custId;
-        }
-
-        private int GetCustIdFromOject(string trackingValue)
-        {
-            var customerId = 0;
-            if (!string.IsNullOrEmpty(trackingValue))
-            {
-                var pattern = "({\"custId\":)([0-9]+)(,)";
-                Match regexMatch = Regex.Match(trackingValue, pattern, RegexOptions.IgnoreCase);
-                if (regexMatch.Success)
-                {
-                    customerId = Fanex.Common.Converter.ToInt(regexMatch.Groups[2]);
-                }
-            }
-
-            return customerId;
         }
 
         #endregion IHttpModule Members

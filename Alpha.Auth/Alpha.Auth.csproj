@@ -147,6 +147,7 @@
     <Compile Include="Services\IStatisticService.cs" />
     <Compile Include="Services\Impl\StatisticService.cs" />
     <Compile Include="DataAccesses\Impl\StatisticDataAccess.cs" />
+    <Compile Include="Web\RequestAnalyst.cs" />
     <Compile Include="Web\ShareSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\Validators\AntiForgeryValidator.cs" />

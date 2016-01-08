@@ -17,7 +17,7 @@
             _dataAccess = new StatisticDataAccess();
         }
 
-        public void UpdatePageVisit_Old(string url)
+        public void UpdatePageVisit(string url)
         {
             _dataAccess.UpdatePageVisit(_userSession.RoleId, url);
         }
