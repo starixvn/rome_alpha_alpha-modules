@@ -142,6 +142,15 @@ namespace Fanex.Age.UI.Forecast.LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Live!.
+        /// </summary>
+        internal static string lblLive {
+            get {
+                return ResourceManager.GetString("lblLive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Live Ball.
         /// </summary>
         internal static string lblLiveBall {

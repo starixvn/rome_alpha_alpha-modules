@@ -174,4 +174,7 @@
   <data name="IsNeutral" xml:space="preserve">
     <value> (N)</value>
   </data>
+  <data name="lblLive" xml:space="preserve">
+    <value>Live!</value>
+  </data>
 </root>
