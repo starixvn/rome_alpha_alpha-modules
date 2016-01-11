@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="Cast\ConvertDouble.cs" />
     <Compile Include="Encryption.cs" />
+    <Compile Include="Extension\NameValueCollectionExt.cs" />
     <Compile Include="Formater.cs" />
     <Compile Include="HtmlGenerator.cs" />
     <Compile Include="Language.cs" />
