@@ -1491,6 +1491,19 @@ namespace Sunplus.Agent.Model.Entities
 
         #endregion TotalBalanceTransfer
 
+        public bool IsInternalWebVPN
+        {
+            get
+            {
+                object property = this.GetProperty("ISINTERNALWEBVPN");
+                return property != null && (bool)property;
+            }
+            set
+            {
+                this.SetProperty("ISINTERNALWEBVPN", value);
+            }
+        }
+
         #region ISerializable Members
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
