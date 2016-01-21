@@ -120,6 +120,8 @@ namespace Sunplus.Agent.Model.Entities
         private const string HIDEPRODUCTS = "HIDEPRODUCTS";
         private const string DISABLEPRODUCTS = "DISABLEPRODUCTS";
 
+        private const string USERLOGINIP = "USERLOGINIP";
+
         private string asNetSessionId;
 
         #endregion Contructors
@@ -1470,6 +1472,18 @@ namespace Sunplus.Agent.Model.Entities
             set
             {
                 SetProperty(DISABLEPRODUCTS, value);
+            }
+        }
+        public string UserLoginIp {
+            get
+            {
+                object value = GetProperty(USERLOGINIP);
+                return value as string;
+            }
+
+            set
+            {
+                SetProperty(USERLOGINIP, value);
             }
         }
 
