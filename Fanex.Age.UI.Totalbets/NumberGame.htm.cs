@@ -14,9 +14,9 @@ namespace Fanex.Age.UI.TotalBets
 			protected static string s0 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>";
 			protected static string s1{get{return LocalResources.TotalBetsLang.numbergame;}}
 			protected static string s2 = "</title><link href=\"";
-			protected static string s3{get{return AbsoluteUrl("_GlobalResources/Css/Agent.css", TplSettings.Question);}}
+			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.css", TplSettings.Question);}}
 			protected static string s4 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
-			protected static string s5{get{return AbsoluteUrl("Resources/TotalBets.css", TplSettings.Question);}}
+			protected static string s5{get{return AbsoluteUrl("App_Themes/Apo/TotalBets/TotalBets.css", TplSettings.Question);}}
 			protected static string s6 = "\" rel=\"stylesheet\" type=\"text/css\" /></head><body><div id=\"page_main\"><div id=\"header_main\">";
 			protected static string s7{get{return LocalResources.TotalBetsLang.numbergame;}}
 			protected static string s8 = "</div>";
@@ -69,7 +69,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class NumberGame_Contents_Block: Block
 		{
-			protected static string s16 = "<table cellpadding=\"0\" cellspacing=\"1\" border=\"0\" class=\"tblRpt c\" style=\"width: 100%\"><tr class=\"RptHeader\"><td rowspan=\"2\">";
+			protected static string s16 = "<table class=\"tblRpt c width-100per\"><tr class=\"RptHeader\"><td rowspan=\"2\">";
 			protected static string s17{get{return LocalResources.TotalBetsLang.no;}}
 			protected static string s18 = "</td><td rowspan=\"2\">";
 			protected static string s19{get{return LocalResources.TotalBetsLang.events;}}
@@ -229,7 +229,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class NumberGame_Contents_LeagueContents_Block: Block
 		{
-			protected static string s88 = "<tr class=\"league\"><td colspan=\"18\" style=\"padding-left: 20px;\">";
+			protected static string s88 = "<tr class=\"league\"><td colspan=\"18\" class=\"col-league\">";
 			public string LeagueName = "{LeagueName}";
 			protected static string s89 = "</td></tr>";
 			public NumberGame_Contents_LeagueContents_MatchContents_Block MatchContents = new NumberGame_Contents_LeagueContents_MatchContents_Block();

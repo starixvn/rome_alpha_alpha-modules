@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>TotalBets</title>
-    <link href="../_GlobalResources/Css/Agent.css" rel="stylesheet" type="text/css" />
-    <link href="Resources/TotalBets.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/Common/Agent.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/TotalBets/TotalBets.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div id="page_main">
@@ -12,12 +12,12 @@
         {load:Fanex.Age.UI.Components.RefreshCountDown_Control RefreshCountDown = new Fanex.Age.UI.Components.RefreshCountDown_Control(this,30,"Financial")}
         <div id="sContent">
         <!--Contents-->
-            <table class="tblRpt" cellpading="0" cellspacing="1" border="0" style="width: 80%;">
+            <table class="tblRpt tbl-financial">
                 <tr class="RptHeader">
-                    <td rowspan="2" style="width: 2%;">
+                    <td rowspan="2" class="col-number">
                         #
                     </td>
-                    <td rowspan="2" style="width: 16%;">
+                    <td rowspan="2" class="col-timerange">
                         {static:LocalResources.TotalBetsLang.timerange}
                     </td>
                     <td colspan="2">
@@ -28,22 +28,22 @@
                     </td>
                 </tr>
                 <tr class="RptHeader02">
-                    <td style="width: 11%">
+                    <td class="col-turnover">
                         {static:LocalResources.TotalBetsLang.turnover}
                     </td>
-                    <td style="width: 11%">
+                    <td class="col-winloss">
                         {static:LocalResources.TotalBetsLang.lblWinLoss}
                     </td>
-                    <td style="width: 11%">
+                    <td class="col-turnover">
                         {static:LocalResources.TotalBetsLang.turnover}
                     </td>
-                    <td style="width: 11%">
+                    <td class="col-winloss">
                         {static:LocalResources.TotalBetsLang.lblWinLoss}
                     </td>
                 </tr>
                 <!--StockIndex-->
                 <tr>
-                    <td colspan="6" style="padding-left: 20px;" class="league">
+                    <td colspan="6" class="league col-league">
                         {IndexName}
                     </td>
                 </tr>
@@ -52,10 +52,10 @@
                     <td class="w-order">
                         {NoValue}
                     </td>
-                    <td style="white-space: nowrap;" class="c">
+                    <td class="c nowrap">
                         {BetTime}
                     </td>
-                    <td class="b" style="width: 11%">
+                    <td class="b col-value">
                         <!--OULink-->
                         <a onclick="doViewBetList({MatchId}, {BetType}, '{BetTypeMatch}')" href="#" class="fcnum">{OUTurnOverValue}</a>
                         <!--/OULink-->
@@ -63,10 +63,10 @@
                         {OUTurnOverValue}
                         <!--/OUText-->
                     </td>
-                    <td class="b" style="width: 11%">
+                    <td class="b col-value">
                         {OUWinlossValue}
                     </td>
-                    <td class="b" style="width: 11%">
+                    <td class="b col-value">
                         <!--OELink-->
                         <a onclick="doViewBetList({MatchId}, {BetType}, '{BetTypeMatch}')" href="#" class="fcnum">{OETurnOverValue}</a>
                         <!--/OELink-->
@@ -74,7 +74,7 @@
                         {OETurnOverValue}
                         <!--/OEText-->
                     </td>
-                    <td class="b" style="width: 11%">
+                    <td class="b col-value">
                         {OEWinlossValue}
                     </td>
                 </tr>

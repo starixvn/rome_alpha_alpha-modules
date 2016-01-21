@@ -12,9 +12,9 @@ namespace Fanex.Age.UI.TotalBets
 		public class Racing_Template : Template
 		{
 			protected static string s0 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>TotalBets</title><link href=\"";
-			protected static string s1{get{return AbsoluteUrl("_GlobalResources/Css/Agent.css", TplSettings.Question);}}
+			protected static string s1{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.css", TplSettings.Question);}}
 			protected static string s2 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
-			protected static string s3{get{return AbsoluteUrl("Resources/TotalBets.css", TplSettings.Question);}}
+			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/TotalBets/TotalBets.css", TplSettings.Question);}}
 			protected static string s4 = "\" rel=\"stylesheet\" type=\"text/css\" /></head><body><div id=\"page_main\"><div id=\"header_main\">";
 			protected static string s5{get{return LocalResources.TotalBetsLang.hr;}}
 			protected static string s6 = "</div>";
@@ -65,11 +65,11 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class Racing_Contents_Block: Block
 		{
-			protected static string s14 = "<table class=\"tblRpt\" cellpading=\"0\" cellspacing=\"1\" border=\"0\" style=\"width: 80%\"><tr class=\"RptHeader\"><td rowspan=\"3\" style=\"width: 7%;\">";
+			protected static string s14 = "<table class=\"tblRpt tbl-racing\"><tr class=\"RptHeader\"><td rowspan=\"3\" class=\"col-race\">";
 			protected static string s15{get{return LocalResources.TotalBetsLang.lblRace;}}
-			protected static string s16 = "</td><td rowspan=\"3\" style=\"width: 6%;\" class=\"nowrap\">";
+			protected static string s16 = "</td><td rowspan=\"3\" class=\"col-noHR nowrap\">";
 			protected static string s17{get{return LocalResources.TotalBetsLang.noHR;}}
-			protected static string s18 = "</td><td rowspan=\"3\" style=\"width: 21%;\">";
+			protected static string s18 = "</td><td rowspan=\"3\" class=\"col-runner\">";
 			protected static string s19{get{return LocalResources.TotalBetsLang.runner;}}
 			protected static string s20 = "</td><td colspan=\"6\">";
 			protected static string s21{get{return LocalResources.TotalBetsLang.tote;}}
@@ -79,17 +79,17 @@ namespace Fanex.Age.UI.TotalBets
 			protected static string s25{get{return LocalResources.TotalBetsLang.Place;}}
 			protected static string s26 = "</td><td colspan=\"2\">";
 			protected static string s27{get{return LocalResources.TotalBetsLang.EachWay;}}
-			protected static string s28 = "</td></tr><tr class=\"RptHeader02\"><td class=\"nowrap\" style=\"width: 5%\">";
+			protected static string s28 = "</td></tr><tr class=\"RptHeader02\"><td class=\"nowrap col-total\">";
 			protected static string s29{get{return LocalResources.TotalBetsLang.total;}}
-			protected static string s30 = "</td><td class=\"nowrap\" style=\"width: 6%\">";
+			protected static string s30 = "</td><td class=\"nowrap col-winloss\">";
 			protected static string s31{get{return LocalResources.TotalBetsLang.lblWinLoss;}}
-			protected static string s32 = "</td><td class=\"nowrap\" style=\"width: 5%\">";
+			protected static string s32 = "</td><td class=\"nowrap col-total\">";
 			protected static string s33{get{return LocalResources.TotalBetsLang.total;}}
-			protected static string s34 = "</td><td class=\"nowrap\" style=\"width: 6%\">";
+			protected static string s34 = "</td><td class=\"nowrap col-winloss\">";
 			protected static string s35{get{return LocalResources.TotalBetsLang.lblWinLoss;}}
-			protected static string s36 = "</td><td class=\"nowrap\" style=\"width: 5%\">";
+			protected static string s36 = "</td><td class=\"nowrap col-total\">";
 			protected static string s37{get{return LocalResources.TotalBetsLang.total;}}
-			protected static string s38 = "</td><td class=\"nowrap\" style=\"width: 6%\">";
+			protected static string s38 = "</td><td class=\"nowrap col-winloss\">";
 			protected static string s39{get{return LocalResources.TotalBetsLang.lblWinLoss;}}
 			protected static string s40 = "</td></tr>";
 			public Racing_Contents_LeagueContents_Block LeagueContents = new Racing_Contents_LeagueContents_Block();
@@ -141,7 +141,7 @@ namespace Fanex.Age.UI.TotalBets
 		{
 			protected static string s42 = "<tr align=\"center\"><td colspan=\"";
 			public string TotalCols = "{TotalCols}";
-			protected static string s43 = "\" style=\"padding-left: 20px;\" class=\"league\">";
+			protected static string s43 = "\" class=\"league col-league\">";
 			public string LeagueName = "{LeagueName}";
 			protected static string s44 = "</td></tr>";
 			public Racing_Contents_LeagueContents_MatchContents_Block MatchContents = new Racing_Contents_LeagueContents_MatchContents_Block();

@@ -67,7 +67,7 @@ namespace Fanex.Age.UI.TotalBets
 		{
 			protected static string s14 = "<table class=\"tblRpt tbl-HTFT\"><tr class=\"RptHeader\"><td class=\"col-number\">";
 			protected static string s15{get{return LocalResources.TotalBetsLang.no;}}
-			protected static string s16 = "</td><td class=\"col-homeAway>";
+			protected static string s16 = "</td><td class=\"col-homeAway\">";
 			protected static string s17{get{return LocalResources.TotalBetsLang.home;}}
 			protected static string s18 = "</td><td class=\"col-homeAway\">";
 			protected static string s19{get{return LocalResources.TotalBetsLang.away;}}

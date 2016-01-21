@@ -12,9 +12,9 @@ namespace Fanex.Age.UI.TotalBets
 		public class HomeDrawAwayNoBet_Template : Template
 		{
 			protected static string s0 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>TotalBets</title><link href=\"";
-			protected static string s1{get{return AbsoluteUrl("_GlobalResources/Css/Agent.css", TplSettings.Question);}}
+			protected static string s1{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.css", TplSettings.Question);}}
 			protected static string s2 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
-			protected static string s3{get{return AbsoluteUrl("Resources/TotalBets.css", TplSettings.Question);}}
+			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/TotalBets/TotalBets.css", TplSettings.Question);}}
 			protected static string s4 = "\" rel=\"stylesheet\" type=\"text/css\" /></head><body><div id=\"page_main\"><div id=\"header_main\">";
 			protected static string s5{get{return LocalResources.TotalBetsLang.lblHomeDrawAwayNoBet;}}
 			protected static string s6 = "</div>";
@@ -69,17 +69,17 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class HomeDrawAwayNoBet_Contents_Block: Block
 		{
-			protected static string s16 = "<table cellpadding=\"0\" cellspacing=\"1\" border=\"0\" class=\"tblRpt c\"><tr class=\"RptHeader\"><td rowspan=\"2\" style=\"width: 20px;\">#</td><td rowspan=\"2\" style=\"width: 110px;\">";
+			protected static string s16 = "<table class=\"tblRpt c tbl-nobet\"><tr class=\"RptHeader\"><td rowspan=\"2\" class=\"col-number\">#</td><td rowspan=\"2\" class=\"col-time\">";
 			protected static string s17{get{return LocalResources.TotalBetsLang.time;}}
-			protected static string s18 = "</td><td rowspan=\"3\" style=\"width: 366px;\">";
+			protected static string s18 = "</td><td rowspan=\"2\" class=\"col-events\">";
 			protected static string s19{get{return LocalResources.TotalBetsLang.events;}}
 			protected static string s20 = "</td><td colspan=\"3\">";
 			protected static string s21{get{return LocalResources.TotalBetsLang.fulltime;}}
-			protected static string s22 = "</td></tr><tr class=\"RptHeader02\"><td style=\"width: 100px;\">";
+			protected static string s22 = "</td></tr><tr class=\"RptHeader02\"><td class=\"col-nobet\">";
 			protected static string s23{get{return LocalResources.TotalBetsLang.lblHomeNoBet;}}
-			protected static string s24 = "</td><td style=\"width: 100px;\">";
+			protected static string s24 = "</td><td class=\"col-nobet\">";
 			protected static string s25{get{return LocalResources.TotalBetsLang.lblDrawNoBet;}}
-			protected static string s26 = "</td><td style=\"width: 100px;\">";
+			protected static string s26 = "</td><td class=\"col-nobet\">";
 			protected static string s27{get{return LocalResources.TotalBetsLang.lblAwayNoBet;}}
 			protected static string s28 = "</td></tr>";
 			public HomeDrawAwayNoBet_Contents_LeagueContents_Block LeagueContents = new HomeDrawAwayNoBet_Contents_LeagueContents_Block();
@@ -113,7 +113,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class HomeDrawAwayNoBet_Contents_LeagueContents_Block: Block
 		{
-			protected static string s30 = "<tr class=\"c\"><td colspan=\"7\" style=\"padding-left: 20px;\" class=\"league\">";
+			protected static string s30 = "<tr class=\"c\"><td colspan=\"7\" class=\"league col-league\">";
 			public string LeagueName = "{LeagueName}";
 			protected static string s31 = "</td></tr>";
 			public HomeDrawAwayNoBet_Contents_LeagueContents_MatchContents_Block MatchContents = new HomeDrawAwayNoBet_Contents_LeagueContents_MatchContents_Block();
@@ -148,11 +148,11 @@ namespace Fanex.Age.UI.TotalBets
 			public string Home = "{Home}";
 			protected static string s38 = " -vs- ";
 			public string Away = "{Away}";
-			protected static string s39 = "</td><td style=\"width: 86px\">";
+			protected static string s39 = "</td><td class=\"col-value\">";
 			public HomeDrawAwayNoBet_Contents_LeagueContents_MatchContents_HomeNoBetValue_Block HomeNoBetValue = new HomeDrawAwayNoBet_Contents_LeagueContents_MatchContents_HomeNoBetValue_Block();
-			protected static string s40 = "</td><td style=\"width: 86px\">";
+			protected static string s40 = "</td><td class=\"col-value\">";
 			public HomeDrawAwayNoBet_Contents_LeagueContents_MatchContents_DrawNoBetValue_Block DrawNoBetValue = new HomeDrawAwayNoBet_Contents_LeagueContents_MatchContents_DrawNoBetValue_Block();
-			protected static string s41 = "</td><td style=\"width: 86px\">";
+			protected static string s41 = "</td><td class=\"col-value\">";
 			public HomeDrawAwayNoBet_Contents_LeagueContents_MatchContents_AwayNoBetValue_Block AwayNoBetValue = new HomeDrawAwayNoBet_Contents_LeagueContents_MatchContents_AwayNoBetValue_Block();
 			protected static string s42 = "</td></tr>";
 			public override void ToString(ref StringBuilder bd)

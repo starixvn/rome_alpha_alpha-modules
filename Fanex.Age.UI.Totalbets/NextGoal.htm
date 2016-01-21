@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>TotalBets</title>
-    <link href="../_GlobalResources/Css/Agent.css" rel="stylesheet" type="text/css" />
-    <link href="Resources/TotalBets.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/Common/Agent.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/TotalBets/TotalBets.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div id="page_main">
@@ -12,12 +12,12 @@
         {load:Fanex.Age.UI.Components.RefreshCountDown_Control RefreshCountDown = new Fanex.Age.UI.Components.RefreshCountDown_Control(this,15,"NextGoal")}
         <div id="sContent">
         <!--Contents-->
-            <table class="tblRpt" cellpadding="0" cellspacing="1" border="0" style="width: 100%">
+            <table class="tblRpt tbl-nextgoal">
                 <tr class="RptHeader">
-                    <td style="width: 20px">
+                    <td class="col-number">
                         #
                     </td>
-                    <td style="width: 80px">
+                    <td class="col-time">
                         {static:LocalResources.TotalBetsLang.time}
                     </td>
                     <td>
@@ -29,44 +29,44 @@
                 </tr>
                 <!--LeagueContents-->
                 <tr class="league">
-                    <td colspan="8" style="padding-left: 20px">
+                    <td colspan="8" class="col-league">
                         {LeagueName}
                     </td>
                 </tr>
                 <!--MatchContents-->
                 <tr bgcolor="{ColorClass}" onmouseover="bgColor='{ColorOver}'" onmouseout="bgColor='{ColorClass}'">
-                    <td style="width: 20px" class="w-order c">
+                    <td class="w-order c col-novalue">
                         {NoValue}
                     </td>
-                    <td style="width: 80px" class="c bl_time">
+                    <td class="c bl_time col-time">
                         {TimeValue}
                     </td>
-                    <td style="white-space: nowrap; text-align: center">
+                    <td class="nowrap c">
                         <a href="javascript:doViewBetList({MatchId}, 22, '{BetType}')">{Home} -vs- {Away}</a>
                     </td>
                     <td colspan="5" class="line_n" style="padding: 0;">
-                        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
+                        <table class="width-100per">
                             <!--ScoreContents-->
                             <tr>
                                 <!--BetScores-->
-                                <td align="center" style="border-right: solid 1px #ddd; width: 20%">
+                                <td class="col-betScores" align="center">
                                     <!--BetScoreContents-->
-                                    <table border="0" cellpadding="0" cellspacing="0" style="font-weight: bold; white-space: nowrap; text-align: center; width: 100%;">
+                                    <table class="tbl-betScoreContent">
                                         <tr>
-                                            <td class="blue" style="height: 21px">
+                                            <td class="blue col-homeaway">
                                                 {HomeScore} - {AwayScore}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td align="center" style="height: 21px">
+                                            <td align="center" class="col-lastScore">
                                                 <!--LastScoreContents-->
-                                                <table cellspacing="0" cellpadding="0" border="0" style="font-weight: bold; width: 100%;">
+                                                <table class="tbl-lastScore">
                                                     <tbody>
                                                         <tr>
                                                             <td align="right">
                                                                 {SubGoal}/0
                                                             </td>
-                                                            <td align="right" style="width: 20px;">
+                                                            <td align="right" class="col-info">
                                                                 <a href="javascript:openForecast('{MatchId}','22')" class="btnInfo"></a>
                                                             </td>
                                                         </tr>
