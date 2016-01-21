@@ -12,9 +12,9 @@ namespace Fanex.Age.UI.TotalBets
 		public class HDPOU_Template : Template
 		{
 			protected static string s0 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>TotalBets</title><link href=\"";
-			protected static string s1{get{return AbsoluteUrl("_GlobalResources/Css/Agent.css", TplSettings.Question);}}
+			protected static string s1{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.css", TplSettings.Question);}}
 			protected static string s2 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
-			protected static string s3{get{return AbsoluteUrl("Resources/TotalBets.css", TplSettings.Question);}}
+			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/TotalBets/TotalBets.css", TplSettings.Question);}}
 			protected static string s4 = "\" rel=\"stylesheet\" type=\"text/css\" /></head><body><div id=\"page_main\"><div id=\"header_main\">";
 			protected static string s5{get{return LocalResources.TotalBetsLang.lblHOUL;}}
 			protected static string s6 = "</div>";
@@ -69,7 +69,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class HDPOU_Contents_Block: Block
 		{
-			protected static string s16 = "<table cellpadding=\"0\" cellspacing=\"1\" class=\"tblRpt\" style=\"width: 100%;\"><tr class=\"RptHeader\"><td rowspan=\"2\" style=\"width: 20px;\">#</td><td rowspan=\"2\" style=\"width: 110px;\">";
+			protected static string s16 = "<table class=\"tblRpt width-100per\"><tr class=\"RptHeader\"><td rowspan=\"2\" class=\"col-number\">#</td><td rowspan=\"2\" class=\"col-time\">";
 			protected static string s17{get{return LocalResources.TotalBetsLang.time;}}
 			protected static string s18 = "</td><td rowspan=\"2\">";
 			protected static string s19{get{return LocalResources.TotalBetsLang.events;}}
@@ -77,13 +77,13 @@ namespace Fanex.Age.UI.TotalBets
 			protected static string s21{get{return LocalResources.TotalBetsLang.fulltime;}}
 			protected static string s22 = "</td><td colspan=\"4\">";
 			protected static string s23{get{return LocalResources.TotalBetsLang.lbl1sthalf;}}
-			protected static string s24 = "</td></tr><tr class=\"RptHeader02\"><td colspan=\"2\" style=\"text-align: center;\">";
+			protected static string s24 = "</td></tr><tr class=\"RptHeader02\"><td colspan=\"2\" class=\"c\">";
 			protected static string s25{get{return LocalResources.TotalBetsLang.lblHandicapFC;}}
-			protected static string s26 = "</td><td colspan=\"2\" style=\"text-align: center;\">";
+			protected static string s26 = "</td><td colspan=\"2\" class=\"c\">";
 			protected static string s27{get{return LocalResources.TotalBetsLang.lblOverUnder;}}
-			protected static string s28 = "</td><td colspan=\"2\" style=\"text-align: center;\">";
+			protected static string s28 = "</td><td colspan=\"2\" class=\"c\">";
 			protected static string s29{get{return LocalResources.TotalBetsLang.lblHandicapFC;}}
-			protected static string s30 = "</td><td colspan=\"2\" style=\"text-align: center;\">";
+			protected static string s30 = "</td><td colspan=\"2\" class=\"c\">";
 			protected static string s31{get{return LocalResources.TotalBetsLang.lblOverUnder;}}
 			protected static string s32 = "</td></tr>";
 			public HDPOU_Contents_LeagueContents_Block LeagueContents = new HDPOU_Contents_LeagueContents_Block();
@@ -121,7 +121,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class HDPOU_Contents_LeagueContents_Block: Block
 		{
-			protected static string s34 = "<tr class=\"c\"><td colspan=\"11\" class=\"league\" style=\"padding-left: 20px;\">";
+			protected static string s34 = "<tr class=\"c league\"><td colspan=\"11\" class=\"col-league\">";
 			public string LeagueName = "{LeagueName}";
 			protected static string s35 = "</td></tr>";
 			public HDPOU_Contents_LeagueContents_MatchContents_Block MatchContents = new HDPOU_Contents_LeagueContents_MatchContents_Block();
@@ -152,25 +152,25 @@ namespace Fanex.Age.UI.TotalBets
 			protected static string s40 = "</td><td class=\"c bl_time\">";
 			public string TimeValue = "{TimeValue}";
 			public HDPOU_Contents_LeagueContents_MatchContents_LiveNotice_Block LiveNotice = new HDPOU_Contents_LeagueContents_MatchContents_LiveNotice_Block();
-			protected static string s41 = "</td><td style=\"white-space: nowrap;\">";
+			protected static string s41 = "</td><td class=\"nowrap\">";
 			public string Home = "{Home}";
 			protected static string s42 = " -vs- ";
 			public string Away = "{Away}";
-			protected static string s43 = "</td><td style=\"width: 90px;\" class=\"r\">";
+			protected static string s43 = "</td><td class=\"col-hadicapTotal r\">";
 			public HDPOU_Contents_LeagueContents_MatchContents_HandicapTotalValue_Block HandicapTotalValue = new HDPOU_Contents_LeagueContents_MatchContents_HandicapTotalValue_Block();
-			protected static string s44 = "</td><td align=\"center\" class=\"fcbtn\" style=\"width: 16px\">";
+			protected static string s44 = "</td><td align=\"center\" class=\"fcbtn\">";
 			public HDPOU_Contents_LeagueContents_MatchContents_HandicapTotalButton_Block HandicapTotalButton = new HDPOU_Contents_LeagueContents_MatchContents_HandicapTotalButton_Block();
-			protected static string s45 = "</td><td style=\"width: 90px;\" class=\"r\">";
+			protected static string s45 = "</td><td class=\"col-overUnder r\">";
 			public HDPOU_Contents_LeagueContents_MatchContents_OverUnderTotalValue_Block OverUnderTotalValue = new HDPOU_Contents_LeagueContents_MatchContents_OverUnderTotalValue_Block();
-			protected static string s46 = "</td><td class=\"fcbtn\" align=\"center\" style=\"width: 16px\">";
+			protected static string s46 = "</td><td class=\"fcbtn\" align=\"center\">";
 			public HDPOU_Contents_LeagueContents_MatchContents_OverUnderTotalButton_Block OverUnderTotalButton = new HDPOU_Contents_LeagueContents_MatchContents_OverUnderTotalButton_Block();
-			protected static string s47 = "</td><td style=\"width: 90px;\" class=\"r\">";
+			protected static string s47 = "</td><td class=\"col-firstHalf r\">";
 			public HDPOU_Contents_LeagueContents_MatchContents_HandicapFirstHalfValue_Block HandicapFirstHalfValue = new HDPOU_Contents_LeagueContents_MatchContents_HandicapFirstHalfValue_Block();
-			protected static string s48 = "</td><td class=\"fcbtn\" align=\"center\" style=\"width: 16px\">";
+			protected static string s48 = "</td><td class=\"fcbtn\" align=\"center\">";
 			public HDPOU_Contents_LeagueContents_MatchContents_HandicapFirstHalfButton_Block HandicapFirstHalfButton = new HDPOU_Contents_LeagueContents_MatchContents_HandicapFirstHalfButton_Block();
-			protected static string s49 = "</td><td style=\"width: 90px;\" class=\"r\">";
+			protected static string s49 = "</td><td class=\"col-overUnder r\">";
 			public HDPOU_Contents_LeagueContents_MatchContents_OverUnderFirstHalfValue_Block OverUnderFirstHalfValue = new HDPOU_Contents_LeagueContents_MatchContents_OverUnderFirstHalfValue_Block();
-			protected static string s50 = "</td><td class=\"fcbtn\" align=\"center\" style=\"width: 16px\">";
+			protected static string s50 = "</td><td class=\"fcbtn\" align=\"center\">";
 			public HDPOU_Contents_LeagueContents_MatchContents_OverUnderFirstHalfButton_Block OverUnderFirstHalfButton = new HDPOU_Contents_LeagueContents_MatchContents_OverUnderFirstHalfButton_Block();
 			protected static string s51 = "</td></tr>";
 			public override void ToString(ref StringBuilder bd)

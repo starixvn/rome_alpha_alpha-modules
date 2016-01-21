@@ -12,9 +12,9 @@ namespace Fanex.Age.UI.TotalBets
 		public class OutRight_Template : Template
 		{
 			protected static string s0 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>TotalBets</title><link href=\"";
-			protected static string s1{get{return AbsoluteUrl("_GlobalResources/Css/Agent.css", TplSettings.Question);}}
+			protected static string s1{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.css", TplSettings.Question);}}
 			protected static string s2 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
-			protected static string s3{get{return AbsoluteUrl("Resources/TotalBets.css", TplSettings.Question);}}
+			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/TotalBets/TotalBets.css", TplSettings.Question);}}
 			protected static string s4 = "\" rel=\"stylesheet\" type=\"text/css\" /></head><body><div id=\"page_main\"><div id=\"header_main\">";
 			protected static string s5{get{return LocalResources.TotalBetsLang.lblOutRight;}}
 			protected static string s6 = "</div>";
@@ -65,11 +65,11 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class OutRight_Contents_Block: Block
 		{
-			protected static string s14 = "<table class=\"tblRpt c\" cellpadding=\"0\" cellspacing=\"1\" border=\"0\" style=\"width: 600px\"><tr class=\"RptHeader\"><td style=\"width: 5%;\">#</td><td style=\"width: 45%;\">";
+			protected static string s14 = "<table class=\"tblRpt tbl-outRight c\"><tr class=\"RptHeader\"><td class=\"col-number\">#</td><td class=\"col-team\">";
 			protected static string s15{get{return LocalResources.TotalBetsLang.lblTeam;}}
-			protected static string s16 = "</td><td style=\"width: 25%\">";
+			protected static string s16 = "</td><td class=\"col-balance\">";
 			protected static string s17{get{return LocalResources.TotalBetsLang.lblBalance;}}
-			protected static string s18 = "</td><td style=\"width: 25%\">";
+			protected static string s18 = "</td><td class=\"col-forecast\">";
 			protected static string s19{get{return LocalResources.TotalBetsLang.lblForecast;}}
 			protected static string s20 = "</td></tr>";
 			public OutRight_Contents_LeagueContents_Block LeagueContents = new OutRight_Contents_LeagueContents_Block();
@@ -97,7 +97,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class OutRight_Contents_LeagueContents_Block: Block
 		{
-			protected static string s22 = "<tr align=\"center\"><td colspan=\"4\" style=\"padding-left: 20px;\" class=\"league\">";
+			protected static string s22 = "<tr align=\"center\"><td colspan=\"4\" class=\"league col-league\">";
 			public string LeagueName = "{LeagueName}";
 			protected static string s23 = "</td></tr>";
 			public OutRight_Contents_LeagueContents_MatchContents_Block MatchContents = new OutRight_Contents_LeagueContents_MatchContents_Block();

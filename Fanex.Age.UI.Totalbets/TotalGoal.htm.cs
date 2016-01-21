@@ -12,9 +12,9 @@ namespace Fanex.Age.UI.TotalBets
 		public class TotalGoal_Template : Template
 		{
 			protected static string s0 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>TotalBets</title><link href=\"";
-			protected static string s1{get{return AbsoluteUrl("_GlobalResources/Css/Agent.css", TplSettings.Question);}}
+			protected static string s1{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.css", TplSettings.Question);}}
 			protected static string s2 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
-			protected static string s3{get{return AbsoluteUrl("Resources/TotalBets.css", TplSettings.Question);}}
+			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/TotalBets/TotalBets.css", TplSettings.Question);}}
 			protected static string s4 = "\" rel=\"stylesheet\" type=\"text/css\" /></head><body><div id=\"page_main\"><div id=\"header_main\">";
 			protected static string s5{get{return LocalResources.TotalBetsLang.totalgoal;}}
 			protected static string s6 = "</div>";
@@ -65,29 +65,29 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class TotalGoal_Contents_Block: Block
 		{
-			protected static string s14 = "<table class=\"tblRpt\" cellpadding=\"0\" cellspacing=\"1\" border=\"0\"><tr class=\"RptHeader\"><td style=\"width: 20px;\" rowspan=\"2\">";
+			protected static string s14 = "<table class=\"tblRpt tbl-totalGoal\"><tr class=\"RptHeader\"><td class=\"col-number\" rowspan=\"2\">";
 			protected static string s15{get{return LocalResources.TotalBetsLang.no;}}
-			protected static string s16 = "</td><td style=\"width: 150px;\" rowspan=\"2\">";
+			protected static string s16 = "</td><td class=\"col-homeAway\" rowspan=\"2\">";
 			protected static string s17{get{return LocalResources.TotalBetsLang.home;}}
-			protected static string s18 = "</td><td style=\"width: 150px;\" rowspan=\"2\">";
+			protected static string s18 = "</td><td class=\"col-homeAway\" rowspan=\"2\">";
 			protected static string s19{get{return LocalResources.TotalBetsLang.away;}}
-			protected static string s20 = "</td><td style=\"width: 80px;\" colspan=\"4\">";
+			protected static string s20 = "</td><td class=\"col-fullHalf\" colspan=\"4\">";
 			protected static string s21{get{return LocalResources.TotalBetsLang.fulltime;}}
-			protected static string s22 = "</td><td style=\"width: 80px;\" colspan=\"3\">";
+			protected static string s22 = "</td><td class=\"col-fullHalf\" colspan=\"3\">";
 			protected static string s23{get{return LocalResources.TotalBetsLang.lbl1sthalf;}}
-			protected static string s24 = "</td></tr><tr class=\"RptHeader02\"><td style=\"width: 80px;\">";
+			protected static string s24 = "</td></tr><tr class=\"RptHeader02\"><td class=\"col-total\">";
 			protected static string s25{get{return LocalResources.TotalBetsLang.total01;}}
-			protected static string s26 = "</td><td style=\"width: 80px;\">";
+			protected static string s26 = "</td><td class=\"col-total\">";
 			protected static string s27{get{return LocalResources.TotalBetsLang.total23;}}
-			protected static string s28 = "</td><td style=\"width: 80px;\">";
+			protected static string s28 = "</td><td class=\"col-total\">";
 			protected static string s29{get{return LocalResources.TotalBetsLang.total46;}}
-			protected static string s30 = "</td><td style=\"width: 80px;\">";
+			protected static string s30 = "</td><td class=\"col-total\">";
 			protected static string s31{get{return LocalResources.TotalBetsLang.total7over;}}
-			protected static string s32 = "</td><td style=\"width: 80px;\">";
+			protected static string s32 = "</td><td class=\"col-total\">";
 			protected static string s33{get{return LocalResources.TotalBetsLang.total01;}}
-			protected static string s34 = "</td><td style=\"width: 80px;\">";
+			protected static string s34 = "</td><td class=\"col-total\">";
 			protected static string s35{get{return LocalResources.TotalBetsLang.total23;}}
-			protected static string s36 = "</td><td style=\"width: 80px;\">";
+			protected static string s36 = "</td><td class=\"col-total\">";
 			protected static string s37{get{return LocalResources.TotalBetsLang.total4over;}}
 			protected static string s38 = "</td></tr>";
 			public TotalGoal_Contents_TotalGoalContent_Block TotalGoalContent = new TotalGoal_Contents_TotalGoalContent_Block();

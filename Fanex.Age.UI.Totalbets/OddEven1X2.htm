@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>TotalBets</title>
-    <link href="../_GlobalResources/Css/Agent.css" rel="stylesheet" type="text/css" />
-    <link href="Resources/TotalBets.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/Common/Agent.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/TotalBets/TotalBets.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div id="page_main">
@@ -12,12 +12,12 @@
         {load:Fanex.Age.UI.Components.RefreshCountDown_Control RefreshCountDown = new Fanex.Age.UI.Components.RefreshCountDown_Control(this,15,"OddEvent1X2")}
         <div id="sContent">
         <!--Contents-->
-            <table cellpadding="0" cellspacing="1" border="0" class="tblRpt c">
+            <table class="tblRpt c">
                 <tr class="RptHeader">
-                    <td rowspan="2" style="width: 20px;">
+                    <td rowspan="2" class="col-number">
                         #
                     </td>
-                    <td rowspan="2" style="width: 110px;">
+                    <td rowspan="2" class="col-time">
                         {static:LocalResources.TotalBetsLang.time}
                     </td>
                     <td rowspan="2">
@@ -31,25 +31,25 @@
                     </td>
                 </tr>
                 <tr class="RptHeader02">
-                    <td style="width: 100px;">
+                    <td class="lbl-totalBetsLang">
                         {static:LocalResources.TotalBetsLang.lblOddEven}
                     </td>
-                    <td colspan="2" style="width: 100px;">
+                    <td colspan="2" class="lbl-totalBetsLang">
                         {static:LocalResources.TotalBetsLang.lbl1x2}
                     </td>
-                    <td style="width: 100px;">
+                    <td class="lbl-totalBetsLang">
                         {static:LocalResources.TotalBetsLang.lblDraw}/{static:LocalResources.TotalBetsLang.lblNoDraw}
                     </td>
-                    <td style="width: 100px;">
+                    <td class="lbl-totalBetsLang">
                         {static:LocalResources.TotalBetsLang.lblOddEven}
                     </td>
-                    <td colspan="2" style="width: 100px;">
+                    <td colspan="2" class="lbl-totalBetsLang">
                         {static:LocalResources.TotalBetsLang.lbl1x2}
                     </td>
                 </tr>
                 <!--LeagueContents-->
                 <tr class="c">
-                    <td colspan="10" style="padding-left: 20px;" class="league">
+                    <td colspan="10" class="col-league league">
                         {LeagueName}
                     </td>
                 </tr>
@@ -74,18 +74,18 @@
                             {OddEvenValue}</a>
                         <!--/OddEvenValue-->
                     </td>
-                    <td style="width: 70px">
+                    <td class="col-oneXTwo">
                         <!--OneXTwoValue-->
                         <a class="fcnum" href="javascript:doViewBetList({MatchId},5,'{BetType}');">
                             {OneXTwoValue}</a>
                         <!--/OneXTwoValue-->
                     </td>
-                    <td class="fcbtn" align="center" style="width: 16px">
+                    <td class="fcbtn">
                         <!--OneXTwoButton-->
                         <a href="javascript:openForecast1X2('{MatchId}',5)" class="btnInfo"></a>
                         <!--/OneXTwoButton-->
                     </td>
-                    <td style="width: 86px">
+                    <td class="col-DND">
                         <!--DNDValue-->
                         <a class="fcnum" href="javascript:doViewBetList({MatchId},123,'{BetType}');">
                             {DNDValue}</a>
@@ -97,13 +97,13 @@
                             {OddEventFirstHalfValue}</a>
                         <!--/OddEvenFirstHalfValue-->
                     </td>
-                    <td style="width: 70px">
+                    <td class="col-oneXTwo">
                         <!--OneXTwoFirstHalfValue-->
                         <a class="fcnum" href="javascript:doViewBetList({MatchId},15,'{BetType}');">
                             {OneXTwoFirstHalfValue}</a>
                         <!--/OneXTwoFirstHalfValue-->
                     </td>
-                    <td class="fcbtn" align="center" style="width: 16px">
+                    <td class="fcbtn c">
                         <!--OneXTwoFirstHalfButton-->
                         <a href="javascript:openForecast1X2('{MatchId}',15)" class="btnInfo"></a>
                         <!--/OneXTwoFirstHalfButton-->

@@ -12,9 +12,9 @@ namespace Fanex.Age.UI.TotalBets
 		public class MoneyLine_Template : Template
 		{
 			protected static string s0 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>TotalBets</title><link href=\"";
-			protected static string s1{get{return AbsoluteUrl("_GlobalResources/Css/Agent.css", TplSettings.Question);}}
+			protected static string s1{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.css", TplSettings.Question);}}
 			protected static string s2 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
-			protected static string s3{get{return AbsoluteUrl("Resources/TotalBets.css", TplSettings.Question);}}
+			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/TotalBets/TotalBets.css", TplSettings.Question);}}
 			protected static string s4 = "\" rel=\"stylesheet\" type=\"text/css\" /></head><body><div id=\"page_main\"><div id=\"header_main\">";
 			protected static string s5{get{return LocalResources.TotalBetsLang.moneyline;}}
 			protected static string s6 = "</div>";
@@ -65,7 +65,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class MoneyLine_Contents_Block: Block
 		{
-			protected static string s14 = "<table cellpadding=\"0\" cellspacing=\"1\" border=\"0\" class=\"tblRpt c\" style=\"width: 100%\"><tr class=\"RptHeader\"><td rowspan=\"2\">";
+			protected static string s14 = "<table class=\"tblRpt c width-100per\"><tr class=\"RptHeader\"><td rowspan=\"2\">";
 			protected static string s15{get{return LocalResources.TotalBetsLang.no;}}
 			protected static string s16 = "</td><td rowspan=\"2\">";
 			protected static string s17{get{return LocalResources.TotalBetsLang.time;}}
@@ -137,7 +137,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class MoneyLine_Contents_LeagueContents_Block: Block
 		{
-			protected static string s42 = "<tr class=\"league\"><td colspan=\"11\" style=\"padding-left: 20px;\">";
+			protected static string s42 = "<tr class=\"league\"><td colspan=\"11\" class=\"col-league\">";
 			public string LeagueName = "{LeagueName}";
 			protected static string s43 = "</td></tr>";
 			public MoneyLine_Contents_LeagueContents_MatchContents_Block MatchContents = new MoneyLine_Contents_LeagueContents_MatchContents_Block();

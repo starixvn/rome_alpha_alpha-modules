@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>TotalBets</title>
-    <link href="../_GlobalResources/Css/Agent.css" rel="stylesheet" type="text/css" />
-    <link href="Resources/TotalBets.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/Common/Agent.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/TotalBets/TotalBets.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div id="page_main">
@@ -12,24 +12,24 @@
             {load:Fanex.Age.UI.Components.RefreshCountDown_Control RefreshCountDown = new Fanex.Age.UI.Components.RefreshCountDown_Control(this,90,"OutRight")}
         <div id="sContent">
         <!--Contents-->
-            <table class="tblRpt c" cellpadding="0" cellspacing="1" border="0" style="width: 600px">
+            <table class="tblRpt tbl-outRight c">
                 <tr class="RptHeader">
-                    <td style="width: 5%;">
+                    <td class="col-number">
                         #
                     </td>
-                    <td style="width: 45%;">
+                    <td class="col-team">
                         {static:LocalResources.TotalBetsLang.lblTeam}
                     </td>
-                    <td style="width: 25%">
+                    <td class="col-balance">
                         {static:LocalResources.TotalBetsLang.lblBalance}
                     </td>
-                    <td style="width: 25%">
+                    <td class="col-forecast">
                         {static:LocalResources.TotalBetsLang.lblForecast}
                     </td>
                 </tr>
                 <!--LeagueContents-->
                 <tr align="center">
-                    <td colspan="4" style="padding-left: 20px;" class="league">
+                    <td colspan="4" class="league col-league">
                         {LeagueName}
                     </td>
                 </tr>

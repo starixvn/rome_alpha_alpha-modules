@@ -12,9 +12,9 @@ namespace Fanex.Age.UI.TotalBets
 		public class OddEven1X2_Template : Template
 		{
 			protected static string s0 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>TotalBets</title><link href=\"";
-			protected static string s1{get{return AbsoluteUrl("_GlobalResources/Css/Agent.css", TplSettings.Question);}}
+			protected static string s1{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.css", TplSettings.Question);}}
 			protected static string s2 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
-			protected static string s3{get{return AbsoluteUrl("Resources/TotalBets.css", TplSettings.Question);}}
+			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/TotalBets/TotalBets.css", TplSettings.Question);}}
 			protected static string s4 = "\" rel=\"stylesheet\" type=\"text/css\" /></head><body><div id=\"page_main\"><div id=\"header_main\">";
 			protected static string s5{get{return LocalResources.TotalBetsLang.lblOddEven;}}
 			protected static string s6 = " + ";
@@ -81,7 +81,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class OddEven1X2_Contents_Block: Block
 		{
-			protected static string s22 = "<table cellpadding=\"0\" cellspacing=\"1\" border=\"0\" class=\"tblRpt c\"><tr class=\"RptHeader\"><td rowspan=\"2\" style=\"width: 20px;\">#</td><td rowspan=\"2\" style=\"width: 110px;\">";
+			protected static string s22 = "<table class=\"tblRpt c\"><tr class=\"RptHeader\"><td rowspan=\"2\" class=\"col-number\">#</td><td rowspan=\"2\" class=\"col-time\">";
 			protected static string s23{get{return LocalResources.TotalBetsLang.time;}}
 			protected static string s24 = "</td><td rowspan=\"2\">";
 			protected static string s25{get{return LocalResources.TotalBetsLang.events;}}
@@ -89,17 +89,17 @@ namespace Fanex.Age.UI.TotalBets
 			protected static string s27{get{return LocalResources.TotalBetsLang.fulltime;}}
 			protected static string s28 = "</td><td colspan=\"3\">";
 			protected static string s29{get{return LocalResources.TotalBetsLang.lbl1sthalf;}}
-			protected static string s30 = "</td></tr><tr class=\"RptHeader02\"><td style=\"width: 100px;\">";
+			protected static string s30 = "</td></tr><tr class=\"RptHeader02\"><td class=\"lbl-totalBetsLang\">";
 			protected static string s31{get{return LocalResources.TotalBetsLang.lblOddEven;}}
-			protected static string s32 = "</td><td colspan=\"2\" style=\"width: 100px;\">";
+			protected static string s32 = "</td><td colspan=\"2\" class=\"lbl-totalBetsLang\">";
 			protected static string s33{get{return LocalResources.TotalBetsLang.lbl1x2;}}
-			protected static string s34 = "</td><td style=\"width: 100px;\">";
+			protected static string s34 = "</td><td class=\"lbl-totalBetsLang\">";
 			protected static string s35{get{return LocalResources.TotalBetsLang.lblDraw;}}
 			protected static string s36 = "/";
 			protected static string s37{get{return LocalResources.TotalBetsLang.lblNoDraw;}}
-			protected static string s38 = "</td><td style=\"width: 100px;\">";
+			protected static string s38 = "</td><td class=\"lbl-totalBetsLang\">";
 			protected static string s39{get{return LocalResources.TotalBetsLang.lblOddEven;}}
-			protected static string s40 = "</td><td colspan=\"2\" style=\"width: 100px;\">";
+			protected static string s40 = "</td><td colspan=\"2\" class=\"lbl-totalBetsLang\">";
 			protected static string s41{get{return LocalResources.TotalBetsLang.lbl1x2;}}
 			protected static string s42 = "</td></tr>";
 			public OddEven1X2_Contents_LeagueContents_Block LeagueContents = new OddEven1X2_Contents_LeagueContents_Block();
@@ -141,7 +141,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class OddEven1X2_Contents_LeagueContents_Block: Block
 		{
-			protected static string s44 = "<tr class=\"c\"><td colspan=\"10\" style=\"padding-left: 20px;\" class=\"league\">";
+			protected static string s44 = "<tr class=\"c\"><td colspan=\"10\" class=\"col-league league\">";
 			public string LeagueName = "{LeagueName}";
 			protected static string s45 = "</td></tr>";
 			public OddEven1X2_Contents_LeagueContents_MatchContents_Block MatchContents = new OddEven1X2_Contents_LeagueContents_MatchContents_Block();
@@ -178,17 +178,17 @@ namespace Fanex.Age.UI.TotalBets
 			public string Away = "{Away}";
 			protected static string s53 = "</td><td>";
 			public OddEven1X2_Contents_LeagueContents_MatchContents_OddEvenValue_Block OddEvenValue = new OddEven1X2_Contents_LeagueContents_MatchContents_OddEvenValue_Block();
-			protected static string s54 = "</td><td style=\"width: 70px\">";
+			protected static string s54 = "</td><td class=\"col-oneXTwo\">";
 			public OddEven1X2_Contents_LeagueContents_MatchContents_OneXTwoValue_Block OneXTwoValue = new OddEven1X2_Contents_LeagueContents_MatchContents_OneXTwoValue_Block();
-			protected static string s55 = "</td><td class=\"fcbtn\" align=\"center\" style=\"width: 16px\">";
+			protected static string s55 = "</td><td class=\"fcbtn\">";
 			public OddEven1X2_Contents_LeagueContents_MatchContents_OneXTwoButton_Block OneXTwoButton = new OddEven1X2_Contents_LeagueContents_MatchContents_OneXTwoButton_Block();
-			protected static string s56 = "</td><td style=\"width: 86px\">";
+			protected static string s56 = "</td><td class=\"col-DND\">";
 			public OddEven1X2_Contents_LeagueContents_MatchContents_DNDValue_Block DNDValue = new OddEven1X2_Contents_LeagueContents_MatchContents_DNDValue_Block();
 			protected static string s57 = "</td><td>";
 			public OddEven1X2_Contents_LeagueContents_MatchContents_OddEvenFirstHalfValue_Block OddEvenFirstHalfValue = new OddEven1X2_Contents_LeagueContents_MatchContents_OddEvenFirstHalfValue_Block();
-			protected static string s58 = "</td><td style=\"width: 70px\">";
+			protected static string s58 = "</td><td class=\"col-oneXTwo\">";
 			public OddEven1X2_Contents_LeagueContents_MatchContents_OneXTwoFirstHalfValue_Block OneXTwoFirstHalfValue = new OddEven1X2_Contents_LeagueContents_MatchContents_OneXTwoFirstHalfValue_Block();
-			protected static string s59 = "</td><td class=\"fcbtn\" align=\"center\" style=\"width: 16px\">";
+			protected static string s59 = "</td><td class=\"fcbtn c\">";
 			public OddEven1X2_Contents_LeagueContents_MatchContents_OneXTwoFirstHalfButton_Block OneXTwoFirstHalfButton = new OddEven1X2_Contents_LeagueContents_MatchContents_OneXTwoFirstHalfButton_Block();
 			protected static string s60 = "</td></tr>";
 			public override void ToString(ref StringBuilder bd)

@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>TotalBets</title>
-    <link href="../_GlobalResources/Css/Agent.css" rel="stylesheet" type="text/css" />
-    <link href="Resources/TotalBets.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/Common/Agent.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/TotalBets/TotalBets.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div id="page_main">
@@ -12,12 +12,12 @@
         {load:Fanex.Age.UI.Components.RefreshCountDown_Control RefreshCountDown = new Fanex.Age.UI.Components.RefreshCountDown_Control(this,15,"HDPOU")}
         <div id="sContent">
         <!--Contents-->
-            <table cellpadding="0" cellspacing="1" class="tblRpt" style="width: 100%;">
+            <table class="tblRpt width-100per">
                 <tr class="RptHeader">
-                    <td rowspan="2" style="width: 20px;">
+                    <td rowspan="2" class="col-number">
                         #
                     </td>
-                    <td rowspan="2" style="width: 110px;">
+                    <td rowspan="2" class="col-time">
                         {static:LocalResources.TotalBetsLang.time}
                     </td>
                     <td rowspan="2">
@@ -31,22 +31,22 @@
                     </td>
                 </tr>
                 <tr class="RptHeader02">
-                    <td colspan="2" style="text-align: center;">
+                    <td colspan="2" class="c">
                         {static:LocalResources.TotalBetsLang.lblHandicapFC}
                     </td>
-                    <td colspan="2" style="text-align: center;">
+                    <td colspan="2" class="c">
                         {static:LocalResources.TotalBetsLang.lblOverUnder}
                     </td>
-                    <td colspan="2" style="text-align: center;">
+                    <td colspan="2" class="c">
                         {static:LocalResources.TotalBetsLang.lblHandicapFC}
                     </td>
-                    <td colspan="2" style="text-align: center;">
+                    <td colspan="2" class="c">
                         {static:LocalResources.TotalBetsLang.lblOverUnder}
                     </td>
                 </tr>
                 <!--LeagueContents-->
                 <tr class="c league">
-                    <td colspan="11" class="" style="padding-left: 20px;">
+                    <td colspan="11" class="col-league">
                         {LeagueName}
                     </td>
                 </tr>
@@ -62,46 +62,46 @@
                         <font color="red"><i>{static:LocalResources.TotalBetsLang.lblLive}</i></font>
                         <!--/LiveNotice-->
                     </td>
-                    <td style="white-space: nowrap;">
+                    <td class="nowrap">
                         {Home} -vs- {Away}
                     </td>
-                    <td style="width: 90px;" class="r">
+                    <td class="col-hadicapTotal r">
                         <!--HandicapTotalValue-->
                         
                         <a class="fcnum" href="javascript:doViewBetList({MatchId},1,'{BetType}');">{HandicapTotalValue}</a>
                         <!--/HandicapTotalValue-->
                     </td>
-                    <td align="center" class="fcbtn" style="width: 16px">
+                    <td align="center" class="fcbtn">
                         <!--HandicapTotalButton-->
                         <a href="javascript:openForecast('{MatchId}','1')" class="btnInfo">&nbsp;</a>
                         <!--/HandicapTotalButton-->
                     </td>
-                    <td style="width: 90px;" class="r">
+                    <td class="col-overUnder r">
                         <!--OverUnderTotalValue-->
                         <a class="fcnum" href="javascript:doViewBetList({MatchId},3,'{BetType}');">{OverUnderTotalValue}</a>
                         <!--/OverUnderTotalValue-->
                     </td>
-                    <td class="fcbtn" align="center" style="width: 16px">
+                    <td class="fcbtn" align="center">
                         <!--OverUnderTotalButton-->
                         <a href="javascript:openForecast('{MatchId}','3')" class="btnInfo">&nbsp;</a>
                         <!--/OverUnderTotalButton-->
                     </td>
-                    <td style="width: 90px;" class="r">
+                    <td class="col-firstHalf r">
                         <!--HandicapFirstHalfValue-->
                         <a class="fcnum" href="javascript:doViewBetList({MatchId},7,'{BetType}');">{HandicapFirstHalfValue}</a>
                         <!--/HandicapFirstHalfValue-->
                     </td>
-                    <td class="fcbtn" align="center" style="width: 16px">
+                    <td class="fcbtn" align="center">
                         <!--HandicapFirstHalfButton-->
                         <a href="javascript:openForecast('{MatchId}','7')" class="btnInfo">&nbsp;</a>
                         <!--/HandicapFirstHalfButton-->
                     </td>
-                    <td style="width: 90px;" class="r">
+                    <td class="col-overUnder r">
                         <!--OverUnderFirstHalfValue-->
                         <a class="fcnum" href="javascript:doViewBetList({MatchId},8,'{BetType}');">{OverUnderFirstHalfValue}</a>
                         <!--/OverUnderFirstHalfValue-->
                     </td>
-                    <td class="fcbtn" align="center" style="width: 16px">
+                    <td class="fcbtn" align="center">
                         <!--OverUnderFirstHalfButton-->
                         <a href="javascript:openForecast('{MatchId}','8')" class="btnInfo">&nbsp;</a>
                         <!--/OverUnderFirstHalfButton-->
