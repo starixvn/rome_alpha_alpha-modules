@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>{static:LocalResources.UIForecastLang.lblForecast}</title>
-    <link href="../_GlobalResources/Css/Agent.css" rel="stylesheet" type="text/css" />
-    <link href="Resources/FC.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/Common/Agent.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/Forecast/FC.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <!--TitleHeader-->
@@ -17,7 +17,7 @@
             <!--Content-->
             <!--LimitLeagueList-->
             <div id="box_header" style="width: {TableWidth}">
-                <table border="0" cellpadding="0" cellspacing="1" style="height:35px;">
+                <table class="tbl-filter">
                     <tr>
                         <td>
                             {static:LocalResources.UIForecastLang.league}
@@ -31,7 +31,7 @@
                 </table>
             </div>
             <!--/LimitLeagueList-->
-            <table class="tblRpt" cellpadding="0" cellspacing="1" border="0" style="width: {TableWidth};">
+            <table class="tblRpt tbl-fc1x2" style="width: {TableWidth};">
                 <tr class="RptHeader">
                     <td colspan="2">
                         {static:LocalResources.UIForecastLang.lblTeam}
@@ -42,18 +42,18 @@
                 </tr>
                 <!--RowContent-->
                 <tr align="center">
-                    <td class="l league" colspan="5" style="padding-left: 20px;">
+                    <td class="l league" colspan="5">
                         {Home}-vs-{Away}
                     </td>
                 </tr>
                 <tr class="even_row" align="center">
-                    <td colspan="2" style="height: 20px">
+                    <td colspan="2" class="col-time">
                         <span>{Time}</span>
                     </td>
                     <td class="bold">
                         <span>1</span>
                     </td>
-                    <td class="bold" bgcolor="#FFEFDE">
+                    <td class="bold col-x">
                         <span>X</span>
                     </td>
                     <td class="bold">
@@ -61,36 +61,36 @@
                     </td>
                 </tr>
                 <tr class="even_row" align="center">
-                    <td width="15%">
-                        <font color="#38536A">{static:LocalResources.UIForecastLang.fulltime}</font>
+                    <td class="col-fulltime">
+                        <font>{static:LocalResources.UIForecastLang.fulltime}</font>
                     </td>
                     <td width="1%">
                         <a href="javascript:openForecast('{MatchId}','1')" class="btnInfo"></a>
                     </td>
-                    <td class="bold" width="8%">
+                    <td class="bold col-winlose">
                         <span>{HomeWinLose}</span>
                     </td>
-                    <td class="bold" width="8%">
+                    <td class="bold col-winlose">
                         <span>{DrawWinLose}</span>
                     </td>
-                    <td class="bold" width="8%">
+                    <td class="bold col-winlose">
                         <span>{AwayWinLose}</span>
                     </td>
                 </tr>
                 <tr class="even_row" align="center">
-                    <td width="15%">
-                        <font color="#38536A">{static:LocalResources.UIForecastLang.halftime}</font>
+                    <td class="col-halftime">
+                        <font>{static:LocalResources.UIForecastLang.halftime}</font>
                     </td>
-                    <td width="1%">
+                    <td class="col-btnInfo">
                         <a href="javascript:openForecast('{MatchId}','7')" class="btnInfo"></a>
                     </td>
-                    <td class="bold" width="8%">
+                    <td class="bold col-winlose">
                         <span>{HTHomeWinLose}</span>
                     </td>
-                    <td class="bold" width="8%">
+                    <td class="bold col-winlose">
                         <span>{HTDrawWinLose}</span>
                     </td>
-                    <td class="bold" width="8%">
+                    <td class="bold col-winlose">
                         <span>{HTAwayWinLose}</span>
                     </td>
                 </tr>

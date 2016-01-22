@@ -14,10 +14,10 @@ namespace Fanex.Age.UI.Forecast
 			protected static string s0 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>";
 			protected static string s1{get{return LocalResources.UIForecastLang.lblScoreMap;}}
 			protected static string s2 = "</title><link href=\"";
-			protected static string s3{get{return AbsoluteUrl("_GlobalResources/Css/Agent.css", TplSettings.Question);}}
+			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.css", TplSettings.Question);}}
 			protected static string s4 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
-			protected static string s5{get{return AbsoluteUrl("Resources/ScoreMap.css", TplSettings.Question);}}
-			protected static string s6 = "\" rel=\"stylesheet\" type=\"text/css\" /></head><body><div id=\"page_main\" style=\"min-height:380px\">";
+			protected static string s5{get{return AbsoluteUrl("App_Themes/Apo/Forecast/ScoreMap.css", TplSettings.Question);}}
+			protected static string s6 = "\" rel=\"stylesheet\" type=\"text/css\" /></head><body><div id=\"page_main\">";
 			public ScoreMap_mainTitle_Block mainTitle = new ScoreMap_mainTitle_Block();
 			protected static string s7 = "<div id=\"sContent\">";
 			public ScoreMap_Content_Block Content = new ScoreMap_Content_Block();
@@ -119,7 +119,7 @@ namespace Fanex.Age.UI.Forecast
 		{
 			protected static string s23 = "<div id=\"box_header\" style=\"width: ";
 			public string mWidth = "{mWidth}";
-			protected static string s24 = "\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"1\" style=\"display:inline-block;margin:5px;";
+			protected static string s24 = "\"><table class=\"tbl-filter\" style=\"";
 			public string display = "{display}";
 			protected static string s25 = "\"><tr><td>";
 			protected static string s26{get{return LocalResources.UIForecastLang.league;}}
@@ -129,9 +129,9 @@ namespace Fanex.Age.UI.Forecast
 			protected static string s29{get{return LocalResources.UIForecastLang.RefreshLeagues;}}
 			protected static string s30 = "\" class=\"btnRefresh\" id=\"RefreshLeagues\">&nbsp;</div></td><td><input type=\"button\" class=\"btn\" id=\"dSelMatch\" value=\"";
 			protected static string s31{get{return LocalResources.UIForecastLang.SelectMatch;}}
-			protected static string s32 = "\" style=\"width:80px\"></td><td valign=\"top\"><div style=\"float: left;padding-left:10px\" class=\"\" id=\"loading\"></div></td></tr></table><div style=\"float:right;\"><a href=\"javascript:;\" style=\"margin:10px 5px 0 0;height:16px;display:inline-block\" class=\"infoIco\"title=\"Click to view Score Map Info\" id=\"scoreMapIcon\"></a></div><div id=\"tblLiveDead\" style=\"";
+			protected static string s32 = "\"></td><td valign=\"top\"><div id=\"loading\"></div></td></tr></table><div class=\"pull-right\"><a href=\"javascript:;\" class=\"infoIco\"title=\"Click to view Score Map Info\" id=\"scoreMapIcon\"></a></div><div id=\"tblLiveDead\" style=\"";
 			public string displayLiveDead = "{displayLiveDead}";
-			protected static string s33 = "\"><table class=\"tblRpt\" border=\"0\" cellpadding=\"0\" cellspacing=\"1\" style=\"margin:5px\"><tr class=\"even_row\"><td><input class=\"hand\" type=\"checkbox\" ";
+			protected static string s33 = "\"><table class=\"tblRpt tbl-scoremap\"><tr class=\"even_row\"><td><input class=\"hand\" type=\"checkbox\" ";
 			public string isCheckedAllLive = "{isCheckedAllLive}";
 			protected static string s34 = " id=\"chkAllL\"><label class=\"hand bold\" for=\"chkAllL\" title=\"";
 			protected static string s35{get{return LocalResources.UIForecastLang.lblLiveBall;}}
@@ -147,9 +147,9 @@ namespace Fanex.Age.UI.Forecast
 			public string lblDeadball = "{lblDeadball}";
 			protected static string s42 = "</label></td><td id=\"Td2\"><table class=\"reference\"><tr>";
 			public string DeadBall = "{DeadBall}";
-			protected static string s43 = "</tr></table></td></tr></table><table border=\"0\" cellpadding=\"0\" cellspacing=\"1\" style=\"margin:0px 5px 5px\"><tr><td><input type=\"button\" value=\"";
+			protected static string s43 = "</tr></table></td></tr></table><table class=\"tbl-action\"><tr><td><input type=\"button\" value=\"";
 			protected static string s44{get{return LocalResources.UIForecastLang.submit;}}
-			protected static string s45 = "\" id=\"dSubmit\" class=\"btn\" style=\"width: 70px;\"></td><td valign=\"top\"><div style=\"height:23px;padding-left:15px\" class=\"\" id=\"loadingSubmit\"></div></td></tr></table></div></div>";
+			protected static string s45 = "\" id=\"dSubmit\" class=\"btn\"></td><td valign=\"top\"><div id=\"loadingSubmit\"></div></td></tr></table></div></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -197,7 +197,7 @@ namespace Fanex.Age.UI.Forecast
 		{
 			protected static string s46 = "<div id=\"RefreshContent";
 			public string matchId = "{matchId}";
-			protected static string s47 = "\" style=\"padding-top:6px\">";
+			protected static string s47 = "\">";
 			public string MainTable = "{MainTable}";
 			protected static string s48 = "</div>";
 			public override void ToString(ref StringBuilder bd)

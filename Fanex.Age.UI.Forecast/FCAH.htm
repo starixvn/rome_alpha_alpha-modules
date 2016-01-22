@@ -2,15 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>{static:LocalResources.UIForecastLang.lblForecast}</title>
-    <link href="../_GlobalResources/Css/Agent.css" rel="stylesheet" type="text/css" />
-    <link href="Resources/FC.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/Common/Agent.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/Forecast/FC.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     {load:Fanex.Age.UI.Components.RefreshCountDown_Control RefreshCountDown = new Fanex.Age.UI.Components.RefreshCountDown_Control(this,15,"FCAH","RefreshFC")}
     <div id="sContent">
         <!--Content-->
         <!--ForecastContent-->
-        <table class="tblRpt" cellpadding="0" cellspacing="1" border="0" style="width: 100%;">
+        <table class="tblRpt width-100per">
             <tr class="RptHeader">
                 <td>
                     {static:LocalResources.UIForecastLang.lblTeam}
@@ -29,8 +29,8 @@
             </tr>
         </table>
         <br />
-        <table class="tblRpt" cellpadding="0" cellspacing="1" border="0" style="width: 100%;">
-            <tr class="even_row" align="center">
+        <table class="tblRpt width-100per" style="width: 100%;">
+            <tr class="even_row c">
                 <td bgcolor="#cccccc">
                     <b>{Title}</b>
                 </td>
@@ -41,7 +41,7 @@
                 </td>
             </tr>
             <!--ForecastValue-->
-            <tr class="even_row" align="center">
+            <tr class="even_row c">
                 <td>
                     {VScore4}
                 </td>
@@ -58,7 +58,7 @@
                     {VScore}
                 </td>
             </tr>
-            <tr class="even_row" align="center">
+            <tr class="even_row c">
                 <td>
                     {FCValue4}
                 </td>
@@ -95,7 +95,7 @@
         <input type="hidden" id="score_vl" value="{ScoreValue}" />
         <!--/ForecastContent-->
         <!--NoInfo-->
-        <table class="tblRpt" cellpadding="0" cellspacing="1" border="0" style="width: 100%;">
+        <table class="tblRpt width-100per">
             <tr class="no_info">
                 <td>{static:LocalResources.UIForecastLang.noInfo}</td>
             </tr>

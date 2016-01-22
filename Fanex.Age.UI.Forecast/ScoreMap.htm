@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>{static:LocalResources.UIForecastLang.lblScoreMap}</title>
-    <link href="../../_GlobalResources/Css/Agent.css" rel="stylesheet" type="text/css" />
-    <link href="Resources/ScoreMap.css" rel="stylesheet" type="text/css" />
+    <link href="../../App_Themes/Apo/Common/Agent.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/Forecast/ScoreMap.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div id="page_main" style="min-height:380px">
+    <div id="page_main">
         <!--mainTitle-->
         <div id="header_main">
             {Forecast}
@@ -16,7 +16,7 @@
             <!--Content-->
             <!--LimitLeagueList-->
             <div id="box_header" style="width: {mWidth}">
-                <table border="0" cellpadding="0" cellspacing="1" style="display:inline-block;margin:5px;{display}">
+                <table class="tbl-filter" style="{display}">
                     <tr>
                         <td>
                             {static:LocalResources.UIForecastLang.league}
@@ -25,16 +25,16 @@
                             {LeagueList}
                         </td>
                         <td><div title="{static:LocalResources.UIForecastLang.RefreshLeagues}" class="btnRefresh" id="RefreshLeagues">&nbsp;</div></td>
-                        <td><input type="button" class="btn" id="dSelMatch" value="{static:LocalResources.UIForecastLang.SelectMatch}" style="width:80px"></td>
-                        <td valign="top"><div style="float: left;padding-left:10px" class="" id="loading"></div></td>
+                        <td><input type="button" class="btn" id="dSelMatch" value="{static:LocalResources.UIForecastLang.SelectMatch}"></td>
+                        <td valign="top"><div id="loading"></div></td>
                     </tr>
                 </table>
-                <div style="float:right;">
-                    <a href="javascript:;" style="margin:10px 5px 0 0;height:16px;display:inline-block" class="infoIco"
+                <div class="pull-right">
+                    <a href="javascript:;" class="infoIco"
                         title="Click to view Score Map Info" id="scoreMapIcon"></a>
                 </div>
                 <div id="tblLiveDead" style="{displayLiveDead}">
-                    <table class="tblRpt" border="0" cellpadding="0" cellspacing="1" style="margin:5px">
+                    <table class="tblRpt tbl-scoremap">
                         <tr class="even_row">
                             <td>
                                 <input class="hand" type="checkbox" {isCheckedAllLive} id="chkAllL">
@@ -54,10 +54,10 @@
                             </td>
                         </tr>
                     </table>       
-                    <table border="0" cellpadding="0" cellspacing="1" style="margin:0px 5px 5px">
+                    <table class="tbl-action">
                         <tr>
-                            <td><input type="button" value="{static:LocalResources.UIForecastLang.submit}" id="dSubmit" class="btn" style="width: 70px;"></td>
-                            <td valign="top"><div style="height:23px;padding-left:15px" class="" id="loadingSubmit"></div></td>
+                            <td><input type="button" value="{static:LocalResources.UIForecastLang.submit}" id="dSubmit" class="btn"></td>
+                            <td valign="top"><div id="loadingSubmit"></div></td>
                         </tr>
                     </table>             
                 </div>
@@ -65,7 +65,7 @@
             <!--/LimitLeagueList-->
             <div id="mainContent" style="width: {mWidth}">
                 <!--ScoreMap-->
-                <div id="RefreshContent{matchId}" style="padding-top:6px">
+                <div id="RefreshContent{matchId}">
                     {MainTable}
                 </div>
                 <!--/ScoreMap-->

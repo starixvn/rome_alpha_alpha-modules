@@ -14,9 +14,9 @@ namespace Fanex.Age.UI.Forecast
 			protected static string s0 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>";
 			protected static string s1{get{return LocalResources.UIForecastLang.lblForecast;}}
 			protected static string s2 = "</title><link href=\"";
-			protected static string s3{get{return AbsoluteUrl("_GlobalResources/Css/Agent.css", TplSettings.Question);}}
+			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.css", TplSettings.Question);}}
 			protected static string s4 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
-			protected static string s5{get{return AbsoluteUrl("Resources/FC.css", TplSettings.Question);}}
+			protected static string s5{get{return AbsoluteUrl("App_Themes/Apo/Forecast/FC.css", TplSettings.Question);}}
 			protected static string s6 = "\" rel=\"stylesheet\" type=\"text/css\" /></head><body>";
 			public Fanex.Age.UI.Components.RefreshCountDown_Control RefreshCountDown{get {return _RefreshCountDown != null ? _RefreshCountDown : _RefreshCountDown =  new Fanex.Age.UI.Components.RefreshCountDown_Control(this,15,"FCAH","RefreshFC");}}
 			protected Fanex.Age.UI.Components.RefreshCountDown_Control _RefreshCountDown;
@@ -81,7 +81,7 @@ namespace Fanex.Age.UI.Forecast
 
 		public class FCAH_Content_ForecastContent_Block: Block
 		{
-			protected static string s14 = "<table class=\"tblRpt\" cellpadding=\"0\" cellspacing=\"1\" border=\"0\" style=\"width: 100%;\"><tr class=\"RptHeader\"><td>";
+			protected static string s14 = "<table class=\"tblRpt width-100per\"><tr class=\"RptHeader\"><td>";
 			protected static string s15{get{return LocalResources.UIForecastLang.lblTeam;}}
 			protected static string s16 = "</td><td>";
 			protected static string s17{get{return LocalResources.UIForecastLang.lblScore;}}
@@ -93,7 +93,7 @@ namespace Fanex.Age.UI.Forecast
 			public string LiveHomeScore = "{LiveHomeScore}";
 			protected static string s21 = " : ";
 			public string LiveAwayScore = "{LiveAwayScore}";
-			protected static string s22 = "</td></tr></table><br /><table class=\"tblRpt\" cellpadding=\"0\" cellspacing=\"1\" border=\"0\" style=\"width: 100%;\"><tr class=\"even_row\" align=\"center\"><td bgcolor=\"#cccccc\"><b>";
+			protected static string s22 = "</td></tr></table><br /><table class=\"tblRpt width-100per\" style=\"width: 100%;\"><tr class=\"even_row c\"><td bgcolor=\"#cccccc\"><b>";
 			public string Title = "{Title}";
 			protected static string s23 = "</b></td><td colspan=\"4\">";
 			public FCAH_Content_ForecastContent_ForecastPointContent_Block ForecastPointContent = new FCAH_Content_ForecastContent_ForecastPointContent_Block();
@@ -187,7 +187,7 @@ namespace Fanex.Age.UI.Forecast
 
 		public class FCAH_Content_ForecastContent_ForecastValue_Block: Block
 		{
-			protected static string s37 = "<tr class=\"even_row\" align=\"center\"><td>";
+			protected static string s37 = "<tr class=\"even_row c\"><td>";
 			public string VScore4 = "{VScore4}";
 			protected static string s38 = "</td><td>";
 			public string VScore3 = "{VScore3}";
@@ -197,7 +197,7 @@ namespace Fanex.Age.UI.Forecast
 			public string VScore1 = "{VScore1}";
 			protected static string s41 = "</td><td>";
 			public string VScore = "{VScore}";
-			protected static string s42 = "</td></tr><tr class=\"even_row\" align=\"center\"><td>";
+			protected static string s42 = "</td></tr><tr class=\"even_row c\"><td>";
 			public string FCValue4 = "{FCValue4}";
 			protected static string s43 = "</td><td>";
 			public string FCValue3 = "{FCValue3}";
@@ -289,7 +289,7 @@ namespace Fanex.Age.UI.Forecast
 
 		public class FCAH_Content_NoInfo_Block: Block
 		{
-			protected static string s57 = "<table class=\"tblRpt\" cellpadding=\"0\" cellspacing=\"1\" border=\"0\" style=\"width: 100%;\"><tr class=\"no_info\"><td>";
+			protected static string s57 = "<table class=\"tblRpt width-100per\"><tr class=\"no_info\"><td>";
 			protected static string s58{get{return LocalResources.UIForecastLang.noInfo;}}
 			protected static string s59 = "</td></tr></table>";
 			public override void ToString(ref StringBuilder bd)
