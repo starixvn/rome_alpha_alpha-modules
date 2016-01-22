@@ -636,5 +636,13 @@ namespace Sunplus.Agent.Model.Entities
         Dictionary<int, bool> DisableProducts { get; set; }
 
         string UserLoginIp { get; set; }
+
+
+        bool IsInternalWebVPN
+        {
+            get;
+            set;
+        }
+
     }
 }
