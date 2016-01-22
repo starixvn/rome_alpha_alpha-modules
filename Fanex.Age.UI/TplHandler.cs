@@ -97,6 +97,11 @@ namespace Fanex.Age.UI
             // Validate request
             object obj = ValidateRequest(Parameters);
 
+            if(obj == null)
+            {
+                obj = ValidateSecurityActions();
+            }
+
             // Return error
             if (null != obj)
             {
@@ -136,6 +141,11 @@ namespace Fanex.Age.UI
             Response.Write(Json.Render(_Result));
 
             // End
+        }
+
+        public virtual object ValidateSecurityActions()
+        {
+            return null;
         }
 
         /// <summary>

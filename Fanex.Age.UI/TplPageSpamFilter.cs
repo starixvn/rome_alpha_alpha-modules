@@ -5,7 +5,7 @@ namespace Fanex.Age.UI
     using System.Web.UI;
     using Fanex.Security.SpamFilter;
 
-    public abstract class TplPageSpamFilter : TplPage
+    public abstract class TplPageSpamFilter : TplPageSecurity
     {
         protected override void Render(HtmlTextWriter writer)
         {

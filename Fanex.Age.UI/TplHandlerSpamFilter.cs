@@ -6,7 +6,7 @@ namespace Fanex.Age.UI
     using Fanex.Security.SpamFilter;
     using Sunplus.Agent.Model.Entities;
 
-    public abstract class TplHandlerSpamFilter : TplHandler
+    public abstract class TplHandlerSpamFilter : TplHandlerSecurity
     {
         private static ConcurrentDictionary<int, object> _spamFiltersLockObjects = new ConcurrentDictionary<int, object>();
 
