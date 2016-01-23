@@ -1,5 +1,6 @@
 ﻿namespace Fanex.Age.UI
 {
+    using System.Web.Helpers;
     using System.Web.UI;
 
     /// <summary>
@@ -13,7 +14,7 @@
         {
             base.RenderSecurityContent(writer);
 
-            AntiForgeryValidator.RegisterAntiForgeryToken(this);
+            writer.Write(AntiForgery.GetHtml().ToHtmlString());
         }
     }
 }

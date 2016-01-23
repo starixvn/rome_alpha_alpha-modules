@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HttpModules\AuthenticationHttpModule.cs" />
-    <Compile Include="Web\ShareSessionHttpModule.cs" />
+    <Compile Include="Web\ShareSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
