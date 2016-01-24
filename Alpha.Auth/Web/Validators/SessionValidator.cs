@@ -1,21 +1,19 @@
 ﻿namespace Alpha.Auth.Web.Validators
 {
     using System;
+    using System.Text;
     using System.Web;
     using System.Web.Security;
     using Configurations;
-    using Fanex.Common;
     using Sunplus.Agent.Model.Entities;
 
     public static class SessionValidator
     {
-        private const string SessionVerificationTokenNameFormat = "__SessionVerificationToken_{0}";
-
         private static string SessionVerificationTokenName
         {
             get
             {
-                return string.Format(SessionVerificationTokenNameFormat, HttpContext.Current.Session.SessionID);
+                return AlphaAuthSection.Instance.SessionVerificationTokenCookie + HttpContext.Current.Session.SessionID;
             }
         }
 
@@ -24,7 +22,7 @@
         /// We will decide to kickout user or not.
         /// for case user session mixed up.
         /// </summary>
-        private static void VerifyUsername()
+        public static void Validate()
         {
             if (!AlphaAuthSection.Instance.EnableSessionValidation)
             {
@@ -36,11 +34,11 @@
 
             if (cookieValue != null
                 && !string.IsNullOrWhiteSpace(cookieValue.Value)
-                && cookieValue.Value != GetEncryptedSessionInformation())
+                && cookieValue.Value != GetEncodedSessionInformation())
             {
                 try
                 {
-                    var decryptedValue = Cryptography.CfsDeCrypt(cookieValue.Value);
+                    var decryptedValue = Decode(cookieValue.Value);
 
                     ValidationLogger.WriteWarning("Session validation failed. Cached information:" + decryptedValue);
                 }
@@ -55,7 +53,10 @@
 
                     session.Clear();
                     session.Abandon();
-                    FormsAuthentication.SignOut();
+                    if (!session.IsCookieless)
+                    {
+                        FormsAuthentication.SignOut();
+                    }
 
                     HttpContext.Current.Response.Redirect(FormsAuthentication.LoginUrl, true);
                 }
@@ -69,8 +70,8 @@
                 return;
             }
 
-            var encryptedValue = GetEncryptedSessionInformation();
-            var httpCookie = new HttpCookie(SessionVerificationTokenName, encryptedValue)
+            var encodedValue = GetEncodedSessionInformation();
+            var httpCookie = new HttpCookie(SessionVerificationTokenName, encodedValue)
             {
                 HttpOnly = true
             };
@@ -78,7 +79,7 @@
             HttpContext.Current.Response.Cookies.Add(httpCookie);
         }
 
-        private static string GetEncryptedSessionInformation()
+        private static string GetEncodedSessionInformation()
         {
             var rawData = string.Join(
                "_",
@@ -86,7 +87,21 @@
                UserSession.Current.UserId.ToString(),
                UserSession.Current.SubAccId.ToString());
 
-            return Cryptography.CfsEnCrypt(rawData);
+            return Encode(rawData.ToUpper());
+        }
+
+        private static string Encode(string sessionInfo)
+        {
+            var encodedSessionInfo = Encoding.UTF8.GetBytes(sessionInfo);
+
+            return HttpServerUtility.UrlTokenEncode(encodedSessionInfo);
+        }
+
+        private static string Decode(string encodedSessionInfo)
+        {
+            var decodedSessionInfo = HttpServerUtility.UrlTokenDecode(encodedSessionInfo);
+
+            return Encoding.UTF8.GetString(decodedSessionInfo);
         }
     }
 }

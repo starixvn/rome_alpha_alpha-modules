@@ -7,6 +7,7 @@
         private const string EnableAntiXSRFName = "enableAntiXSRF";
         private const string EnableSessionValidationName = "enableSessionValidation";
         private const string EnableKickOutWhenSessionInvalidName = "enableKickOutWhenSessionInvalid";
+        private const string SessionVerificationTokenCookieName = "sessionVerificationTokenCookie";
 
         private static AlphaAuthSection instance
             = ConfigurationManager.GetSection("AlphaAuthSection") as AlphaAuthSection;
@@ -43,6 +44,15 @@
             get
             {
                 return (bool)this[EnableKickOutWhenSessionInvalidName];
+            }
+        }
+
+        [ConfigurationProperty(SessionVerificationTokenCookieName, DefaultValue = "__SessionVerificationToken_", IsRequired = false)]
+        public string SessionVerificationTokenCookie
+        {
+            get
+            {
+                return (string)this[SessionVerificationTokenCookieName];
             }
         }
     }

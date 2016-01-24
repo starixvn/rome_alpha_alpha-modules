@@ -27,6 +27,15 @@
             Logs.WriteWarn(validationException);
         }
 
+        public static void WriteInfo(string message)
+        {
+            string logMessage = BuildMessage(message);
+
+            var validationException = new Exception(logMessage);
+
+            Logs.WriteInfo(validationException);
+        }
+
         private static string BuildMessage(string message)
         {
             NameValueCollection headers = HttpContext.Current.Request.Headers;
