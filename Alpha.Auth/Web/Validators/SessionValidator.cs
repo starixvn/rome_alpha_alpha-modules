@@ -1,27 +1,15 @@
-﻿namespace Fanex.Age.UI.Validators
+﻿namespace Alpha.Auth.Web.Validators
 {
     using System;
-    using System.Collections.Specialized;
-    using System.Configuration;
-    using System.IO;
     using System.Web;
+    using System.Web.Security;
+    using Configurations;
     using Fanex.Common;
     using Sunplus.Agent.Model.Entities;
-    using Sunplus.Agent.Utilities;
 
     public static class SessionValidator
     {
         private const string SessionVerificationTokenNameFormat = "__SessionVerificationToken_{0}";
-        private static readonly bool _enableSessionValidation = true;
-
-        static SessionValidator()
-        {
-            var enableSessionValidation = ConfigurationManager.AppSettings["EnableSessionValidation"];
-            if (!string.IsNullOrWhiteSpace(enableSessionValidation))
-            {
-                _enableSessionValidation = enableSessionValidation != "0";
-            }
-        }
 
         private static string SessionVerificationTokenName
         {
@@ -38,7 +26,7 @@
         /// </summary>
         private static void VerifyUsername()
         {
-            if (!_enableSessionValidation)
+            if (!AlphaAuthSection.Instance.EnableSessionValidation)
             {
                 return;
             }
@@ -54,20 +42,29 @@
                 {
                     var decryptedValue = Cryptography.CfsDeCrypt(cookieValue.Value);
 
-                    ValidationLogger.WriteWarning(string.Join(
-                        "\r\n",
-                        "Session validation failed. Cached information:" + decryptedValue));
+                    ValidationLogger.WriteWarning("Session validation failed. Cached information:" + decryptedValue);
                 }
                 catch (Exception ex)
                 {
                     ValidationLogger.WriteWarning(ex, "Session validation failed. Cached information" + cookieValue.Value);
                 }
+
+                if (AlphaAuthSection.Instance.EnableKickOutWhenSessionInvalid)
+                {
+                    var session = HttpContext.Current.Session;
+
+                    session.Clear();
+                    session.Abandon();
+                    FormsAuthentication.SignOut();
+
+                    HttpContext.Current.Response.Redirect(FormsAuthentication.LoginUrl, true);
+                }
             }
         }
 
-        public static void AddVerifyUsernameToken()
+        public static void AddSessionVerificationToken()
         {
-            if (!_enableSessionValidation)
+            if (!AlphaAuthSection.Instance.EnableSessionValidation)
             {
                 return;
             }

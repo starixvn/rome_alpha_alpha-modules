@@ -16,9 +16,9 @@ namespace Fanex.Age.UI
 
         /// <summary>
         /// Password must be at least 8 characters without white space and contain at least 3 of the following:
-        ///  • Uppercase letter [A-Z]  
-        ///  • Lowercase leader [a-z]  
-        ///  • Numeric [0-9]  
+        ///  • Uppercase letter [A-Z]
+        ///  • Lowercase leader [a-z]
+        ///  • Numeric [0-9]
         ///  • Special character (!,@,#,etc..)
         /// For example: 59D7!4$h
         /// </summary>
@@ -83,7 +83,5 @@ namespace Fanex.Age.UI
 
             return result;
         }
-
-
     }
 }

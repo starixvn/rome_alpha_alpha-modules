@@ -1,4 +1,4 @@
-﻿namespace Fanex.Age.UI.Validators
+﻿namespace Alpha.Auth.Web.Validators
 {
     using System;
     using System.Collections.Specialized;
@@ -36,14 +36,15 @@
                 headerInfo += headers.GetKey(i) + " = " + headers.Get(i) + "\r\n";
             }
 
-            return string.Join("\r\n",
-                                    message,
-                                    "Cust Id: " + UserSession.Current.CustId.ToString(),
-                                    "Username: " + UserSession.Current.UserName,
-                                    "Sub Account Id: " + UserSession.Current.SubAccId,
-                                    "Session Id: " + HttpContext.Current.Session.SessionID,
-                                    headerInfo,
-                                    "Request Body: " + GetRequestBody(HttpContext.Current.Request));
+            return string.Join(
+                "\r\n",
+                message,
+                "Cust Id: " + UserSession.Current.CustId.ToString(),
+                "Username: " + UserSession.Current.UserName,
+                "Sub Account Id: " + UserSession.Current.SubAccId,
+                "Session Id: " + HttpContext.Current.Session.SessionID,
+                headerInfo,
+                "Request Body: " + GetRequestBody(HttpContext.Current.Request));
         }
 
         private static string GetRequestBody(HttpRequest request)

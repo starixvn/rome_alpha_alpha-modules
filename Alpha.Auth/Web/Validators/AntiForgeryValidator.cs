@@ -1,9 +1,11 @@
-﻿namespace Fanex.Age.UI.Validators
+﻿namespace Alpha.Auth.Web.Validators
 {
     using System;
     using System.Configuration;
     using System.Web;
     using System.Web.Helpers;
+    using Configurations;
+    using Models;
 
     /// <summary>
     /// http://blog.stevensanderson.com/2008/09/01/prevent-cross-site-request-forgery-csrf-using-aspnet-mvcs-antiforgerytoken-helper/
@@ -11,22 +13,12 @@
     public static class AntiForgeryValidator
     {
         private const string AntiForgeryFormTokenName = "__RequestVerificationToken";
-        private static readonly bool _enableAntiXSRF = true;
-
-        static AntiForgeryValidator()
-        {
-            var enableAntiXSRF = ConfigurationManager.AppSettings["EnableAntiXSRF"];
-            if (!string.IsNullOrWhiteSpace(enableAntiXSRF))
-            {
-                _enableAntiXSRF = enableAntiXSRF != "0";
-            }
-        }
 
         public static Result ValidateRequest()
         {
-            if (!_enableAntiXSRF)
+            if (!AlphaAuthSection.Instance.EnableAntiXSRF)
             {
-                return new Result(ErrorType.Success, string.Empty);
+                return Result.Success;
             }
 
             try
@@ -36,7 +28,7 @@
                 var formToken = request.Headers[AntiForgeryFormTokenName];
                 if (!string.IsNullOrWhiteSpace(formToken))
                 {
-                    return new Result(ErrorType.AccessDenied, "Request Verification Token does not exist!");
+                    return Result.GetAccessDeniedResult("Request Verification Token does not exist!");
                 }
 
                 var cookieValue = request.Cookies[AntiForgeryConfig.CookieName];
@@ -54,10 +46,15 @@
             {
                 ValidationLogger.WriteWarning(ex, "Validation of Anti-XSRF token failed");
 
-                return new Result(ErrorType.AccessDenied, "Validation of Anti-XSRF token failed. Please refresh your page. Thanks.");
+                return Result.GetAccessDeniedResult("Validation of Anti-XSRF token failed. Please refresh your page. Thanks.");
             }
 
-            return new Result(ErrorType.Success, string.Empty);
+            return Result.Success;
+        }
+
+        public static string GenerateTokenInInputElement()
+        {
+            return AntiForgery.GetHtml().ToHtmlString();
         }
     }
 }

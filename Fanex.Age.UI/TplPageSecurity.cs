@@ -1,7 +1,7 @@
 ﻿namespace Fanex.Age.UI
 {
-    using System.Web.Helpers;
     using System.Web.UI;
+    using Alpha.Auth.Web.Validators;
 
     /// <summary>
     /// Each .aspx file inherits from this class will be automatically add security information for checking later
@@ -14,7 +14,7 @@
         {
             base.RenderSecurityContent(writer);
 
-            writer.Write(AntiForgery.GetHtml().ToHtmlString());
+            writer.Write(AntiForgeryValidator.GenerateTokenInInputElement());
         }
     }
 }
