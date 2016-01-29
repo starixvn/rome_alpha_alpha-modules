@@ -7,7 +7,7 @@
     using Fanex.Razorbill.Security.Entities;
     using Fanex.Razorbill.Security.Resources;
     using Fanex.Razorbill.Security.Services;
-
+    using Filter;
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -141,6 +141,7 @@
         /// <param name="confirmSecurityCode">The confirm security code.</param>
         /// <returns>The JSON result.</returns>
         [HttpPost]
+        [AntiXSRFFilter]
         [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules", "SP2101:MethodMustNotContainMoreLinesThan", Justification = "Reviewed. Suppression is OK here.")]
         public ActionResult ForceChangeSecurityCode(string oldSecurityCode, string securityCode, string confirmSecurityCode)
         {
@@ -203,6 +204,7 @@
         /// <param name="confirmSecurityCode">The confirm security code.</param>
         /// <returns>The JSON result.</returns>
         [HttpPost]
+        [AntiXSRFFilter]
         public ActionResult ForceChangeSecurityCodeWithoutValidation(string securityCode, string confirmSecurityCode)
         {
             JsonRequestBehavior jsonBehavior = JsonRequestBehavior.DenyGet;
@@ -255,6 +257,7 @@
         /// <param name="securityCode">The security code.</param>
         /// <returns>The JSON result.</returns>
         [HttpPost]
+        [AntiXSRFFilter]
         public ActionResult VerifySecurityCode(string securityCode)
         {
             JsonRequestBehavior jsonBehavior = JsonRequestBehavior.DenyGet;
@@ -293,6 +296,7 @@
         /// <param name="confirmSecurityCode">The confirm security code.</param>
         /// <returns>The JSON result.</returns>
         [HttpPost]
+        [AntiXSRFFilter]
         public ActionResult ChangeSecurityCode(string oldSecurityCode, string securityCode, string confirmSecurityCode)
         {
             JsonRequestBehavior jsonBehavior = JsonRequestBehavior.DenyGet;
@@ -355,6 +359,7 @@
         /// <returns>The JSON result.</returns>
         [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules", "SP2101:MethodMustNotContainMoreLinesThan", Justification = "Reviewed. Suppression is OK here.")]
         [HttpPost]
+        [AntiXSRFFilter]
         public ActionResult ResetSecurityCode(int? custId, int? subAccId, string securityCode, string confirmSecurityCode)
         {
             JsonRequestBehavior jsonBehavior = JsonRequestBehavior.DenyGet;

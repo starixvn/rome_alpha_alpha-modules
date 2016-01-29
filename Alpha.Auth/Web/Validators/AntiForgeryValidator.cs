@@ -28,7 +28,7 @@
                 var formToken = request.Headers[AntiForgeryFormTokenName];
                 if (string.IsNullOrWhiteSpace(formToken))
                 {
-                    return Result.GetAccessDeniedResult("Request Verification Token does not exist!");
+                    return Result.GetAccessDeniedResult("Request Verification Token does not exist. Please refresh your page. Thanks.");
                 }
 
                 var cookieValue = request.Cookies[AntiForgeryConfig.CookieName];
