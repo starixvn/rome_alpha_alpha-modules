@@ -2585,4 +2585,7 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="Progressivebonus" xml:space="preserve">
     <value>Progressive Bonus</value>
   </data>
+  <data name="AllProducts" xml:space="preserve">
+    <value>All Products</value>
+  </data>
 </root>

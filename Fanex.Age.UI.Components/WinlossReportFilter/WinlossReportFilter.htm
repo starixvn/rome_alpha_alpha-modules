@@ -1,6 +1,32 @@
 ﻿<div id="reportFilter">
-<!--Filter-->
-<input type="checkbox" id="{optionId}" name="{optionId}" onclick="{onClick}" {isChecked}/><label for="{optionId}">{text}</label>&nbsp;&nbsp;&nbsp;&nbsp;
-<!--/Filter-->
-<input type="hidden" name="FilterPostback" id="FilterPostback" value="postback" />
+	<span>{ProductLabel}</span>
+	<div class="multiselect">
+		<a class="multiselect-state-default" id="multiselect-products">
+			<input type="text" readonly="readonly" id="multiselect-productstoshow" />
+			<span class="multiselect-icon multiselect-icon-triangle-1-s"></span>
+		</a>
+		<div class="multiselect-options multiselect-shadow" style="display:none;" id="multiselect-products-options">
+			<div class="multiselect-options-header">
+				<ul style="overflow-y:hidden;" class="unstyle">
+					<li>
+						<label class="multiselect-check-all" onclick="CheckAll(this, event)">
+							<input type="checkbox" id="chk_all" />{AllProducts}
+						</label>
+					</li>
+				</ul>
+			</div>
+			<ul class="unstyle first-group">
+				<!--Filter-->
+				<li>
+					<div class="multiselect-div">
+						<label onclick="IsCheck(event)">
+							<input type="checkbox" id="chk_{OptionId}" name="{OptionId}" {Checked} data-product="{ProductName}"/>{ProductName}
+						</label>
+					</div>
+				</li>
+				<!--/Filter-->
+			</ul>
+		</div>
+	</div>
+	<input type="hidden" name="FilterPostback" id="FilterPostback" value="postback" />
 </div>

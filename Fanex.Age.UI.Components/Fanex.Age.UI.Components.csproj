@@ -198,10 +198,8 @@
     <Compile Include="ShowHideColumn\IContextMenuColumns.cs" />
     <Compile Include="WinlossReportFilter\FilterElement.cs" />
     <Compile Include="WinlossReportFilter\Filter_Control.cs" />
-    <Compile Include="WinlossReportFilter\WinlossReportFilter.htm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WinlossReportFilter\WinlossReportFilterManager.cs" />
-    <Compile Include="WinlossReportFilter\WinlossReportFilter_Control.cs" />
+    <Compile Include="WinlossReportFilter\winlossreportfilter.htm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Transfer\" />

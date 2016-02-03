@@ -504,6 +504,15 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Products.
+        /// </summary>
+        internal static string AllProducts {
+            get {
+                return ResourceManager.GetString("AllProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All yesterday balance.
         /// </summary>
         internal static string allyesterdaybalance {
