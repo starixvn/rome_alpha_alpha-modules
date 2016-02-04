@@ -13,8 +13,8 @@
         /// <param name="bundles">The bundles.</param>
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/Areas/Security/Views/Styles/securitycode-css").IncludeDirectory(
-                "~/Areas/Security/Views/Styles", "*.css"));
+            bundles.Add(new StyleBundle("~/bundles/securitycode-css").IncludeDirectory(
+                "~/App_Themes/Apo/Security", "*.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/forcechangesecuritycode-js").Include(
                 "~/Areas/Security/Views/Scripts/Sha1.js",
