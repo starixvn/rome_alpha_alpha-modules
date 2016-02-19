@@ -1,6 +1,6 @@
 ﻿namespace Sunplus.Agent.Model.Definitions
 {
-    public class ProductIdConstants
+	public class ProductIdConstants
     {
         public const int Sportsbook = 1;
         public const int Racing = 2;
@@ -19,5 +19,7 @@
         public const int P2P = 9;
         public const int ProgressiveBonus = 10;
         public const int ColossusBets = 15;
-    }
+
+		public const int AllBet = 21;
+	}
 }

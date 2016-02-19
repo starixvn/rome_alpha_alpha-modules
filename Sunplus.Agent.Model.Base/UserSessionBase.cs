@@ -1,16 +1,16 @@
 namespace Sunplus.Agent.Model.Entities
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Globalization;
-    using System.Reflection;
-    using System.Runtime.Serialization;
-    using System.Web;
-    using Sunplus.Agent.Model.BL.Definitions;
+	using System;
+	using System.Collections.Generic;
+	using System.Configuration;
+	using System.Diagnostics.CodeAnalysis;
+	using System.Globalization;
+	using System.Reflection;
+	using System.Runtime.Serialization;
+	using System.Web;
+	using Sunplus.Agent.Model.BL.Definitions;
 
-    [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1310:FieldNamesMustNotContainUnderscore", Justification = "Reviewed.")]
+	[SuppressMessage("StyleCop.CSharp.NamingRules", "SA1310:FieldNamesMustNotContainUnderscore", Justification = "Reviewed.")]
     [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
     [Serializable]
     [Obsolete("Should rename to Sunplus.Agent.Model.Base")]
@@ -123,7 +123,9 @@ namespace Sunplus.Agent.Model.Entities
 
         private const string USERLOGINIP = "USERLOGINIP";
 
-        private string asNetSessionId;
+		private const string ISSYNCEDALLBET = "ISSYNCEDALLBET";
+
+		private string asNetSessionId;
 
         #endregion Contructors
 
@@ -1534,9 +1536,22 @@ namespace Sunplus.Agent.Model.Entities
             }
         }
 
-        #region ISerializable Members
+		public bool IsSyncedAllBet
+		{
+			get
+			{
+				object value = GetProperty(ISSYNCEDALLBET);
+				return value != null && (bool)value;
+			}
+			set
+			{
+				SetProperty(ISSYNCEDALLBET, value);
+			}
+		}
 
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
+		#region ISerializable Members
+
+		public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             Type type = GetType();
             FieldInfo[] f = type.GetFields(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.NonPublic);
