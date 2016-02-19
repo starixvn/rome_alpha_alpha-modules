@@ -126,9 +126,13 @@ namespace Sunplus.Shared.ViewLogLib
             XmlElement element = newDoc.DocumentElement;
 
             int count = 1;
-            if (element.HasChildNodes && isNewFormatActionLogIds)
+            if (isNewFormatActionLogIds)
             {
-                count = isNewFormatActionLogIds ? (element.ChildNodes.Count + 1) : element.ChildNodes.Count;
+                count = element.ChildNodes.Count + 1;
+            }
+            else
+            {
+                count = element.HasChildNodes ? element.ChildNodes.Count : 1;
             }
 
             for (int i = 0; i < count; i++)
