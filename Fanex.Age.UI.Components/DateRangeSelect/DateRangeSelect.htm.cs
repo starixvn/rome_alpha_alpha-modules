@@ -14,7 +14,7 @@ namespace Fanex.Age.UI.Components
 		public class DateRangeSelect_Template : Template
 		{
 			public DateRangeSelect_ExternalResources_Block ExternalResources = new DateRangeSelect_ExternalResources_Block();
-			protected static string s0 = "<div id=\"spDateTimeSearch\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr style=\"height: 32px;\">";
+			protected static string s0 = "<div id=\"spDateTimeSearch\"><table><tr>";
 			public DateRangeSelect_DateFilter_Block DateFilter = new DateRangeSelect_DateFilter_Block();
 			public DateRangeSelect_BetListOption_Block BetListOption = new DateRangeSelect_BetListOption_Block();
 			public DateRangeSelect_LimitDateRange_Block LimitDateRange = new DateRangeSelect_LimitDateRange_Block();
@@ -65,7 +65,7 @@ namespace Fanex.Age.UI.Components
 		public class DateRangeSelect_ExternalResources_Block: Block
 		{
 			protected static string s6 = "<link href=\"";
-			protected static string s7{get{return AbsoluteUrl("DateRangeSelect/DateRangeSelect.css", TplSettings.Question);}}
+			protected static string s7{get{return AbsoluteUrl("App_Themes/Apo/Components/DateRangeSelect/DateRangeSelect.css", TplSettings.Question);}}
 			protected static string s8 = "\" rel=\"stylesheet\" type=\"text/css\" /><script src=\"";
 			protected static string s9{get{return AbsoluteUrl("DateRangeSelect/DateRangeSelect.js", TplSettings.Question);}}
 			protected static string s10 = "\" type=\"text/javascript\"></script><script type=\"text/javascript\">var max_server_date = '";
@@ -106,7 +106,7 @@ namespace Fanex.Age.UI.Components
 
 		public class DateRangeSelect_LimitDateRange_Block: Block
 		{
-			protected static string s13 = "<td id=\"tdfdatetext\" style=\"padding-left: 6px;\" class=\"l\"><span id=\"spfdatetext\">";
+			protected static string s13 = "<td id=\"tdfdatetext\" class=\"l\"><span id=\"spfdatetext\">";
 			public string DateFromText = "{DateFromText}";
 			protected static string s14 = ":</span></td><td id=\"tdFromDateCal\" class=\"l\"><span id=\"spFromDateCal\">";
 			public Fanex.Age.UI.Components.DateTimeControl.Calendar.Calendar_Control CalendarFrom{get {return _CalendarFrom != null ? _CalendarFrom : _CalendarFrom = new Fanex.Age.UI.Components.DateTimeControl.Calendar.Calendar_Control(this,"fdate","fdate_trigger",DateTime.Today);}}
