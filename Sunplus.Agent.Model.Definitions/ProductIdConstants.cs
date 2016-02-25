@@ -1,4 +1,4 @@
-﻿namespace Fanex.Age.UI.Constants
+﻿namespace Sunplus.Agent.Model.Definitions
 {
     public class ProductIdConstants
     {
@@ -15,6 +15,7 @@
         public const int RNGCasino = 6;
         public const int Bingo = 7;
         public const int CockFighting = 19;
+        public const int Cricket = 20;
         public const int P2P = 9;
         public const int ProgressiveBonus = 10;
         public const int ColossusBets = 15;

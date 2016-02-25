@@ -306,6 +306,14 @@ namespace Sunplus.Agent.Model.Entities.Permission
             }
         }
 
+        public static bool IsIMBCCustomer
+        {
+            get
+            {
+                return CurrentUserSession.IsIMBCCustomer;
+            }
+        }
+
         public static bool IsShowSuperLive
         {
             get

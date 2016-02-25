@@ -111,6 +111,7 @@ namespace Sunplus.Agent.Model.Entities
 
         private const string ISDISABLEDESPORTS = "ISDISABLEDESPORTS";
         private const string ISMYANMARODDS = "ISMYANMARODDS";
+        private const string ISIMBCCUSTOMER = "ISIMBCCUSTOMER";
 
         private const string ISHIDESPORTSBOOK2 = "ISHIDESPORTSBOOK2";
         private const string DISABLESPORTSBOOK2 = "DISABLESPORTSBOOK2";
@@ -1433,6 +1434,20 @@ namespace Sunplus.Agent.Model.Entities
             }
         }
 
+        public bool IsIMBCCustomer
+        {
+            get
+            {
+                object value = this.GetProperty(ISIMBCCUSTOMER);
+                return (null == value) ? false : (bool)value;
+            }
+
+            set
+            {
+                this.SetProperty(ISIMBCCUSTOMER, value);
+            }
+        }
+
         public bool IsDisabledSuperLive
         {
             get
@@ -1474,7 +1489,8 @@ namespace Sunplus.Agent.Model.Entities
                 SetProperty(DISABLEPRODUCTS, value);
             }
         }
-        public string UserLoginIp {
+        public string UserLoginIp
+        {
             get
             {
                 object value = GetProperty(USERLOGINIP);

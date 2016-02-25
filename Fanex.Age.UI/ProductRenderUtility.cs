@@ -1,10 +1,10 @@
 ﻿namespace Fanex.Age.UI
 {
-    using System.Collections.Generic;
-    using Constants;
     using CustomerSetting.Module.KenoStatus.Configurations;
     using Sunplus.Agent.Model.BL.Definitions;
+    using Sunplus.Agent.Model.Definitions;
     using Sunplus.Agent.Model.Entities.Permission;
+    using System.Collections.Generic;
 
     public class ProductRenderUtility
     {
@@ -43,7 +43,7 @@
             result.Add(ProductIdConstants.ColossusBets, UserPermission.IsShowColossusBets);
             result.Add(ProductIdConstants.P2P, AppSettings.IsEnableP2P);
             result.Add(ProductIdConstants.ProgressiveBonus, UserPermission.IsShowCasino);
-            
+
             return result;
         }
     }
