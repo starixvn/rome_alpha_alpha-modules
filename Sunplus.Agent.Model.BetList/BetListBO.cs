@@ -767,8 +767,8 @@ namespace Sunplus.Agent.Model.BL.BetList
                     bettrans = bettrans_new;
 
                     // Merge table racing
-                    racing_bk.Merge(racing);
-                    outDataTable = racing_bk;
+                    racing.Merge(racing_bk);
+                    outDataTable = racing;
                 }
             }
             else
