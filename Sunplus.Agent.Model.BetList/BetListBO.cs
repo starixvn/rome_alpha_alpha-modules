@@ -763,8 +763,8 @@ namespace Sunplus.Agent.Model.BL.BetList
                     // Merge two table bettrans
                     bettrans_bk = this.ConvertColumnsToLower(bettrans_bk);
                     bettrans_new = this.ConvertColumnsToLower(bettrans_new);
-                    bettrans_bk.Merge(bettrans_new);
-                    bettrans = bettrans_bk;
+                    bettrans_new.Merge(bettrans_bk);
+                    bettrans = bettrans_new;
 
                     // Merge table racing
                     racing_bk.Merge(racing);
