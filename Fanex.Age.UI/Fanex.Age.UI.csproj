@@ -53,8 +53,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alpha.Auth, Version=3.0.0.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Alpha.Auth.3.0.0.4-AntiXSRF-2\lib\net40\Alpha.Auth.dll</HintPath>
+    <Reference Include="Alpha.Auth, Version=3.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Alpha.Auth.3.0.0.5\lib\net40\Alpha.Auth.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="AutoMapper, Version=2.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
@@ -177,8 +177,8 @@
       <HintPath>..\packages\Sunplus.Agent.Model.Auth.3.0.0.1-beta\lib\net40\Sunplus.Agent.Model.Auth.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sunplus.Agent.Model.Base.3.0.0.3\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.1.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sunplus.Agent.Model.Base.3.0.1.3\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Casino, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
@@ -190,7 +190,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.1.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sunplus.Agent.Model.Definitions.3.0.1.3-cricket\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
+      <HintPath>..\packages\Sunplus.Agent.Model.Definitions.3.0.1.3\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.IpFormatter, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
