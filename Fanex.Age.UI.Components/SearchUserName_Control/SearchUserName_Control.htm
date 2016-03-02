@@ -1,6 +1,6 @@
 ﻿<!--ExternalResources-->
-<link href="SearchUserName_Control.css" rel="stylesheet" type="text/css" />
-<link href="styles.css" rel="stylesheet" type="text/css" /> 
+<link href="../../App_Themes/Apo/Components/SearchUserName_Control/SearchUserName_Control.css" rel="stylesheet" type="text/css" />
+<link href="../../App_Themes/Apo/Components/SearchUserName_Control/styles.css" rel="stylesheet" type="text/css" /> 
 <!--/ExternalResources-->
 <table id="tblSearch" cellpadding="0" cellspacing="0" border="0">
     <tr>
@@ -8,7 +8,7 @@
             {username}
         </td>
         <td>
-            <input type="text" style="width:145px;" class="{textClass}" name="txtUserName" id="txtUserName" value="{value}" onkeypress="onKeyPressUser('dSubmit',event);"  onclick="onclickUser('{enterusername}')" onblur="onblurUser('{enterusername}')" autocomplete="off"  />
+            <input type="text" class="{textClass}" name="txtUserName" id="txtUserName" value="{value}" onkeypress="onKeyPressUser('dSubmit',event);"  onclick="onclickUser('{enterusername}')" onblur="onblurUser('{enterusername}')" autocomplete="off"  />
         </td>                                    
             
         <td>{status}</td>
@@ -23,7 +23,7 @@
             <!--CheckingFilter-->
             <div id="box_checking_filter"> <input type="checkbox" id="{chkId}" name="{chkId}" onclick="CheckingFilter();" {ischecked} /> {CheckBoxText}  </div>
             <!--/CheckingFilter-->
-            <div style="width:65px; float:right; text-align:right">
+            <div class="container-btn">
                 <input id="dSubmit" type="button" value="{submit}" class="buttonSubmit" onclick="{onClick_function}" />
             </div>
             <div class="shadow" id="shadow" />

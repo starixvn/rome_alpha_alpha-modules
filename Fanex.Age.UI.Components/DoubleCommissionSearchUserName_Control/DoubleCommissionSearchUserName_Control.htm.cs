@@ -16,7 +16,7 @@ namespace Fanex.Age.UI.Components
 			public DoubleCommissionSearchUserName_Control_ExternalResources_Block ExternalResources = new DoubleCommissionSearchUserName_Control_ExternalResources_Block();
 			protected static string s0 = "<table id=\"tblSearch\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td>";
 			public string username = "{username}";
-			protected static string s1 = "</td><td><input type=\"text\" style=\"width:145px;\" class=\"";
+			protected static string s1 = "</td><td><input type=\"text\" class=\"";
 			public string textClass = "{textClass}";
 			protected static string s2 = "\" name=\"txtUserName\" id=\"txtUserName\" value=\"";
 			public string value = "{value}";
@@ -32,7 +32,7 @@ namespace Fanex.Age.UI.Components
 			public DoubleCommissionSearchUserName_Control_DCom_Block DCom = new DoubleCommissionSearchUserName_Control_DCom_Block();
 			protected static string s8 = "</div>";
 			public DoubleCommissionSearchUserName_Control_CheckingFilter_Block CheckingFilter = new DoubleCommissionSearchUserName_Control_CheckingFilter_Block();
-			protected static string s9 = "<div style=\"width:65px; float:right; text-align:right\"><input id=\"dSubmit\" type=\"button\" value=\"";
+			protected static string s9 = "<div class=\"container-btn\"><input id=\"dSubmit\" type=\"button\" value=\"";
 			public string submit = "{submit}";
 			protected static string s10 = "\" class=\"buttonSubmit\" onclick=\"";
 			public string onClick_function = "{onClick_function}";

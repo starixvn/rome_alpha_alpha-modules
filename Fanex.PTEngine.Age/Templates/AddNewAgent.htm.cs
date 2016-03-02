@@ -43,7 +43,7 @@ namespace Fanex.PTEngine.Age
 			public string actionForm = "{actionForm}";
 			protected static string s21 = "' method=\"post\"><div class=\"minWidthCustomer\">";
 			protected static string s22{get{return new Fanex.Age.UI.Components.ErrorMsg.ErrorMsg_Template();}}
-			protected static string s23 = "<input type=\"hidden\" name=\"txtCustomerObject\" id=\"txtCustomerObject\" /><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmit\" class=\"btnMain\">";
+			protected static string s23 = "<input type=\"hidden\" name=\"txtCustomerObject\" id=\"txtCustomerObject\" /><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmit\" class=\"btn btn-refresh\">";
 			public string actionName = "{actionName}";
 			protected static string s24 = "</button></div></div><div class=\"customerInfo\"><div class=\"headerTab\">";
 			protected static string s25{get{return LocalResources.PTEngineLang.generalInformation;}}
@@ -80,7 +80,7 @@ namespace Fanex.PTEngine.Age
 			protected static string s52{get{return LocalResources.PTEngineLang.positiontaking;}}
 			protected static string s53 = "<div style=\"float:right;\"><a class=\"infoIco\" style=\"margin:3px 5px;height:16px;display:inline-block\"href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
 			protected static string s54{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
-			protected static string s55 = "\"></a></div></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"btnMain\">";
+			protected static string s55 = "\"></a></div></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"btn btn-refresh\">";
 			protected string t0_actionName;
 			protected static string s56 = "</button></div></div></div></form>";
 			public AddNewAgent_ScriptBlock_Block ScriptBlock = new AddNewAgent_ScriptBlock_Block();
