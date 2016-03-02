@@ -138,6 +138,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
         // Gold Deluxe
         GoldDeluxeBaccarat = 1701,
         GoldDeluxeRoulette = 1702,
-        GoldDeluxeParlayBaccarat = 1703
+        GoldDeluxeParlayBaccarat = 1703,
+        ChargeCommission = 500
     }
 }

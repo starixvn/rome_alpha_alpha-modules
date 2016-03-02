@@ -40,6 +40,7 @@
     <Compile Include="AppSettings.cs" />
     <Compile Include="BetType.cs" />
     <Compile Include="MatchSettlementStatus.cs" />
+    <Compile Include="ProductIdConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SCResult.cs" />
     <Compile Include="SportType.cs" />

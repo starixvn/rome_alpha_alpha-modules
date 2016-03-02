@@ -637,6 +637,8 @@ namespace Sunplus.Agent.Model.Entities
 
         string UserLoginIp { get; set; }
 
+        bool IsIMBCCustomer { get; set; }
+
 
         bool IsInternalWebVPN
         {

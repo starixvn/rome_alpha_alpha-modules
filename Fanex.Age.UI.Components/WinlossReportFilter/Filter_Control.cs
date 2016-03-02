@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Web;
 using Fanex.Age.UI.Components.WinlossReportFilter;
-using Fanex.Age.UI.Constants;
+using Sunplus.Agent.Model.Definitions;
 
 namespace Fanex.Age.UI.Components
 {

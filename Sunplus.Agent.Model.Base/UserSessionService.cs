@@ -1,12 +1,13 @@
 namespace Sunplus.Agent.Model.BL
 {
+    using Fanex.Common;
+    using Sunplus.Agent.Model.BL.Definitions;
+    using Sunplus.Agent.Model.Definitions;
+    using Sunplus.Agent.Model.Entities;
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
-    using Fanex.Common;
-    using Sunplus.Agent.Model.BL.Definitions;
-    using Sunplus.Agent.Model.Entities;
 
     [Obsolete("Should rename to Sunplus.Agent.Model.Base")]
     public sealed class UserSessionService
@@ -278,6 +279,11 @@ namespace Sunplus.Agent.Model.BL
                 session.IsMyanmarOdds = Converter.ToBool(values["ismyanmarodds"]);
             }
 
+            if (AppSettings.IsEnabledProduct(ProductIdConstants.Cricket))
+            {
+                session.IsIMBCCustomer = Converter.ToBool(values["isimbc"]);
+            }
+
             if (!string.IsNullOrWhiteSpace(AppSettings.SubAccountPermission_LockAdminAccounts)
                 && Regex.IsMatch(string.Format(",{0},", AppSettings.SubAccountPermission_LockAdminAccounts), string.Format(",{0},", session.AdminId), RegexOptions.IgnoreCase)
                 && session.IsInternal)
@@ -300,7 +306,8 @@ namespace Sunplus.Agent.Model.BL
         private static Dictionary<int, string> ProductSpNames()
         {
             var result = new Dictionary<int, string>();
-            result.Add(19, "cockfighting");
+            result.Add(ProductIdConstants.CockFighting, "cockfighting");
+            result.Add(ProductIdConstants.Cricket, "cricket");
             return result;
         }
     }

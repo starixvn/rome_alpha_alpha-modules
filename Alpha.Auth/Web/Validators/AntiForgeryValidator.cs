@@ -28,6 +28,8 @@
                 var formToken = request.Headers[AntiForgeryFormTokenName];
                 if (string.IsNullOrWhiteSpace(formToken))
                 {
+                    ValidationLogger.WriteWarning("Request Verification Token in Form does not exist.");
+
                     return Result.GetAccessDeniedResult("Request Verification Token does not exist. Please refresh your page. Thanks.");
                 }
 
@@ -36,10 +38,6 @@
                     && !string.IsNullOrWhiteSpace(cookieValue.Value))
                 {
                     AntiForgery.Validate(cookieValue.Value, formToken);
-                }
-                else
-                {
-                    ValidationLogger.WriteWarning("Cannot read Request Verification Token from cookie.");
                 }
             }
             catch (Exception ex)
