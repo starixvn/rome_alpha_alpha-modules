@@ -38,7 +38,7 @@ namespace Fanex.Age.UI.Components
 			public string MinDate = "{MinDate}";
 			protected static string s13 = ",max: ";
 			public string MaxDate = "{MaxDate}";
-			protected static string s14 = ",dateFormat: \"%m/%d/%Y\",weekNumbers:true,onSelect: function() {CalendarOnSelect();this.hide();}});</script>";
+			protected static string s14 = ",dateFormat: \"%m/%d/%Y\",weekNumbers:false,onSelect: function() {CalendarOnSelect();this.hide();}});</script>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
