@@ -1,18 +1,15 @@
 namespace Sunplus.Agent.Model.BL
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Text.RegularExpressions;
     using Fanex.Common;
     using Sunplus.Agent.Model.BL.Definitions;
     using Sunplus.Agent.Model.Definitions;
     using Sunplus.Agent.Model.Entities;
-	using System;
-	using System.Collections;
-	using System.Collections.Generic;
-	using System.Text.RegularExpressions;
-	using Fanex.Common;
-	using Sunplus.Agent.Model.BL.Definitions;
-	using Sunplus.Agent.Model.Entities;
 
-	[Obsolete("Should rename to Sunplus.Agent.Model.Base")]
+    [Obsolete("Should rename to Sunplus.Agent.Model.Base")]
     public sealed class UserSessionService
     {
         /// <summary>
@@ -310,11 +307,12 @@ namespace Sunplus.Agent.Model.BL
 
         private static Dictionary<int, string> ProductSpNames()
         {
-			return new Dictionary<int, string>
+            var result = new Dictionary<int, string>();
             result.Add(ProductIdConstants.CockFighting, "cockfighting");
             result.Add(ProductIdConstants.Cricket, "cricket");
-				{ 21, "allbet" }
-			};
+            result.Add(ProductIdConstants.AllBet, "allbet");
+
+            return result;
 		}
     }
 }
