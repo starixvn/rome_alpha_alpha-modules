@@ -37,7 +37,7 @@ namespace Fanex.Age.UI.Components
 		public class ErrorMsg_ExternalResources_Block: Block
 		{
 			protected static string s1 = "<link href=\"";
-			protected static string s2{get{return AbsoluteUrl("App_Themes/Apo/Components/ErrorMsg/ErrorMsgNew.css", TplSettings.Question);}}
+			protected static string s2{get{return AbsoluteUrl("App_Themes/Apo/Components/ErrorMsg/ErrorMsgNew.min.css", TplSettings.Question);}}
 			protected static string s3 = "\" rel=\"stylesheet\" type=\"text/css\" /><script src=\"";
 			protected static string s4{get{return AbsoluteUrl("ErrorMsg/ErrorMsg.js", TplSettings.Question);}}
 			protected static string s5 = "\" type=\"text/javascript\"></script>";

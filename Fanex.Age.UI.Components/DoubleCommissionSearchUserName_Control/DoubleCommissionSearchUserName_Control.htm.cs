@@ -89,9 +89,9 @@ namespace Fanex.Age.UI.Components
 		public class DoubleCommissionSearchUserName_Control_ExternalResources_Block: Block
 		{
 			protected static string s16 = "<link href=\"";
-			protected static string s17{get{return AbsoluteUrl("App_Themes/Apo/Components/DoubleCommissionSearchUserName_Control/SearchUserName_Control.css", TplSettings.Question);}}
+			protected static string s17{get{return AbsoluteUrl("App_Themes/Apo/Components/DoubleCommissionSearchUserName_Control/SearchUserName_Control.min.css", TplSettings.Question);}}
 			protected static string s18 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
-			protected static string s19{get{return AbsoluteUrl("App_Themes/Apo/Components/DoubleCommissionSearchUserName_Control/styles.css", TplSettings.Question);}}
+			protected static string s19{get{return AbsoluteUrl("App_Themes/Apo/Components/DoubleCommissionSearchUserName_Control/styles.min.css", TplSettings.Question);}}
 			protected static string s20 = "\" rel=\"stylesheet\" type=\"text/css\" />";
 			public override void ToString(ref StringBuilder bd)
 			{

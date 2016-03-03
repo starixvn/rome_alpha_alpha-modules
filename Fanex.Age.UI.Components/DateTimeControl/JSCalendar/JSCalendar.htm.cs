@@ -85,9 +85,9 @@ namespace Fanex.Age.UI.Components
 		public class JSCalendar_ExternalResources_Block: Block
 		{
 			protected static string s15 = "<link href=\"";
-			protected static string s16{get{return AbsoluteUrl("App_Themes/Apo/Components/DateTimeControl/JSCalendar/jscal2.css", TplSettings.Question);}}
+			protected static string s16{get{return AbsoluteUrl("App_Themes/Apo/Components/DateTimeControl/JSCalendar/jscal2.min.css", TplSettings.Question);}}
 			protected static string s17 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
-			protected static string s18{get{return AbsoluteUrl("App_Themes/Apo/Components/DateTimeControl/JSCalendar/steel/steel.css", TplSettings.Question);}}
+			protected static string s18{get{return AbsoluteUrl("App_Themes/Apo/Components/DateTimeControl/JSCalendar/steel/steel.min.css", TplSettings.Question);}}
 			protected static string s19 = "\" rel=\"stylesheet\" type=\"text/css\" /><script src=\"";
 			protected static string s20{get{return AbsoluteUrl("DateTimeControl/JSCalendar/js/jscal2.js", TplSettings.Question);}}
 			protected static string s21 = "\" type=\"text/javascript\"></script><script src=\"";

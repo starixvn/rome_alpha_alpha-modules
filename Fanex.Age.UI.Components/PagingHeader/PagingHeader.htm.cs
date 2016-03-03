@@ -14,7 +14,7 @@ namespace Fanex.Age.UI.Components
 		public class PagingHeader_Template : Template
 		{
 			protected static string s0 = "<link href=\"";
-			protected static string s1{get{return AbsoluteUrl("App_Themes/Apo/Components/PagingHeader/PagingHeader.css", TplSettings.Question);}}
+			protected static string s1{get{return AbsoluteUrl("App_Themes/Apo/Components/PagingHeader/PagingHeader.min.css", TplSettings.Question);}}
 			protected static string s2 = "\" rel=\"stylesheet\" type=\"text/css\" /><table id=\"tblHeader\"><tr><td class=\"bgleft\">";
 			public PagingHeader_selected_Block selected = new PagingHeader_selected_Block();
 			public PagingHeader_button_Block button = new PagingHeader_button_Block();

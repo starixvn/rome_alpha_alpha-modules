@@ -8,16 +8,16 @@ using TplCore.Element;
 #pragma warning disable
 namespace Fanex.Age.UI.Components
 {
-	using ShowHideColumn;
-	namespace ShowHideColumn
+	using showhidecolumn;
+	namespace showhidecolumn
 	{
-		public class ContextMenuColumns_Control_Template : Template
+		public class contextmenucolumns_control_Template : Template
 		{
-			public ContextMenuColumns_Control_ExternalResources_Block ExternalResources = new ContextMenuColumns_Control_ExternalResources_Block();
+			public contextmenucolumns_control_ExternalResources_Block ExternalResources = new contextmenucolumns_control_ExternalResources_Block();
 			protected static string s0 = "<div id=\"PopupCtx\" class=\"divMenuPopup\"><table id=\"Popup\" cols=\"";
 			public string columns = "{columns}";
 			protected static string s1 = "\">";
-			public ContextMenuColumns_Control_checkbox_Block checkbox = new ContextMenuColumns_Control_checkbox_Block();
+			public contextmenucolumns_control_checkbox_Block checkbox = new contextmenucolumns_control_checkbox_Block();
 			protected static string s2 = "</table></div><div id=\"menuPopupAd\"><div class=\"left\"></div><div class=\"bg\"><div class=\"normal\"><div class=\"msg-popup\">";
 			public string PopupMsg = "{PopupMsg}";
 			protected static string s3 = "</div><div><input id=\"chkAd\" type=\"checkbox\" onclick=\"hidePopupAd();\" /><label for=\"chkAd\">";
@@ -50,10 +50,10 @@ namespace Fanex.Age.UI.Components
 
 		}
 
-		public class ContextMenuColumns_Control_ExternalResources_Block: Block
+		public class contextmenucolumns_control_ExternalResources_Block: Block
 		{
 			protected static string s5 = "<link href=\"";
-			protected static string s6{get{return AbsoluteUrl("App_Themes/Apo/Components/ShowHideColumn/ContextMenuColumns_Control.css", TplSettings.Question);}}
+			protected static string s6{get{return AbsoluteUrl("App_Themes/Apo/Components/ShowHideColumn/ContextMenuColumns_Control.min.css", TplSettings.Question);}}
 			protected static string s7 = "\" rel=\"stylesheet\" type=\"text/css\" />";
 			public override void ToString(ref StringBuilder bd)
 			{
@@ -68,7 +68,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class ContextMenuColumns_Control_checkbox_Block: Block
+		public class contextmenucolumns_control_checkbox_Block: Block
 		{
 			protected static string s8 = "<tr><td><input class=\"padding\" onclick=\"onChangeColumn('";
 			public string colName = "{colName}";
