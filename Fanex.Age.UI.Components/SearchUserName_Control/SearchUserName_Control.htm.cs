@@ -8,12 +8,12 @@ using TplCore.Element;
 #pragma warning disable
 namespace Fanex.Age.UI.Components
 {
-	using searchusername_control;
-	namespace searchusername_control
+	using SearchUserName_Control;
+	namespace SearchUserName_Control
 	{
-		public class searchusername_control_Template : Template
+		public class SearchUserName_Control_Template : Template
 		{
-			public searchusername_control_ExternalResources_Block ExternalResources = new searchusername_control_ExternalResources_Block();
+			public SearchUserName_Control_ExternalResources_Block ExternalResources = new SearchUserName_Control_ExternalResources_Block();
 			protected static string s0 = "<table id=\"tblSearch\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td>";
 			public string username = "{username}";
 			protected static string s1 = "</td><td><input type=\"text\" class=\"";
@@ -27,17 +27,17 @@ namespace Fanex.Age.UI.Components
 			protected static string s5 = "')\" autocomplete=\"off\"/></td><td>";
 			public string status = "{status}";
 			protected static string s6 = "</td><td><div id=\"box_option\"><select id=\"statusFilter\" name=\"statusFilter\">";
-			public searchusername_control_option_Block option = new searchusername_control_option_Block();
+			public SearchUserName_Control_option_Block option = new SearchUserName_Control_option_Block();
 			protected static string s7 = "</select></div>";
-			public searchusername_control_CheckingFilter_Block CheckingFilter = new searchusername_control_CheckingFilter_Block();
+			public SearchUserName_Control_CheckingFilter_Block CheckingFilter = new SearchUserName_Control_CheckingFilter_Block();
 			protected static string s8 = "<div class=\"container-btn\"><input id=\"dSubmit\" type=\"button\" value=\"";
 			public string submit = "{submit}";
 			protected static string s9 = "\" class=\"buttonSubmit\" onclick=\"";
 			public string onClick_function = "{onClick_function}";
 			protected static string s10 = "\" /></div><div class=\"shadow\" id=\"shadow\" /><div class=\"output\" id=\"output\" /><script src=\"";
-			protected static string s11{get{return AbsoluteUrl("searchusername_control/SearchUserName_Control.js", TplSettings.Question);}}
+			protected static string s11{get{return AbsoluteUrl("SearchUserName_Control/SearchUserName_Control.js", TplSettings.Question);}}
 			protected static string s12 = "\" type=\"text/javascript\"></script><script src=\"";
-			protected static string s13{get{return AbsoluteUrl("searchusername_control/autocomplete.js", TplSettings.Question);}}
+			protected static string s13{get{return AbsoluteUrl("SearchUserName_Control/autocomplete.js", TplSettings.Question);}}
 			protected static string s14 = "\" type=\"text/javascript\"></script></td></tr></table>";
 			public override void ToString(ref StringBuilder bd)
 			{
@@ -82,7 +82,7 @@ namespace Fanex.Age.UI.Components
 
 		}
 
-		public class searchusername_control_ExternalResources_Block: Block
+		public class SearchUserName_Control_ExternalResources_Block: Block
 		{
 			protected static string s15 = "<link href=\"";
 			protected static string s16{get{return AbsoluteUrl("App_Themes/Apo/Components/SearchUserName_Control/SearchUserName_Control.min.css", TplSettings.Question);}}
@@ -104,7 +104,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class searchusername_control_option_Block: Block
+		public class SearchUserName_Control_option_Block: Block
 		{
 			protected static string s20 = "<option value=\"";
 			public string optionValue = "{optionValue}";
@@ -130,7 +130,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class searchusername_control_CheckingFilter_Block: Block
+		public class SearchUserName_Control_CheckingFilter_Block: Block
 		{
 			protected static string s24 = "<div id=\"box_checking_filter\"> <input type=\"checkbox\" id=\"";
 			public string chkId = "{chkId}";

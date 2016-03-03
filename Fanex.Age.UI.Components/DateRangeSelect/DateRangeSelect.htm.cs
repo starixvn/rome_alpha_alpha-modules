@@ -8,26 +8,26 @@ using TplCore.Element;
 #pragma warning disable
 namespace Fanex.Age.UI.Components
 {
-	using daterangeselect;
-	namespace daterangeselect
+	using DateRangeSelect;
+	namespace DateRangeSelect
 	{
-		public class daterangeselect_Template : Template
+		public class DateRangeSelect_Template : Template
 		{
-			public daterangeselect_ExternalResources_Block ExternalResources = new daterangeselect_ExternalResources_Block();
+			public DateRangeSelect_ExternalResources_Block ExternalResources = new DateRangeSelect_ExternalResources_Block();
 			protected static string s0 = "<div id=\"spDateTimeSearch\"><table><tr>";
-			public daterangeselect_DateFilter_Block DateFilter = new daterangeselect_DateFilter_Block();
-			public daterangeselect_BetListOption_Block BetListOption = new daterangeselect_BetListOption_Block();
-			public daterangeselect_LimitDateRange_Block LimitDateRange = new daterangeselect_LimitDateRange_Block();
-			public daterangeselect_LimitHistoryDateRange_Block LimitHistoryDateRange = new daterangeselect_LimitHistoryDateRange_Block();
-			public daterangeselect_BetListGetAll_Block BetListGetAll = new daterangeselect_BetListGetAll_Block();
-			public daterangeselect_CurrencyFilter_Block CurrencyFilter = new daterangeselect_CurrencyFilter_Block();
+			public DateRangeSelect_DateFilter_Block DateFilter = new DateRangeSelect_DateFilter_Block();
+			public DateRangeSelect_BetListOption_Block BetListOption = new DateRangeSelect_BetListOption_Block();
+			public DateRangeSelect_LimitDateRange_Block LimitDateRange = new DateRangeSelect_LimitDateRange_Block();
+			public DateRangeSelect_LimitHistoryDateRange_Block LimitHistoryDateRange = new DateRangeSelect_LimitHistoryDateRange_Block();
+			public DateRangeSelect_BetListGetAll_Block BetListGetAll = new DateRangeSelect_BetListGetAll_Block();
+			public DateRangeSelect_CurrencyFilter_Block CurrencyFilter = new DateRangeSelect_CurrencyFilter_Block();
 			protected static string s1 = "<td class=\"l no-wrap\">&nbsp;&nbsp;<input type=\"button\" class=\"btn\" style=\"width: 55px\" id=\"dSubmit\" value=\"";
 			protected static string s2{get{return LocalResources.UIComponentsLang.submit;}}
 			protected static string s3 = "\"onclick=\"DisableButton(); ";
 			public string SearchByDateFunction = "{SearchByDateFunction}";
 			protected static string s4 = ";\" />";
-			public daterangeselect_TodayYesterdayButton_Block TodayYesterdayButton = new daterangeselect_TodayYesterdayButton_Block();
-			public daterangeselect_AdditionalContent_Block AdditionalContent = new daterangeselect_AdditionalContent_Block();
+			public DateRangeSelect_TodayYesterdayButton_Block TodayYesterdayButton = new DateRangeSelect_TodayYesterdayButton_Block();
+			public DateRangeSelect_AdditionalContent_Block AdditionalContent = new DateRangeSelect_AdditionalContent_Block();
 			protected static string s5 = "</td><td valign=\"top\"><div id=\"loading\" class=\"\" style=\"float: left;\"></div></td></tr></table></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
@@ -62,12 +62,12 @@ namespace Fanex.Age.UI.Components
 
 		}
 
-		public class daterangeselect_ExternalResources_Block: Block
+		public class DateRangeSelect_ExternalResources_Block: Block
 		{
 			protected static string s6 = "<link href=\"";
 			protected static string s7{get{return AbsoluteUrl("App_Themes/Apo/Components/DateRangeSelect/DateRangeSelect.min.css", TplSettings.Question);}}
 			protected static string s8 = "\" rel=\"stylesheet\" type=\"text/css\" /><script src=\"";
-			protected static string s9{get{return AbsoluteUrl("daterangeselect/DateRangeSelect.js", TplSettings.Question);}}
+			protected static string s9{get{return AbsoluteUrl("DateRangeSelect/DateRangeSelect.js", TplSettings.Question);}}
 			protected static string s10 = "\" type=\"text/javascript\"></script><script type=\"text/javascript\">var max_server_date = '";
 			protected static string s11{get{return System.DateTime.Today.ToShortDateString();}}
 			protected static string s12 = "';</script>";
@@ -88,7 +88,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_DateFilter_Block: Block
+		public class DateRangeSelect_DateFilter_Block: Block
 		{
 			public override void ToString(ref StringBuilder bd)
 			{
@@ -96,7 +96,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_BetListOption_Block: Block
+		public class DateRangeSelect_BetListOption_Block: Block
 		{
 			public override void ToString(ref StringBuilder bd)
 			{
@@ -104,7 +104,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_LimitDateRange_Block: Block
+		public class DateRangeSelect_LimitDateRange_Block: Block
 		{
 			protected static string s13 = "<td id=\"tdfdatetext\" class=\"l\"><span id=\"spfdatetext\">";
 			public string DateFromText = "{DateFromText}";
@@ -112,7 +112,7 @@ namespace Fanex.Age.UI.Components
 			public Fanex.Age.UI.Components.DateTimeControl.Calendar.Calendar_Control CalendarFrom{get {return _CalendarFrom != null ? _CalendarFrom : _CalendarFrom = new Fanex.Age.UI.Components.DateTimeControl.Calendar.Calendar_Control(this,"fdate","fdate_trigger",DateTime.Today);}}
 			protected Fanex.Age.UI.Components.DateTimeControl.Calendar.Calendar_Control _CalendarFrom;
 			protected static string s15 = "</span></td>";
-			public daterangeselect_LimitDateRange_LimitToDate_Block LimitToDate = new daterangeselect_LimitDateRange_LimitToDate_Block();
+			public DateRangeSelect_LimitDateRange_LimitToDate_Block LimitToDate = new DateRangeSelect_LimitDateRange_LimitToDate_Block();
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -129,7 +129,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_LimitDateRange_LimitToDate_Block: Block
+		public class DateRangeSelect_LimitDateRange_LimitToDate_Block: Block
 		{
 			protected static string s16 = "<td id=\"tdtdatetext\" class=\"l no-wrap\">&nbsp;&nbsp; <span id=\"sptdatetext\">";
 			protected static string s17{get{return LocalResources.UIComponentsLang.to;}}
@@ -152,11 +152,11 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_LimitHistoryDateRange_Block: Block
+		public class DateRangeSelect_LimitHistoryDateRange_Block: Block
 		{
-			public daterangeselect_LimitHistoryDateRange_OneMonthYearCalendar_Block OneMonthYearCalendar = new daterangeselect_LimitHistoryDateRange_OneMonthYearCalendar_Block();
-			public daterangeselect_LimitHistoryDateRange_MonthYear_Block MonthYear = new daterangeselect_LimitHistoryDateRange_MonthYear_Block();
-			public daterangeselect_LimitHistoryDateRange_DateFromTo_Block DateFromTo = new daterangeselect_LimitHistoryDateRange_DateFromTo_Block();
+			public DateRangeSelect_LimitHistoryDateRange_OneMonthYearCalendar_Block OneMonthYearCalendar = new DateRangeSelect_LimitHistoryDateRange_OneMonthYearCalendar_Block();
+			public DateRangeSelect_LimitHistoryDateRange_MonthYear_Block MonthYear = new DateRangeSelect_LimitHistoryDateRange_MonthYear_Block();
+			public DateRangeSelect_LimitHistoryDateRange_DateFromTo_Block DateFromTo = new DateRangeSelect_LimitHistoryDateRange_DateFromTo_Block();
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -170,7 +170,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_LimitHistoryDateRange_OneMonthYearCalendar_Block: Block
+		public class DateRangeSelect_LimitHistoryDateRange_OneMonthYearCalendar_Block: Block
 		{
 			protected static string s20 = "<td>";
 			protected static string s21{get{return LocalResources.UIComponentsLang.ViewDataInMonth;}}
@@ -187,8 +187,8 @@ namespace Fanex.Age.UI.Components
 			protected static string s27 = "</span><a href=\"javascript:NextMonth();\" id=\"btnNextMonth\" class=\"next";
 			public string DisableNext = "{DisableNext}";
 			protected static string s28 = "\" title=\"Next Month\"></a></div><div id=\"monthPickerDropDown\"><ul class=\"monthPickerDropDownInner\">";
-			public daterangeselect_LimitHistoryDateRange_OneMonthYearCalendar_YearOption_Block YearOption = new daterangeselect_LimitHistoryDateRange_OneMonthYearCalendar_YearOption_Block();
-			public daterangeselect_LimitHistoryDateRange_OneMonthYearCalendar_MonthOption_Block MonthOption = new daterangeselect_LimitHistoryDateRange_OneMonthYearCalendar_MonthOption_Block();
+			public DateRangeSelect_LimitHistoryDateRange_OneMonthYearCalendar_YearOption_Block YearOption = new DateRangeSelect_LimitHistoryDateRange_OneMonthYearCalendar_YearOption_Block();
+			public DateRangeSelect_LimitHistoryDateRange_OneMonthYearCalendar_MonthOption_Block MonthOption = new DateRangeSelect_LimitHistoryDateRange_OneMonthYearCalendar_MonthOption_Block();
 			protected static string s29 = "</ul><input type=\"hidden\" name=\"listYear\" id=\"listYear\" value=\"";
 			public string ListYear = "{ListYear}";
 			protected static string s30 = "\" /><input id=\"maxDate\" name=\"maxDate\" type=\"hidden\" value=\"";
@@ -230,7 +230,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_LimitHistoryDateRange_OneMonthYearCalendar_YearOption_Block: Block
+		public class DateRangeSelect_LimitHistoryDateRange_OneMonthYearCalendar_YearOption_Block: Block
 		{
 			protected static string s33 = "<li class=\"year\"><a id=\"ID_";
 			public string Year = "{Year}";
@@ -264,7 +264,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_LimitHistoryDateRange_OneMonthYearCalendar_MonthOption_Block: Block
+		public class DateRangeSelect_LimitHistoryDateRange_OneMonthYearCalendar_MonthOption_Block: Block
 		{
 			protected static string s39 = "<li class=\"month\" id=\"LI_";
 			public string Year = "{Year}";
@@ -310,7 +310,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_LimitHistoryDateRange_MonthYear_Block: Block
+		public class DateRangeSelect_LimitHistoryDateRange_MonthYear_Block: Block
 		{
 			protected static string s48 = "<td>&nbsp;";
 			protected static string s49{get{return LocalResources.UIComponentsLang.from;}}
@@ -327,8 +327,8 @@ namespace Fanex.Age.UI.Components
 			protected static string s55 = "</span><a href=\"javascript:NextMonthV2('btnNextMonth', 'lblSelectedMonth', 'monthPickerDropDown');\" id=\"btnNextMonth\" class=\"next";
 			public string DisableNext = "{DisableNext}";
 			protected static string s56 = "\" title=\"Next Month\"></a></div><div id=\"monthPickerDropDown\"><ul class=\"monthPickerDropDownInner\">";
-			public daterangeselect_LimitHistoryDateRange_MonthYear_YearOption_Block YearOption = new daterangeselect_LimitHistoryDateRange_MonthYear_YearOption_Block();
-			public daterangeselect_LimitHistoryDateRange_MonthYear_MonthOption_Block MonthOption = new daterangeselect_LimitHistoryDateRange_MonthYear_MonthOption_Block();
+			public DateRangeSelect_LimitHistoryDateRange_MonthYear_YearOption_Block YearOption = new DateRangeSelect_LimitHistoryDateRange_MonthYear_YearOption_Block();
+			public DateRangeSelect_LimitHistoryDateRange_MonthYear_MonthOption_Block MonthOption = new DateRangeSelect_LimitHistoryDateRange_MonthYear_MonthOption_Block();
 			protected static string s57 = "</ul><input type=\"hidden\" name=\"listYear\" id=\"listYear\" value=\"";
 			public string ListYear = "{ListYear}";
 			protected static string s58 = "\" /><input id=\"maxDate\" name=\"maxDate\" type=\"hidden\" value=\"";
@@ -344,8 +344,8 @@ namespace Fanex.Age.UI.Components
 			protected static string s64 = "</span><a href=\"javascript:NextMonthV2('btnNextMonth2', 'lblSelectedMonth2', 'monthPickerDropDown2');\" id=\"btnNextMonth2\" class=\"next";
 			public string DisablePrev2 = "{DisablePrev2}";
 			protected static string s65 = "\" title=\"Next Month\"></a></div><div id=\"monthPickerDropDown2\"><ul class=\"monthPickerDropDownInner\">";
-			public daterangeselect_LimitHistoryDateRange_MonthYear_YearOption2_Block YearOption2 = new daterangeselect_LimitHistoryDateRange_MonthYear_YearOption2_Block();
-			public daterangeselect_LimitHistoryDateRange_MonthYear_MonthOption2_Block MonthOption2 = new daterangeselect_LimitHistoryDateRange_MonthYear_MonthOption2_Block();
+			public DateRangeSelect_LimitHistoryDateRange_MonthYear_YearOption2_Block YearOption2 = new DateRangeSelect_LimitHistoryDateRange_MonthYear_YearOption2_Block();
+			public DateRangeSelect_LimitHistoryDateRange_MonthYear_MonthOption2_Block MonthOption2 = new DateRangeSelect_LimitHistoryDateRange_MonthYear_MonthOption2_Block();
 			protected static string s66 = "</ul><input id=\"maxDateTo\" name=\"maxDateTo\" type=\"hidden\" value=\"";
 			public string MaxDateTo = "{MaxDateTo}";
 			protected static string s67 = "\" /><input id=\"minDateTo\" name=\"minDateTo\" type=\"hidden\" value=\"";
@@ -400,7 +400,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_LimitHistoryDateRange_MonthYear_YearOption_Block: Block
+		public class DateRangeSelect_LimitHistoryDateRange_MonthYear_YearOption_Block: Block
 		{
 			protected static string s69 = "<li class=\"year\"><a id=\"ID_";
 			public string Year = "{Year}";
@@ -434,7 +434,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_LimitHistoryDateRange_MonthYear_MonthOption_Block: Block
+		public class DateRangeSelect_LimitHistoryDateRange_MonthYear_MonthOption_Block: Block
 		{
 			protected static string s75 = "<li class=\"month\" id=\"LI_";
 			public string Year = "{Year}";
@@ -480,7 +480,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_LimitHistoryDateRange_MonthYear_YearOption2_Block: Block
+		public class DateRangeSelect_LimitHistoryDateRange_MonthYear_YearOption2_Block: Block
 		{
 			protected static string s84 = "<li class=\"year\"><a id=\"ID2_";
 			public string Year = "{Year}";
@@ -514,7 +514,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_LimitHistoryDateRange_MonthYear_MonthOption2_Block: Block
+		public class DateRangeSelect_LimitHistoryDateRange_MonthYear_MonthOption2_Block: Block
 		{
 			protected static string s90 = "<li class=\"month\" id=\"LI2_";
 			public string Year = "{Year}";
@@ -560,16 +560,16 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_LimitHistoryDateRange_DateFromTo_Block: Block
+		public class DateRangeSelect_LimitHistoryDateRange_DateFromTo_Block: Block
 		{
 			protected static string s99 = "<td>&nbsp;&nbsp;";
 			protected static string s100{get{return LocalResources.UIComponentsLang.from;}}
 			protected static string s101 = "&nbsp;</td><td><span id=\"spfdate\"><select name=\"ddlDateFrom\" id=\"ddlDateFrom\" onchange=\"ChangeDateFrom();\">";
-			public daterangeselect_LimitHistoryDateRange_DateFromTo_DateFromOption_Block DateFromOption = new daterangeselect_LimitHistoryDateRange_DateFromTo_DateFromOption_Block();
+			public DateRangeSelect_LimitHistoryDateRange_DateFromTo_DateFromOption_Block DateFromOption = new DateRangeSelect_LimitHistoryDateRange_DateFromTo_DateFromOption_Block();
 			protected static string s102 = "</select></span></td><td>&nbsp;";
 			protected static string s103{get{return LocalResources.UIComponentsLang.to;}}
 			protected static string s104 = "&nbsp;</td><td><span id=\"sptdate\"><select name=\"ddlDateTo\" id=\"ddlDateTo\" onchange=\"ChangeDateTo();\">";
-			public daterangeselect_LimitHistoryDateRange_DateFromTo_DateToOption_Block DateToOption = new daterangeselect_LimitHistoryDateRange_DateFromTo_DateToOption_Block();
+			public DateRangeSelect_LimitHistoryDateRange_DateFromTo_DateToOption_Block DateToOption = new DateRangeSelect_LimitHistoryDateRange_DateFromTo_DateToOption_Block();
 			protected static string s105 = "</select></span></td>";
 			public override void ToString(ref StringBuilder bd)
 			{
@@ -590,7 +590,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_LimitHistoryDateRange_DateFromTo_DateFromOption_Block: Block
+		public class DateRangeSelect_LimitHistoryDateRange_DateFromTo_DateFromOption_Block: Block
 		{
 			protected static string s106 = "<option value=\"";
 			public string OptionValue = "{OptionValue}";
@@ -616,7 +616,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_LimitHistoryDateRange_DateFromTo_DateToOption_Block: Block
+		public class DateRangeSelect_LimitHistoryDateRange_DateFromTo_DateToOption_Block: Block
 		{
 			protected static string s110 = "<option value=\"";
 			public string OptionValue = "{OptionValue}";
@@ -642,7 +642,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_BetListGetAll_Block: Block
+		public class DateRangeSelect_BetListGetAll_Block: Block
 		{
 			public override void ToString(ref StringBuilder bd)
 			{
@@ -650,7 +650,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_CurrencyFilter_Block: Block
+		public class DateRangeSelect_CurrencyFilter_Block: Block
 		{
 			public override void ToString(ref StringBuilder bd)
 			{
@@ -658,7 +658,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_TodayYesterdayButton_Block: Block
+		public class DateRangeSelect_TodayYesterdayButton_Block: Block
 		{
 			protected static string s114 = "&nbsp;<input type=\"button\" id=\"dToday\" class=\"btn\" style=\"width: 80px\" value=\"";
 			protected static string s115{get{return DateTime.Now.ToShortDateString();}}
@@ -688,7 +688,7 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class daterangeselect_AdditionalContent_Block: Block
+		public class DateRangeSelect_AdditionalContent_Block: Block
 		{
 			public override void ToString(ref StringBuilder bd)
 			{
