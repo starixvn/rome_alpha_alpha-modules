@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<html>
 <head>
     <title>{static:LocalResources.TotalBetsLang.numbergame}</title>
     <link href="../App_Themes/Apo/Common/Agent.min.css" rel="stylesheet" type="text/css" />
@@ -8,10 +8,11 @@
 <body>
     <div id="page_main">
         <div id="header_main">
-            {static:LocalResources.TotalBetsLang.numbergame}</div>
+            {static:LocalResources.TotalBetsLang.numbergame}
+        </div>
         {load:Fanex.Age.UI.Components.RefreshCountDown_Control RefreshCountDown = new Fanex.Age.UI.Components.RefreshCountDown_Control(this,15,"MoneyLine")}
         <div id="sContent">
-        <!--Contents-->
+            <!--Contents-->
             <table class="tblRpt c width-100per">
                 <tr class="RptHeader">
                     <td rowspan="2">
@@ -28,7 +29,7 @@
                     </td>
                     <td colspan="2">
                         {static:LocalResources.TotalBetsLang.lastball}
-                    </td>                    
+                    </td>
                     <td colspan="3">
                         {static:LocalResources.TotalBetsLang.nextBall}
                     </td>
@@ -60,7 +61,7 @@
                     </td>
                     <td title="{static:LocalResources.TotalBetsLang.lblOddEven}">
                         {static:LocalResources.TotalBetsLang.lblOE}
-                    </td>                                        
+                    </td>
                     <td title="{static:LocalResources.TotalBetsLang.lblOverUnder}">
                         {static:LocalResources.TotalBetsLang.lblOU}
                     </td>
@@ -81,13 +82,13 @@
                     </td>
                     <td title="{static:LocalResources.TotalBetsLang.lblUnderEven}">
                         {static:LocalResources.TotalBetsLang.lblUE}
-                    </td>         
+                    </td>
                     <td>
                         {static:LocalResources.TotalBetsLang.LiveGame}
                     </td>
                     <td>
                         {static:LocalResources.TotalBetsLang.PreGame}
-                    </td>           
+                    </td>
                 </tr>
                 <!--LeagueContents-->
                 <tr class="league">
@@ -99,7 +100,7 @@
                 <tr class="r" bgcolor="{ColorClass}" onmouseover="bgColor='{ColorOver}'" onmouseout="bgColor='{ColorClass}'">
                     <td class="w-order">
                         {NoValue}
-                    </td>                   
+                    </td>
                     <td class="l">
                         {static:LocalResources.TotalBetsLang.numbergameno}&nbsp;{GameNo}
                     </td>
@@ -120,8 +121,8 @@
                     </td>
                     <td class="fcnum">
                         <a class="fcnum" href="javascript:doViewBetListGame({MatchId}, 84, '{static:Fanex.Age.UI.Common.BetListByBetTypeMatch}',0)">{OddEvenLastBall}</a>
-                    </td>                    
-                     <td>
+                    </td>
+                    <td>
                         <a class="fcnum" href="javascript:doViewBetListGame({MatchId}, 85, '{static:Fanex.Age.UI.Common.BetListByBetTypeMatch}',1)">{OverUnderNext}</a>
                     </td>
                     <td>
@@ -132,7 +133,7 @@
                     </td>
                     <td>
                         <a class="fcnum" href="javascript:doViewBetListNewGames({MatchId}, 89, '{static:Fanex.Age.UI.Common.BetListByBetTypeMatch}',1,'1:1')">{NextCombo_OverOdd}</a>
-                    </td>                    
+                    </td>
                     <td>
                         <a class="fcnum" href="javascript:doViewBetListNewGames({MatchId}, 89, '{static:Fanex.Age.UI.Common.BetListByBetTypeMatch}',1,'2:1')">{NextCombo_UnderOdd}</a>
                     </td>
@@ -162,11 +163,11 @@
                 </tr>
                 <!--/NotFound-->
             </table>
-        <!--/Contents-->
+            <!--/Contents-->
         </div>
     </div>
     <script src="../_GlobalResources/Js/Core.js" type="text/javascript"></script>
-    <script src="Resources/TotalBets.js" type="text/javascript"></script> 
+    <script src="Resources/TotalBets.js" type="text/javascript"></script>
 
     <!--Piwik-->
     <script type="text/javascript">

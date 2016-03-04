@@ -11,7 +11,7 @@ namespace Fanex.Age.UI.Forecast
 	//{
 		public class ScoreMap_Template : Template
 		{
-			protected static string s0 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>";
+			protected static string s0 = "<!DOCTYPE html><html><head><title>";
 			protected static string s1{get{return LocalResources.UIForecastLang.lblScoreMap;}}
 			protected static string s2 = "</title><link href=\"";
 			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.min.css", TplSettings.Question);}}
@@ -23,7 +23,7 @@ namespace Fanex.Age.UI.Forecast
 			public ScoreMap_Content_Block Content = new ScoreMap_Content_Block();
 			public Fanex.Age.UI.Components.ErrorMsg.ErrorMsg_Template ErrorMsg{get {return _ErrorMsg != null ? _ErrorMsg : _ErrorMsg =  new Fanex.Age.UI.Components.ErrorMsg.ErrorMsg_Template();}}
 			protected Fanex.Age.UI.Components.ErrorMsg.ErrorMsg_Template _ErrorMsg;
-			protected static string s8 = "</div></div><input id=\"strValueL\" name=\"strValueL\" type=\"hidden\" value=\"0\"/><input id=\"strValueD\" name=\"strValueD\" type=\"hidden\" value=\"0\"/>";
+			protected static string s8 = "</div></div><input id=\"strValueL\" name=\"strValueL\" type=\"hidden\" value=\"0\" /><input id=\"strValueD\" name=\"strValueD\" type=\"hidden\" value=\"0\" />";
 			public string BoxMatch = "{BoxMatch}";
 			protected static string s9 = "<script src=\"";
 			protected static string s10{get{return AbsoluteUrl("_GlobalResources/Js/Core.js", TplSettings.Question);}}

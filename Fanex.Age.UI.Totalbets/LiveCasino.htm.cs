@@ -11,7 +11,7 @@ namespace Fanex.Age.UI.TotalBets
 	//{
 		public class LiveCasino_Template : Template
 		{
-			protected static string s0 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>";
+			protected static string s0 = "<!DOCTYPE html><html><head><title>";
 			protected static string s1{get{return LocalResources.TotalBetsLang.LiveCasino;}}
 			protected static string s2 = "</title><link href=\"";
 			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.min.css", TplSettings.Question);}}

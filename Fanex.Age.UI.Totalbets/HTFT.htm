@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<html>
 <head>
     <title>TotalBets</title>
     <link href="../App_Themes/Apo/Common/Agent.min.css" rel="stylesheet" type="text/css" />
@@ -8,10 +8,11 @@
 <body>
     <div id="page_main">
         <div id="header_main">
-            {static:LocalResources.TotalBetsLang.htft}</div>
+            {static:LocalResources.TotalBetsLang.htft}
+        </div>
         {load:Fanex.Age.UI.Components.RefreshCountDown_Control RefreshCountDown = new Fanex.Age.UI.Components.RefreshCountDown_Control(this,90,"HTFT")}
         <div id="sContent">
-        <!--Contents-->
+            <!--Contents-->
             <table class="tblRpt tbl-HTFT">
                 <tr class="RptHeader">
                     <td class="col-number">
@@ -99,7 +100,7 @@
                 </tr>
                 <!--/NotFoundContent-->
             </table>
-        <!--/Contents-->
+            <!--/Contents-->
         </div>
     </div>
     <script src="../_GlobalResources/Js/Core.js" type="text/javascript"></script>

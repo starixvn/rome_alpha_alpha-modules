@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
     <title>{static:LocalResources.UIForecastLang.lblForecast}</title>
     <link href="../App_Themes/Apo/Common/Agent.min.css" rel="stylesheet" type="text/css" />
@@ -76,7 +76,7 @@
                 </td>
             </tr>
             <!--/ForecastValue-->
-             <!--NoInfo-->
+            <!--NoInfo-->
             <tr class="no_info">
                 <td colspan="5">{static:LocalResources.UIForecastLang.noInfo}</td>
             </tr>
@@ -85,7 +85,8 @@
                 <td colspan="5">
                     <!--BetListLink-->
                     <a class="forecast_betlist_link" href="../_BetList/BetList.aspx?matchid={MatchId}&bettype={BetType}&type={BetTypeValue}">
-                        {static:LocalResources.UIForecastLang.lblBetLists}</a>
+                        {static:LocalResources.UIForecastLang.lblBetLists}
+                    </a>
                     <!--/BetListLink-->
                     <a class="forecast_toggle_link" href='javascript:GetFCAH({MatchId},0,{ToggleBetType})'>{ToggleFC}</a>
                 </td>

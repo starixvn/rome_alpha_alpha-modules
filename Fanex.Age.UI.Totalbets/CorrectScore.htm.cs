@@ -11,7 +11,7 @@ namespace Fanex.Age.UI.TotalBets
 	//{
 		public class CorrectScore_Template : Template
 		{
-			protected static string s0 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>TotalBets</title><link href=\"";
+			protected static string s0 = "<!DOCTYPE html><html><head><title>TotalBets</title><link href=\"";
 			protected static string s1{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.min.css", TplSettings.Question);}}
 			protected static string s2 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
 			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/TotalBets/TotalBets.min.css", TplSettings.Question);}}
@@ -109,7 +109,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class CorrectScore_Contents_StockIndex_Block: Block
 		{
-			protected static string s29 = "<tr><td colspan=\"6\"class=\"col-league league\">";
+			protected static string s29 = "<tr><td colspan=\"6\" class=\"col-league league\">";
 			public string IndexName = "{IndexName}";
 			protected static string s30 = "</td></tr>";
 			public CorrectScore_Contents_StockIndex_BetType_Block BetType = new CorrectScore_Contents_StockIndex_BetType_Block();
