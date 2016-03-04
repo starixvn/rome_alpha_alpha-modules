@@ -67,6 +67,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
         P2P = 253,
         Others = 1000,
         HRFixedOdds = 154,
-        GoldDeluxe = 255
+        GoldDeluxe = 255,
+        AllBet = 211
     }
 }
