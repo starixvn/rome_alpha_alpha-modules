@@ -3,6 +3,7 @@
     using System;
     using System.Text.RegularExpressions;
     using System.Web;
+    using System.Web.Security;
     using Configurations;
     using Services;
     using Services.Impl;
@@ -37,19 +38,19 @@
             if (string.IsNullOrEmpty(url) ||
                 url.Replace("/", string.Empty).Equals(AuthorizationSection.Instance.VirtualDirectory, StringComparison.OrdinalIgnoreCase))
             {
-                HttpContext.Current.Response.Redirect("~/Index.aspx", true);
+                HttpContext.Current.Response.Redirect(FormsAuthentication.DefaultUrl, true);
                 return;
             }
 
             IAuthorizationService authorizationService = new AuthorizationService(url);
-            if (UserSession.Current.CustId != 0 &&
-                 !string.IsNullOrWhiteSpace(url) &&
-                !UserSession.Current.IsInternal)
+            if (UserSession.Current.CustId != 0 
+                && !string.IsNullOrWhiteSpace(url) 
+                && !UserSession.Current.IsInternal)
             {
                 if (authorizationService.CheckingClosedStatus())
                 {
                     HttpContext.Current.Session.Clear();
-                    HttpContext.Current.Response.Redirect("~/_Authorization/SignIn.aspx", true);
+                    HttpContext.Current.Response.Redirect(FormsAuthentication.LoginUrl, true);
                     return;
                 }
             }
@@ -58,7 +59,7 @@
             if (!isBelonging)
             {
                 HttpContext.Current.Session.Abandon();
-                HttpContext.Current.Response.Redirect("~/_Authorization/SignIn.aspx", true);
+                HttpContext.Current.Response.Redirect(FormsAuthentication.LoginUrl, true);
                 return;
             }
         }
