@@ -57,7 +57,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Age.UI.Components, Version=3.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Age.UI.Components.3.0.0.8-MissingKenoBug\lib\net40\Fanex.Age.UI.Components.dll</HintPath>
+      <HintPath>..\packages\Fanex.Age.UI.Components.3.0.0.8\lib\net40\Fanex.Age.UI.Components.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Common, Version=1.0.404.97, Culture=neutral, processorArchitecture=MSIL">
