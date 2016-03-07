@@ -181,13 +181,13 @@ namespace Fanex.Age.UI.Components
             return list;
         }
 
-        public static string RenderProductFilters()
+        public static string RenderProductFilters(Dictionary<int, bool> permissionDictionary = null)
         {
             var result = new StringBuilder();
             var products = ProductRenderUtility.GetProductHasReport();
             var checkboxLabels = GetProductCheckBoxLabels();
             var checkboxNames = GetProductCheckBoxNames();
-            var permissions = ProductRenderUtility.GetPermissionDictionary();
+            var permissions = permissionDictionary ?? ProductRenderUtility.GetPermissionDictionary();
 
             var checkboxId = "chk_all";
             var inputFormat = "<input type=\"checkbox\" id=\"{0}\" value=\"true\" name=\"{1}\" checked />";
@@ -204,7 +204,7 @@ namespace Fanex.Age.UI.Components
                 }
 
                 checkboxId = productCheckBoxURLQueryNames[product];
-                if (permissions[product])
+                if (permissions.ContainsKey(product) && permissions[product])
                 {
                     result.Append(string.Format(inputFormat, checkboxId, checkboxNames[product]));
                     result.Append(string.Format(labelFormat, checkboxId, checkboxLabels[product]));
