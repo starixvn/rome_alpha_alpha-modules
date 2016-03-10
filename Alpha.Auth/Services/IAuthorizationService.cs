@@ -4,10 +4,10 @@
 
     public interface IAuthorizationService
     {
-        bool CheckingClosedStatus();
+        bool CheckClosedStatus();
 
-        PermissionResult CheckingCustomerPermission(int custId, long transId, bool isDataWarehouse);
+        PermissionResult CheckPermission();
 
-        bool CheckBelonging(int custId, long transId, bool isDataWarehouse);
+        bool CheckBelonging();
     }
 }

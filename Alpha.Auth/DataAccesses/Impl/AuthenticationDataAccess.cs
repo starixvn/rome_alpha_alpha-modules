@@ -16,10 +16,12 @@
         {
             using (var objectDb = new ObjectDb("Age_CustomerStatusSel"))
             {
-                Hashtable inputParams = new Hashtable();
-                inputParams.Add("custid", customerId);
-                inputParams.Add("subaccid", subAccountId);
-                inputParams.Add("isactive", false);
+                var inputParams = new Hashtable
+                {
+                    { "custid", customerId },
+                    { "subaccid", subAccountId },
+                    { "isactive", false }
+                };
 
                 objectDb.AssignParamValues(inputParams);
                 objectDb.ExecuteNonQuery();
@@ -81,7 +83,7 @@
                 { "subaccountid", subAccountId },
                 { "transid", transId },
                 { "roleid", 0 },
-                { "isactive", true },
+                { "isactive", true }
             };
 
             if (custId != 0)

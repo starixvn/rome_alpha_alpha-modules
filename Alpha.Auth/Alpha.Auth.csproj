@@ -106,9 +106,13 @@
     <Compile Include="Configurations\PageAccessElement.cs" />
     <Compile Include="Entities\PermissionResult.cs" />
     <Compile Include="HttpModules\AuthenticationHttpModule.cs" />
+    <Compile Include="Models\IRequestContext.cs" />
+    <Compile Include="Models\ICustContext.cs" />
+    <Compile Include="Models\RequestContext.cs" />
     <Compile Include="Models\Result.cs" />
+    <Compile Include="Models\CustContext.cs" />
     <Compile Include="Web\ShareSession.cs" />
-    <Compile Include="HttpModules\CheckBelongingHttpModule.cs" />
+    <Compile Include="HttpModules\AuthorizationHttpModule.cs" />
     <Compile Include="DataAccesses\Impl\AuthenticationDataAccess.cs" />
     <Compile Include="DataAccesses\IAuthenticationDataAccess.cs" />
     <Compile Include="DataAccesses\IStatisticDataAccess.cs" />

@@ -11,183 +11,122 @@
     using Configurations;
     using Entities;
     using Fanex.Common;
+    using Models;
     using Sunplus.Agent.Model.BL;
     using Sunplus.Agent.Model.Entities;
 
     public class AuthorizationService : IAuthorizationService
     {
-        private const string CustomerClosedStatusSessionKey = "Fanex.Razorbill.Security.Services.Authentication.CheckingClosedStatus";
-        private const string SubAccountPermissionSessionKey = "Fanex.Razorbill.Security.Services.Authentication.CheckingCustomerPermission";
-
-        private readonly IUserSession _currentUserSession;
-        private readonly IAuthenticationDataAccess _dataAccess;
+        private readonly IAuthenticationDataAccess _authDataAccess;
         private readonly IStatisticService _statisticService;
+        private readonly ICustContext _custContext;
+        private readonly IRequestContext _requestContext;
 
-        private string _urlRequest;
         private object _blockStatus = new object();
 
-        public AuthorizationService(string urlRequest)
+        public AuthorizationService(
+            IStatisticService statisticService = null,
+            ICustContext custContext = null,
+            IRequestContext requestContext = null)
         {
-            _currentUserSession = UserSessionService.GetUserSessionInstance(HttpContext.Current.Session.SessionID);
-            _dataAccess = new AuthenticationDataAccess();
-            _urlRequest = urlRequest;
-            _statisticService = new StatisticService();
+            _authDataAccess = new AuthenticationDataAccess();
+            _statisticService = statisticService ?? new StatisticService();
+            _custContext = custContext ?? new CustContext();
+            _requestContext = requestContext ?? new RequestContext();
         }
 
-        public string CustomerCurrentStatus
-        {
-            get
-            {
-                return (string)HttpContext.Current.Session[string.Format("{0}_{1}", HttpContext.Current.Session.SessionID, CustomerClosedStatusSessionKey)];
-            }
-
-            set
-            {
-                HttpContext.Current.Session[string.Format("{0}_{1}", HttpContext.Current.Session.SessionID, CustomerClosedStatusSessionKey)] = value;
-            }
-        }
-
-        public string CustomerCurrentPermission
-        {
-            get
-            {
-                return (string)HttpContext.Current.Session[string.Format("{0}_{1}", HttpContext.Current.Session.SessionID, SubAccountPermissionSessionKey)];
-            }
-
-            set
-            {
-                HttpContext.Current.Session[string.Format("{0}_{1}", HttpContext.Current.Session.SessionID, SubAccountPermissionSessionKey)] = value;
-            }
-        }
-
-        public bool CheckingClosedStatus()
+        public bool CheckClosedStatus()
         {
             lock (_blockStatus)
             {
-                if (HttpContext.Current.Session == null)
+                if (_requestContext.IsSessionNull)
                 {
                     return true;
                 }
 
-                if (IgnoreSpecialFileTypes())
+                if (_requestContext.IsIgnore
+                    || _custContext.StatusExpiredTime >= DateTime.Now)
                 {
                     return false;
                 }
 
-                if (!string.IsNullOrEmpty(CustomerCurrentStatus))
-                {
-                    var sessionInfo = CustomerCurrentStatus.Split('_');
-                    if (sessionInfo.Length > 1 &&
-                        Converter.ToDateTime(sessionInfo[1]) >= DateTime.Now)
-                    {
-                        return false;
-                    }
-                }
-
-                var isActive = _dataAccess.IsActive(_currentUserSession.CustId, _currentUserSession.SubAccId);
+                var isActive = _authDataAccess.IsActive(_custContext.UserSession.CustId, _custContext.UserSession.SubAccId);
                 if (!isActive)
                 {
                     return true;
                 }
 
-                CustomerCurrentStatus =
-                    string.Format("{0}_{1}", isActive, DateTime.Now.AddSeconds(Converter.ToInt(ConfigurationManager.AppSettings["CustomerStatusExpireTime"])));
+                _custContext.IsStatusActive = isActive;
 
                 return false;
             }
         }
 
-        public bool CheckBelonging(int custId, long transId, bool isDataWarehouse)
+        public bool CheckBelonging()
         {
-            if (HttpContext.Current.Session == null)
+            if (_requestContext.IsSessionNull)
             {
                 return false;
             }
 
-            var currentUrlAccess = GetUrlAccessByCustomerWithoutDirectoryPath();
-
-            if (IgnoreSpecialFileTypes() ||
-                currentUrlAccess.Equals("index.aspx", StringComparison.OrdinalIgnoreCase))
+            if (_requestContext.IsIgnore ||
+                _requestContext.Url.Equals("index.aspx", StringComparison.OrdinalIgnoreCase))
             {
                 return true;
             }
 
-            var isBelonging = VerifyRequestingUrlAgainstConfigFile(custId, transId, isDataWarehouse, currentUrlAccess);
-
-            return isBelonging;
+            return VerifyRequestingUrlAgainstConfigFile(_requestContext.CustId, _requestContext.TransId, _requestContext.Url);
         }
 
-        public PermissionResult CheckingCustomerPermission(int custId, long transId, bool isDataWarehouse)
+        public PermissionResult CheckPermission()
         {
-            var customerPermission = new PermissionResult()
-            {
-                IsHasPermission = false,
-                RedirectUrl = AuthorizationSection.Instance.IndexUrl
-            };
+            var customerPermission = new PermissionResult();
 
             // session is null
-            if (HttpContext.Current.Session == null)
+            if (_requestContext.IsSessionNull)
             {
                 customerPermission.RedirectUrl = AuthorizationSection.Instance.SignOutUrl;
+
                 return customerPermission;
             }
 
             // ignore urls
-            if (IgnoreSpecialFileTypes())
+            if (_requestContext.IsIgnore)
             {
-                customerPermission.IsHasPermission = true;
+                customerPermission.HasPermission = true;
+
                 return customerPermission;
             }
 
             var authenticationSection = AuthorizationSection.Instance;
             var permission = authenticationSection.FullPermission;
-            if (_currentUserSession.SubAccId > 0)
+            if (_custContext.UserSession.SubAccId > 0)
             {
                 permission = GetSubPermission();
+
                 if (permission.Equals("0"))
                 {
                     return customerPermission;
                 }
             }
 
-            var newCustomerPermission = CheckingPageAccess(permission, authenticationSection, custId, transId, isDataWarehouse);
-            customerPermission.IsHasPermission = newCustomerPermission.IsHasPermission;
+            var newCustomerPermission = CheckPageAccess(permission, authenticationSection, _requestContext.CustId, _requestContext.TransId);
+
+            customerPermission.HasPermission = newCustomerPermission.HasPermission;
             customerPermission.RedirectUrl = newCustomerPermission.RedirectUrl;
 
             return customerPermission;
         }
 
-        private bool IgnoreSpecialFileTypes()
-        {
-            var pattern = "([^\\s]+(\\.(?i)(jpg|png|gif|bmp|css|js))$)";
-
-            Regex urlRegex = new Regex(pattern);
-
-            return urlRegex.IsMatch(_urlRequest, (int)RegexOptions.IgnoreCase);
-        }
-
-        private string GetUrlAccessByCustomerWithoutDirectoryPath()
-        {
-            var virtualDirectory = AuthorizationSection.Instance.VirtualDirectory;
-            if (!string.IsNullOrWhiteSpace(virtualDirectory))
-            {
-                var regex = new Regex(string.Format("{0}/", virtualDirectory), RegexOptions.IgnoreCase);
-                var urlWithOutVirtualDirectory = regex.Replace(_urlRequest, string.Empty);
-
-                return urlWithOutVirtualDirectory;
-            }
-
-            return _urlRequest;
-        }
-
-        private bool VerifyRequestingUrlAgainstConfigFile(int custId, long transId, bool isDataWarehouse, string currentUrlAccess)
+        private bool VerifyRequestingUrlAgainstConfigFile(int custId, long transId, string currentUrlAccess)
         {
             var isBelonging = true;
             var authenticationSection = AuthorizationSection.Instance;
             var permission = authenticationSection.FullPermission;
 
             // get all urls that allow he/she access by his/her level
-            var levels = from q in authenticationSection.GroupLevel.Cast<GroupLevelElement>() where q.RoleId <= _currentUserSession.RoleId select q;
+            
+            var levels = authenticationSection.GroupLevel.Cast<GroupLevelElement>().Where(groupLevel => groupLevel.RoleId <= _custContext.UserSession.RoleId);
             if (levels.Any())
             {
                 foreach (GroupLevelElement level in levels)
@@ -195,9 +134,7 @@
                     // get setting of current url against config file
                     if (level != null && level.GroupLevel != null && level.GroupLevel.Count > 0)
                     {
-                        var pageAccess = from q in level.GroupLevel.Cast<PageAccessElement>()
-                                         where q.Url.Equals(currentUrlAccess, StringComparison.OrdinalIgnoreCase)
-                                         select q;
+                        var pageAccess = level.GroupLevel.Cast<PageAccessElement>().Where(q => q.Url.Equals(currentUrlAccess, StringComparison.OrdinalIgnoreCase));
 
                         if (pageAccess.Any())
                         {
@@ -207,27 +144,28 @@
                                 // - downline id not equal 0
                                 // - and current requesting url need to check belonging
                                 // - and current requesting url not in special list: allow customers to update by themselves
-                                if (custId != 0 && pageElement.IsCheckBelonging)
+                                if (custId != 0 
+                                    && pageElement.IsCheckBelonging)
                                 {
-                                    if (!pageElement.IsAllowToDoByThemselves && UserSession.Current.CustId == custId)
+                                    if (UserSession.Current.CustId == custId)
                                     {
-                                        return false;
-                                    }
-
-                                    if (pageElement.IsAllowToDoByThemselves && UserSession.Current.CustId == custId)
-                                    {
-                                        return true;
+                                        return pageElement.IsAllowToDoByThemselves;
                                     }
 
                                     if (pageElement.IsViewedByGroupHeadline
-                                        && _dataAccess.IsCustomerConsolidatedGroupBelonging(custId, _currentUserSession.CustId, _currentUserSession.SubAccId, transId, _currentUserSession.IsInternal))
+                                        && _authDataAccess.IsCustomerConsolidatedGroupBelonging(
+                                            custId, 
+                                            _custContext.UserSession.CustId, 
+                                            _custContext.UserSession.SubAccId, 
+                                            transId, 
+                                            _custContext.UserSession.IsInternal))
                                     {
                                         return true;
                                     }
 
-                                    return isDataWarehouse
-                                        ? _dataAccess.IsBelongingOld(custId, _currentUserSession.CustId, transId)
-                                        : _dataAccess.IsBelonging(custId, _currentUserSession.CustId, _currentUserSession.SubAccId, transId, _currentUserSession.IsInternal);
+                                    return _requestContext.IsDataStoreInDataWarehouse
+                                        ? _authDataAccess.IsBelongingOld(custId, _custContext.UserSession.CustId, transId)
+                                        : _authDataAccess.IsBelonging(custId, _custContext.UserSession.CustId, _custContext.UserSession.SubAccId, transId, _custContext.UserSession.IsInternal);
                                 }
                             }
 
@@ -240,33 +178,25 @@
             return isBelonging;
         }
 
-        private PermissionResult CheckingPageAccess(
+        private PermissionResult CheckPageAccess(
             string customerPermission,
             AuthorizationSection authenticationSection,
             int custId,
-            long transId,
-            bool isDataWarehouse)
+            long transId)
         {
             var permissionResult = new PermissionResult()
             {
-                IsHasPermission = true
+                HasPermission = true
             };
 
-            var levels = from q in authenticationSection.GroupLevel.Cast<GroupLevelElement>() where q.RoleId <= _currentUserSession.RoleId select q;
+            var levels = authenticationSection.GroupLevel.Cast<GroupLevelElement>().Where(q => q.RoleId <= _custContext.UserSession.RoleId);
             if (levels.Any())
             {
-                var urlWithOutVirtualDirectory = !string.IsNullOrWhiteSpace(AuthorizationSection.Instance.VirtualDirectory) ?
-                    _urlRequest.ToUpper().Replace(string.Format("{0}/", AuthorizationSection.Instance.VirtualDirectory).ToUpper(), string.Empty) :
-                    string.Empty;
-
                 foreach (GroupLevelElement level in levels)
                 {
                     if (level != null && level.GroupLevel != null && level.GroupLevel.Count > 0)
                     {
-                        var pageAccess = from q in level.GroupLevel.Cast<PageAccessElement>()
-                                         where q.Url.Equals(urlWithOutVirtualDirectory, StringComparison.OrdinalIgnoreCase)
-                                         select q;
-
+                        var pageAccess = level.GroupLevel.Cast<PageAccessElement>().Where(q => q.Url.Equals(_requestContext.Url, StringComparison.OrdinalIgnoreCase));
                         if (pageAccess.Any())
                         {
                             foreach (PageAccessElement pageElement in pageAccess)
@@ -276,8 +206,9 @@
                                 {
                                     if (!customerPermission.Contains(item))
                                     {
-                                        permissionResult.IsHasPermission = false;
+                                        permissionResult.HasPermission = false;
                                         permissionResult.RedirectUrl = AuthorizationSection.Instance.AccessDeniedUrl;
+
                                         continue;
                                     }
 
@@ -286,19 +217,21 @@
                                         pageElement.IsCheckBelonging &&
                                         !(pageElement.IsAllowToDoByThemselves && UserSession.Current.CustId == custId))
                                     {
-                                        var hasPermission = isDataWarehouse
-                                            ? _dataAccess.IsBelongingOld(custId, _currentUserSession.CustId, transId)
-                                            : _dataAccess.IsBelonging(custId, _currentUserSession.CustId, _currentUserSession.SubAccId, transId, _currentUserSession.IsInternal);
+                                        var hasPermission = _requestContext.IsDataStoreInDataWarehouse
+                                            ? _authDataAccess.IsBelongingOld(custId, _custContext.UserSession.CustId, transId)
+                                            : _authDataAccess.IsBelonging(custId, _custContext.UserSession.CustId, _custContext.UserSession.SubAccId, transId, _custContext.UserSession.IsInternal);
+
                                         if (!hasPermission)
                                         {
-                                            permissionResult.IsHasPermission = false;
+                                            permissionResult.HasPermission = false;
                                             permissionResult.RedirectUrl = AuthorizationSection.Instance.AccessDeniedUrl;
                                         }
                                     }
 
-                                    if (!_currentUserSession.IsInternal && permissionResult.IsHasPermission)
+                                    if (!_custContext.UserSession.IsInternal 
+                                        && permissionResult.HasPermission)
                                     {
-                                        _statisticService.UpdateFunctionUsage(pageElement.Url, pageElement.MainFunctionName, pageElement.SubFunctionName, _currentUserSession.Site);
+                                        _statisticService.UpdateFunctionUsage(pageElement.Url, pageElement.MainFunctionName, pageElement.SubFunctionName, _custContext.UserSession.Site);
                                     }
 
                                     break;
@@ -316,19 +249,14 @@
 
         private string GetSubPermission()
         {
-            if (!string.IsNullOrEmpty(CustomerCurrentPermission))
+            if (_custContext.PermissionExpiredTime >= DateTime.Now)
             {
-                var sessionInfo = CustomerCurrentPermission.Split('_');
-                if (sessionInfo.Length > 1 &&
-                    Converter.ToDateTime(sessionInfo[1]) >= DateTime.Now)
-                {
-                    return Converter.ToString2(sessionInfo[0]);
-                }
+                return _custContext.Permission;
             }
 
-            var newPermission = _dataAccess.GetSubAccountPermission(_currentUserSession.SubAccId);
-            CustomerCurrentPermission =
-                string.Format("{0}_{1}", newPermission, DateTime.Now.AddSeconds(Converter.ToInt(ConfigurationManager.AppSettings["CustomerStatusExpireTime"])));
+            var newPermission = _authDataAccess.GetSubAccountPermission(_custContext.UserSession.SubAccId);
+
+            _custContext.Permission = newPermission;
 
             return newPermission;
         }
