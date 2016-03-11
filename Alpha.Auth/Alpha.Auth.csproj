@@ -54,10 +54,6 @@
       <HintPath>..\packages\EnterpriseLibrary.Common.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.DataAccessLibrary, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sunplus.Agent.Model.DataAccessLibrary.3.0.0.1\lib\net40\Sunplus.Agent.Model.DataAccessLibrary.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\EnterpriseLibrary.Logging.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
       <Private>True</Private>
@@ -100,12 +96,11 @@
   <ItemGroup>
     <Compile Include="Configurations\AuthorizationSection.cs" />
     <Compile Include="Configurations\AlphaAuthSection.cs" />
-    <Compile Include="Configurations\GroupLevelCollection.cs" />
-    <Compile Include="Configurations\GroupLevelElement.cs" />
+    <Compile Include="Configurations\GroupPageAccessCollection.cs" />
+    <Compile Include="Configurations\GroupPageAccessElement.cs" />
     <Compile Include="Configurations\PageAccessCollection.cs" />
     <Compile Include="Configurations\PageAccessElement.cs" />
     <Compile Include="Entities\PermissionResult.cs" />
-    <Compile Include="HttpModules\AuthenticationHttpModule.cs" />
     <Compile Include="Models\IRequestContext.cs" />
     <Compile Include="Models\ICustContext.cs" />
     <Compile Include="Models\RequestContext.cs" />

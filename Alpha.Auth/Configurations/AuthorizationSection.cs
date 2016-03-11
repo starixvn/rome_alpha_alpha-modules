@@ -17,11 +17,11 @@
         }
 
         [ConfigurationProperty("", IsDefaultCollection = true, IsRequired = true)]
-        public GroupLevelCollection GroupLevel
+        public GroupPageAccessCollection GroupPageAccesses
         {
             get
             {
-                return (GroupLevelCollection)base[string.Empty];
+                return (GroupPageAccessCollection)base[string.Empty];
             }
         }
 
@@ -32,11 +32,34 @@
             set { this["fullpermission"] = value.ToLower(); }
         }
 
-        [ConfigurationProperty("BelongingParams", IsRequired = true)]
-        public string BelongingParams
+        [ConfigurationProperty("CustIdQueryStringParamNameMapping", IsRequired = true)]
+        public string CustIdQueryStringParamNameMapping
         {
-            get { return (string)this["BelongingParams"]; }
-            set { this["BelongingParams"] = value; }
+            get { return (string)this["CustIdQueryStringParamNameMapping"]; }
+            set { this["CustIdQueryStringParamNameMapping"] = value; }
+        }
+
+        public string[] CustIdQueryStringParamNames
+        {
+            get
+            {
+                return CustIdQueryStringParamNameMapping.Split(',');
+            }
+        }
+
+        [ConfigurationProperty("CustIdJsonParamNameMapping", IsRequired = true, DefaultValue = "txtCustomerObject,newCustomer")]
+        public string CustIdJsonParamNameMapping
+        {
+            get { return (string)this["CustIdJsonParamNameMapping"]; }
+            set { this["CustIdJsonParamNameMapping"] = value; }
+        }
+
+        public string[] CustIdJsonParamNames
+        {
+            get
+            {
+                return CustIdJsonParamNameMapping.Split(',');
+            }
         }
 
         [ConfigurationProperty("VirtualDirectory", IsRequired = false)]
@@ -57,6 +80,13 @@
             {
                 this["VirtualDirectory"] = value;
             }
+        }
+
+        [ConfigurationProperty("IgnoreUrls", IsRequired = false, DefaultValue = "index.aspx")]
+        public string IgnoreUrls
+        {
+            get { return (string)this["IgnoreUrls"]; }
+            set { this["IgnoreUrls"] = value; }
         }
 
         [ConfigurationProperty("IndexUrl", IsRequired = true, DefaultValue = "~/Index.aspx")]

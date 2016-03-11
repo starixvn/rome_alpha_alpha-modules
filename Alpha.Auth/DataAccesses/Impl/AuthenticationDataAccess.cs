@@ -6,12 +6,6 @@
 
     public class AuthenticationDataAccess : IAuthenticationDataAccess
     {
-        /// <summary>
-        /// Checking customer status.
-        /// </summary>
-        /// <param name="customerId">Customer ID.</param>
-        /// <param name="subAccountId">SUB ACC ID.</param>
-        /// <returns>Return status: 1 - is active, 2 - is closed.</returns>
         public bool IsActive(int customerId, int subAccountId)
         {
             using (var objectDb = new ObjectDb("Age_CustomerStatusSel"))
@@ -30,11 +24,6 @@
             }
         }
 
-        /// <summary>
-        /// Get SUB ACCOUNT Permission.
-        /// </summary>
-        /// <param name="subAccountId">SUB ACC ID.</param>
-        /// <returns>Return result.</returns>
         public string GetSubAccountPermission(int subAccountId)
         {
             var inputParams = new Hashtable

@@ -2,21 +2,10 @@ namespace Alpha.Auth.DataAccesses.Impl
 {
     using System.Collections;
     using Alpha.Auth.Repositories;
-    using Sunplus.Agent.Model.DL.Base;
+    using Fanex.Data;
 
-    public class StatisticDataAccess : DAOBase, IStatisticDataAccess
+    public class StatisticDataAccess : IStatisticDataAccess
     {
-        public void UpdatePageVisit(int roleId, string pageUrl)
-        {
-            var parameters = new Hashtable
-            {
-                { "role", roleId },
-                { "pageurl", pageUrl }
-            };
-
-            ExecSp("Age_UpdPageVisit", parameters);
-        }
-
         public void UpdateFunctionUsage(
             string pageUrl,
             int serverId,
@@ -35,20 +24,11 @@ namespace Alpha.Auth.DataAccesses.Impl
                 { "lang", lang }
             };
 
-            ExecSp("IS_UpdFunctionUsage", parameters);
-        }
-
-        public void UpdateFunctionUsage(int serverId, string function, string subFunction, string lang)
-        {
-            var parameters = new Hashtable
+            using (var objectDb = new ObjectDb("IS_UpdFunctionUsage"))
             {
-                { "serverid", serverId },
-                { "function", function },
-                { "subfunction", subFunction },
-                { "lang", lang }
-            };
-
-            ExecSp("Agm_UpdFunctionUsage", parameters);
+                objectDb.AssignParamValues(parameters);
+                objectDb.ExecuteNonQuery();
+            }
         }
     }
 }

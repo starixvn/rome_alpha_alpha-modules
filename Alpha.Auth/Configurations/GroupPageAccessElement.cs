@@ -2,7 +2,7 @@
 {
     using System.Configuration;
 
-    public class GroupLevelElement : ConfigurationElement
+    public class GroupPageAccessElement : ConfigurationElement
     {
         [ConfigurationProperty("roleid", DefaultValue = 2, IsRequired = false, IsKey = false)]
         public int RoleId
@@ -18,16 +18,16 @@
             set { this["name"] = value; }
         }
 
-        [ConfigurationProperty("PageAccess", IsDefaultCollection = false)]
+        [ConfigurationProperty("PageAccesses", IsDefaultCollection = false)]
         [ConfigurationCollection(typeof(PageAccessCollection),
             AddItemName = "add",
             ClearItemsName = "clear",
             RemoveItemName = "remove")]
-        public PageAccessCollection GroupLevel
+        public PageAccessCollection PageAccesses
         {
             get
             {
-                return (PageAccessCollection)base["PageAccess"];
+                return (PageAccessCollection)base["PageAccesses"];
             }
         }
     }

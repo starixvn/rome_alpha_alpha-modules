@@ -3,67 +3,78 @@
     using System;
     using System.Configuration;
     using System.Web;
+    using System.Web.SessionState;
     using Fanex.Common;
     using Sunplus.Agent.Model.BL;
     using Sunplus.Agent.Model.Entities;
 
     public class CustContext : ICustContext
     {
-        private const string CustomerClosedStatusSessionKey = "Fanex.Razorbill.Security.Services.Authentication.CheckingClosedStatus";
-        private const string SubAccountPermissionSessionKey = "Fanex.Razorbill.Security.Services.Authentication.CheckingCustomerPermission";
-        private const string StatusExpiredSessionKey = "aaaa";
-        private const string UserPermissionSessionKey = "fffff";
+        private const string CustomerClosedStatusSessionKey = "Alpha.Auth.CustContext.CustomerClosedStatusSessionKey";
+        private const string SubAccountPermissionSessionKey = "Alpha.Auth.CustContext.SubAccountPermissionSessionKey";
+        private const string StatusExpiredSessionKey = "Alpha.Auth.CustContext.StatusExpiredSessionKey";
+        private const string UserPermissionSessionKey = "Alpha.Auth.CustContext.UserPermissionSessionKey";
+        private const string SessionKeyFormat = "{0}_{1}";
+
+        private readonly int _custStatusExpireTime;
+
         private IUserSession _userSession;
+        private HttpSessionState _httpSession = HttpContext.Current.Session;
 
-        public bool IsStatusActive
+        public CustContext()
+        {
+            _custStatusExpireTime = Converter.ToInt(ConfigurationManager.AppSettings["CustomerStatusExpireTime"]);
+        }
+
+        public bool IsActive
         {
             get
             {
-                return Converter.ToBool(HttpContext.Current.Session[string.Format("{0}_{1}", HttpContext.Current.Session.SessionID, CustomerClosedStatusSessionKey)]);
+                return Converter.ToBool(_httpSession[string.Format(SessionKeyFormat, _httpSession.SessionID, CustomerClosedStatusSessionKey)]);
             }
 
             set
             {
-                HttpContext.Current.Session[string.Format("{0}_{1}", HttpContext.Current.Session.SessionID, CustomerClosedStatusSessionKey)] = value;
+                _httpSession[string.Format(SessionKeyFormat, _httpSession.SessionID, CustomerClosedStatusSessionKey)] = value;
             }
         }
 
-        public string Permission
+        public string SubAccPermission
         {
             get
             {
-                return (string)HttpContext.Current.Session[string.Format("{0}_{1}", HttpContext.Current.Session.SessionID, SubAccountPermissionSessionKey)];
+                return (string)_httpSession[string.Format(SessionKeyFormat, _httpSession.SessionID, SubAccountPermissionSessionKey)];
             }
 
             set
             {
-                HttpContext.Current.Session[string.Format("{0}_{1}", HttpContext.Current.Session.SessionID, SubAccountPermissionSessionKey)] = value;
+                _httpSession[string.Format(SessionKeyFormat, _httpSession.SessionID, SubAccountPermissionSessionKey)] = value;
             }
         }
 
-        public DateTime StatusExpiredTime
-        {
-            private set
-            {
-                HttpContext.Current.Session[string.Format("{0}_{1}", HttpContext.Current.Session.SessionID, StatusExpiredSessionKey)] = DateTime.Now.AddSeconds(Converter.ToInt(ConfigurationManager.AppSettings["CustomerStatusExpireTime"])).ToString();
-            }
-
-            get
-            {
-                return Converter.ToDateTime(HttpContext.Current.Session[string.Format("{0}_{1}", HttpContext.Current.Session.SessionID, StatusExpiredSessionKey)], DateTime.Now.AddDays(-1));
-            }
-        }
-
-        public DateTime PermissionExpiredTime
+        public DateTime StatusCachedExpiredTime
         {
             get
             {
-                return Converter.ToDateTime(HttpContext.Current.Session[string.Format("{0}_{1}", HttpContext.Current.Session.SessionID, UserPermissionSessionKey)], DateTime.Now.AddDays(-1));
+                return Converter.ToDateTime(_httpSession[string.Format(SessionKeyFormat, _httpSession.SessionID, StatusExpiredSessionKey)], DateTime.Now.AddDays(-1));
             }
 
             private set
             {
-                HttpContext.Current.Session[string.Format("{0}_{1}", HttpContext.Current.Session.SessionID, UserPermissionSessionKey)] = DateTime.Now.AddSeconds(Converter.ToInt(ConfigurationManager.AppSettings["CustomerStatusExpireTime"])).ToString();
+                _httpSession[string.Format(SessionKeyFormat, _httpSession.SessionID, StatusExpiredSessionKey)] = DateTime.Now.AddSeconds(_custStatusExpireTime).ToString();
+            }
+        }
+
+        public DateTime SubAccPermissionExpiredTime
+        {
+            get
+            {
+                return Converter.ToDateTime(_httpSession[string.Format(SessionKeyFormat, _httpSession.SessionID, UserPermissionSessionKey)], DateTime.Now.AddDays(-1));
+            }
+
+            private set
+            {
+                _httpSession[string.Format(SessionKeyFormat, _httpSession.SessionID, UserPermissionSessionKey)] = DateTime.Now.AddSeconds(_custStatusExpireTime).ToString();
             }
         }
 
@@ -73,13 +84,11 @@
             {
                 if (_userSession == null)
                 {
-                    _userSession = UserSessionService.GetUserSessionInstance(HttpContext.Current.Session.SessionID);
+                    _userSession = UserSessionService.GetUserSessionInstance(_httpSession.SessionID);
                 }
 
                 return _userSession;
             }
         }
-
-        
     }
 }

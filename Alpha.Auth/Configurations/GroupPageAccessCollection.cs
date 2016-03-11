@@ -2,7 +2,7 @@
 {
     using System.Configuration;
 
-    public class GroupLevelCollection : ConfigurationElementCollection
+    public class GroupPageAccessCollection : ConfigurationElementCollection
     {
         public override ConfigurationElementCollectionType CollectionType
         {
@@ -11,35 +11,35 @@
 
         protected override string ElementName
         {
-            get { return "GroupLevel"; }
+            get { return "GroupPageAccess"; }
         }
 
-        public new GroupLevelElement this[string path]
+        public new GroupPageAccessElement this[string path]
         {
             get
             {
-                return (GroupLevelElement)BaseGet(path);
+                return (GroupPageAccessElement)BaseGet(path);
             }
         }
 
-        public GroupLevelElement this[int index]
+        public GroupPageAccessElement this[int index]
         {
-            get { return (GroupLevelElement)BaseGet(index); }
+            get { return (GroupPageAccessElement)BaseGet(index); }
         }
 
-        public int IndexOf(GroupLevelElement authenticationElement)
+        public int IndexOf(GroupPageAccessElement authenticationElement)
         {
             return BaseIndexOf(authenticationElement);
         }
 
         protected override ConfigurationElement CreateNewElement()
         {
-            return new GroupLevelElement();
+            return new GroupPageAccessElement();
         }
 
         protected override object GetElementKey(ConfigurationElement element)
         {
-            return ((GroupLevelElement)element).RoleId;
+            return ((GroupPageAccessElement)element).RoleId;
         }
     }
 }

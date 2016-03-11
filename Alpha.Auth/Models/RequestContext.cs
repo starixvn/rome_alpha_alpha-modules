@@ -1,49 +1,30 @@
 ﻿namespace Alpha.Auth.Models
 {
     using System;
+    using System.Linq;
     using System.Text.RegularExpressions;
     using System.Web;
     using Configurations;
+    using Fanex.Common;
     using Web;
 
     public class RequestContext : IRequestContext
     {
+        private const string RNGCasinoArea = "CustomerSetting/Casino";
         private string _url;
-        private string _transId;
-        private string rngArea = "CustomerSetting/Casino";
-
-        public bool IsIgnore
-        {
-            get
-            {
-                var pattern = "([^\\s]+(\\.(?i)(jpg|png|gif|bmp|css|js))$)";
-
-                Regex urlRegex = new Regex(pattern);
-
-                return urlRegex.IsMatch(Url, (int)RegexOptions.IgnoreCase);
-            }
-        }
-
-        public bool IsSessionNull
-        {
-            get
-            {
-                return HttpContext.Current.Session == null;
-            }
-        }
+        private int _custId = 0;
 
         public string Url
         {
             get
             {
-                if(string.IsNullOrWhiteSpace(_url))
+                if (string.IsNullOrWhiteSpace(_url))
                 {
                     _url = HttpContext.Current.Request.AppRelativeCurrentExecutionFilePath.Substring(2);
 
-                    if (IsRnGCasinoUri())
+                    if (IsRNGCasinoUri())
                     {
-                        _url = GetRnGCasinoUri();
-                        _url = _url.Remove(0, 1).ToLower();
+                        return GetRnGCasinoUri().Remove(0, 1).ToLower();
                     }
                 }
 
@@ -57,7 +38,9 @@
             {
                 var request = HttpContext.Current.Request;
                 long transId;
+
                 long.TryParse(request["transid"], out transId);
+
                 if (transId == 0)
                 {
                     long.TryParse(request["refno"], out transId);
@@ -71,8 +54,7 @@
         {
             get
             {
-                var request = HttpContext.Current.Request;
-                return request["iswhcheck"] == "1";
+                return HttpContext.Current.Request["iswhcheck"] == "1";
             }
         }
 
@@ -80,60 +62,77 @@
         {
             get
             {
-                var belongingParams = AuthorizationSection.Instance.BelongingParams;
-                var paramArray = belongingParams.Split(',');
-                var custId = 0;
-                var request = HttpContext.Current.Request;
-                foreach (string paramRequest in paramArray)
+                if (_custId > 0)
                 {
-                    if (string.IsNullOrWhiteSpace(paramRequest))
+                    return _custId;
+                }
+
+                var custIdQueryStringParamNames = AuthorizationSection.Instance.CustIdQueryStringParamNames;
+                var custIdJsonParamNames = AuthorizationSection.Instance.CustIdJsonParamNames;
+                var request = HttpContext.Current.Request;
+
+                foreach (string custIdQueryStringParamName in custIdQueryStringParamNames)
+                {
+                    if (string.IsNullOrWhiteSpace(custIdQueryStringParamName))
                     {
                         continue;
                     }
 
-                    var currentParamName = Regex.Replace(paramRequest, @"^\s+", string.Empty);
-                    custId = Fanex.Common.Converter.ToInt(request[currentParamName]);
-                    if (custId > 0)
+                    var currentParamName = Regex.Replace(custIdQueryStringParamName, @"^\s+", string.Empty);
+                    _custId = Converter.ToInt(request[currentParamName]);
+
+                    if (_custId > 0)
                     {
                         break;
                     }
+
+                    if (request.Form.Count > 0
+                        && request.Form.AllKeys.Contains(currentParamName))
+                    {
+                        _custId = Converter.ToInt(request.Form[currentParamName]);
+
+                        if (_custId > 0)
+                        {
+                            break;
+                        }
+                    }
                 }
 
-                if (custId == 0 &&
-                    !string.IsNullOrEmpty(request["txtCustomerObject"]))
+                if (_custId == 0)
                 {
-                    custId = RequestAnalyst.GetCustomerId(request["txtCustomerObject"]);
+                    foreach (string custIdJsonParamName in custIdJsonParamNames)
+                    {
+                        if (_custId == 0 &&
+                            !string.IsNullOrEmpty(request[custIdJsonParamName]))
+                        {
+                            _custId = RequestAnalyst.GetCustomerId(request[custIdJsonParamName]);
+                        }
+
+                        if (_custId > 0)
+                        {
+                            break;
+                        }
+                    }
                 }
 
-                if (custId == 0 &&
-                    !string.IsNullOrEmpty(request["newCustomer"]))
-                {
-                    custId = RequestAnalyst.GetCustomerId(request["newCustomer"]);
-                }
-
-                return custId;
+                return _custId;
             }
         }
 
-        private bool IsRnGCasinoUri()
+        private bool IsRNGCasinoUri()
         {
             var url = HttpContext.Current.Request.Path.ToString();
-            if (url.IndexOf(rngArea, StringComparison.OrdinalIgnoreCase) != -1)
-            {
-                return true;
-            }
 
-            return false;
+            return url.IndexOf(RNGCasinoArea, StringComparison.OrdinalIgnoreCase) != -1;
         }
 
         private string GetRnGCasinoUri()
         {
-            var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"];
-            var action = HttpContext.Current.Request.RequestContext.RouteData.Values["action"];
+            var routeData = HttpContext.Current.Request.RequestContext.RouteData;
+            var controller = routeData.Values["controller"];
+            var action = routeData.Values["action"];
 
-            var uri = string.Format("/{0}/{1}/{2}", rngArea, controller, action);
-
-            return uri;
+            return string.Format("/{0}/{1}/{2}", RNGCasinoArea, controller, action);
         }
     }
 }

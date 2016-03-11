@@ -5,14 +5,14 @@
 
     public interface ICustContext
     {
-        bool IsStatusActive { get; set; }
+        bool IsActive { get; set; }
 
-        DateTime StatusExpiredTime { get; }
+        DateTime StatusCachedExpiredTime { get; }
 
-        string Permission { get; set; }
+        string SubAccPermission { get; set; }
 
         IUserSession UserSession { get; }
 
-        DateTime PermissionExpiredTime { get; }
+        DateTime SubAccPermissionExpiredTime { get; }
     }
 }

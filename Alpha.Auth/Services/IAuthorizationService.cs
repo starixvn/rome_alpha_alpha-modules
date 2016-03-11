@@ -4,7 +4,7 @@
 
     public interface IAuthorizationService
     {
-        bool CheckClosedStatus();
+        bool IsAccountActive();
 
         PermissionResult CheckPermission();
 

@@ -1,6 +1,7 @@
 ﻿namespace Alpha.Auth.HttpModules
 {
     using System;
+    using System.Text.RegularExpressions;
     using System.Web;
     using System.Web.Security;
     using Services;
@@ -9,6 +10,26 @@
 
     public class AuthorizationHttpModule : IHttpModule
     {
+        public bool IsIgnore
+        {
+            get
+            {
+                var pattern = "([^\\s]+(\\.(?i)(jpg|png|gif|bmp|css|js))$)";
+
+                Regex urlRegex = new Regex(pattern);
+
+                return urlRegex.IsMatch(HttpContext.Current.Request.Path, (int)RegexOptions.IgnoreCase);
+            }
+        }
+
+        public bool IsSessionNull
+        {
+            get
+            {
+                return HttpContext.Current.Session == null;
+            }
+        }
+
         #region IHttpModule Members
 
         public void Dispose()
@@ -22,38 +43,56 @@
 
         private void AcquireRequestState(object sender, EventArgs e)
         {
-            //if (string.IsNullOrEmpty(url) ||
-            //    url.Replace("/", string.Empty).Equals(AuthorizationSection.Instance.VirtualDirectory, StringComparison.OrdinalIgnoreCase))
-            //{
-            //    HttpContext.Current.Response.Redirect(FormsAuthentication.DefaultUrl, true);
-            //    return;
-            //}
+            if (IsSessionNull || IsIgnore)
+            {
+                return;
+            }
+
+            if (!HttpContext.Current.User.Identity.IsAuthenticated
+                || UserSession.Current.CustId == 0)
+            {
+                HttpContext.Current.Response.Redirect(FormsAuthentication.LoginUrl, true);
+            }
 
             IAuthorizationService authorizationService = new AuthorizationService();
-            if (UserSession.Current.CustId != 0 && !UserSession.Current.IsInternal)
+            if (UserSession.Current.CustId != 0
+                && !UserSession.Current.IsInternal
+                && !authorizationService.IsAccountActive())
             {
-                if (authorizationService.CheckClosedStatus())
-                {
-                    HttpContext.Current.Session.Clear();
-                    HttpContext.Current.Response.Redirect(FormsAuthentication.LoginUrl, true);
-                    return;
-                }
+                GoToLoginPage();
+
+                return;
             }
 
             var isBelonging = authorizationService.CheckBelonging();
             if (!isBelonging)
             {
-                HttpContext.Current.Session.Abandon();
-                HttpContext.Current.Response.Redirect(FormsAuthentication.LoginUrl, true);
+                GoToLoginPage();
+
                 return;
             }
 
-            var permissionResult = authorizationService.CheckPermission();
-            if (!permissionResult.HasPermission)
+            //// Permission for sub account still have not implemented yet.
+            ////var permissionResult = authorizationService.CheckPermission();
+            ////if (!permissionResult.HasPermission)
+            ////{
+            ////    HttpContext.Current.Session.Abandon();
+            ////    HttpContext.Current.Response.Redirect("unauthorized", true);
+            ////}
+        }
+
+        private void GoToLoginPage()
+        {
+            var session = HttpContext.Current.Session;
+
+            session.Clear();
+            session.Abandon();
+            if (!session.IsCookieless)
             {
-                HttpContext.Current.Session.Abandon();
-                HttpContext.Current.Response.Redirect("unauthorized", true);
+                FormsAuthentication.SignOut();
             }
+
+            HttpContext.Current.Response.Redirect(FormsAuthentication.LoginUrl, true);
         }
 
         #endregion IHttpModule Members

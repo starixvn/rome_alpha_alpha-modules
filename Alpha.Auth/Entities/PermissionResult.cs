@@ -4,6 +4,16 @@
 
     public class PermissionResult
     {
+        public static readonly PermissionResult DeniedAccessResult = new PermissionResult
+        {
+            RedirectUrl = AuthorizationSection.Instance.AccessDeniedUrl
+        };
+
+        public static readonly PermissionResult AllowedAccessResult = new PermissionResult
+        {
+            HasPermission = true
+        };
+
         public PermissionResult()
         {
             RedirectUrl = AuthorizationSection.Instance.IndexUrl;
