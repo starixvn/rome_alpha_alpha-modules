@@ -32,7 +32,7 @@ namespace Fanex.Age.UI.Components
 
         #region Constructors
 
-        public Filter_Control(IDictionary<string, FilterElement> filterCollections, HttpRequest request, DateTime dateFrom)
+        public Filter_Control(IDictionary<string, FilterElement> filterCollections, HttpRequest request, DateTime dateFrom, Dictionary<int, bool> permissionDictionary = null)
         {
             _filterCollections = filterCollections as Dictionary<string, FilterElement>;
             if (_filterCollections == null)
@@ -47,7 +47,7 @@ namespace Fanex.Age.UI.Components
             // Set show, hide
             // check, uncheck
             // Check no button was checked
-            CheckPermission();
+            CheckPermission(permissionDictionary);
 
             _template = new WinlossReportFilter_Template();
         }
@@ -237,9 +237,9 @@ namespace Fanex.Age.UI.Components
         /// <summary>
         /// Check user permission on all items
         /// </summary>
-        private void CheckPermission()
+        private void CheckPermission(Dictionary<int, bool> permissionDictionary = null)
         {
-            var permissions = ProductRenderUtility.GetPermissionDictionary();
+            var permissions = permissionDictionary ?? ProductRenderUtility.GetPermissionDictionary();
             var checkBoxIdFromNames = GetProductCheckBoxIdFromNames();
             foreach (string elementName in _filterCollections.Keys)
             {
