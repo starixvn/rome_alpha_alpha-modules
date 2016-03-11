@@ -89,21 +89,21 @@
             set { this["IgnoreUrls"] = value; }
         }
 
-        [ConfigurationProperty("IndexUrl", IsRequired = true, DefaultValue = "~/Index.aspx")]
+        [ConfigurationProperty("IndexUrl", IsRequired = false, DefaultValue = "~/Index.aspx")]
         public string IndexUrl
         {
             get { return (string)this["IndexUrl"]; }
             set { this["IndexUrl"] = value; }
         }
 
-        [ConfigurationProperty("SignOutUrl", IsRequired = true, DefaultValue = "~/SignOut.aspx")]
+        [ConfigurationProperty("SignOutUrl", IsRequired = false, DefaultValue = "~/SignOut.aspx")]
         public string SignOutUrl
         {
             get { return (string)this["SignOutUrl"]; }
             set { this["SignOutUrl"] = value; }
         }
 
-        [ConfigurationProperty("AccessDeniedUrl", IsRequired = true, DefaultValue = "~/AccessDenied.aspx")]
+        [ConfigurationProperty("AccessDeniedUrl", IsRequired = false, DefaultValue = "~/AccessDenied.aspx")]
         public string AccessDeniedUrl
         {
             get { return (string)this["AccessDeniedUrl"]; }

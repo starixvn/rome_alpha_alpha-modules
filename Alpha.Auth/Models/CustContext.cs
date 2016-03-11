@@ -35,7 +35,9 @@
 
             set
             {
+                HttpContext.Current.Session[string.Format(SessionKeyFormat, _httpSession.SessionID, StatusExpiredSessionKey)] = DateTime.Now.AddSeconds(_custStatusExpireTime).ToString();
                 _httpSession[string.Format(SessionKeyFormat, _httpSession.SessionID, CustomerClosedStatusSessionKey)] = value;
+                
             }
         }
 
@@ -49,6 +51,7 @@
             set
             {
                 _httpSession[string.Format(SessionKeyFormat, _httpSession.SessionID, SubAccountPermissionSessionKey)] = value;
+                _httpSession[string.Format(SessionKeyFormat, _httpSession.SessionID, UserPermissionSessionKey)] = DateTime.Now.AddSeconds(_custStatusExpireTime).ToString();
             }
         }
 
@@ -58,11 +61,6 @@
             {
                 return Converter.ToDateTime(_httpSession[string.Format(SessionKeyFormat, _httpSession.SessionID, StatusExpiredSessionKey)], DateTime.Now.AddDays(-1));
             }
-
-            private set
-            {
-                _httpSession[string.Format(SessionKeyFormat, _httpSession.SessionID, StatusExpiredSessionKey)] = DateTime.Now.AddSeconds(_custStatusExpireTime).ToString();
-            }
         }
 
         public DateTime SubAccPermissionExpiredTime
@@ -70,11 +68,6 @@
             get
             {
                 return Converter.ToDateTime(_httpSession[string.Format(SessionKeyFormat, _httpSession.SessionID, UserPermissionSessionKey)], DateTime.Now.AddDays(-1));
-            }
-
-            private set
-            {
-                _httpSession[string.Format(SessionKeyFormat, _httpSession.SessionID, UserPermissionSessionKey)] = DateTime.Now.AddSeconds(_custStatusExpireTime).ToString();
             }
         }
 

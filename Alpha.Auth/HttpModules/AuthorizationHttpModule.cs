@@ -4,11 +4,12 @@
     using System.Text.RegularExpressions;
     using System.Web;
     using System.Web.Security;
+    using System.Web.SessionState;
     using Services;
     using Services.Impl;
     using Sunplus.Agent.Model.Entities;
 
-    public class AuthorizationHttpModule : IHttpModule
+    public class AuthorizationHttpModule : IHttpModule, IRequiresSessionState
     {
         public bool IsIgnore
         {
@@ -43,6 +44,19 @@
 
         private void AcquireRequestState(object sender, EventArgs e)
         {
+            string executeFileName = HttpContext.Current.Request.AppRelativeCurrentExecutionFilePath;
+            if(executeFileName.EndsWith("SignIn.aspx")
+               || executeFileName.EndsWith("ProcessAdminLogin.ashx")
+               || executeFileName.EndsWith("ProcessAfterLogin.ashx")
+               || executeFileName.EndsWith("Captcha.ashx")
+               || executeFileName.EndsWith("ChartImg.axd")
+               || executeFileName.EndsWith("ReCheckin.ashx")
+               || executeFileName.EndsWith("SecurityCode")
+               || executeFileName.EndsWith("Header.aspx"))
+            {
+                return;
+            }
+
             if (IsSessionNull || IsIgnore)
             {
                 return;
