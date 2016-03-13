@@ -1,6 +1,6 @@
 ﻿namespace Alpha.Auth.Services
 {
-    using Alpha.Auth.Entities;
+    using Alpha.Auth.Models;
 
     public interface IAuthorizationService
     {

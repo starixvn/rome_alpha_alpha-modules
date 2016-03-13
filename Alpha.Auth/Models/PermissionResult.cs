@@ -1,4 +1,4 @@
-﻿namespace Alpha.Auth.Entities
+﻿namespace Alpha.Auth.Models
 {
     using Alpha.Auth.Configurations;
 

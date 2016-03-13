@@ -1,59 +1,59 @@
 ﻿namespace Alpha.Auth.Services.Impl
 {
     using System;
+    using System.Configuration;
     using System.Linq;
     using Alpha.Auth.DataAccesses;
     using Alpha.Auth.DataAccesses.Impl;
     using Alpha.Auth.Services;
     using Configurations;
-    using Entities;
+    using Fanex.Common;
     using Models;
 
     public class AuthorizationService : IAuthorizationService
     {
+        private const string IsCustomerActiveCacheKey = "Alpha.Auth.CustContext.IsCustomerActiveCacheKey";
+        private const string SubAccountPermissionCacheKey = "Alpha.Auth.CustContext.SubAccountPermissionCacheKey";
+        private readonly int _custStatusExpireTime;
+
         private readonly IAuthenticationDataAccess _authDataAccess;
         private readonly IStatisticService _statisticService;
-        private readonly ICustContext _custContext;
         private readonly IRequestContext _requestContext;
+        private readonly ICachingService _cachingService;
 
         public AuthorizationService(
             IStatisticService statisticService = null,
-            ICustContext custContext = null,
             IRequestContext requestContext = null,
+            ICachingService cachingService = null,
             IAuthenticationDataAccess dataAccess = null)
         {
             _authDataAccess = dataAccess ?? new AuthenticationDataAccess();
             _statisticService = statisticService ?? new StatisticService();
-            _custContext = custContext ?? new CustContext();
+            _cachingService = cachingService ?? new CachingService();
             _requestContext = requestContext ?? new RequestContext();
+            _custStatusExpireTime = Converter.ToInt(ConfigurationManager.AppSettings["CustomerStatusExpireTime"]);
         }
 
         public bool IsAccountActive()
         {
-            if (_custContext.StatusCachedExpiredTime < DateTime.Now)
-            {
-                _custContext.IsActive = _authDataAccess.IsActive(_custContext.UserSession.CustId, _custContext.UserSession.SubAccId);
-            }
+            var isActive = _cachingService.GetOrAdd(
+                IsCustomerActiveCacheKey,
+                () =>
+                {
+                    return _authDataAccess.IsActive(_requestContext.UserSession.CustId, _requestContext.UserSession.SubAccId);
+                },
+                _custStatusExpireTime);
 
-            return _custContext.IsActive;
+            return isActive;
         }
 
         public bool CheckBelonging()
         {
             var isBelonging = true;
             var authenticationSection = AuthorizationSection.Instance;
-            var ignoreUrls = authenticationSection.IgnoreUrls.Split(',');
-
-            foreach (var ignoreUrl in ignoreUrls)
-            {
-                if (_requestContext.Url.Equals(ignoreUrl, StringComparison.OrdinalIgnoreCase))
-                {
-                    return isBelonging;
-                }
-            }
 
             var groupPageAccesses = authenticationSection.GroupPageAccesses.Cast<GroupPageAccessElement>()
-                .Where(group => group.RoleId <= _custContext.UserSession.RoleId);
+                .Where(group => group.RoleId <= _requestContext.UserSession.RoleId);
 
             foreach (GroupPageAccessElement groupPageAccess in groupPageAccesses)
             {
@@ -79,7 +79,7 @@
             // - downline id not equal 0
             // - and current requesting url need to check belonging
             // - and current requesting url not in special list: allow customers to update by themselves
-            if (_custContext.UserSession.CustId == _requestContext.CustId)
+            if (_requestContext.UserSession.CustId == _requestContext.CustId)
             {
                 return pageAccess.IsAllowToDoByThemselves;
             }
@@ -87,10 +87,10 @@
             if (pageAccess.IsViewedByGroupHeadline
                 && _authDataAccess.IsCustomerConsolidatedGroupBelonging(
                     _requestContext.CustId,
-                    _custContext.UserSession.CustId,
-                    _custContext.UserSession.SubAccId,
+                    _requestContext.UserSession.CustId,
+                    _requestContext.UserSession.SubAccId,
                     _requestContext.TransId,
-                    _custContext.UserSession.IsInternal))
+                    _requestContext.UserSession.IsInternal))
             {
                 return true;
             }
@@ -99,15 +99,15 @@
 
                 ? _authDataAccess.IsBelongingOld(
                     _requestContext.CustId,
-                    _custContext.UserSession.CustId,
+                    _requestContext.UserSession.CustId,
                     _requestContext.TransId)
 
                 : _authDataAccess.IsBelonging(
                     _requestContext.CustId,
-                    _custContext.UserSession.CustId,
-                    _custContext.UserSession.SubAccId,
+                    _requestContext.UserSession.CustId,
+                    _requestContext.UserSession.SubAccId,
                     _requestContext.TransId,
-                    _custContext.UserSession.IsInternal);
+                    _requestContext.UserSession.IsInternal);
         }
 
         public PermissionResult CheckPermission()
@@ -116,7 +116,7 @@
             var authenticationSection = AuthorizationSection.Instance;
             var permission = authenticationSection.FullPermission;
 
-            if (_custContext.UserSession.SubAccId > 0)
+            if (_requestContext.UserSession.SubAccId > 0)
             {
                 permission = GetSubPermission();
 
@@ -136,7 +136,7 @@
             long transId)
         {
             var groupPageAccesses = authenticationSection.GroupPageAccesses.Cast<GroupPageAccessElement>()
-                .Where(group => group.RoleId <= _custContext.UserSession.RoleId);
+                .Where(group => group.RoleId <= _requestContext.UserSession.RoleId);
 
             foreach (var groupPageAccess in groupPageAccesses)
             {
@@ -172,19 +172,19 @@
                 if (requestCustId != 0
                     && pageElement.IsCheckBelonging
                     && pageElement.IsAllowToDoByThemselves
-                    && _custContext.UserSession.CustId != requestCustId)
+                    && _requestContext.UserSession.CustId != requestCustId)
                 {
                     accessPermission = PermissionResult.DeniedAccessResult;
                 }
 
-                if (!_custContext.UserSession.IsInternal && accessPermission.HasPermission)
+                if (!_requestContext.UserSession.IsInternal && accessPermission.HasPermission)
                 {
                     //// Update page visit if user has permission and is not internal user.
                     _statisticService.UpdateFunctionUsage(
                         pageElement.Url,
                         pageElement.MainFunctionName,
                         pageElement.SubFunctionName,
-                        _custContext.UserSession.Site);
+                        _requestContext.UserSession.Site);
                 }
             }
 
@@ -193,12 +193,15 @@
 
         private string GetSubPermission()
         {
-            if (_custContext.SubAccPermissionExpiredTime < DateTime.Now)
-            {
-                _custContext.SubAccPermission = _authDataAccess.GetSubAccountPermission(_custContext.UserSession.SubAccId);
-            }
+            var subAccountPermission = _cachingService.GetOrAdd(
+                SubAccountPermissionCacheKey,
+                () =>
+                {
+                    return _authDataAccess.GetSubAccountPermission(_requestContext.UserSession.SubAccId);
+                },
+                _custStatusExpireTime);
 
-            return _custContext.SubAccPermission;
+            return subAccountPermission;
         }
     }
 }

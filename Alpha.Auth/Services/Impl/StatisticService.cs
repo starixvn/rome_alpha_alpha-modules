@@ -6,20 +6,20 @@
 
     public class StatisticService : IStatisticService
     {
-        private readonly ICustContext _custContext;
+        private readonly IRequestContext _requestContext;
         private readonly IStatisticDataAccess _dataAccess;
 
         public StatisticService(
-            ICustContext custContext = null,
+            IRequestContext custContext = null,
             IStatisticDataAccess dataAccess = null)
         {
-            _custContext = custContext ?? new CustContext();
+            _requestContext = custContext ?? new RequestContext();
             _dataAccess = dataAccess ?? new StatisticDataAccess();
         }
 
         public void UpdateFunctionUsage(string url, string function, string subFunction, string site)
         {
-            _dataAccess.UpdateFunctionUsage(url, _custContext.UserSession.ServerId, function, subFunction, site, _custContext.UserSession.LangKey);
+            _dataAccess.UpdateFunctionUsage(url, _requestContext.UserSession.ServerId, function, subFunction, site, _requestContext.UserSession.LangKey);
         }
     }
 }

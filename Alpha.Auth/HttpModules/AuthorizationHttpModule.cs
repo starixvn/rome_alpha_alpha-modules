@@ -5,6 +5,7 @@
     using System.Web;
     using System.Web.Security;
     using System.Web.SessionState;
+    using Configurations;
     using Services;
     using Services.Impl;
     using Sunplus.Agent.Model.Entities;
@@ -45,7 +46,17 @@
         private void AcquireRequestState(object sender, EventArgs e)
         {
             string executeFileName = HttpContext.Current.Request.AppRelativeCurrentExecutionFilePath;
-            if(executeFileName.EndsWith("SignIn.aspx")
+            var ignoreUrls = AuthorizationSection.Instance.IgnoreUrls.Split(',');
+
+            foreach (var ignoreUrl in ignoreUrls)
+            {
+                if (executeFileName.EndsWith(ignoreUrl, StringComparison.OrdinalIgnoreCase))
+                {
+                    return;
+                }
+            }
+
+            if (executeFileName.EndsWith("SignIn.aspx")
                || executeFileName.EndsWith("ProcessAdminLogin.ashx")
                || executeFileName.EndsWith("ProcessAfterLogin.ashx")
                || executeFileName.EndsWith("Captcha.ashx")
@@ -62,16 +73,13 @@
                 return;
             }
 
-            if (!HttpContext.Current.User.Identity.IsAuthenticated
-                || UserSession.Current.CustId == 0)
+            if (!HttpContext.Current.User.Identity.IsAuthenticated || UserSession.Current.CustId == 0)
             {
                 HttpContext.Current.Response.Redirect(FormsAuthentication.LoginUrl, true);
             }
 
             IAuthorizationService authorizationService = new AuthorizationService();
-            if (UserSession.Current.CustId != 0
-                && !UserSession.Current.IsInternal
-                && !authorizationService.IsAccountActive())
+            if (UserSession.Current.CustId != 0 && !UserSession.Current.IsInternal && !authorizationService.IsAccountActive())
             {
                 GoToLoginPage();
 
@@ -85,15 +93,15 @@
 
                 return;
             }
-
-            //// Permission for sub account still have not implemented yet.
-            ////var permissionResult = authorizationService.CheckPermission();
-            ////if (!permissionResult.HasPermission)
-            ////{
-            ////    HttpContext.Current.Session.Abandon();
-            ////    HttpContext.Current.Response.Redirect("unauthorized", true);
-            ////}
         }
+
+        //// Permission for sub account still have not implemented yet.
+        ////var permissionResult = authorizationService.CheckPermission();
+        ////if (!permissionResult.HasPermission)
+        ////{
+        ////    HttpContext.Current.Session.Abandon();
+        ////    HttpContext.Current.Response.Redirect("unauthorized", true);
+        ////}
 
         private void GoToLoginPage()
         {

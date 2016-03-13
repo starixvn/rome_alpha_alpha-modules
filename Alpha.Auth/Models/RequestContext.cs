@@ -6,6 +6,8 @@
     using System.Web;
     using Configurations;
     using Fanex.Common;
+    using Sunplus.Agent.Model.BL;
+    using Sunplus.Agent.Model.Entities;
     using Web;
 
     public class RequestContext : IRequestContext
@@ -13,6 +15,7 @@
         private const string RNGCasinoArea = "CustomerSetting/Casino";
         private string _url;
         private int _custId = 0;
+        private IUserSession _userSession;
 
         public string Url
         {
@@ -116,6 +119,19 @@
                 }
 
                 return _custId;
+            }
+        }
+
+        public IUserSession UserSession
+        {
+            get
+            {
+                if (_userSession == null)
+                {
+                    _userSession = UserSessionService.GetUserSessionInstance(HttpContext.Current.Session.SessionID);
+                }
+
+                return _userSession;
             }
         }
 
