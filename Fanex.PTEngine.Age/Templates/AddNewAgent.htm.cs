@@ -78,9 +78,9 @@ namespace Fanex.PTEngine.Age
 			protected static string s50{get{return LocalResources.PTEngineLang.lblBetSetting;}}
 			protected static string s51 = "</div><div id=\"bettingLimitContainer\"></div><br /><div class=\"clearBlock\"></div><div class=\"headerPositionTaking\">";
 			protected static string s52{get{return LocalResources.PTEngineLang.positiontaking;}}
-			protected static string s53 = "<div style=\"float:right;\"><a class=\"infoIco\" style=\"margin:3px 5px;height:16px;display:inline-block\"href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
+			protected static string s53 = "<a class=\"infoIco\" href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
 			protected static string s54{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
-			protected static string s55 = "\"></a></div></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"btn btn-refresh\">";
+			protected static string s55 = "\"></a></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"btn btn-refresh\">";
 			protected string t0_actionName;
 			protected static string s56 = "</button></div></div></div></form>";
 			public AddNewAgent_ScriptBlock_Block ScriptBlock = new AddNewAgent_ScriptBlock_Block();

@@ -14,7 +14,7 @@ namespace Fanex.Age.UI.Components
 		public class ErrorMsg_Template : Template
 		{
 			public ErrorMsg_ExternalResources_Block ExternalResources = new ErrorMsg_ExternalResources_Block();
-			protected static string s0 = "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" id=\"diverrmsg\" style=\"display: none;\"><tr><td valign=\"top\" id=\"spmsgerr\" class=\"msgerr\"></td></tr></table>";
+			protected static string s0 = "<div id=\"diverrmsg\" class=\"width-100per\"><div id=\"spmsgerr\" class=\"msgerr\"></div></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;

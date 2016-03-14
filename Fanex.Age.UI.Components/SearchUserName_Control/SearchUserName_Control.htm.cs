@@ -14,7 +14,7 @@ namespace Fanex.Age.UI.Components
 		public class SearchUserName_Control_Template : Template
 		{
 			public SearchUserName_Control_ExternalResources_Block ExternalResources = new SearchUserName_Control_ExternalResources_Block();
-			protected static string s0 = "<table id=\"tblSearch\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td>";
+			protected static string s0 = "<table id=\"tblSearch\"><tr><td>";
 			public string username = "{username}";
 			protected static string s1 = "</td><td><input type=\"text\" class=\"";
 			public string textClass = "{textClass}";
