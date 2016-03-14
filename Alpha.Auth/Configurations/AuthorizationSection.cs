@@ -32,11 +32,11 @@
             set { this["fullpermission"] = value.ToLower(); }
         }
 
-        [ConfigurationProperty("CustIdQueryStringParamNameMapping", IsRequired = true)]
+        [ConfigurationProperty("custIdQueryStringParamNameMapping", IsRequired = true)]
         public string CustIdQueryStringParamNameMapping
         {
-            get { return (string)this["CustIdQueryStringParamNameMapping"]; }
-            set { this["CustIdQueryStringParamNameMapping"] = value; }
+            get { return (string)this["custIdQueryStringParamNameMapping"]; }
+            set { this["custIdQueryStringParamNameMapping"] = value; }
         }
 
         public string[] CustIdQueryStringParamNames
@@ -47,11 +47,18 @@
             }
         }
 
-        [ConfigurationProperty("CustIdJsonParamNameMapping", IsRequired = true, DefaultValue = "txtCustomerObject,newCustomer")]
+        [ConfigurationProperty("custIdJsonParamNameMapping", IsRequired = true, DefaultValue = "txtCustomerObject,newCustomer")]
         public string CustIdJsonParamNameMapping
         {
-            get { return (string)this["CustIdJsonParamNameMapping"]; }
-            set { this["CustIdJsonParamNameMapping"] = value; }
+            get { return (string)this["custIdJsonParamNameMapping"]; }
+            set { this["custIdJsonParamNameMapping"] = value; }
+        }
+
+        [ConfigurationProperty("cachedExpireTime", IsRequired = true, DefaultValue = 30)]
+        public int CachedExpireTime
+        {
+            get { return (int)this["cachedExpireTime"]; }
+            set { this["cachedExpireTime"] = value; }
         }
 
         public string[] CustIdJsonParamNames
@@ -62,52 +69,40 @@
             }
         }
 
-        [ConfigurationProperty("VirtualDirectory", IsRequired = false)]
-        public string VirtualDirectory
+        [ConfigurationProperty("ignoreUrls", IsRequired = false, DefaultValue = "index.aspx")]
+        public string IgnoreUrls
+        {
+            get { return (string)this["ignoreUrls"]; }
+            set { this["ignoreUrls"] = value; }
+        }
+
+        public string[] SplitedIgnoreUrls
         {
             get
             {
-                var virtualDirectory = (string)this["VirtualDirectory"];
-                if (string.IsNullOrEmpty(virtualDirectory))
-                {
-                    virtualDirectory = HttpRuntime.AppDomainAppVirtualPath.Substring(1);
-                }
-
-                return virtualDirectory;
-            }
-
-            set
-            {
-                this["VirtualDirectory"] = value;
+                return IgnoreUrls.Split(',');
             }
         }
 
-        [ConfigurationProperty("IgnoreUrls", IsRequired = false, DefaultValue = "index.aspx")]
-        public string IgnoreUrls
-        {
-            get { return (string)this["IgnoreUrls"]; }
-            set { this["IgnoreUrls"] = value; }
-        }
-
-        [ConfigurationProperty("IndexUrl", IsRequired = false, DefaultValue = "~/Index.aspx")]
+        [ConfigurationProperty("indexUrl", IsRequired = false, DefaultValue = "~/Index.aspx")]
         public string IndexUrl
         {
-            get { return (string)this["IndexUrl"]; }
-            set { this["IndexUrl"] = value; }
+            get { return (string)this["indexUrl"]; }
+            set { this["indexUrl"] = value; }
         }
 
-        [ConfigurationProperty("SignOutUrl", IsRequired = false, DefaultValue = "~/SignOut.aspx")]
+        [ConfigurationProperty("signOutUrl", IsRequired = false, DefaultValue = "~/SignOut.aspx")]
         public string SignOutUrl
         {
-            get { return (string)this["SignOutUrl"]; }
-            set { this["SignOutUrl"] = value; }
+            get { return (string)this["signOutUrl"]; }
+            set { this["signOutUrl"] = value; }
         }
 
-        [ConfigurationProperty("AccessDeniedUrl", IsRequired = false, DefaultValue = "~/AccessDenied.aspx")]
+        [ConfigurationProperty("accessDeniedUrl", IsRequired = false, DefaultValue = "~/AccessDenied.aspx")]
         public string AccessDeniedUrl
         {
-            get { return (string)this["AccessDeniedUrl"]; }
-            set { this["AccessDeniedUrl"] = value; }
+            get { return (string)this["accessDeniedUrl"]; }
+            set { this["accessDeniedUrl"] = value; }
         }
     }
 }

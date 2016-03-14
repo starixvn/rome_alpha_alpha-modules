@@ -46,7 +46,7 @@
         private void AcquireRequestState(object sender, EventArgs e)
         {
             string executeFileName = HttpContext.Current.Request.AppRelativeCurrentExecutionFilePath;
-            var ignoreUrls = AuthorizationSection.Instance.IgnoreUrls.Split(',');
+            var ignoreUrls = AuthorizationSection.Instance.SplitedIgnoreUrls;
 
             foreach (var ignoreUrl in ignoreUrls)
             {
@@ -54,18 +54,6 @@
                 {
                     return;
                 }
-            }
-
-            if (executeFileName.EndsWith("SignIn.aspx")
-               || executeFileName.EndsWith("ProcessAdminLogin.ashx")
-               || executeFileName.EndsWith("ProcessAfterLogin.ashx")
-               || executeFileName.EndsWith("Captcha.ashx")
-               || executeFileName.EndsWith("ChartImg.axd")
-               || executeFileName.EndsWith("ReCheckin.ashx")
-               || executeFileName.EndsWith("SecurityCode")
-               || executeFileName.EndsWith("Header.aspx"))
-            {
-                return;
             }
 
             if (IsSessionNull || IsIgnore)

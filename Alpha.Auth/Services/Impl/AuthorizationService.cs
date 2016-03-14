@@ -12,9 +12,9 @@
 
     public class AuthorizationService : IAuthorizationService
     {
-        private const string IsCustomerActiveCacheKey = "Alpha.Auth.CustContext.IsCustomerActiveCacheKey";
-        private const string SubAccountPermissionCacheKey = "Alpha.Auth.CustContext.SubAccountPermissionCacheKey";
-        private readonly int _custStatusExpireTime;
+        private const string IsCustomerActiveCacheKey = "Alpha.Auth.CustContext.IsCustomerActiveCacheKey_{0}_{1}";
+        private const string SubAccountPermissionCacheKey = "Alpha.Auth.CustContext.SubAccountPermissionCacheKey_{0}_{1}";
+        private readonly int _cachedExpireTime;
 
         private readonly IAuthenticationDataAccess _authDataAccess;
         private readonly IStatisticService _statisticService;
@@ -31,18 +31,18 @@
             _statisticService = statisticService ?? new StatisticService();
             _cachingService = cachingService ?? new CachingService();
             _requestContext = requestContext ?? new RequestContext();
-            _custStatusExpireTime = Converter.ToInt(ConfigurationManager.AppSettings["CustomerStatusExpireTime"]);
+            _cachedExpireTime = AuthorizationSection.Instance.CachedExpireTime;
         }
 
         public bool IsAccountActive()
         {
             var isActive = _cachingService.GetOrAdd(
-                IsCustomerActiveCacheKey,
+                string.Format(IsCustomerActiveCacheKey, _requestContext.UserSession.CustId, _requestContext.UserSession.SubAccId),
                 () =>
                 {
                     return _authDataAccess.IsActive(_requestContext.UserSession.CustId, _requestContext.UserSession.SubAccId);
                 },
-                _custStatusExpireTime);
+                _cachedExpireTime);
 
             return isActive;
         }
@@ -194,12 +194,12 @@
         private string GetSubPermission()
         {
             var subAccountPermission = _cachingService.GetOrAdd(
-                SubAccountPermissionCacheKey,
+                string.Format(SubAccountPermissionCacheKey, _requestContext.UserSession.CustId, _requestContext.UserSession.SubAccId),
                 () =>
                 {
                     return _authDataAccess.GetSubAccountPermission(_requestContext.UserSession.SubAccId);
                 },
-                _custStatusExpireTime);
+                _cachedExpireTime);
 
             return subAccountPermission;
         }
