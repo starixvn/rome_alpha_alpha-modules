@@ -60,6 +60,8 @@ namespace Sunplus.Shared.ViewLogLib
             if (IsPermissionValues(oldValue, newValue))
                 GetPermissions(oldValue.ToUpper(), newValue.ToUpper(), permissions, out oldValues, out newValues);
 
+            oldValues = HttpUtility.HtmlEncode(oldValues);
+            newValues = HttpUtility.HtmlEncode(newValues);
 
             if (!isShowOldValue)
             {
