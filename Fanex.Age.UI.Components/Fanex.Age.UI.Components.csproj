@@ -199,7 +199,7 @@
     <Compile Include="WinlossReportFilter\FilterElement.cs" />
     <Compile Include="WinlossReportFilter\Filter_Control.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WinlossReportFilter\winlossreportfilter.htm.cs" />
+    <Compile Include="WinlossReportFilter\WinlossReportFilter.htm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Transfer\" />

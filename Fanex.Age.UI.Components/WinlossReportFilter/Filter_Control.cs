@@ -2,17 +2,13 @@
 namespace Fanex.Age.UI.Components
 {
     using System;
-    using System.Collections.Generic;
     using Fanex.Age.UI.Components.LocalResources;
-    using Sunplus.Agent.Model.Definitions;
-    using winlossreportfilter;
+    using WinlossReportFilter;
 
     public class Filter_Control : TplCore.Element.IComponent
     {
         private bool _isShowed = true;
-        private DateTime _dateFrom;
-        private IList<FilterElement> _productsFilter = null;
-        private winlossreportfilter_Template _template = null;
+        private WinlossReportFilter_Template _template = null;
 
         public bool IsShowed
         {
@@ -20,17 +16,11 @@ namespace Fanex.Age.UI.Components
             set { _isShowed = value; }
         }
 
-        public Filter_Control(IList<FilterElement> productsFilter, DateTime dateFrom)
+        public Filter_Control()
         {
-			_productsFilter = productsFilter ?? new List<FilterElement>();
-			_dateFrom = dateFrom;
-
-			CheckCrossDateConstraint();
-
-			_template = new winlossreportfilter_Template
+			_template = new WinlossReportFilter_Template
 			{
 				ProductLabel = UIComponentsLang.product,
-				AllProducts = UIComponentsLang.AllProducts
 			};
 		}
 
@@ -41,50 +31,7 @@ namespace Fanex.Age.UI.Components
 
         public override string ToString()
         {
-			RenderProductsFilter();
-
 			return _template.ToString();
         }
-
-		private void CheckCrossDateConstraint()
-		{
-			DateTime boundDate = Sunplus.Agent.Model.BL.Definitions.AppSettings.SB_HR_FI_Date;
-
-			//Set constraint of SB, HR, FI if FromDate is before the boundDate
-			if (_dateFrom < boundDate)
-			{
-				foreach (var item in _productsFilter)
-				{
-					if (item.Id == ProductIdConstants.Sportsbook || item.Id == ProductIdConstants.Racing)
-					{
-						item.Checked = true;
-					}
-				}
-			}
-		}
-
-		private void RenderProductsFilter()
-		{
-			_template.Filter.Clear();
-
-			if (_isShowed)
-			{
-				FilterElement filterElement;
-				winlossreportfilter_Filter_Block filterBlock;
-
-				for (int i = 0, max = _productsFilter.Count; i < max; i++)
-				{
-					filterElement = _productsFilter[i];
-					filterBlock = new winlossreportfilter_Filter_Block
-					{
-						ProductName = filterElement.Text,
-						OptionId = filterElement.Name,
-						Checked = filterElement.Checked ? "checked=\"checked\"" : string.Empty
-					};
-
-					_template.Filter.Append(filterBlock.ToString());
-				}
-			}
-		}
 	}
 }

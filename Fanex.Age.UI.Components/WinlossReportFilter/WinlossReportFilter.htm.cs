@@ -8,18 +8,14 @@ using TplCore.Element;
 #pragma warning disable
 namespace Fanex.Age.UI.Components
 {
-	using winlossreportfilter;
-	namespace winlossreportfilter
+	using WinlossReportFilter;
+	namespace WinlossReportFilter
 	{
-		public class winlossreportfilter_Template : Template
+		public class WinlossReportFilter_Template : Template
 		{
-			protected static string s0 = "<div id=\"reportFilter\"><span>";
+			protected static string s0 = "<div id=\"reportProductsFilter\"><span>";
 			public string ProductLabel = "{ProductLabel}";
-			protected static string s1 = "</span><div class=\"multiselect\"><a class=\"multiselect-state-default\" id=\"multiselect-products\"><input type=\"text\" readonly=\"readonly\" id=\"multiselect-productstoshow\" /><span class=\"multiselect-icon multiselect-icon-triangle-1-s\"></span></a><div class=\"multiselect-options multiselect-shadow\" style=\"display:none;\" id=\"multiselect-products-options\"><div class=\"multiselect-options-header\"><ul style=\"overflow-y:hidden;\" class=\"unstyle\"><li><label class=\"multiselect-check-all\" onclick=\"CheckAll(this, event)\"><input type=\"checkbox\" id=\"chk_all\" />";
-			public string AllProducts = "{AllProducts}";
-			protected static string s2 = "</label></li></ul></div><ul class=\"unstyle first-group\">";
-			public winlossreportfilter_Filter_Block Filter = new winlossreportfilter_Filter_Block();
-			protected static string s3 = "</ul></div></div><input type=\"hidden\" name=\"FilterPostback\" id=\"FilterPostback\" value=\"postback\" /></div>";
+			protected static string s1 = "</span><div id=\"productsFilter\"></div><input type=\"hidden\" name=\"FilterPostback\" id=\"FilterPostback\" value=\"postback\" /></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -28,10 +24,6 @@ namespace Fanex.Age.UI.Components
 					bd.Append(s0);
 					bd.Append(ProductLabel);
 					bd.Append(s1);
-					bd.Append(AllProducts);
-					bd.Append(s2);
-					if(null != Filter) Filter.ToString(ref bd);
-					bd.Append(s3);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -42,40 +34,6 @@ namespace Fanex.Age.UI.Components
 				return bd.ToString();
 			}
 
-		}
-
-		public class winlossreportfilter_Filter_Block: Block
-		{
-			protected static string s4 = "<li><div class=\"multiselect-div\"><label onclick=\"IsCheck(event)\"><input type=\"checkbox\" id=\"chk_";
-			public string OptionId = "{OptionId}";
-			protected static string s5 = "\" name=\"";
-			protected string t0_OptionId;
-			protected static string s6 = "\" ";
-			public string Checked = "{Checked}";
-			protected static string s7 = " data-product=\"";
-			public string ProductName = "{ProductName}";
-			protected static string s8 = "\"/>";
-			protected string t1_ProductName;
-			protected static string s9 = "</label></div></li>";
-			public override void ToString(ref StringBuilder bd)
-			{
-				if(!Visible) return;
-				if(RenderChild)
-				{
-					bd.Append(s4);
-					bd.Append(OptionId);
-					bd.Append(s5);
-					bd.Append(OptionId);
-					bd.Append(s6);
-					bd.Append(Checked);
-					bd.Append(s7);
-					bd.Append(ProductName);
-					bd.Append(s8);
-					bd.Append(ProductName);
-					bd.Append(s9);
-				}
-				if(IsAssigned){bd.Append(Value);}
-			}
 		}
 
 	}
