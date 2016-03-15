@@ -6,7 +6,7 @@
     {
         bool IsAccountActive();
 
-        PermissionResult CheckPermission();
+        bool CheckPermission(string url = null);
 
         bool CheckBelonging();
     }

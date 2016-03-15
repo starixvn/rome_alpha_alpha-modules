@@ -101,7 +101,6 @@
     <Compile Include="Configurations\GroupPageAccessElement.cs" />
     <Compile Include="Configurations\PageAccessCollection.cs" />
     <Compile Include="Configurations\PageAccessElement.cs" />
-    <Compile Include="Models\PermissionResult.cs" />
     <Compile Include="Models\IRequestContext.cs" />
     <Compile Include="Models\RequestContext.cs" />
     <Compile Include="Models\Result.cs" />

@@ -1,15 +1,25 @@
 ﻿namespace Alpha.Auth.Services.Impl
 {
     using System;
-    using System.Configuration;
+    using System.Collections.Generic;
     using System.Linq;
     using Alpha.Auth.DataAccesses;
     using Alpha.Auth.DataAccesses.Impl;
     using Alpha.Auth.Services;
     using Configurations;
-    using Fanex.Common;
     using Models;
 
+    /// <summary>
+    /// Permission Description
+    /// [A]: Create
+    /// [B]: Update
+    /// [C]: Transfer
+    /// [D]: Total Bets
+    /// [E]: Reports
+    /// [F]: Forcast
+    /// [H]: Member Information
+    /// [G]: View Log
+    /// </summary>
     public class AuthorizationService : IAuthorizationService
     {
         private const string IsCustomerActiveCacheKey = "Alpha.Auth.CustContext.IsCustomerActiveCacheKey_{0}_{1}";
@@ -110,9 +120,10 @@
                     _requestContext.UserSession.IsInternal);
         }
 
-        public PermissionResult CheckPermission()
+        public bool CheckPermission(string url = null)
         {
-            var customerPermission = PermissionResult.AllowedAccessResult;
+            url = url ?? _requestContext.Url;
+
             var authenticationSection = AuthorizationSection.Instance;
             var permission = authenticationSection.FullPermission;
 
@@ -122,51 +133,57 @@
 
                 if (permission.Equals("0"))
                 {
-                    return customerPermission;
+                    return true;
                 }
             }
 
-            return CheckPermissionOnGroupOfPage(permission, authenticationSection, _requestContext.CustId, _requestContext.TransId);
-        }
-
-        private PermissionResult CheckPermissionOnGroupOfPage(
-            string customerPermission,
-            AuthorizationSection authenticationSection,
-            int custId,
-            long transId)
-        {
             var groupPageAccesses = authenticationSection.GroupPageAccesses.Cast<GroupPageAccessElement>()
                 .Where(group => group.RoleId <= _requestContext.UserSession.RoleId);
 
+            return CheckPermissionOnGroupOfPage(
+                permission, 
+                groupPageAccesses,
+                url,
+                _requestContext.CustId, 
+                _requestContext.TransId);
+        }
+
+        private bool CheckPermissionOnGroupOfPage(
+            string customerPermission,
+            IEnumerable<GroupPageAccessElement> groupPageAccesses,
+            string url,
+            int custId,
+            long transId)
+        {
             foreach (var groupPageAccess in groupPageAccesses)
             {
                 var pageAccesses = groupPageAccess.PageAccesses.Cast<PageAccessElement>()
-                    .Where(pageAccess => pageAccess.Url.Equals(_requestContext.Url, StringComparison.OrdinalIgnoreCase));
+                    .Where(pageAccess => pageAccess.Url.Equals(url, StringComparison.OrdinalIgnoreCase));
 
                 foreach (var pageAccess in pageAccesses)
                 {
-                    var accessResult = CheckPermissionOnPage(customerPermission, custId, transId, pageAccess);
+                    var hasPermissionOnPage = CheckPermissionOnPage(customerPermission, custId, transId, pageAccess);
 
-                    if (!accessResult.HasPermission)
+                    if (!hasPermissionOnPage)
                     {
-                        return accessResult;
+                        return false;
                     }
                 }
             }
 
-            return PermissionResult.AllowedAccessResult;
+            return true;
         }
 
-        private PermissionResult CheckPermissionOnPage(string customerPermission, int requestCustId, long transId, PageAccessElement pageElement)
+        private bool CheckPermissionOnPage(string customerPermission, int requestCustId, long transId, PageAccessElement pageElement)
         {
             var permissions = pageElement.Permission.Split(',');
-            var accessPermission = PermissionResult.AllowedAccessResult;
+            var hasPermisison = true;
 
             foreach (var permission in permissions)
             {
                 if (!customerPermission.Contains(permission))
                 {
-                    return PermissionResult.DeniedAccessResult;
+                    return false;
                 }
 
                 if (requestCustId != 0
@@ -174,10 +191,10 @@
                     && pageElement.IsAllowToDoByThemselves
                     && _requestContext.UserSession.CustId != requestCustId)
                 {
-                    accessPermission = PermissionResult.DeniedAccessResult;
+                    hasPermisison = false;
                 }
 
-                if (!_requestContext.UserSession.IsInternal && accessPermission.HasPermission)
+                if (!_requestContext.UserSession.IsInternal && hasPermisison)
                 {
                     //// Update page visit if user has permission and is not internal user.
                     _statisticService.UpdateFunctionUsage(
@@ -188,7 +205,7 @@
                 }
             }
 
-            return accessPermission;
+            return hasPermisison;
         }
 
         private string GetSubPermission()
