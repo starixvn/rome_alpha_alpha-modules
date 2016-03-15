@@ -1,6 +1,6 @@
 ﻿namespace Alpha.Auth.DataAccesses
 {
-    public interface IAuthenticationDataAccess
+    public interface IAuthorizationDataAccess
     {
         bool IsActive(int customerId, int subAccountId);
 

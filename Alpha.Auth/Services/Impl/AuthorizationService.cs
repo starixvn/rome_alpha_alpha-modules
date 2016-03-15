@@ -26,22 +26,25 @@
         private const string SubAccountPermissionCacheKey = "Alpha.Auth.CustContext.SubAccountPermissionCacheKey_{0}_{1}";
         private readonly int _cachedExpireTime;
 
-        private readonly IAuthenticationDataAccess _authDataAccess;
+        private readonly IAuthorizationDataAccess _authDataAccess;
         private readonly IStatisticService _statisticService;
         private readonly IRequestContext _requestContext;
         private readonly ICachingService _cachingService;
+        private readonly AuthorizationSection _authorizationSection;
 
         public AuthorizationService(
             IStatisticService statisticService = null,
             IRequestContext requestContext = null,
             ICachingService cachingService = null,
-            IAuthenticationDataAccess dataAccess = null)
+            IAuthorizationDataAccess dataAccess = null,
+            AuthorizationSection authorizationSection = null)
         {
-            _authDataAccess = dataAccess ?? new AuthenticationDataAccess();
+            _authDataAccess = dataAccess ?? new AuthorizationDataAccess();
             _statisticService = statisticService ?? new StatisticService();
             _cachingService = cachingService ?? new CachingService();
             _requestContext = requestContext ?? new RequestContext();
-            _cachedExpireTime = AuthorizationSection.Instance.CachedExpireTime;
+            _authorizationSection = authorizationSection ?? AuthorizationSection.Instance;
+            _cachedExpireTime = _authorizationSection.CachedExpireTime;
         }
 
         public bool IsAccountActive()
@@ -57,12 +60,10 @@
             return isActive;
         }
 
-        public bool CheckBelonging()
+        public bool IsBelonging()
         {
             var isBelonging = true;
-            var authenticationSection = AuthorizationSection.Instance;
-
-            var groupPageAccesses = authenticationSection.GroupPageAccesses.Cast<GroupPageAccessElement>()
+            var groupPageAccesses = _authorizationSection.GroupPageAccesses.Cast<GroupPageAccessElement>()
                 .Where(group => group.RoleId <= _requestContext.UserSession.RoleId);
 
             foreach (GroupPageAccessElement groupPageAccess in groupPageAccesses)
@@ -120,12 +121,11 @@
                     _requestContext.UserSession.IsInternal);
         }
 
-        public bool CheckPermission(string url = null)
+        public bool IsAuthorized(string url = null)
         {
             url = url ?? _requestContext.Url;
 
-            var authenticationSection = AuthorizationSection.Instance;
-            var permission = authenticationSection.FullPermission;
+            var permission = _authorizationSection.FullPermission;
 
             if (_requestContext.UserSession.SubAccId > 0)
             {
@@ -137,7 +137,7 @@
                 }
             }
 
-            var groupPageAccesses = authenticationSection.GroupPageAccesses.Cast<GroupPageAccessElement>()
+            var groupPageAccesses = _authorizationSection.GroupPageAccesses.Cast<GroupPageAccessElement>()
                 .Where(group => group.RoleId <= _requestContext.UserSession.RoleId);
 
             return CheckPermissionOnGroupOfPage(

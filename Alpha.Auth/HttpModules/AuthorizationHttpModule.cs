@@ -74,7 +74,7 @@
                 return;
             }
 
-            var isBelonging = authorizationService.CheckBelonging();
+            var isBelonging = authorizationService.IsBelonging();
             if (!isBelonging)
             {
                 GoToLoginPage();

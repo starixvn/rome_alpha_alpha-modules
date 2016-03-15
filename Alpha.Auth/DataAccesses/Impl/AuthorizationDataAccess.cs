@@ -4,7 +4,7 @@
     using Fanex.Common;
     using Fanex.Data;
 
-    public class AuthenticationDataAccess : IAuthenticationDataAccess
+    public class AuthorizationDataAccess : IAuthorizationDataAccess
     {
         public bool IsActive(int customerId, int subAccountId)
         {

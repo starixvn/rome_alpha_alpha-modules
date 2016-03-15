@@ -108,8 +108,8 @@
     <Compile Include="Services\Impl\CachingService.cs" />
     <Compile Include="Web\ShareSession.cs" />
     <Compile Include="HttpModules\AuthorizationHttpModule.cs" />
-    <Compile Include="DataAccesses\Impl\AuthenticationDataAccess.cs" />
-    <Compile Include="DataAccesses\IAuthenticationDataAccess.cs" />
+    <Compile Include="DataAccesses\Impl\AuthorizationDataAccess.cs" />
+    <Compile Include="DataAccesses\IAuthorizationDataAccess.cs" />
     <Compile Include="DataAccesses\IStatisticDataAccess.cs" />
     <Compile Include="Services\Impl\AuthorizationService.cs" />
     <Compile Include="Services\IAuthorizationService.cs" />
