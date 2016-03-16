@@ -60,3 +60,4 @@ Libraries/Fanex.Age.Business.Interface/obj/Debug/DesignTimeResolveAssemblyRefere
 /PrecompiledWeb
 *.suo
 .vs/config/applicationhost.config
+/OpenCover/*

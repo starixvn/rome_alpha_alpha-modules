@@ -45,6 +45,8 @@
                 _authorizationSection);
         }
 
+        #region Check Cust Status
+
         [Test]
         public void IsAccountActive_ExecuteGetOrAdd()
         {
@@ -78,8 +80,12 @@
             Assert.IsTrue(isActive);
         }
 
+        #endregion Check Cust Status
+
+        #region Check Belonging
+
         [Test]
-        public void CheckBelonging_UrlDoesNotExist_ReturnTrue()
+        public void IsBelonging_UrlDoesNotExist_ReturnTrue()
         {
             //// Arrange
             _requestContext.Url.Returns("aaaaaa");
@@ -92,7 +98,7 @@
         }
 
         [Test]
-        public void CheckBelonging_UrlDoesNotNeedCheckBelonging_ReturnTrue()
+        public void IsBelonging_UrlDoesNotNeedCheckBelonging_ReturnTrue()
         {
             //// Arrange
             _requestContext.Url.Returns("_MemberInfo/SearchAndCopy/DoNotCheckBelonging.aspx");
@@ -105,7 +111,7 @@
         }
 
         [Test]
-        public void CheckBelonging_UrlNeedBeCheckedBelonging_ExecuteIsBelonging()
+        public void IsBelonging_UrlNeedBeCheckedBelonging_ExecuteIsBelonging()
         {
             //// Arrange
             _requestContext.Url.Returns("_MemberInfo/SearchAndCopy/Header.aspx");
@@ -117,10 +123,287 @@
             _requestContext.UserSession.SubAccId.Returns(2);
 
             //// Act
-            var isBelong = _authorizationService.IsBelonging();
+            _authorizationService.IsBelonging();
 
             //// Assert
             _authorizationDataAccess.Received().IsBelonging(100, 1, 2, 2222, true);
         }
+
+        [TestCase(true)]
+        [TestCase(false)]
+        public void IsBelonging_UrlNeedBeCheckedBelonging_ReturnIsBelongingFromDatabase(bool expectedIsBelonging)
+        {
+            //// Arrange
+            _requestContext.Url.Returns("_MemberInfo/SearchAndCopy/Header.aspx");
+            _requestContext.CustId.Returns(100);
+            _requestContext.TransId.Returns(2222);
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.CustId.Returns(1);
+            _requestContext.UserSession.IsInternal.Returns(true);
+            _requestContext.UserSession.SubAccId.Returns(2);
+            _authorizationDataAccess
+                .IsBelonging(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<int>(), Arg.Any<long>(), Arg.Any<bool>())
+                .Returns(expectedIsBelonging);
+
+            //// Act
+            var isBelong = _authorizationService.IsBelonging();
+
+            ////
+            Assert.AreEqual(expectedIsBelonging, isBelong);
+        }
+
+        [Test]
+        public void IsBelonging_UrlNeedBeCheckedViewByGroupHeadLine_ExecuteIsCustomerConsolidatedGroupBelonging()
+        {
+            //// Arrange
+            _requestContext.Url.Returns("_MemberInfo/GroupHeadLine.aspx");
+            _requestContext.CustId.Returns(100);
+            _requestContext.TransId.Returns(2222);
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.CustId.Returns(1);
+            _requestContext.UserSession.IsInternal.Returns(true);
+            _requestContext.UserSession.SubAccId.Returns(2);
+
+            //// Act
+            _authorizationService.IsBelonging();
+
+            //// Assert
+            _authorizationDataAccess.Received().IsCustomerConsolidatedGroupBelonging(100, 1, 2, 2222, true);
+        }
+
+        [Test]
+        public void IsBelonging_UserCanViewGroupHeadline_ReturnTrue()
+        {
+            //// Arrange
+            _requestContext.Url.Returns("_MemberInfo/GroupHeadLine.aspx");
+            _requestContext.CustId.Returns(100);
+            _requestContext.TransId.Returns(2222);
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.CustId.Returns(1);
+            _requestContext.UserSession.IsInternal.Returns(true);
+            _requestContext.UserSession.SubAccId.Returns(2);
+            _authorizationDataAccess
+                .IsCustomerConsolidatedGroupBelonging(100, 1, 2, 2222, true)
+                .Returns(true);
+
+            //// Act
+            var isBelonging = _authorizationService.IsBelonging();
+
+            //// Assert
+            Assert.IsTrue(isBelonging);
+        }
+
+        [Test]
+        public void IsBelonging_ViewByGroupHeadLineAndIsNotBelonging_ReturnFalse()
+        {
+            //// Arrange
+            _requestContext.Url.Returns("_MemberInfo/GroupHeadLine.aspx");
+            _requestContext.CustId.Returns(100);
+            _requestContext.TransId.Returns(2222);
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.CustId.Returns(1);
+            _requestContext.UserSession.IsInternal.Returns(true);
+            _requestContext.UserSession.SubAccId.Returns(2);
+            _authorizationDataAccess
+                .IsBelonging(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<int>(), Arg.Any<long>(), Arg.Any<bool>())
+                .Returns(false);
+
+            //// Act
+            var isBelonging = _authorizationService.IsBelonging();
+
+            //// Assert
+            Assert.IsFalse(isBelonging);
+        }
+
+        [Test]
+        public void IsBelonging_UrlNeedBeCheckedOnDatawareHouseDatabase_ReturnExecuteIsBelongingOld()
+        {
+            //// Arrange
+            _requestContext.Url.Returns("_MemberInfo/SearchAndCopy/Header.aspx");
+            _requestContext.CustId.Returns(100);
+            _requestContext.TransId.Returns(2222);
+            _requestContext.IsDataStoreInDataWarehouse.Returns(true);
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.CustId.Returns(1);
+            _requestContext.UserSession.IsInternal.Returns(true);
+            _requestContext.UserSession.SubAccId.Returns(2);
+
+            //// Act
+            _authorizationService.IsBelonging();
+
+            //// Assert
+            _authorizationDataAccess.Received().IsBelongingOld(100, 1, 2222);
+            _authorizationDataAccess.DidNotReceive().IsBelonging(100, 1, 2, 2222, true);
+        }
+
+        [Test]
+        public void IsBelonging_UrlOfLowerLevelNeedBeCheckedForHigherLevelAlso()
+        {
+            //// Arrange
+            _requestContext.Url.Returns("_MemberInfo/SearchAndCopy/Header.aspx");
+            _requestContext.CustId.Returns(100);
+            _requestContext.TransId.Returns(2222);
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.CustId.Returns(1);
+            _requestContext.UserSession.IsInternal.Returns(true);
+            _requestContext.UserSession.SubAccId.Returns(2);
+
+            //// Act
+            _authorizationService.IsBelonging();
+
+            //// Assert
+            _authorizationDataAccess.Received().IsBelonging(100, 1, 2, 2222, true);
+        }
+
+        [Test]
+        public void IsBelonging_UrlIsNotAllowedCurrentLoginUserToAccess_ReturnFalse()
+        {
+            //// Arrange
+            _requestContext.Url.Returns("IsNotAllowByThemselve.aspx");
+            _requestContext.CustId.Returns(100);
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.CustId.Returns(100);
+
+            //// Act
+            var isBelonging = _authorizationService.IsBelonging();
+
+            //// Assert
+            Assert.IsFalse(isBelonging);
+        }
+
+        [Test]
+        public void IsBelonging_UrlIsAllowedCurrentLoginUserToAccess_ReturnTrue()
+        {
+            //// Arrange
+            _requestContext.Url.Returns("IsAllowByThemselve.aspx");
+            _requestContext.CustId.Returns(100);
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.CustId.Returns(100);
+
+            //// Act
+            var isBelonging = _authorizationService.IsBelonging();
+
+            //// Assert
+            Assert.IsTrue(isBelonging);
+        }
+
+        #endregion Check Belonging
+
+        #region Check Authorized
+
+        [Test]
+        public void IsAuthorized_CurrentAccIsSubAccount_ExecuteGetOrAddSubPermission()
+        {
+            //// Arrange
+            var url = "IsAllowByThemselve.aspx";
+            _requestContext.CustId.Returns(103);
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.CustId.Returns(100);
+            _requestContext.UserSession.SubAccId.Returns(101);
+
+            //// Act
+            _authorizationService.IsAuthorized(url);
+
+            //// Assert
+            _cachingService.Received().GetOrAdd(
+                "Alpha.Auth.CustContext.SubAccountPermissionCacheKey_100_101",
+                Arg.Any<Func<string>>(),
+                50);
+        }
+
+        [Test]
+        public void IsAuthorized_SubAccountHasFullPermission_ReturnTrue()
+        {
+            //// Arrange
+            var url = "IsAllowByThemselve.aspx";
+            _requestContext.CustId.Returns(103);
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.CustId.Returns(100);
+            _requestContext.UserSession.SubAccId.Returns(101);
+            var fullPermission = "[A],[B],[C],[D],[E],[G],[H]";
+            _cachingService.GetOrAdd(
+                Arg.Any<string>(),
+                Arg.Any<Func<string>>(),
+                Arg.Any<int>()).Returns(fullPermission);
+
+            //// Act
+            var isAuthorized = _authorizationService.IsAuthorized(url);
+
+            //// Assert
+            Assert.IsTrue(isAuthorized);
+        }
+
+        [Test]
+        public void IsAuthorized_SubAccountHasPermissionOnPage_ReturnTrue()
+        {
+            //// Arrange
+            var url = "IsAllowByThemselve.aspx";
+            _requestContext.CustId.Returns(103);
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.CustId.Returns(100);
+            _requestContext.UserSession.SubAccId.Returns(101);
+            var fullPermission = "[A]";
+            _cachingService.GetOrAdd(
+                Arg.Any<string>(),
+                Arg.Any<Func<string>>(),
+                Arg.Any<int>()).Returns(fullPermission);
+
+            //// Act
+            var isAuthorized = _authorizationService.IsAuthorized(url);
+
+            //// Assert
+            Assert.IsTrue(isAuthorized);
+        }
+
+        [Test]
+        public void IsAuthorized_SubAccountDoesNotHasPermissionOnPage_ReturnFalse()
+        {
+            //// Arrange
+            var url = "IsAllowByThemselve.aspx";
+            _requestContext.CustId.Returns(103);
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.CustId.Returns(100);
+            _requestContext.UserSession.SubAccId.Returns(101);
+            var fullPermission = "[B]";
+            _cachingService.GetOrAdd(
+                Arg.Any<string>(),
+                Arg.Any<Func<string>>(),
+                Arg.Any<int>()).Returns(fullPermission);
+
+            //// Act
+            var isAuthorized = _authorizationService.IsAuthorized(url);
+
+            //// Assert
+            Assert.IsFalse(isAuthorized);
+        }
+
+        [Test]
+        public void IsAuthorized_SubAccountHasPermissionOnPage_ExecuteUpdateFunctionUsage()
+        {
+            //// Arrange
+            var url = "IsAllowByThemselve.aspx";
+            _requestContext.CustId.Returns(103);
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.CustId.Returns(100);
+            _requestContext.UserSession.SubAccId.Returns(101);
+            _requestContext.UserSession.Site.Returns("Demo Site");
+            var fullPermission = "[A]";
+            _cachingService.GetOrAdd(
+                Arg.Any<string>(),
+                Arg.Any<Func<string>>(),
+                Arg.Any<int>()).Returns(fullPermission);
+
+            //// Act
+            _authorizationService.IsAuthorized(url);
+
+            //// Assert
+            _statisticService.Received().UpdateFunctionUsage(
+                                url,
+                                "Is Allow By Themselve",
+                                "SC - Agent Info",
+                                "Demo Site");
+        }
+
+        #endregion
     }
 }

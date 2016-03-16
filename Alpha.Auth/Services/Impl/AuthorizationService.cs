@@ -1,7 +1,6 @@
 ﻿namespace Alpha.Auth.Services.Impl
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using Alpha.Auth.DataAccesses;
     using Alpha.Auth.DataAccesses.Impl;
@@ -76,7 +75,7 @@
                     if (_requestContext.CustId != 0
                         && pageAccess.IsCheckBelonging)
                     {
-                        return CheckBelongingOnPage(pageAccess);
+                        return IsBelongingOnPage(pageAccess);
                     }
                 }
             }
@@ -84,7 +83,7 @@
             return isBelonging;
         }
 
-        private bool CheckBelongingOnPage(PageAccessElement pageAccess)
+        private bool IsBelongingOnPage(PageAccessElement pageAccess)
         {
             // Check belonging when:
             // - downline id not equal 0
@@ -130,31 +129,24 @@
             if (_requestContext.UserSession.SubAccId > 0)
             {
                 permission = GetSubPermission();
-
-                if (permission.Equals("0"))
-                {
-                    return true;
-                }
             }
 
-            var groupPageAccesses = _authorizationSection.GroupPageAccesses.Cast<GroupPageAccessElement>()
-                .Where(group => group.RoleId <= _requestContext.UserSession.RoleId);
-
-            return CheckPermissionOnGroupOfPage(
-                permission, 
-                groupPageAccesses,
+            return IsAuthorizedOnGroupOfPage(
+                permission,
                 url,
-                _requestContext.CustId, 
+                _requestContext.CustId,
                 _requestContext.TransId);
         }
 
-        private bool CheckPermissionOnGroupOfPage(
+        private bool IsAuthorizedOnGroupOfPage(
             string customerPermission,
-            IEnumerable<GroupPageAccessElement> groupPageAccesses,
             string url,
             int custId,
             long transId)
         {
+            var groupPageAccesses = _authorizationSection.GroupPageAccesses.Cast<GroupPageAccessElement>()
+                .Where(group => group.RoleId <= _requestContext.UserSession.RoleId);
+
             foreach (var groupPageAccess in groupPageAccesses)
             {
                 var pageAccesses = groupPageAccess.PageAccesses.Cast<PageAccessElement>()
@@ -162,9 +154,21 @@
 
                 foreach (var pageAccess in pageAccesses)
                 {
-                    var hasPermissionOnPage = CheckPermissionOnPage(customerPermission, custId, transId, pageAccess);
+                    var isAuthorized = IsAuthorizedOnPage(customerPermission, custId, transId, pageAccess);
 
-                    if (!hasPermissionOnPage)
+                    if (isAuthorized)
+                    {
+                        if (!_requestContext.UserSession.IsInternal)
+                        {
+                            //// Update page visit if user has permission and is not internal user.
+                            _statisticService.UpdateFunctionUsage(
+                                pageAccess.Url,
+                                pageAccess.MainFunctionName,
+                                pageAccess.SubFunctionName,
+                                _requestContext.UserSession.Site);
+                        }
+                    }
+                    else
                     {
                         return false;
                     }
@@ -174,10 +178,9 @@
             return true;
         }
 
-        private bool CheckPermissionOnPage(string customerPermission, int requestCustId, long transId, PageAccessElement pageElement)
+        private bool IsAuthorizedOnPage(string customerPermission, int requestCustId, long transId, PageAccessElement pageElement)
         {
             var permissions = pageElement.Permission.Split(',');
-            var hasPermisison = true;
 
             foreach (var permission in permissions)
             {
@@ -185,27 +188,9 @@
                 {
                     return false;
                 }
-
-                if (requestCustId != 0
-                    && pageElement.IsCheckBelonging
-                    && pageElement.IsAllowToDoByThemselves
-                    && _requestContext.UserSession.CustId != requestCustId)
-                {
-                    hasPermisison = false;
-                }
-
-                if (!_requestContext.UserSession.IsInternal && hasPermisison)
-                {
-                    //// Update page visit if user has permission and is not internal user.
-                    _statisticService.UpdateFunctionUsage(
-                        pageElement.Url,
-                        pageElement.MainFunctionName,
-                        pageElement.SubFunctionName,
-                        _requestContext.UserSession.Site);
-                }
             }
 
-            return hasPermisison;
+            return true;
         }
 
         private string GetSubPermission()
