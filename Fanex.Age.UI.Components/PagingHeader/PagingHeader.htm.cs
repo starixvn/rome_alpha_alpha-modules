@@ -18,7 +18,7 @@ namespace Fanex.Age.UI.Components
 			protected static string s2 = "\" rel=\"stylesheet\" type=\"text/css\" /><table id=\"tblHeader\"><tr><td class=\"bgleft\">";
 			public PagingHeader_selected_Block selected = new PagingHeader_selected_Block();
 			public PagingHeader_button_Block button = new PagingHeader_button_Block();
-			protected static string s3 = "</td><td class=\"bgcenter\">&nbsp;";
+			protected static string s3 = "</td><td class=\"bgcenter\">";
 			public string pagingControl = "{pagingControl}";
 			protected static string s4 = "</td><td class=\"bgright\">";
 			public string selPageSize = "{selPageSize}";
@@ -52,17 +52,16 @@ namespace Fanex.Age.UI.Components
 
 		public class PagingHeader_selected_Block: Block
 		{
-			protected static string s6 = "&nbsp;&nbsp;";
-			protected static string s7{get{return LocalResources.UIComponentsLang.select;}}
-			protected static string s8 = " : <a href=\"#\" id=\"chkAll\" onclick=\"";
+			protected static string s6{get{return LocalResources.UIComponentsLang.select;}}
+			protected static string s7 = " : <a href=\"#\" id=\"chkAll\" onclick=\"";
 			public string function_all = "{function_all}";
-			protected static string s9 = "\">";
-			protected static string s10{get{return LocalResources.UIComponentsLang.all;}}
-			protected static string s11 = "</a> | <a href=\"#\" id=\"chkNone\" onclick=\"";
+			protected static string s8 = "\">";
+			protected static string s9{get{return LocalResources.UIComponentsLang.all;}}
+			protected static string s10 = "</a> | <a href=\"#\" id=\"chkNone\" onclick=\"";
 			public string function_none = "{function_none}";
-			protected static string s12 = "\">";
-			protected static string s13{get{return LocalResources.UIComponentsLang.none;}}
-			protected static string s14 = "</a>";
+			protected static string s11 = "\">";
+			protected static string s12{get{return LocalResources.UIComponentsLang.none;}}
+			protected static string s13 = "</a>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -70,15 +69,14 @@ namespace Fanex.Age.UI.Components
 				{
 					bd.Append(s6);
 					bd.Append(s7);
-					bd.Append(s8);
 					bd.Append(function_all);
+					bd.Append(s8);
 					bd.Append(s9);
 					bd.Append(s10);
-					bd.Append(s11);
 					bd.Append(function_none);
+					bd.Append(s11);
 					bd.Append(s12);
 					bd.Append(s13);
-					bd.Append(s14);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -86,17 +84,17 @@ namespace Fanex.Age.UI.Components
 
 		public class PagingHeader_button_Block: Block
 		{
-			protected static string s15 = "&nbsp;&nbsp;<div id=\"bttTransfer\" class=\"btnSubmit\" onclick=\"ShowFrmTransferMulti(this,'divTransferMulti');\">";
+			protected static string s14 = "<div id=\"bttTransfer\" class=\"btnSubmit\" onclick=\"ShowFrmTransferMulti(this,'divTransferMulti');\">";
 			public string ButtonText = "{ButtonText}";
-			protected static string s16 = "</div>";
+			protected static string s15 = "</div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s15);
+					bd.Append(s14);
 					bd.Append(ButtonText);
-					bd.Append(s16);
+					bd.Append(s15);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}

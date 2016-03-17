@@ -3,14 +3,14 @@
     <tr>
         <td class="bgleft">
             <!--selected-->
-            &nbsp;&nbsp;{static:LocalResources.UIComponentsLang.select} : <a href="#" id="chkAll" onclick="{function_all}">{static:LocalResources.UIComponentsLang.all}</a> | <a href="#" id="chkNone" onclick="{function_none}">{static:LocalResources.UIComponentsLang.none}</a>
+            {static:LocalResources.UIComponentsLang.select} : <a href="#" id="chkAll" onclick="{function_all}">{static:LocalResources.UIComponentsLang.all}</a> | <a href="#" id="chkNone" onclick="{function_none}">{static:LocalResources.UIComponentsLang.none}</a>
             <!--/selected-->
             <!--button-->
-            &nbsp;&nbsp;<div id="bttTransfer" class="btnSubmit" onclick="ShowFrmTransferMulti(this,'divTransferMulti');">{ButtonText}</div>
+            <div id="bttTransfer" class="btnSubmit" onclick="ShowFrmTransferMulti(this,'divTransferMulti');">{ButtonText}</div>
             <!--/button-->
         </td>
         <td class="bgcenter">
-            &nbsp;{pagingControl}
+            {pagingControl}
         </td>
         <td class="bgright">
             {selPageSize}
