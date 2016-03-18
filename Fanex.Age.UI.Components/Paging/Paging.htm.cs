@@ -148,9 +148,11 @@ namespace Fanex.Age.UI.Components
 
 		public class Paging_ExternalResources_Block: Block
 		{
-			protected static string s31 = "<link rel=\"stylesheet\" type=\"text/css\" href=\"../../App_Themes/Apo/Components/Paging/Paging.min.css?v=1\" /><script src=\"";
-			protected static string s32{get{return AbsoluteUrl("Paging/Paging.js", TplSettings.Question);}}
-			protected static string s33 = "\" type=\"text/javascript\"></script>";
+			protected static string s31 = "<link href=\"";
+			protected static string s32{get{return AbsoluteUrl("Paging/Paging.css", TplSettings.Question);}}
+			protected static string s33 = "\" rel=\"stylesheet\" type=\"text/css\" /><script src=\"";
+			protected static string s34{get{return AbsoluteUrl("Paging/Paging.js", TplSettings.Question);}}
+			protected static string s35 = "\" type=\"text/javascript\"></script>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -159,6 +161,8 @@ namespace Fanex.Age.UI.Components
 					bd.Append(s31);
 					bd.Append(s32);
 					bd.Append(s33);
+					bd.Append(s34);
+					bd.Append(s35);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
