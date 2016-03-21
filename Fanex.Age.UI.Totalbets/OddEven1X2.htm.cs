@@ -161,7 +161,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class OddEven1X2_Contents_LeagueContents_MatchContents_Block: Block
 		{
-			protected static string s46 = "<tr class=\"r\" bgcolor=\"";
+			protected static string s46 = "<tr class=\"r\" style=\"background-color: ";
 			public string ColorClass = "{ColorClass}";
 			protected static string s47 = "\" onmouseover=\"bgColor='";
 			public string ColorOver = "{ColorOver}";

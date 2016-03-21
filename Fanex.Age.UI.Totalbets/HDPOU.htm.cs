@@ -141,7 +141,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class HDPOU_Contents_LeagueContents_MatchContents_Block: Block
 		{
-			protected static string s36 = "<tr bgcolor=\"";
+			protected static string s36 = "<tr style=\"background-color: ";
 			public string ColorClass = "{ColorClass}";
 			protected static string s37 = "\" onmouseover=\"bgColor='";
 			public string ColorOver = "{ColorOver}";

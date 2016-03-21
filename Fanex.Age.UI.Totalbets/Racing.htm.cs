@@ -163,7 +163,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class Racing_Contents_LeagueContents_MatchContents_Block: Block
 		{
-			protected static string s45 = "<tr class=\"r\" bgcolor=\"";
+			protected static string s45 = "<tr class=\"r\" style=\"background-color: ";
 			public string ColorClass = "{ColorClass}";
 			protected static string s46 = "\" onmouseover=\"bgColor='";
 			public string ColorOver = "{ColorOver}";
@@ -233,7 +233,7 @@ namespace Fanex.Age.UI.TotalBets
 		{
 			protected static string s58 = "<td class=\"c b\" title=\"";
 			public string HRStatusTip = "{HRStatusTip}";
-			protected static string s59 = "\" bgcolor=\"";
+			protected static string s59 = "\" style=\"background-color: ";
 			public string ColorStatus = "{ColorStatus}";
 			protected static string s60 = "\" onmouseover=\"bgColor='";
 			public string ColorOver = "{ColorOver}";

@@ -149,7 +149,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class FGLG_Contents_LeagueContents_MatchContents_Block: Block
 		{
-			protected static string s40 = "<tr class=\"r\" bgcolor=\"";
+			protected static string s40 = "<tr class=\"r\" style=\"background-color: ";
 			public string ColorClass = "{ColorClass}";
 			protected static string s41 = "\" onmouseover=\"bgColor='";
 			public string ColorOver = "{ColorOver}";
@@ -177,7 +177,7 @@ namespace Fanex.Age.UI.TotalBets
 			public string LastHomeValue1H = "{LastHomeValue1H}";
 			protected static string s53 = "</td><td class=\"fcnum\" rowspan=\"2\">";
 			public string NoGoalValue1H = "{NoGoalValue1H}";
-			protected static string s54 = "</td></tr><tr class=\"r\" bgcolor=\"";
+			protected static string s54 = "</td></tr><tr class=\"r\" style=\"background-color: ";
 			protected string t1_ColorClass;
 			protected static string s55 = "\" onmouseover=\"bgColor='";
 			protected string t2_ColorOver;

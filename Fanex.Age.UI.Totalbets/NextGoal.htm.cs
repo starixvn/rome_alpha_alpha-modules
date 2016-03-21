@@ -117,7 +117,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class NextGoal_Contents_LeagueContents_MatchContents_Block: Block
 		{
-			protected static string s25 = "<tr bgcolor=\"";
+			protected static string s25 = "<tr style=\"background-color: ";
 			public string ColorClass = "{ColorClass}";
 			protected static string s26 = "\" onmouseover=\"bgColor='";
 			public string ColorOver = "{ColorOver}";

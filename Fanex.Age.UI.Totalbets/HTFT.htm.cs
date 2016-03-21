@@ -133,7 +133,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class HTFT_Contents_HTFTContents_Block: Block
 		{
-			protected static string s40 = "<tr class=\"r\" bgcolor=\"";
+			protected static string s40 = "<tr class=\"r\" style=\"background-color: ";
 			public string ColorClass = "{ColorClass}";
 			protected static string s41 = "\" onmouseover=\"bgColor='";
 			public string ColorOver = "{ColorOver}";

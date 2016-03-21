@@ -133,7 +133,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class LiveCasino_Contents_LeagueContents_MatchContents_Block: Block
 		{
-			protected static string s33 = "<tr class=\"r\" bgcolor=\"";
+			protected static string s33 = "<tr class=\"r\" style=\"background-color: ";
 			public string ColorClass = "{ColorClass}";
 			protected static string s34 = "\" onmouseover=\"bgColor='";
 			public string ColorOver = "{ColorOver}";

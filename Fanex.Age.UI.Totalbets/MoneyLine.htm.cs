@@ -157,7 +157,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class MoneyLine_Contents_LeagueContents_MatchContents_Block: Block
 		{
-			protected static string s44 = "<tr class=\"r\" bgcolor=\"";
+			protected static string s44 = "<tr class=\"r\" style=\"background-color: ";
 			public string ColorClass = "{ColorClass}";
 			protected static string s45 = "\" onmouseover=\"bgColor='";
 			public string ColorOver = "{ColorOver}";
