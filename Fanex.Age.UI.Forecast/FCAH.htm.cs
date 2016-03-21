@@ -97,7 +97,7 @@ namespace Fanex.Age.UI.Forecast
 			public string LiveHomeScore = "{LiveHomeScore}";
 			protected static string s23 = " : ";
 			public string LiveAwayScore = "{LiveAwayScore}";
-			protected static string s24 = "</td></tr></table><br /><table class=\"tblRpt width-100per\" style=\"width: 100%;\"><tr class=\"even_row c\"><td bgcolor=\"#cccccc\"><b>";
+			protected static string s24 = "</td></tr></table><br /><table class=\"tblRpt width-100per\" style=\"width: 100%;\"><tr class=\"even_row c\"><td style=\"background-color: #cccccc\"><b>";
 			public string Title = "{Title}";
 			protected static string s25 = "</b></td><td colspan=\"4\">";
 			public FCAH_Content_ForecastContent_ForecastPointContent_Block ForecastPointContent = new FCAH_Content_ForecastContent_ForecastPointContent_Block();
