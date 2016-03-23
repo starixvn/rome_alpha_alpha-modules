@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<html>
 <head>
     <title>{Title}</title>
     <!--HiddenBlock-->
@@ -7,176 +7,178 @@
     <link href="../CustomerInfo.css" rel="stylesheet" type="text/css" />
     <!--/HiddenBlock-->
     <link href='{static:HttpContext.Current.GetWebResourceUrl("Fanex.PTEngine.UI.Core.css")}'
-        rel="stylesheet" type="text/css" />
+          rel="stylesheet" type="text/css" />
     <script src='{static:HttpContext.Current.GetWebResourceUrl("Fanex.PTEngine.UI.Languages.en.js")}'
-        type="text/javascript"></script>
+            type="text/javascript"></script>
     <script src='{static:HttpContext.Current.GetWebResourceUrl("Fanex.PTEngine.UI.Core.js")}'
-        type="text/javascript"></script>
+            type="text/javascript"></script>
     <script src='{static:HttpContext.Current.GetWebResourceUrl("Fanex.PTEngine.UI.BetType.js")}'
-        type="text/javascript"></script>
+            type="text/javascript"></script>
     <script src='{static:HttpContext.Current.GetWebResourceUrl("Fanex.PTEngine.UI.BetTypeGroup.js")}'
-        type="text/javascript"></script>
+            type="text/javascript"></script>
     <script src='{static:HttpContext.Current.GetWebResourceUrl("Fanex.PTEngine.UI.BettingLimit.js")}'
-        type="text/javascript"></script>
+            type="text/javascript"></script>
     <script src='{static:HttpContext.Current.GetWebResourceUrl("Fanex.PTEngine.UI.knockout-2.0.0.js")}'
-        type="text/javascript"></script>
+            type="text/javascript"></script>
     <script src='{dataSource}?targetCustId={targetCustId}&targetRoleId={targetRoleId}&formType={formType}'
-        type="text/javascript"></script>
+            type="text/javascript"></script>
     <!--CssBlock-->
     <!--/CssBlock-->
 </head>
 <body>
     <form method="post">
-    <div class="minWidthCustomer">
-        {static:new Fanex.Age.UI.Components.ErrorMsg.ErrorMsg_Template()}
-        <input type="hidden" name="txtCustomerObject" id="txtCustomerObject" />
-        <div class="pt7">
-            <div class="btnLeft">
-                <button data-bind='click: saveCustomer' accountpermisssion="[B]" id="btnSubmit" class="btnMain">
-                    {actionName}</button>
+        <div class="minWidthCustomer">
+            {static:new Fanex.Age.UI.Components.ErrorMsg.ErrorMsg_Template()}
+            <input type="hidden" name="txtCustomerObject" id="txtCustomerObject" />
+            <div class="pt7">
+                <div class="btnLeft">
+                    <button data-bind='click: saveCustomer' accountpermisssion="[B]" id="btnSubmit" class="btnMain">
+                        {actionName}
+                    </button>
+                </div>
             </div>
-        </div>
-        <div class="commission">
-            <div class="customerInfoBlock6">
-                <span data-bind="text: customer.userNames"></span>
+            <div class="commission">
+                <div class="customerInfoBlock6">
+                    <span data-bind="text: customer.userNames"></span>
+                </div>
+                <div class="headerTab" id="statusHeader">
+                    {static:LocalResources.PTEngineLang.status}
+                </div>
+                <div class="clearBlock">
+                    <div class="customerInfoBlock7">
+                        <label for="closed">
+                            {static:LocalResources.PTEngineLang.closed}
+                        </label>
+                    </div>
+                    <div class="customerInfoBlock5">
+                        <input name="closed" id="closed" type="checkbox" data-bind="checked: customer.statusSetting.closed" />
+                    </div>
+                </div>
             </div>
-            <div class="headerTab" id="statusHeader">
-                {static:LocalResources.PTEngineLang.status}</div>
+            <!--CommissionBlock-->
+            <div class="commission">
+                <div class="headerTab" id="commissionHeader">
+                    {static:LocalResources.PTEngineLang.commission}
+                </div>
+                <div class="clearBlock">
+                    <div class="commissionBlock1 commissionHeader">
+                    </div>
+                    <div class="commissionBlock2 commissionHeader">
+                        {static:LocalResources.PTEngineLang.lblCommissionForAgent}
+                    </div>
+                    <div class="commissionBlock2 commissionHeader">
+                        {static:LocalResources.PTEngineLang.lblCommissionForMember}
+                    </div>
+                </div>
+                <div class="clearBlock">
+                    <div class="commissionBlock1">
+                        {static:LocalResources.PTEngineLang.lblAsianHDC_OU_OE}
+                    </div>
+                    <div class="commissionBlock2">
+                        <input type="text" id="textBoxDiscountAsian" name="textBoxDiscountAsian" class="textBoxComm"
+                               disabled="true" />
+                    </div>
+                    <div class="commissionBlock2">
+                        <select id="discountAsian" name="discountAsian" class="widthGroup"></select>
+                    </div>
+                </div>
+                <div class="clearBlock">
+                    <div class="commissionBlock1">
+                        {static:LocalResources.PTEngineLang.lbl1x2}
+                    </div>
+                    <div class="commissionBlock2">
+                        <input type="text" id="textBoxDiscount1x2" class="textBoxComm" disabled="true" data-bind="value: customer.commissionSetting.discount1x2" />
+                    </div>
+                    <div class="commissionBlock2">
+                        <select id="discount1x2" name="discount1x2" class="widthGroup"></select>
+                    </div>
+                </div>
+                <div class="clearBlock">
+                    <div class="commissionBlock1">
+                        {static:LocalResources.PTEngineLang.lblOtherTypes}
+                    </div>
+                    <div class="commissionBlock2">
+                        <input type="text" id="textBoxDiscountCS" class="textBoxComm" disabled="true" data-bind="value: customer.commissionSetting.discountCS" />
+                    </div>
+                    <div class="commissionBlock2">
+                        <select id="discountCS" name="discountCS" class="widthGroup"></select>
+                    </div>
+                </div>
+                <div class="clearBlock">
+                    <div class="commissionBlock1">
+                        {static:LocalResources.PTEngineLang.numbergamecomm}
+                    </div>
+                    <div class="commissionBlock2">
+                        <input type="text" id="textBoxDiscountNumber" class="textBoxComm" disabled="true"
+                               data-bind="value: customer.commissionSetting.discountNumber" />
+                    </div>
+                    <div class="commissionBlock2">
+                        <select id="discountNumber" name="discountNumber" class="widthGroup"></select>
+                    </div>
+                </div>
+                <!--HRFixedOdds-->
+                <div class="clearBlock">
+                    <div class="commissionBlock1">
+                        {static:LocalResources.PTEngineLang.HRFixedOdds}
+                    </div>
+                    <div class="commissionBlock2">
+                        <input type="text" id="text1" class="textBoxComm" disabled="true" data-bind="value: customer.commissionSetting.discountHRFixedOdds" />
+                    </div>
+                    <div class="commissionBlock2">
+                        <select id="discountHRFixOdds" name="discountHRFixOdds" class="widthGroup"></select>
+                    </div>
+                </div>
+                <!--/HRFixedOdds-->
+                <!--MyanmarOdds-->
+                <div class="clearBlock">
+                    <div class="commissionBlock1">
+                        {static:LocalResources.PTEngineLang.Symbol_OddsPercentage}
+                    </div>
+                    <div class="commissionBlock2">
+                        <input type="text" id="text2" class="textBoxComm" disabled="true" data-bind="value: customer.commissionSetting.discountMyanmarOdds" />
+                    </div>
+                    <div class="commissionBlock2">
+                        <select id="oddsPercentage" name="discountMyanmarOdds" class="widthGroup"></select>
+                    </div>
+                </div>
+                <!--/MyanmarOdds-->
+                <div class="clearBlock">
+                </div>
+            </div>
+            <!--/CommissionBlock-->
             <div class="clearBlock">
-                <div class="customerInfoBlock7">
-                    <label for="closed">
-                        {static:LocalResources.PTEngineLang.closed}</label></div>
-                <div class="customerInfoBlock5">
-                    <input name="closed" id="closed" type="checkbox" data-bind="checked: customer.statusSetting.closed" /></div>
             </div>
-        </div>
-        <!--CommissionBlock-->
-        <div class="commission">
-            <div class="headerTab" id="commissionHeader">
-                {static:LocalResources.PTEngineLang.commission}</div>
+            <br />
+            <div class="headerBetSetting">
+                {static:LocalResources.PTEngineLang.lblBetSetting}
+            </div>
+            <div id="bettingLimitContainer">
+            </div>
+            <br />
             <div class="clearBlock">
-                <div class="commissionBlock1 commissionHeader">
-                </div>
-                <div class="commissionBlock2 commissionHeader">
-                    {static:LocalResources.PTEngineLang.lblCommissionForAgent}
-                </div>
-                <div class="commissionBlock2 commissionHeader">
-                    {static:LocalResources.PTEngineLang.lblCommissionForMember}
+            </div>
+            <div class="headerPositionTaking">
+                {static:LocalResources.PTEngineLang.positiontaking}
+                <div style="float: right;">
+                    <a class="infoIco" style="margin: 3px 5px; height: 16px; display: inline-block" href="../../../PositionTakingInformation/PositionTakingBetTypeReference"
+                       target="_blank" title="{static:LocalResources.PTEngineLang.ClickToViewPTInfo}"></a>
                 </div>
             </div>
-            <div class="clearBlock">
-                <div class="commissionBlock1">
-                    {static:LocalResources.PTEngineLang.lblAsianHDC_OU_OE}
-                </div>
-                <div class="commissionBlock2">
-                    <input type="text" id="textBoxDiscountAsian" name="textBoxDiscountAsian" class="textBoxComm"
-                        disabled="true" />
-                </div>
-                <div class="commissionBlock2">
-                    <select id="discountAsian" name="discountAsian" class="widthGroup">
-                    </select>
+            <div class="positionTaking">
+                <div id="ptGridContainer">
                 </div>
             </div>
             <div class="clearBlock">
-                <div class="commissionBlock1">
-                    {static:LocalResources.PTEngineLang.lbl1x2}
-                </div>
-                <div class="commissionBlock2">
-                    <input type="text" id="textBoxDiscount1x2" class="textBoxComm" disabled="true" data-bind="value: customer.commissionSetting.discount1x2" />
-                </div>
-                <div class="commissionBlock2">
-                    <select id="discount1x2" name="discount1x2" class="widthGroup">
-                    </select>
-                </div>
             </div>
-            <div class="clearBlock">
-                <div class="commissionBlock1">
-                    {static:LocalResources.PTEngineLang.lblOtherTypes}
+            <div class="pt7">
+                <div class="btnLeft">
+                    <button data-bind='click: saveCustomer' accountpermisssion="[B]" id="btnSubmitFooter"
+                            class="btnMain">
+                        {actionName}
+                    </button>
                 </div>
-                <div class="commissionBlock2">
-                    <input type="text" id="textBoxDiscountCS" class="textBoxComm" disabled="true" data-bind="value: customer.commissionSetting.discountCS" />
-                </div>
-                <div class="commissionBlock2">
-                    <select id="discountCS" name="discountCS" class="widthGroup">
-                    </select>
-                </div>
-            </div>
-            <div class="clearBlock">
-                <div class="commissionBlock1">
-                    {static:LocalResources.PTEngineLang.numbergamecomm}
-                </div>
-                <div class="commissionBlock2">
-                    <input type="text" id="textBoxDiscountNumber" class="textBoxComm" disabled="true"
-                        data-bind="value: customer.commissionSetting.discountNumber" />
-                </div>
-                <div class="commissionBlock2">
-                    <select id="discountNumber" name="discountNumber" class="widthGroup">
-                    </select>
-                </div>
-            </div>
-            <!--HRFixedOdds-->
-            <div class="clearBlock">
-                <div class="commissionBlock1">
-                    {static:LocalResources.PTEngineLang.HRFixedOdds}
-                </div>
-                <div class="commissionBlock2">
-                    <input type="text" id="text1" class="textBoxComm" disabled="true" data-bind="value: customer.commissionSetting.discountHRFixedOdds" />
-                </div>
-                <div class="commissionBlock2">
-                    <select id="discountHRFixOdds" name="discountHRFixOdds" class="widthGroup">
-                    </select>
-                </div>
-            </div>
-            <!--/HRFixedOdds-->
-            <!--MyanmarOdds-->
-            <div class="clearBlock">
-                <div class="commissionBlock1">
-                    {static:LocalResources.PTEngineLang.Symbol_OddsPercentage}
-                </div>
-                <div class="commissionBlock2">
-                    <input type="text" id="text2" class="textBoxComm" disabled="true" data-bind="value: customer.commissionSetting.discountMyanmarOdds" />
-                </div>
-                <div class="commissionBlock2">
-                    <select id="oddsPercentage" name="discountMyanmarOdds" class="widthGroup">
-                    </select>
-                </div>
-            </div>
-            <!--/MyanmarOdds-->
-            <div class="clearBlock">
             </div>
         </div>
-        <!--/CommissionBlock-->
-        <div class="clearBlock">
-        </div>
-        <br />
-        <div class="headerBetSetting">
-            {static:LocalResources.PTEngineLang.lblBetSetting}</div>
-        <div id="bettingLimitContainer">
-        </div>
-        <br />
-        <div class="clearBlock">
-        </div>
-        <div class="headerPositionTaking">
-            {static:LocalResources.PTEngineLang.positiontaking}
-            <div style="float: right;">
-                <a class="infoIco" style="margin: 3px 5px; height: 16px; display: inline-block" href="../../../PositionTakingInformation/PositionTakingBetTypeReference"
-                    target="_blank" title="{static:LocalResources.PTEngineLang.ClickToViewPTInfo}"></a>
-            </div>
-        </div>
-        <div class="positionTaking">
-            <div id="ptGridContainer">
-            </div>
-        </div>
-        <div class="clearBlock">
-        </div>
-        <div class="pt7">
-            <div class="btnLeft">
-                <button data-bind='click: saveCustomer' accountpermisssion="[B]" id="btnSubmitFooter"
-                    class="btnMain">
-                    {actionName}</button>
-            </div>
-        </div>
-    </div>
     </form>
     <script language="javascript" type="text/javascript">
         var isOfferHRFixedOdds = "{isOfferHRFixedOdds}";

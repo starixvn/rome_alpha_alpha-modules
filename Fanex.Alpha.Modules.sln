@@ -89,6 +89,7 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Description = EnableTplcore
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2D20BFA9-F8E0-4865-A6ED-4DE197C875A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

@@ -1,16 +1,16 @@
-﻿<link href="PagingHeader.css" rel="stylesheet" type="text/css" />
-<table id="tblHeader" cellspacing="0" cellpadding="0">
+﻿<link href="../../App_Themes/Apo/Components/PagingHeader/PagingHeader.min.css" rel="stylesheet" type="text/css" />
+<table id="tblHeader">
     <tr>
         <td class="bgleft">
             <!--selected-->
-            &nbsp;&nbsp;{static:LocalResources.UIComponentsLang.select} : <a href="#" id="chkAll" onclick="{function_all}">{static:LocalResources.UIComponentsLang.all}</a> | <a href="#" id="chkNone" onclick="{function_none}">{static:LocalResources.UIComponentsLang.none}</a>
+            {static:LocalResources.UIComponentsLang.select} : <a href="#" id="chkAll" onclick="{function_all}">{static:LocalResources.UIComponentsLang.all}</a> | <a href="#" id="chkNone" onclick="{function_none}">{static:LocalResources.UIComponentsLang.none}</a>
             <!--/selected-->
             <!--button-->
-            &nbsp;&nbsp;<div id="bttTransfer" class="btnSubmit" onclick="ShowFrmTransferMulti(this,'divTransferMulti');">{ButtonText}</div>
+            <div id="bttTransfer" class="btnSubmit" onclick="ShowFrmTransferMulti(this,'divTransferMulti');">{ButtonText}</div>
             <!--/button-->
         </td>
         <td class="bgcenter">
-            &nbsp;{pagingControl}
+            {pagingControl}
         </td>
         <td class="bgright">
             {selPageSize}

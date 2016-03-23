@@ -7,8 +7,8 @@
 
 <div id="{id}" class="{pageclass}" pagesize="{pagesize}" currentindex="{currentindex}" rowcount="{rowcount}" pagecount="{pagecount}">
 
-        <input {disabledFirst} id="btnFirst{id}" type="button" onclick="{id}.First()" class="icon pagingFirst" />
-        <input {disabledPrev} id="btnPrev{id}" type="button" onclick="{id}.Move(-1)" class="icon pagingPrev" />
+        <span {disabledFirst} id="btnFirst{id}" type="button" onclick="{id}.First()" class="icon pagingFirst"></span>
+        <span {disabledPrev} id="btnPrev{id}" type="button" onclick="{id}.Move(-1)" class="icon pagingPrev"></span>
         
         <span class="pagingSeperator"></span>
         {static:LocalResources.UIComponentsLang.tpage}
@@ -16,8 +16,8 @@
         {static:LocalResources.UIComponentsLang.of} {pagecount}
         <span class="pagingSeperator"></span>
         
-        <input {disabledNext} id="btnNext{id}" type="button" onclick="{id}.Move(1)" class="icon pagingNext" />
-        <input {disabledLast} id="btnLast{id}" type="button" onclick="{id}.Last()" class="icon pagingLast" />
+        <span {disabledNext} id="btnNext{id}" type="button" onclick="{id}.Move(1)" class="icon pagingNext"></span>
+        <span {disabledLast} id="btnLast{id}" type="button" onclick="{id}.Last()" class="icon pagingLast"></span>
         <!--SelPageSize-->
         {selPageSize}
         <!--/SelPageSize-->

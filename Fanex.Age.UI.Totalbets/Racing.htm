@@ -1,14 +1,15 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<html>
 <head>
     <title>TotalBets</title>
-    <link href="../App_Themes/Apo/Common/Agent.css" rel="stylesheet" type="text/css" />
-    <link href="../App_Themes/Apo/TotalBets/TotalBets.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/Common/Agent.min.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/TotalBets/TotalBets.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div id="page_main">
         <div id="header_main">
-            {static:LocalResources.TotalBetsLang.hr}</div>
+            {static:LocalResources.TotalBetsLang.hr}
+        </div>
         {load:Fanex.Age.UI.Components.RefreshCountDown_Control RefreshCountDown = new Fanex.Age.UI.Components.RefreshCountDown_Control(this,30,"HorseRacing")}
         <div id="sContent">
             <!--Contents-->
@@ -65,14 +66,15 @@
                     </td>
                 </tr>
                 <!--MatchContents-->
-                <tr class="r" bgcolor="{ColorClass}" onmouseover="bgColor='{ColorOver}'" onmouseout="bgColor='{ColorClass}'">
+                <tr class="r" style="background-color: {ColorClass}" onmouseover="bgColor='{ColorOver}'" onmouseout="bgColor='{ColorClass}'">
                     <!--RaceTime-->
-                    <td class="c b" title="{HRStatusTip}" bgcolor="{ColorStatus}" onmouseover="bgColor='{ColorOver}'"
+                    <td class="c b" title="{HRStatusTip}" style="background-color: {ColorStatus}" onmouseover="bgColor='{ColorOver}'"
                         onmouseout="bgColor='{ColorStatus}'" {RaceRowspan}>
-                    <span class="raceNo">{RaceVal}</span><br />
-                    <div style="margin-top: 5px;" class="bl_time">
-                        {KickOffDay}<br />
-                        {KickOffTime}</div>
+                        <span class="raceNo">{RaceVal}</span><br />
+                        <div style="margin-top: 5px;" class="bl_time">
+                            {KickOffDay}<br />
+                            {KickOffTime}
+                        </div>
                     </td>
                     <!--/RaceTime-->
                     <td class="c b">

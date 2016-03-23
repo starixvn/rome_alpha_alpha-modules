@@ -11,12 +11,12 @@ namespace Fanex.Age.UI.Forecast
 	//{
 		public class FCHDPOU_Template : Template
 		{
-			protected static string s0 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>";
+			protected static string s0 = "<!DOCTYPE html><html><head><title>";
 			protected static string s1{get{return LocalResources.UIForecastLang.lblForecast;}}
 			protected static string s2 = "</title><link href=\"";
-			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.css", TplSettings.Question);}}
+			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.min.css", TplSettings.Question);}}
 			protected static string s4 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
-			protected static string s5{get{return AbsoluteUrl("App_Themes/Apo/Forecast/FC.css", TplSettings.Question);}}
+			protected static string s5{get{return AbsoluteUrl("App_Themes/Apo/Forecast/FC.min.css", TplSettings.Question);}}
 			protected static string s6 = "\" rel=\"stylesheet\" type=\"text/css\" /></head><body><div id=\"page_main\"><div id=\"header_main\"><span id=\"leagueName\">";
 			protected static string s7{get{return LocalResources.UIForecastLang.lblHOUL;}}
 			protected static string s8 = "</span></div>";

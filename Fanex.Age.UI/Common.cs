@@ -4,12 +4,12 @@ namespace Fanex.Age.UI
     {
         // Background color setting
         // Note that we use bgColor, don't use className because performance problem
-        public const string RowBgOdd = "#F6F8F9";
-        public const string RowBgEven = "#faf9ee";
+        public const string RowBgOdd = "#fff";
+        public const string RowBgEven = "#eae9ee";
         public const string RowBgOver = "#f8ff8d";
         public const string RowBgClosed = "#ccc7ba";
         public const string RowBgSuspended = "#f8ded7";
-        public const string RowBgLive = "#ffddcc";
+        public const string RowBgLive = "#f9ceae";
         public const string RowBgDisabled = "#A0A97A";
 
         public const string RowCssOdd = "BgOdd";

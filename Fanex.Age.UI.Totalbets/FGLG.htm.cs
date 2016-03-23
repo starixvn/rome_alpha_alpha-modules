@@ -11,10 +11,10 @@ namespace Fanex.Age.UI.TotalBets
 	//{
 		public class FGLG_Template : Template
 		{
-			protected static string s0 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>TotalBets</title><link href=\"";
-			protected static string s1{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.css", TplSettings.Question);}}
+			protected static string s0 = "<!DOCTYPE html><html><head><title>TotalBets</title><link href=\"";
+			protected static string s1{get{return AbsoluteUrl("App_Themes/Apo/Common/Agent.min.css", TplSettings.Question);}}
 			protected static string s2 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
-			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/TotalBets/TotalBets.css", TplSettings.Question);}}
+			protected static string s3{get{return AbsoluteUrl("App_Themes/Apo/TotalBets/TotalBets.min.css", TplSettings.Question);}}
 			protected static string s4 = "\" rel=\"stylesheet\" type=\"text/css\" /></head><body><div id=\"page_main\"><div id=\"header_main\">";
 			protected static string s5{get{return LocalResources.TotalBetsLang.fglg;}}
 			protected static string s6 = "</div>";
@@ -149,7 +149,7 @@ namespace Fanex.Age.UI.TotalBets
 
 		public class FGLG_Contents_LeagueContents_MatchContents_Block: Block
 		{
-			protected static string s40 = "<tr class=\"r\" bgcolor=\"";
+			protected static string s40 = "<tr class=\"r\" style=\"background-color: ";
 			public string ColorClass = "{ColorClass}";
 			protected static string s41 = "\" onmouseover=\"bgColor='";
 			public string ColorOver = "{ColorOver}";
@@ -177,7 +177,7 @@ namespace Fanex.Age.UI.TotalBets
 			public string LastHomeValue1H = "{LastHomeValue1H}";
 			protected static string s53 = "</td><td class=\"fcnum\" rowspan=\"2\">";
 			public string NoGoalValue1H = "{NoGoalValue1H}";
-			protected static string s54 = "</td></tr><tr class=\"r\" bgcolor=\"";
+			protected static string s54 = "</td></tr><tr class=\"r\" style=\"background-color: ";
 			protected string t1_ColorClass;
 			protected static string s55 = "\" onmouseover=\"bgColor='";
 			protected string t2_ColorOver;

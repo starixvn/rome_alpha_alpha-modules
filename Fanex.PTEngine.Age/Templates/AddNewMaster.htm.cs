@@ -13,7 +13,7 @@ namespace Fanex.PTEngine.Age
 	{
 		public class AddNewMaster_Template : Template
 		{
-			protected static string s0 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>";
+			protected static string s0 = "<!DOCTYPE html><html><head><title>";
 			public string Title = "{Title}";
 			protected static string s1 = "</title><link href='";
 			protected static string s2{get{return HttpContext.Current.GetWebResourceUrl("Fanex.PTEngine.UI.Core.css");}}
@@ -43,7 +43,7 @@ namespace Fanex.PTEngine.Age
 			public string actionForm = "{actionForm}";
 			protected static string s21 = "' method=\"post\"><div class=\"minWidthCustomer\">";
 			protected static string s22{get{return new Fanex.Age.UI.Components.ErrorMsg.ErrorMsg_Template();}}
-			protected static string s23 = "<input type=\"hidden\" name=\"txtCustomerObject\" id=\"txtCustomerObject\" /><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmit\" class=\"btnMain\">";
+			protected static string s23 = "<input type=\"hidden\" name=\"txtCustomerObject\" id=\"txtCustomerObject\" /><div class=\"pt7\"><div class=\"btnLef\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmit\" class=\"btn btn-refresh\">";
 			public string actionName = "{actionName}";
 			protected static string s24 = "</button></div></div><div class=\"customerInfo\"><div class=\"headerTab\">";
 			protected static string s25{get{return LocalResources.PTEngineLang.generalInformation;}}
@@ -76,9 +76,9 @@ namespace Fanex.PTEngine.Age
 			protected static string s49{get{return LocalResources.PTEngineLang.lblBetSetting;}}
 			protected static string s50 = "</div><div id=\"bettingLimitContainer\"></div><br /><div class=\"clearBlock\"></div><div class=\"headerPositionTaking\">";
 			protected static string s51{get{return LocalResources.PTEngineLang.positiontaking;}}
-			protected static string s52 = "<div style=\"float:right;\"><a class=\"infoIco\" style=\"margin:3px 5px;height:16px;display:inline-block\"href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
+			protected static string s52 = "<a class=\"infoIco\" href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
 			protected static string s53{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
-			protected static string s54 = "\"></a></div></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"btnMain\">";
+			protected static string s54 = "\"></a></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"btn btn-refresh\">";
 			protected string t0_actionName;
 			protected static string s55 = "</button></div></div></div></form>";
 			public AddNewMaster_ScriptBlock_Block ScriptBlock = new AddNewMaster_ScriptBlock_Block();

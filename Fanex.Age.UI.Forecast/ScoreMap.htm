@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<html>
 <head>
     <title>{static:LocalResources.UIForecastLang.lblScoreMap}</title>
-    <link href="../../App_Themes/Apo/Common/Agent.css" rel="stylesheet" type="text/css" />
-    <link href="../App_Themes/Apo/Forecast/ScoreMap.css" rel="stylesheet" type="text/css" />
+    <link href="../../App_Themes/Apo/Common/Agent.min.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/Forecast/ScoreMap.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div id="page_main">
@@ -31,7 +31,7 @@
                 </table>
                 <div class="pull-right">
                     <a href="javascript:;" class="infoIco"
-                        title="Click to view Score Map Info" id="scoreMapIcon"></a>
+                       title="Click to view Score Map Info" id="scoreMapIcon"></a>
                 </div>
                 <div id="tblLiveDead" style="{displayLiveDead}">
                     <table class="tblRpt tbl-scoremap">
@@ -53,15 +53,15 @@
                                 <table class="reference"><tr>{DeadBall}</tr></table>
                             </td>
                         </tr>
-                    </table>       
+                    </table>
                     <table class="tbl-action">
                         <tr>
                             <td><input type="button" value="{static:LocalResources.UIForecastLang.submit}" id="dSubmit" class="btn"></td>
                             <td valign="top"><div id="loadingSubmit"></div></td>
                         </tr>
-                    </table>             
+                    </table>
                 </div>
-            </div>            
+            </div>
             <!--/LimitLeagueList-->
             <div id="mainContent" style="width: {mWidth}">
                 <!--ScoreMap-->
@@ -74,8 +74,8 @@
             {load:Fanex.Age.UI.Components.ErrorMsg.ErrorMsg_Template ErrorMsg = new Fanex.Age.UI.Components.ErrorMsg.ErrorMsg_Template()}
         </div>
     </div>
-    <input id="strValueL" name="strValueL" type="hidden" value="0"/>
-    <input id="strValueD" name="strValueD" type="hidden" value="0"/>
+    <input id="strValueL" name="strValueL" type="hidden" value="0" />
+    <input id="strValueD" name="strValueD" type="hidden" value="0" />
     {BoxMatch}
 
     <script src="../_GlobalResources/Js/Core.js" type="text/javascript"></script>

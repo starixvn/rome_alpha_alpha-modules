@@ -1,17 +1,18 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<html>
 <head>
     <title>TotalBets</title>
-    <link href="../App_Themes/Apo/Common/Agent.css" rel="stylesheet" type="text/css" />
-    <link href="../App_Themes/Apo/TotalBets/TotalBets.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/Common/Agent.min.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/Apo/TotalBets/TotalBets.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div id="page_main">
         <div id="header_main">
-            {static:LocalResources.TotalBetsLang.lblOddEven} + {static:LocalResources.TotalBetsLang.lbl1x2} + {static:LocalResources.TotalBetsLang.lblDraw}/{static:LocalResources.TotalBetsLang.lblNoDraw}</div>
+            {static:LocalResources.TotalBetsLang.lblOddEven} + {static:LocalResources.TotalBetsLang.lbl1x2} + {static:LocalResources.TotalBetsLang.lblDraw}/{static:LocalResources.TotalBetsLang.lblNoDraw}
+        </div>
         {load:Fanex.Age.UI.Components.RefreshCountDown_Control RefreshCountDown = new Fanex.Age.UI.Components.RefreshCountDown_Control(this,15,"OddEvent1X2")}
         <div id="sContent">
-        <!--Contents-->
+            <!--Contents-->
             <table class="tblRpt c">
                 <tr class="RptHeader">
                     <td rowspan="2" class="col-number">
@@ -54,7 +55,7 @@
                     </td>
                 </tr>
                 <!--MatchContents-->
-                <tr class="r" bgcolor="{ColorClass}" onmouseover="bgColor='{ColorOver}'" onmouseout="bgColor='{ColorClass}'">
+                <tr class="r" style="background-color: {ColorClass}" onmouseover="bgColor='{ColorOver}'" onmouseout="bgColor='{ColorClass}'">
                     <td class="w-order">
                         {No}
                     </td>
@@ -71,13 +72,15 @@
                     <td>
                         <!--OddEvenValue-->
                         <a class="fcnum" href="javascript:doViewBetList({MatchId},2,'{BetType}');">
-                            {OddEvenValue}</a>
+                            {OddEvenValue}
+                        </a>
                         <!--/OddEvenValue-->
                     </td>
                     <td class="col-oneXTwo">
                         <!--OneXTwoValue-->
                         <a class="fcnum" href="javascript:doViewBetList({MatchId},5,'{BetType}');">
-                            {OneXTwoValue}</a>
+                            {OneXTwoValue}
+                        </a>
                         <!--/OneXTwoValue-->
                     </td>
                     <td class="fcbtn">
@@ -88,19 +91,22 @@
                     <td class="col-DND">
                         <!--DNDValue-->
                         <a class="fcnum" href="javascript:doViewBetList({MatchId},123,'{BetType}');">
-                            {DNDValue}</a>
+                            {DNDValue}
+                        </a>
                         <!--/DNDValue-->
                     </td>
                     <td>
                         <!--OddEvenFirstHalfValue-->
                         <a class="fcnum" href="javascript:doViewBetList({MatchId},12,'{BetType}');">
-                            {OddEventFirstHalfValue}</a>
+                            {OddEventFirstHalfValue}
+                        </a>
                         <!--/OddEvenFirstHalfValue-->
                     </td>
                     <td class="col-oneXTwo">
                         <!--OneXTwoFirstHalfValue-->
                         <a class="fcnum" href="javascript:doViewBetList({MatchId},15,'{BetType}');">
-                            {OneXTwoFirstHalfValue}</a>
+                            {OneXTwoFirstHalfValue}
+                        </a>
                         <!--/OneXTwoFirstHalfValue-->
                     </td>
                     <td class="fcbtn c">
@@ -119,12 +125,12 @@
                 </tr>
                 <!--/NotFoundContent-->
             </table>
-        <!--/Contents-->
+            <!--/Contents-->
         </div>
     </div>
     <script src="../_GlobalResources/Js/Core.js" type="text/javascript"></script>
     <script src="Resources/TotalBets.js" type="text/javascript"></script>
-    <script src="../_Components/AGEWnd/AGEWnd.js" type="text/javascript"></script>  
+    <script src="../_Components/AGEWnd/AGEWnd.js" type="text/javascript"></script>
 
     <!--Piwik-->
     <script type="text/javascript">

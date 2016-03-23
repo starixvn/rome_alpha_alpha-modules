@@ -14,21 +14,21 @@ namespace Fanex.Age.UI.Components
 		public class DateRangeSelect_Template : Template
 		{
 			public DateRangeSelect_ExternalResources_Block ExternalResources = new DateRangeSelect_ExternalResources_Block();
-			protected static string s0 = "<div id=\"spDateTimeSearch\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr style=\"height: 32px;\">";
+			protected static string s0 = "<div id=\"spDateTimeSearch\"><table><tr>";
 			public DateRangeSelect_DateFilter_Block DateFilter = new DateRangeSelect_DateFilter_Block();
 			public DateRangeSelect_BetListOption_Block BetListOption = new DateRangeSelect_BetListOption_Block();
 			public DateRangeSelect_LimitDateRange_Block LimitDateRange = new DateRangeSelect_LimitDateRange_Block();
 			public DateRangeSelect_LimitHistoryDateRange_Block LimitHistoryDateRange = new DateRangeSelect_LimitHistoryDateRange_Block();
 			public DateRangeSelect_BetListGetAll_Block BetListGetAll = new DateRangeSelect_BetListGetAll_Block();
 			public DateRangeSelect_CurrencyFilter_Block CurrencyFilter = new DateRangeSelect_CurrencyFilter_Block();
-			protected static string s1 = "<td class=\"l no-wrap\">&nbsp;&nbsp;<input type=\"button\" class=\"btn\" style=\"width: 55px\" id=\"dSubmit\" value=\"";
+			protected static string s1 = "<td class=\"l no-wrap\"><input type=\"button\" class=\"btn\"id=\"dSubmit\" value=\"";
 			protected static string s2{get{return LocalResources.UIComponentsLang.submit;}}
 			protected static string s3 = "\"onclick=\"DisableButton(); ";
 			public string SearchByDateFunction = "{SearchByDateFunction}";
 			protected static string s4 = ";\" />";
 			public DateRangeSelect_TodayYesterdayButton_Block TodayYesterdayButton = new DateRangeSelect_TodayYesterdayButton_Block();
 			public DateRangeSelect_AdditionalContent_Block AdditionalContent = new DateRangeSelect_AdditionalContent_Block();
-			protected static string s5 = "</td><td valign=\"top\"><div id=\"loading\" class=\"\" style=\"float: left;\"></div></td></tr></table></div>";
+			protected static string s5 = "</td><td valign=\"top\"><div id=\"loading\" class=\"pull-left\"></div></td></tr></table></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -65,7 +65,7 @@ namespace Fanex.Age.UI.Components
 		public class DateRangeSelect_ExternalResources_Block: Block
 		{
 			protected static string s6 = "<link href=\"";
-			protected static string s7{get{return AbsoluteUrl("DateRangeSelect/DateRangeSelect.css", TplSettings.Question);}}
+			protected static string s7{get{return AbsoluteUrl("App_Themes/Apo/Components/DateRangeSelect/DateRangeSelect.min.css", TplSettings.Question);}}
 			protected static string s8 = "\" rel=\"stylesheet\" type=\"text/css\" /><script src=\"";
 			protected static string s9{get{return AbsoluteUrl("DateRangeSelect/DateRangeSelect.js", TplSettings.Question);}}
 			protected static string s10 = "\" type=\"text/javascript\"></script><script type=\"text/javascript\">var max_server_date = '";
@@ -106,7 +106,7 @@ namespace Fanex.Age.UI.Components
 
 		public class DateRangeSelect_LimitDateRange_Block: Block
 		{
-			protected static string s13 = "<td id=\"tdfdatetext\" style=\"padding-left: 6px;\" class=\"l\"><span id=\"spfdatetext\">";
+			protected static string s13 = "<td id=\"tdfdatetext\" class=\"l\"><span id=\"spfdatetext\">";
 			public string DateFromText = "{DateFromText}";
 			protected static string s14 = ":</span></td><td id=\"tdFromDateCal\" class=\"l\"><span id=\"spFromDateCal\">";
 			public Fanex.Age.UI.Components.DateTimeControl.Calendar.Calendar_Control CalendarFrom{get {return _CalendarFrom != null ? _CalendarFrom : _CalendarFrom = new Fanex.Age.UI.Components.DateTimeControl.Calendar.Calendar_Control(this,"fdate","fdate_trigger",DateTime.Today);}}
@@ -131,7 +131,7 @@ namespace Fanex.Age.UI.Components
 
 		public class DateRangeSelect_LimitDateRange_LimitToDate_Block: Block
 		{
-			protected static string s16 = "<td id=\"tdtdatetext\" class=\"l no-wrap\">&nbsp;&nbsp; <span id=\"sptdatetext\">";
+			protected static string s16 = "<td id=\"tdtdatetext\" class=\"l no-wrap\"><span id=\"sptdatetext\">";
 			protected static string s17{get{return LocalResources.UIComponentsLang.to;}}
 			protected static string s18 = ":</span></td><td id=\"tdToDateCal\" class=\"l\"><span id=\"spToDateCal\">";
 			public Fanex.Age.UI.Components.DateTimeControl.Calendar.Calendar_Control CalendarTo{get {return _CalendarTo != null ? _CalendarTo : _CalendarTo = new Fanex.Age.UI.Components.DateTimeControl.Calendar.Calendar_Control(this,"tdate","tdate_trigger",DateTime.Today);}}
@@ -174,7 +174,7 @@ namespace Fanex.Age.UI.Components
 		{
 			protected static string s20 = "<td>";
 			protected static string s21{get{return LocalResources.UIComponentsLang.ViewDataInMonth;}}
-			protected static string s22 = "&nbsp;&nbsp;</td><td id=\"td1\" class=\"l\"><input type=\"hidden\" name=\"fdate\" id=\"fdate\" value=\"";
+			protected static string s22 = "</td><td id=\"td1\" class=\"l\"><input type=\"hidden\" name=\"fdate\" id=\"fdate\" value=\"";
 			public string DateFrom = "{DateFrom}";
 			protected static string s23 = "\" /><input type=\"hidden\" name=\"tdate\" id=\"tdate\" value=\"";
 			public string DateTo = "{DateTo}";
@@ -335,9 +335,9 @@ namespace Fanex.Age.UI.Components
 			public string MaxDate = "{MaxDate}";
 			protected static string s59 = "\" /><input id=\"minDate\" name=\"minDate\" type=\"hidden\" value=\"";
 			public string MinDate = "{MinDate}";
-			protected static string s60 = "\" /></div></div></td><td>&nbsp;&nbsp;";
+			protected static string s60 = "\" /></div></div></td><td>";
 			protected static string s61{get{return LocalResources.UIComponentsLang.to;}}
-			protected static string s62 = "&nbsp;&nbsp;</td><td id=\"td3\" class=\"l\"><div id=\"spfdatetext2\"><div class=\"monthPicker\"><a href=\"javascript:PrevMonthV2('btnPrevMonth2', 'lblSelectedMonth2', 'monthPickerDropDown2');\" id=\"btnPrevMonth2\" class=\"prev\" title=\"Previous Month\"></a><span id=\"lblSelectedMonth2\" onclick=\"ShowMonthV2('monthPickerDropDown2', 'btnPrevMonth2', 'btnNextMonth2');\" title='";
+			protected static string s62 = "</td><td id=\"td3\" class=\"l\"><div id=\"spfdatetext2\"><div class=\"monthPicker\"><a href=\"javascript:PrevMonthV2('btnPrevMonth2', 'lblSelectedMonth2', 'monthPickerDropDown2');\" id=\"btnPrevMonth2\" class=\"prev\" title=\"Previous Month\"></a><span id=\"lblSelectedMonth2\" onclick=\"ShowMonthV2('monthPickerDropDown2', 'btnPrevMonth2', 'btnNextMonth2');\" title='";
 			public string SelectedMonth2 = "{SelectedMonth2}";
 			protected static string s63 = "'>";
 			public string CurrentMonthYear2 = "{CurrentMonthYear2}";
@@ -562,13 +562,13 @@ namespace Fanex.Age.UI.Components
 
 		public class DateRangeSelect_LimitHistoryDateRange_DateFromTo_Block: Block
 		{
-			protected static string s99 = "<td>&nbsp;&nbsp;";
+			protected static string s99 = "<td>";
 			protected static string s100{get{return LocalResources.UIComponentsLang.from;}}
-			protected static string s101 = "&nbsp;</td><td><span id=\"spfdate\"><select name=\"ddlDateFrom\" id=\"ddlDateFrom\" onchange=\"ChangeDateFrom();\">";
+			protected static string s101 = "</td><td><span id=\"spfdate\"><select name=\"ddlDateFrom\" id=\"ddlDateFrom\" onchange=\"ChangeDateFrom();\">";
 			public DateRangeSelect_LimitHistoryDateRange_DateFromTo_DateFromOption_Block DateFromOption = new DateRangeSelect_LimitHistoryDateRange_DateFromTo_DateFromOption_Block();
-			protected static string s102 = "</select></span></td><td>&nbsp;";
+			protected static string s102 = "</select></span></td><td>";
 			protected static string s103{get{return LocalResources.UIComponentsLang.to;}}
-			protected static string s104 = "&nbsp;</td><td><span id=\"sptdate\"><select name=\"ddlDateTo\" id=\"ddlDateTo\" onchange=\"ChangeDateTo();\">";
+			protected static string s104 = "</td><td><span id=\"sptdate\"><select name=\"ddlDateTo\" id=\"ddlDateTo\" onchange=\"ChangeDateTo();\">";
 			public DateRangeSelect_LimitHistoryDateRange_DateFromTo_DateToOption_Block DateToOption = new DateRangeSelect_LimitHistoryDateRange_DateFromTo_DateToOption_Block();
 			protected static string s105 = "</select></span></td>";
 			public override void ToString(ref StringBuilder bd)
@@ -660,11 +660,11 @@ namespace Fanex.Age.UI.Components
 
 		public class DateRangeSelect_TodayYesterdayButton_Block: Block
 		{
-			protected static string s114 = "&nbsp;<input type=\"button\" id=\"dToday\" class=\"btn\" style=\"width: 80px\" value=\"";
+			protected static string s114 = "<input type=\"button\" id=\"dToday\" class=\"btn\" value=\"";
 			protected static string s115{get{return DateTime.Now.ToShortDateString();}}
 			protected static string s116 = "\"onclick=\"DisableButton(); ";
 			public string SearchOneDayFunction = "{SearchOneDayFunction}";
-			protected static string s117 = ";\" />&nbsp;<input type=\"button\" id=\"dYesterday\" class=\"btn\" style=\"width: 80px\" value=\"";
+			protected static string s117 = ";\" /><input type=\"button\" id=\"dYesterday\" class=\"btn\" value=\"";
 			protected static string s118{get{return DateTime.Now.AddDays(-1).ToShortDateString();}}
 			protected static string s119 = "\"onclick=\"DisableButton(); ";
 			protected string t15_SearchOneDayFunction;
