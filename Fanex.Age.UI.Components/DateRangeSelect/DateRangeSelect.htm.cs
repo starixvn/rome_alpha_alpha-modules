@@ -21,6 +21,7 @@ namespace Fanex.Age.UI.Components
 			public DateRangeSelect_LimitHistoryDateRange_Block LimitHistoryDateRange = new DateRangeSelect_LimitHistoryDateRange_Block();
 			public DateRangeSelect_BetListGetAll_Block BetListGetAll = new DateRangeSelect_BetListGetAll_Block();
 			public DateRangeSelect_CurrencyFilter_Block CurrencyFilter = new DateRangeSelect_CurrencyFilter_Block();
+			public DateRangeSelect_ProductFilter_Block ProductFilter = new DateRangeSelect_ProductFilter_Block();
 			protected static string s1 = "<td class=\"l no-wrap\"><input type=\"button\" class=\"btn\"id=\"dSubmit\" value=\"";
 			protected static string s2{get{return LocalResources.UIComponentsLang.submit;}}
 			protected static string s3 = "\"onclick=\"DisableButton(); ";
@@ -42,6 +43,7 @@ namespace Fanex.Age.UI.Components
 					if(null != LimitHistoryDateRange) LimitHistoryDateRange.ToString(ref bd);
 					if(null != BetListGetAll) BetListGetAll.ToString(ref bd);
 					if(null != CurrencyFilter) CurrencyFilter.ToString(ref bd);
+					if(null != ProductFilter) ProductFilter.ToString(ref bd);
 					bd.Append(s1);
 					bd.Append(s2);
 					bd.Append(s3);
@@ -651,6 +653,14 @@ namespace Fanex.Age.UI.Components
 		}
 
 		public class DateRangeSelect_CurrencyFilter_Block: Block
+		{
+			public override void ToString(ref StringBuilder bd)
+			{
+				if(IsAssigned){bd.Append(Value);}
+			}
+		}
+
+		public class DateRangeSelect_ProductFilter_Block: Block
 		{
 			public override void ToString(ref StringBuilder bd)
 			{
