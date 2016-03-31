@@ -14,7 +14,7 @@ namespace Alpha.Auth.DataAccesses.Impl
             string site,
             string lang)
         {
-            var parameters = new Hashtable
+            dynamic parameters = new Hashtable
             {
                 { "pageurl", pageUrl },
                 { "serverid", serverId },
@@ -26,8 +26,7 @@ namespace Alpha.Auth.DataAccesses.Impl
 
             using (var objectDb = new ObjectDb("IS_UpdFunctionUsage"))
             {
-                objectDb.AssignParamValues(parameters);
-                objectDb.ExecuteNonQuery();
+                objectDb.ExecuteNonQuery(parameters);
             }
         }
     }
