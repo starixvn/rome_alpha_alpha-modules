@@ -32,13 +32,13 @@ namespace Fanex.Age.UI.Components
 			protected string t0_id;
 			protected static string s8 = "\" type=\"button\" onclick=\"";
 			protected string t1_id;
-			protected static string s9 = ".First()\" class=\"icon pagingFirst\"></span><span ";
+			protected static string s9 = ".First(this)\" class=\"icon pagingFirst\"></span><span ";
 			public string disabledPrev = "{disabledPrev}";
 			protected static string s10 = " id=\"btnPrev";
 			protected string t2_id;
 			protected static string s11 = "\" type=\"button\" onclick=\"";
 			protected string t3_id;
-			protected static string s12 = ".Move(-1)\" class=\"icon pagingPrev\"></span><span class=\"pagingSeperator\"></span>";
+			protected static string s12 = ".Move(this, -1)\" class=\"icon pagingPrev\"></span><span class=\"pagingSeperator\"></span>";
 			protected static string s13{get{return LocalResources.UIComponentsLang.tpage;}}
 			protected static string s14 = "<input id=\"txt";
 			protected string t4_id;
@@ -58,13 +58,13 @@ namespace Fanex.Age.UI.Components
 			protected string t9_id;
 			protected static string s23 = "\" type=\"button\" onclick=\"";
 			protected string t10_id;
-			protected static string s24 = ".Move(1)\" class=\"icon pagingNext\"></span><span ";
+			protected static string s24 = ".Move(this, 1)\" class=\"icon pagingNext\"></span><span ";
 			public string disabledLast = "{disabledLast}";
 			protected static string s25 = " id=\"btnLast";
 			protected string t11_id;
 			protected static string s26 = "\" type=\"button\" onclick=\"";
 			protected string t12_id;
-			protected static string s27 = ".Last()\" class=\"icon pagingLast\"></span>";
+			protected static string s27 = ".Last(this)\" class=\"icon pagingLast\"></span>";
 			public Paging_SelPageSize_Block SelPageSize = new Paging_SelPageSize_Block();
 			protected static string s28 = "</div><script type=\"text/javascript\">var ";
 			protected string t13_id;
