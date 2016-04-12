@@ -1,13 +1,13 @@
 namespace Sunplus.Agent.Model.BL
 {
-    using Fanex.Common;
-    using Sunplus.Agent.Model.BL.Definitions;
-    using Sunplus.Agent.Model.Definitions;
-    using Sunplus.Agent.Model.Entities;
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
+    using Fanex.Common;
+    using Sunplus.Agent.Model.BL.Definitions;
+    using Sunplus.Agent.Model.Definitions;
+    using Sunplus.Agent.Model.Entities;
 
     [Obsolete("Should rename to Sunplus.Agent.Model.Base")]
     public sealed class UserSessionService
@@ -301,14 +301,18 @@ namespace Sunplus.Agent.Model.BL
             }
 
             session.IsDisabledSuperLive = !values.Contains("disablesuperlive") || (bool)values["disablesuperlive"];
-        }
+
+			session.IsSyncedAllBet = values.Contains("syncedallbet") && (bool)values["syncedallbet"];
+		}
 
         private static Dictionary<int, string> ProductSpNames()
         {
             var result = new Dictionary<int, string>();
             result.Add(ProductIdConstants.CockFighting, "cockfighting");
             result.Add(ProductIdConstants.Cricket, "cricket");
+            result.Add(ProductIdConstants.AllBet, "allbet");
+
             return result;
-        }
+		}
     }
 }

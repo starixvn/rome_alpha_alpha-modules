@@ -639,12 +639,16 @@ namespace Sunplus.Agent.Model.Entities
 
         bool IsIMBCCustomer { get; set; }
 
-
         bool IsInternalWebVPN
         {
             get;
             set;
         }
 
-    }
+		bool IsSyncedAllBet
+		{
+			get;
+			set;
+		}
+	}
 }
