@@ -68,6 +68,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
         Others = 1000,
         HRFixedOdds = 154,
         GoldDeluxe = 255,
-        AllBet = 211
+        AllBet = 211,
+        Voidbridge = 212
     }
 }

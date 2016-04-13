@@ -142,6 +142,9 @@ namespace Sunplus.Agent.Model.BL.Definitions
         ChargeCommission = 500,
         // AllBet
         AllBetRangeStart = 2401,
-        AllBetRangeEnd = 2499
+        AllBetRangeEnd = 2499,
+        // Voidbridge
+        VoidbridgeRangeStart = 4001,
+        VoidbridgeRangeEnd = 7999
     }
 }

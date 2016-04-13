@@ -120,6 +120,7 @@ namespace Sunplus.Agent.Model.Entities
 
         private const string HIDEPRODUCTS = "HIDEPRODUCTS";
         private const string DISABLEPRODUCTS = "DISABLEPRODUCTS";
+        private const string SYNCPRODUCTS = "SYNCPRODUCTS";
 
         private const string USERLOGINIP = "USERLOGINIP";
 
@@ -1491,6 +1492,21 @@ namespace Sunplus.Agent.Model.Entities
                 SetProperty(DISABLEPRODUCTS, value);
             }
         }
+
+        public Dictionary<int, bool> SyncProducts
+        {
+            get
+            {
+                object value = GetProperty(SYNCPRODUCTS);
+                return value as Dictionary<int, bool>;
+            }
+
+            set
+            {
+                SetProperty(SYNCPRODUCTS, value);
+            }
+        }
+
         public string UserLoginIp
         {
             get

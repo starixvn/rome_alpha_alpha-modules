@@ -335,7 +335,12 @@ namespace Sunplus.Agent.Model.Entities.Permission
             return AppSettings.IsEnabledProduct(product) && !CurrentUserSession.HideProducts[product];
         }
 
-		public static bool IsSyncAllBet
+        public static bool IsSyncedProduct(int product)
+        {
+            return CurrentUserSession.SyncProducts[product];
+        }
+
+        public static bool IsSyncAllBet
 		{
 			get
 			{
