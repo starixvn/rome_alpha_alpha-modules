@@ -128,7 +128,7 @@
 
             if (_requestContext.UserSession.SubAccId > 0)
             {
-                permission = GetSubPermission();
+                permission = _requestContext.UserSession.SubPageAccess;
             }
 
             return IsAuthorizedOnGroupOfPage(
