@@ -24,14 +24,13 @@
 
 
 <script type="text/javascript">
-    
     function CalendarOnSelect() {
         if($("ddlSelectDate"))
             $("ddlSelectDate").value = 8;
     }
-
-
+    
     var {DateTextBoxId} = Calendar.setup({
+        align: "Bl/ / /B",
         animation:false,
         trigger: "{TriggerId}",
         inputField: "{DateTextBoxId}",
