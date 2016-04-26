@@ -121,6 +121,12 @@
         [HttpGet]
         public ActionResult ResetSecurityCode()
         {
+            string redirectURL = SecurityCodeChecker.GetRedirectUrl();
+            if (redirectURL != null)
+            {
+                return Redirect(redirectURL);
+            }
+
             ViewBag.Language = this.SecurityCodeSession.Language;
             ViewBag.VirtualDirectory = ConfigurationManager.AppSettings["VirtualDirectory"];
             return View("~/Areas/Security/Views/SecurityCode/ResetSecurityCode.cshtml");
