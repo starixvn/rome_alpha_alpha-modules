@@ -151,7 +151,7 @@
     <value>Mật khẩu xác nhận không chính xác</value>
   </data>
   <data name="alertInputOldPwd" xml:space="preserve">
-    <value>Vui lòng nhập  Mật Khẩu hiện tại</value>
+    <value>Vui lòng nhập  mật khẩu hiện tại</value>
   </data>
   <data name="alertMasterCredit" xml:space="preserve">
     <value>Hạn mức tín dụng lớn nhất của Master nhập vào không đúng</value>
@@ -381,7 +381,7 @@
     <value>Bạn có muốn cho phép Master này sử dụng chức năng Auto PT?</value>
   </data>
   <data name="ConfirmSecurityCode" xml:space="preserve">
-    <value>Xác nhận Mã bảo mật</value>
+    <value>Xác nhận mã bảo mật</value>
   </data>
   <data name="confirmSuspendDownline" xml:space="preserve">
     <value>Bạn có chắc muốn đình chỉ thành viên này?\n Khuyến cáo, tất cả cấp dưới trực thuộc thành viên này sẽ không thể đặt cược?</value>
@@ -703,7 +703,7 @@
     <value>Cao</value>
   </data>
   <data name="highestturnoverofthemonth" xml:space="preserve">
-    <value>Thành viên đặt cược nhiều nhất trong tháng</value>
+    <value>Member đặt cược nhiều nhất trong tháng</value>
   </data>
   <data name="highlow" xml:space="preserve">
     <value>High/Low</value>
@@ -866,7 +866,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Hạn mức tín dụng tối đa của Agent</value>
   </data>
   <data name="lblAgentOutstanding" xml:space="preserve">
-    <value>Số tiền chưa xử lý của Agent</value>
+    <value>Tiền chưa xử lý của Agent</value>
   </data>
   <data name="lblAgOutst" xml:space="preserve">
     <value>Số  tiền chưa xử lý của Ag</value>
@@ -1077,7 +1077,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>MA</value>
   </data>
   <data name="lblMasOutst" xml:space="preserve">
-    <value>Số tiền chưa xử lý của Master</value>
+    <value>Tiền chưa xử lý của Master</value>
   </data>
   <data name="lblMasterCredit" xml:space="preserve">
     <value>Hạn mức tín dụng của Master</value>
@@ -1086,7 +1086,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Hạn mức tín dụng tối đa của Master</value>
   </data>
   <data name="lblMasterOutstanding" xml:space="preserve">
-    <value>Số tiền chưa xử lý của Master</value>
+    <value>Tiền chưa xử lý của Master</value>
   </data>
   <data name="lblMaxTransferCredit" xml:space="preserve">
     <value>Hạn mức chuyển khoản tối đa cho Member</value>
@@ -1276,7 +1276,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Số tài khoản Master hiện đang: Kích hoạt/Khóa/Đình chỉ</value>
   </data>
   <data name="lblTotalActiveClosedSuspended" xml:space="preserve">
-    <value>Tổng số tài khoản hiện đang: Kích hoạt / Khóa / Đình chỉ</value>
+    <value>Tổng số tài khoản đang Hoạt Động/Khóa/Đình Chỉ</value>
   </data>
   <data name="lblTotalAgentActiveClosed" xml:space="preserve">
     <value>Số tài khoản Agent hiện đang: Kích hoạt/Khóa/Đình chỉ</value>
@@ -1288,7 +1288,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Tổng số tiền giao dịch</value>
   </data>
   <data name="lblTotalBGOutstanding" xml:space="preserve">
-    <value>Tổng số tiền chưa xử lý của Bingo</value>
+    <value>Tổng tiền chưa xử lý của Bingo</value>
   </data>
   <data name="lblTotalBGTransfer" xml:space="preserve">
     <value>Tổng số tiền chuyển khoản cho  Bingo</value>
@@ -1306,7 +1306,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Tổng số Tiền chuyển khoản cho Casino</value>
   </data>
   <data name="lblTotalCSTransferOutstanding" xml:space="preserve">
-    <value>Tổng số tiền chuyển khoản /chưa xử lý bên Casino</value>
+    <value>Tổng tiền chuyển khoản/chưa xử lý của Casino</value>
   </data>
   <data name="lblTotalMasterCredit" xml:space="preserve">
     <value>Tổng mức tín dụng của Master</value>
@@ -1321,7 +1321,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Tổng số  tiền chưa xử lý</value>
   </data>
   <data name="lblTotalP2PTransferOutstanding" xml:space="preserve">
-    <value>Tổng số tiền chuyển khoản /chưa xử lý bên Poker</value>
+    <value>Tổng tiền chuyển khoản/chưa xử lý của Poker</value>
   </data>
   <data name="lblView1stHandicapForecast" xml:space="preserve">
     <value>Xem dự đoán kết quả hiệp 1 - Handicap</value>
@@ -1998,7 +1998,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Click to view note</value>
   </data>
   <data name="top10winningmembers" xml:space="preserve">
-    <value>10 thành viên thắng cược nhiều nhất trong tháng</value>
+    <value>10 member thắng nhiều nhất trong tháng</value>
   </data>
   <data name="total" xml:space="preserve">
     <value>Tổng cộng</value>

@@ -218,7 +218,7 @@
 Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho Mã bảo mật.</value>
   </data>
   <data name="alertInputOldPwd" xml:space="preserve">
-    <value>Vui lòng nhập  Mật Khẩu hiện tại</value>
+    <value>Vui lòng nhập  mật khẩu hiện tại</value>
   </data>
   <data name="alertMasterCredit" xml:space="preserve">
     <value>Hạn mức tín dụng lớn nhất của Master nhập vào không đúng</value>
@@ -460,7 +460,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Bạn có muốn cho phép Master này sử dụng chức năng Auto PT?</value>
   </data>
   <data name="ConfirmSecurityCode" xml:space="preserve">
-    <value>Xác nhận Mã bảo mật</value>
+    <value>Xác nhận mã bảo mật</value>
   </data>
   <data name="confirmSuspendDownline" xml:space="preserve">
     <value>Bạn có chắc muốn đình chỉ thành viên này?\n Khuyến cáo, tất cả cấp dưới trực thuộc thành viên này sẽ không thể đặt cược?</value>
@@ -781,7 +781,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Cao</value>
   </data>
   <data name="highestturnoverofthemonth" xml:space="preserve">
-    <value>Thành viên đặt cược nhiều nhất trong tháng</value>
+    <value>Member đặt cược nhiều nhất trong tháng</value>
   </data>
   <data name="home" xml:space="preserve">
     <value>Home</value>
@@ -896,7 +896,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Hạn mức tín dụng của Agent</value>
   </data>
   <data name="lblAgentOutstanding" xml:space="preserve">
-    <value>Số tiền chưa xử lý của Agent</value>
+    <value>Tiền chưa xử lý của Agent</value>
   </data>
   <data name="lblAgOutst" xml:space="preserve">
     <value>Số  tiền chưa xử lý của Ag</value>
@@ -1049,13 +1049,13 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>MA</value>
   </data>
   <data name="lblMasOutst" xml:space="preserve">
-    <value>Số tiền chưa xử lý của Master</value>
+    <value>Tiền chưa xử lý của Master</value>
   </data>
   <data name="lblMasterCredit" xml:space="preserve">
     <value>Hạn mức tín dụng của Master</value>
   </data>
   <data name="lblMasterOutstanding" xml:space="preserve">
-    <value>Số tiền chưa xử lý của Master</value>
+    <value>Tiền chưa xử lý của Master</value>
   </data>
   <data name="lblMaxTransferCredit" xml:space="preserve">
     <value>Hạn mức chuyển khoản tối đa cho Member</value>
@@ -1712,7 +1712,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Thắng thua trong ngày</value>
   </data>
   <data name="top10winningmembers" xml:space="preserve">
-    <value>10 thành viên thắng cược nhiều nhất trong tháng</value>
+    <value>10 member thắng nhiều nhất trong tháng</value>
   </data>
   <data name="total" xml:space="preserve">
     <value>Tổng cộng</value>

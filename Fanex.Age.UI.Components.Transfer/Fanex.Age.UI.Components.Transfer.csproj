@@ -146,7 +146,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="LocalResources\UIComponentsLang.th-TH.resx" />
-    <EmbeddedResource Include="LocalResources\UIComponentsLang.vi-VN.resx" />
+    <EmbeddedResource Include="LocalResources\UIComponentsLang.vi-VN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="LocalResources\UIComponentsLang.zh-CN.resx" />
     <EmbeddedResource Include="LocalResources\UIComponentsLang.zh-TW.resx" />
   </ItemGroup>

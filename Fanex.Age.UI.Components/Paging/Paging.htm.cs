@@ -49,7 +49,7 @@ namespace Fanex.Age.UI.Components
 			protected static string s17 = ".DoEnter(event, '";
 			protected string t7_id;
 			protected static string s18 = ".Go()')\" />";
-			protected static string s19{get{return LocalResources.UIComponentsLang.of;}}
+			protected static string s19{get{return LocalResources.UIComponentsLang.Of_Pager;}}
 			protected static string s20 = " ";
 			protected string t8_pagecount;
 			protected static string s21 = "<span class=\"pagingSeperator\"></span><span ";

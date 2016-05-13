@@ -209,4 +209,7 @@ Note: your new SC must be different from the one provided by upline/CSD</value>
   <data name="NotAuthorized" xml:space="preserve">
     <value>You are not authorized on this function</value>
   </data>
+  <data name="NewSecurityCode" xml:space="preserve">
+    <value>Security Code</value>
+  </data>
 </root>

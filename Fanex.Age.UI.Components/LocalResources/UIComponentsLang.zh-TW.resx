@@ -2570,4 +2570,7 @@
   <data name="AllProducts" xml:space="preserve">
     <value>All Products</value>
   </data>
+  <data name="Of_Pager" xml:space="preserve">
+    <value>之第</value>
+  </data>
 </root>

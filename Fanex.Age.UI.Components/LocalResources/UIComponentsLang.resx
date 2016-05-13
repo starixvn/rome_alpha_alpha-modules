@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -2587,5 +2587,8 @@ Notes: your password is cAsE sEnSiTiVe</value>
   </data>
   <data name="AllProducts" xml:space="preserve">
     <value>All Products</value>
+  </data>
+  <data name="Of_Pager" xml:space="preserve">
+    <value>of</value>
   </data>
 </root>

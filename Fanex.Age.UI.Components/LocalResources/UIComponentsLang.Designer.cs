@@ -5316,6 +5316,15 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to of.
+        /// </summary>
+        internal static string Of_Pager {
+            get {
+                return ResourceManager.GetString("Of_Pager", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Old Security Code.
         /// </summary>
         internal static string oldSecCode {
