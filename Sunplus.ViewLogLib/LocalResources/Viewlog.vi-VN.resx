@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -196,7 +196,7 @@
     <value>Trả lời</value>
   </data>
   <data name="apt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="apt_10" xml:space="preserve">
     <value>Cược Thắng</value>
@@ -208,16 +208,16 @@
     <value>Over/Under</value>
   </data>
   <data name="apt_4" xml:space="preserve">
-    <value>Điểm số chính xác</value>
+    <value>Tỷ số chính xác</value>
   </data>
   <data name="apt_5" xml:space="preserve">
-    <value>FT.1X2</value>
+    <value>Toàn trận - 1X2</value>
   </data>
   <data name="apt_6" xml:space="preserve">
     <value>Tổng số bàn thắng</value>
   </data>
   <data name="apt_7" xml:space="preserve">
-    <value>Hiệp 1 -  Handicap</value>
+    <value>Hiệp 1 -  Cược Chấp</value>
   </data>
   <data name="apt_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -262,7 +262,7 @@
     <value>Trực tiếp - Hiệp 1 - OU</value>
   </data>
   <data name="a_mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_mpt_10" xml:space="preserve">
     <value>Cược Thắng</value>
@@ -274,16 +274,16 @@
     <value>Over/Under</value>
   </data>
   <data name="a_mpt_4" xml:space="preserve">
-    <value>Điểm số chính xác</value>
+    <value>Tỷ số chính xác</value>
   </data>
   <data name="a_mpt_5" xml:space="preserve">
-    <value>FT.1X2</value>
+    <value>Toàn trận - 1X2</value>
   </data>
   <data name="a_mpt_6" xml:space="preserve">
     <value>Tổng số bàn thắng</value>
   </data>
   <data name="a_mpt_7" xml:space="preserve">
-    <value>Hiệp 1 - Handicap</value>
+    <value>Hiệp 1 - Cược Chấp</value>
   </data>
   <data name="a_mpt_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -292,7 +292,7 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="a_mpt_mem_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_mpt_mem_10" xml:space="preserve">
     <value>Cược Thắng</value>
@@ -304,16 +304,16 @@
     <value>Over/Under</value>
   </data>
   <data name="a_mpt_mem_4" xml:space="preserve">
-    <value>Điểm số chính xác</value>
+    <value>Tỷ số chính xác</value>
   </data>
   <data name="a_mpt_mem_5" xml:space="preserve">
-    <value>FT.1X2</value>
+    <value>Toàn trận - 1X2</value>
   </data>
   <data name="a_mpt_mem_6" xml:space="preserve">
     <value>Tổng số bàn thắng</value>
   </data>
   <data name="a_mpt_mem_7" xml:space="preserve">
-    <value>Hiệp 1 - Handicap</value>
+    <value>Hiệp 1 - Cược Chấp</value>
   </data>
   <data name="a_mpt_mem_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -334,7 +334,7 @@
     <value>Trực tiếp - Hiệp 1 - OU</value>
   </data>
   <data name="a_spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_spt_10" xml:space="preserve">
     <value>Cược Thắng</value>
@@ -346,16 +346,16 @@
     <value>Over/Under</value>
   </data>
   <data name="a_spt_4" xml:space="preserve">
-    <value>Điểm số chính xác</value>
+    <value>Tỷ số chính xác</value>
   </data>
   <data name="a_spt_5" xml:space="preserve">
-    <value>FT.1X2</value>
+    <value>Toàn trận - 1X2</value>
   </data>
   <data name="a_spt_6" xml:space="preserve">
     <value>Tổng số bàn thắng</value>
   </data>
   <data name="a_spt_7" xml:space="preserve">
-    <value>Hiệp 1 -  Handicap</value>
+    <value>Hiệp 1 -  Cược Chấp</value>
   </data>
   <data name="a_spt_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -364,58 +364,58 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="a_v10mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v10mpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="a_v10mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v10mpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="a_v10mpt_mem_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v10mpt_mem_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="a_v10mpt_mem_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v10mpt_mem_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="a_v10spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v10spt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="a_v10spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v10spt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="a_v11mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v11mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v11mpt_mem_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v11mpt_mem_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v11spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v11spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v151mpt_31" xml:space="preserve">
     <value>Racing's SA Tote Win</value>
@@ -634,19 +634,19 @@
     <value>Over/Under</value>
   </data>
   <data name="a_v2mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v2mpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="a_v2mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v2mpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="a_v2mpt_7" xml:space="preserve">
-    <value>Hiệp 1 -  Handicap</value>
+    <value>Hiệp 1 -  Cược Chấp</value>
   </data>
   <data name="a_v2mpt_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -655,19 +655,19 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="a_v2mpt_mem_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v2mpt_mem_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="a_v2mpt_mem_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v2mpt_mem_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="a_v2mpt_mem_7" xml:space="preserve">
-    <value>Hiệp 1 - Handicap</value>
+    <value>Hiệp 1 - Cược Chấp</value>
   </data>
   <data name="a_v2mpt_mem_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -676,19 +676,19 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="a_v2spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v2spt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="a_v2spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v2spt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="a_v2spt_7" xml:space="preserve">
-    <value>Hiệp 1 -  Handicap</value>
+    <value>Hiệp 1 -  Cược Chấp</value>
   </data>
   <data name="a_v2spt_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -697,112 +697,112 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="a_v3mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v3mpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="a_v3mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v3mpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="a_v3mpt_mem_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v3mpt_mem_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="a_v3mpt_mem_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v3mpt_mem_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="a_v3spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v3spt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="a_v3spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v3spt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="a_v5mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v5mpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="a_v5mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v5mpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="a_v5mpt_mem_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v5mpt_mem_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="a_v5mpt_mem_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v5mpt_mem_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="a_v5spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v5spt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="a_v5spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v5spt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="a_v8mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v8mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v8mpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="a_v8mpt_mem_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v8mpt_mem_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v8mpt_mem_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="a_v8spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v8spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v8spt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="a_v99mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v99mpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="a_v99mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v99mpt_3" xml:space="preserve">
     <value>Over/Under</value>
@@ -811,13 +811,13 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="a_v99mpt_mem_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v99mpt_mem_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="a_v99mpt_mem_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v99mpt_mem_3" xml:space="preserve">
     <value>Over/Under</value>
@@ -826,13 +826,13 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="a_v99spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="a_v99spt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="a_v99spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v99spt_3" xml:space="preserve">
     <value>Over/Under</value>
@@ -1192,7 +1192,7 @@
     <value>Trực tiếp - Hiệp 1 - OU</value>
   </data>
   <data name="isa_mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_mpt_10" xml:space="preserve">
     <value>Cược Thắng</value>
@@ -1204,16 +1204,16 @@
     <value>Over/Under</value>
   </data>
   <data name="isa_mpt_4" xml:space="preserve">
-    <value>Điểm số chính xác</value>
+    <value>Tỷ số chính xác</value>
   </data>
   <data name="isa_mpt_5" xml:space="preserve">
-    <value>FT.1X2</value>
+    <value>Toàn trận - 1X2</value>
   </data>
   <data name="isa_mpt_6" xml:space="preserve">
     <value>Tổng số bàn thắng</value>
   </data>
   <data name="isa_mpt_7" xml:space="preserve">
-    <value>Hiệp 1 -  Handicap</value>
+    <value>Hiệp 1 -  Cược Chấp</value>
   </data>
   <data name="isa_mpt_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -1222,7 +1222,7 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="isa_mpt_mem_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_mpt_mem_10" xml:space="preserve">
     <value>Cược Thắng</value>
@@ -1234,16 +1234,16 @@
     <value>Over/Under</value>
   </data>
   <data name="isa_mpt_mem_4" xml:space="preserve">
-    <value>Điểm số chính xác</value>
+    <value>Tỷ số chính xác</value>
   </data>
   <data name="isa_mpt_mem_5" xml:space="preserve">
-    <value>FT.1X2</value>
+    <value>Toàn trận - 1X2</value>
   </data>
   <data name="isa_mpt_mem_6" xml:space="preserve">
     <value>Tổng số bàn thắng</value>
   </data>
   <data name="isa_mpt_mem_7" xml:space="preserve">
-    <value>Hiệp 1 - Handicap</value>
+    <value>Hiệp 1 - Cược Chấp</value>
   </data>
   <data name="isa_mpt_mem_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -1276,7 +1276,7 @@
     <value>Trực tiếp - Hiệp 1 - Hdp </value>
   </data>
   <data name="isa_smpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_smpt_10" xml:space="preserve">
     <value>Cược Thắng</value>
@@ -1288,16 +1288,16 @@
     <value>Over/Under</value>
   </data>
   <data name="isa_smpt_4" xml:space="preserve">
-    <value>Điểm số chính xác</value>
+    <value>Tỷ số chính xác</value>
   </data>
   <data name="isa_smpt_5" xml:space="preserve">
-    <value>FT.1x2</value>
+    <value>Toàn trận - 1X2</value>
   </data>
   <data name="isa_smpt_6" xml:space="preserve">
     <value>Tổng số bàn thắng</value>
   </data>
   <data name="isa_smpt_7" xml:space="preserve">
-    <value>Hiệp 1 -  Handicap</value>
+    <value>Hiệp 1 -  Cược Chấp</value>
   </data>
   <data name="isa_smpt_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -1306,7 +1306,7 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="isa_spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_spt_10" xml:space="preserve">
     <value>Cược Thắng</value>
@@ -1318,16 +1318,16 @@
     <value>Over/Under</value>
   </data>
   <data name="isa_spt_4" xml:space="preserve">
-    <value>Điểm số chính xác</value>
+    <value>Tỷ số chính xác</value>
   </data>
   <data name="isa_spt_5" xml:space="preserve">
-    <value>FT.1X2</value>
+    <value>Toàn trận - 1X2</value>
   </data>
   <data name="isa_spt_6" xml:space="preserve">
     <value>Tổng số bàn thắng</value>
   </data>
   <data name="isa_spt_7" xml:space="preserve">
-    <value>Hiệp 1 -  Handicap</value>
+    <value>Hiệp 1 -  Cược Chấp</value>
   </data>
   <data name="isa_spt_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -1336,76 +1336,76 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="isa_v10mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v10mpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v10mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v10mpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v10mpt_mem_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v10mpt_mem_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v10mpt_mem_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v10mpt_mem_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v10smpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v10smpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v10smpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v10smpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v10spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v10spt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v10spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v10spt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v11mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v11mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v11mpt_mem_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v11mpt_mem_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v11smpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v11smpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v11spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v11spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v151mpt_31" xml:space="preserve">
     <value>Racing's SA Tote Win</value>
@@ -1666,19 +1666,19 @@
     <value>Over/Under</value>
   </data>
   <data name="isa_v2mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v2mpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v2mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v2mpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v2mpt_7" xml:space="preserve">
-    <value>Hiệp 1 -  Handicap</value>
+    <value>Hiệp 1 -  Cược Chấp</value>
   </data>
   <data name="isa_v2mpt_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -1687,19 +1687,19 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="isa_v2mpt_mem_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v2mpt_mem_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v2mpt_mem_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v2mpt_mem_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v2mpt_mem_7" xml:space="preserve">
-    <value>Hiệp 1 - Handicap</value>
+    <value>Hiệp 1 - Cược Chấp</value>
   </data>
   <data name="isa_v2mpt_mem_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -1708,19 +1708,19 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="isa_v2smpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v2smpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v2smpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v2smpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v2smpt_7" xml:space="preserve">
-    <value>Hiệp 1 - Handicap</value>
+    <value>Hiệp 1 - Cược Chấp</value>
   </data>
   <data name="isa_v2smpt_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -1729,19 +1729,19 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="isa_v2spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v2spt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v2spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v2spt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v2spt_7" xml:space="preserve">
-    <value>Hiệp 1 -  Handicap</value>
+    <value>Hiệp 1 -  Cược Chấp</value>
   </data>
   <data name="isa_v2spt_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -1750,145 +1750,145 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="isa_v3mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v3mpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v3mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v3mpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v3mpt_mem_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v3mpt_mem_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v3mpt_mem_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v3mpt_mem_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v3smpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v3smpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v3smpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v3smpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v3spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v3spt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v3spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v3spt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v5mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v5mpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v5mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v5mpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v5mpt_mem_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v5mpt_mem_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v5mpt_mem_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v5mpt_mem_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v5smpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v5smpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v5smpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v5smpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v5spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v5spt_2" xml:space="preserve">
     <value>Lẻ/Chẳn</value>
   </data>
   <data name="isa_v5spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v5spt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v8mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v8mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v8mpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v8mpt_mem_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v8mpt_mem_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v8mpt_mem_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v8smpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v8smpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v8smpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v8spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v8spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v8spt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v99mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v99mpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v99mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v99mpt_3" xml:space="preserve">
     <value>Over/Under</value>
@@ -1897,13 +1897,13 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="isa_v99mpt_mem_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v99mpt_mem_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v99mpt_mem_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v99mpt_mem_3" xml:space="preserve">
     <value>Over/Under</value>
@@ -1912,25 +1912,25 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="isa_v99smpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v99smpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="isa_v99smpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v99smpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="isa_v99spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="isa_v99spt_2" xml:space="preserve">
     <value>Lẻ /Chẵn</value>
   </data>
   <data name="isa_v99spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v99spt_3" xml:space="preserve">
     <value>Over/Under</value>
@@ -2161,7 +2161,7 @@
     <value>PT lớn nhất cho CS</value>
   </data>
   <data name="maxpt_5" xml:space="preserve">
-    <value>PT lớn nhất cho FT.1x2</value>
+    <value>PT lớn nhất cho Toàn trận - 1X2</value>
   </data>
   <data name="maxpt_6" xml:space="preserve">
     <value>PT lớn nhất cho Total Goal</value>
@@ -2185,7 +2185,7 @@
     <value>PT lớn nhất cho OE</value>
   </data>
   <data name="maxv10pt_20" xml:space="preserve">
-    <value>PT lớn nhất cho  Money Line</value>
+    <value>PT lớn nhất cho  Moneyline</value>
   </data>
   <data name="maxv10pt_3" xml:space="preserve">
     <value>PT lớn nhất cho OU</value>
@@ -2197,7 +2197,7 @@
     <value>PT lớn nhất cho MoneyLine</value>
   </data>
   <data name="maxv12pt_2" xml:space="preserve">
-    <value>PT lớn nhất cho Money Line</value>
+    <value>PT lớn nhất cho Moneyline</value>
   </data>
   <data name="maxv12pt_21" xml:space="preserve">
     <value>maxv12pt_21</value>
@@ -2284,7 +2284,7 @@
     <value>PT lớn nhất cho OE</value>
   </data>
   <data name="maxv2pt_20" xml:space="preserve">
-    <value>PT lớn nhất cho Money Line</value>
+    <value>PT lớn nhất cho Moneyline</value>
   </data>
   <data name="maxv2pt_3" xml:space="preserve">
     <value>PT lớn nhất cho OU</value>
@@ -2305,7 +2305,7 @@
     <value>PT lớn nhất cho OE</value>
   </data>
   <data name="maxv3pt_20" xml:space="preserve">
-    <value>PT lớn nhất cho Money Line</value>
+    <value>PT lớn nhất cho Moneyline</value>
   </data>
   <data name="maxv3pt_3" xml:space="preserve">
     <value>PT lớn nhất cho OU</value>
@@ -2317,7 +2317,7 @@
     <value>PT lớn nhất cho OE</value>
   </data>
   <data name="maxv5pt_20" xml:space="preserve">
-    <value>PT lớn nhất cho Money Line</value>
+    <value>PT lớn nhất cho Moneyline</value>
   </data>
   <data name="maxv5pt_3" xml:space="preserve">
     <value>PT lớn nhất cho OU</value>
@@ -2326,7 +2326,7 @@
     <value>PT lớn nhất cho Hdp</value>
   </data>
   <data name="maxv8pt_20" xml:space="preserve">
-    <value>PT lớn nhất cho Money Line</value>
+    <value>PT lớn nhất cho Moneyline</value>
   </data>
   <data name="maxv8pt_3" xml:space="preserve">
     <value>PT lớn nhất cho OU</value>
@@ -2338,7 +2338,7 @@
     <value>PT lớn nhất cho OE</value>
   </data>
   <data name="maxv99pt_20" xml:space="preserve">
-    <value>PT lớn nhất cho Money Line</value>
+    <value>PT lớn nhất cho Moneyline</value>
   </data>
   <data name="maxv99pt_3" xml:space="preserve">
     <value>PT lớn nhất cho OU</value>
@@ -2449,7 +2449,7 @@
     <value>PT nhỏ nhất cho CS</value>
   </data>
   <data name="minpt_5" xml:space="preserve">
-    <value>PT nhỏ nhất cho FT.1X2</value>
+    <value>PT nhỏ nhất cho Toàn trận - 1X2</value>
   </data>
   <data name="minpt_6" xml:space="preserve">
     <value>PT nhỏ nhất  cho Total Goal</value>
@@ -2470,7 +2470,7 @@
     <value>PT nhỏ nhất cho  OE</value>
   </data>
   <data name="minv10pt_20" xml:space="preserve">
-    <value>PT nhỏ nhất cho thể loại Money Line</value>
+    <value>PT nhỏ nhất cho thể loại Moneyline</value>
   </data>
   <data name="minv10pt_3" xml:space="preserve">
     <value>PT nhỏ nhất cho  OU</value>
@@ -2479,7 +2479,7 @@
     <value>PT nhỏ nhất cho Hdp</value>
   </data>
   <data name="minv11pt_20" xml:space="preserve">
-    <value>PT nhỏ nhất cho  Money Line</value>
+    <value>PT nhỏ nhất cho  Moneyline</value>
   </data>
   <data name="minv12pt_21" xml:space="preserve">
     <value>minv12pt_21</value>
@@ -2566,7 +2566,7 @@
     <value>PT nhỏ nhất cho OE</value>
   </data>
   <data name="minv2pt_20" xml:space="preserve">
-    <value>PT nhỏ nhất cho Money Line</value>
+    <value>PT nhỏ nhất cho Moneyline</value>
   </data>
   <data name="minv2pt_3" xml:space="preserve">
     <value>PT nhỏ nhất cho OU</value>
@@ -2587,7 +2587,7 @@
     <value>PT nhỏ nhất cho  OE</value>
   </data>
   <data name="minv3pt_20" xml:space="preserve">
-    <value>PT nhỏ nhất cho  Money Line</value>
+    <value>PT nhỏ nhất cho  Moneyline</value>
   </data>
   <data name="minv3pt_3" xml:space="preserve">
     <value>PT nhỏ nhất cho  OU</value>
@@ -2599,7 +2599,7 @@
     <value>PT nhỏ nhất cho  OE</value>
   </data>
   <data name="minv5pt_20" xml:space="preserve">
-    <value>PT nhỏ nhất cho  Money Line</value>
+    <value>PT nhỏ nhất cho  Moneyline</value>
   </data>
   <data name="minv5pt_3" xml:space="preserve">
     <value>PT nhỏ nhất cho  OU</value>
@@ -2608,7 +2608,7 @@
     <value>PT nhỏ nhất cho Hdp</value>
   </data>
   <data name="minv8pt_20" xml:space="preserve">
-    <value>PT nhỏ nhất cho Money Line</value>
+    <value>PT nhỏ nhất cho Moneyline</value>
   </data>
   <data name="minv8pt_3" xml:space="preserve">
     <value>PT nhỏ nhất cho  OU</value>
@@ -2620,7 +2620,7 @@
     <value>PT nhỏ nhất cho  OE</value>
   </data>
   <data name="minv99pt_20" xml:space="preserve">
-    <value>PT nhỏ nhất cho  Money Line</value>
+    <value>PT nhỏ nhất cho  Moneyline</value>
   </data>
   <data name="minv99pt_3" xml:space="preserve">
     <value>PT nhỏ nhất cho  OU</value>
@@ -2719,7 +2719,7 @@
     <value>Tiền cược lớn nhất cho mỗi lượt cược Mix Sports Parlay</value>
   </data>
   <data name="mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="mpt_10" xml:space="preserve">
     <value>Cược Thắng</value>
@@ -2731,16 +2731,16 @@
     <value>Over/Under</value>
   </data>
   <data name="mpt_4" xml:space="preserve">
-    <value>Điểm số chính xác</value>
+    <value>Tỷ số chính xác</value>
   </data>
   <data name="mpt_5" xml:space="preserve">
-    <value>FT.1X2</value>
+    <value>Toàn trận - 1X2</value>
   </data>
   <data name="mpt_6" xml:space="preserve">
     <value>Tổng số bàn thắng</value>
   </data>
   <data name="mpt_7" xml:space="preserve">
-    <value>Hiệp 1 -  Handicap</value>
+    <value>Hiệp 1 -  Cược Chấp</value>
   </data>
   <data name="mpt_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -2926,7 +2926,7 @@
     <value>Bóng Đá</value>
   </data>
   <data name="spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="spt_10" xml:space="preserve">
     <value>Cược Thắng</value>
@@ -2938,16 +2938,16 @@
     <value>Over/Under</value>
   </data>
   <data name="spt_4" xml:space="preserve">
-    <value>Điểm số chính xác</value>
+    <value>Tỷ số chính xác</value>
   </data>
   <data name="spt_5" xml:space="preserve">
-    <value>FT.1X2</value>
+    <value>Toàn trận - 1X2</value>
   </data>
   <data name="spt_6" xml:space="preserve">
     <value>Tổng số bàn thắng</value>
   </data>
   <data name="spt_7" xml:space="preserve">
-    <value>Hiệp 1 -  Handicap</value>
+    <value>Hiệp 1 -  Cược Chấp</value>
   </data>
   <data name="spt_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -3136,58 +3136,58 @@
     <value>Thay đổi bởi</value>
   </data>
   <data name="v10apt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v10apt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="v10apt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v10apt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="v10mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v10mpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="v10mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v10mpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="v10spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v10spt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="v10spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v10spt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="v11apt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v11apt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v11mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v11mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v11spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v11spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v151apt_31" xml:space="preserve">
     <value>Racing's SA Tote Win</value>
@@ -3436,19 +3436,19 @@
     <value>Over/Under</value>
   </data>
   <data name="v2apt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v2apt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="v2apt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v2apt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="v2apt_7" xml:space="preserve">
-    <value>Hiệp 1 -  Handicap</value>
+    <value>Hiệp 1 -  Cược Chấp</value>
   </data>
   <data name="v2apt_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -3457,19 +3457,19 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="v2mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v2mpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="v2mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v2mpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="v2mpt_7" xml:space="preserve">
-    <value>Hiệp 1 - Handicap</value>
+    <value>Hiệp 1 - Cược Chấp</value>
   </data>
   <data name="v2mpt_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -3478,19 +3478,19 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="v2spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v2spt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="v2spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v2spt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="v2spt_7" xml:space="preserve">
-    <value>Hiệp 1 - Handicap</value>
+    <value>Hiệp 1 - Cược Chấp</value>
   </data>
   <data name="v2spt_8" xml:space="preserve">
     <value>Hiệp 1 - Over/Under</value>
@@ -3499,112 +3499,112 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="v3apt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v3apt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="v3apt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v3apt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="v3mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v3mpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="v3mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v3mpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="v3spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v3spt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="v3spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v3spt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="v5apt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v5apt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="v5apt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v5apt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="v5mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v5mpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="v5mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v5mpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="v5spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v5spt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="v5spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v5spt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="v8apt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v8apt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v8apt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="v8mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v8mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v8mpt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="v8spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v8spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v8spt_3" xml:space="preserve">
     <value>Over/Under</value>
   </data>
   <data name="v99apt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v99apt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="v99apt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v99apt_3" xml:space="preserve">
     <value>Over/Under</value>
@@ -3613,13 +3613,13 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="v99mpt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v99mpt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="v99mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v99mpt_3" xml:space="preserve">
     <value>Over/Under</value>
@@ -3628,13 +3628,13 @@
     <value>Cá cược tổng hợp</value>
   </data>
   <data name="v99spt_1" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="v99spt_2" xml:space="preserve">
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="v99spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v99spt_3" xml:space="preserve">
     <value>Over/Under</value>
@@ -3703,37 +3703,37 @@
     <value>HR Fixed Odds</value>
   </data>
   <data name="v154apt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="v154spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v154mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="a_v154spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v154mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="isa_v154spt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="Updptv154" xml:space="preserve">
     <value>Update Position Taking HR Fixed Odds</value>
   </data>
   <data name="v154mpt_20" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="disablehrfixedodds" xml:space="preserve">
     <value>Disable HR Fixed Odds</value>
   </data>
   <data name="maxv154pt_20" xml:space="preserve">
-    <value>Max Money Line</value>
+    <value>Max Moneyline</value>
   </data>
   <data name="minv154pt_20" xml:space="preserve">
-    <value>Min Money Line</value>
+    <value>Min Moneyline</value>
   </data>
   <data name="UMMBv154" xml:space="preserve">
     <value>Cập nhật tiền cược nhỏ nhất-lớn nhất cho HR Fixed Odds.</value>

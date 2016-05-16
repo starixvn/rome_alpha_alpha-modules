@@ -160,7 +160,7 @@
     <value>Dự đoán cho Home</value>
   </data>
   <data name="fulltime" xml:space="preserve">
-    <value>Toàn thời gian</value>
+    <value>Toàn trận</value>
   </data>
   <data name="ha" xml:space="preserve">
     <value>HA</value>
@@ -184,7 +184,7 @@
     <value>Racing</value>
   </data>
   <data name="htft" xml:space="preserve">
-    <value>Hiệp 1 / Toàn thời gian</value>
+    <value>Hiệp 1/Toàn trận</value>
   </data>
   <data name="lastball" xml:space="preserve">
     <value>Banh Cuối</value>
@@ -223,7 +223,7 @@
     <value>FT.O/E</value>
   </data>
   <data name="lblHandicapFC" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="lblHomeDrawAwayNoBet" xml:space="preserve">
     <value>Home/Draw/Away No Bet</value>
@@ -232,7 +232,7 @@
     <value>Home No Bet</value>
   </data>
   <data name="lblHOUL" xml:space="preserve">
-    <value>Handicap/Over Under/Live</value>
+    <value>Cược chấp/Tài Xỉu/Trực tuyến</value>
   </data>
   <data name="lblLive" xml:space="preserve">
     <value>Trực Tuyến</value>
@@ -268,7 +268,7 @@
     <value>Over/Under </value>
   </data>
   <data name="lblRace" xml:space="preserve">
-    <value>Race </value>
+    <value>Vòng đua</value>
   </data>
   <data name="lblTeam" xml:space="preserve">
     <value>Đội</value>
@@ -286,7 +286,7 @@
     <value>U/O</value>
   </data>
   <data name="lblWinLoss" xml:space="preserve">
-    <value>Thắng-thua</value>
+    <value>Thắng thua</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
     <value>Live Casino</value>
@@ -295,7 +295,7 @@
     <value>Live Game</value>
   </data>
   <data name="moneyline" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="nextBall" xml:space="preserve">
     <value>Banh kế tiếp</value>
@@ -340,7 +340,7 @@
     <value>Tên</value>
   </data>
   <data name="time" xml:space="preserve">
-    <value>Thời Gian</value>
+    <value>Thời gian</value>
   </data>
   <data name="timerange" xml:space="preserve">
     <value>Khoảng thời gian</value>
@@ -364,13 +364,13 @@
     <value>Trên 7</value>
   </data>
   <data name="totalaway" xml:space="preserve">
-    <value>Tổng tiền cược cho Away</value>
+    <value>Tổng cược cho Away</value>
   </data>
   <data name="totalgoal" xml:space="preserve">
     <value>Tổng số bàn thắng</value>
   </data>
   <data name="totalhome" xml:space="preserve">
-    <value>Tổng tiền cược cho Home</value>
+    <value>Tổng cược cho Home</value>
   </data>
   <data name="tote" xml:space="preserve">
     <value>Tote</value>

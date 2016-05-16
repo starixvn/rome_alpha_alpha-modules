@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="fulltime" xml:space="preserve">
-    <value>Toàn thời gian</value>
+    <value>Toàn trận</value>
   </data>
   <data name="halftime" xml:space="preserve">
     <value>Hiệp 1</value>
@@ -136,10 +136,10 @@
     <value>Dự đoán</value>
   </data>
   <data name="lblHandicapFC" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="lblHOUL" xml:space="preserve">
-    <value>Handicap/Over Under/Live</value>
+    <value>Cược chấp/Tài Xỉu/Trực tuyến</value>
   </data>
   <data name="lblLiveBall" xml:space="preserve">
     <value>Trực Tuyến</value>
@@ -163,7 +163,7 @@
     <value>Thông tin chưa được cập nhật</value>
   </data>
   <data name="RefreshLeagues" xml:space="preserve">
-    <value>Refresh Giải đấu</value>
+    <value>Làm mới Giải đấu</value>
   </data>
   <data name="SelectMatch" xml:space="preserve">
     <value>Chọn trận đấu</value>

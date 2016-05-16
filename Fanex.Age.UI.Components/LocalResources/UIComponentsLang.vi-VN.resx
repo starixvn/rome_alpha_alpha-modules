@@ -281,7 +281,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Thông báo</value>
   </data>
   <data name="appliesallbettype" xml:space="preserve">
-    <value>&lt;li&gt;&lt;span style="color:#E59B46;"&gt;Hoa hồng 1(Comm 1)&lt;/span&gt; được áp dụng cho các loại cược: Handicap, Chẵn/Lẻ, Over/Under, Hiệp 1 - Handicap, Hiệp 1 - Over/Under, Hiệp 1 - Chẵn/Lẻ, Clean Sheet, Draw No Bet, To Win To Nil, 3-Way Handicap, Home No Bet, Away No Bet, Hoà/Không Hoà, HT/FT Odd/Even, 1H Home Team Odd/Even, Home Team Odd/Even, 1H Away Team Odd/Even, Away Team Odd/Even, Game Handicap, Set x Game Handicap, Set x Total Games, Set Handicap, Match Total Games Odd/Even, Match Total Games Over/Under, Set x Total Game Odd/Even, Moneyline, 1st Moneyline, Match Winner, Set X Winner, Set X Game Y Winner.&lt;/li&gt;
+    <value>&lt;li&gt;&lt;span style="color:#E59B46;"&gt;Hoa hồng 1(Comm 1)&lt;/span&gt; được áp dụng cho các loại cược: Cược Chấp, Chẵn/Lẻ, Over/Under, Hiệp 1 - Cược Chấp, Hiệp 1 - Over/Under, Hiệp 1 - Chẵn/Lẻ, Giữ Sạch Lưới, Draw No Bet, To Win To Nil, Cược Chấp 3 Chiều, Home No Bet, Away No Bet, Hoà/Không Hoà, Hiệp 1/Toàn trận Odd/Even, Hiệp 1 - Home Chẵn/Lẻ, Home Chẵn/Lẻ, Hiệp 1 - Away Chẵn/Lẻ, Away Chẵn/Lẻ, Game Handicap, Set x Game Handicap, Set x Total Games, Set Handicap, Match Total Games Odd/Even, Match Total Games Over/Under, Set x Total Game Odd/Even, Moneyline, Hiệp 1 - Moneyline, Match Winner, Set X Winner, Set X Game Y Winner.&lt;/li&gt;
 &lt;li&gt;&lt;span style="color:#E59B46;"&gt;Hoa hồng 2(Comm 2)&lt;/span&gt; được áp dụng cho tất cả các thể loại cá cược như 1x2.&lt;/li&gt;
 &lt;li&gt;&lt;span style="color:#E59B46;"&gt;Hoa hồng 3(Comm 3)&lt;/span&gt; được áp dụng cho các loại cược khác.&lt;/li&gt;
 &lt;li&gt;&lt;span style="color:#E59B46;"&gt;Number Game (Hoa hồng Number Game)&lt;/span&gt; được áp dụng cho các loại cược của Number Game.&lt;/li&gt;
@@ -502,7 +502,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Contact Us</value>
   </data>
   <data name="correctscore" xml:space="preserve">
-    <value>Điểm số chính xác</value>
+    <value>Tỷ số chính xác</value>
   </data>
   <data name="country" xml:space="preserve">
     <value>Quốc gia</value>
@@ -739,7 +739,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Từ</value>
   </data>
   <data name="ft" xml:space="preserve">
-    <value>FT</value>
+    <value>Toàn trận</value>
   </data>
   <data name="FullControl" xml:space="preserve">
     <value>Toàn quyền </value>
@@ -1232,7 +1232,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Thiết lập theo nhóm</value>
   </data>
   <data name="lblHandicapFC" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="lblLearnMore" xml:space="preserve">
     <value>Vui lòng tìm hiểu thêm tại đây</value>
@@ -1437,7 +1437,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Giá trị PT trước đó của Super</value>
   </data>
   <data name="lblRace" xml:space="preserve">
-    <value>Race </value>
+    <value>Vòng đua</value>
   </data>
   <data name="lblRequiredSecCode" xml:space="preserve">
     <value>Mã bảo mật phải:
@@ -1545,13 +1545,13 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Tổng tiền chuyển khoản/chưa xử lý của Poker</value>
   </data>
   <data name="lblView1stHandicapForecast" xml:space="preserve">
-    <value>Xem dự đoán kết quả hiệp 1 - Handicap</value>
+    <value>Xem dự đoán kết quả hiệp 1 - Cược Chấp</value>
   </data>
   <data name="lblView1stOverUnderForecast" xml:space="preserve">
     <value>Xem dự đoán kết quả hiệp 1 -  Over/Under</value>
   </data>
   <data name="lblViewHandicapForecast" xml:space="preserve">
-    <value>Xem dự đoán kết quả- Handicap</value>
+    <value>Xem dự đoán kết quả - Cược Chấp</value>
   </data>
   <data name="lblViewOverUnderForecast" xml:space="preserve">
     <value>Xem dự đoán kết quả - Over Under</value>
@@ -1740,7 +1740,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Thứ 2</value>
   </data>
   <data name="moneyline" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="monthly" xml:space="preserve">
     <value>Hằng tháng</value>
@@ -1994,7 +1994,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Ref No</value>
   </data>
   <data name="refresh" xml:space="preserve">
-    <value>Refresh</value>
+    <value>Làm mới</value>
   </data>
   <data name="reportby" xml:space="preserve">
     <value>Báo cáo</value>
