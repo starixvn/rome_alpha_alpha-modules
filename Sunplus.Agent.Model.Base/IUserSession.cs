@@ -635,6 +635,8 @@ namespace Sunplus.Agent.Model.Entities
 
         Dictionary<int, bool> DisableProducts { get; set; }
 
+        Dictionary<int, bool> SyncProducts { get; set; }
+
         string UserLoginIp { get; set; }
 
         bool IsIMBCCustomer { get; set; }

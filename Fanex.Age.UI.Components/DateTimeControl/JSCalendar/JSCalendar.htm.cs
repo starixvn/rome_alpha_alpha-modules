@@ -30,7 +30,7 @@ namespace Fanex.Age.UI.Components
 			protected string t1_TriggerId;
 			protected static string s9 = "\" title=\"Date selector\"style=\"margin: 0px; cursor: pointer\" /> --></td></tr></table><script type=\"text/javascript\">function CalendarOnSelect() {if($(\"ddlSelectDate\"))$(\"ddlSelectDate\").value = 8;}var ";
 			protected string t2_DateTextBoxId;
-			protected static string s10 = " = Calendar.setup({animation:false,trigger: \"";
+			protected static string s10 = " = Calendar.setup({align: \"Bl/ / /B\",animation:false,trigger: \"";
 			protected string t3_TriggerId;
 			protected static string s11 = "\",inputField: \"";
 			protected string t4_DateTextBoxId;

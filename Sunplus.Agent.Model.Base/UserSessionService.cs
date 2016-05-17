@@ -255,6 +255,7 @@ namespace Sunplus.Agent.Model.BL
 
             session.HideProducts = new Dictionary<int, bool>();
             session.DisableProducts = new Dictionary<int, bool>();
+            session.SyncProducts = new Dictionary<int, bool>();
             var products = ProductSpNames();
             foreach (var product in products)
             {
@@ -263,6 +264,9 @@ namespace Sunplus.Agent.Model.BL
 
                 storedProcedureName = "disable" + product.Value;
                 session.DisableProducts[product.Key] = values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : true;
+
+                storedProcedureName = "synced" + product.Value;
+                session.SyncProducts[product.Key] = values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : false;
             }
 
             session.IsDisabledFI = (bool)values["disablefi"];
@@ -311,6 +315,7 @@ namespace Sunplus.Agent.Model.BL
             result.Add(ProductIdConstants.CockFighting, "cockfighting");
             result.Add(ProductIdConstants.Cricket, "cricket");
             result.Add(ProductIdConstants.AllBet, "allbet");
+            result.Add(ProductIdConstants.Voidbridge, "voidbridge");
 
             return result;
 		}
