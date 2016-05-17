@@ -3700,7 +3700,7 @@
     <value>HR Fix Odds - Tiền cược lớn nhất cho mỗi cuộc đua</value>
   </data>
   <data name="hrfixedodds" xml:space="preserve">
-    <value>HR Fixed Odds</value>
+    <value>Đua ngựa tỷ lệ cố định</value>
   </data>
   <data name="v154apt_20" xml:space="preserve">
     <value>Moneyline</value>
@@ -3736,7 +3736,7 @@
     <value>Min Moneyline</value>
   </data>
   <data name="UMMBv154" xml:space="preserve">
-    <value>Cập nhật tiền cược nhỏ nhất-lớn nhất cho HR Fixed Odds.</value>
+    <value>Cập nhật tiền cược nhỏ nhất-lớn nhất cho Đua ngựa tỷ lệ cố định.</value>
   </data>
   <data name="disabledhrfixedodds" xml:space="preserve">
     <value>Disabled HR Fixed Odds</value>
@@ -3817,6 +3817,6 @@
     <value>Sport</value>
   </data>
   <data name="product" xml:space="preserve">
-    <value>Product</value>
+    <value>Sản Phẩm</value>
   </data>
 </root>

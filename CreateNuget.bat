@@ -15,7 +15,7 @@
 @set commitHashTest=
 @set webSiteFolder=Fanex_Razorbill_Website
 @set binFolder=bin
-@set "defaultPackageVersionSuffix=-vnresources02"
+@set "defaultPackageVersionSuffix=-vnresources03"
 
 @set "nugetAuthor=Nexcel Solution"
 @set "nugetSource=http://nuget.nexcel.vn/"
@@ -26,7 +26,7 @@
 
 @set nugetPath="%solutionPath%\.nuget\Nuget.exe"
 @set baseDirectory=%solutionPath%\basenuspec
-@set libDirectory=lib\net40
+@set libDirectory=net40
 @set contentDirectory=Contents
 @set tempGitFile=gitMessage.txt
 @set PATH=%PATH%;C:\Program Files (x86)\Git\bin

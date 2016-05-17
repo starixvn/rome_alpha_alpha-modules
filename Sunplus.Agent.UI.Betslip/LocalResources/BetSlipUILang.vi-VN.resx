@@ -282,7 +282,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
 &lt;li&gt;&lt;span style="color:#E59B46;"&gt;Hoa hồng 2(Comm 2)&lt;/span&gt; được áp dụng cho tất cả các thể loại cá cược như 1x2.&lt;/li&gt;
 &lt;li&gt;&lt;span style="color:#E59B46;"&gt;Hoa hồng 3(Comm 3)&lt;/span&gt; được áp dụng cho các loại cược khác.&lt;/li&gt;
 &lt;li&gt;&lt;span style="color:#E59B46;"&gt;Number Game (Hoa hồng Number Game)&lt;/span&gt; được áp dụng cho các loại cược của Number Game.&lt;/li&gt;
-&lt;li&gt;&lt;span style="color:#E59B46;"&gt;HR Fixed Odds (Hoa hồng Horse Racing Fixed Odds)&lt;/span&gt; được áp dụng cho các loại cược của Horse Racing Fixed Odds.&lt;/li&gt;
+&lt;li&gt;&lt;span style="color:#E59B46;"&gt;Đua ngựa tỷ lệ cố định (Hoa hồng Horse Racing Fixed Odds)&lt;/span&gt; được áp dụng cho các loại cược của Horse Racing Fixed Odds.&lt;/li&gt;
 &lt;li&gt;M = Master, A = Agent, P = Member.&lt;/li&gt;</value>
   </data>
   <data name="apr" xml:space="preserve">
@@ -793,7 +793,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Racing</value>
   </data>
   <data name="HRFixedOdds" xml:space="preserve">
-    <value>HR Fixed Odds</value>
+    <value>Đua ngựa tỷ lệ cố định</value>
   </data>
   <data name="hrminpt" xml:space="preserve">
     <value>PT nhỏ nhất của Racing</value>
@@ -905,7 +905,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Bạn có chắc muốn chặn thành viên này chơi Casino</value>
   </data>
   <data name="lblAlertDisableHRFixedOddsMember" xml:space="preserve">
-    <value>Cảnh báo!!!  Bạn có chắc muốn chặn thành viên này chơi HR Fixed Odds ?</value>
+    <value>Cảnh báo!!!  Bạn có chắc muốn chặn thành viên này chơi Đua ngựa tỷ lệ cố định?</value>
   </data>
   <data name="lblAlertDisableSATote" xml:space="preserve">
     <value>Cảnh báo: Bạn có muốn chặn thành viên này chơi SA Tote và tất cả những thành viên cấp dưới trực thuộc </value>
@@ -986,7 +986,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Casino</value>
   </data>
   <data name="lbleditcomm" xml:space="preserve">
-    <value>Tùy chỉnh giá tri tiền hoa hồng</value>
+    <value>Tùy chỉnh giá tri hoa hồng</value>
   </data>
   <data name="lbledithr" xml:space="preserve">
     <value>Racing</value>
@@ -1167,7 +1167,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Xem dự đoán kết quả - Cược Chấp</value>
   </data>
   <data name="lblViewOverUnderForecast" xml:space="preserve">
-    <value>Xem dự đoán kết quả - Over Under</value>
+    <value>Xem dự đoán kết quả - Tài Xỉu</value>
   </data>
   <data name="lblWin" xml:space="preserve">
     <value>Win</value>
@@ -1343,7 +1343,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Tên</value>
   </data>
   <data name="newmemberofthemonth" xml:space="preserve">
-    <value>Thành viên mới trong tháng</value>
+    <value>Member mới trong tháng</value>
   </data>
   <data name="next" xml:space="preserve">
     <value>Kế tiếp</value>
@@ -1517,7 +1517,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Private Games</value>
   </data>
   <data name="product" xml:space="preserve">
-    <value>Product</value>
+    <value>Sản Phẩm</value>
   </data>
   <data name="Racebook" xml:space="preserve">
     <value>Racing</value>
@@ -1556,7 +1556,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Lưu thiết lập về tiền đặt cược</value>
   </data>
   <data name="saveCommission" xml:space="preserve">
-    <value>Lưu  giá trị tiền hoa hồng</value>
+    <value>Lưu  giá trị hoa hồng</value>
   </data>
   <data name="saveGameSetting" xml:space="preserve">
     <value>Lưu thiết lập về Game</value>
@@ -1637,7 +1637,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>WARNING!!! Are you sure you want to disable E-Sports on this customer and all downlines?</value>
   </data>
   <data name="strConfirmDisableHRFixedOdds" xml:space="preserve">
-    <value>Cảnh báo!!!  Bạn có chắc muốn chặn thành viên này chơi HR Fixed Odds và tất cả những thành viên cấp dưới trực thuộc thành viên đó?</value>
+    <value>Cảnh báo!!!  Bạn có chắc muốn chặn thành viên này chơi Đua ngựa tỷ lệ cố định và tất cả những thành viên cấp dưới trực thuộc thành viên đó?</value>
   </data>
   <data name="strConfirmDisableNumber" xml:space="preserve">
     <value>Cảnh báo!!!  Bạn có chắc muốn chặn thành viên này chơi Number Game và tất cả những thành viên cấp dưới trực thuộc thành viên đó?</value>
@@ -1658,7 +1658,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Do you want to enable E-Sports for this customer?</value>
   </data>
   <data name="strConfirmEnableHRFixedOdds" xml:space="preserve">
-    <value>Bạn có muốn cho phép thành viên này chơi  HR Fixed Odds?</value>
+    <value>Bạn có muốn cho phép thành viên này chơi  Đua ngựa tỷ lệ cố định?</value>
   </data>
   <data name="strConfirmEnableNumber" xml:space="preserve">
     <value>Bạn có muốn cho phép thành viên này chơi Number Game?</value>
@@ -1826,7 +1826,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Bạn có thể tra cứu dữ liệu báo cáo từ ngày {0}.</value>
   </data>
   <data name="viewgroupcommission" xml:space="preserve">
-    <value>Xem nhóm &amp; tiền hoa hồng</value>
+    <value>Xem nhóm &amp; hoa hồng</value>
   </data>
   <data name="ViewHistoryReport1" xml:space="preserve">
     <value>Bạn có thể tra cứu dữ liệu báo cáo từ ngày {0}.Nếu muốn tìm kiếm những dữ liệu cũ hơn Bấm {1}</value>
@@ -1886,7 +1886,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Hằng tuần</value>
   </data>
   <data name="win" xml:space="preserve">
-    <value>Thắng / Thua</value>
+    <value>Thắng thua</value>
   </data>
   <data name="winautote" xml:space="preserve">
     <value>Win.Aust Tote</value>
