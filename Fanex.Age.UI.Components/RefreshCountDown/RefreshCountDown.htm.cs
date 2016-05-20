@@ -61,7 +61,7 @@ namespace Fanex.Age.UI.Components
 		public class RefreshCountDown_ExternalResources_Block: Block
 		{
 			protected static string s9 = "<link href=\"";
-			protected static string s10{get{return AbsoluteUrl("RefreshCountDown/RefreshCountDown.css", TplSettings.Question);}}
+			protected static string s10{get{return AbsoluteUrl("App_Themes/Apo/Components/RefreshCountDown/RefreshCountDown.min.css", TplSettings.Question);}}
 			protected static string s11 = "\" rel=\"stylesheet\" type=\"text/css\" /><script src=\"";
 			protected static string s12{get{return AbsoluteUrl("RefreshCountDown/RefreshCountDown.js", TplSettings.Question);}}
 			protected static string s13 = "\" type=\"text/javascript\"></script>";
