@@ -2,18 +2,18 @@
 <link href="../../App_Themes/Apo/Components/RefreshCountDown/RefreshCountDown.min.css" rel="stylesheet" type="text/css" />
 <script src="RefreshCountDown.js" type="text/javascript"></script>
 <!--/ExternalResources-->
-
-<div class="btnCountDown">
-    <div id="CountDownRefresh" class="btnRefresh" onclick="return CountDownRefresh_Refresh()" title="{static:LocalResources.UIComponentsLang.refresh}"></div>
-    <div class="btnDown" onclick="CountDownRefresh_DoOpenOption(this);" ></div>
-</div>
-<div style="clear:both;"></div>
-<div id="CountDownMenu" style="display:none;" class="panelDown">
-    <!--Seconds-->
-        <div id="option{i}" class="menuitem {OptionClass}" onclick="CountDownRefresh_SaveOption(this.id);">
+<div class="dropdown-refresh">
+    <div class="btnCountDown">
+        <div id="CountDownRefresh" class="btnRefresh" onclick="return CountDownRefresh_Refresh()" title="{static:LocalResources.UIComponentsLang.refresh}"></div>
+        <div class="btnDown" onclick="CountDownRefresh_DoOpenOption(this);"></div>
+    </div>
+    <ul id="CountDownMenu" style="display:none;" class="panelDown">
+        <!--Seconds-->
+        <li id="option{i}" class="menuitem {OptionClass}" onclick="CountDownRefresh_SaveOption(this.id);">
             {SecondNum}{static:LocalResources.UIComponentsLang.sec}
-        </div>
-     <!--/Seconds--> 
+        </li>
+        <!--/Seconds-->
+    </ul>
 </div>
  
 <script type="text/javascript">
