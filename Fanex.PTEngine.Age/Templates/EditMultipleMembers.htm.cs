@@ -53,7 +53,7 @@ namespace Fanex.PTEngine.Age
 			protected static string s29{get{return LocalResources.PTEngineLang.lblBetSetting;}}
 			protected static string s30 = "</div><div id=\"bettingLimitContainer\"></div><br /><div class=\"clearBlock\"></div><div class=\"headerPositionTaking\">";
 			protected static string s31{get{return LocalResources.PTEngineLang.positiontaking;}}
-			protected static string s32 = "<div style=\"float: right;\"><a class=\"infoIco\" style=\"margin: 3px 5px; height: 16px; display: inline-block\" href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\"target=\"_blank\" title=\"";
+			protected static string s32 = "<div style=\"float: right;\"><a class=\"infoIco\" href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\"target=\"_blank\" title=\"";
 			protected static string s33{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
 			protected static string s34 = "\"></a></div></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\"class=\"btnMain\">";
 			protected string t0_actionName;

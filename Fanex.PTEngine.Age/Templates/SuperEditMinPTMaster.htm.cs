@@ -37,7 +37,7 @@ namespace Fanex.PTEngine.Age
 			public string formType = "{formType}";
 			protected static string s17 = "'type=\"text/javascript\"></script>";
 			public SuperEditMinPTMaster_CssBlock_Block CssBlock = new SuperEditMinPTMaster_CssBlock_Block();
-			protected static string s18 = "</head><body><div id=\"header_main\" class=\"pt7\">";
+			protected static string s18 = "</head><body><div id=\"header_main\">";
 			public string lbledit = "{lbledit}";
 			protected static string s19 = "</div><div class=\"minWidthCustomer\">";
 			protected static string s20{get{return new Fanex.Age.UI.Components.ErrorMsg.ErrorMsg_Template();}}
@@ -59,7 +59,7 @@ namespace Fanex.PTEngine.Age
 			protected static string s35{get{return LocalResources.PTEngineLang.lblFax;}}
 			protected static string s36 = "</div><div class=\"customerInfoViewBlock2\"><span data-bind=\"text: customer.fax\"></span></div></div></div><div class=\"headerPositionTaking\">";
 			protected static string s37{get{return LocalResources.PTEngineLang.sbminpt;}}
-			protected static string s38 = "<div style=\"float:right;\"><a class=\"infoIco\" style=\"margin:3px 5px;height:16px;display:inline-block\"href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
+			protected static string s38 = "<div style=\"float:right;\"><a class=\"infoIco\"href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
 			protected static string s39{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
 			protected static string s40 = "\"></a></div></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"btnMain\">";
 			protected string t0_actionName;
