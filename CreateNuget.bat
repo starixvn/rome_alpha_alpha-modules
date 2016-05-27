@@ -15,7 +15,7 @@
 @set commitHashTest=
 @set webSiteFolder=Fanex_Razorbill_Website
 @set binFolder=bin
-@set "defaultPackageVersionSuffix=-vnresources03"
+@set "defaultPackageVersionSuffix=-uiuxphase501"
 
 @set "nugetAuthor=Nexcel Solution"
 @set "nugetSource=http://nuget.nexcel.vn/"
