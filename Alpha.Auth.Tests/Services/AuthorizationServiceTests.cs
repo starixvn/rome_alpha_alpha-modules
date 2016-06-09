@@ -9,7 +9,7 @@
     using Models;
     using NSubstitute;
     using NUnit.Framework;
-
+    using Sunplus.Agent.Model.Entities;
     [TestFixture]
     public class AuthorizationServiceTests
     {
@@ -291,25 +291,29 @@
 
         #region Check Authorized
 
-        [Test]
-        public void IsAuthorized_CurrentAccIsSubAccount_ExecuteGetOrAddSubPermission()
-        {
-            //// Arrange
-            var url = "IsAllowByThemselve.aspx";
-            _requestContext.CustId.Returns(103);
-            _requestContext.UserSession.RoleId.Returns((byte)3);
-            _requestContext.UserSession.CustId.Returns(100);
-            _requestContext.UserSession.SubAccId.Returns(101);
+        ////[Test]
+        ////public void IsAuthorized_CurrentAccIsSubAccount_ExecuteGetOrAddSubPermission()
+        ////{
+        ////    //// Arrange
+        ////    var url = "IsAllowByThemselve.aspx";
+        ////    _requestContext.CustId.Returns(103);
+        ////    _requestContext.UserSession.RoleId.Returns((byte)3);
+        ////    _requestContext.UserSession.CustId.Returns(100);
+        ////    _requestContext.UserSession.SubAccId.Returns(101);
+        ////    _requestContext.UserSession.SubPageAccess.Returns(new PageAccess
+        ////    {
+        ////        CreateAccount = true
+        ////    });
 
-            //// Act
-            _authorizationService.IsAuthorized(url);
+        ////    //// Act
+        ////    _authorizationService.IsAuthorized(url);
 
-            //// Assert
-            _cachingService.Received().GetOrAdd(
-                "Alpha.Auth.CustContext.SubAccountPermissionCacheKey_100_101",
-                Arg.Any<Func<string>>(),
-                50);
-        }
+        ////    //// Assert
+        ////    _cachingService.Received().GetOrAdd(
+        ////        "Alpha.Auth.CustContext.SubAccountPermissionCacheKey_100_101",
+        ////        Arg.Any<Func<string>>(),
+        ////        50);
+        ////}
 
         [Test]
         public void IsAuthorized_SubAccountHasFullPermission_ReturnTrue()
@@ -320,11 +324,16 @@
             _requestContext.UserSession.RoleId.Returns((byte)3);
             _requestContext.UserSession.CustId.Returns(100);
             _requestContext.UserSession.SubAccId.Returns(101);
-            var fullPermission = "[A],[B],[C],[D],[E],[G],[H]";
-            _cachingService.GetOrAdd(
-                Arg.Any<string>(),
-                Arg.Any<Func<string>>(),
-                Arg.Any<int>()).Returns(fullPermission);
+            _requestContext.UserSession.SubPageAccess.Returns(new PageAccess
+            {
+                CreateAccount = true,
+                Transfer = true,
+                UpdateAccount = true,
+                ViewLog = true,
+                ViewMemberInfo = true,
+                ViewReports = true,
+                ViewTotalBets = true
+            });
 
             //// Act
             var isAuthorized = _authorizationService.IsAuthorized(url);
@@ -343,6 +352,10 @@
             _requestContext.UserSession.CustId.Returns(100);
             _requestContext.UserSession.SubAccId.Returns(101);
             var fullPermission = "[A]";
+            _requestContext.UserSession.SubPageAccess.Returns(new PageAccess {
+                CreateAccount = true
+            });
+
             _cachingService.GetOrAdd(
                 Arg.Any<string>(),
                 Arg.Any<Func<string>>(),
@@ -364,11 +377,10 @@
             _requestContext.UserSession.RoleId.Returns((byte)3);
             _requestContext.UserSession.CustId.Returns(100);
             _requestContext.UserSession.SubAccId.Returns(101);
-            var fullPermission = "[B]";
-            _cachingService.GetOrAdd(
-                Arg.Any<string>(),
-                Arg.Any<Func<string>>(),
-                Arg.Any<int>()).Returns(fullPermission);
+            _requestContext.UserSession.SubPageAccess.Returns(new PageAccess
+            {
+                CreateAccount = false
+            });
 
             //// Act
             var isAuthorized = _authorizationService.IsAuthorized(url);
@@ -387,11 +399,10 @@
             _requestContext.UserSession.CustId.Returns(100);
             _requestContext.UserSession.SubAccId.Returns(101);
             _requestContext.UserSession.Site.Returns("Demo Site");
-            var fullPermission = "[A]";
-            _cachingService.GetOrAdd(
-                Arg.Any<string>(),
-                Arg.Any<Func<string>>(),
-                Arg.Any<int>()).Returns(fullPermission);
+            _requestContext.UserSession.SubPageAccess.Returns(new PageAccess
+            {
+                CreateAccount = true
+            });
 
             //// Act
             _authorizationService.IsAuthorized(url);

@@ -68,7 +68,7 @@
             foreach (GroupPageAccessElement groupPageAccess in groupPageAccesses)
             {
                 var pageAccesses = groupPageAccess.PageAccesses.Cast<PageAccessElement>()
-                    .Where(q => q.Url.Equals(_requestContext.Url, StringComparison.OrdinalIgnoreCase));
+                    .Where(pageAccess => _requestContext.Url.ToLower().Contains(pageAccess.Url.ToLower()));
 
                 foreach (PageAccessElement pageAccess in pageAccesses)
                 {
@@ -124,6 +124,11 @@
         {
             url = url ?? _requestContext.Url;
 
+            if (string.IsNullOrEmpty(url))
+            {
+                return true;
+            }
+
             var permission = _authorizationSection.FullPermission;
 
             if (_requestContext.UserSession.SubAccId > 0)
@@ -150,7 +155,7 @@
             foreach (var groupPageAccess in groupPageAccesses)
             {
                 var pageAccesses = groupPageAccess.PageAccesses.Cast<PageAccessElement>()
-                    .Where(pageAccess => pageAccess.Url.Equals(url, StringComparison.OrdinalIgnoreCase));
+                    .Where(pageAccess => url.ToLower().Contains(pageAccess.Url.ToLower()));
 
                 foreach (var pageAccess in pageAccesses)
                 {
@@ -184,13 +189,13 @@
 
             foreach (var permission in permissions)
             {
-                if (!customerPermission.Contains(permission))
+                if (customerPermission.Contains(permission))
                 {
-                    return false;
+                    return true;
                 }
             }
 
-            return true;
+            return false;
         }
 
         private string GetSubPermission()

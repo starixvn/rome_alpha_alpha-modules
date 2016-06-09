@@ -15,7 +15,6 @@
         private const string RNGCasinoArea = "CustomerSetting/Casino";
         private string _url;
         private int _custId = 0;
-        private IUserSession _userSession;
 
         public string Url
         {
@@ -126,12 +125,7 @@
         {
             get
             {
-                if (_userSession == null)
-                {
-                    _userSession = UserSessionService.GetUserSessionInstance(HttpContext.Current.Session.SessionID);
-                }
-
-                return _userSession;
+               return UserSessionService.GetUserSessionInstance(HttpContext.Current.Session.SessionID);
             }
         }
 
