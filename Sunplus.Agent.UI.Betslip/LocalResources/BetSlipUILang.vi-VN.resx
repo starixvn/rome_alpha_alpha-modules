@@ -364,7 +364,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Những thành viên cấp dưới trực thuộc cũng sẽ bị chặn Casino</value>
   </data>
   <data name="casinoPositionTaking" xml:space="preserve">
-    <value>(%) PT của Casino</value>
+    <value>PT (%) của Casino</value>
   </data>
   <data name="city" xml:space="preserve">
     <value>Thành phố</value>
@@ -814,7 +814,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Những loại hình cá cược mà không cần phải xem trước thiết lập như Live Casino cũng sẽ được cấp cho những Master mới .</value>
   </data>
   <data name="infoSearchAndCopyMember" xml:space="preserve">
-    <value>Những loại hình cá cược mà không cần phải xem trước thiết lập như Live Casino cũng sẽ được cấp phép cho những member mới.</value>
+    <value>Những loại hình cá cược không cần phải xem trước thiết lập như Live Casino vẫn sẽ được cấp phép cho member mới.</value>
   </data>
   <data name="invalidLogin" xml:space="preserve">
     <value>Sai tên đăng nhập hoặc mật khẩu</value>
@@ -881,13 +881,13 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Tổng mức tín dụng có thể chuyển khoản</value>
   </data>
   <data name="lblAddNewAgent" xml:space="preserve">
-    <value>Tạo thành viên Agent mới</value>
+    <value>Tạo Agent mới</value>
   </data>
   <data name="lblAddNewMaster" xml:space="preserve">
-    <value>Tạo thành viên Master mới</value>
+    <value>Tạo Master mới</value>
   </data>
   <data name="lblAddNewMember" xml:space="preserve">
-    <value>Tạo thành viên  mới</value>
+    <value>Tạo Member mới</value>
   </data>
   <data name="lblAG" xml:space="preserve">
     <value>AG</value>
@@ -1161,7 +1161,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Xem dự đoán kết quả hiệp 1 - Cược Chấp</value>
   </data>
   <data name="lblView1stOverUnderForecast" xml:space="preserve">
-    <value>Xem dự đoán kết quả hiệp 1 -  Over/Under</value>
+    <value>Xem dự đoán kết quả hiệp 1 -  Tài Xỉu</value>
   </data>
   <data name="lblViewHandicapForecast" xml:space="preserve">
     <value>Xem dự đoán kết quả - Cược Chấp</value>
