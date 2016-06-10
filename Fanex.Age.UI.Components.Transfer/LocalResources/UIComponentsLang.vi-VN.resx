@@ -475,7 +475,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Bạn có muốn cho phép Master này sử dụng chức năng Auto PT?</value>
   </data>
   <data name="ConfirmSecurityCode" xml:space="preserve">
-    <value>Xác nhận mã bảo mật</value>
+    <value>Xác nhận mã bảo mật mới</value>
   </data>
   <data name="confirmSuspendDownline" xml:space="preserve">
     <value>Bạn có chắc muốn đình chỉ thành viên này?\n Khuyến cáo, tất cả cấp dưới trực thuộc thành viên này sẽ không thể đặt cược?</value>
