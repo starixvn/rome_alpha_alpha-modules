@@ -260,7 +260,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Cho phép</value>
   </data>
   <data name="allowtransfer" xml:space="preserve">
-    <value>Bạn được phép chuyển khoản:</value>
+    <value>Bạn được phép chuyển khoản vào:</value>
   </data>
   <data name="allpages" xml:space="preserve">
     <value>Tất cả các trang</value>
@@ -517,7 +517,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Hạn mức tín dụng</value>
   </data>
   <data name="creditbalance" xml:space="preserve">
-    <value>Hạn mức /Tín dụng</value>
+    <value>Tín dụng/Balance</value>
   </data>
   <data name="creditInvalid" xml:space="preserve">
     <value>Hạn mức nhập vào không đúng</value>
@@ -2111,7 +2111,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Thiết lập của </value>
   </data>
   <data name="showhidecolumnAd" xml:space="preserve">
-    <value>Nhấp chuột phải trên đầu của mỗi cột để Ẩn/ Hiện cột đó</value>
+    <value>Nhấp chuột phải trên đầu cột để Ẩn/Hiện các cột</value>
   </data>
   <data name="sideGame" xml:space="preserve">
     <value>Side Game</value>
@@ -2402,7 +2402,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Thành viên này không online</value>
   </data>
   <data name="username" xml:space="preserve">
-    <value>Tài khoản</value>
+    <value>Tên đăng nhập</value>
   </data>
   <data name="usernameconsolidatedreport" xml:space="preserve">
     <value>Consolidated Report By Username</value>
@@ -2411,7 +2411,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Thông tin chưa được cập nhật</value>
   </data>
   <data name="usernameOrNickname" xml:space="preserve">
-    <value>Tên tài khoản hoặc Biệt Danh</value>
+    <value>Tên đăng nhập hoặc Biệt Danh</value>
   </data>
   <data name="usernamerequired" xml:space="preserve">
     <value>Bắt buộc phải là tên tài khoản hoặc biệt danh</value>
