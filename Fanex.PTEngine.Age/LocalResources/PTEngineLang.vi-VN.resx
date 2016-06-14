@@ -1300,7 +1300,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Tổng số dư tài khoản</value>
   </data>
   <data name="lblTotalCSOutstanding" xml:space="preserve">
-    <value>Tổng số  tiền chưa xử lý của Casino</value>
+    <value>Tổng tiền chưa xử lý của Casino</value>
   </data>
   <data name="lblTotalCSTransfer" xml:space="preserve">
     <value>Tổng số Tiền chuyển khoản cho Casino</value>
@@ -1318,7 +1318,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Tổng mức tín dụng của Member</value>
   </data>
   <data name="lblTotalOutstanding" xml:space="preserve">
-    <value>Tổng số  tiền chưa xử lý</value>
+    <value>Tổng tiền chưa xử lý</value>
   </data>
   <data name="lblTotalP2PTransferOutstanding" xml:space="preserve">
     <value>Tổng tiền chuyển khoản/chưa xử lý của Poker</value>
