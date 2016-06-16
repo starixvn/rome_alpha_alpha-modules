@@ -18,8 +18,9 @@
 
         private static void RegisterContactUsBundles(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/Areas/Company/Views/ContactUs/Styles/ContactUsStyles").Include(
-                "~/Areas/Company/Views/ContactUs/Styles/styles.css"));
+            bundles.Add(new StyleBundle("~/App_Themes/Apo/Company/ContactUsStyles").Include(
+                "~/App_Themes/Apo/Fonts/Iconalpha/style.css",
+                "~/App_Themes/Apo/Company/ContactUs.css"));
         }
     }
 }
