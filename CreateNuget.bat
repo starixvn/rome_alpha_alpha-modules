@@ -12,7 +12,7 @@
 @set solutionPath=%currentFolder%
 @set autoBuildLastestCodeTask=%currentFolder%\AutoBuildLastestCodeTask.bat
 
-@set commitHashTest=
+@set commitHashTest=74c421ef8c61dfc7341940eb43a89b35b8501714
 @set webSiteFolder=Fanex_Razorbill_Website
 @set binFolder=bin
 @set "defaultPackageVersionSuffix=-vnresources03"
@@ -87,7 +87,6 @@
 @if "%commitHashTest%"=="" (	
 	@call git diff !commitHash!~1 --name-only > "!tempGitFile!"	
 ) else (
-@echo 222
 	@call git diff %commitHashTest%~1 --name-only > "!tempGitFile!"	
 )
 
@@ -399,13 +398,15 @@ exit /b
 	)
 
 	@if exist !binFolder!%pathSeparator%!packageName!.dll (
-		@call xcopy /y !binFolder!%pathSeparator%!packageName!.dll !libPath!%pathSeparator%!packageName!.dll* >NUL
+		@set "dllFileName="
+		@call :GetDllFileName !binFolder!%pathSeparator%!packageName!.dll dllFileName
+		@call xcopy /y !binFolder!%pathSeparator%!packageName!.dll !libPath!%pathSeparator%!dllFileName!.dll* >NUL
 		
 		@for %%a in %languageList% do (
 			@set language=%%a
 			@set resourceFile=!binFolder!%pathSeparator%!language!%pathSeparator%!packageName!.resources.dll
 			@if exist !resourceFile! (
-				@call xcopy /y !resourceFile! !libPath!%pathSeparator%!language!%pathSeparator%!packageName!.resources.dll* >NUL
+				@call xcopy /y !resourceFile! !libPath!%pathSeparator%!language!%pathSeparator%!dllFileName!.resources.dll* >NUL
 			)
 		)	
 	)
@@ -629,8 +630,23 @@ exit /b
 
 exit /b
 
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:GetDllFileName filePath dllFileName
+@setlocal enableDelayedExpansion
+@set "filePath=!%~1!"
+@set dllFileName=
+@for %%? in (!filePath!) do (
+	@set dllFileName=%%~n?
+)
 
+(
+	endlocal
+	@if "%~2" NEQ "" (
+		set %~2=%dllFileName%
+	)
+)
 
+exit /b
 
 
 
