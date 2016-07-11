@@ -14,11 +14,11 @@ namespace Fanex.Age.UI.Components
 		public class RefreshCountDown_Template : Template
 		{
 			public RefreshCountDown_ExternalResources_Block ExternalResources = new RefreshCountDown_ExternalResources_Block();
-			protected static string s0 = "<div class=\"btnCountDown\"><div id=\"CountDownRefresh\" class=\"btnRefresh\" onclick=\"return CountDownRefresh_Refresh()\" title=\"";
+			protected static string s0 = "<div class=\"dropdown-refresh\"><div class=\"btnCountDown\"><div id=\"CountDownRefresh\" class=\"btnRefresh\" onclick=\"return CountDownRefresh_Refresh()\" title=\"";
 			protected static string s1{get{return LocalResources.UIComponentsLang.refresh;}}
-			protected static string s2 = "\"></div><div class=\"btnDown\" onclick=\"CountDownRefresh_DoOpenOption(this);\" ></div></div><div style=\"clear:both;\"></div><div id=\"CountDownMenu\" style=\"display:none;\" class=\"panelDown\">";
+			protected static string s2 = "\"></div><div class=\"btnDown\" onclick=\"CountDownRefresh_DoOpenOption(this);\"></div></div><ul id=\"CountDownMenu\" style=\"display:none;\" class=\"panelDown\">";
 			public RefreshCountDown_Seconds_Block Seconds = new RefreshCountDown_Seconds_Block();
-			protected static string s3 = "</div><script type=\"text/javascript\">var refreshCountDownId = \"";
+			protected static string s3 = "</ul></div><script type=\"text/javascript\">var refreshCountDownId = \"";
 			public string RefreshCountDownId = "{RefreshCountDownId}";
 			protected static string s4 = "\";var initCountDown = ";
 			public string initCountDown = "{initCountDown}";
@@ -61,7 +61,7 @@ namespace Fanex.Age.UI.Components
 		public class RefreshCountDown_ExternalResources_Block: Block
 		{
 			protected static string s9 = "<link href=\"";
-			protected static string s10{get{return AbsoluteUrl("RefreshCountDown/RefreshCountDown.css", TplSettings.Question);}}
+			protected static string s10{get{return AbsoluteUrl("App_Themes/Apo/Components/RefreshCountDown/RefreshCountDown.min.css", TplSettings.Question);}}
 			protected static string s11 = "\" rel=\"stylesheet\" type=\"text/css\" /><script src=\"";
 			protected static string s12{get{return AbsoluteUrl("RefreshCountDown/RefreshCountDown.js", TplSettings.Question);}}
 			protected static string s13 = "\" type=\"text/javascript\"></script>";
@@ -82,14 +82,14 @@ namespace Fanex.Age.UI.Components
 
 		public class RefreshCountDown_Seconds_Block: Block
 		{
-			protected static string s14 = "<div id=\"option";
+			protected static string s14 = "<li id=\"option";
 			public string i = "{i}";
 			protected static string s15 = "\" class=\"menuitem ";
 			public string OptionClass = "{OptionClass}";
 			protected static string s16 = "\" onclick=\"CountDownRefresh_SaveOption(this.id);\">";
 			public string SecondNum = "{SecondNum}";
 			protected static string s17{get{return LocalResources.UIComponentsLang.sec;}}
-			protected static string s18 = "</div>";
+			protected static string s18 = "</li>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;

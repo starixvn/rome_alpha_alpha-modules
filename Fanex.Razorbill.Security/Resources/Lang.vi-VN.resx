@@ -147,7 +147,7 @@ Vui lòng thiết lập mã bảo vệ theo biểu mẫu sau.</value>
     <value>Mã bảo mật phải có giá trị, không thể trống</value>
   </data>
   <data name="ConfirmSecurityCode" xml:space="preserve">
-    <value>Xác nhận Mã bảo mật</value>
+    <value>Xác nhận mã bảo mật mới</value>
   </data>
   <data name="contactMessage" xml:space="preserve">
     <value>Nếu bạn chưa có Mã bảo mật, vui lòng liên hệ cấp trên của bạn hoặc bộ phận CSD.</value>
@@ -207,5 +207,8 @@ Chú ý: Mã bảo mật mới phải khác với Mã bảo mật bạn nhận �
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>Bạn không được cho phép sử dụng chức năng này</value>
+  </data>
+  <data name="NewSecurityCode" xml:space="preserve">
+    <value>Mã bảo mật mới</value>
   </data>
 </root>

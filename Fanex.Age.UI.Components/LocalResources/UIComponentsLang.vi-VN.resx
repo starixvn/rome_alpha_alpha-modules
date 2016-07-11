@@ -215,7 +215,7 @@
 Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho Mã bảo mật.</value>
   </data>
   <data name="alertInputOldPwd" xml:space="preserve">
-    <value>Vui lòng nhập  Mật Khẩu hiện tại</value>
+    <value>Vui lòng nhập  mật khẩu hiện tại</value>
   </data>
   <data name="alertMasterCredit" xml:space="preserve">
     <value>Hạn mức tín dụng lớn nhất của Master nhập vào không đúng</value>
@@ -260,7 +260,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Cho phép</value>
   </data>
   <data name="allowtransfer" xml:space="preserve">
-    <value>Bạn được phép chuyển khoản:</value>
+    <value>Bạn được phép chuyển khoản vào:</value>
   </data>
   <data name="allpages" xml:space="preserve">
     <value>Tất cả các trang</value>
@@ -281,11 +281,11 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Thông báo</value>
   </data>
   <data name="appliesallbettype" xml:space="preserve">
-    <value>&lt;li&gt;&lt;span style="color:#E59B46;"&gt;Hoa hồng 1(Comm 1)&lt;/span&gt; được áp dụng cho các loại cược: Handicap, Chẵn/Lẻ, Over/Under, Hiệp 1 - Handicap, Hiệp 1 - Over/Under, Hiệp 1 - Chẵn/Lẻ, Clean Sheet, Draw No Bet, To Win To Nil, 3-Way Handicap, Home No Bet, Away No Bet, Hoà/Không Hoà, HT/FT Odd/Even, 1H Home Team Odd/Even, Home Team Odd/Even, 1H Away Team Odd/Even, Away Team Odd/Even, Game Handicap, Set x Game Handicap, Set x Total Games, Set Handicap, Match Total Games Odd/Even, Match Total Games Over/Under, Set x Total Game Odd/Even, Moneyline, 1st Moneyline, Match Winner, Set X Winner, Set X Game Y Winner.&lt;/li&gt;
+    <value>&lt;li&gt;&lt;span style="color:#E59B46;"&gt;Hoa hồng 1(Comm 1)&lt;/span&gt; được áp dụng cho các loại cược: Cược Chấp, Chẵn/Lẻ, Over/Under, Hiệp 1 - Cược Chấp, Hiệp 1 - Over/Under, Hiệp 1 - Chẵn/Lẻ, Giữ Sạch Lưới, Draw No Bet, To Win To Nil, Cược Chấp 3 Chiều, Home No Bet, Away No Bet, Hoà/Không Hoà, Hiệp 1/Toàn trận Odd/Even, Hiệp 1 - Home Chẵn/Lẻ, Home Chẵn/Lẻ, Hiệp 1 - Away Chẵn/Lẻ, Away Chẵn/Lẻ, Game Handicap, Set x Game Handicap, Set x Total Games, Set Handicap, Match Total Games Odd/Even, Match Total Games Over/Under, Set x Total Game Odd/Even, Moneyline, Hiệp 1 - Moneyline, Match Winner, Set X Winner, Set X Game Y Winner.&lt;/li&gt;
 &lt;li&gt;&lt;span style="color:#E59B46;"&gt;Hoa hồng 2(Comm 2)&lt;/span&gt; được áp dụng cho tất cả các thể loại cá cược như 1x2.&lt;/li&gt;
 &lt;li&gt;&lt;span style="color:#E59B46;"&gt;Hoa hồng 3(Comm 3)&lt;/span&gt; được áp dụng cho các loại cược khác.&lt;/li&gt;
 &lt;li&gt;&lt;span style="color:#E59B46;"&gt;Number Game (Hoa hồng Number Game)&lt;/span&gt; được áp dụng cho các loại cược của Number Game.&lt;/li&gt;
-&lt;li&gt;&lt;span style="color:#E59B46;"&gt;HR Fixed Odds (Hoa hồng Horse Racing Fixed Odds)&lt;/span&gt; được áp dụng cho các loại cược của Horse Racing Fixed Odds.&lt;/li&gt;
+&lt;li&gt;&lt;span style="color:#E59B46;"&gt;Đua ngựa tỷ lệ cố định (Hoa hồng Horse Racing Fixed Odds)&lt;/span&gt; được áp dụng cho các loại cược của Horse Racing Fixed Odds.&lt;/li&gt;
 &lt;li&gt;M = Master, A = Agent, P = Member.&lt;/li&gt;</value>
   </data>
   <data name="apr" xml:space="preserve">
@@ -373,7 +373,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Những thành viên cấp dưới trực thuộc cũng sẽ bị chặn Casino</value>
   </data>
   <data name="casinoPositionTaking" xml:space="preserve">
-    <value>(%) PT của Casino</value>
+    <value>PT (%) của Casino</value>
   </data>
   <data name="city" xml:space="preserve">
     <value>Thành phố</value>
@@ -475,7 +475,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Bạn có muốn cho phép Master này sử dụng chức năng Auto PT?</value>
   </data>
   <data name="ConfirmSecurityCode" xml:space="preserve">
-    <value>Xác nhận Mã bảo mật</value>
+    <value>Xác nhận mã bảo mật mới</value>
   </data>
   <data name="confirmSuspendDownline" xml:space="preserve">
     <value>Bạn có chắc muốn đình chỉ thành viên này?\n Khuyến cáo, tất cả cấp dưới trực thuộc thành viên này sẽ không thể đặt cược?</value>
@@ -502,7 +502,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Contact Us</value>
   </data>
   <data name="correctscore" xml:space="preserve">
-    <value>Điểm số chính xác</value>
+    <value>Tỷ số chính xác</value>
   </data>
   <data name="country" xml:space="preserve">
     <value>Quốc gia</value>
@@ -517,7 +517,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Hạn mức tín dụng</value>
   </data>
   <data name="creditbalance" xml:space="preserve">
-    <value>Hạn mức /Tín dụng</value>
+    <value>Tín dụng/Balance</value>
   </data>
   <data name="creditInvalid" xml:space="preserve">
     <value>Hạn mức nhập vào không đúng</value>
@@ -739,7 +739,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Từ</value>
   </data>
   <data name="ft" xml:space="preserve">
-    <value>FT</value>
+    <value>Toàn trận</value>
   </data>
   <data name="FullControl" xml:space="preserve">
     <value>Toàn quyền </value>
@@ -811,7 +811,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Cao</value>
   </data>
   <data name="highestturnoverofthemonth" xml:space="preserve">
-    <value>Thành viên đặt cược nhiều nhất trong tháng</value>
+    <value>Member đặt cược nhiều nhất trong tháng</value>
   </data>
   <data name="highlow" xml:space="preserve">
     <value>High/Low</value>
@@ -829,7 +829,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Racing</value>
   </data>
   <data name="HRFixedOdds" xml:space="preserve">
-    <value>HR Fixed Odds</value>
+    <value>Đua ngựa tỷ lệ cố định</value>
   </data>
   <data name="hrminpt" xml:space="preserve">
     <value>PT nhỏ nhất của Racing</value>
@@ -871,7 +871,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Những loại hình cá cược mà không cần phải xem trước thiết lập như Live Casino cũng sẽ được cấp cho những Master mới .</value>
   </data>
   <data name="infoSearchAndCopyMember" xml:space="preserve">
-    <value>Những loại hình cá cược mà không cần phải xem trước thiết lập như Live Casino cũng sẽ được cấp phép cho những member mới.</value>
+    <value>Những loại hình cá cược không cần phải xem trước thiết lập như Live Casino vẫn sẽ được cấp phép cho member mới.</value>
   </data>
   <data name="introNickname" xml:space="preserve">
     <value>&lt;div&gt;Chào những thành viên thân mến !.Bây giò bạn có thể đăng nhập bằng chính Biệt Danh của mình&lt;/div&gt;</value>
@@ -971,13 +971,13 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Tổng mức tín dụng có thể chuyển khoản</value>
   </data>
   <data name="lblAddNewAgent" xml:space="preserve">
-    <value>Tạo thành viên Agent mới</value>
+    <value>Tạo Agent mới</value>
   </data>
   <data name="lblAddNewMaster" xml:space="preserve">
-    <value>Tạo thành viên Master mới</value>
+    <value>Tạo Master mới</value>
   </data>
   <data name="lblAddNewMember" xml:space="preserve">
-    <value>Tạo thành viên  mới</value>
+    <value>Tạo Member  mới</value>
   </data>
   <data name="lblAG" xml:space="preserve">
     <value>AG</value>
@@ -995,7 +995,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Hạn mức tín dụng tối đa của Agent</value>
   </data>
   <data name="lblAgentOutstanding" xml:space="preserve">
-    <value>Số tiền chưa xử lý của Agent</value>
+    <value>Tiền chưa xử lý của Agent</value>
   </data>
   <data name="lblAgOutst" xml:space="preserve">
     <value>Số  tiền chưa xử lý của Ag</value>
@@ -1004,7 +1004,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Bạn có chắc muốn chặn thành viên này chơi Casino</value>
   </data>
   <data name="lblAlertDisableHRFixedOddsMember" xml:space="preserve">
-    <value>Cảnh báo!!!  Bạn có chắc muốn chặn thành viên này chơi HR Fixed Odds ?</value>
+    <value>Cảnh báo!!!  Bạn có chắc muốn chặn thành viên này chơi Đua ngựa tỷ lệ cố định?</value>
   </data>
   <data name="lblAlertDisableSATote" xml:space="preserve">
     <value>Cảnh báo: Bạn có muốn chặn thành viên này chơi SA Tote và tất cả những thành viên cấp dưới trực thuộc </value>
@@ -1106,7 +1106,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Bạn vừa mới ngăn Master này lấy  Auto PT.&lt;br&gt;Bạn có muốn cập nhật PT của tất cả Member với:</value>
   </data>
   <data name="lblConfirmPassword" xml:space="preserve">
-    <value>Xác nhận Mật Khẩu mới</value>
+    <value>Xác nhận mật khẩu mới</value>
   </data>
   <data name="lblCopyAllPTfromHdp" xml:space="preserve">
     <value>Sao chép tất cả thiết lập về tiền cược và PT từ Bóng Đá - Handicap (ngoại trừ Number Game)</value>
@@ -1166,7 +1166,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Casino</value>
   </data>
   <data name="lbleditcomm" xml:space="preserve">
-    <value>Tùy chỉnh giá tri tiền hoa hồng</value>
+    <value>Tùy chỉnh giá tri hoa hồng</value>
   </data>
   <data name="lbledithr" xml:space="preserve">
     <value>Racing</value>
@@ -1232,7 +1232,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Thiết lập theo nhóm</value>
   </data>
   <data name="lblHandicapFC" xml:space="preserve">
-    <value>Handicap</value>
+    <value>Cược Chấp</value>
   </data>
   <data name="lblLearnMore" xml:space="preserve">
     <value>Vui lòng tìm hiểu thêm tại đây</value>
@@ -1250,7 +1250,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>MA</value>
   </data>
   <data name="lblMasOutst" xml:space="preserve">
-    <value>Số tiền chưa xử lý của Master</value>
+    <value>Tiền chưa xử lý của Master</value>
   </data>
   <data name="lblMasterCredit" xml:space="preserve">
     <value>Hạn mức tín dụng của Master</value>
@@ -1262,7 +1262,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Hạn mức tín dụng tối đa của Master</value>
   </data>
   <data name="lblMasterOutstanding" xml:space="preserve">
-    <value>Số tiền chưa xử lý của Master</value>
+    <value>Tiền chưa xử lý của Master</value>
   </data>
   <data name="lblMasterPresetPosition" xml:space="preserve">
     <value>Những thiết lập trước đó của Master</value>
@@ -1340,7 +1340,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Không hòa</value>
   </data>
   <data name="lblNormal" xml:space="preserve">
-    <value>Bình thường</value>
+    <value>Thông dụng</value>
   </data>
   <data name="lblNotAskSecCodeAgain" xml:space="preserve">
     <value>Vui lòng không hỏi lại trong phiên làm việc này</value>
@@ -1358,7 +1358,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>O/E</value>
   </data>
   <data name="lblOldPassword" xml:space="preserve">
-    <value>Mật Khẩu hiện tại</value>
+    <value>Mật khẩu hiện tại</value>
   </data>
   <data name="lblOtherTypes" xml:space="preserve">
     <value>Loại cược khác</value>
@@ -1437,7 +1437,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Giá trị PT trước đó của Super</value>
   </data>
   <data name="lblRace" xml:space="preserve">
-    <value>Race </value>
+    <value>Vòng đua</value>
   </data>
   <data name="lblRequiredSecCode" xml:space="preserve">
     <value>Mã bảo mật phải:
@@ -1500,7 +1500,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>TG</value>
   </data>
   <data name="lblTotalActiveClosedSuspended" xml:space="preserve">
-    <value>Tổng số tài khoản hiện đang: Kích hoạt / Khóa / Đình chỉ</value>
+    <value>Tổng số tài khoản đang Hoạt Động/Khóa/Đình Chỉ</value>
   </data>
   <data name="lblTotalAgentActiveClosed" xml:space="preserve">
     <value>Số tài khoản Agent hiện đang: Kích hoạt/Khóa/Đình chỉ</value>
@@ -1512,7 +1512,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Tổng số tiền giao dịch</value>
   </data>
   <data name="lblTotalBGOutstanding" xml:space="preserve">
-    <value>Tổng số tiền chưa xử lý của Bingo</value>
+    <value>Tổng tiền chưa xử lý của Bingo</value>
   </data>
   <data name="lblTotalBGTransfer" xml:space="preserve">
     <value>Tổng số tiền chuyển khoản cho  Bingo</value>
@@ -1521,13 +1521,13 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Tổng số tiền chuyển khoản /chưa xử lý bên Bingo</value>
   </data>
   <data name="lblTotalCSOutstanding" xml:space="preserve">
-    <value>Tổng số  tiền chưa xử lý của Casino</value>
+    <value>Tổng tiền chưa xử lý của Casino</value>
   </data>
   <data name="lblTotalCSTransfer" xml:space="preserve">
-    <value>Tổng số Tiền chuyển khoản cho Casino</value>
+    <value>Tổng tiền chuyển khoản của Casino</value>
   </data>
   <data name="lblTotalCSTransferOutstanding" xml:space="preserve">
-    <value>Tổng số tiền chuyển khoản /chưa xử lý bên Casino</value>
+    <value>Tổng tiền chuyển khoản/chưa xử lý của Casino</value>
   </data>
   <data name="lblTotalMasterCredit" xml:space="preserve">
     <value>Tổng mức tín dụng của Master</value>
@@ -1539,22 +1539,22 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Tổng mức tín dụng của Member</value>
   </data>
   <data name="lblTotalOutstanding" xml:space="preserve">
-    <value>Tổng số  tiền chưa xử lý</value>
+    <value>Tổng tiền chưa xử lý</value>
   </data>
   <data name="lblTotalP2PTransferOutstanding" xml:space="preserve">
-    <value>Tổng số tiền chuyển khoản /chưa xử lý bên Poker</value>
+    <value>Tổng tiền chuyển khoản/chưa xử lý của Poker</value>
   </data>
   <data name="lblView1stHandicapForecast" xml:space="preserve">
-    <value>Xem dự đoán kết quả hiệp 1 - Handicap</value>
+    <value>Xem dự đoán kết quả hiệp 1 - Cược Chấp</value>
   </data>
   <data name="lblView1stOverUnderForecast" xml:space="preserve">
-    <value>Xem dự đoán kết quả hiệp 1 -  Over/Under</value>
+    <value>Xem dự đoán kết quả hiệp 1 -  Tài Xỉu</value>
   </data>
   <data name="lblViewHandicapForecast" xml:space="preserve">
-    <value>Xem dự đoán kết quả- Handicap</value>
+    <value>Xem dự đoán kết quả - Cược Chấp</value>
   </data>
   <data name="lblViewOverUnderForecast" xml:space="preserve">
-    <value>Xem dự đoán kết quả - Over Under</value>
+    <value>Xem dự đoán kết quả - Tài Xỉu</value>
   </data>
   <data name="lblWin" xml:space="preserve">
     <value>Win</value>
@@ -1740,7 +1740,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Thứ 2</value>
   </data>
   <data name="moneyline" xml:space="preserve">
-    <value>Money Line</value>
+    <value>Moneyline</value>
   </data>
   <data name="monthly" xml:space="preserve">
     <value>Hằng tháng</value>
@@ -1778,7 +1778,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Tên</value>
   </data>
   <data name="newmemberofthemonth" xml:space="preserve">
-    <value>Thành viên mới trong tháng</value>
+    <value>Member mới trong tháng</value>
   </data>
   <data name="next" xml:space="preserve">
     <value>Kế tiếp</value>
@@ -1985,7 +1985,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Private Games</value>
   </data>
   <data name="product" xml:space="preserve">
-    <value>Product</value>
+    <value>Sản Phẩm</value>
   </data>
   <data name="Racebook" xml:space="preserve">
     <value>Racing</value>
@@ -1994,7 +1994,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Ref No</value>
   </data>
   <data name="refresh" xml:space="preserve">
-    <value>Refresh</value>
+    <value>Làm mới</value>
   </data>
   <data name="reportby" xml:space="preserve">
     <value>Báo cáo</value>
@@ -2033,7 +2033,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Lưu thiết lập về tiền đặt cược</value>
   </data>
   <data name="saveCommission" xml:space="preserve">
-    <value>Lưu  giá trị tiền hoa hồng</value>
+    <value>Lưu  giá trị hoa hồng</value>
   </data>
   <data name="saveGameSetting" xml:space="preserve">
     <value>Lưu thiết lập về Game</value>
@@ -2111,7 +2111,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Thiết lập của </value>
   </data>
   <data name="showhidecolumnAd" xml:space="preserve">
-    <value>Nhấp chuột phải trên đầu của mỗi cột để Ẩn/ Hiện cột đó</value>
+    <value>Nhấp chuột phải trên đầu cột để Ẩn/Hiện các cột</value>
   </data>
   <data name="sideGame" xml:space="preserve">
     <value>Side Game</value>
@@ -2174,7 +2174,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>WARNING!!! Are you sure you want to disable E-Sports on this customer and all downlines?</value>
   </data>
   <data name="strConfirmDisableHRFixedOdds" xml:space="preserve">
-    <value>Cảnh báo!!!  Bạn có chắc muốn chặn thành viên này chơi HR Fixed Odds và tất cả những thành viên cấp dưới trực thuộc thành viên đó?</value>
+    <value>Cảnh báo!!!  Bạn có chắc muốn chặn thành viên này chơi Đua ngựa tỷ lệ cố định và tất cả những thành viên cấp dưới trực thuộc thành viên đó?</value>
   </data>
   <data name="strConfirmDisableNumber" xml:space="preserve">
     <value>Cảnh báo!!!  Bạn có chắc muốn chặn thành viên này chơi Number Game và tất cả những thành viên cấp dưới trực thuộc thành viên đó?</value>
@@ -2195,7 +2195,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Do you want to enable E-Sports for this customer?</value>
   </data>
   <data name="strConfirmEnableHRFixedOdds" xml:space="preserve">
-    <value>Bạn có muốn cho phép thành viên này chơi  HR Fixed Odds?</value>
+    <value>Bạn có muốn cho phép thành viên này chơi  Đua ngựa tỷ lệ cố định?</value>
   </data>
   <data name="strConfirmEnableNumber" xml:space="preserve">
     <value>Bạn có muốn cho phép thành viên này chơi Number Game?</value>
@@ -2276,7 +2276,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Thứ 5</value>
   </data>
   <data name="tipcomm1" xml:space="preserve">
-    <value>Comm1: áp dụng đối với  Asian HDP, Over Under và Lẻ/Chẵn</value>
+    <value>Comm1: áp dụng đối với  Asian HDP, Tài Xỉu và Lẻ/Chẵn</value>
   </data>
   <data name="tipcomm2" xml:space="preserve">
     <value>Comm2: áp dụng đối với 1x2</value>
@@ -2303,7 +2303,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Click to view note</value>
   </data>
   <data name="top10winningmembers" xml:space="preserve">
-    <value>10 thành viên thắng cược nhiều nhất trong tháng</value>
+    <value>10 member thắng nhiều nhất trong tháng</value>
   </data>
   <data name="total" xml:space="preserve">
     <value>Tổng cộng</value>
@@ -2402,7 +2402,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Thành viên này không online</value>
   </data>
   <data name="username" xml:space="preserve">
-    <value>Tài khoản</value>
+    <value>Tên đăng nhập</value>
   </data>
   <data name="usernameconsolidatedreport" xml:space="preserve">
     <value>Consolidated Report By Username</value>
@@ -2411,7 +2411,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Thông tin chưa được cập nhật</value>
   </data>
   <data name="usernameOrNickname" xml:space="preserve">
-    <value>Tên tài khoản hoặc Biệt Danh</value>
+    <value>Tên đăng nhập hoặc Biệt Danh</value>
   </data>
   <data name="usernamerequired" xml:space="preserve">
     <value>Bắt buộc phải là tên tài khoản hoặc biệt danh</value>
@@ -2429,7 +2429,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Xem dữ liệu trong tháng</value>
   </data>
   <data name="viewgroupcommission" xml:space="preserve">
-    <value>Xem nhóm &amp; tiền hoa hồng</value>
+    <value>Xem nhóm &amp; hoa hồng</value>
   </data>
   <data name="ViewHistoryReport1" xml:space="preserve">
     <value>Bạn có thể tra cứu dữ liệu báo cáo từ ngày {0}.Nếu muốn tìm kiếm những dữ liệu cũ hơn Bấm {1}</value>
@@ -2495,7 +2495,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Hằng tuần</value>
   </data>
   <data name="win" xml:space="preserve">
-    <value>Thắng / Thua</value>
+    <value>Thắng thua</value>
   </data>
   <data name="winautote" xml:space="preserve">
     <value>Win.Aust Tote</value>
@@ -2564,6 +2564,9 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Progressive Bonus</value>
   </data>
   <data name="AllProducts" xml:space="preserve">
-    <value>All Products</value>
+    <value>Tất cả sản phẩm</value>
+  </data>
+  <data name="Of_Pager" xml:space="preserve">
+    <value>trên</value>
   </data>
 </root>

@@ -2572,4 +2572,7 @@ Please use the form below to set your Security Code now.</value>
   <data name="AllProducts" xml:space="preserve">
     <value>All Products</value>
   </data>
+  <data name="Of_Pager" xml:space="preserve">
+    <value>ของ</value>
+  </data>
 </root>

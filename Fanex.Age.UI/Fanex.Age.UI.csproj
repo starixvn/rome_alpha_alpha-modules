@@ -113,8 +113,8 @@
       <HintPath>..\packages\Fanex.Logging.1.0.0.0\lib\net40\Fanex.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Razorbill.Security, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Razorbill.Security.3.0.0.3\lib\net40\Fanex.Razorbill.Security.dll</HintPath>
+    <Reference Include="Fanex.Razorbill.Security, Version=3.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Razorbill.Security.3.0.0.4-vnresources10\lib\net40\Fanex.Razorbill.Security.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Security.Captcha, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

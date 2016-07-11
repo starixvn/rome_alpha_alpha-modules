@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,131 +59,131 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="accbalancetrancondition" xml:space="preserve">
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="accbalancetrancondition" xml:space="preserve">
     <value>转帐设定</value>
   </data>
-  <data name="acomm1" xml:space="preserve">
+    <data name="acomm1" xml:space="preserve">
     <value>代理佣金(1)</value>
   </data>
-  <data name="acomm2" xml:space="preserve">
+    <data name="acomm2" xml:space="preserve">
     <value>代理佣金(2)</value>
   </data>
-  <data name="addsubaccount" xml:space="preserve">
+    <data name="addsubaccount" xml:space="preserve">
     <value>新增子帐号</value>
   </data>
-  <data name="agent" xml:space="preserve">
+    <data name="agent" xml:space="preserve">
     <value>代理</value>
   </data>
-  <data name="agentbalance" xml:space="preserve">
+    <data name="agentbalance" xml:space="preserve">
     <value>代理余额</value>
   </data>
-  <data name="agentcash" xml:space="preserve">
+    <data name="agentcash" xml:space="preserve">
     <value>代理现金</value>
   </data>
-  <data name="agentwinloss" xml:space="preserve">
+    <data name="agentwinloss" xml:space="preserve">
     <value>代理输赢</value>
   </data>
-  <data name="agentwinlostdetail" xml:space="preserve">
+    <data name="agentwinlostdetail" xml:space="preserve">
     <value>代理输赢细节</value>
   </data>
-  <data name="alertAgentCredit" xml:space="preserve">
+    <data name="alertAgentCredit" xml:space="preserve">
     <value>代理最高信用額不正確</value>
   </data>
-  <data name="alertConfirmPasswordEmpty" xml:space="preserve">
+    <data name="alertConfirmPasswordEmpty" xml:space="preserve">
     <value>密碼確認不能留空</value>
   </data>
-  <data name="alertErrorConfirm" xml:space="preserve">
+    <data name="alertErrorConfirm" xml:space="preserve">
     <value>您的密码不能被确认</value>
   </data>
-  <data name="alertInputOldPwd" xml:space="preserve">
+    <data name="alertInputOldPwd" xml:space="preserve">
     <value>请输入旧密码</value>
   </data>
-  <data name="alertMasterCredit" xml:space="preserve">
+    <data name="alertMasterCredit" xml:space="preserve">
     <value>總代理最高信用額不正確</value>
   </data>
-  <data name="alertMemberCredit" xml:space="preserve">
+    <data name="alertMemberCredit" xml:space="preserve">
     <value>會員最高信用額不正確</value>
   </data>
-  <data name="alertPasswordEmpty" xml:space="preserve">
+    <data name="alertPasswordEmpty" xml:space="preserve">
     <value>密码不能留空</value>
   </data>
-  <data name="alertUserName" xml:space="preserve">
+    <data name="alertUserName" xml:space="preserve">
     <value>请输入您的用户名字</value>
   </data>
-  <data name="all" xml:space="preserve">
+    <data name="all" xml:space="preserve">
     <value>全部</value>
   </data>
-  <data name="allagent" xml:space="preserve">
+    <data name="allagent" xml:space="preserve">
     <value>所有代理</value>
   </data>
-  <data name="allmember" xml:space="preserve">
+    <data name="allmember" xml:space="preserve">
     <value>所有会员</value>
   </data>
-  <data name="allowtransfer" xml:space="preserve">
+    <data name="allowtransfer" xml:space="preserve">
     <value>您的转账设定为</value>
   </data>
-  <data name="amount" xml:space="preserve">
+    <data name="amount" xml:space="preserve">
     <value>金额</value>
   </data>
-  <data name="appliesallbettype" xml:space="preserve">
+    <data name="appliesallbettype" xml:space="preserve">
     <value>&lt;li&gt;&lt;span style="color:#E59B46;"&gt;佣金 1(%)&lt;/span&gt; 适用于投注类型: 亚洲盘、单双、大小盘、上半场亚洲盘、上半场大小盘、上半场单双、零失球、获胜球队 (平局退款)、零失球的胜方、三项让分投注、主队 (不获胜球队)、客队 (不获胜球队)、平局/不是平局, 半场/全场 单/双, 半场主队单/双, 主队单/双, 半场客队单/双, 客队单/双, Game Handicap, Set x Game Handicap, Set x Total Games, Set Handicap, Match Total Games Odd/Even, Match Total Games Over/Under, Set x Total Game Odd/Even, 独赢, 上半场独赢, (独赢) &amp; (获胜者), 第 x 盘获胜者, 第 x 盘 - 第 y 局获胜者.&lt;/li&gt;
 &lt;li&gt;&lt;span style="color:#E59B46;"&gt;佣金2&lt;/span&gt; 适用于所有1x2类型的投注.&lt;/li&gt;
 &lt;li&gt;&lt;span style="color:#E59B46;"&gt;佣金3&lt;/span&gt; 应用于其他投注类别.&lt;/li&gt;
@@ -191,2141 +191,2141 @@
 &lt;li&gt;&lt;span style="color:#E59B46;"&gt;固定赔率赛马 (固定赔率赛马佣金)&lt;/span&gt; 应用于固定赔率赛马的投注类别.&lt;/li&gt;
 &lt;li&gt;M = 总代理, A = 代理, P = 会员&lt;/li&gt;</value>
   </data>
-  <data name="balance" xml:space="preserve">
+    <data name="balance" xml:space="preserve">
     <value>现金</value>
   </data>
-  <data name="Baseball" xml:space="preserve">
+    <data name="Baseball" xml:space="preserve">
     <value>棒球</value>
   </data>
-  <data name="Basketball" xml:space="preserve">
+    <data name="Basketball" xml:space="preserve">
     <value>篮球</value>
   </data>
-  <data name="bet" xml:space="preserve">
+    <data name="bet" xml:space="preserve">
     <value>投注</value>
   </data>
-  <data name="betcredit" xml:space="preserve">
+    <data name="betcredit" xml:space="preserve">
     <value>投注额度</value>
   </data>
-  <data name="BetList" xml:space="preserve">
+    <data name="BetList" xml:space="preserve">
     <value>投注历史</value>
   </data>
-  <data name="betsummary" xml:space="preserve">
+    <data name="betsummary" xml:space="preserve">
     <value>投注摘要</value>
   </data>
-  <data name="btnAdd" xml:space="preserve">
+    <data name="btnAdd" xml:space="preserve">
     <value>增加</value>
   </data>
-  <data name="cancel" xml:space="preserve">
+    <data name="cancel" xml:space="preserve">
     <value>取消</value>
   </data>
-  <data name="close" xml:space="preserve">
+    <data name="close" xml:space="preserve">
     <value>关闭</value>
   </data>
-  <data name="closed" xml:space="preserve">
+    <data name="closed" xml:space="preserve">
     <value>关闭</value>
   </data>
-  <data name="com" xml:space="preserve">
+    <data name="com" xml:space="preserve">
     <value>佣金</value>
   </data>
-  <data name="commission" xml:space="preserve">
+    <data name="commission" xml:space="preserve">
     <value>佣金</value>
   </data>
-  <data name="company" xml:space="preserve">
+    <data name="company" xml:space="preserve">
     <value>公司</value>
   </data>
-  <data name="confirmtransfer" xml:space="preserve">
+    <data name="confirmtransfer" xml:space="preserve">
     <value>是否确定转账</value>
   </data>
-  <data name="correctscore" xml:space="preserve">
+    <data name="correctscore" xml:space="preserve">
     <value>波胆</value>
   </data>
-  <data name="createaccount" xml:space="preserve">
+    <data name="createaccount" xml:space="preserve">
     <value>新增帐号功能</value>
   </data>
-  <data name="credit" xml:space="preserve">
+    <data name="credit" xml:space="preserve">
     <value>信用额度</value>
   </data>
-  <data name="creditbalance" xml:space="preserve">
+    <data name="creditbalance" xml:space="preserve">
     <value>信用额度/馀额</value>
   </data>
-  <data name="customer" xml:space="preserve">
+    <data name="customer" xml:space="preserve">
     <value>会员</value>
   </data>
-  <data name="customerlist" xml:space="preserve">
+    <data name="customerlist" xml:space="preserve">
     <value>会员</value>
   </data>
-  <data name="daily" xml:space="preserve">
+    <data name="daily" xml:space="preserve">
     <value>每天</value>
   </data>
-  <data name="dailystatement" xml:space="preserve">
+    <data name="dailystatement" xml:space="preserve">
     <value>每日账目</value>
   </data>
-  <data name="date" xml:space="preserve">
+    <data name="date" xml:space="preserve">
     <value>日期</value>
   </data>
-  <data name="edit" xml:space="preserve">
+    <data name="edit" xml:space="preserve">
     <value>修改</value>
   </data>
-  <data name="editsubacc" xml:space="preserve">
+    <data name="editsubacc" xml:space="preserve">
     <value>修改子账号</value>
   </data>
-  <data name="errRequireValidationCode" xml:space="preserve">
+    <data name="errRequireValidationCode" xml:space="preserve">
     <value>您必須輸入正確驗證碼</value>
   </data>
-  <data name="even" xml:space="preserve">
+    <data name="even" xml:space="preserve">
     <value>双</value>
   </data>
-  <data name="events" xml:space="preserve">
+    <data name="events" xml:space="preserve">
     <value>赛事</value>
   </data>
-  <data name="exporttoexcel" xml:space="preserve">
+    <data name="exporttoexcel" xml:space="preserve">
     <value>导出到Excel</value>
   </data>
-  <data name="Financial" xml:space="preserve">
+    <data name="Financial" xml:space="preserve">
     <value>金融</value>
   </data>
-  <data name="first" xml:space="preserve">
+    <data name="first" xml:space="preserve">
     <value>首页</value>
   </data>
-  <data name="firstname" xml:space="preserve">
+    <data name="firstname" xml:space="preserve">
     <value>名</value>
   </data>
-  <data name="Football" xml:space="preserve">
+    <data name="Football" xml:space="preserve">
     <value>美式足球</value>
   </data>
-  <data name="fri" xml:space="preserve">
+    <data name="fri" xml:space="preserve">
     <value>五</value>
   </data>
-  <data name="friday" xml:space="preserve">
+    <data name="friday" xml:space="preserve">
     <value>星期五</value>
   </data>
-  <data name="from" xml:space="preserve">
+    <data name="from" xml:space="preserve">
     <value>从</value>
   </data>
-  <data name="ft" xml:space="preserve">
+    <data name="ft" xml:space="preserve">
     <value>全场</value>
   </data>
-  <data name="fullmode" xml:space="preserve">
+    <data name="fullmode" xml:space="preserve">
     <value>完全版</value>
   </data>
-  <data name="givencredit" xml:space="preserve">
+    <data name="givencredit" xml:space="preserve">
     <value>信用额度</value>
   </data>
-  <data name="Golf" xml:space="preserve">
+    <data name="Golf" xml:space="preserve">
     <value>高尔夫球</value>
   </data>
-  <data name="grosscomm" xml:space="preserve">
+    <data name="grosscomm" xml:space="preserve">
     <value>总佣金</value>
   </data>
-  <data name="group" xml:space="preserve">
+    <data name="group" xml:space="preserve">
     <value>组别</value>
   </data>
-  <data name="hdp" xml:space="preserve">
+    <data name="hdp" xml:space="preserve">
     <value>让球</value>
   </data>
-  <data name="ImgLogOut" xml:space="preserve">
+    <data name="ImgLogOut" xml:space="preserve">
     <value>注销</value>
   </data>
-  <data name="invalidLogin" xml:space="preserve">
+    <data name="invalidLogin" xml:space="preserve">
     <value>账号或密码错误</value>
   </data>
-  <data name="ip" xml:space="preserve">
+    <data name="ip" xml:space="preserve">
     <value>IP</value>
   </data>
-  <data name="last" xml:space="preserve">
+    <data name="last" xml:space="preserve">
     <value>尾页</value>
   </data>
-  <data name="lastlogin" xml:space="preserve">
+    <data name="lastlogin" xml:space="preserve">
     <value>最后登入</value>
   </data>
-  <data name="lastloginIP" xml:space="preserve">
+    <data name="lastloginIP" xml:space="preserve">
     <value>最后登入IP</value>
   </data>
-  <data name="lastname" xml:space="preserve">
+    <data name="lastname" xml:space="preserve">
     <value>姓</value>
   </data>
-  <data name="lasttxn" xml:space="preserve">
+    <data name="lasttxn" xml:space="preserve">
     <value>最后交易</value>
   </data>
-  <data name="lbl1stHdp" xml:space="preserve">
+    <data name="lbl1stHdp" xml:space="preserve">
     <value>上半场亚洲盘</value>
   </data>
-  <data name="lbl1stOU" xml:space="preserve">
+    <data name="lbl1stOU" xml:space="preserve">
     <value>上半场大小盘</value>
   </data>
-  <data name="lbl1x2" xml:space="preserve">
+    <data name="lbl1x2" xml:space="preserve">
     <value>1 X 2</value>
   </data>
-  <data name="lblABalInfo" xml:space="preserve">
+    <data name="lblABalInfo" xml:space="preserve">
     <value>代理馀额资讯</value>
   </data>
-  <data name="lblAccountInformation" xml:space="preserve">
+    <data name="lblAccountInformation" xml:space="preserve">
     <value>账号资料</value>
   </data>
-  <data name="lblAddNewAgent" xml:space="preserve">
+    <data name="lblAddNewAgent" xml:space="preserve">
     <value>新增代理</value>
   </data>
-  <data name="lblAddNewMaster" xml:space="preserve">
+    <data name="lblAddNewMaster" xml:space="preserve">
     <value>新增总代理</value>
   </data>
-  <data name="lblAddNewMember" xml:space="preserve">
+    <data name="lblAddNewMember" xml:space="preserve">
     <value>增加会员</value>
   </data>
-  <data name="lblAgentCredit" xml:space="preserve">
+    <data name="lblAgentCredit" xml:space="preserve">
     <value>代理信用额</value>
   </data>
-  <data name="lblAgentInfo" xml:space="preserve">
+    <data name="lblAgentInfo" xml:space="preserve">
     <value>代理资料</value>
   </data>
-  <data name="lblAgentList" xml:space="preserve">
+    <data name="lblAgentList" xml:space="preserve">
     <value>代理</value>
   </data>
-  <data name="lblAgentMaxCredit" xml:space="preserve">
+    <data name="lblAgentMaxCredit" xml:space="preserve">
     <value>代理最高信用额度</value>
   </data>
-  <data name="lblAgentOutstanding" xml:space="preserve">
+    <data name="lblAgentOutstanding" xml:space="preserve">
     <value>代理未结束交易</value>
   </data>
-  <data name="lblAsianHDC_OU_OE" xml:space="preserve">
+    <data name="lblAsianHDC_OU_OE" xml:space="preserve">
     <value>亚洲盘,大小盘,单双</value>
   </data>
-  <data name="lblAutoSuperPresetPosition" xml:space="preserve">
+    <data name="lblAutoSuperPresetPosition" xml:space="preserve">
     <value>超级总代理自动占成</value>
   </data>
-  <data name="lblBack" xml:space="preserve">
+    <data name="lblBack" xml:space="preserve">
     <value>退回</value>
   </data>
-  <data name="lblBetListRunning" xml:space="preserve">
+    <data name="lblBetListRunning" xml:space="preserve">
     <value>投注历史(进行中)</value>
   </data>
-  <data name="lblBetLists" xml:space="preserve">
+    <data name="lblBetLists" xml:space="preserve">
     <value>投注历史</value>
   </data>
-  <data name="lblBetSetting" xml:space="preserve">
+    <data name="lblBetSetting" xml:space="preserve">
     <value>投注设定</value>
   </data>
-  <data name="lblCashBalance" xml:space="preserve">
+    <data name="lblCashBalance" xml:space="preserve">
     <value>现金余额</value>
   </data>
-  <data name="lblChangePassword" xml:space="preserve">
+    <data name="lblChangePassword" xml:space="preserve">
     <value>更改密码</value>
   </data>
-  <data name="lblClosed" xml:space="preserve">
+    <data name="lblClosed" xml:space="preserve">
     <value>关闭</value>
   </data>
-  <data name="lblConfirmEditMaster" xml:space="preserve">
+    <data name="lblConfirmEditMaster" xml:space="preserve">
     <value>您已更改此总代理不再自动占成.&lt;br&gt;您是否要把所有会员的占成数更改为:</value>
   </data>
-  <data name="lblConfirmPassword" xml:space="preserve">
+    <data name="lblConfirmPassword" xml:space="preserve">
     <value>确定密码</value>
   </data>
-  <data name="lblCopyAllPTfromHdp" xml:space="preserve">
+    <data name="lblCopyAllPTfromHdp" xml:space="preserve">
     <value>从足球设定复制所有投注设定和占成数（不包括数字游戏)</value>
   </data>
-  <data name="lblCopyAllPTfromHdpMin" xml:space="preserve">
+    <data name="lblCopyAllPTfromHdpMin" xml:space="preserve">
     <value>从足球亚洲盘复制所有设定（不包括数字游戏)</value>
   </data>
-  <data name="lblCopyBasketHdp" xml:space="preserve">
+    <data name="lblCopyBasketHdp" xml:space="preserve">
     <value>从篮球设定复制所有投注设定和占成数（不包括数字游戏)</value>
   </data>
-  <data name="lblCopyBasketHdpMin" xml:space="preserve">
+    <data name="lblCopyBasketHdpMin" xml:space="preserve">
     <value>从篮球亚洲盘复制所有设定（不包括数字游戏)</value>
   </data>
-  <data name="lblCopyAllPTfromHdpNoNumberGame" xml:space="preserve">
+    <data name="lblCopyAllPTfromHdpNoNumberGame" xml:space="preserve">
     <value>从足球设定复制所有投注设定和占成数</value>
   </data>
-  <data name="lblCopyAllPTfromHdpMinNoNumberGame" xml:space="preserve">
+    <data name="lblCopyAllPTfromHdpMinNoNumberGame" xml:space="preserve">
     <value>从足球亚洲盘复制所有设定</value>
   </data>
-  <data name="lblCopyBasketHdpNoNumberGame" xml:space="preserve">
+    <data name="lblCopyBasketHdpNoNumberGame" xml:space="preserve">
     <value>从篮球设定复制所有投注设定和占成数</value>
   </data>
-  <data name="lblCopyBasketHdpMinNoNumberGame" xml:space="preserve">
+    <data name="lblCopyBasketHdpMinNoNumberGame" xml:space="preserve">
     <value>从篮球亚洲盘复制所有设定</value>
   </data>
-  <data name="lblCreditInvalid" xml:space="preserve">
+    <data name="lblCreditInvalid" xml:space="preserve">
     <value>{0}应从{1}至{2}之间</value>
   </data>
-  <data name="lblCS" xml:space="preserve">
+    <data name="lblCS" xml:space="preserve">
     <value>波胆</value>
   </data>
-  <data name="lblDeadball" xml:space="preserve">
+    <data name="lblDeadball" xml:space="preserve">
     <value>非滚球</value>
   </data>
-  <data name="lblDraw" xml:space="preserve">
+    <data name="lblDraw" xml:space="preserve">
     <value>和</value>
   </data>
-  <data name="lblEditAgent" xml:space="preserve">
+    <data name="lblEditAgent" xml:space="preserve">
     <value>修改代理</value>
   </data>
-  <data name="lblFax" xml:space="preserve">
+    <data name="lblFax" xml:space="preserve">
     <value>传真</value>
   </data>
-  <data name="lblForecast" xml:space="preserve">
+    <data name="lblForecast" xml:space="preserve">
     <value>预测</value>
   </data>
-  <data name="lblGroupa" xml:space="preserve">
+    <data name="lblGroupa" xml:space="preserve">
     <value>A组</value>
   </data>
-  <data name="lblGroupb" xml:space="preserve">
+    <data name="lblGroupb" xml:space="preserve">
     <value>B组</value>
   </data>
-  <data name="lblGroupc" xml:space="preserve">
+    <data name="lblGroupc" xml:space="preserve">
     <value>C组</value>
   </data>
-  <data name="lblGroupd" xml:space="preserve">
+    <data name="lblGroupd" xml:space="preserve">
     <value>D组</value>
   </data>
-  <data name="lblHandicapFC" xml:space="preserve">
+    <data name="lblHandicapFC" xml:space="preserve">
     <value>亚洲盘</value>
   </data>
-  <data name="lblLive" xml:space="preserve">
+    <data name="lblLive" xml:space="preserve">
     <value>现场！</value>
   </data>
-  <data name="lblMasterCredit" xml:space="preserve">
+    <data name="lblMasterCredit" xml:space="preserve">
     <value>总代理信用额</value>
   </data>
-  <data name="lblMasterList" xml:space="preserve">
+    <data name="lblMasterList" xml:space="preserve">
     <value>总代理名单</value>
   </data>
-  <data name="lblMasterMaxCredit" xml:space="preserve">
+    <data name="lblMasterMaxCredit" xml:space="preserve">
     <value>总代理最高信用额</value>
   </data>
-  <data name="lblMasterOutstanding" xml:space="preserve">
+    <data name="lblMasterOutstanding" xml:space="preserve">
     <value>总代理未结束交易</value>
   </data>
-  <data name="lblMasterPresetPosition" xml:space="preserve">
+    <data name="lblMasterPresetPosition" xml:space="preserve">
     <value>总代理预定占成</value>
   </data>
-  <data name="lblMaxBet" xml:space="preserve">
+    <data name="lblMaxBet" xml:space="preserve">
     <value>最高投注</value>
   </data>
-  <data name="lblMaxPerMatch" xml:space="preserve">
+    <data name="lblMaxPerMatch" xml:space="preserve">
     <value>单场限额</value>
   </data>
-  <data name="lblMBalInfo" xml:space="preserve">
+    <data name="lblMBalInfo" xml:space="preserve">
     <value>总代理馀额资讯</value>
   </data>
-  <data name="lblMemberCommission" xml:space="preserve">
+    <data name="lblMemberCommission" xml:space="preserve">
     <value>会员佣金</value>
   </data>
-  <data name="lblMemberInfo" xml:space="preserve">
+    <data name="lblMemberInfo" xml:space="preserve">
     <value>会员资料</value>
   </data>
-  <data name="lblMemberMaxCredit" xml:space="preserve">
+    <data name="lblMemberMaxCredit" xml:space="preserve">
     <value>会员最高信用额</value>
   </data>
-  <data name="lblMessage" xml:space="preserve">
+    <data name="lblMessage" xml:space="preserve">
     <value>讯息</value>
   </data>
-  <data name="lblMinBet" xml:space="preserve">
+    <data name="lblMinBet" xml:space="preserve">
     <value>最低投注</value>
   </data>
-  <data name="lblMixParlay" xml:space="preserve">
+    <data name="lblMixParlay" xml:space="preserve">
     <value>混合过关</value>
   </data>
-  <data name="lblMobilePhone" xml:space="preserve">
+    <data name="lblMobilePhone" xml:space="preserve">
     <value>手机</value>
   </data>
-  <data name="lblMP" xml:space="preserve">
+    <data name="lblMP" xml:space="preserve">
     <value>混合过关</value>
   </data>
-  <data name="lblMultipleTransfer" xml:space="preserve">
+    <data name="lblMultipleTransfer" xml:space="preserve">
     <value>多重转账</value>
   </data>
-  <data name="lblOdd" xml:space="preserve">
+    <data name="lblOdd" xml:space="preserve">
     <value>单</value>
   </data>
-  <data name="lblOddEven" xml:space="preserve">
+    <data name="lblOddEven" xml:space="preserve">
     <value>单双</value>
   </data>
-  <data name="lblOE" xml:space="preserve">
+    <data name="lblOE" xml:space="preserve">
     <value>单双盘</value>
   </data>
-  <data name="lblOldPassword" xml:space="preserve">
+    <data name="lblOldPassword" xml:space="preserve">
     <value>旧密码</value>
   </data>
-  <data name="lblOtherTypes" xml:space="preserve">
+    <data name="lblOtherTypes" xml:space="preserve">
     <value>其他投注项目</value>
   </data>
-  <data name="lblOU" xml:space="preserve">
+    <data name="lblOU" xml:space="preserve">
     <value>大小盘</value>
   </data>
-  <data name="lblOutRight" xml:space="preserve">
+    <data name="lblOutRight" xml:space="preserve">
     <value>优胜冠军</value>
   </data>
-  <data name="lblOverUnder" xml:space="preserve">
+    <data name="lblOverUnder" xml:space="preserve">
     <value>大小盘</value>
   </data>
-  <data name="lblPhone" xml:space="preserve">
+    <data name="lblPhone" xml:space="preserve">
     <value>电话</value>
   </data>
-  <data name="lblPositionTaking" xml:space="preserve">
+    <data name="lblPositionTaking" xml:space="preserve">
     <value>占成数%</value>
   </data>
-  <data name="lblPostdate" xml:space="preserve">
+    <data name="lblPostdate" xml:space="preserve">
     <value>增加日期</value>
   </data>
-  <data name="lblSABInfo" xml:space="preserve">
+    <data name="lblSABInfo" xml:space="preserve">
     <value>超级总代理馀额资讯</value>
   </data>
-  <data name="lblSACredit" xml:space="preserve">
+    <data name="lblSACredit" xml:space="preserve">
     <value>超级总代理信用额度</value>
   </data>
-  <data name="lblSAOutstanding" xml:space="preserve">
+    <data name="lblSAOutstanding" xml:space="preserve">
     <value>超级总代理未完成交易</value>
   </data>
-  <data name="lblStatement" xml:space="preserve">
+    <data name="lblStatement" xml:space="preserve">
     <value>账目</value>
   </data>
-  <data name="lblStatusClosed" xml:space="preserve">
+    <data name="lblStatusClosed" xml:space="preserve">
     <value>关闭</value>
   </data>
-  <data name="lblSuperPresetPosition" xml:space="preserve">
+    <data name="lblSuperPresetPosition" xml:space="preserve">
     <value>超级总代理占成数</value>
   </data>
-  <data name="lblTG" xml:space="preserve">
+    <data name="lblTG" xml:space="preserve">
     <value>总进球</value>
   </data>
-  <data name="lblTotalAgentActiveClosed" xml:space="preserve">
+    <data name="lblTotalAgentActiveClosed" xml:space="preserve">
     <value>代理总数"活跃/关闭/暫停"</value>
   </data>
-  <data name="lblTotalAgentCredit" xml:space="preserve">
+    <data name="lblTotalAgentCredit" xml:space="preserve">
     <value>代理总信用额</value>
   </data>
-  <data name="lblTotalBalance" xml:space="preserve">
+    <data name="lblTotalBalance" xml:space="preserve">
     <value>总平均</value>
   </data>
-  <data name="lblTotalMasterCredit" xml:space="preserve">
+    <data name="lblTotalMasterCredit" xml:space="preserve">
     <value>总代理最高信用额</value>
   </data>
-  <data name="lblTotalMemberActiveClosed" xml:space="preserve">
+    <data name="lblTotalMemberActiveClosed" xml:space="preserve">
     <value>会员总数"活跃/关闭/暫停"</value>
   </data>
-  <data name="lblTotalMemberCredit" xml:space="preserve">
+    <data name="lblTotalMemberCredit" xml:space="preserve">
     <value>会员总信用额</value>
   </data>
-  <data name="lblTotalOutstanding" xml:space="preserve">
+    <data name="lblTotalOutstanding" xml:space="preserve">
     <value>未完成交易总数</value>
   </data>
-  <data name="lblView1stHandicapForecast" xml:space="preserve">
+    <data name="lblView1stHandicapForecast" xml:space="preserve">
     <value>游览上半场亚洲盘预测图</value>
   </data>
-  <data name="lblView1stOverUnderForecast" xml:space="preserve">
+    <data name="lblView1stOverUnderForecast" xml:space="preserve">
     <value>游览上半场大小盘预测图</value>
   </data>
-  <data name="lblViewHandicapForecast" xml:space="preserve">
+    <data name="lblViewHandicapForecast" xml:space="preserve">
     <value>游览亚洲盘预测图</value>
   </data>
-  <data name="lblViewOverUnderForecast" xml:space="preserve">
+    <data name="lblViewOverUnderForecast" xml:space="preserve">
     <value>游览大小盘预测图</value>
   </data>
-  <data name="league" xml:space="preserve">
+    <data name="league" xml:space="preserve">
     <value>联赛</value>
   </data>
-  <data name="Login" xml:space="preserve">
+    <data name="Login" xml:space="preserve">
     <value>登入</value>
   </data>
-  <data name="master" xml:space="preserve">
+    <data name="master" xml:space="preserve">
     <value>总代理</value>
   </data>
-  <data name="masterbalance" xml:space="preserve">
+    <data name="masterbalance" xml:space="preserve">
     <value>总代理馀额</value>
   </data>
-  <data name="mastercash" xml:space="preserve">
+    <data name="mastercash" xml:space="preserve">
     <value>总代理现金</value>
   </data>
-  <data name="masterinfo" xml:space="preserve">
+    <data name="masterinfo" xml:space="preserve">
     <value>总代理代理</value>
   </data>
-  <data name="masterwinloss" xml:space="preserve">
+    <data name="masterwinloss" xml:space="preserve">
     <value>总代理输赢</value>
   </data>
-  <data name="masterwinlostdetail" xml:space="preserve">
+    <data name="masterwinlostdetail" xml:space="preserve">
     <value>总代理输赢细节</value>
   </data>
-  <data name="member" xml:space="preserve">
+    <data name="member" xml:space="preserve">
     <value>会员</value>
   </data>
-  <data name="memberinfo" xml:space="preserve">
+    <data name="memberinfo" xml:space="preserve">
     <value>会员资讯</value>
   </data>
-  <data name="memberturnover" xml:space="preserve">
+    <data name="memberturnover" xml:space="preserve">
     <value>会员总投注交易</value>
   </data>
-  <data name="memberwinlossdetail" xml:space="preserve">
+    <data name="memberwinlossdetail" xml:space="preserve">
     <value>会员输赢资料</value>
   </data>
-  <data name="minposition" xml:space="preserve">
+    <data name="minposition" xml:space="preserve">
     <value>最低占成</value>
   </data>
-  <data name="mon" xml:space="preserve">
+    <data name="mon" xml:space="preserve">
     <value>一</value>
   </data>
-  <data name="monday" xml:space="preserve">
+    <data name="monday" xml:space="preserve">
     <value>星期一</value>
   </data>
-  <data name="moneyline" xml:space="preserve">
+    <data name="moneyline" xml:space="preserve">
     <value>独赢</value>
   </data>
-  <data name="MotorSports" xml:space="preserve">
+    <data name="MotorSports" xml:space="preserve">
     <value>赛车</value>
   </data>
-  <data name="next" xml:space="preserve">
+    <data name="next" xml:space="preserve">
     <value>下一页</value>
   </data>
-  <data name="nickname" xml:space="preserve">
+    <data name="nickname" xml:space="preserve">
     <value>昵称</value>
   </data>
-  <data name="no" xml:space="preserve">
+    <data name="no" xml:space="preserve">
     <value>#</value>
   </data>
-  <data name="noInfo" xml:space="preserve">
+    <data name="noInfo" xml:space="preserve">
     <value>没资料显示</value>
   </data>
-  <data name="odds" xml:space="preserve">
+    <data name="odds" xml:space="preserve">
     <value>赔率</value>
   </data>
-  <data name="of" xml:space="preserve">
+    <data name="of" xml:space="preserve">
     <value>之第</value>
   </data>
-  <data name="open" xml:space="preserve">
+    <data name="open" xml:space="preserve">
     <value>开启</value>
   </data>
-  <data name="other" xml:space="preserve">
+    <data name="other" xml:space="preserve">
     <value>其他</value>
   </data>
-  <data name="OtherSports" xml:space="preserve">
+    <data name="OtherSports" xml:space="preserve">
     <value>其他</value>
   </data>
-  <data name="outstanding" xml:space="preserve">
+    <data name="outstanding" xml:space="preserve">
     <value>未完成交易</value>
   </data>
-  <data name="outtxn" xml:space="preserve">
+    <data name="outtxn" xml:space="preserve">
     <value>未完成交易</value>
   </data>
-  <data name="over" xml:space="preserve">
+    <data name="over" xml:space="preserve">
     <value>大</value>
   </data>
-  <data name="password" xml:space="preserve">
+    <data name="password" xml:space="preserve">
     <value>密码</value>
   </data>
-  <data name="pcomm1" xml:space="preserve">
+    <data name="pcomm1" xml:space="preserve">
     <value>会员佣金(1)</value>
   </data>
-  <data name="pcomm2" xml:space="preserve">
+    <data name="pcomm2" xml:space="preserve">
     <value>会员佣金(2)</value>
   </data>
-  <data name="positiontaking" xml:space="preserve">
+    <data name="positiontaking" xml:space="preserve">
     <value>占成数</value>
   </data>
-  <data name="previous" xml:space="preserve">
+    <data name="previous" xml:space="preserve">
     <value>上一页</value>
   </data>
-  <data name="print" xml:space="preserve">
+    <data name="print" xml:space="preserve">
     <value>列印</value>
   </data>
-  <data name="refno" xml:space="preserve">
+    <data name="refno" xml:space="preserve">
     <value>参照号码</value>
   </data>
-  <data name="reports" xml:space="preserve">
+    <data name="reports" xml:space="preserve">
     <value>报告</value>
   </data>
-  <data name="reset" xml:space="preserve">
+    <data name="reset" xml:space="preserve">
     <value>重填</value>
   </data>
-  <data name="result" xml:space="preserve">
+    <data name="result" xml:space="preserve">
     <value>赛果</value>
   </data>
-  <data name="running" xml:space="preserve">
+    <data name="running" xml:space="preserve">
     <value>进行中</value>
   </data>
-  <data name="sat" xml:space="preserve">
+    <data name="sat" xml:space="preserve">
     <value>六</value>
   </data>
-  <data name="saturday" xml:space="preserve">
+    <data name="saturday" xml:space="preserve">
     <value>星期六</value>
   </data>
-  <data name="selectagent" xml:space="preserve">
+    <data name="selectagent" xml:space="preserve">
     <value>选择代理</value>
   </data>
-  <data name="selectmaster" xml:space="preserve">
+    <data name="selectmaster" xml:space="preserve">
     <value>选择总代理</value>
   </data>
-  <data name="soccer" xml:space="preserve">
+    <data name="soccer" xml:space="preserve">
     <value>足球</value>
   </data>
-  <data name="sport" xml:space="preserve">
+    <data name="sport" xml:space="preserve">
     <value>运动</value>
   </data>
-  <data name="stake" xml:space="preserve">
+    <data name="stake" xml:space="preserve">
     <value>投注额</value>
   </data>
-  <data name="status" xml:space="preserve">
+    <data name="status" xml:space="preserve">
     <value>状态</value>
   </data>
-  <data name="statusclosed" xml:space="preserve">
+    <data name="statusclosed" xml:space="preserve">
     <value>状态 - 关闭</value>
   </data>
-  <data name="strNotAccessPage" xml:space="preserve">
+    <data name="strNotAccessPage" xml:space="preserve">
     <value>对不起,您不被允许进入此网页.</value>
   </data>
-  <data name="subacc" xml:space="preserve">
+    <data name="subacc" xml:space="preserve">
     <value>子账号</value>
   </data>
-  <data name="subaccount" xml:space="preserve">
+    <data name="subaccount" xml:space="preserve">
     <value>子账号</value>
   </data>
-  <data name="submit" xml:space="preserve">
+    <data name="submit" xml:space="preserve">
     <value>提交</value>
   </data>
-  <data name="sun" xml:space="preserve">
+    <data name="sun" xml:space="preserve">
     <value>日</value>
   </data>
-  <data name="sunday" xml:space="preserve">
+    <data name="sunday" xml:space="preserve">
     <value>星期日</value>
   </data>
-  <data name="super" xml:space="preserve">
+    <data name="super" xml:space="preserve">
     <value>超级</value>
   </data>
-  <data name="suspend" xml:space="preserve">
+    <data name="suspend" xml:space="preserve">
     <value>暫停</value>
   </data>
-  <data name="suspended" xml:space="preserve">
+    <data name="suspended" xml:space="preserve">
     <value>暫停</value>
   </data>
-  <data name="Tennis" xml:space="preserve">
+    <data name="Tennis" xml:space="preserve">
     <value>网球</value>
   </data>
-  <data name="thurs" xml:space="preserve">
+    <data name="thurs" xml:space="preserve">
     <value>四</value>
   </data>
-  <data name="thursday" xml:space="preserve">
+    <data name="thursday" xml:space="preserve">
     <value>星期四</value>
   </data>
-  <data name="to" xml:space="preserve">
+    <data name="to" xml:space="preserve">
     <value>到</value>
   </data>
-  <data name="today" xml:space="preserve">
+    <data name="today" xml:space="preserve">
     <value>今日赛事</value>
   </data>
-  <data name="total" xml:space="preserve">
+    <data name="total" xml:space="preserve">
     <value>总和</value>
   </data>
-  <data name="totalbets" xml:space="preserve">
+    <data name="totalbets" xml:space="preserve">
     <value>总投注</value>
   </data>
-  <data name="totalgoal" xml:space="preserve">
+    <data name="totalgoal" xml:space="preserve">
     <value>总进球</value>
   </data>
-  <data name="tpage" xml:space="preserve">
+    <data name="tpage" xml:space="preserve">
     <value>页</value>
   </data>
-  <data name="transfer" xml:space="preserve">
+    <data name="transfer" xml:space="preserve">
     <value>转账</value>
   </data>
-  <data name="tue" xml:space="preserve">
+    <data name="tue" xml:space="preserve">
     <value>二</value>
   </data>
-  <data name="tuesday" xml:space="preserve">
+    <data name="tuesday" xml:space="preserve">
     <value>星期二</value>
   </data>
-  <data name="turnover" xml:space="preserve">
+    <data name="turnover" xml:space="preserve">
     <value>投注额</value>
   </data>
-  <data name="type" xml:space="preserve">
+    <data name="type" xml:space="preserve">
     <value>类别</value>
   </data>
-  <data name="under" xml:space="preserve">
+    <data name="under" xml:space="preserve">
     <value>小</value>
   </data>
-  <data name="update" xml:space="preserve">
+    <data name="update" xml:space="preserve">
     <value>更改</value>
   </data>
-  <data name="updateaccount" xml:space="preserve">
+    <data name="updateaccount" xml:space="preserve">
     <value>更改账号功能</value>
   </data>
-  <data name="usedcredit" xml:space="preserve">
+    <data name="usedcredit" xml:space="preserve">
     <value>已用額度</value>
   </data>
-  <data name="username" xml:space="preserve">
+    <data name="username" xml:space="preserve">
     <value>用户名</value>
   </data>
-  <data name="view" xml:space="preserve">
+    <data name="view" xml:space="preserve">
     <value>游览</value>
   </data>
-  <data name="viewgroupcommission" xml:space="preserve">
+    <data name="viewgroupcommission" xml:space="preserve">
     <value>游览组别及佣金</value>
   </data>
-  <data name="voidandreject" xml:space="preserve">
+    <data name="voidandreject" xml:space="preserve">
     <value>作废/已删除注单(3天纪录)</value>
   </data>
-  <data name="wed" xml:space="preserve">
+    <data name="wed" xml:space="preserve">
     <value>三</value>
   </data>
-  <data name="wednesday" xml:space="preserve">
+    <data name="wednesday" xml:space="preserve">
     <value>星期三</value>
   </data>
-  <data name="weekly" xml:space="preserve">
+    <data name="weekly" xml:space="preserve">
     <value>每周</value>
   </data>
-  <data name="win" xml:space="preserve">
+    <data name="win" xml:space="preserve">
     <value>輸贏</value>
   </data>
-  <data name="yesterday" xml:space="preserve">
+    <data name="yesterday" xml:space="preserve">
     <value>昨天</value>
   </data>
-  <data name="yesterdaybalance" xml:space="preserve">
+    <data name="yesterdaybalance" xml:space="preserve">
     <value>昨天餘額</value>
   </data>
-  <data name="yesterdaycashbalance" xml:space="preserve">
+    <data name="yesterdaycashbalance" xml:space="preserve">
     <value>昨天现金余额</value>
   </data>
-  <data name="yesterdaytotalbalance" xml:space="preserve">
+    <data name="yesterdaytotalbalance" xml:space="preserve">
     <value>昨天总平均</value>
   </data>
-  <data name="youcantransfer" xml:space="preserve">
+    <data name="youcantransfer" xml:space="preserve">
     <value>您可转账不超过</value>
   </data>
-  <data name="more" xml:space="preserve">
+    <data name="more" xml:space="preserve">
     <value>更多</value>
   </data>
-  <data name="lblNotAuthorized" xml:space="preserve">
+    <data name="lblNotAuthorized" xml:space="preserve">
     <value>您没有使用此功能的权限</value>
   </data>
-  <data name="lblBold" xml:space="preserve">
+    <data name="lblBold" xml:space="preserve">
     <value>粗笔</value>
   </data>
-  <data name="lblCommissionByBettype" xml:space="preserve">
+    <data name="lblCommissionByBettype" xml:space="preserve">
     <value>投注产品分类佣金</value>
   </data>
-  <data name="forcechangepwd" xml:space="preserve">
+    <data name="forcechangepwd" xml:space="preserve">
     <value>您必须更换密码于第一次登入。</value>
   </data>
-  <data name="Horse" xml:space="preserve">
-    <value>赛马赛事</value>
+    <data name="Horse" xml:space="preserve">
+    <value>赛马</value>
   </data>
-  <data name="lblEditMaster" xml:space="preserve">
+    <data name="lblEditMaster" xml:space="preserve">
     <value>修改总代理</value>
   </data>
-  <data name="lblEditMember" xml:space="preserve">
+    <data name="lblEditMember" xml:space="preserve">
     <value>修改会员</value>
   </data>
-  <data name="OtherSport2" xml:space="preserve">
+    <data name="OtherSport2" xml:space="preserve">
     <value>其他</value>
   </data>
-  <data name="lblConfirmEditAgent" xml:space="preserve">
+    <data name="lblConfirmEditAgent" xml:space="preserve">
     <value>您已更改于此代理不使用自动占成。&lt;br&gt;您是否要更改所有会员的占成数至:</value>
   </data>
-  <data name="lblRace" xml:space="preserve">
+    <data name="lblRace" xml:space="preserve">
     <value>赛事</value>
   </data>
-  <data name="No1" xml:space="preserve">
+    <data name="No1" xml:space="preserve">
     <value>第一</value>
   </data>
-  <data name="No2" xml:space="preserve">
+    <data name="No2" xml:space="preserve">
     <value>第二</value>
   </data>
-  <data name="No3" xml:space="preserve">
+    <data name="No3" xml:space="preserve">
     <value>第三</value>
   </data>
-  <data name="noothers" xml:space="preserve">
+    <data name="noothers" xml:space="preserve">
     <value>第</value>
   </data>
-  <data name="ViewHistoryReport1" xml:space="preserve">
+    <data name="ViewHistoryReport1" xml:space="preserve">
     <value>您可查看报表数据从 {0}。如需要查阅三个月前的旧报告，请用 {1}</value>
   </data>
-  <data name="ViewHistoryReport2" xml:space="preserve">
+    <data name="ViewHistoryReport2" xml:space="preserve">
     <value>选检阅历史报告。</value>
   </data>
-  <data name="April" xml:space="preserve">
+    <data name="April" xml:space="preserve">
     <value>四月</value>
   </data>
-  <data name="August" xml:space="preserve">
+    <data name="August" xml:space="preserve">
     <value>八月</value>
   </data>
-  <data name="December" xml:space="preserve">
+    <data name="December" xml:space="preserve">
     <value>十二月</value>
   </data>
-  <data name="February" xml:space="preserve">
+    <data name="February" xml:space="preserve">
     <value>二月</value>
   </data>
-  <data name="January" xml:space="preserve">
+    <data name="January" xml:space="preserve">
     <value>一月</value>
   </data>
-  <data name="July" xml:space="preserve">
+    <data name="July" xml:space="preserve">
     <value>七月</value>
   </data>
-  <data name="June" xml:space="preserve">
+    <data name="June" xml:space="preserve">
     <value>六月</value>
   </data>
-  <data name="March" xml:space="preserve">
+    <data name="March" xml:space="preserve">
     <value>三月</value>
   </data>
-  <data name="May" xml:space="preserve">
+    <data name="May" xml:space="preserve">
     <value>五月</value>
   </data>
-  <data name="November" xml:space="preserve">
+    <data name="November" xml:space="preserve">
     <value>十一月</value>
   </data>
-  <data name="October" xml:space="preserve">
+    <data name="October" xml:space="preserve">
     <value>十月</value>
   </data>
-  <data name="September" xml:space="preserve">
+    <data name="September" xml:space="preserve">
     <value>九月</value>
   </data>
-  <data name="ViewDataInMonth" xml:space="preserve">
+    <data name="ViewDataInMonth" xml:space="preserve">
     <value>查阅每月报告</value>
   </data>
-  <data name="hr" xml:space="preserve">
-    <value>赛马赛事</value>
+    <data name="hr" xml:space="preserve">
+    <value>赛马</value>
   </data>
-  <data name="No4" xml:space="preserve">
+    <data name="No4" xml:space="preserve">
     <value>第四</value>
   </data>
-  <data name="lblA" xml:space="preserve">
+    <data name="lblA" xml:space="preserve">
     <value>A = 代理</value>
   </data>
-  <data name="lblM" xml:space="preserve">
+    <data name="lblM" xml:space="preserve">
     <value>M = 总代理</value>
   </data>
-  <data name="lblMe" xml:space="preserve">
+    <data name="lblMe" xml:space="preserve">
     <value>P = 会员</value>
   </data>
-  <data name="CreatedDate" xml:space="preserve">
+    <data name="CreatedDate" xml:space="preserve">
     <value>新增日期</value>
   </data>
-  <data name="lblAutoMasterResestPosition" xml:space="preserve">
+    <data name="lblAutoMasterResestPosition" xml:space="preserve">
     <value>总代理自动占成</value>
   </data>
-  <data name="HttpError_403" xml:space="preserve">
+    <data name="HttpError_403" xml:space="preserve">
     <value>不被允许登入</value>
   </data>
-  <data name="HttpError_404" xml:space="preserve">
+    <data name="HttpError_404" xml:space="preserve">
     <value>此网页不存在，请检查网址</value>
   </data>
-  <data name="HttpError_Default" xml:space="preserve">
+    <data name="HttpError_Default" xml:space="preserve">
     <value>哎哟..因为系统故障所以您会身在此处，请向管理层联系吧</value>
   </data>
-  <data name="mainmenu" xml:space="preserve">
+    <data name="mainmenu" xml:space="preserve">
     <value>主要目录</value>
   </data>
-  <data name="userinfo" xml:space="preserve">
+    <data name="userinfo" xml:space="preserve">
     <value>用户资料</value>
   </data>
-  <data name="search" xml:space="preserve">
+    <data name="search" xml:space="preserve">
     <value>搜寻</value>
   </data>
-  <data name="name" xml:space="preserve">
+    <data name="name" xml:space="preserve">
     <value>名</value>
   </data>
-  <data name="usernamenotexisted" xml:space="preserve">
+    <data name="usernamenotexisted" xml:space="preserve">
     <value>用户名不存在！</value>
   </data>
-  <data name="lblYesterdayCash" xml:space="preserve">
+    <data name="lblYesterdayCash" xml:space="preserve">
     <value>昨天馀额</value>
   </data>
-  <data name="invalidvalue" xml:space="preserve">
+    <data name="invalidvalue" xml:space="preserve">
     <value>数值无效</value>
   </data>
-  <data name="modifiedMinPTValueText" xml:space="preserve">
+    <data name="modifiedMinPTValueText" xml:space="preserve">
     <value>您的上线已修改您的最低占成。&lt;br&gt;请务必核对您的下线的细节。</value>
   </data>
-  <data name="usernamerequired" xml:space="preserve">
+    <data name="usernamerequired" xml:space="preserve">
     <value>必须输入会员账号或昵称！</value>
   </data>
-  <data name="enterusername" xml:space="preserve">
+    <data name="enterusername" xml:space="preserve">
     <value>用户名或名/姓</value>
   </data>
-  <data name="setting" xml:space="preserve">
+    <data name="setting" xml:space="preserve">
     <value>设定</value>
   </data>
-  <data name="onlinelist" xml:space="preserve">
+    <data name="onlinelist" xml:space="preserve">
     <value>上线名单</value>
   </data>
-  <data name="confirmCloseMem" xml:space="preserve">
+    <data name="confirmCloseMem" xml:space="preserve">
     <value>您确定要更改这个客户的关闭状态？</value>
   </data>
-  <data name="confirmCloseDownline" xml:space="preserve">
+    <data name="confirmCloseDownline" xml:space="preserve">
     <value>您确定要更改这个客户的关闭状态？警告！所有下线将被关闭！</value>
   </data>
-  <data name="confirmSuspendDownline" xml:space="preserve">
+    <data name="confirmSuspendDownline" xml:space="preserve">
     <value>您确定要更改这个客户暂停状态吗？警告，所有代理的会员不能投注！</value>
   </data>
-  <data name="confirmSuspendMem" xml:space="preserve">
+    <data name="confirmSuspendMem" xml:space="preserve">
     <value>您确定要更改这个客户暂停状态吗？会员将无法投注。</value>
   </data>
-  <data name="confirmUnSuspendMem" xml:space="preserve">
+    <data name="confirmUnSuspendMem" xml:space="preserve">
     <value>您确定要更改这个客户暂停状态吗？</value>
   </data>
-  <data name="lastcheckin" xml:space="preserve">
+    <data name="lastcheckin" xml:space="preserve">
     <value>登入时间</value>
   </data>
-  <data name="loading" xml:space="preserve">
+    <data name="loading" xml:space="preserve">
     <value>载入中</value>
   </data>
-  <data name="userisnotonline" xml:space="preserve">
+    <data name="userisnotonline" xml:space="preserve">
     <value>此会员没上线</value>
   </data>
-  <data name="lbledithr" xml:space="preserve">
+    <data name="lbledithr" xml:space="preserve">
     <value>修改赛马</value>
   </data>
-  <data name="lblEditInfo" xml:space="preserve">
+    <data name="lblEditInfo" xml:space="preserve">
     <value>修改资料</value>
   </data>
-  <data name="lblresetpassword" xml:space="preserve">
+    <data name="lblresetpassword" xml:space="preserve">
     <value>修改密码</value>
   </data>
-  <data name="email" xml:space="preserve">
+    <data name="email" xml:space="preserve">
     <value>电邮</value>
   </data>
-  <data name="updatesuccessfull" xml:space="preserve">
+    <data name="updatesuccessfull" xml:space="preserve">
     <value>修改成功</value>
   </data>
-  <data name="lbleditcomm" xml:space="preserve">
+    <data name="lbleditcomm" xml:space="preserve">
     <value>修改佣金</value>
   </data>
-  <data name="lbleditbetsetting" xml:space="preserve">
+    <data name="lbleditbetsetting" xml:space="preserve">
     <value>修改投注设定</value>
   </data>
-  <data name="emailnotvalid" xml:space="preserve">
+    <data name="emailnotvalid" xml:space="preserve">
     <value>电邮地址不正确！</value>
   </data>
-  <data name="casino" xml:space="preserve">
+    <data name="casino" xml:space="preserve">
     <value>娱乐城</value>
   </data>
-  <data name="P2P" xml:space="preserve">
+    <data name="P2P" xml:space="preserve">
     <value>扑克</value>
   </data>
-  <data name="sportBook" xml:space="preserve">
+    <data name="sportBook" xml:space="preserve">
     <value>体育博彩</value>
   </data>
-  <data name="sessionID" xml:space="preserve">
+    <data name="sessionID" xml:space="preserve">
     <value>注册号会议</value>
   </data>
-  <data name="SB" xml:space="preserve">
+    <data name="SB" xml:space="preserve">
     <value>体育博彩</value>
   </data>
-  <data name="casinoPositionTaking" xml:space="preserve">
+    <data name="casinoPositionTaking" xml:space="preserve">
     <value>娱乐城占成数(%)</value>
   </data>
-  <data name="lblAG" xml:space="preserve">
+    <data name="lblAG" xml:space="preserve">
     <value>代理</value>
   </data>
-  <data name="lblEndDate" xml:space="preserve">
+    <data name="lblEndDate" xml:space="preserve">
     <value>结束日期</value>
   </data>
-  <data name="lblGameGroup" xml:space="preserve">
+    <data name="lblGameGroup" xml:space="preserve">
     <value>游戏组别</value>
   </data>
-  <data name="lblGameID" xml:space="preserve">
+    <data name="lblGameID" xml:space="preserve">
     <value>游戏ID</value>
   </data>
-  <data name="lblGameType" xml:space="preserve">
+    <data name="lblGameType" xml:space="preserve">
     <value>游戏类型</value>
   </data>
-  <data name="lblMA" xml:space="preserve">
+    <data name="lblMA" xml:space="preserve">
     <value>总代</value>
   </data>
-  <data name="lblPlayerHistoryNo" xml:space="preserve">
+    <data name="lblPlayerHistoryNo" xml:space="preserve">
     <value>玩家记录编号</value>
   </data>
-  <data name="lblRollingComm" xml:space="preserve">
+    <data name="lblRollingComm" xml:space="preserve">
     <value>佣金</value>
   </data>
-  <data name="lblSA" xml:space="preserve">
+    <data name="lblSA" xml:space="preserve">
     <value>超总</value>
   </data>
-  <data name="lblStartDate" xml:space="preserve">
+    <data name="lblStartDate" xml:space="preserve">
     <value>开始日期</value>
   </data>
-  <data name="lblEndBalance" xml:space="preserve">
+    <data name="lblEndBalance" xml:space="preserve">
     <value>结束余额</value>
   </data>
-  <data name="sync" xml:space="preserve">
+    <data name="sync" xml:space="preserve">
     <value>同步</value>
   </data>
-  <data name="lblML2" xml:space="preserve">
+    <data name="lblML2" xml:space="preserve">
     <value>独赢</value>
   </data>
-  <data name="messageIDHeader" xml:space="preserve">
+    <data name="messageIDHeader" xml:space="preserve">
     <value>代码</value>
   </data>
-  <data name="normalmessage" xml:space="preserve">
+    <data name="normalmessage" xml:space="preserve">
     <value>一般公告</value>
   </data>
-  <data name="specialmessage" xml:space="preserve">
+    <data name="specialmessage" xml:space="preserve">
     <value>特殊公告</value>
   </data>
-  <data name="messagetitle" xml:space="preserve">
+    <data name="messagetitle" xml:space="preserve">
     <value>最新消息</value>
   </data>
-  <data name="invalidDateMessage" xml:space="preserve">
+    <data name="invalidDateMessage" xml:space="preserve">
     <value>'从'日期值不能大于'至'日期值</value>
   </data>
-  <data name="allyesterdaybalance" xml:space="preserve">
+    <data name="allyesterdaybalance" xml:space="preserve">
     <value>所有昨天余额</value>
   </data>
-  <data name="usernameunavailable" xml:space="preserve">
+    <data name="usernameunavailable" xml:space="preserve">
     <value>账号不正确！</value>
   </data>
-  <data name="lblEnableCS" xml:space="preserve">
+    <data name="lblEnableCS" xml:space="preserve">
     <value>开启娱乐城</value>
   </data>
-  <data name="strConfirmDisableCS" xml:space="preserve">
+    <data name="strConfirmDisableCS" xml:space="preserve">
     <value>警告!!! 您确定要关闭此账号的游乐场？</value>
   </data>
-  <data name="strConfirmEnableCS" xml:space="preserve">
+    <data name="strConfirmEnableCS" xml:space="preserve">
     <value>您是否要开启赌场给于所有下线？</value>
   </data>
-  <data name="updateCS" xml:space="preserve">
+    <data name="updateCS" xml:space="preserve">
     <value>更新娱乐城设定</value>
   </data>
-  <data name="lblAccumulatedWinLoss" xml:space="preserve">
+    <data name="lblAccumulatedWinLoss" xml:space="preserve">
     <value>累计转移金额</value>
   </data>
-  <data name="accpermission" xml:space="preserve">
+    <data name="accpermission" xml:space="preserve">
     <value>账户许可</value>
   </data>
-  <data name="IsNeutral" xml:space="preserve">
+    <data name="IsNeutral" xml:space="preserve">
     <value> (N)</value>
   </data>
-  <data name="lblBettingLimit" xml:space="preserve">
+    <data name="lblBettingLimit" xml:space="preserve">
     <value>投注限额</value>
   </data>
-  <data name="lblCustomerInfomation" xml:space="preserve">
+    <data name="lblCustomerInfomation" xml:space="preserve">
     <value>会员资料</value>
   </data>
-  <data name="lblGroupSetting" xml:space="preserve">
+    <data name="lblGroupSetting" xml:space="preserve">
     <value>组设定</value>
   </data>
-  <data name="lblMaxLoseAllowed" xml:space="preserve">
+    <data name="lblMaxLoseAllowed" xml:space="preserve">
     <value>最高可输金额</value>
   </data>
-  <data name="lblMaxTransferCredit" xml:space="preserve">
+    <data name="lblMaxTransferCredit" xml:space="preserve">
     <value>最高调动信用额</value>
   </data>
-  <data name="lblMaxWinAllowed" xml:space="preserve">
+    <data name="lblMaxWinAllowed" xml:space="preserve">
     <value>最高赢利许可</value>
   </data>
-  <data name="lblMin" xml:space="preserve">
+    <data name="lblMin" xml:space="preserve">
     <value>最低</value>
   </data>
-  <data name="handhistorydetail" xml:space="preserve">
+    <data name="handhistorydetail" xml:space="preserve">
     <value>游戏历史细节</value>
   </data>
-  <data name="player" xml:space="preserve">
+    <data name="player" xml:space="preserve">
     <value>玩家</value>
   </data>
-  <data name="balanceinfo" xml:space="preserve">
+    <data name="balanceinfo" xml:space="preserve">
     <value>余额资料</value>
   </data>
-  <data name="downlinelist" xml:space="preserve">
+    <data name="downlinelist" xml:space="preserve">
     <value>下线名单</value>
   </data>
-  <data name="donotshowagain" xml:space="preserve">
+    <data name="donotshowagain" xml:space="preserve">
     <value>不再显示</value>
   </data>
-  <data name="lblBet" xml:space="preserve">
+    <data name="lblBet" xml:space="preserve">
     <value>下注额</value>
   </data>
-  <data name="lblWin" xml:space="preserve">
+    <data name="lblWin" xml:space="preserve">
     <value>独赢</value>
   </data>
-  <data name="lblStartBalance" xml:space="preserve">
+    <data name="lblStartBalance" xml:space="preserve">
     <value>开始余额</value>
   </data>
-  <data name="lblTotalCSOutstanding" xml:space="preserve">
+    <data name="lblTotalCSOutstanding" xml:space="preserve">
     <value>赌场未完成交易总和</value>
   </data>
-  <data name="lblTotalCSTransfer" xml:space="preserve">
+    <data name="lblTotalCSTransfer" xml:space="preserve">
     <value>赌场调动总和</value>
   </data>
-  <data name="agentRealTimeWinloss" xml:space="preserve">
+    <data name="agentRealTimeWinloss" xml:space="preserve">
     <value>代理娱乐城即时赢输</value>
   </data>
-  <data name="masterRealTimeWinloss" xml:space="preserve">
+    <data name="masterRealTimeWinloss" xml:space="preserve">
     <value>娱乐城即时赢输</value>
   </data>
-  <data name="memberRealTimeWinloss" xml:space="preserve">
+    <data name="memberRealTimeWinloss" xml:space="preserve">
     <value>会员即时娱乐场赢输</value>
   </data>
-  <data name="fiminpt" xml:space="preserve">
+    <data name="fiminpt" xml:space="preserve">
     <value>金融最低占成数</value>
   </data>
-  <data name="currentstatustransaction" xml:space="preserve">
+    <data name="currentstatustransaction" xml:space="preserve">
     <value>现有全部交易状态</value>
   </data>
-  <data name="lblCasinoHandHistory" xml:space="preserve">
+    <data name="lblCasinoHandHistory" xml:space="preserve">
     <value>赌场游戏历史</value>
   </data>
-  <data name="transferredamount" xml:space="preserve">
+    <data name="transferredamount" xml:space="preserve">
     <value>转移金额</value>
   </data>
-  <data name="transfersuccessful" xml:space="preserve">
+    <data name="transfersuccessful" xml:space="preserve">
     <value>成功转账</value>
   </data>
-  <data name="sbminpt" xml:space="preserve">
+    <data name="sbminpt" xml:space="preserve">
     <value>体育博彩最低占成数</value>
   </data>
-  <data name="editmultfinance" xml:space="preserve">
+    <data name="editmultfinance" xml:space="preserve">
     <value>修改多重金融占成</value>
   </data>
-  <data name="editmultsportbook" xml:space="preserve">
+    <data name="editmultsportbook" xml:space="preserve">
     <value>修改多重体育博彩</value>
   </data>
-  <data name="editmulthr" xml:space="preserve">
+    <data name="editmulthr" xml:space="preserve">
     <value>修改多重赛马</value>
   </data>
-  <data name="transferCreditMsg" xml:space="preserve">
+    <data name="transferCreditMsg" xml:space="preserve">
     <value>最大转帐额度必须介于最小和最大限制价值</value>
   </data>
-  <data name="acomm3" xml:space="preserve">
+    <data name="acomm3" xml:space="preserve">
     <value>代理佣金(3)</value>
   </data>
-  <data name="pcomm3" xml:space="preserve">
+    <data name="pcomm3" xml:space="preserve">
     <value>会员佣金(3)</value>
   </data>
-  <data name="hrminpt" xml:space="preserve">
+    <data name="hrminpt" xml:space="preserve">
     <value>赛马的最低占成数</value>
   </data>
-  <data name="updCustSettingFailed" xml:space="preserve">
+    <data name="updCustSettingFailed" xml:space="preserve">
     <value>更新客户设置失败！</value>
   </data>
-  <data name="tipcomm1" xml:space="preserve">
+    <data name="tipcomm1" xml:space="preserve">
     <value>佣金1：适用于亚洲让球，大小和单双投注。</value>
   </data>
-  <data name="tipcomm2" xml:space="preserve">
+    <data name="tipcomm2" xml:space="preserve">
     <value>佣金2：适用于1x2投注。</value>
   </data>
-  <data name="tipcomm3" xml:space="preserve">
+    <data name="tipcomm3" xml:space="preserve">
     <value>佣金3：适用于其它投注。</value>
   </data>
-  <data name="lblAutoPTSuper" xml:space="preserve">
+    <data name="lblAutoPTSuper" xml:space="preserve">
     <value>超级总代理自动占成</value>
   </data>
-  <data name="lblMaxPTAgent" xml:space="preserve">
+    <data name="lblMaxPTAgent" xml:space="preserve">
     <value>代理最高占成</value>
   </data>
-  <data name="lblMaxPTMaster" xml:space="preserve">
+    <data name="lblMaxPTMaster" xml:space="preserve">
     <value>总代理最高占成</value>
   </data>
-  <data name="lblPresetPTAgent" xml:space="preserve">
+    <data name="lblPresetPTAgent" xml:space="preserve">
     <value>代理预定占成</value>
   </data>
-  <data name="lblPresetPTMaster" xml:space="preserve">
+    <data name="lblPresetPTMaster" xml:space="preserve">
     <value>总代理预定占成</value>
   </data>
-  <data name="lblPresetPTSuper" xml:space="preserve">
+    <data name="lblPresetPTSuper" xml:space="preserve">
     <value>超级总代理预定占成</value>
   </data>
-  <data name="MinPTAgent" xml:space="preserve">
+    <data name="MinPTAgent" xml:space="preserve">
     <value>代理最低占成</value>
   </data>
-  <data name="MinPTMaster" xml:space="preserve">
+    <data name="MinPTMaster" xml:space="preserve">
     <value>总代理最低占成</value>
   </data>
-  <data name="lblMaxPTSuper" xml:space="preserve">
+    <data name="lblMaxPTSuper" xml:space="preserve">
     <value>超级总代理最高占成</value>
   </data>
-  <data name="MinPTSuper" xml:space="preserve">
+    <data name="MinPTSuper" xml:space="preserve">
     <value>超级总代理最低占成</value>
   </data>
-  <data name="lblCommPTSuper" xml:space="preserve">
+    <data name="lblCommPTSuper" xml:space="preserve">
     <value>超级总代理佣金</value>
   </data>
-  <data name="lblCommPTAgent" xml:space="preserve">
+    <data name="lblCommPTAgent" xml:space="preserve">
     <value>代理佣金</value>
   </data>
-  <data name="lblCommPTMaster" xml:space="preserve">
+    <data name="lblCommPTMaster" xml:space="preserve">
     <value>总代理佣金</value>
   </data>
-  <data name="lblPositionTakingAgent" xml:space="preserve">
+    <data name="lblPositionTakingAgent" xml:space="preserve">
     <value>代理占成数</value>
   </data>
-  <data name="lblPositionTakingMaster" xml:space="preserve">
+    <data name="lblPositionTakingMaster" xml:space="preserve">
     <value>总代理占成数</value>
   </data>
-  <data name="lblPositionTakingSuper" xml:space="preserve">
+    <data name="lblPositionTakingSuper" xml:space="preserve">
     <value>超级总代理占成数</value>
   </data>
-  <data name="lbleditcasino" xml:space="preserve">
+    <data name="lbleditcasino" xml:space="preserve">
     <value>修改娱乐城</value>
   </data>
-  <data name="lblAlertDisableCSMember" xml:space="preserve">
+    <data name="lblAlertDisableCSMember" xml:space="preserve">
     <value>您确定要就这个客户关闭娱乐城吗？</value>
   </data>
-  <data name="lblNormal" xml:space="preserve">
+    <data name="lblNormal" xml:space="preserve">
     <value>一般</value>
   </data>
-  <data name="editmultcs" xml:space="preserve">
+    <data name="editmultcs" xml:space="preserve">
     <value>修改多重娱乐城</value>
   </data>
-  <data name="apr" xml:space="preserve">
+    <data name="apr" xml:space="preserve">
     <value>4月</value>
   </data>
-  <data name="aug" xml:space="preserve">
+    <data name="aug" xml:space="preserve">
     <value>8月</value>
   </data>
-  <data name="dec" xml:space="preserve">
+    <data name="dec" xml:space="preserve">
     <value>12月</value>
   </data>
-  <data name="feb" xml:space="preserve">
+    <data name="feb" xml:space="preserve">
     <value>2月</value>
   </data>
-  <data name="jan" xml:space="preserve">
+    <data name="jan" xml:space="preserve">
     <value>1月</value>
   </data>
-  <data name="jul" xml:space="preserve">
+    <data name="jul" xml:space="preserve">
     <value>7月</value>
   </data>
-  <data name="jun" xml:space="preserve">
+    <data name="jun" xml:space="preserve">
     <value>6月</value>
   </data>
-  <data name="mar" xml:space="preserve">
+    <data name="mar" xml:space="preserve">
     <value>3月</value>
   </data>
-  <data name="nov" xml:space="preserve">
+    <data name="nov" xml:space="preserve">
     <value>11月</value>
   </data>
-  <data name="oct" xml:space="preserve">
+    <data name="oct" xml:space="preserve">
     <value>10月</value>
   </data>
-  <data name="sept" xml:space="preserve">
+    <data name="sept" xml:space="preserve">
     <value>9月</value>
   </data>
-  <data name="may2" xml:space="preserve">
+    <data name="may2" xml:space="preserve">
     <value>5月</value>
   </data>
-  <data name="AM" xml:space="preserve">
+    <data name="AM" xml:space="preserve">
     <value>上午</value>
   </data>
-  <data name="PM" xml:space="preserve">
+    <data name="PM" xml:space="preserve">
     <value>下午</value>
   </data>
-  <data name="synccasino" xml:space="preserve">
+    <data name="synccasino" xml:space="preserve">
     <value>娱乐城同步校准</value>
   </data>
-  <data name="allowautopt" xml:space="preserve">
+    <data name="allowautopt" xml:space="preserve">
     <value>允许自动占成</value>
   </data>
-  <data name="downlines" xml:space="preserve">
+    <data name="downlines" xml:space="preserve">
     <value>下线</value>
   </data>
-  <data name="autoReset" xml:space="preserve">
+    <data name="autoReset" xml:space="preserve">
     <value>每日限额自动重设. (GMT+8 中午12时正)</value>
   </data>
-  <data name="sbminpt1" xml:space="preserve">
+    <data name="sbminpt1" xml:space="preserve">
     <value>体育博彩最低占成</value>
   </data>
-  <data name="lblMemberMax" xml:space="preserve">
+    <data name="lblMemberMax" xml:space="preserve">
     <value>会员最高信用额</value>
   </data>
-  <data name="lblAgOutst" xml:space="preserve">
+    <data name="lblAgOutst" xml:space="preserve">
     <value>代理未结束交易</value>
   </data>
-  <data name="lblEditSB" xml:space="preserve">
+    <data name="lblEditSB" xml:space="preserve">
     <value>修改体育博彩</value>
   </data>
-  <data name="lblenableOutRight" xml:space="preserve">
+    <data name="lblenableOutRight" xml:space="preserve">
     <value>允许优胜冠军</value>
   </data>
-  <data name="confirmDisableOutright" xml:space="preserve">
+    <data name="confirmDisableOutright" xml:space="preserve">
     <value>您确定停止此会员的优胜冠军投注？警告，此代理的所有会员将无法投注优胜冠军!</value>
   </data>
-  <data name="personalmessage" xml:space="preserve">
+    <data name="personalmessage" xml:space="preserve">
     <value>个人讯息</value>
   </data>
-  <data name="csresult" xml:space="preserve">
+    <data name="csresult" xml:space="preserve">
     <value>成绩</value>
   </data>
-  <data name="disabled" xml:space="preserve">
+    <data name="disabled" xml:space="preserve">
     <value>禁用</value>
   </data>
-  <data name="accdisabled" xml:space="preserve">
+    <data name="accdisabled" xml:space="preserve">
     <value>这个帐号禁用</value>
   </data>
-  <data name="casinodownlines" xml:space="preserve">
+    <data name="casinodownlines" xml:space="preserve">
     <value>下线前启用</value>
   </data>
-  <data name="casinodownlinesdisabled" xml:space="preserve">
+    <data name="casinodownlinesdisabled" xml:space="preserve">
     <value>全部下线将被关闭</value>
   </data>
-  <data name="and" xml:space="preserve">
+    <data name="and" xml:space="preserve">
     <value>和</value>
   </data>
-  <data name="confirmAllowOutright" xml:space="preserve">
+    <data name="confirmAllowOutright" xml:space="preserve">
     <value>您确定要允许优胜冠军状况给个客户吗？</value>
   </data>
-  <data name="confirmDisableOutright_Member" xml:space="preserve">
+    <data name="confirmDisableOutright_Member" xml:space="preserve">
     <value>您确定要禁止此客户的优胜冠军投注吗？</value>
   </data>
-  <data name="lblConfirmClosed" xml:space="preserve">
+    <data name="lblConfirmClosed" xml:space="preserve">
     <value>您的帐户被关闭，你必须退出。请联系您上线的援助。</value>
   </data>
-  <data name="lblconfirmclosesubacc" xml:space="preserve">
+    <data name="lblconfirmclosesubacc" xml:space="preserve">
     <value>子账号不被允许编辑.</value>
   </data>
-  <data name="go" xml:space="preserve">
+    <data name="go" xml:space="preserve">
     <value>转</value>
   </data>
-  <data name="gotopage" xml:space="preserve">
+    <data name="gotopage" xml:space="preserve">
     <value>转下一页</value>
   </data>
-  <data name="withPictures" xml:space="preserve">
+    <data name="withPictures" xml:space="preserve">
     <value>赛果含图片</value>
   </data>
-  <data name="totalAgentACS" xml:space="preserve">
+    <data name="totalAgentACS" xml:space="preserve">
     <value>代理活跃 / 关闭</value>
   </data>
-  <data name="totalMemACS" xml:space="preserve">
+    <data name="totalMemACS" xml:space="preserve">
     <value>会员活跃/ 关闭</value>
   </data>
-  <data name="confirmDisableMAutoPT" xml:space="preserve">
+    <data name="confirmDisableMAutoPT" xml:space="preserve">
     <value>您确定要禁用总代自动占成功能吗？</value>
   </data>
-  <data name="confirmEnableMAutoPT" xml:space="preserve">
+    <data name="confirmEnableMAutoPT" xml:space="preserve">
     <value>您确定要启用总代自动占成功能吗？</value>
   </data>
-  <data name="bettingLimitMsg" xml:space="preserve">
+    <data name="bettingLimitMsg" xml:space="preserve">
     <value>请就每个游戏类型选择至少1投注限制。</value>
   </data>
-  <data name="lblMasOutst" xml:space="preserve">
+    <data name="lblMasOutst" xml:space="preserve">
     <value>总代理未结束交易</value>
   </data>
-  <data name="betperline" xml:space="preserve">
+    <data name="betperline" xml:space="preserve">
     <value>每条线的赌注</value>
   </data>
-  <data name="coinsize" xml:space="preserve">
+    <data name="coinsize" xml:space="preserve">
     <value>币值</value>
   </data>
-  <data name="lineno" xml:space="preserve">
+    <data name="lineno" xml:space="preserve">
     <value>赔付线</value>
   </data>
-  <data name="symbol" xml:space="preserve">
+    <data name="symbol" xml:space="preserve">
     <value>图案</value>
   </data>
-  <data name="totallinebet" xml:space="preserve">
+    <data name="totallinebet" xml:space="preserve">
     <value>押的线数</value>
   </data>
-  <data name="rollingReel" xml:space="preserve">
+    <data name="rollingReel" xml:space="preserve">
     <value>滚动卷轴</value>
   </data>
-  <data name="lblCSOutstanding" xml:space="preserve">
+    <data name="lblCSOutstanding" xml:space="preserve">
     <value>娱乐城未结束交易</value>
   </data>
-  <data name="lblCSTransfer" xml:space="preserve">
+    <data name="lblCSTransfer" xml:space="preserve">
     <value>娱乐城转移</value>
   </data>
-  <data name="masterlist" xml:space="preserve">
+    <data name="masterlist" xml:space="preserve">
     <value>总代理列表</value>
   </data>
-  <data name="bonusFreeSpin" xml:space="preserve">
+    <data name="bonusFreeSpin" xml:space="preserve">
     <value>特别免费回合</value>
   </data>
-  <data name="freeSpin" xml:space="preserve">
+    <data name="freeSpin" xml:space="preserve">
     <value>免费回合</value>
   </data>
-  <data name="jungleWildMode" xml:space="preserve">
+    <data name="jungleWildMode" xml:space="preserve">
     <value>超级模式</value>
   </data>
-  <data name="normal" xml:space="preserve">
+    <data name="normal" xml:space="preserve">
     <value>普通</value>
   </data>
-  <data name="refresh" xml:space="preserve">
+    <data name="refresh" xml:space="preserve">
     <value>刷新</value>
   </data>
-  <data name="sec" xml:space="preserve">
+    <data name="sec" xml:space="preserve">
     <value> sec</value>
   </data>
-  <data name="resetMaxTransferMsg" xml:space="preserve">
+    <data name="resetMaxTransferMsg" xml:space="preserve">
     <value>累计转帐金额已重置成功</value>
   </data>
-  <data name="actionDesc" xml:space="preserve">
+    <data name="actionDesc" xml:space="preserve">
     <value>说明</value>
   </data>
-  <data name="viewlog" xml:space="preserve">
+    <data name="viewlog" xml:space="preserve">
     <value>察看日志</value>
   </data>
-  <data name="clearallcredit" xml:space="preserve">
+    <data name="clearallcredit" xml:space="preserve">
     <value>清除所有额度</value>
   </data>
-  <data name="supermode" xml:space="preserve">
+    <data name="supermode" xml:space="preserve">
     <value>发发发!</value>
   </data>
-  <data name="confirmClearCredit" xml:space="preserve">
+    <data name="confirmClearCredit" xml:space="preserve">
     <value>您确定要清除这个会员信用额度吗? 警告,所有下线的信用额度将被清除!</value>
   </data>
-  <data name="normalGame" xml:space="preserve">
+    <data name="normalGame" xml:space="preserve">
     <value>正规内容</value>
   </data>
-  <data name="scatterGame" xml:space="preserve">
+    <data name="scatterGame" xml:space="preserve">
     <value>散布游戏</value>
   </data>
-  <data name="multiplier" xml:space="preserve">
+    <data name="multiplier" xml:space="preserve">
     <value>倍数</value>
   </data>
-  <data name="scatterWin" xml:space="preserve">
+    <data name="scatterWin" xml:space="preserve">
     <value>中奖金额</value>
   </data>
-  <data name="perLineWin" xml:space="preserve">
+    <data name="perLineWin" xml:space="preserve">
     <value>中奖金额</value>
   </data>
-  <data name="bonusGame" xml:space="preserve">
+    <data name="bonusGame" xml:space="preserve">
     <value>奖金游戏</value>
   </data>
-  <data name="bonusNo" xml:space="preserve">
+    <data name="bonusNo" xml:space="preserve">
     <value>选取次别</value>
   </data>
-  <data name="reward" xml:space="preserve">
+    <data name="reward" xml:space="preserve">
     <value>内容</value>
   </data>
-  <data name="sideGame" xml:space="preserve">
+    <data name="sideGame" xml:space="preserve">
     <value>附带游戏</value>
   </data>
-  <data name="sideGameWin" xml:space="preserve">
+    <data name="sideGameWin" xml:space="preserve">
     <value>中奖金额</value>
   </data>
-  <data name="confirmClearCreditMem" xml:space="preserve">
+    <data name="confirmClearCreditMem" xml:space="preserve">
     <value>您确定要清除这个会员信用额度吗?</value>
   </data>
-  <data name="admin" xml:space="preserve">
+    <data name="admin" xml:space="preserve">
     <value>管理</value>
   </data>
-  <data name="ipnote" xml:space="preserve">
+    <data name="ipnote" xml:space="preserve">
     <value>附加信息于DNSstuff: &lt;a href="{0}" target="_blank"&gt;点击这里&lt;/a&gt;.
 注意: 由IP2Location™ 和 DNSstuff提供的国家与城市的信息只供参考, 并无保证. 如有需要, 请咨询其他可靠来源以获得最新的及准确的信息.</value>
   </data>
-  <data name="city" xml:space="preserve">
+    <data name="city" xml:space="preserve">
     <value>城市</value>
   </data>
-  <data name="country" xml:space="preserve">
+    <data name="country" xml:space="preserve">
     <value>国家</value>
   </data>
-  <data name="lblConfirmClearCredit" xml:space="preserve">
+    <data name="lblConfirmClearCredit" xml:space="preserve">
     <value>您确定要清除此户口“ {username}”及所有下线的信用额度?</value>
   </data>
-  <data name="lblConfirmClearCreditMember" xml:space="preserve">
+    <data name="lblConfirmClearCreditMember" xml:space="preserve">
     <value>您确定要清除此户口 {username} 的信用额度?</value>
   </data>
-  <data name="placesatote" xml:space="preserve">
+    <data name="placesatote" xml:space="preserve">
     <value>位置.南非彩池</value>
   </data>
-  <data name="placeuktote" xml:space="preserve">
+    <data name="placeuktote" xml:space="preserve">
     <value>位置.英国彩池</value>
   </data>
-  <data name="winsatote" xml:space="preserve">
+    <data name="winsatote" xml:space="preserve">
     <value>独赢.南非彩池</value>
   </data>
-  <data name="winuktote" xml:space="preserve">
+    <data name="winuktote" xml:space="preserve">
     <value>独赢.英国彩池</value>
   </data>
-  <data name="enablesatote" xml:space="preserve">
+    <data name="enablesatote" xml:space="preserve">
     <value>启用南非彩池</value>
   </data>
-  <data name="enableuktote" xml:space="preserve">
+    <data name="enableuktote" xml:space="preserve">
     <value>起用英国彩池</value>
   </data>
-  <data name="lblAlertDisableSATote" xml:space="preserve">
+    <data name="lblAlertDisableSATote" xml:space="preserve">
     <value>警告!!!  您确定要禁用此客户和所有下线南非彩池吗？</value>
   </data>
-  <data name="lblAlertDisableSAToteMember" xml:space="preserve">
+    <data name="lblAlertDisableSAToteMember" xml:space="preserve">
     <value>警告!!!  您确定要禁用此客户南非彩池吗？</value>
   </data>
-  <data name="lblAlertDisableUKTote" xml:space="preserve">
+    <data name="lblAlertDisableUKTote" xml:space="preserve">
     <value>警告!!!  您确定要禁用此客户和所有下线英国彩池吗？</value>
   </data>
-  <data name="lblAlertDisableUKToteMember" xml:space="preserve">
+    <data name="lblAlertDisableUKToteMember" xml:space="preserve">
     <value>警告!!!  您确定要禁用此客户英国彩池吗？</value>
   </data>
-  <data name="lblAlertEnableSATote" xml:space="preserve">
+    <data name="lblAlertEnableSATote" xml:space="preserve">
     <value>您确定要启用此客户南非彩池吗？</value>
   </data>
-  <data name="lblAlertEnableUKTote" xml:space="preserve">
+    <data name="lblAlertEnableUKTote" xml:space="preserve">
     <value>您确定要启用此客户英国彩池吗？</value>
   </data>
-  <data name="resetmaxtranfer" xml:space="preserve">
+    <data name="resetmaxtranfer" xml:space="preserve">
     <value>完全轉帳後最高限額将会重設.</value>
   </data>
-  <data name="wintype" xml:space="preserve">
+    <data name="wintype" xml:space="preserve">
     <value>奖金类型</value>
   </data>
-  <data name="numbergame" xml:space="preserve">
+    <data name="numbergame" xml:space="preserve">
     <value>数字游戏</value>
   </data>
-  <data name="firstlastoddeven" xml:space="preserve">
+    <data name="firstlastoddeven" xml:space="preserve">
     <value>第一球/最后一球 单/双</value>
   </data>
-  <data name="firstlastoverunder" xml:space="preserve">
+    <data name="firstlastoverunder" xml:space="preserve">
     <value>第一球/最后一球 大/小</value>
   </data>
-  <data name="highlow" xml:space="preserve">
+    <data name="highlow" xml:space="preserve">
     <value>高/低</value>
   </data>
-  <data name="mixsports" xml:space="preserve">
+    <data name="mixsports" xml:space="preserve">
     <value>混合体育过关</value>
   </data>
-  <data name="numbergamecomm" xml:space="preserve">
+    <data name="numbergamecomm" xml:space="preserve">
     <value>百练赛游戏佣金</value>
   </data>
-  <data name="lblBingoTraditionalHandHistory" xml:space="preserve">
+    <data name="lblBingoTraditionalHandHistory" xml:space="preserve">
     <value>宾果传统游戏历史</value>
   </data>
-  <data name="lblDateAndTime" xml:space="preserve">
+    <data name="lblDateAndTime" xml:space="preserve">
     <value>日期和时间</value>
   </data>
-  <data name="game" xml:space="preserve">
+    <data name="game" xml:space="preserve">
     <value>数字游戏</value>
   </data>
-  <data name="high" xml:space="preserve">
+    <data name="high" xml:space="preserve">
     <value>高限额</value>
   </data>
-  <data name="low" xml:space="preserve">
+    <data name="low" xml:space="preserve">
     <value>普通限额</value>
   </data>
-  <data name="SportHorseNumberGame" xml:space="preserve">
+    <data name="SportHorseNumberGame" xml:space="preserve">
     <value>体育博彩-赛马-百练赛</value>
   </data>
-  <data name="confirmDisableNumberGameDownline" xml:space="preserve">
+    <data name="confirmDisableNumberGameDownline" xml:space="preserve">
     <value>您确定你需要禁用客户和所有下线的数字游戏吗？</value>
   </data>
-  <data name="lblTotalBGOutstanding" xml:space="preserve">
+    <data name="lblTotalBGOutstanding" xml:space="preserve">
     <value>宾果未结束交易总和</value>
   </data>
-  <data name="lblTotalBGTransfer" xml:space="preserve">
+    <data name="lblTotalBGTransfer" xml:space="preserve">
     <value>宾果转账总和</value>
   </data>
-  <data name="confirmDisableNumberGame" xml:space="preserve">
+    <data name="confirmDisableNumberGame" xml:space="preserve">
     <value>您确定你需要禁用客户的数字游戏吗？</value>
   </data>
-  <data name="confirmUnSuspended" xml:space="preserve">
+    <data name="confirmUnSuspended" xml:space="preserve">
     <value>您确定要更改这个客户暂停状态吗？所有下线将取消暂停.</value>
   </data>
-  <data name="lblConfirmAllowDownline" xml:space="preserve">
+    <data name="lblConfirmAllowDownline" xml:space="preserve">
     <value>您确认你要允许数字游戏给此用户名和所有下线吗？</value>
   </data>
-  <data name="bingoPositionTaking" xml:space="preserve">
+    <data name="bingoPositionTaking" xml:space="preserve">
     <value>宾果占成 %</value>
   </data>
-  <data name="lblLiveBall" xml:space="preserve">
+    <data name="lblLiveBall" xml:space="preserve">
     <value>现场球</value>
   </data>
-  <data name="editmultbingo" xml:space="preserve">
+    <data name="editmultbingo" xml:space="preserve">
     <value>修改多重宾果</value>
   </data>
-  <data name="noLimited" xml:space="preserve">
+    <data name="noLimited" xml:space="preserve">
     <value>没有限制</value>
   </data>
-  <data name="lblEnableNumber" xml:space="preserve">
+    <data name="lblEnableNumber" xml:space="preserve">
     <value>开启数字游戏</value>
   </data>
-  <data name="Numberdownlines" xml:space="preserve">
+    <data name="Numberdownlines" xml:space="preserve">
     <value>下线</value>
   </data>
-  <data name="strConfirmDisableNumber" xml:space="preserve">
+    <data name="strConfirmDisableNumber" xml:space="preserve">
     <value>警告!!! 你确认你需要禁用数字游戏给客户和所有下线宾果吗？</value>
   </data>
-  <data name="strConfirmEnableNumber" xml:space="preserve">
+    <data name="strConfirmEnableNumber" xml:space="preserve">
     <value>你确认要启用数字游戏给此客户吗？</value>
   </data>
-  <data name="OutrightDisabledUpline" xml:space="preserve">
+    <data name="OutrightDisabledUpline" xml:space="preserve">
     <value>上线已被禁用优胜冠军投注。</value>
   </data>
-  <data name="UplineHasClosed" xml:space="preserve">
+    <data name="UplineHasClosed" xml:space="preserve">
     <value>上线账号已被关闭。</value>
   </data>
-  <data name="UplineHasSuspended" xml:space="preserve">
+    <data name="UplineHasSuspended" xml:space="preserve">
     <value>上线账号已被暂停。</value>
   </data>
-  <data name="numbergameno" xml:space="preserve">
+    <data name="numbergameno" xml:space="preserve">
     <value>数字游戏编号</value>
   </data>
-  <data name="lblNo" xml:space="preserve">
+    <data name="lblNo" xml:space="preserve">
     <value>无</value>
   </data>
-  <data name="lblYes" xml:space="preserve">
+    <data name="lblYes" xml:space="preserve">
     <value>是</value>
   </data>
-  <data name="selectLeague" xml:space="preserve">
+    <data name="selectLeague" xml:space="preserve">
     <value>选择联赛</value>
   </data>
-  <data name="hideLeague" xml:space="preserve">
+    <data name="hideLeague" xml:space="preserve">
     <value>隐藏联赛</value>
   </data>
-  <data name="warningmultipletransfer" xml:space="preserve">
+    <data name="warningmultipletransfer" xml:space="preserve">
     <value>注意: 若昨天余额被全数转账, 被 &lt;font class="highlight"&gt;特别显示&lt;/font&gt; 会员的投注金额将显示负数。因此, 他们的输额有可能超过信用额度。</value>
   </data>
-  <data name="Racebook" xml:space="preserve">
-    <value>赛马赛事</value>
+    <data name="Racebook" xml:space="preserve">
+    <value>赛马</value>
   </data>
-  <data name="subTotal" xml:space="preserve">
+    <data name="subTotal" xml:space="preserve">
     <value>小计</value>
   </data>
-  <data name="horseRacing" xml:space="preserve">
-    <value>赛马赛事</value>
+    <data name="horseRacing" xml:space="preserve">
+    <value>赛马</value>
   </data>
-  <data name="greyHound" xml:space="preserve">
+    <data name="greyHound" xml:space="preserve">
     <value>赛狗</value>
   </data>
-  <data name="harness" xml:space="preserve">
+    <data name="harness" xml:space="preserve">
     <value>马车赛事</value>
   </data>
-  <data name="winautote" xml:space="preserve">
+    <data name="winautote" xml:space="preserve">
     <value>独赢澳大利亚彩池</value>
   </data>
-  <data name="placeautote" xml:space="preserve">
+    <data name="placeautote" xml:space="preserve">
     <value>位置澳大利亚彩池</value>
   </data>
-  <data name="fullSite" xml:space="preserve">
+    <data name="fullSite" xml:space="preserve">
     <value>完整版</value>
   </data>
-  <data name="mobile" xml:space="preserve">
+    <data name="mobile" xml:space="preserve">
     <value>手机</value>
   </data>
-  <data name="modifiedBettingLimitValue" xml:space="preserve">
+    <data name="modifiedBettingLimitValue" xml:space="preserve">
     <value>您的上线已修改您的投注金額數值。&lt;br&gt;请务必核对您的下线的细节。</value>
   </data>
-  <data name="modifiedMinPTBettingLimitValue" xml:space="preserve">
+    <data name="modifiedMinPTBettingLimitValue" xml:space="preserve">
     <value>您的上线已修改您的最低占成及投注金额数值。&lt;br&gt;请务必核对您的下线的细节。</value>
   </data>
-  <data name="agentgivencredit" xml:space="preserve">
+    <data name="agentgivencredit" xml:space="preserve">
     <value>代理信用额度</value>
   </data>
-  <data name="announcement" xml:space="preserve">
+    <data name="announcement" xml:space="preserve">
     <value>通告</value>
   </data>
-  <data name="highestturnoverofthemonth" xml:space="preserve">
+    <data name="highestturnoverofthemonth" xml:space="preserve">
     <value>本月最高投注额之会员</value>
   </data>
-  <data name="lblSuperOutstanding" xml:space="preserve">
+    <data name="lblSuperOutstanding" xml:space="preserve">
     <value>超级总代理未完成交易</value>
   </data>
-  <data name="newmemberofthemonth" xml:space="preserve">
+    <data name="newmemberofthemonth" xml:space="preserve">
     <value>本月新会员</value>
   </data>
-  <data name="statistic" xml:space="preserve">
+    <data name="statistic" xml:space="preserve">
     <value>您的统计</value>
   </data>
-  <data name="todaywinloss" xml:space="preserve">
+    <data name="todaywinloss" xml:space="preserve">
     <value>今日输赢</value>
   </data>
-  <data name="top10winningmembers" xml:space="preserve">
+    <data name="top10winningmembers" xml:space="preserve">
     <value>本月前10名最高贏額會員</value>
   </data>
-  <data name="winningamount" xml:space="preserve">
+    <data name="winningamount" xml:space="preserve">
     <value>赢额</value>
   </data>
-  <data name="yesterdaywinloss" xml:space="preserve">
+    <data name="yesterdaywinloss" xml:space="preserve">
     <value>昨日输赢</value>
   </data>
-  <data name="mastergivencredit" xml:space="preserve">
+    <data name="mastergivencredit" xml:space="preserve">
     <value>总代理信用额度</value>
   </data>
-  <data name="supergivencredit" xml:space="preserve">
+    <data name="supergivencredit" xml:space="preserve">
     <value>超级总代理信用额度</value>
   </data>
-  <data name="dailywinlossanalysisreport" xml:space="preserve">
+    <data name="dailywinlossanalysisreport" xml:space="preserve">
     <value>每日输赢分析</value>
   </data>
-  <data name="monthlywinlossanalysisreport" xml:space="preserve">
+    <data name="monthlywinlossanalysisreport" xml:space="preserve">
     <value>每月输赢分析</value>
   </data>
-  <data name="sportwinlossanalysisreport" xml:space="preserve">
+    <data name="sportwinlossanalysisreport" xml:space="preserve">
     <value>体育输赢分析</value>
   </data>
-  <data name="betcount" xml:space="preserve">
+    <data name="betcount" xml:space="preserve">
     <value>投注统计</value>
   </data>
-  <data name="monthly" xml:space="preserve">
+    <data name="monthly" xml:space="preserve">
     <value>每月</value>
   </data>
-  <data name="reportby" xml:space="preserve">
+    <data name="reportby" xml:space="preserve">
     <value>由报告</value>
   </data>
-  <data name="currency" xml:space="preserve">
+    <data name="currency" xml:space="preserve">
     <value>货币</value>
   </data>
-  <data name="pagesize" xml:space="preserve">
+    <data name="pagesize" xml:space="preserve">
     <value>页面范围:</value>
   </data>
-  <data name="select" xml:space="preserve">
+    <data name="select" xml:space="preserve">
     <value>选择</value>
   </data>
-  <data name="none" xml:space="preserve">
+    <data name="none" xml:space="preserve">
     <value>没有</value>
   </data>
-  <data name="msgNicknameOnly" xml:space="preserve">
+    <data name="msgNicknameOnly" xml:space="preserve">
     <value>&lt;div class='mt3'&gt;- 昵称之后将不允许更改.&lt;/div&gt;
 &lt;div class='mt3'&gt;- 您的昵称将不会透露给任何人.&lt;/div&gt;
 &lt;div class='mt3'&gt;- 子账户将无法使用此功能.&lt;/div&gt;</value>
   </data>
-  <data name="nicknameOnly" xml:space="preserve">
+    <data name="nicknameOnly" xml:space="preserve">
     <value>仅昵称 (推荐)</value>
   </data>
-  <data name="usernameOrNickname" xml:space="preserve">
+    <data name="usernameOrNickname" xml:space="preserve">
     <value>用户名或昵称</value>
   </data>
-  <data name="msgValidNickName" xml:space="preserve">
+    <data name="msgValidNickName" xml:space="preserve">
     <value>昵称必须是独特的，只含有字母或数字，至少五个字符，最多十五个字符</value>
   </data>
-  <data name="introNickname" xml:space="preserve">
+    <data name="introNickname" xml:space="preserve">
     <value>&lt;div&gt;亲爱的客户! 现在您可使用昵称登录&lt;/div&gt;
 &lt;div&gt;... 更安全化及个性化.&lt;/div&gt;</value>
   </data>
-  <data name="loginWrong5Times" xml:space="preserve">
+    <data name="loginWrong5Times" xml:space="preserve">
     <value>您已输入6次错误的用户名/密码, 请与5分钟后再尝试。</value>
   </data>
-  <data name="lblTotalActiveClosedSuspended" xml:space="preserve">
+    <data name="lblTotalActiveClosedSuspended" xml:space="preserve">
     <value>总数"活跃/关闭/暫停"</value>
   </data>
-  <data name="no0" xml:space="preserve">
+    <data name="no0" xml:space="preserve">
     <value>無</value>
   </data>
-  <data name="loginOptions" xml:space="preserve">
+    <data name="loginOptions" xml:space="preserve">
     <value>登录选项</value>
   </data>
-  <data name="owner" xml:space="preserve">
+    <data name="owner" xml:space="preserve">
     <value>持有人</value>
   </data>
-  <data name="configNow" xml:space="preserve">
+    <data name="configNow" xml:space="preserve">
     <value>设定</value>
   </data>
-  <data name="dailyconsolidatedreport" xml:space="preserve">
+    <data name="dailyconsolidatedreport" xml:space="preserve">
     <value>每日综合报告</value>
   </data>
-  <data name="monthlyconsolidatedreport" xml:space="preserve">
+    <data name="monthlyconsolidatedreport" xml:space="preserve">
     <value>每月综合报告</value>
   </data>
-  <data name="sportconsolidatedreport" xml:space="preserve">
+    <data name="sportconsolidatedreport" xml:space="preserve">
     <value>体育综合报告</value>
   </data>
-  <data name="basecurrency" xml:space="preserve">
+    <data name="basecurrency" xml:space="preserve">
     <value>基准货币:</value>
   </data>
-  <data name="allcurrencies" xml:space="preserve">
+    <data name="allcurrencies" xml:space="preserve">
     <value>所有货币</value>
   </data>
-  <data name="viewunder" xml:space="preserve">
+    <data name="viewunder" xml:space="preserve">
     <value>查阅以下</value>
   </data>
-  <data name="currentweek" xml:space="preserve">
+    <data name="currentweek" xml:space="preserve">
     <value>本周</value>
   </data>
-  <data name="currentmonth" xml:space="preserve">
+    <data name="currentmonth" xml:space="preserve">
     <value>本月</value>
   </data>
-  <data name="lastweek" xml:space="preserve">
+    <data name="lastweek" xml:space="preserve">
     <value>上周</value>
   </data>
-  <data name="lastmonth" xml:space="preserve">
+    <data name="lastmonth" xml:space="preserve">
     <value>上月</value>
   </data>
-  <data name="sincelastmonth" xml:space="preserve">
+    <data name="sincelastmonth" xml:space="preserve">
     <value>从上个月起</value>
   </data>
-  <data name="specificdate" xml:space="preserve">
+    <data name="specificdate" xml:space="preserve">
     <value>具体日期</value>
   </data>
-  <data name="pleaseselect" xml:space="preserve">
+    <data name="pleaseselect" xml:space="preserve">
     <value>请选择</value>
   </data>
-  <data name="nextcombo" xml:space="preserve">
+    <data name="nextcombo" xml:space="preserve">
     <value>下一球组合</value>
   </data>
-  <data name="numberGroup" xml:space="preserve">
+    <data name="numberGroup" xml:space="preserve">
     <value>包牌</value>
   </data>
-  <data name="warrior" xml:space="preserve">
+    <data name="warrior" xml:space="preserve">
     <value>斗士</value>
   </data>
-  <data name="warrior2ndBall" xml:space="preserve">
+    <data name="warrior2ndBall" xml:space="preserve">
     <value>第二颗球赢</value>
   </data>
-  <data name="warrior3rdBall" xml:space="preserve">
+    <data name="warrior3rdBall" xml:space="preserve">
     <value>第三颗球赢</value>
   </data>
-  <data name="screenName" xml:space="preserve">
+    <data name="screenName" xml:space="preserve">
     <value>昵称</value>
   </data>
-  <data name="stakeLevel" xml:space="preserve">
+    <data name="stakeLevel" xml:space="preserve">
     <value>桌面限额</value>
   </data>
-  <data name="gameSetting" xml:space="preserve">
+    <data name="gameSetting" xml:space="preserve">
     <value>游戏设定</value>
   </data>
-  <data name="playForFun" xml:space="preserve">
+    <data name="playForFun" xml:space="preserve">
     <value>游戏币</value>
   </data>
-  <data name="medium" xml:space="preserve">
+    <data name="medium" xml:space="preserve">
     <value>中限额</value>
   </data>
-  <data name="vip" xml:space="preserve">
+    <data name="vip" xml:space="preserve">
     <value>贵宾限额</value>
   </data>
-  <data name="games" xml:space="preserve">
+    <data name="games" xml:space="preserve">
     <value>普通游戏</value>
   </data>
-  <data name="privateGames" xml:space="preserve">
+    <data name="privateGames" xml:space="preserve">
     <value>私人游戏</value>
   </data>
-  <data name="editP2P" xml:space="preserve">
+    <data name="editP2P" xml:space="preserve">
     <value>修改扑克</value>
   </data>
-  <data name="editmultp2p" xml:space="preserve">
+    <data name="editmultp2p" xml:space="preserve">
     <value>修改多重扑克</value>
   </data>
-  <data name="lblSystemParlay" xml:space="preserve">
+    <data name="lblSystemParlay" xml:space="preserve">
     <value>系统Parlay</value>
   </data>
-  <data name="lblScoreMap" xml:space="preserve">
+    <data name="lblScoreMap" xml:space="preserve">
     <value>盈利预测图</value>
   </data>
-  <data name="saveBetSetting" xml:space="preserve">
+    <data name="saveBetSetting" xml:space="preserve">
     <value>Save Bet Setting</value>
   </data>
-  <data name="saveGameSetting" xml:space="preserve">
+    <data name="saveGameSetting" xml:space="preserve">
     <value>提交新游戏设定</value>
   </data>
-  <data name="saveCommission" xml:space="preserve">
+    <data name="saveCommission" xml:space="preserve">
     <value>Save Commission</value>
   </data>
-  <data name="SelectMatch" xml:space="preserve">
+    <data name="SelectMatch" xml:space="preserve">
     <value>选择赛事</value>
   </data>
-  <data name="hideMatch" xml:space="preserve">
+    <data name="hideMatch" xml:space="preserve">
     <value>隐藏赛事</value>
   </data>
-  <data name="plsChooseBetType" xml:space="preserve">
+    <data name="plsChooseBetType" xml:space="preserve">
     <value>请选择投注类别</value>
   </data>
-  <data name="plsChooseMatch" xml:space="preserve">
+    <data name="plsChooseMatch" xml:space="preserve">
     <value>Please choose a match!</value>
   </data>
-  <data name="lblTotalCSTransferOutstanding" xml:space="preserve">
+    <data name="lblTotalCSTransferOutstanding" xml:space="preserve">
     <value>到娱乐城的总转账额|未完成交易额</value>
   </data>
-  <data name="lblTotalBGTransferOutstanding" xml:space="preserve">
+    <data name="lblTotalBGTransferOutstanding" xml:space="preserve">
     <value>Total Bingo Transfer|Outstanding</value>
   </data>
-  <data name="lblTotalP2PTransferOutstanding" xml:space="preserve">
+    <data name="lblTotalP2PTransferOutstanding" xml:space="preserve">
     <value>到扑克的总转账额|未完成交易额</value>
   </data>
-  <data name="showhidecolumnAd" xml:space="preserve">
+    <data name="showhidecolumnAd" xml:space="preserve">
     <value>右键单击以显示/隐藏列行</value>
   </data>
-  <data name="monthlyWinlossChart" xml:space="preserve">
+    <data name="monthlyWinlossChart" xml:space="preserve">
     <value>每月图表</value>
   </data>
-  <data name="product" xml:space="preserve">
+    <data name="product" xml:space="preserve">
     <value>Product</value>
   </data>
-  <data name="superwinloss" xml:space="preserve">
+    <data name="superwinloss" xml:space="preserve">
     <value>超级总代输赢</value>
   </data>
-  <data name="least3monthtochart" xml:space="preserve">
+    <data name="least3monthtochart" xml:space="preserve">
     <value>请选择至少3个月的数据以查看图表</value>
   </data>
-  <data name="noSufficientData" xml:space="preserve">
+    <data name="noSufficientData" xml:space="preserve">
     <value>没有足够的数据转载至图表, 请选择更长的时间范围.</value>
   </data>
-  <data name="transfercondition" xml:space="preserve">
+    <data name="transfercondition" xml:space="preserve">
     <value>转帐设定</value>
   </data>
-  <data name="allpages" xml:space="preserve">
+    <data name="allpages" xml:space="preserve">
     <value>全部页面</value>
   </data>
-  <data name="onlythispage" xml:space="preserve">
+    <data name="onlythispage" xml:space="preserve">
     <value>仅此页面</value>
   </data>
-  <data name="preview" xml:space="preserve">
+    <data name="preview" xml:space="preserve">
     <value>预览</value>
   </data>
-  <data name="InfoAllSetting" xml:space="preserve">
+    <data name="InfoAllSetting" xml:space="preserve">
     <value>所有设置将根据所输入之用户名复制除。</value>
   </data>
-  <data name="InfoClickNext" xml:space="preserve">
+    <data name="InfoClickNext" xml:space="preserve">
     <value>点击 "下一个" 以创建新会员</value>
   </data>
-  <data name="InfoClickPreview" xml:space="preserve">
+    <data name="InfoClickPreview" xml:space="preserve">
     <value>点击 "预览" 以查看设定 (只有部分将显示以作为参考之用途)。</value>
   </data>
-  <data name="EnterMemberInfo" xml:space="preserve">
+    <data name="EnterMemberInfo" xml:space="preserve">
     <value>输入资料</value>
   </data>
-  <data name="PreviewMemberSetting" xml:space="preserve">
+    <data name="PreviewMemberSetting" xml:space="preserve">
     <value>检阅设定</value>
   </data>
-  <data name="SearchAndCopy" xml:space="preserve">
+    <data name="SearchAndCopy" xml:space="preserve">
     <value>搜索与复制</value>
   </data>
-  <data name="searchExistingMember" xml:space="preserve">
+    <data name="searchExistingMember" xml:space="preserve">
     <value>搜索现有的会员</value>
   </data>
-  <data name="LiveCasino" xml:space="preserve">
+    <data name="LiveCasino" xml:space="preserve">
     <value>娱乐厅</value>
   </data>
-  <data name="MasterAutoPresetPT" xml:space="preserve">
+    <data name="MasterAutoPresetPT" xml:space="preserve">
     <value>Master Auto Preset PT</value>
   </data>
-  <data name="EditLiveCasino" xml:space="preserve">
+    <data name="EditLiveCasino" xml:space="preserve">
     <value>修改娱乐厅</value>
   </data>
-  <data name="EditLiveCasinoMultiple" xml:space="preserve">
+    <data name="EditLiveCasinoMultiple" xml:space="preserve">
     <value>修改多重真人荷官</value>
   </data>
-  <data name="baccarat" xml:space="preserve">
+    <data name="baccarat" xml:space="preserve">
     <value>百家乐</value>
   </data>
-  <data name="skip" xml:space="preserve">
+    <data name="skip" xml:space="preserve">
     <value>略过</value>
   </data>
-  <data name="settingOf" xml:space="preserve">
+    <data name="settingOf" xml:space="preserve">
     <value>設定</value>
   </data>
-  <data name="FullControl" xml:space="preserve">
+    <data name="FullControl" xml:space="preserve">
     <value>完全控制</value>
   </data>
-  <data name="infoClickSkip" xml:space="preserve">
+    <data name="infoClickSkip" xml:space="preserve">
     <value>点击"跳過"不进行预览设置。</value>
   </data>
-  <data name="isAuto" xml:space="preserve">
+    <data name="isAuto" xml:space="preserve">
     <value>是自动</value>
   </data>
-  <data name="minPT" xml:space="preserve">
+    <data name="minPT" xml:space="preserve">
     <value>最低占成数</value>
   </data>
-  <data name="searchExistingAgent" xml:space="preserve">
+    <data name="searchExistingAgent" xml:space="preserve">
     <value>搜索现有代理</value>
   </data>
-  <data name="searchExistingMaster" xml:space="preserve">
+    <data name="searchExistingMaster" xml:space="preserve">
     <value>搜索现有总代理</value>
   </data>
-  <data name="miniBaccarat" xml:space="preserve">
+    <data name="miniBaccarat" xml:space="preserve">
     <value>迷你百家乐</value>
   </data>
-  <data name="LastOU" xml:space="preserve">
+    <data name="LastOU" xml:space="preserve">
     <value>第一/最后/大小</value>
   </data>
-  <data name="memberMaxCreditInvalid" xml:space="preserve">
+    <data name="memberMaxCreditInvalid" xml:space="preserve">
     <value>会员信用额应在{0}和{1}之间</value>
   </data>
-  <data name="agentMaxCreditInvalid" xml:space="preserve">
+    <data name="agentMaxCreditInvalid" xml:space="preserve">
     <value>代理最高信用额应在{0}和{1}之间</value>
   </data>
-  <data name="masterMaxCreditInvalid" xml:space="preserve">
+    <data name="masterMaxCreditInvalid" xml:space="preserve">
     <value>总代理最高信用额应在{0}和{1}之间</value>
   </data>
-  <data name="updateFailed" xml:space="preserve">
+    <data name="updateFailed" xml:space="preserve">
     <value>修改失败，因为上线的娱乐厅状态以被禁止</value>
   </data>
-  <data name="confirmEnableLiveCasino" xml:space="preserve">
+    <data name="confirmEnableLiveCasino" xml:space="preserve">
     <value>您要启用娱乐厅予此会员？</value>
   </data>
-  <data name="confirmDisableLiveCasino" xml:space="preserve">
+    <data name="confirmDisableLiveCasino" xml:space="preserve">
     <value>您要禁止此会员参与娱乐厅？</value>
   </data>
-  <data name="msgContraintData" xml:space="preserve">
+    <data name="msgContraintData" xml:space="preserve">
     <value>此会员之设置已超过当前被分配的占成数。因此, 这只会生效于新增会员。</value>
   </data>
-  <data name="infoSearchAndCopyMaster" xml:space="preserve">
+    <data name="infoSearchAndCopyMaster" xml:space="preserve">
     <value>新增总代理时，产品若无预览功能 (例如: 现场娱乐厅) 也将进行复制。</value>
   </data>
-  <data name="infoSearchAndCopyAgent" xml:space="preserve">
+    <data name="infoSearchAndCopyAgent" xml:space="preserve">
     <value>新增代理时，产品若无预览功能 (例如: 现场娱乐厅) 也将进行复制。</value>
   </data>
-  <data name="infoSearchAndCopyMember" xml:space="preserve">
+    <data name="infoSearchAndCopyMember" xml:space="preserve">
     <value>新增会员时，产品若无预览功能 (例如: 现场娱乐厅) 也将进行复制。</value>
   </data>
-  <data name="creditInvalid" xml:space="preserve">
+    <data name="creditInvalid" xml:space="preserve">
     <value>信用额度数值不正确</value>
   </data>
-  <data name="LiveGame" xml:space="preserve">
+    <data name="LiveGame" xml:space="preserve">
     <value>Live Game</value>
   </data>
-  <data name="PreGame" xml:space="preserve">
+    <data name="PreGame" xml:space="preserve">
     <value>Pre Game</value>
   </data>
-  <data name="tablecurrency" xml:space="preserve">
+    <data name="tablecurrency" xml:space="preserve">
     <value>游戏桌货币</value>
   </data>
-  <data name="usercurrency" xml:space="preserve">
+    <data name="usercurrency" xml:space="preserve">
     <value>玩家货币显示</value>
   </data>
-  <data name="xrate" xml:space="preserve">
+    <data name="xrate" xml:space="preserve">
     <value>兑换率</value>
   </data>
-  <data name="accClosed" xml:space="preserve">
+    <data name="accClosed" xml:space="preserve">
     <value>This account was closed, click here to view log</value>
   </data>
-  <data name="accSuspended" xml:space="preserve">
+    <data name="accSuspended" xml:space="preserve">
     <value>This account was suspended, click here to view log</value>
   </data>
-  <data name="p2ptablesession" xml:space="preserve">
+    <data name="p2ptablesession" xml:space="preserve">
     <value>扑克的游戏桌时段</value>
   </data>
-  <data name="tableid" xml:space="preserve">
+    <data name="tableid" xml:space="preserve">
     <value>游戏桌号</value>
   </data>
-  <data name="tournamentid" xml:space="preserve">
+    <data name="tournamentid" xml:space="preserve">
     <value>锦标赛号</value>
   </data>
-  <data name="NoCurrencyPlay" xml:space="preserve">
+    <data name="NoCurrencyPlay" xml:space="preserve">
     <value>若任何代理层在此玩家对玩中使用自设兑换率或倍数将自负其所带来与造成的风险和损失</value>
   </data>
-  <data name="VirtualSports" xml:space="preserve">
+    <data name="VirtualSports" xml:space="preserve">
     <value>虚拟运动</value>
   </data>
-  <data name="VirtualSoccer" xml:space="preserve">
+    <data name="VirtualSoccer" xml:space="preserve">
     <value>虚拟足球</value>
   </data>
-  <data name="EditVirtualSports" xml:space="preserve">
+    <data name="EditVirtualSports" xml:space="preserve">
     <value>编辑虚拟运动</value>
   </data>
-  <data name="confirmDisableVirtualSportsDownline" xml:space="preserve">
+    <data name="confirmDisableVirtualSportsDownline" xml:space="preserve">
     <value>确定禁用虚拟运动于此账号及所有下线?</value>
   </data>
-  <data name="strConfirmDisableVirtualSports" xml:space="preserve">
+    <data name="strConfirmDisableVirtualSports" xml:space="preserve">
     <value>注意!!! 您确定禁用虚拟运动于此账号及所有下线?</value>
   </data>
-  <data name="strConfirmEnableVirtualSports" xml:space="preserve">
+    <data name="strConfirmEnableVirtualSports" xml:space="preserve">
     <value>确定启用虚拟运动于此账号?</value>
   </data>
-  <data name="agentMaxPT" xml:space="preserve">
+    <data name="agentMaxPT" xml:space="preserve">
     <value>代理最高占成数</value>
   </data>
-  <data name="agentMinPT" xml:space="preserve">
+    <data name="agentMinPT" xml:space="preserve">
     <value>代理最低占成数</value>
   </data>
-  <data name="agentPT" xml:space="preserve">
+    <data name="agentPT" xml:space="preserve">
     <value>代理占成数</value>
   </data>
-  <data name="masterMaxPT" xml:space="preserve">
+    <data name="masterMaxPT" xml:space="preserve">
     <value>总代理最高占成数</value>
   </data>
-  <data name="masterMinPT" xml:space="preserve">
+    <data name="masterMinPT" xml:space="preserve">
     <value>总代理最低占成数</value>
   </data>
-  <data name="masterPT" xml:space="preserve">
+    <data name="masterPT" xml:space="preserve">
     <value>总代理占成数</value>
   </data>
-  <data name="superPT" xml:space="preserve">
+    <data name="superPT" xml:space="preserve">
     <value>超级总代理占成数</value>
   </data>
-  <data name="masterAutoPT" xml:space="preserve">
+    <data name="masterAutoPT" xml:space="preserve">
     <value>总代理自动占成</value>
   </data>
-  <data name="editMultipleVirtualSports" xml:space="preserve">
+    <data name="editMultipleVirtualSports" xml:space="preserve">
     <value>编辑多重虚拟运动</value>
   </data>
-  <data name="MemberWinLimit" xml:space="preserve">
+    <data name="MemberWinLimit" xml:space="preserve">
     <value>会员的赢额上限</value>
   </data>
-  <data name="Unlimited" xml:space="preserve">
+    <data name="Unlimited" xml:space="preserve">
     <value>无限</value>
   </data>
-  <data name="GamesDetails" xml:space="preserve">
+    <data name="GamesDetails" xml:space="preserve">
     <value>Games Details</value>
   </data>
-  <data name="Commission1Details" xml:space="preserve">
+    <data name="Commission1Details" xml:space="preserve">
     <value>Commission 1 Details</value>
   </data>
-  <data name="Commission2Details" xml:space="preserve">
+    <data name="Commission2Details" xml:space="preserve">
     <value>Commission 2 Details</value>
   </data>
-  <data name="OtherBettypes" xml:space="preserve">
+    <data name="OtherBettypes" xml:space="preserve">
     <value>Other Bettypes</value>
   </data>
-  <data name="allowed" xml:space="preserve">
+    <data name="allowed" xml:space="preserve">
     <value>允许</value>
   </data>
-  <data name="disallowed" xml:space="preserve">
+    <data name="disallowed" xml:space="preserve">
     <value>禁止</value>
   </data>
-  <data name="doublecommission" xml:space="preserve">
+    <data name="doublecommission" xml:space="preserve">
     <value>双倍佣金</value>
   </data>
-  <data name="confirmDisableDoubleComm" xml:space="preserve">
+    <data name="confirmDisableDoubleComm" xml:space="preserve">
     <value>您确定要禁止此客户的双倍佣金功能于体育博彩之输额注单? 警告, 所有附属此代理之会员也将被禁止!</value>
   </data>
-  <data name="strConfirmEnableDoubleComm" xml:space="preserve">
+    <data name="strConfirmEnableDoubleComm" xml:space="preserve">
     <value>您确定要允许此客户的双倍佣金功能于体育博彩之输额注单?</value>
   </data>
-  <data name="strConfirmDisableDoubleCommMember" xml:space="preserve">
+    <data name="strConfirmDisableDoubleCommMember" xml:space="preserve">
     <value>您确定要关闭此客户的双倍佣金功能于体育博彩之输额注单?</value>
   </data>
-  <data name="strConfirmEnableDoubleCommMember" xml:space="preserve">
+    <data name="strConfirmEnableDoubleCommMember" xml:space="preserve">
     <value>您确定要开启此客户的双倍佣金功能于体育博彩之输额注单?</value>
   </data>
-  <data name="doublecommissionON" xml:space="preserve">
+    <data name="doublecommissionON" xml:space="preserve">
     <value>开启</value>
   </data>
-  <data name="doublecommissionOFF" xml:space="preserve">
+    <data name="doublecommissionOFF" xml:space="preserve">
     <value>关闭</value>
   </data>
-  <data name="editMultipleDoubleComm" xml:space="preserve">
+    <data name="editMultipleDoubleComm" xml:space="preserve">
     <value>修改多重双倍佣金</value>
   </data>
-  <data name="dcommMultiEditPopupTitle" xml:space="preserve">
+    <data name="dcommMultiEditPopupTitle" xml:space="preserve">
     <value>修改多重双倍佣金之输额注单</value>
   </data>
-  <data name="dcommMultiEditPopupAllowOption" xml:space="preserve">
+    <data name="dcommMultiEditPopupAllowOption" xml:space="preserve">
     <value>允许双倍佣金</value>
   </data>
-  <data name="dcommMultiEditPopupDisallowOption" xml:space="preserve">
+    <data name="dcommMultiEditPopupDisallowOption" xml:space="preserve">
     <value>禁止双倍佣金</value>
   </data>
-  <data name="lblNoDraw" xml:space="preserve">
+    <data name="lblNoDraw" xml:space="preserve">
     <value>No Draw</value>
   </data>
-  <data name="bingo" xml:space="preserve">
+    <data name="bingo" xml:space="preserve">
     <value>Bingo</value>
   </data>
-  <data name="dcommMultiEditPopupOFFOption" xml:space="preserve">
+    <data name="dcommMultiEditPopupOFFOption" xml:space="preserve">
     <value>关闭双倍佣金</value>
   </data>
-  <data name="dcommMultiEditPopupONOption" xml:space="preserve">
+    <data name="dcommMultiEditPopupONOption" xml:space="preserve">
     <value>开启双倍佣金</value>
   </data>
-  <data name="Gaming" xml:space="preserve">
+    <data name="Gaming" xml:space="preserve">
     <value>Gaming</value>
   </data>
-  <data name="home2" xml:space="preserve">
+    <data name="home2" xml:space="preserve">
     <value>主</value>
   </data>
-  <data name="VirtualTennis" xml:space="preserve">
+    <data name="VirtualTennis" xml:space="preserve">
     <value>虚拟网球</value>
   </data>
-  <data name="agentList" xml:space="preserve">
+    <data name="agentList" xml:space="preserve">
     <value>代理</value>
   </data>
-  <data name="memberList" xml:space="preserve">
+    <data name="memberList" xml:space="preserve">
     <value>会员</value>
   </data>
-  <data name="level" xml:space="preserve">
+    <data name="level" xml:space="preserve">
     <value>阶层</value>
   </data>
-  <data name="lblPasswordExpired" xml:space="preserve">
+    <data name="lblPasswordExpired" xml:space="preserve">
     <value>您的安全及隐私对我们非常重要。因此, 我们不断努力的提高我们的安全预防措施以保护您的数据。基于此原因, 我们决定实施密码重设。
 
 请使用以下表格立即更换您的密码。</value>
   </data>
-  <data name="lblPasswordHint" xml:space="preserve">
+    <data name="lblPasswordHint" xml:space="preserve">
     <value>注: 我们强烈建议您定期更换您的密码以提高安全性。</value>
   </data>
-  <data name="lblPasswordChangedOK" xml:space="preserve">
+    <data name="lblPasswordChangedOK" xml:space="preserve">
     <value>您已成功更改您的密码。</value>
   </data>
-  <data name="lblPasswordDAccountName" xml:space="preserve">
+    <data name="lblPasswordDAccountName" xml:space="preserve">
     <value>您的密码不能包含您的用户名或昵称。</value>
   </data>
-  <data name="lblPasswordDOldOne" xml:space="preserve">
+    <data name="lblPasswordDOldOne" xml:space="preserve">
     <value>您的新密码不能与旧密码相同。</value>
   </data>
-  <data name="lblPasswordMemberRequire" xml:space="preserve">
+    <data name="lblPasswordMemberRequire" xml:space="preserve">
     <value>密码必须为 6-10 字符没有空格并包含至少 1  个大写字母、1  个小写字母 、 1  个数字。（例如 493abcDE, 59D7!4$h）
 注意： 您的密码需有大小写</value>
   </data>
-  <data name="lblPasswordRequire" xml:space="preserve">
+    <data name="lblPasswordRequire" xml:space="preserve">
     <value>密码必须至少 8 个字符没有空格和包含至少 3个 以下：
 
 • 大写字母 [A-Z]
@@ -2336,66 +2336,66 @@
 例如： 59D7!4$h, 493abcDE
 注意： 您的密码需有大小写</value>
   </data>
-  <data name="lblPasswordWrongRule" xml:space="preserve">
+    <data name="lblPasswordWrongRule" xml:space="preserve">
     <value>您的密码不符合最低安全要求</value>
   </data>
-  <data name="virtualHorsesRacing" xml:space="preserve">
+    <data name="virtualHorsesRacing" xml:space="preserve">
     <value>虚拟赛马</value>
   </data>
-  <data name="superCommissionByBetType" xml:space="preserve">
+    <data name="superCommissionByBetType" xml:space="preserve">
     <value>Super Commission By Bet Type</value>
   </data>
-  <data name="masterCommissionByBetType" xml:space="preserve">
+    <data name="masterCommissionByBetType" xml:space="preserve">
     <value>Master Commission By Bet Type</value>
   </data>
-  <data name="agentCommissionByBetType" xml:space="preserve">
+    <data name="agentCommissionByBetType" xml:space="preserve">
     <value>Agent Commission By Bet Type</value>
   </data>
-  <data name="Commission3Details" xml:space="preserve">
+    <data name="Commission3Details" xml:space="preserve">
     <value>Commission 3 Details</value>
   </data>
-  <data name="contactMessage" xml:space="preserve">
+    <data name="contactMessage" xml:space="preserve">
     <value>若您尚未获取保安码, 请联系您的上线或客服部</value>
   </data>
-  <data name="informSecCode" xml:space="preserve">
+    <data name="informSecCode" xml:space="preserve">
     <value>请输入您的保安码以继续执行!</value>
   </data>
-  <data name="lblSecurity" xml:space="preserve">
+    <data name="lblSecurity" xml:space="preserve">
     <value>机密码</value>
   </data>
-  <data name="lblLearnMore" xml:space="preserve">
+    <data name="lblLearnMore" xml:space="preserve">
     <value>了解更多</value>
   </data>
-  <data name="alertSameSecCode" xml:space="preserve">
+    <data name="alertSameSecCode" xml:space="preserve">
     <value>您的新保安码必须与当前的不相同。</value>
   </data>
-  <data name="oldSecCode" xml:space="preserve">
+    <data name="oldSecCode" xml:space="preserve">
     <value>旧保安码</value>
   </data>
-  <data name="alertForcedChangeSCTitle" xml:space="preserve">
+    <data name="alertForcedChangeSCTitle" xml:space="preserve">
     <value>您需要更改机密码。您的新机密码必须要与您上线所提供不相同。&lt;br/&gt;
 请使用下面的表格更改您现在的机密码。</value>
   </data>
-  <data name="alertForcedChangeSCWithoutValidationTitle" xml:space="preserve">
+    <data name="alertForcedChangeSCWithoutValidationTitle" xml:space="preserve">
     <value>您需要设置您的机密码来验证当日后您需要做任何关键的操作，如更改自己的密码，重置您的下线密码等。&lt;br/&gt;
 请使用下面的表格更改您现在的机密码。</value>
   </data>
-  <data name="alertOldSecCodeEmpty" xml:space="preserve">
+    <data name="alertOldSecCodeEmpty" xml:space="preserve">
     <value>请输入您的旧保安码。</value>
   </data>
-  <data name="alertErrorSecCodeConfirm" xml:space="preserve">
+    <data name="alertErrorSecCodeConfirm" xml:space="preserve">
     <value>您的机密码无法被确认。</value>
   </data>
-  <data name="alertSecCodeChangedOK" xml:space="preserve">
+    <data name="alertSecCodeChangedOK" xml:space="preserve">
     <value>您已成功更改您的保安码。</value>
   </data>
-  <data name="alertSecCodeEmpty" xml:space="preserve">
+    <data name="alertSecCodeEmpty" xml:space="preserve">
     <value>抱歉, 保安码不能空置</value>
   </data>
-  <data name="ConfirmSecurityCode" xml:space="preserve">
+    <data name="ConfirmSecurityCode" xml:space="preserve">
     <value>确认保安码</value>
   </data>
-  <data name="lblRequiredSecCode" xml:space="preserve">
+    <data name="lblRequiredSecCode" xml:space="preserve">
     <value>保安码必须是:
 
     * 数字而已
@@ -2406,169 +2406,172 @@
         + "逆序"号位整体数字组合都是连续的递减的顺序, 从左至右。
         + 例如: 123456, 456789, 765432等都是不被允许的</value>
   </data>
-  <data name="lblSecCodeWrongRule" xml:space="preserve">
+    <data name="lblSecCodeWrongRule" xml:space="preserve">
     <value>您所提供的保安码不符合要求。</value>
   </data>
-  <data name="SecurityCode" xml:space="preserve">
+    <data name="SecurityCode" xml:space="preserve">
     <value>保安码</value>
   </data>
-  <data name="titleFirstTimeSecCode" xml:space="preserve">
+    <data name="titleFirstTimeSecCode" xml:space="preserve">
     <value>保安码</value>
   </data>
-  <data name="titleResetSecCode" xml:space="preserve">
+    <data name="titleResetSecCode" xml:space="preserve">
     <value>重置保安码</value>
   </data>
-  <data name="tooltipCommission" xml:space="preserve">
+    <data name="tooltipCommission" xml:space="preserve">
     <value>Click to view note</value>
   </data>
-  <data name="agentincentive" xml:space="preserve">
+    <data name="agentincentive" xml:space="preserve">
     <value>代理奖励金</value>
   </data>
-  <data name="incentivesetting" xml:space="preserve">
+    <data name="incentivesetting" xml:space="preserve">
     <value>奖励金 设置</value>
   </data>
-  <data name="masterincentive" xml:space="preserve">
+    <data name="masterincentive" xml:space="preserve">
     <value>总代理奖励金</value>
   </data>
-  <data name="superincentive" xml:space="preserve">
+    <data name="superincentive" xml:space="preserve">
     <value>超级总代理奖励金</value>
   </data>
-  <data name="usernameconsolidatedreport" xml:space="preserve">
+    <data name="usernameconsolidatedreport" xml:space="preserve">
     <value>基于用户名的合并报表</value>
   </data>
-  <data name="consolidationreport" xml:space="preserve">
+    <data name="consolidationreport" xml:space="preserve">
     <value>合并报表</value>
   </data>
-  <data name="FunctionTurnOffError" xml:space="preserve">
+    <data name="FunctionTurnOffError" xml:space="preserve">
     <value>由于目前服务器繁忙所以此功能暂时关闭，有请稍后再试。 不便之处 敬请见谅！</value>
   </data>
-  <data name="VirtualGreyhounds" xml:space="preserve">
+    <data name="VirtualGreyhounds" xml:space="preserve">
     <value>虚拟赛狗</value>
   </data>
-  <data name="VirtualMotors" xml:space="preserve">
+    <data name="VirtualMotors" xml:space="preserve">
     <value>虚拟赛车</value>
   </data>
-  <data name="HRFixedOdds" xml:space="preserve">
+    <data name="HRFixedOdds" xml:space="preserve">
     <value>固定赔率赛马</value>
   </data>
-  <data name="lblAlertDisableHRFixedOddsMember" xml:space="preserve">
+    <data name="lblAlertDisableHRFixedOddsMember" xml:space="preserve">
     <value>警告!!! 您确定禁用此户口固定赔率赛马游戏吗?</value>
   </data>
-  <data name="strConfirmDisableHRFixedOdds" xml:space="preserve">
+    <data name="strConfirmDisableHRFixedOdds" xml:space="preserve">
     <value>警告!!! 您确定禁用此户口和其下线固定赔率赛马游戏吗?</value>
   </data>
-  <data name="strConfirmEnableHRFixedOdds" xml:space="preserve">
+    <data name="strConfirmEnableHRFixedOdds" xml:space="preserve">
     <value>您确定开启此户口固定赔率赛马游戏吗?</value>
   </data>
-  <data name="Keno" xml:space="preserve">
+    <data name="Keno" xml:space="preserve">
     <value>快乐彩</value>
   </data>
-  <data name="lblEnableKeno" xml:space="preserve">
+    <data name="lblEnableKeno" xml:space="preserve">
     <value>快乐彩</value>
   </data>
-  <data name="VirtualCycling" xml:space="preserve">
+    <data name="VirtualCycling" xml:space="preserve">
     <value>虛擬自行車</value>
   </data>
-  <data name="VirtualSpeedway" xml:space="preserve">
+    <data name="VirtualSpeedway" xml:space="preserve">
     <value>虛擬沙地摩托車</value>
   </data>
-  <data name="ACommPercent" xml:space="preserve">
+    <data name="ACommPercent" xml:space="preserve">
     <value>AComm%</value>
   </data>
-  <data name="MCommPercent" xml:space="preserve">
+    <data name="MCommPercent" xml:space="preserve">
     <value>MComm%</value>
   </data>
-  <data name="SCommPercent" xml:space="preserve">
+    <data name="SCommPercent" xml:space="preserve">
     <value>SComm%</value>
   </data>
-  <data name="editKeno" xml:space="preserve">
+    <data name="editKeno" xml:space="preserve">
     <value>修改快乐彩</value>
   </data>
-  <data name="ESports" xml:space="preserve">
+    <data name="ESports" xml:space="preserve">
     <value>电子游戏</value>
   </data>
-  <data name="confirmDisableESportsDownline" xml:space="preserve">
+    <data name="confirmDisableESportsDownline" xml:space="preserve">
     <value>警告!!! 您确定要禁用电子游戏于此账号及所有下线?</value>
   </data>
-  <data name="strConfirmDisableESports" xml:space="preserve">
+    <data name="strConfirmDisableESports" xml:space="preserve">
     <value>警告!!! 您确定要禁用电子游戏于此账号及所有下线?</value>
   </data>
-  <data name="strConfirmEnableESports" xml:space="preserve">
+    <data name="strConfirmEnableESports" xml:space="preserve">
     <value>您是否要启用电子游戏于此客户?</value>
   </data>
-  <data name="ClickToViewPTInfo" xml:space="preserve">
+    <data name="ClickToViewPTInfo" xml:space="preserve">
     <value>点击查看占成信息</value>
   </data>
-  <data name="ViewDataFromDate" xml:space="preserve">
+    <data name="ViewDataFromDate" xml:space="preserve">
     <value>您可查看报表数据从 {0}.</value>
   </data>
-  <data name="editmultkeno" xml:space="preserve">
+    <data name="editmultkeno" xml:space="preserve">
     <value>修改多重快乐彩</value>
   </data>
-  <data name="detailtooltip" xml:space="preserve">
+    <data name="detailtooltip" xml:space="preserve">
     <value>Click to view result detail</value>
   </data>
-  <data name="ContactUs" xml:space="preserve">
+    <data name="ContactUs" xml:space="preserve">
     <value>联络我们</value>
   </data>
-  <data name="GoldDeluxe" xml:space="preserve">
+    <data name="GoldDeluxe" xml:space="preserve">
     <value>GD真人娱乐场</value>
   </data>
-  <data name="editGoldDeluxe" xml:space="preserve">
+    <data name="editGoldDeluxe" xml:space="preserve">
     <value>修改GD真人娱乐场</value>
   </data>
-  <data name="editMultipleGoldDeluxe" xml:space="preserve">
+    <data name="editMultipleGoldDeluxe" xml:space="preserve">
     <value>修改多重GD真人娱乐场</value>
   </data>
-  <data name="confirmDisableGoldDeluxe" xml:space="preserve">
+    <data name="confirmDisableGoldDeluxe" xml:space="preserve">
     <value>Are you sure you want to disable Gold Deluxe for this customer?</value>
   </data>
-  <data name="confirmDisableGoldDeluxeMultiple" xml:space="preserve">
+    <data name="confirmDisableGoldDeluxeMultiple" xml:space="preserve">
     <value>WARNING!!! Are you sure you want to disable Gold Deluxe on this customer and all downlines?</value>
   </data>
-  <data name="confirmEnableGoldDeluxe" xml:space="preserve">
+    <data name="confirmEnableGoldDeluxe" xml:space="preserve">
     <value>Are you sure you want to enable Gold Deluxe for this customer?</value>
   </data>
-  <data name="confirmEnableGoldDeluxeMultiple" xml:space="preserve">
+    <data name="confirmEnableGoldDeluxeMultiple" xml:space="preserve">
     <value>Do you want to enable Gold Deluxe for this customer?</value>
   </data>
-  <data name="Enable_Gold_Deluxe" xml:space="preserve">
+    <data name="Enable_Gold_Deluxe" xml:space="preserve">
     <value>启用GD真人娱乐场</value>
   </data>
-  <data name="updateGoldDeluxeFailed" xml:space="preserve">
+    <data name="updateGoldDeluxeFailed" xml:space="preserve">
     <value>更新不成功因GD真人娱乐场已被上线禁用</value>
   </data>
-  <data name="ColossusBets" xml:space="preserve">
+    <data name="ColossusBets" xml:space="preserve">
     <value>Colossus Bets</value>
   </data>
-  <data name="lblNotAskSecCodeAgain" xml:space="preserve">
+    <data name="lblNotAskSecCodeAgain" xml:space="preserve">
     <value>Don't ask me again in this session</value>
   </data>
-  <data name="UpdateColossusBetsStatus" xml:space="preserve">
+    <data name="UpdateColossusBetsStatus" xml:space="preserve">
     <value>Update Colossus Bets Status</value>
   </data>
-  <data name="Symbol_OddsPercentage" xml:space="preserve">
+    <data name="Symbol_OddsPercentage" xml:space="preserve">
     <value>% Odds</value>
   </data>
-  <data name="Symbol_MyanmarOdds" xml:space="preserve">
+    <data name="Symbol_MyanmarOdds" xml:space="preserve">
     <value>% Odds</value>
   </data>
-  <data name="Sportsbook2" xml:space="preserve">
+    <data name="Sportsbook2" xml:space="preserve">
     <value>体育博彩 2</value>
   </data>
-  <data name="EditMultipleSportsbook2" xml:space="preserve">
+    <data name="EditMultipleSportsbook2" xml:space="preserve">
     <value>修改多重体育博彩2</value>
   </data>
-  <data name="EditSingleSportsbook2" xml:space="preserve">
+    <data name="EditSingleSportsbook2" xml:space="preserve">
     <value>修改体育博彩2</value>
   </data>
-  <data name="CockFighting" xml:space="preserve">
+    <data name="CockFighting" xml:space="preserve">
     <value>Cockfighting</value>
   </data>
-  <data name="Progressivebonus" xml:space="preserve">
+    <data name="Progressivebonus" xml:space="preserve">
     <value>Progressive Bonus</value>
   </data>
-  <data name="AllProducts" xml:space="preserve">
+    <data name="AllProducts" xml:space="preserve">
     <value>All Products</value>
+  </data>
+    <data name="Of_Pager" xml:space="preserve">
+    <value>之第</value>
   </data>
 </root>

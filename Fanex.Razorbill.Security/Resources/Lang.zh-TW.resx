@@ -209,4 +209,7 @@ Note: your new SC must be different from the one provided by upline/CSD</value>
   <data name="NotAuthorized" xml:space="preserve">
     <value>您沒有使用此功能的權限</value>
   </data>
+  <data name="NewSecurityCode" xml:space="preserve">
+    <value>保安碼</value>
+  </data>
 </root>
