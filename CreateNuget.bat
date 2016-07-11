@@ -12,7 +12,7 @@
 @set solutionPath=%currentFolder%
 @set autoBuildLastestCodeTask=%currentFolder%\AutoBuildLastestCodeTask.bat
 
-@set commitHashTest=74c421ef8c61dfc7341940eb43a89b35b8501714
+@set commitHashTest=
 @set webSiteFolder=Fanex_Razorbill_Website
 @set binFolder=bin
 @set "defaultPackageVersionSuffix=-vnresources03"
