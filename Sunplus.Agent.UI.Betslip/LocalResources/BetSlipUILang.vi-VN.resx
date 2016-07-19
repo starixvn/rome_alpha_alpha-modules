@@ -938,7 +938,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Danh sách cược</value>
   </data>
   <data name="lblBetSetting" xml:space="preserve">
-    <value>Tiền Cược</value>
+    <value>Giới hạn cược</value>
   </data>
   <data name="lblCashBalance" xml:space="preserve">
     <value>Số dư tài khoản</value>
@@ -980,7 +980,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Tùy chỉnh cho Agent</value>
   </data>
   <data name="lbleditbetsetting" xml:space="preserve">
-    <value>Tùy chỉnh thiết lập về tiền cược</value>
+    <value>Tùy chỉnh thiết lập về giới hạn cược</value>
   </data>
   <data name="lbleditcasino" xml:space="preserve">
     <value>Casino</value>
@@ -1553,7 +1553,7 @@ Lưu ý : Mật khẩu có phân biệt chữ hoa và chữ thường.</value>
     <value>Thứ 7</value>
   </data>
   <data name="saveBetSetting" xml:space="preserve">
-    <value>Lưu thiết lập về tiền đặt cược</value>
+    <value>Lưu thiết lập về giới hạn cược</value>
   </data>
   <data name="saveCommission" xml:space="preserve">
     <value>Lưu  giá trị hoa hồng</value>
