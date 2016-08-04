@@ -1,7 +1,7 @@
+using System;
+
 namespace Sunplus.Agent.Model.BL.Definitions
 {
-    using System;
-
     [Obsolete("Should rename to Sunplus.Agent.Model.Definitions")]
     public enum BetType : int
     {
@@ -60,7 +60,8 @@ namespace Sunplus.Agent.Model.BL.Definitions
         Away_No_Bet = 122,
         Draw_NoDraw = 123,
         P2P = 1000,
-        // Number Game
+
+        // Number Game.
         _1st_Ball_OU = 81,
         Last_Ball_OU = 82,
         _1st_Ball_OE = 83,
@@ -71,30 +72,35 @@ namespace Sunplus.Agent.Model.BL.Definitions
         Warrior = 88,
         Next_Combo = 89,
         NumberWheel = 90,
-        // Live Casino
+
+        // Live Casino.
         Baccarat = 1101,
         Roulette = 1102,
         LiveBaccarat = 1103,
         LiveRoulette = 1104,
         Sicbo = 1103,
-        // Virtual Soccer
+
+        // Virtual Soccer.
         VS_Handicap = 1201,
         VS_OverUnder = 1203,
         VS_CorrectScore = 1204,
         VS_1X2 = 1205,
         VS_TotalGoal = 1206,
         VS_DoubleChange = 1224,
-        // Virtual Horses Racing
+
+        // Virtual Horses Racing.
         VHR_Win = 1231,
         VHR_Place = 1232,
         VHR_WinPlace = 1233,
         VHR_Forecast = 1237,
         VHR_Tricast = 1238,
+
         // Virtual Tennis
         VT_PlayerWin = 1220,
         VT_ScoreBet = 1235,
         VT_TotalPoints = 1236,
-        // Sporting Solution
+
+        // Sporting Solution.
         MatchWinner = 1301,
         MatchCorrectScore = 1302,
         SetHandicap = 1303,
@@ -129,22 +135,31 @@ namespace Sunplus.Agent.Model.BL.Definitions
         SetXGameYTotalPointZWinner = 1332,
         SetXGameYAndGameYAdd1Winner = 1333,
         SetXGameYAndGameYAdd1Points = 1334,
-        // ...Max 19000 for Betting
+
+        // Max 19000 for Betting.
         Others = 19001,
+
         // 19001-32767 for Transfer
         FirstCorrectScore = 30,
         _1st_Total_Goal = 126,
         _1st_First_Goal_Last_Goal = 127,
-        // Gold Deluxe
+
+        // Gold Deluxe.
         GoldDeluxeBaccarat = 1701,
         GoldDeluxeRoulette = 1702,
         GoldDeluxeParlayBaccarat = 1703,
         ChargeCommission = 500,
-        // AllBet
+
+        // AllBet.
         AllBetRangeStart = 2401,
         AllBetRangeEnd = 2499,
-        // Voidbridge
+
+        // Voidbridge.
         VoidbridgeRangeStart = 4001,
-        VoidbridgeRangeEnd = 7999
+        VoidbridgeRangeEnd = 7999,
+
+        // NG2.
+        NG2Start = 2501,
+        NG2End = 2699
     }
 }

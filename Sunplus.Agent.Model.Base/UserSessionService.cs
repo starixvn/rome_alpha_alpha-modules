@@ -257,6 +257,7 @@ namespace Sunplus.Agent.Model.BL
             session.DisableProducts = new Dictionary<int, bool>();
             session.SyncProducts = new Dictionary<int, bool>();
             var products = ProductSpNames();
+
             foreach (var product in products)
             {
                 var storedProcedureName = "hide" + product.Value;
@@ -307,18 +308,19 @@ namespace Sunplus.Agent.Model.BL
 
             session.IsDisabledSuperLive = !values.Contains("disablesuperlive") || (bool)values["disablesuperlive"];
 
-			session.IsSyncedAllBet = values.Contains("syncedallbet") && (bool)values["syncedallbet"];
-		}
+            session.IsSyncedAllBet = values.Contains("syncedallbet") && (bool)values["syncedallbet"];
+        }
 
-        private static Dictionary<int, string> ProductSpNames()
+        private static IDictionary<int, string> ProductSpNames()
         {
-            var result = new Dictionary<int, string>();
-            result.Add(ProductIdConstants.CockFighting, "cockfighting");
-            result.Add(ProductIdConstants.Cricket, "cricket");
-            result.Add(ProductIdConstants.AllBet, "allbet");
-            result.Add(ProductIdConstants.Voidbridge, "voidbridge");
-
-            return result;
-		}
+            return new Dictionary<int, string>
+            {
+                { ProductIdConstants.CockFighting, "cockfighting" },
+                { ProductIdConstants.Cricket, "cricket" },
+                { ProductIdConstants.AllBet, "allbet" },
+                { ProductIdConstants.Voidbridge, "voidbridge" },
+                { ProductIdConstants.NG2, "ng2" }
+            };
+        }
     }
 }
