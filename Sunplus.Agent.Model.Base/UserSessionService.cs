@@ -2,9 +2,9 @@ namespace Sunplus.Agent.Model.BL
 {
     using System;
     using System.Collections;
-    using System.Collections.Generic;
     using System.Text.RegularExpressions;
     using Fanex.Common;
+    using Model.Base.Configurations;
     using Sunplus.Agent.Model.BL.Definitions;
     using Sunplus.Agent.Model.Definitions;
     using Sunplus.Agent.Model.Entities;
@@ -253,22 +253,7 @@ namespace Sunplus.Agent.Model.BL
             session.IsHideSportsbook2 = !values.Contains("hidemuaythai") || Converter.ToBool(values["hidemuaythai"]);
             session.DisableSportsbook2 = !values.Contains("disablemuaythai") || Converter.ToBool(values["disablemuaythai"]);
 
-            session.HideProducts = new Dictionary<int, bool>();
-            session.DisableProducts = new Dictionary<int, bool>();
-            session.SyncProducts = new Dictionary<int, bool>();
-            var products = ProductSpNames();
-
-            foreach (var product in products)
-            {
-                var storedProcedureName = "hide" + product.Value;
-                session.HideProducts[product.Key] = values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : true;
-
-                storedProcedureName = "disable" + product.Value;
-                session.DisableProducts[product.Key] = values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : true;
-
-                storedProcedureName = "synced" + product.Value;
-                session.SyncProducts[product.Key] = values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : false;
-            }
+            SetProductsStatus(session, values);
 
             session.IsDisabledFI = (bool)values["disablefi"];
             session.IsDisabledAutoMPT = (bool)values["disableautompt"];
@@ -307,20 +292,42 @@ namespace Sunplus.Agent.Model.BL
             }
 
             session.IsDisabledSuperLive = !values.Contains("disablesuperlive") || (bool)values["disablesuperlive"];
-
-            session.IsSyncedAllBet = values.Contains("syncedallbet") && (bool)values["syncedallbet"];
         }
 
-        private static IDictionary<int, string> ProductSpNames()
+        private static void SetProductsStatus(UserSessionBase session, Hashtable values)
         {
-            return new Dictionary<int, string>
+            string productName, storedProcedureName;
+            var products = ProductManager.NewFlowProducts;
+
+            foreach (var product in products)
             {
-                { ProductIdConstants.CockFighting, "cockfighting" },
-                { ProductIdConstants.Cricket, "cricket" },
-                { ProductIdConstants.AllBet, "allbet" },
-                { ProductIdConstants.Voidbridge, "voidbridge" },
-                { ProductIdConstants.NG2, "ng2" }
-            };
+                if (product.Active)
+                {
+                    productName = product.Name.ToLower();
+
+                    storedProcedureName = "hide" + productName;
+                    if (values.ContainsKey(storedProcedureName))
+                    {
+                        session.SetHideProduct(product.Id, Converter.ToBool(values[storedProcedureName]));
+                    }
+
+                    storedProcedureName = "disable" + productName;
+                    if (values.ContainsKey(storedProcedureName))
+                    {
+                        session.SetDisabledProduct(product.Id, Converter.ToBool(values[storedProcedureName]));
+                    }
+
+                    storedProcedureName = "synced" + productName;
+                    if (values.ContainsKey(storedProcedureName))
+                    {
+                        session.SetSyncedProduct(product.Id, Converter.ToBool(values[storedProcedureName]));
+                    }
+                }
+                else
+                {
+                    session.SetHideProduct(product.Id, true);
+                }
+            }
         }
     }
 }

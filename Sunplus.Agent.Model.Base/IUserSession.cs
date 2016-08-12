@@ -637,23 +637,23 @@ namespace Sunplus.Agent.Model.Entities
 
         bool IsDisabledSuperLive { get; set; }
 
-        Dictionary<int, bool> HideProducts { get; set; }
+        bool GetHideProduct(int productId);
 
-        Dictionary<int, bool> DisableProducts { get; set; }
+        void SetHideProduct(int productId, bool value);
 
-        Dictionary<int, bool> SyncProducts { get; set; }
+        bool GetSyncedProduct(int productId);
+
+        void SetSyncedProduct(int productId, bool value);
+
+        bool GetDisabledProduct(int productId);
+
+        void SetDisabledProduct(int productId, bool value);
 
         string UserLoginIp { get; set; }
 
         bool IsIMBCCustomer { get; set; }
 
         bool IsInternalWebVPN
-        {
-            get;
-            set;
-        }
-
-        bool IsSyncedAllBet
         {
             get;
             set;

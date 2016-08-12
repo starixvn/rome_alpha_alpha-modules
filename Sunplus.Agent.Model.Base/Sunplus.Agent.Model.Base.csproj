@@ -56,6 +56,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BOBase.cs" />
+    <Compile Include="Configurations\ProductCollection.cs" />
+    <Compile Include="Configurations\ProductElement.cs" />
+    <Compile Include="Configurations\ProductManager.cs" />
+    <Compile Include="Configurations\ProductSection.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="IUserSession.cs" />
     <Compile Include="PageAccess.cs" />

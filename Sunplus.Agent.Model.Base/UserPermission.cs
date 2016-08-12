@@ -326,32 +326,23 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return Sunplus.Agent.Model.Entities.UserSession.Current;
+                return UserSession.Current;
             }
         }
 
-        public static bool IsSyncAllBet
-		{
-			get
-			{
-				return CurrentUserSession.IsSyncedAllBet;
-			}
-		}
-
-        public static bool IsEnableProduct(int product)
+        public static bool IsEnableProduct(int productId)
         {
-            var hideProducts = CurrentUserSession.HideProducts;
-
-            return AppSettings.IsEnabledProduct(product) &&
-                hideProducts.ContainsKey(product) &&
-                !hideProducts[product];
+            return !CurrentUserSession.GetHideProduct(productId);
         }
 
-        public static bool IsSyncedProduct(int product)
+        public static bool IsSyncedProduct(int productId)
         {
-            var syncProducts = CurrentUserSession.SyncProducts;
+            return CurrentUserSession.GetSyncedProduct(productId);
+        }
 
-            return syncProducts.ContainsKey(product) && syncProducts[product];
+        public static bool IsDisabledProduct(int productId)
+        {
+            return CurrentUserSession.GetDisabledProduct(productId);
         }
     }
 }
