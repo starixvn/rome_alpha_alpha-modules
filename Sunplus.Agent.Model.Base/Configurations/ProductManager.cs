@@ -74,5 +74,10 @@ namespace Sunplus.Agent.Model.Base.Configurations
                 return ProductSection.Instance.Products.Cast<ProductElement>();
             }
         }
+
+        internal static bool IsEnabledProduct(int productId)
+        {
+            return ProductElements.Where(p => p.Active && p.Id == productId).Any();
+        }
     }
 }

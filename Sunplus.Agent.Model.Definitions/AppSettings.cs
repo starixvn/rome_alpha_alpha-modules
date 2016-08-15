@@ -881,10 +881,5 @@ namespace Sunplus.Agent.Model.BL.Definitions
         }
 
         #endregion Configurations
-
-        public static bool IsEnabledProduct(int product)
-        {
-            return GetValue("EnableProduct-" + product) == "1";
-        }
     }
 }

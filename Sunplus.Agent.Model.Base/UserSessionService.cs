@@ -270,7 +270,7 @@ namespace Sunplus.Agent.Model.BL
                 session.IsMyanmarOdds = Converter.ToBool(values["ismyanmarodds"]);
             }
 
-            if (AppSettings.IsEnabledProduct(ProductIdConstants.Cricket))
+            if (ProductManager.IsEnabledProduct(ProductIdConstants.Cricket))
             {
                 session.IsIMBCCustomer = Converter.ToBool(values["isimbc"]);
             }
