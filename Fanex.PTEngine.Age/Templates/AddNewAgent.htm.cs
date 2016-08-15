@@ -43,48 +43,50 @@ namespace Fanex.PTEngine.Age
 			public string actionForm = "{actionForm}";
 			protected static string s21 = "' method=\"post\"><div class=\"minWidthCustomer\">";
 			protected static string s22{get{return new Fanex.Age.UI.Components.ErrorMsg.ErrorMsg_Template();}}
-			protected static string s23 = "<input type=\"hidden\" name=\"txtCustomerObject\" id=\"txtCustomerObject\" /><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmit\" class=\"btn btn-refresh\">";
+			protected static string s23 = "<input type=\"hidden\" name=\"txtCustomerObject\" id=\"txtCustomerObject\" /><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmit\" class=\"buttonSubmit ";
 			public string actionName = "{actionName}";
-			protected static string s24 = "</button></div></div><div class=\"customerInfo\"><div class=\"headerTab\">";
-			protected static string s25{get{return LocalResources.PTEngineLang.generalInformation;}}
-			protected static string s26 = "</div>";
+			protected static string s24 = "\">";
+			protected string t0_actionName;
+			protected static string s25 = "</button></div></div><div class=\"customerInfo\"><div class=\"headerTab\">";
+			protected static string s26{get{return LocalResources.PTEngineLang.generalInformation;}}
+			protected static string s27 = "</div>";
 			public AddNewAgent_UserNameAndPasswordBlock_Block UserNameAndPasswordBlock = new AddNewAgent_UserNameAndPasswordBlock_Block();
-			protected static string s27 = "<div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
-			protected static string s28{get{return LocalResources.PTEngineLang.firstname;}}
-			protected static string s29 = "</div><div class=\"customerInfoBlock2\"><input id=\"firstName\" type=\"text\" class=\"textBoxInfo\" data-bind=\"value: customer.firstName\"maxlength=\"50\" /></div><div class=\"customerInfoBlock3\">";
-			protected static string s30{get{return LocalResources.PTEngineLang.lastname;}}
-			protected static string s31 = "</div><div class=\"customerInfoBlock4\"><input id=\"lastName\" type=\"text\" class=\"textBoxInfo\" data-bind=\"value: customer.lastName\"maxlength=\"50\" /></div></div><div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
-			protected static string s32{get{return LocalResources.PTEngineLang.lblPhone;}}
-			protected static string s33 = "</div><div class=\"customerInfoBlock2\"><input id=\"phone\" type=\"text\" class=\"textBoxInfo\" data-bind=\"value: customer.phone\"maxlength=\"50\" /></div><div class=\"customerInfoBlock3\">";
-			protected static string s34{get{return LocalResources.PTEngineLang.lblMobilePhone;}}
-			protected static string s35 = "</div><div class=\"customerInfoBlock4\"><input id=\"mobilePhone\" type=\"text\" class=\"textBoxInfo\" data-bind=\"value: customer.mobilePhone\"maxlength=\"50\" /></div></div><div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
-			protected static string s36{get{return LocalResources.PTEngineLang.lblAgentMaxCredit;}}
-			protected static string s37 = "</div><div class=\"customerInfoBlock2\"><input type=\"text\" id=\"credit\" maxlength=\"14\" class=\"textBoxCredit textBoxInfo\" data-bind=\"value: customer.credit\" /><span id=\"minCreditId\">&gt;=<span data-bind=\"text: customer.minCreditTemp\" id=\"minCredit\"></span>&nbsp;";
-			protected static string s38{get{return LocalResources.PTEngineLang.and;}}
-			protected static string s39 = "&nbsp;</span><= <span data-bind=\"text: customer.maxCredit\" id=\"maxCredit\"></span></div><div class=\"customerInfoBlock3\">";
-			protected static string s40{get{return LocalResources.PTEngineLang.lblFax;}}
-			protected static string s41 = "</div><div class=\"customerInfoBlock4\"><input id=\"fax\" type=\"text\" class=\"textBoxInfo\" data-bind=\"value: customer.fax\" maxlength=\"50\" /></div></div><div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
-			protected static string s42{get{return LocalResources.PTEngineLang.lblMemberMaxCredit;}}
-			protected static string s43 = "</div><div class=\"customerInfoBlock2\"><input type=\"text\" id=\"memberMaxCredit\" maxlength=\"14\" class=\"textBoxCredit textBoxInfo\"data-bind=\"value: customer.memberMaxCredit\" /><span id=\"minMemberMaxCreditId\">&gt;=<span data-bind=\"text: customer.memberMinCredit\"id=\"lblMinCredit\"></span>&nbsp;";
-			protected static string s44{get{return LocalResources.PTEngineLang.and;}}
-			protected static string s45 = "&nbsp;</span><= <span data-bind=\"text: customer.credit\"id=\"lblMemberMaxCredit\"></span></div><div class=\"customerInfoBlock3\"><label for=\"suspended\">";
-			protected static string s46{get{return LocalResources.PTEngineLang.suspended;}}
-			protected static string s47 = "</label></div><div class=\"customerInfoBlock4\"><input name=\"suspended\" id=\"suspended\" type=\"checkbox\" data-bind=\"checked: customer.statusSetting.suspended, enable: (customer.statusSetting.uplineSuspended || customer.statusSetting.uplineClosed) ? false : true\" /></div></div>";
+			protected static string s28 = "<div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
+			protected static string s29{get{return LocalResources.PTEngineLang.firstname;}}
+			protected static string s30 = "</div><div class=\"customerInfoBlock2\"><input id=\"firstName\" type=\"text\" class=\"textBoxInfo\" data-bind=\"value: customer.firstName\"maxlength=\"50\" /></div><div class=\"customerInfoBlock3\">";
+			protected static string s31{get{return LocalResources.PTEngineLang.lastname;}}
+			protected static string s32 = "</div><div class=\"customerInfoBlock4\"><input id=\"lastName\" type=\"text\" class=\"textBoxInfo\" data-bind=\"value: customer.lastName\"maxlength=\"50\" /></div></div><div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
+			protected static string s33{get{return LocalResources.PTEngineLang.lblPhone;}}
+			protected static string s34 = "</div><div class=\"customerInfoBlock2\"><input id=\"phone\" type=\"text\" class=\"textBoxInfo\" data-bind=\"value: customer.phone\"maxlength=\"50\" /></div><div class=\"customerInfoBlock3\">";
+			protected static string s35{get{return LocalResources.PTEngineLang.lblMobilePhone;}}
+			protected static string s36 = "</div><div class=\"customerInfoBlock4\"><input id=\"mobilePhone\" type=\"text\" class=\"textBoxInfo\" data-bind=\"value: customer.mobilePhone\"maxlength=\"50\" /></div></div><div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
+			protected static string s37{get{return LocalResources.PTEngineLang.lblAgentMaxCredit;}}
+			protected static string s38 = "</div><div class=\"customerInfoBlock2\"><input type=\"text\" id=\"credit\" maxlength=\"14\" class=\"textBoxCredit textBoxInfo\" data-bind=\"value: customer.credit\" /><span id=\"minCreditId\">&gt;=<span data-bind=\"text: customer.minCreditTemp\" id=\"minCredit\"></span>&nbsp;";
+			protected static string s39{get{return LocalResources.PTEngineLang.and;}}
+			protected static string s40 = "&nbsp;</span><= <span data-bind=\"text: customer.maxCredit\" id=\"maxCredit\"></span></div><div class=\"customerInfoBlock3\">";
+			protected static string s41{get{return LocalResources.PTEngineLang.lblFax;}}
+			protected static string s42 = "</div><div class=\"customerInfoBlock4\"><input id=\"fax\" type=\"text\" class=\"textBoxInfo\" data-bind=\"value: customer.fax\" maxlength=\"50\" /></div></div><div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
+			protected static string s43{get{return LocalResources.PTEngineLang.lblMemberMaxCredit;}}
+			protected static string s44 = "</div><div class=\"customerInfoBlock2\"><input type=\"text\" id=\"memberMaxCredit\" maxlength=\"14\" class=\"textBoxCredit textBoxInfo\"data-bind=\"value: customer.memberMaxCredit\" /><span id=\"minMemberMaxCreditId\">&gt;=<span data-bind=\"text: customer.memberMinCredit\"id=\"lblMinCredit\"></span>&nbsp;";
+			protected static string s45{get{return LocalResources.PTEngineLang.and;}}
+			protected static string s46 = "&nbsp;</span><= <span data-bind=\"text: customer.credit\"id=\"lblMemberMaxCredit\"></span></div><div class=\"customerInfoBlock3\"><label for=\"suspended\">";
+			protected static string s47{get{return LocalResources.PTEngineLang.suspended;}}
+			protected static string s48 = "</label></div><div class=\"customerInfoBlock4\"><input name=\"suspended\" id=\"suspended\" type=\"checkbox\" data-bind=\"checked: customer.statusSetting.suspended, enable: (customer.statusSetting.uplineSuspended || customer.statusSetting.uplineClosed) ? false : true\" /></div></div>";
 			public AddNewAgent_Close_Block Close = new AddNewAgent_Close_Block();
-			protected static string s48 = "</div>";
+			protected static string s49 = "</div>";
 			public string commisstionControl = "{commisstionControl}";
 			public AddNewAgent_TransferConditionBlock_Block TransferConditionBlock = new AddNewAgent_TransferConditionBlock_Block();
-			protected static string s49 = "<div class=\"clearBlock\"></div><br /><div class=\"headerBetSetting\">";
-			protected static string s50{get{return LocalResources.PTEngineLang.lblBetSetting;}}
-			protected static string s51 = "</div><div id=\"bettingLimitContainer\"></div><br /><div class=\"clearBlock\"></div><div class=\"headerPositionTaking\">";
-			protected static string s52{get{return LocalResources.PTEngineLang.positiontaking;}}
-			protected static string s53 = "<a class=\"infoIco\" href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
-			protected static string s54{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
-			protected static string s55 = "\"></a></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"btn btn-refresh\">";
-			protected string t0_actionName;
-			protected static string s56 = "</button></div></div></div></form>";
+			protected static string s50 = "<div class=\"clearBlock\"></div><br /><div class=\"headerBetSetting\">";
+			protected static string s51{get{return LocalResources.PTEngineLang.lblBetSetting;}}
+			protected static string s52 = "</div><div id=\"bettingLimitContainer\"></div><br /><div class=\"clearBlock\"></div><div class=\"headerPositionTaking\">";
+			protected static string s53{get{return LocalResources.PTEngineLang.positiontaking;}}
+			protected static string s54 = "<a class=\"infoIco\" href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
+			protected static string s55{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
+			protected static string s56 = "\"></a></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"btn btn-refresh\">";
+			protected string t1_actionName;
+			protected static string s57 = "</button></div></div></div></form>";
 			public AddNewAgent_ScriptBlock_Block ScriptBlock = new AddNewAgent_ScriptBlock_Block();
-			protected static string s57 = "</body></html>";
+			protected static string s58 = "</body></html>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -123,10 +125,11 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s23);
 					bd.Append(actionName);
 					bd.Append(s24);
+					bd.Append(actionName);
 					bd.Append(s25);
 					bd.Append(s26);
-					if(null != UserNameAndPasswordBlock) UserNameAndPasswordBlock.ToString(ref bd);
 					bd.Append(s27);
+					if(null != UserNameAndPasswordBlock) UserNameAndPasswordBlock.ToString(ref bd);
 					bd.Append(s28);
 					bd.Append(s29);
 					bd.Append(s30);
@@ -147,21 +150,22 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s45);
 					bd.Append(s46);
 					bd.Append(s47);
-					if(null != Close) Close.ToString(ref bd);
 					bd.Append(s48);
+					if(null != Close) Close.ToString(ref bd);
+					bd.Append(s49);
 					bd.Append(commisstionControl);
 					if(null != TransferConditionBlock) TransferConditionBlock.ToString(ref bd);
-					bd.Append(s49);
 					bd.Append(s50);
 					bd.Append(s51);
 					bd.Append(s52);
 					bd.Append(s53);
 					bd.Append(s54);
 					bd.Append(s55);
-					bd.Append(actionName);
 					bd.Append(s56);
-					if(null != ScriptBlock) ScriptBlock.ToString(ref bd);
+					bd.Append(actionName);
 					bd.Append(s57);
+					if(null != ScriptBlock) ScriptBlock.ToString(ref bd);
+					bd.Append(s58);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -184,25 +188,25 @@ namespace Fanex.PTEngine.Age
 
 		public class AddNewAgent_UserNameAndPasswordBlock_Block: Block
 		{
-			protected static string s58 = "<div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
-			protected static string s59{get{return LocalResources.PTEngineLang.username;}}
-			protected static string s60 = "</div><div class=\"customerInfoBlock2\"><b><span data-bind=\"text: customer.userName\"></span></b><select id=\"selectedOne\" name=\"selectedOne\"></select><select id=\"selectedTwo\" name=\"selectedTwo\"></select><span id=\"msgIcon\">&nbsp;&nbsp;&nbsp;</span></div><div class=\"customerInfoBlock3\">";
-			protected static string s61{get{return LocalResources.PTEngineLang.password;}}
-			protected static string s62 = "</div><div class=\"customerInfoBlock4\" id=\"divPassword\" title=\"";
-			protected static string s63{get{return LocalResources.PTEngineLang.lblPasswordRequire;}}
-			protected static string s64 = "\"><div class=\"float_l\"><input id=\"password\" autocomplete=\"off\" class=\"textBoxInfo\" type=\"password\" data-bind=\"value: customer.password\"onkeyup=\"return Fanex.Customer.CheckPassword(this, 'spnNewPwdIcon');\" maxlength=\"50\" /></div><div class=\"float_l pt3\"><span id=\"spnNewPwdIcon\">&nbsp;</span></div></div></div>";
+			protected static string s59 = "<div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
+			protected static string s60{get{return LocalResources.PTEngineLang.username;}}
+			protected static string s61 = "</div><div class=\"customerInfoBlock2\"><b><span data-bind=\"text: customer.userName\"></span></b><select id=\"selectedOne\" name=\"selectedOne\"></select><select id=\"selectedTwo\" name=\"selectedTwo\"></select><span id=\"msgIcon\">&nbsp;&nbsp;&nbsp;</span></div><div class=\"customerInfoBlock3\">";
+			protected static string s62{get{return LocalResources.PTEngineLang.password;}}
+			protected static string s63 = "</div><div class=\"customerInfoBlock4\" id=\"divPassword\" title=\"";
+			protected static string s64{get{return LocalResources.PTEngineLang.lblPasswordRequire;}}
+			protected static string s65 = "\"><div class=\"float_l\"><input id=\"password\" autocomplete=\"off\" class=\"textBoxInfo\" type=\"password\" data-bind=\"value: customer.password\"onkeyup=\"return Fanex.Customer.CheckPassword(this, 'spnNewPwdIcon');\" maxlength=\"50\" /></div><div class=\"float_l pt3\"><span id=\"spnNewPwdIcon\">&nbsp;</span></div></div></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s58);
 					bd.Append(s59);
 					bd.Append(s60);
 					bd.Append(s61);
 					bd.Append(s62);
 					bd.Append(s63);
 					bd.Append(s64);
+					bd.Append(s65);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -210,17 +214,17 @@ namespace Fanex.PTEngine.Age
 
 		public class AddNewAgent_Close_Block: Block
 		{
-			protected static string s65 = "<div class=\"clearBlock\"><div class=\"customerInfoBlock1\"></div><div class=\"customerInfoBlock2NoBorderLeft\"></div><div class=\"customerInfoBlock3\"><label for=\"closed\">";
-			protected static string s66{get{return LocalResources.PTEngineLang.closed;}}
-			protected static string s67 = "</label></div><div class=\"customerInfoBlock4\"><input name=\"closed\" id=\"closed\" type=\"checkbox\" data-bind=\"checked: customer.statusSetting.closed, enable: customer.statusSetting.uplineClosed ? false : true\" /></div></div>";
+			protected static string s66 = "<div class=\"clearBlock\"><div class=\"customerInfoBlock1\"></div><div class=\"customerInfoBlock2NoBorderLeft\"></div><div class=\"customerInfoBlock3\"><label for=\"closed\">";
+			protected static string s67{get{return LocalResources.PTEngineLang.closed;}}
+			protected static string s68 = "</label></div><div class=\"customerInfoBlock4\"><input name=\"closed\" id=\"closed\" type=\"checkbox\" data-bind=\"checked: customer.statusSetting.closed, enable: customer.statusSetting.uplineClosed ? false : true\" /></div></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s65);
 					bd.Append(s66);
 					bd.Append(s67);
+					bd.Append(s68);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -228,13 +232,13 @@ namespace Fanex.PTEngine.Age
 
 		public class AddNewAgent_TransferConditionBlock_Block: Block
 		{
-			protected static string s68{get{return new Fanex.PTEngine.Age.Templates.TransferCondition_Template();}}
+			protected static string s69{get{return new Fanex.PTEngine.Age.Templates.TransferCondition_Template();}}
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s68);
+					bd.Append(s69);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
