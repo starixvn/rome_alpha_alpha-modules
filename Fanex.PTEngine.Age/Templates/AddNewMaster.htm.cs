@@ -80,11 +80,13 @@ namespace Fanex.PTEngine.Age
 			protected static string s52{get{return LocalResources.PTEngineLang.positiontaking;}}
 			protected static string s53 = "<a class=\"infoIco\" href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
 			protected static string s54{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
-			protected static string s55 = "\"></a></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"btn btn-refresh\">";
+			protected static string s55 = "\"></a></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"buttonSubmit ";
 			protected string t1_actionName;
-			protected static string s56 = "</button></div></div></div></form>";
+			protected static string s56 = "\">";
+			protected string t2_actionName;
+			protected static string s57 = "</button></div></div></div></form>";
 			public AddNewMaster_ScriptBlock_Block ScriptBlock = new AddNewMaster_ScriptBlock_Block();
-			protected static string s57 = "</body></html>";
+			protected static string s58 = "</body></html>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -160,8 +162,10 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s55);
 					bd.Append(actionName);
 					bd.Append(s56);
-					if(null != ScriptBlock) ScriptBlock.ToString(ref bd);
+					bd.Append(actionName);
 					bd.Append(s57);
+					if(null != ScriptBlock) ScriptBlock.ToString(ref bd);
+					bd.Append(s58);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -184,25 +188,25 @@ namespace Fanex.PTEngine.Age
 
 		public class AddNewMaster_UserNameAndPasswordBlock_Block: Block
 		{
-			protected static string s58 = "<div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
-			protected static string s59{get{return LocalResources.PTEngineLang.username;}}
-			protected static string s60 = "</div><div class=\"customerInfoBlock2\"><b><span data-bind=\"text: customer.userName\"></span></b><select id=\"selectedOne\" name=\"selectedOne\"></select><select id=\"selectedTwo\" name=\"selectedTwo\"></select><span id=\"msgIcon\">&nbsp;&nbsp;&nbsp;</span></div><div class=\"customerInfoBlock3\">";
-			protected static string s61{get{return LocalResources.PTEngineLang.password;}}
-			protected static string s62 = "</div><div class=\"customerInfoBlock4\" id=\"divPassword\" title=\"";
-			protected static string s63{get{return LocalResources.PTEngineLang.lblPasswordRequire;}}
-			protected static string s64 = "\"><div class=\"float_l\"><input id=\"password\" autocomplete=\"off\" class=\"textBoxInfo\" type=\"password\" data-bind=\"value: customer.password\"onkeyup=\"return Fanex.Customer.CheckPassword(this, 'spnNewPwdIcon');\" maxlength=\"50\" /></div><div class=\"float_l pt3\"><span id=\"spnNewPwdIcon\">&nbsp;</span></div></div></div>";
+			protected static string s59 = "<div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
+			protected static string s60{get{return LocalResources.PTEngineLang.username;}}
+			protected static string s61 = "</div><div class=\"customerInfoBlock2\"><b><span data-bind=\"text: customer.userName\"></span></b><select id=\"selectedOne\" name=\"selectedOne\"></select><select id=\"selectedTwo\" name=\"selectedTwo\"></select><span id=\"msgIcon\">&nbsp;&nbsp;&nbsp;</span></div><div class=\"customerInfoBlock3\">";
+			protected static string s62{get{return LocalResources.PTEngineLang.password;}}
+			protected static string s63 = "</div><div class=\"customerInfoBlock4\" id=\"divPassword\" title=\"";
+			protected static string s64{get{return LocalResources.PTEngineLang.lblPasswordRequire;}}
+			protected static string s65 = "\"><div class=\"float_l\"><input id=\"password\" autocomplete=\"off\" class=\"textBoxInfo\" type=\"password\" data-bind=\"value: customer.password\"onkeyup=\"return Fanex.Customer.CheckPassword(this, 'spnNewPwdIcon');\" maxlength=\"50\" /></div><div class=\"float_l pt3\"><span id=\"spnNewPwdIcon\">&nbsp;</span></div></div></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s58);
 					bd.Append(s59);
 					bd.Append(s60);
 					bd.Append(s61);
 					bd.Append(s62);
 					bd.Append(s63);
 					bd.Append(s64);
+					bd.Append(s65);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -210,13 +214,13 @@ namespace Fanex.PTEngine.Age
 
 		public class AddNewMaster_TransferConditionBlock_Block: Block
 		{
-			protected static string s65{get{return new Fanex.PTEngine.Age.Templates.TransferCondition_Template();}}
+			protected static string s66{get{return new Fanex.PTEngine.Age.Templates.TransferCondition_Template();}}
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s65);
+					bd.Append(s66);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
