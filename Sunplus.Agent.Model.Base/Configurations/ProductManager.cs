@@ -11,12 +11,18 @@ namespace Sunplus.Agent.Model.Base.Configurations
         private static IEnumerable<ProductElement> _activeReportProducts;
         private static IEnumerable<ProductElement> _activeReportSportIdProducts;
         private static IEnumerable<ProductElement> _newFlowProducts;
+        private static IDictionary<int, bool> _activeNewFlowProducts;
+
+        static ProductManager()
+        {
+            _activeNewFlowProducts = NewFlowProducts.ToDictionary(k => k.Id, v => v.Active);
+        }
 
         public static IEnumerable<ProductElement> ActivePTLinkProducts
         {
             get
             {
-                _activePTLinkProducts = _activePTLinkProducts ?? 
+                _activePTLinkProducts = _activePTLinkProducts ??
                     ProductElements.Where(p => p.Active && !string.IsNullOrEmpty(p.ViewPTLink)).ToList();
 
                 return _activePTLinkProducts;
@@ -77,7 +83,7 @@ namespace Sunplus.Agent.Model.Base.Configurations
 
         internal static bool IsEnabledProduct(int productId)
         {
-            return ProductElements.Where(p => p.Active && p.Id == productId).Any();
+            return _activeNewFlowProducts.ContainsKey(productId) && _activeNewFlowProducts[productId];
         }
     }
 }

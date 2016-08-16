@@ -4,6 +4,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using Fanex.CustomerSetting.Module.Keno.KenoSetting.Configurations;
+    using Model.Base.Configurations;
     using Sunplus.Agent.Model.BL.Definitions;
     using Sunplus.Agent.Model.Entities.Base;
 
@@ -332,7 +333,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
 
         public static bool IsEnableProduct(int productId)
         {
-            return !CurrentUserSession.GetHideProduct(productId);
+            return ProductManager.IsEnabledProduct(productId) && !CurrentUserSession.GetHideProduct(productId);
         }
 
         public static bool IsSyncedProduct(int productId)
