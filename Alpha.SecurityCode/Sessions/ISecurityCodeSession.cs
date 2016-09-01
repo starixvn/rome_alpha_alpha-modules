@@ -6,6 +6,10 @@
 
         int SubAccId { get; }
 
+        int CustId { get; }
+
+        int UserId { get; }
+
         byte RoleId { get; }
 
         bool IsInternal { get; }        

@@ -87,6 +87,26 @@
             }
         }
 
+        public int UserId
+        {
+            get
+            {
+                if (this.IsInternal)
+                {
+                    return this.AdminId;
+                }
+                else
+                {
+                    return this.CustId;
+                }
+            }
+
+            set
+            {
+                throw new System.NotImplementedException();
+            }
+        }
+
         #endregion
 
         #region security code

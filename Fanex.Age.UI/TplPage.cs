@@ -10,12 +10,10 @@
 
 namespace Fanex.Age.UI
 {
+    using Alpha.SecurityCode.Sessions;
     using System.Collections;
     using System.Web;
-    using System.Web.Helpers;
     using System.Web.UI;
-    using Fanex.Razorbill.Security.Services;
-    using Fanex.Razorbill.Security.Sessions;
     using Sunplus.Agent.Model.BL.Definitions;
 
     /// <summary>
@@ -106,12 +104,12 @@ namespace Fanex.Age.UI
                 Response.ContentType = "text/html";
 
                 // Check Security Code - New Flow
-                string redirectUrl = SecurityCodeChecker.GetRedirectUrl();
+                //string redirectUrl = SecurityCodeChecker.GetRedirectUrl();
 
-                if (redirectUrl != null)
-                {
-                    Response.Redirect(redirectUrl, true);
-                }
+                //if (redirectUrl != null)
+                //{
+                //    Response.Redirect(redirectUrl, true);
+                //}
 
                 _Parameters = new Hashtable();
 

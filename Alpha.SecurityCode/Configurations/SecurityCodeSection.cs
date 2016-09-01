@@ -50,7 +50,7 @@
             }
         }
 
-        [ConfigurationProperty(SecurityCodeVerifyUrlAttributeName, DefaultValue = "Security/SecurityCode/VerifySecurityCode", IsRequired = false)]
+        [ConfigurationProperty(SecurityCodeVerifyUrlAttributeName, DefaultValue = "SecurityCode/VerifySecurityCode", IsRequired = false)]
         public string SecurityCodeVerifyUrl
         {
             get
@@ -59,7 +59,7 @@
             }
         }
 
-        [ConfigurationProperty(ForceChangeSecurityCodeUrlAttributeName, DefaultValue = "Security/SecurityCode/ForceChangeSecurityCode", IsRequired = false)]
+        [ConfigurationProperty(ForceChangeSecurityCodeUrlAttributeName, DefaultValue = "SecurityCode/ForceChangeSecurityCode", IsRequired = false)]
         public string ForceChangeSecurityCodeUrl
         {
             get
@@ -68,7 +68,7 @@
             }
         }
 
-        [ConfigurationProperty(ForceChangeSecurityCodeWithoutValidationUrlAttributeName, DefaultValue = "Security/SecurityCode/ForceChangeSecurityCodeWithoutValidation", IsRequired = false)]
+        [ConfigurationProperty(ForceChangeSecurityCodeWithoutValidationUrlAttributeName, DefaultValue = "SecurityCode/ForceChangeSecurityCodeWithoutValidation", IsRequired = false)]
         public string ForceChangeSecurityCodeWithoutValidationUrl
         {
             get

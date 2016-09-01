@@ -16,7 +16,7 @@ namespace Fanex.Age.UI
     using Sunplus.Agent.Model.BL.MemberInfo.SecurityCode;
     using Sunplus.Agent.Model.Entities;
     using Sunplus.Agent.Model.Entities.Permission;
-
+    using Alpha.SecurityCode.Services;
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
