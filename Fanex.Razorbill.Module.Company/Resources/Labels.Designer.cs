@@ -115,7 +115,7 @@ namespace Fanex.Razorbill.Module.Company.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to International call charges may apply to you. Phone calls to us may be recorded for customer protection. information verification, quatily assurance purposes and regulatory compliance..
+        ///   Looks up a localized string similar to International call charges may apply to you. Phone calls to us may be recorded for customer protection, information verification, quality assurance purposes and regulatory compliance..
         /// </summary>
         public static string Hotline_Content {
             get {
