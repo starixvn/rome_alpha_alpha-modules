@@ -60,7 +60,7 @@ namespace Fanex.PTEngine.Age
 			protected static string s11{get{return LocalResources.PTEngineLang.lblGroupc;}}
 			protected static string s12 = "</td><td class=\"widthGroup\"><select id=\"groupC\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
 			protected static string s13{get{return LocalResources.PTEngineLang.lblGroupd;}}
-			protected static string s14 = "</td><td class=\"widthGroup\"><select id=\"groupD\" class=\"widthGroup\"></select></td></tr><tr><td colspan=\"8\" height=\"5\"></td></tr><tr><td colspan=\"8\" class=\"line\"></td></tr><tr><td colspan=\"8\" height=\"5\"></td></tr><tr><td class=\"groupCom\">";
+			protected static string s14 = "</td><td class=\"widthGroup\"><select id=\"groupD\" class=\"widthGroup\"></select></td></tr><tr><td colspan=\"8\" class=\"line\"></td></tr><tr><td class=\"groupCom\">";
 			protected static string s15{get{return LocalResources.PTEngineLang.lbl1x2Comm;}}
 			protected static string s16 = "</td><td><select id=\"discount1x2\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
 			protected static string s17{get{return LocalResources.PTEngineLang.lblOtherComm;}}
@@ -124,7 +124,7 @@ namespace Fanex.PTEngine.Age
 			protected static string s30{get{return LocalResources.PTEngineLang.lblOtherComm;}}
 			protected static string s31 = "</td><td><select id=\"discountCS\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
 			protected static string s32{get{return LocalResources.PTEngineLang.numbergamecomm;}}
-			protected static string s33 = "</td><td><select id=\"discountNumber\" class=\"widthGroup\"></select></td></tr><tr><td colspan=\"8\" height=\"5\"></td></tr><tr><td colspan=\"8\" class=\"line\"></td></tr><tr><td colspan=\"8\" height=\"5\"></td></tr><tr>";
+			protected static string s33 = "</td><td><select id=\"discountNumber\" class=\"widthGroup\"></select></td></tr><tr><td colspan=\"8\" class=\"line\"></td></tr><tr>";
 			public Commission_Customer_MyanmarOdds_HRFixedOdds_Block HRFixedOdds = new Commission_Customer_MyanmarOdds_HRFixedOdds_Block();
 			public Commission_Customer_MyanmarOdds_MyanmarOdds_Block MyanmarOdds = new Commission_Customer_MyanmarOdds_MyanmarOdds_Block();
 			protected static string s34 = "</tbody></table>";

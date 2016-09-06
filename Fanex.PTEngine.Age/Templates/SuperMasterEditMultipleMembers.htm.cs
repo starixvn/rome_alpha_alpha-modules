@@ -49,7 +49,7 @@ namespace Fanex.PTEngine.Age
 			protected static string s25{get{return LocalResources.PTEngineLang.closed;}}
 			protected static string s26 = "</label></div><div class=\"customerInfoBlock5\"><input name=\"closed\" id=\"closed\" type=\"checkbox\" data-bind=\"checked: customer.statusSetting.closed\" /></div></div></div><br /><div class=\"clearBlock\"></div><div class=\"headerPositionTaking\">";
 			protected static string s27{get{return LocalResources.PTEngineLang.positiontaking;}}
-			protected static string s28 = "<div style=\"float:right;\"><a class=\"infoIco\" style=\"margin:3px 5px;height:16px;display:inline-block\"href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
+			protected static string s28 = "<div style=\"float:right;\"><a class=\"infoIco\"href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
 			protected static string s29{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
 			protected static string s30 = "\"></a></div></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"btnMain\">";
 			protected string t0_actionName;
