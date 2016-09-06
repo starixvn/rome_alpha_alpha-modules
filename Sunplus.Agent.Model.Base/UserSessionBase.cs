@@ -1,7 +1,6 @@
 namespace Sunplus.Agent.Model.Entities
 {
     using System;
-    using System.Collections.Generic;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
@@ -119,9 +118,9 @@ namespace Sunplus.Agent.Model.Entities
 
         private const string DISABLESUPERLIVE = "DISABLESUPERLIVE";
 
-        private const string HIDEPRODUCTS = "HIDEPRODUCTS";
-        private const string DISABLEPRODUCTS = "DISABLEPRODUCTS";
-        private const string SYNCPRODUCTS = "SYNCPRODUCTS";
+        private const string HIDEPRODUCT = "HIDEPRODUCT";
+        private const string DISABLEDPRODUCT = "DISABLEDPRODUCT";
+        private const string SYNCEDPRODUCT = "SYNCEDPRODUCT";
 
         private const string USERLOGINIP = "USERLOGINIP";
 
@@ -1487,38 +1486,38 @@ namespace Sunplus.Agent.Model.Entities
 
         public bool GetHideProduct(int productId)
         {
-            object value = GetProperty(HIDEPRODUCTS + "_" + productId);
-
-            return (null == value) ? false : (bool)value;
-        }
-
-        public void SetHideProduct(int productId, bool value)
-        {
-            SetProperty(HIDEPRODUCTS + "_" + productId, value);
-        }
-
-        public bool GetSyncedProduct(int productId)
-        {
-            object value = GetProperty(SYNCPRODUCTS + "_" + productId);
+            object value = GetProperty(HIDEPRODUCT + "_" + productId);
 
             return (null == value) ? true : (bool)value;
         }
 
+        public void SetHideProduct(int productId, bool value)
+        {
+            SetProperty(HIDEPRODUCT + "_" + productId, value);
+        }
+
+        public bool GetSyncedProduct(int productId)
+        {
+            object value = GetProperty(SYNCEDPRODUCT + "_" + productId);
+
+            return (null == value) ? false : (bool)value;
+        }
+
         public void SetSyncedProduct(int productId, bool value)
         {
-            SetProperty(SYNCPRODUCTS + "_" + productId, value);
+            SetProperty(SYNCEDPRODUCT + "_" + productId, value);
         }
 
         public bool GetDisabledProduct(int productId)
         {
-            object value = GetProperty(DISABLEPRODUCTS + "_" + productId);
+            object value = GetProperty(DISABLEDPRODUCT + "_" + productId);
 
             return (null == value) ? true : (bool)value;
         }
 
         public void SetDisabledProduct(int productId, bool value)
         {
-            SetProperty(DISABLEPRODUCTS + "_" + productId, value);
+            SetProperty(DISABLEDPRODUCT + "_" + productId, value);
         }
 
         public string UserLoginIp

@@ -2,11 +2,11 @@ namespace Sunplus.Agent.Model.BL
 {
     using System;
     using System.Collections;
+    using System.Collections.Generic;
     using System.Text.RegularExpressions;
     using Fanex.Common;
-    using Model.Base.Configurations;
+    using Model.Definitions;
     using Sunplus.Agent.Model.BL.Definitions;
-    using Sunplus.Agent.Model.Definitions;
     using Sunplus.Agent.Model.Entities;
 
     [Obsolete("Should rename to Sunplus.Agent.Model.Base")]
@@ -253,7 +253,19 @@ namespace Sunplus.Agent.Model.BL
             session.IsHideSportsbook2 = !values.Contains("hidemuaythai") || Converter.ToBool(values["hidemuaythai"]);
             session.DisableSportsbook2 = !values.Contains("disablemuaythai") || Converter.ToBool(values["disablemuaythai"]);
 
-            SetProductsStatus(session, values);
+            var products = ProductSpNames();
+
+            foreach (var product in products)
+            {
+                var storedProcedureName = "hide" + product.Value;
+                session.SetHideProduct(product.Key, values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : true);
+
+                storedProcedureName = "disable" + product.Value;
+                session.SetDisabledProduct(product.Key, values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : true);
+
+                storedProcedureName = "synced" + product.Value;
+                session.SetSyncedProduct(product.Key, values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : false);
+            }
 
             session.IsDisabledFI = (bool)values["disablefi"];
             session.IsDisabledAutoMPT = (bool)values["disableautompt"];
@@ -270,7 +282,7 @@ namespace Sunplus.Agent.Model.BL
                 session.IsMyanmarOdds = Converter.ToBool(values["ismyanmarodds"]);
             }
 
-            if (ProductManager.IsEnabledProduct(ProductIdConstants.Cricket))
+            if (values.ContainsKey("isimbc"))
             {
                 session.IsIMBCCustomer = Converter.ToBool(values["isimbc"]);
             }
@@ -294,40 +306,15 @@ namespace Sunplus.Agent.Model.BL
             session.IsDisabledSuperLive = !values.Contains("disablesuperlive") || (bool)values["disablesuperlive"];
         }
 
-        private static void SetProductsStatus(UserSessionBase session, Hashtable values)
+        private static KeyValuePair<int, string>[] ProductSpNames()
         {
-            string productName, storedProcedureName;
-            var products = ProductManager.NewFlowProducts;
-
-            foreach (var product in products)
+            return new KeyValuePair<int, string>[]
             {
-                if (product.Active)
-                {
-                    productName = product.Name.ToLower();
-
-                    storedProcedureName = "hide" + productName;
-                    if (values.ContainsKey(storedProcedureName))
-                    {
-                        session.SetHideProduct(product.Id, Converter.ToBool(values[storedProcedureName]));
-                    }
-
-                    storedProcedureName = "disable" + productName;
-                    if (values.ContainsKey(storedProcedureName))
-                    {
-                        session.SetDisabledProduct(product.Id, Converter.ToBool(values[storedProcedureName]));
-                    }
-
-                    storedProcedureName = "synced" + productName;
-                    if (values.ContainsKey(storedProcedureName))
-                    {
-                        session.SetSyncedProduct(product.Id, Converter.ToBool(values[storedProcedureName]));
-                    }
-                }
-                else
-                {
-                    session.SetHideProduct(product.Id, true);
-                }
-            }
+                new KeyValuePair<int, string>(ProductIdConstants.CockFighting, "cockfighting"),
+                new KeyValuePair<int, string>(ProductIdConstants.Cricket, "cricket"),
+                new KeyValuePair<int, string>(ProductIdConstants.AllBet, "allbet"),
+                new KeyValuePair<int, string>(ProductIdConstants.Voidbridge, "voidbridge")
+            };
         }
     }
 }

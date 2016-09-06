@@ -1,7 +1,6 @@
 namespace Sunplus.Agent.Model.Entities
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Runtime.Serialization;

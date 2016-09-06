@@ -44,8 +44,8 @@
       <HintPath>..\packages\Fanex.CustomerSetting.Module.Keno.KenoSetting.1.0.0.4\lib\net40\Fanex.CustomerSetting.Module.Keno.KenoSetting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sunplus.Agent.Model.Definitions.3.0.1.6-NG2-2\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.1.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sunplus.Agent.Model.Definitions.3.0.1.6-NG2-1\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -56,10 +56,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BOBase.cs" />
-    <Compile Include="Configurations\ProductCollection.cs" />
-    <Compile Include="Configurations\ProductElement.cs" />
-    <Compile Include="Configurations\ProductManager.cs" />
-    <Compile Include="Configurations\ProductSection.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="IUserSession.cs" />
     <Compile Include="PageAccess.cs" />
@@ -76,6 +72,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
