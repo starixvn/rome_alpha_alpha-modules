@@ -52,8 +52,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Fanex.Age.UI, Version=3.0.2.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Age.UI.3.0.2.3-SecurityCode4\lib\net40\Fanex.Age.UI.dll</HintPath>
+    <Reference Include="Fanex.Age.UI, Version=3.0.2.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Age.UI.3.0.2.3-SecurityCode5\lib\net40\Fanex.Age.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Age.UI.Components, Version=3.0.0.20, Culture=neutral, processorArchitecture=MSIL">
