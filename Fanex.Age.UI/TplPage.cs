@@ -10,7 +10,6 @@
 
 namespace Fanex.Age.UI
 {
-    using Alpha.SecurityCode.Sessions;
     using System.Collections;
     using System.Web;
     using System.Web.UI;
@@ -32,27 +31,6 @@ namespace Fanex.Age.UI
         protected JsonData JsonData = new JsonData(10);
 
         protected int PiwikSiteId { get; set; }
-
-        private ISecurityCodeSession _securityCodeSession;
-
-        /// <summary>
-        /// Gets the security code session.
-        /// </summary>
-        /// <value>
-        /// The security code session.
-        /// </value>
-        protected ISecurityCodeSession SecurityCodeSession
-        {
-            get
-            {
-                if (null == HttpContext.Current.Session)
-                {
-                    return null;
-                }
-
-                return _securityCodeSession ?? (_securityCodeSession = CookieLessSessionFactory.SecurityCodeSession);
-            }
-        }
 
         /// <summary>
         /// Register an object as JSON format. Access object in client site by _page.objName.

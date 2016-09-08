@@ -1,76 +1,74 @@
 ﻿namespace Alpha.SecurityCode.Services
 {
-    using System.Text.RegularExpressions;
-    using System.Web;
-    using Alpha.SecurityCode.Configurations;
-    using Alpha.SecurityCode.Entities;
-    using Alpha.SecurityCode.Sessions;
+    using System;
+    using System.Linq;
+    using Configurations;
+    using Web;
 
-    /// <summary>
-    /// SecurityCodeChecker class.
-    /// </summary>
     public static class SecurityCodeChecker
     {
-        /// <summary>
-        /// Gets the redirect URL.
-        /// </summary>
-        /// <returns>The redirect URL.</returns>
-        public static string GetRedirectUrl()
+        public static bool IsRequiredSecurityCode(string relativeUrl)
         {
-            if (!SecurityCodeConfig.IsActive || HttpContext.Current.Session == null)
+            if (SecurityCodeSessionManager.SecurityCodeSession.IsAlreadyInputSecurityCode)
             {
-                return null;
+                return true;
             }
 
-            SecurityCodeStatus status = (SecurityCodeStatus)CookieLessSessionFactory.SecurityCodeSession.SecurityCodeResult;
-            if (status == SecurityCodeStatus.NONE || status == SecurityCodeStatus.PROVIDED_SC_SUCCESS)
+            if(!IsEnableSecurityCode())
             {
-                return null;
+                return false;
             }
 
-            // Check ignore Urls
-            HttpRequest currentRequest = System.Web.HttpContext.Current.Request;
-            string urlWithoutParams = currentRequest.Url.AbsolutePath.ToLower();
-            if (SecurityCodeConfig.IsIgnoreSecurityCode(urlWithoutParams))
+            var relativeUrlToLower = relativeUrl.ToLower();
+            foreach (var url in AppSettings.SecurityCodeConfig.Urls)
             {
-                return null;
-            }
-
-            if (!string.IsNullOrEmpty(currentRequest.Url.Query))
-            {
-                string fullUrl = currentRequest.RawUrl.ToLower();
-                if (SecurityCodeConfig.IsIgnoreSecurityCode(fullUrl))
+                if (relativeUrlToLower.Contains(url.ToLower()))
                 {
-                    return null;
+                    return true;
                 }
             }
 
-            string redirectUrl = null;
-            switch (status)
+            return false;
+        }
+
+        public static bool IsEnableSecurityCode()
+        {
+            if(!AppSettings.SecurityCodeConfig.IsActive)
             {
-                case SecurityCodeStatus.PROVIDED_SC:
-                    redirectUrl = SecurityCodeSection.Instance.SecurityCodeVerifyUrl;
-                    break;
-
-                case SecurityCodeStatus.FORCED_CHANGE_SC_WITHOUT_VALIDATION:
-                    redirectUrl = SecurityCodeSection.Instance.ForceChangeSecurityCodeUrl;
-                    break;
-
-                case SecurityCodeStatus.FORCED_CHANGE_SC:
-                    redirectUrl = SecurityCodeSection.Instance.ForceChangeSecurityCodeWithoutValidationUrl;
-                    break;
-
-                default:
-                    break;
+                return false;
+            }
+            
+            if(IsForcedChangeSecurityCode())
+            {
+                return true;
             }
 
-            var rootUrl = HttpContext.Current.Response.ApplyAppPathModifier("~");
+            //// User is not belong to site needed check security code
+            if (AppSettings.SecurityCodeConfig.Sites.Any()
+                && !string.IsNullOrWhiteSpace(SecurityCodeSessionManager.SecurityCodeSession.UserSite)
+                && !AppSettings.SecurityCodeConfig.Sites.Contains(SecurityCodeSessionManager.SecurityCodeSession.UserSite, StringComparer.OrdinalIgnoreCase))
+            {
+                return false;
+            }
 
-            rootUrl = Regex.Replace(rootUrl, SecurityCodeSection.Instance.CurrentSite, SecurityCodeSection.Instance.SiteMain, RegexOptions.IgnoreCase);
+            if(string.IsNullOrWhiteSpace(SecurityCodeSessionManager.SecurityCodeSession.SecurityCode))
+            {
+                return false;
+            }
 
-            redirectUrl = rootUrl + redirectUrl;
+            return true;
+        }
 
-            return redirectUrl;
+        public static bool IsForcedChangeSecurityCode()
+        {
+            //// If forced change, then user have been offered security code
+            if (!SecurityCodeSessionManager.SecurityCodeSession.IsInternal
+                && SecurityCodeSessionManager.SecurityCodeSession.IsForcedChangeSecurityCode)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

@@ -12,7 +12,7 @@
     {
         protected override void RenderSecurityContent(HtmlTextWriter writer)
         {
-            //base.RenderSecurityContent(writer);
+            base.RenderSecurityContent(writer);
 
             writer.Write(AntiForgeryValidator.GenerateTokenInInputElement());
         }

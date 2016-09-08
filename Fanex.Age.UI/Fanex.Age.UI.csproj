@@ -57,10 +57,6 @@
       <HintPath>..\packages\Alpha.Auth.3.0.0.7\lib\net40\Alpha.Auth.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Alpha.SecurityCode, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Alpha.SecurityCode.3.0.0.3-SecurityCode\lib\net40\Alpha.SecurityCode.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="AutoMapper, Version=2.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.GoldDeluxe.CoreSetting.1.0.0\lib\net40\AutoMapper.dll</HintPath>
       <Private>True</Private>
@@ -254,7 +250,6 @@
     </Compile>
     <Compile Include="Common.cs" />
     <Compile Include="ErrorType.cs" />
-    <Compile Include="ISecurityCode.cs" />
     <Compile Include="JsonData.cs" />
     <Compile Include="JsonError.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
