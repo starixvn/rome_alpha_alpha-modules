@@ -29,22 +29,7 @@
         [DataMember(Name = "changeSecurityCodeUrl")]
         public string ChangeSecurityCodeUrl { get; set; }
 
-        public string BuildChangeSecurityCodeUrl()
-        {
-            return BuildRootUrl() + ChangeSecurityCodeUrl;
-        }
-
-        public string BuildVerifyingSecurityCodeUrl()
-        {
-            return BuildRootUrl() + VerifyingSecurityCodeUrl;
-        }
-
-        private string BuildRootUrl()
-        {
-            var rootUrl = HttpContext.Current.Response.ApplyAppPathModifier("~");
-
-            return Regex.Replace(rootUrl, CurrentSiteApp, SiteMainApp, RegexOptions.IgnoreCase);
-        }
+        
 
     }
 }

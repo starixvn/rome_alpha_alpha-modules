@@ -35,7 +35,7 @@
         {
             get
             {
-                return ConfigurationManager.AppSettings["SecurityCode:ConfigFilePath"];
+                return ConfigurationManager.AppSettings["SecurityCode:ConfigFilePath"] ?? "~/App_Data/securitycode.json";
             }
         }
     }

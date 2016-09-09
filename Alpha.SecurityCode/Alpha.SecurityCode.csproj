@@ -83,6 +83,7 @@
     <Compile Include="Params\IsEnableSecurityCodeParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SecurityCodeChecker.cs" />
+    <Compile Include="Services\SecurityCodeUrlBuilder.cs" />
     <Compile Include="Web\ISecurityCodeSession.cs" />
     <Compile Include="Web\SecurityCodeSession.cs" />
     <Compile Include="Web\SecurityCodeSessionManager.cs" />

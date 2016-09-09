@@ -48,7 +48,7 @@
                 else
                 {
                     response.ContentType = "text/html";
-                    response.Redirect(AppSettings.SecurityCodeConfig.BuildVerifyingSecurityCodeUrl(), true);
+                    response.Redirect(SecurityCodeUrlBuilder.BuildVerifyingSecurityCodeUrl(HttpContext.Current.Request.Url.AbsoluteUri), true);
                 }
 
             }
