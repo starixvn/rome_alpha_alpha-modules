@@ -5,6 +5,7 @@ namespace Sunplus.Agent.Model.BL
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
     using Fanex.Common;
+    using Fanex.Products;
     using Model.Definitions;
     using Sunplus.Agent.Model.BL.Definitions;
     using Sunplus.Agent.Model.Entities;
@@ -266,6 +267,8 @@ namespace Sunplus.Agent.Model.BL
                 storedProcedureName = "synced" + product.Value;
                 session.SetSyncedProduct(product.Key, values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : false);
             }
+
+            ProductManager.SetProductsStatusToSession(values);
 
             session.IsDisabledFI = (bool)values["disablefi"];
             session.IsDisabledAutoMPT = (bool)values["disableautompt"];
