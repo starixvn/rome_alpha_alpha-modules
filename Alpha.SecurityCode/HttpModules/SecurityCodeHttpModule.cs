@@ -39,7 +39,7 @@
 
                 if (IsAjaxRequest(currentRequest))
                 {
-                    string requiredSecurityCodeJson = "{ \"code\"= 999991, \"message\": \"This action is required security code.\" }";
+                    string requiredSecurityCodeJson = "{ \"code\": 999991, \"message\": \"This action is required security code.\" }";
                     response.Clear();
                     response.ContentType = "application/json; charset=utf-8";
                     response.Write(requiredSecurityCodeJson);
@@ -64,7 +64,8 @@
             }
 
             return (request["X-Requested-With"] == "XMLHttpRequest") 
-                || (request.Headers != null && request.Headers["X-Requested-With"] == "XMLHttpRequest");
+                || (request.Headers != null && request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                || (request.Headers != null && request.Headers["Content-type"] == "application/x-www-form-urlencoded");
         }
     }
 }
