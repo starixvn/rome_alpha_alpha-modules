@@ -11,6 +11,11 @@
 
     public static class SecurityCodeUrlBuilder
     {
+        public static string BuildResetSecurityCodeUrl()
+        {
+            return BuildRootUrl() + AppSettings.SecurityCodeConfig.ResetSecurityCodeUrl;
+        }
+
         public static string BuildChangeSecurityCodeUrl()
         {
             return BuildRootUrl() + AppSettings.SecurityCodeConfig.ChangeSecurityCodeUrl;

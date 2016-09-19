@@ -29,7 +29,8 @@
         [DataMember(Name = "changeSecurityCodeUrl")]
         public string ChangeSecurityCodeUrl { get; set; }
 
-        
+        [DataMember(Name = "resetSecurityCodeUrl")]
+        public string ResetSecurityCodeUrl { get; set; }
 
     }
 }
