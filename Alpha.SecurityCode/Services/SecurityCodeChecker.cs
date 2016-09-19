@@ -11,7 +11,7 @@
         {
             if (SecurityCodeSessionManager.SecurityCodeSession.IsAlreadyInputSecurityCode)
             {
-                return true;
+                return false;
             }
 
             if(!IsEnableSecurityCode())
