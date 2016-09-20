@@ -3,7 +3,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
     using System;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
-    using Fanex.CustomerSetting.Module.KenoStatus.Configurations;
+    using Fanex.CustomerSetting.Module.Keno.KenoSetting.Configurations;
     using Sunplus.Agent.Model.BL.Definitions;
     using Sunplus.Agent.Model.Entities.Base;
 
@@ -341,11 +341,11 @@ namespace Sunplus.Agent.Model.Entities.Permission
         }
 
         public static bool IsSyncAllBet
-		{
-			get
-			{
-				return CurrentUserSession.IsSyncedAllBet;
-			}
-		}
-	}
+        {
+            get
+            {
+                return CurrentUserSession.IsSyncedAllBet;
+            }
+        }
+    }
 }
