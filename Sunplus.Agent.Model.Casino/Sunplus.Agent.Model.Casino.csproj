@@ -132,6 +132,8 @@
     <Compile Include="CasinoAPILogger.cs" />
     <Compile Include="CasinoBO.cs" />
     <Compile Include="CasinoDAO.cs" />
+    <Compile Include="CasinoService.cs" />
+    <Compile Include="CasinoServiceImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
