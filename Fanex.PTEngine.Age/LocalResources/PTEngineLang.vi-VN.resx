@@ -657,7 +657,7 @@
     <value>Thiết lập  trò chơi</value>
   </data>
   <data name="generalInformation" xml:space="preserve">
-    <value>Thông tin Chung</value>
+    <value>Thông tin chung</value>
     <comment>Not found</comment>
   </data>
   <data name="givencredit" xml:space="preserve">
@@ -911,7 +911,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Danh sách cược</value>
   </data>
   <data name="lblBetSetting" xml:space="preserve">
-    <value>Tiền Cược</value>
+    <value>Giới hạn cược</value>
   </data>
   <data name="lblBettingLimit" xml:space="preserve">
     <value>Giới hạn đặt cược</value>
@@ -966,7 +966,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Bạn vừa mới ngăn Master này lấy  Auto PT.&lt;br&gt;Bạn có muốn cập nhật PT của tất cả Member với:</value>
   </data>
   <data name="lblCopyAllPTfromHdp" xml:space="preserve">
-    <value>Sao chép tất cả thiết lập về tiền cược và PT từ Bóng Đá - Handicap (ngoại trừ Number Game)</value>
+    <value>Sao chép tất cả thiết lập về giới hạn cược và PT từ Bóng Đá - Handicap (ngoại trừ Number Game)</value>
   </data>
   <data name="lblCopyAllPTfromHdpMin" xml:space="preserve">
     <value>Sao chép tất cả  thiết lập về  PT từ Bóng đá - Handicap (ngoại trừ Number Game)</value>
@@ -975,10 +975,10 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value> Sao chép tất cả  thiết lập về  PT từ Bóng đá - Handicap</value>
   </data>
   <data name="lblCopyAllPTfromHdpNoNumberGame" xml:space="preserve">
-    <value>Sao chép tất cả  thiết lập về tiền cược và PT từ Bóng Đá - Handicap</value>
+    <value>Sao chép tất cả  thiết lập về giới hạn cược và PT từ Bóng Đá - Handicap</value>
   </data>
   <data name="lblCopyBasketHdp" xml:space="preserve">
-    <value>Sao chép tất cả  thiết lập về tiền cược và PT từ Bóng Rổ - Handicap (ngoại trừ Number Game)</value>
+    <value>Sao chép tất cả  thiết lập về giới hạn cược và PT từ Bóng Rổ - Handicap (ngoại trừ Number Game)</value>
   </data>
   <data name="lblCopyBasketHdpMin" xml:space="preserve">
     <value>Sao chép tất cả  thiết lập về PT từ Bóng Rổ - Handicap (ngoại trừ Number Game)</value>
@@ -987,7 +987,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Sao chép tất cả  thiết lập về PT từ Bóng Rổ - Handicap</value>
   </data>
   <data name="lblCopyBasketHdpNoNumberGame" xml:space="preserve">
-    <value>Sao chép tất cả  thiết lập về tiền cược và PT từ Bóng Rổ Handicap</value>
+    <value>Sao chép tất cả  thiết lập về giới hạn cược và PT từ Bóng Rổ Handicap</value>
   </data>
   <data name="lblCreditInvalid" xml:space="preserve">
     <value>{0} phải nằm giữa {1} và {2}</value>
@@ -1005,7 +1005,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Tùy chỉnh cho Agent</value>
   </data>
   <data name="lbleditbetsetting" xml:space="preserve">
-    <value>Tùy chỉnh thiết lập về tiền cược</value>
+    <value>Tùy chỉnh thiết lập về giới hạn cược</value>
   </data>
   <data name="lbleditcasino" xml:space="preserve">
     <value>Casino</value>
@@ -1773,7 +1773,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Thứ 7</value>
   </data>
   <data name="saveBetSetting" xml:space="preserve">
-    <value>Lưu thiết lập về tiền đặt cược</value>
+    <value>Lưu thiết lập về giới hạn cược</value>
   </data>
   <data name="saveCommission" xml:space="preserve">
     <value>Lưu  giá trị hoa hồng</value>
