@@ -56,8 +56,8 @@
       <HintPath>..\packages\Fanex.Age.UI.3.0.2.5\lib\net40\Fanex.Age.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Age.UI.Components, Version=3.0.0.22, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Age.UI.Components.3.0.0.22\lib\net40\Fanex.Age.UI.Components.dll</HintPath>
+    <Reference Include="Fanex.Age.UI.Components, Version=3.0.0.21, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Age.UI.Components.3.0.0.21-NG2-5\lib\net40\Fanex.Age.UI.Components.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Common, Version=1.0.404.97, Culture=neutral, processorArchitecture=MSIL">
@@ -93,11 +93,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sunplus.Agent.Model.Base.3.0.1.6-NG2-12\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
+      <HintPath>..\packages\Sunplus.Agent.Model.Base.3.0.1.6-NG2-13\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sunplus.Agent.Model.Definitions.3.0.1.6-NG2-4\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
+      <HintPath>..\packages\Sunplus.Agent.Model.Definitions.3.0.1.6-NG2-5\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Utilities, Version=3.0.0.4, Culture=neutral, processorArchitecture=MSIL">

@@ -112,7 +112,7 @@
       <HintPath>..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-      <HintPath>..\packages\Sunplus.Agent.Model.Base.3.0.1.6-NG2-12\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
+      <HintPath>..\packages\Sunplus.Agent.Model.Base.3.0.1.6-NG2-13\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Casino, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
@@ -124,7 +124,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sunplus.Agent.Model.Definitions.3.0.1.6-NG2-4\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
+      <HintPath>..\packages\Sunplus.Agent.Model.Definitions.3.0.1.6-NG2-5\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.IpFormatter, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
