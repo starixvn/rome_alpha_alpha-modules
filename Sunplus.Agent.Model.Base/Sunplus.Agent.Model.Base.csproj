@@ -64,6 +64,7 @@
     <Compile Include="UserPermission.cs" />
     <Compile Include="UserSession.cs" />
     <Compile Include="UserSessionBase.cs" />
+    <Compile Include="UserSessionExt.cs" />
     <Compile Include="UserSessionService.cs" />
   </ItemGroup>
   <ItemGroup>
