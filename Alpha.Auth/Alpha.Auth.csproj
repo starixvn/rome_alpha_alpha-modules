@@ -30,8 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Fanex.Common, Version=1.0.404.97, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Common.1.0.404.97\lib\net40\Fanex.Common.dll</HintPath>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net40\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Common, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.CustomerSetting.Module.Keno.KenoSetting, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
@@ -42,8 +46,8 @@
       <HintPath>..\packages\Fanex.CustomerSetting.Module.KenoStatus.1.0.0.2\lib\net40\Fanex.CustomerSetting.Module.KenoStatus.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Data, Version=0.5.404.59, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Data.0.5.404.59\lib\net40\Fanex.Data.dll</HintPath>
+    <Reference Include="Fanex.Data, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Data.2.0.1\lib\net40\Fanex.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -54,16 +58,16 @@
       <HintPath>..\packages\Fanex.Products.1.0.0.0\lib\net40\Fanex.Products.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\EnterpriseLibrary.Data.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\EnterpriseLibrary.Common.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Data.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -106,6 +110,8 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
