@@ -45,7 +45,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Products, Version=0.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Products.0.0.0.3-NG2\lib\net40\Fanex.Products.dll</HintPath>
+      <HintPath>..\packages\Fanex.Products.0.0.0.3-NG2-3\lib\net40\Fanex.Products.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
