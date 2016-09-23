@@ -37,7 +37,7 @@
             {
                 var response = HttpContext.Current.Response;
 
-                if (IsAjaxRequest(currentRequest))
+                if (IsAjaxRequest(currentRequest) && !IsGetMultipleDCS(currentRequest))
                 {
                     string requiredSecurityCodeJson = "{ \"code\": 999991, \"message\": \"This action is required security code.\" }";
                     response.Clear();
@@ -54,6 +54,10 @@
             }
         }
 
+        private static bool IsGetMultipleDCS(HttpRequest request)
+        {
+            return request.Form["isGetMultipleDCS"] != null && request.Form["isGetMultipleDCS"].Equals(1);
+        }
         #endregion IHttpModule Members
 
         private static bool IsAjaxRequest(HttpRequest request)
