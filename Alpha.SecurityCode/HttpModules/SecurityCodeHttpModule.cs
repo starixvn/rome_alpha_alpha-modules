@@ -37,7 +37,7 @@
             {
                 var response = HttpContext.Current.Response;
 
-                if (IsAjaxRequest(currentRequest) && !IsGetMultipleDCS(currentRequest))
+                if (IsAjaxRequest(currentRequest))
                 {
                     string requiredSecurityCodeJson = "{ \"code\": 999991, \"message\": \"This action is required security code.\" }";
                     response.Clear();
@@ -48,16 +48,19 @@
                 else
                 {
                     response.ContentType = "text/html";
-                    response.Redirect(SecurityCodeUrlBuilder.BuildVerifyingSecurityCodeUrl(HttpContext.Current.Request.Url.AbsoluteUri), true);
+                    if (currentRequest.Headers != null && currentRequest.Headers["Content-type"] == "application/x-www-form-urlencoded")
+                    {
+                        response.Redirect(SecurityCodeUrlBuilder.BuildVerifyingSecurityCodeUrl(), true);
+                    }
+                    else
+                    {
+                        response.Redirect(SecurityCodeUrlBuilder.BuildVerifyingSecurityCodeUrl(HttpContext.Current.Request.Url.AbsoluteUri), true);
+                    }
                 }
 
             }
         }
 
-        private static bool IsGetMultipleDCS(HttpRequest request)
-        {
-            return request.Form["isGetMultipleDCS"] != null && request.Form["isGetMultipleDCS"].Equals(1);
-        }
         #endregion IHttpModule Members
 
         private static bool IsAjaxRequest(HttpRequest request)
@@ -69,7 +72,7 @@
 
             return (request["X-Requested-With"] == "XMLHttpRequest") 
                 || (request.Headers != null && request.Headers["X-Requested-With"] == "XMLHttpRequest")
-                || (request.Headers != null && request.Headers["Content-type"] == "application/x-www-form-urlencoded");
+                || (request.Headers != null && request.Headers["IsPostAjax"] == "true");
         }
     }
 }
