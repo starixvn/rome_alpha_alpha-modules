@@ -48,7 +48,12 @@
         {
             var rootUrl = HttpContext.Current.Response.ApplyAppPathModifier("~");
 
-            return Regex.Replace(rootUrl, AppSettings.SecurityCodeConfig.CurrentSiteApp, AppSettings.SecurityCodeConfig.SiteMainApp, RegexOptions.IgnoreCase);
+            if(string.IsNullOrWhiteSpace(AppSettings.SecurityCodeConfig.SiteMainApp))
+            {
+                return rootUrl;
+            }
+
+            return rootUrl.Replace(HttpRuntime.AppDomainAppVirtualPath, AppSettings.SecurityCodeConfig.SiteMainApp);
         }
     }
 }

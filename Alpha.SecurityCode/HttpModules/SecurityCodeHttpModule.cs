@@ -22,7 +22,7 @@
 
         private void AcquireRequestState(object sender, EventArgs e)
         {
-            if(HttpContext.Current == null
+          if(HttpContext.Current == null
                 || HttpContext.Current.Request == null
                 || HttpContext.Current.Session == null)
             {
@@ -54,7 +54,7 @@
                     }
                     else
                     {
-                        response.Redirect(SecurityCodeUrlBuilder.BuildVerifyingSecurityCodeUrl(HttpContext.Current.Request.Url.AbsoluteUri), true);
+                        response.Redirect(SecurityCodeUrlBuilder.BuildVerifyingSecurityCodeUrl(HttpContext.Current.Request.RawUrl), true);
                     }
                 }
 

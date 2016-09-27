@@ -14,14 +14,11 @@
         [DataMember(Name = "urls")]
         public IEnumerable<string> Urls { get; set; }
 
-        [DataMember(Name = "sites")]
+        [DataMember(Name = "sites", IsRequired = false)]
         public IEnumerable<string> Sites { get; set; }
 
-        [DataMember(Name = "siteMainApp")]
+        [DataMember(Name = "siteMainApp", IsRequired = false)]
         public string SiteMainApp { get; set; }
-
-        [DataMember(Name = "currentSiteApp")]
-        public string CurrentSiteApp { get; set; }
 
         [DataMember(Name = "verifyingSecurityCodeUrl")]
         public string VerifyingSecurityCodeUrl { get; set; }
