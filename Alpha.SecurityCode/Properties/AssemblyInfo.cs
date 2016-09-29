@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -34,6 +35,5 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("3.0.0.3")]
 [assembly: AssemblyFileVersion("3.0.0.3")]
-
-
 [assembly: InternalsVisibleTo("Alpha.SecurityCode.Tests")]
+[assembly: CLSCompliant(true)]

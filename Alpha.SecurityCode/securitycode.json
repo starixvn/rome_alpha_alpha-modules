@@ -1,12 +1,12 @@
 {
   "isActive": false,
   "siteMainApp": "/site-main",
-  "urls": [
-    "relative-url"
+  "paths": [
+    "relative-path"
   ],
   "sites": [
     "site-name"
   ],
-  "verifyingSecurityCodeUrl": "SecurityCode/VerifySecurityCode",
-  "changeSecurityCodeUrl": "SecurityCode/ChangeSecurityCode"
+  "verifyingSecurityCodePath": "SecurityCode/VerifySecurityCode",
+  "resetSecurityCodePath": "SecurityCode/resetSecurityCodePath"
 }

@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>FanexRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -80,12 +81,15 @@
     <Compile Include="Configurations\AppSettings.cs" />
     <Compile Include="Configurations\SecurityCodeConfig.cs" />
     <Compile Include="HttpModules\SecurityCodeHttpModule.cs" />
-    <Compile Include="Params\IsEnableSecurityCodeParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SecurityCodeChecker.cs" />
-    <Compile Include="Services\SecurityCodeUrlBuilder.cs" />
-    <Compile Include="Web\ISecurityCodeSession.cs" />
+    <Compile Include="Services\SecurityCodeCheckerImpl.cs" />
+    <Compile Include="Services\SecurityCodePathBuilder.cs" />
+    <Compile Include="Services\SecurityCodePathBuilderImpl.cs" />
     <Compile Include="Web\SecurityCodeSession.cs" />
+    <Compile Include="Web\SecurityCodeHttpContext.cs" />
+    <Compile Include="Web\SecurityCodeHttpContextImpl.cs" />
+    <Compile Include="Web\SecurityCodeSessionImpl.cs" />
     <Compile Include="Web\SecurityCodeSessionManager.cs" />
   </ItemGroup>
   <ItemGroup>

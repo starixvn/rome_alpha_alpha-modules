@@ -1,5 +1,6 @@
 ﻿namespace Alpha.SecurityCode.Configurations
 {
+    using System;
     using System.Configuration;
     using System.IO;
     using System.Runtime.Serialization.Json;
@@ -10,6 +11,16 @@
         static AppSettings()
         {
             LoadSecurityCodeConfig();
+        }
+
+        public static SecurityCodeConfig SecurityCodeConfig { get; internal set; }
+
+        public static string SecurityCodeConfigFilePath
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["SecurityCode:ConfigFilePath"] ?? "~/App_Data/securitycode.json";
+            }
         }
 
         private static void LoadSecurityCodeConfig()
@@ -26,16 +37,10 @@
                         SecurityCodeConfig = (SecurityCodeConfig)serializer.ReadObject(stream);
                     }
                 }
-            }
-        }
-
-        public static SecurityCodeConfig SecurityCodeConfig { get; internal set; }
-
-        public static string SecurityCodeConfigFilePath
-        {
-            get
-            {
-                return ConfigurationManager.AppSettings["SecurityCode:ConfigFilePath"] ?? "~/App_Data/securitycode.json";
+                else
+                {
+                    throw new FileNotFoundException("Cannot find security code json file");
+                }
             }
         }
     }

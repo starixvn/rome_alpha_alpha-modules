@@ -1,73 +1,15 @@
 ﻿namespace Alpha.SecurityCode.Web
 {
-    using System.Web;
-    using Sunplus.Agent.Model.Entities;
-
-    public class SecurityCodeSession : ISecurityCodeSession
+    public interface SecurityCodeSession
     {
-        private const string Hyphen = "_";
+        bool IsAlreadyInputSecurityCode { get; set; }
 
-        //// security code
-        private const string IsAlreadyInputSecurityCodeKey = "SecurityCodeSession.IsAlreadyInputSecurityCodeKey";
+        string SecurityCode { get; }
 
-        public bool IsAlreadyInputSecurityCode
-        {
-            get
-            {
-                var isAlreadyInput = GetProperty(IsAlreadyInputSecurityCodeKey);
-                return isAlreadyInput == null ? false : (bool)isAlreadyInput;
-            }
+        bool IsForcedChangeSecurityCode { get; }
 
-            set
-            {
-                SetProperty(IsAlreadyInputSecurityCodeKey, value);
-            }
-        }
+        bool IsInternal { get; }
 
-        public string SecurityCode
-        {
-            get
-            {
-                return UserSession.Current.SecurityCode;
-            }
-        }
-
-        public bool IsForcedChangeSecurityCode
-        {
-            get
-            {
-                return UserSession.Current.IsForcedSecurityCode;
-            }
-        }
-
-        public bool IsInternal
-        {
-            get
-            {
-                return UserSession.Current.IsInternal;
-            }
-        }
-
-        public string UserSite
-        {
-            get
-            {
-                return UserSession.Current.Site;
-            }
-        }
-
-        #region helper methods
-
-        private static object GetProperty(string key)
-        {
-            return HttpContext.Current.Session[UserSession.Current.NetSessionId + Hyphen + key];
-        }
-
-        private static void SetProperty(string key, object value)
-        {
-            HttpContext.Current.Session[UserSession.Current.NetSessionId + Hyphen + key] = value;
-        }
-
-        #endregion helper methods
+        string UserSite { get; }
     }
 }

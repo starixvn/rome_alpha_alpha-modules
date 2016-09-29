@@ -2,14 +2,23 @@
 {
     using System;
     using System.Web;
-    using Configurations;
     using Services;
     using Web;
-    using Sunplus.Agent.Model.Entities;
 
     public class SecurityCodeHttpModule : IHttpModule
     {
-        #region IHttpModule Members
+        private readonly SecurityCodeChecker securityCodeChecker;
+        private readonly SecurityCodeHttpContext securityCodeHttpContext;
+
+        public SecurityCodeHttpModule() : this(null, null)
+        {
+        }
+
+        internal SecurityCodeHttpModule(SecurityCodeChecker securityCodeChecker, SecurityCodeHttpContext securityCodeHttpContext)
+        {
+            this.securityCodeChecker = securityCodeChecker ?? new SecurityCodeCheckerImpl();
+            this.securityCodeHttpContext = securityCodeHttpContext ?? new SecurityCodeHttpContextImpl();
+        }
 
         public void Dispose()
         {
@@ -17,62 +26,35 @@
 
         public void Init(HttpApplication context)
         {
-            context.AcquireRequestState += new EventHandler(AcquireRequestState);
-        }
-
-        private void AcquireRequestState(object sender, EventArgs e)
-        {
-          if(HttpContext.Current == null
-                || HttpContext.Current.Request == null
-                || HttpContext.Current.Session == null)
+            if (context == null)
             {
                 return;
             }
 
-            var currentRequest = HttpContext.Current.Request;
-            var relativePath = currentRequest.Url.AbsolutePath.Replace(currentRequest.ApplicationPath, string.Empty);
-            var isRequiredSecurityCode = SecurityCodeChecker.IsRequiredSecurityCode(relativePath);
+            context.AcquireRequestState += new EventHandler(AcquireRequestState);
+        }
+
+        internal void AcquireRequestState(object sender, EventArgs e)
+        {
+            if (!securityCodeHttpContext.IsValidRequest())
+            {
+                return;
+            }
+
+            var relativePath = securityCodeHttpContext.GetRelativePath();
+            var isRequiredSecurityCode = this.securityCodeChecker.IsRequiredSecurityCode(relativePath);
 
             if (isRequiredSecurityCode)
             {
-                var response = HttpContext.Current.Response;
-
-                if (IsAjaxRequest(currentRequest))
+                if (securityCodeHttpContext.IsAjaxRequest())
                 {
-                    string requiredSecurityCodeJson = "{ \"code\": 999991, \"message\": \"This action is required security code.\" }";
-                    response.Clear();
-                    response.ContentType = "application/json; charset=utf-8";
-                    response.Write(requiredSecurityCodeJson);
-                    response.End();
+                    securityCodeHttpContext.DenyAjaxRequest();
                 }
                 else
                 {
-                    response.ContentType = "text/html";
-                    if (currentRequest.Headers != null && currentRequest.Headers["Content-type"] == "application/x-www-form-urlencoded")
-                    {
-                        response.Redirect(SecurityCodeUrlBuilder.BuildVerifyingSecurityCodeUrl(), true);
-                    }
-                    else
-                    {
-                        response.Redirect(SecurityCodeUrlBuilder.BuildVerifyingSecurityCodeUrl(HttpContext.Current.Request.RawUrl), true);
-                    }
+                    securityCodeHttpContext.RedirectToVerifySecurityCodePage();
                 }
-
             }
-        }
-
-        #endregion IHttpModule Members
-
-        private static bool IsAjaxRequest(HttpRequest request)
-        {
-            if (request == null)
-            {
-                throw new ArgumentNullException(nameof(request));
-            }
-
-            return (request["X-Requested-With"] == "XMLHttpRequest") 
-                || (request.Headers != null && request.Headers["X-Requested-With"] == "XMLHttpRequest")
-                || (request.Headers != null && request.Headers["IsPostAjax"] == "true");
         }
     }
 }
