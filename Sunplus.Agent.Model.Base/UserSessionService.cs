@@ -277,6 +277,7 @@ namespace Sunplus.Agent.Model.BL
             session.IsAdminCanViewVNIP = (bool)values["isadmincanviewvnip"];
             session.IsAllowedTotalBalanceTransfer = (bool)values["isallowedtotalbalancetransfer"];
             session.IsShowConsolidatedReport = (bool)values["isshowconsolidated"];
+            session.IsShowBetChoiceLimit = (bool)values["isShowBetChoiceLimit"];
 
             if (AppSettings.IsSupportMyanmarOdds)
             {

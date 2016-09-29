@@ -139,6 +139,9 @@ namespace Sunplus.Agent.Model.BL.Authorization
             bool isShowConsolidated = ConfigurationManager.AppSettings["EnableConsolidatedReport"] == "1" && this.IsShownConsilatedReport(custId);
             outputs.Add("isshowconsolidated", isShowConsolidated);
 
+            bool isShowBetChoiceLimit = IsShownBetChoiceLimit(custId);
+            outputs.Add("isShowBetChoiceLimit", isShowBetChoiceLimit);
+          
             UserSessionService.SetUserSessionValues(CurrentSession, outputs);
 
             return result;
@@ -205,6 +208,9 @@ namespace Sunplus.Agent.Model.BL.Authorization
             outputs.Add("adminid", 0);
             bool isShowConsolidated = ConfigurationManager.AppSettings["EnableConsolidatedReport"] == "1" && this.IsShownConsilatedReport(custId);
             outputs.Add("isshowconsolidated", isShowConsolidated);
+
+            bool isShowBetChoiceLimit = IsShownBetChoiceLimit(custId);
+            outputs.Add("isShowBetChoiceLimit", isShowBetChoiceLimit);
 
             UserSessionService.SetUserSessionValues(CurrentSession, outputs);
 
@@ -281,6 +287,9 @@ namespace Sunplus.Agent.Model.BL.Authorization
 
             bool isShowConsolidated = ConfigurationManager.AppSettings["EnableConsolidatedReport"] == "1" && this.IsShownConsilatedReport(custId);
             outputs.Add("isshowconsolidated", isShowConsolidated);
+
+            bool isShowBetChoiceLimit = IsShownBetChoiceLimit(custId);
+            outputs.Add("isShowBetChoiceLimit", isShowBetChoiceLimit);
 
             UserSessionService.SetUserSessionValues(CurrentSession, outputs);
 
@@ -361,6 +370,11 @@ namespace Sunplus.Agent.Model.BL.Authorization
         public bool IsShownConsilatedReport(int custId)
         {
             return this.dao.Age_Rpt_ConsolidatedGroup_isShownMenu(custId);
+        }
+
+        public bool IsShownBetChoiceLimit(int custId)
+        {
+            return dao.Age_CustSetting_BetChoiceLimitCheck(custId);
         }
 
         /// <summary>

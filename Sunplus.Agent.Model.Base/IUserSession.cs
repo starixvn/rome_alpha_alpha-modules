@@ -621,6 +621,12 @@ namespace Sunplus.Agent.Model.Entities
 
         #endregion
 
+        #region Show/Hide Menu
+
+        bool IsShowBetChoiceLimit { get; set; }
+
+        #endregion
+
         bool IsDisabledESports
         {
             get;
@@ -647,10 +653,10 @@ namespace Sunplus.Agent.Model.Entities
             set;
         }
 
-		bool IsSyncedAllBet
-		{
-			get;
-			set;
-		}
-	}
+        bool IsSyncedAllBet
+        {
+            get;
+            set;
+        }
+    }
 }

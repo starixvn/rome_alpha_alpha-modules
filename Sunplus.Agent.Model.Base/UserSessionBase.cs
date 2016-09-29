@@ -1,16 +1,16 @@
 namespace Sunplus.Agent.Model.Entities
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Configuration;
-	using System.Diagnostics.CodeAnalysis;
-	using System.Globalization;
-	using System.Reflection;
-	using System.Runtime.Serialization;
-	using System.Web;
-	using Sunplus.Agent.Model.BL.Definitions;
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Globalization;
+    using System.Reflection;
+    using System.Runtime.Serialization;
+    using System.Web;
+    using Sunplus.Agent.Model.BL.Definitions;
 
-	[SuppressMessage("StyleCop.CSharp.NamingRules", "SA1310:FieldNamesMustNotContainUnderscore", Justification = "Reviewed.")]
+    [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1310:FieldNamesMustNotContainUnderscore", Justification = "Reviewed.")]
     [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
     [Serializable]
     [Obsolete("Should rename to Sunplus.Agent.Model.Base")]
@@ -61,6 +61,7 @@ namespace Sunplus.Agent.Model.Entities
         private const string ISADMINCANVIEWVNIP = "ISADMINCANVIEWVNIP";
         private const string ISNICKNAME = "ISNICKNAME";
         private const string ISSHOWCONSOLIDATEDREPORT = "ISSHOWCONSOLIDATEDREPORT";
+        private const string ISSHOWBETCHOICELIMIT = "ISSHOWBETCHOICELIMIT";
         private const string ISCASINODISABLED = "ISCASINODISABLED";
         private const string ISCASINOSYNC = "ISCASINOSYNC";
         private const string ISNOTCURRENCYCASINO = "ISNOTCURRENCYCASINO";
@@ -124,9 +125,9 @@ namespace Sunplus.Agent.Model.Entities
 
         private const string USERLOGINIP = "USERLOGINIP";
 
-		private const string ISSYNCEDALLBET = "ISSYNCEDALLBET";
+        private const string ISSYNCEDALLBET = "ISSYNCEDALLBET";
 
-		private string asNetSessionId;
+        private string asNetSessionId;
 
         #endregion Contructors
 
@@ -1409,6 +1410,25 @@ namespace Sunplus.Agent.Model.Entities
             }
         }
 
+
+        #region Show/Hide Menu
+
+        public bool IsShowBetChoiceLimit
+        {
+            get
+            {
+                object value = this.GetProperty(ISSHOWBETCHOICELIMIT);
+                return (null == value) ? false : (bool)value;
+            }
+
+            set
+            {
+                this.SetProperty(ISSHOWBETCHOICELIMIT, value);
+            }
+        }
+
+        #endregion
+
         public bool IsDisabledESports
         {
             get
@@ -1552,22 +1572,22 @@ namespace Sunplus.Agent.Model.Entities
             }
         }
 
-		public bool IsSyncedAllBet
-		{
-			get
-			{
-				object value = GetProperty(ISSYNCEDALLBET);
-				return value != null && (bool)value;
-			}
-			set
-			{
-				SetProperty(ISSYNCEDALLBET, value);
-			}
-		}
+        public bool IsSyncedAllBet
+        {
+            get
+            {
+                object value = GetProperty(ISSYNCEDALLBET);
+                return value != null && (bool)value;
+            }
+            set
+            {
+                SetProperty(ISSYNCEDALLBET, value);
+            }
+        }
 
-		#region ISerializable Members
+        #region ISerializable Members
 
-		public void GetObjectData(SerializationInfo info, StreamingContext context)
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             Type type = GetType();
             FieldInfo[] f = type.GetFields(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.NonPublic);

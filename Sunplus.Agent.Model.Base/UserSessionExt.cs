@@ -299,6 +299,19 @@
             }
         }
 
+        public bool IsShowBetChoiceLimit
+        {
+            get
+            {
+                return UserSession.Current.IsShowBetChoiceLimit;
+            }
+
+            set
+            {
+                UserSession.Current.IsShowBetChoiceLimit = value;
+            }
+        }
+
         public bool IsDisabledESports
         {
             get
