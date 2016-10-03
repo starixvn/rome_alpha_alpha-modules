@@ -372,6 +372,15 @@ namespace Sunplus.Agent.Model.DL.UserMessage
 
         #endregion Announcement
 
+        #region Notification During Move-bet Process
+
+        public DataTable GetNotificationDuringMoveBetsProcess()
+        {
+            return base.ExecSpTable("Age_MoveBetsProcessNotification", new Hashtable());
+        }
+
+        #endregion
+
         private static object GetValue(DataRow row, string fieldname)
         {
             object returnObj = null;
