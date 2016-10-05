@@ -37,7 +37,7 @@ namespace Sunplus.Agent.Model.DL.Authorization
             out string errMsg)
         {
             var parameters = new Hashtable
-            {  
+            {
                 { "custid", custId },
                 { "userpwd", Encryption.CfsEnCode(password) },
                 { "username", string.Empty },
@@ -47,7 +47,7 @@ namespace Sunplus.Agent.Model.DL.Authorization
                 { "logintime", loginTime },
                 { "language", language },
                 { "roleid", 0 },
-                { "on_userid", 0 } 
+                { "on_userid", 0 }
             };
 
             InsertRequestInfo(requestInfo, parameters);
@@ -121,7 +121,7 @@ namespace Sunplus.Agent.Model.DL.Authorization
             out string errMsg)
         {
             var parameters = new Hashtable
-            { 
+            {
                 { "username", userName },
                 { "accuserid", adminId },
                 { "logintime", loginTime },
@@ -322,7 +322,7 @@ namespace Sunplus.Agent.Model.DL.Authorization
         {
             var parameters = new Hashtable
             {
-                { "isexist", 0 }, 
+                { "isexist", 0 },
                 { "subusername", userName }
             };
 
@@ -398,7 +398,7 @@ namespace Sunplus.Agent.Model.DL.Authorization
 
             var parameters = new Hashtable
             {
-                { "on_userid", onlineUserId }, 
+                { "on_userid", onlineUserId },
                 { "iskickedout", 0 }
             };
 
@@ -610,7 +610,7 @@ namespace Sunplus.Agent.Model.DL.Authorization
         {
             var parameters = new Hashtable
             {
-                { "custid", custId }, 
+                { "custid", custId },
                 { "isshownmenu", 0 }
             };
             var outputs = ExecSpHashtable("Age_Rpt_ConsolidatedGroup_isShownMenu", parameters);
@@ -628,7 +628,7 @@ namespace Sunplus.Agent.Model.DL.Authorization
         {
             var parameters = new Hashtable
             {
-                { "custid", custId }, 
+                { "custid", custId },
                 { "superidstransfertotal", superIds }
             };
 
@@ -647,7 +647,7 @@ namespace Sunplus.Agent.Model.DL.Authorization
         {
             var parameters = new Hashtable
             {
-                { "custid", custId }, 
+                { "custid", custId },
                 { "errcode", 0 },
                 { "errmsg", string.Empty }
             };
@@ -678,7 +678,7 @@ namespace Sunplus.Agent.Model.DL.Authorization
         {
             var parameters = new Hashtable
             {
-                { "sessioncustid", currentCustId }, 
+                { "sessioncustid", currentCustId },
                 { "subaccountid", subAccountId }
             };
 
@@ -724,8 +724,8 @@ namespace Sunplus.Agent.Model.DL.Authorization
         }
 
         public bool Age_CustomerSelCheckBelonging_Multi(
-            string custIds, 
-            int currentCustId, 
+            string custIds,
+            int currentCustId,
             int subAccountId,
             bool isInternal)
         {
@@ -781,8 +781,8 @@ namespace Sunplus.Agent.Model.DL.Authorization
         /// <param name="roleId"></param>
         /// <returns>Return Id of userName</returns>
         public int Age_CustomerSelCheckBelonging_ByUsername(
-            string userName, 
-            int uplineId, 
+            string userName,
+            int uplineId,
             out bool isSubAcc,
             out int roleId)
         {
@@ -817,7 +817,7 @@ namespace Sunplus.Agent.Model.DL.Authorization
 
             var parms = new Hashtable
             {
-                { "UserId", userId }, 
+                { "UserId", userId },
                 { "FuncId", funcId }
             };
 
@@ -828,5 +828,17 @@ namespace Sunplus.Agent.Model.DL.Authorization
         }
 
         #endregion
+
+        public bool Age_CustSetting_BetChoiceLimitCheck(int custId)
+        {
+            Hashtable parameters = new Hashtable
+            {
+                { "custid", custId }
+            };
+
+            DataTable dataTable = ExecSpTable("Age_CustSetting_BetChoiceLimitCheck", parameters);
+
+            return Converter.To<bool>(dataTable.Rows[0][0]);
+        }
     }
 }
