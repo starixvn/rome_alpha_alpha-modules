@@ -292,14 +292,18 @@ namespace Sunplus.Agent.Model.BL.UserMessage
             if (dataTable != null && dataTable.Rows.Count > 0)
             {
                 DataRow drow = dataTable.Rows[0];
+                object englishContent = drow["content_en"];
 
-                moveBetsMessage["ja-JP"] = drow["content_jp"].ToString();
-                moveBetsMessage["ko-KR"] = drow["content_ko"].ToString();
-                moveBetsMessage["en-US"] = drow["content_en"].ToString();
-                moveBetsMessage["th-TH"] = drow["content_th"].ToString();
-                moveBetsMessage["vi-VN"] = drow["content_vi"].ToString();
-                moveBetsMessage["zh-CN"] = drow["content_cs"].ToString();
-                moveBetsMessage["zh-TW"] = drow["content_ch"].ToString();
+                if (englishContent != null && englishContent != DBNull.Value)
+                {
+                    moveBetsMessage["ja-JP"] = drow["content_jp"].ToString();
+                    moveBetsMessage["ko-KR"] = drow["content_ko"].ToString();
+                    moveBetsMessage["en-US"] = englishContent.ToString();
+                    moveBetsMessage["th-TH"] = drow["content_th"].ToString();
+                    moveBetsMessage["vi-VN"] = drow["content_vi"].ToString();
+                    moveBetsMessage["zh-CN"] = drow["content_cs"].ToString();
+                    moveBetsMessage["zh-TW"] = drow["content_ch"].ToString();
+                }
             }
 
             return moveBetsMessage;
