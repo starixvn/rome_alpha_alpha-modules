@@ -25,5 +25,7 @@
         string RC4(string key, string value);
 
         string RemoveSpecialChars(string str);
+
+        string ComputeHash(string hashAlgorithm, string plainText, string salt = null);
     }
 }
