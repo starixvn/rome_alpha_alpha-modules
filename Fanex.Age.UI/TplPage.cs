@@ -16,6 +16,7 @@ namespace Fanex.Age.UI
     using System.Web.UI;
     using Fanex.Razorbill.Security.Services;
     using Fanex.Razorbill.Security.Sessions;
+    using Sunplus.Agent.Model.BL.Definitions;
 
     /// <summary>
     /// Base IBC page. All aspx pages should be inherited from TplPage or TplPage2.
@@ -31,6 +32,8 @@ namespace Fanex.Age.UI
         /// List of values will be rendered to browser as JSON format.
         /// </summary>
         protected JsonData JsonData = new JsonData(10);
+
+        protected int PiwikSiteId { get; set; }
 
         private ISecurityCodeSession _securityCodeSession;
 
@@ -95,8 +98,6 @@ namespace Fanex.Age.UI
         /// Don't override this method in instance class.
         /// </summary>
         /// <param name="writer"></param>
-        ///
-        ///
         protected override void Render(HtmlTextWriter writer)
         {
             try
@@ -132,6 +133,8 @@ namespace Fanex.Age.UI
                     RenderContent(writer);
 
                     RenderSecurityContent(writer);
+
+                    RenderOthersContent(writer);
                 }
 
                 if (JsonData.Count > 0)
@@ -148,6 +151,28 @@ namespace Fanex.Age.UI
         protected virtual void RenderSecurityContent(HtmlTextWriter writer)
         {
         }
+
+        protected virtual void RenderOthersContent(HtmlTextWriter writer)
+        {
+            if(PiwikSiteId > 0)
+            {
+                RenderPiwik(writer);
+            }
+        }
+
+        private void RenderPiwik(HtmlTextWriter writer)
+        {
+            writer.Write("<script type=\"text/javascript\">");
+            writer.Write("var _paq = [];");
+            writer.Write("_paq.push(['trackPageView']);");
+            writer.Write("_paq.push(['enableLinkTracking']);");
+            writer.Write($"_paq.push(['setTrackerUrl', '{AppSettings.PiwikUrl}']);");
+            writer.Write($"_paq.push(['setSiteId', '{PiwikSiteId}']);");
+            writer.Write("</script>");
+            writer.Write($"<script type=\"text/javascript\" async defer src=\"{AppSettings.PiwikScript}\"></script>");
+            writer.Write($"<noscript><p><img src=\"{AppSettings.PiwikUrl}?idsite={PiwikSiteId}\" alt=\"\" class=\"piwik-noscript\" /></p></noscript>");
+        }
+
 
         protected void WriteJavascriptObjects(HtmlTextWriter writer)
         {
