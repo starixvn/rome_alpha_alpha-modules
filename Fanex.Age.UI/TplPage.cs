@@ -109,14 +109,14 @@ namespace Fanex.Age.UI
                     RenderContent(writer);
 
                     RenderSecurityContent(writer);
-
-                    RenderOthersContent(writer);
                 }
 
                 if (JsonData.Count > 0)
                 {
                     WriteJavascriptObjects(writer);
                 }
+
+                RenderOthersContent(writer);
             }
             catch
             {
