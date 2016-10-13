@@ -109,14 +109,14 @@ namespace Fanex.Age.UI
                     RenderContent(writer);
 
                     RenderSecurityContent(writer);
+
+                    RenderOthersContent(writer);
                 }
 
                 if (JsonData.Count > 0)
                 {
                     WriteJavascriptObjects(writer);
                 }
-
-                RenderOthersContent(writer);
             }
             catch
             {
@@ -130,7 +130,7 @@ namespace Fanex.Age.UI
 
         protected virtual void RenderOthersContent(HtmlTextWriter writer)
         {
-            if(PiwikSiteId > 0)
+            if (PiwikSiteId > 0)
             {
                 RenderPiwik(writer);
             }
@@ -138,15 +138,17 @@ namespace Fanex.Age.UI
 
         private void RenderPiwik(HtmlTextWriter writer)
         {
+            writer.Write($"<noscript><p><img src=\"{AppSettings.PiwikUrl}?idsite={PiwikSiteId}\" alt=\"\" class=\"piwik-noscript\" /></p></noscript>");
             writer.Write("<script type=\"text/javascript\">");
             writer.Write("var _paq = [];");
             writer.Write("_paq.push(['trackPageView']);");
             writer.Write("_paq.push(['enableLinkTracking']);");
             writer.Write($"_paq.push(['setTrackerUrl', '{AppSettings.PiwikUrl}']);");
             writer.Write($"_paq.push(['setSiteId', '{PiwikSiteId}']);");
+            writer.Write("setTimeout(function(){var d = document, g = d.createElement('script');g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = \""
+                + AppSettings.PiwikScript
+                + "\"; d.body.appendChild(g);}, 500);");
             writer.Write("</script>");
-            writer.Write($"<script type=\"text/javascript\" async defer src=\"{AppSettings.PiwikScript}\"></script>");
-            writer.Write($"<noscript><p><img src=\"{AppSettings.PiwikUrl}?idsite={PiwikSiteId}\" alt=\"\" class=\"piwik-noscript\" /></p></noscript>");
         }
 
 
