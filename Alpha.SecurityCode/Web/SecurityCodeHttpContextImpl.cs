@@ -70,7 +70,15 @@
             }
             else
             {
-                response.Redirect(this.securityCodePathBuilder.BuildVerifyingSecurityCodePath(HttpContext.Current.Request.RawUrl), true);
+                var rawUrl = HttpContext.Current.Request.RawUrl;
+
+                if (HttpContext.Current.Session.IsCookieless)
+                {
+                    // Modify Url with session id in it
+                    rawUrl = response.ApplyAppPathModifier(rawUrl);
+                }
+
+                response.Redirect(this.securityCodePathBuilder.BuildVerifyingSecurityCodePath(rawUrl), true);
             }
         }
     }
