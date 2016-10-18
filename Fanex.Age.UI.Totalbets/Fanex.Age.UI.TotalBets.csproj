@@ -172,9 +172,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="TotalBets_Page.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="TotalBets_Page.cs" />
     <Compile Include="TotalGoal.htm.cs" />
   </ItemGroup>
   <ItemGroup>

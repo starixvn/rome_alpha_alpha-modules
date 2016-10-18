@@ -1,6 +1,7 @@
 namespace Sunplus.Agent.Model.BL.UserMessage
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using Fanex.Caching;
     using Sunplus.Agent.Model.BL.Definitions;
@@ -255,5 +256,59 @@ namespace Sunplus.Agent.Model.BL.UserMessage
         }
 
         #endregion Announcement
+
+        #region Notification During Move-bet Process
+
+        public string GetMoveBetsMessage(string language = null)
+        {
+            string message = string.Empty;
+
+            string key = "__Sunplus.Agent.Model.BL.UserMessage.UserMessageBO.NotificationMoveBets__";
+
+            ICache cache = CacheService.CreateInstance(CacheType.MemoryCache);
+            IDictionary<string, string> notification = cache.Get<IDictionary<string, string>>(key);
+
+            if (notification == null)
+            {
+                notification = GetNotificationDuringMoveBetsProcess();
+
+                cache.Set(key, notification, DateTime.Now.AddMinutes(1));
+            }
+
+            if (notification != null && notification.TryGetValue(language ?? CurrentSession.Language, out message))
+            {
+                return message;
+            }
+
+            return message;
+        }
+
+        private IDictionary<string, string> GetNotificationDuringMoveBetsProcess()
+        {
+            IDictionary<string, string> moveBetsMessage = new Dictionary<string, string>(8);
+
+            var dataTable = userMessageDAO.GetNotificationDuringMoveBetsProcess();
+
+            if (dataTable != null && dataTable.Rows.Count > 0)
+            {
+                DataRow drow = dataTable.Rows[0];
+                object englishContent = drow["content_en"];
+
+                if (englishContent != null && englishContent != DBNull.Value)
+                {
+                    moveBetsMessage["ja-JP"] = drow["content_jp"].ToString();
+                    moveBetsMessage["ko-KR"] = drow["content_ko"].ToString();
+                    moveBetsMessage["en-US"] = englishContent.ToString();
+                    moveBetsMessage["th-TH"] = drow["content_th"].ToString();
+                    moveBetsMessage["vi-VN"] = drow["content_vi"].ToString();
+                    moveBetsMessage["zh-CN"] = drow["content_cs"].ToString();
+                    moveBetsMessage["zh-TW"] = drow["content_ch"].ToString();
+                }
+            }
+
+            return moveBetsMessage;
+        }
+
+        #endregion
     }
 }

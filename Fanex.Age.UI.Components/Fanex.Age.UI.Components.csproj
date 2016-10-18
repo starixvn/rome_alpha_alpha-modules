@@ -191,9 +191,7 @@
     <Compile Include="SearchUserName_Control\SearchUserName_Control.cs" />
     <Compile Include="SearchUserName_Control\SearchUserName_Control.htm.cs" />
     <Compile Include="ShowHideColumn\ContextMenuColumns.cs" />
-    <Compile Include="ShowHideColumn\ContextMenuColumnsBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="ShowHideColumn\ContextMenuColumnsBase.cs" />
     <Compile Include="ShowHideColumn\ContextMenuColumns_Control.htm.cs" />
     <Compile Include="ShowHideColumn\IContextMenuColumns.cs" />
     <Compile Include="WinlossReportFilter\FilterElement.cs" />
