@@ -4,7 +4,6 @@ namespace Fanex.Age.UI
     using System.Collections;
     using System.Web;
     using System.Web.SessionState;
-    using Fanex.Razorbill.Security.Configurations;
     /// <summary>
     /// Implement IHttpHandler, process request and return in JSON format.
     /// All ashx must be inherited form this handler.
