@@ -1,65 +1,27 @@
 ﻿namespace Alpha.SecurityCode.Configurations
 {
-    using System;
     using System.Collections.Generic;
-    using System.Configuration;
+    using System.Runtime.Serialization;
 
-    public static class SecurityCodeConfig
+    [DataContract]
+    public class SecurityCodeConfig
     {
-        public static readonly bool IsActive;
-        private static readonly Dictionary<string, bool> IgnoreSecurityCode;
+        [DataMember(Name = "isActive")]
+        public bool IsActive { get; set; }
 
-        static SecurityCodeConfig()
-        {
-            IsActive = SecurityCodeSection.Instance.Active;
-            IgnoreSecurityCode = InitializeSecurityCodeSection();
-        }
+        [DataMember(Name = "paths")]
+        public IEnumerable<string> Paths { get; set; }
 
-        /// <summary>
-        /// Determines whether [is ignore security code] [the specified URL].
-        /// </summary>
-        /// <param name="url">The URL that need to be validated.</param>
-        /// <returns>
-        ///   <c>true</c> If [is ignore security code] [the specified URL]; otherwise, <c>false</c>.
-        /// </returns>
-        public static bool IsIgnoreSecurityCode(string url)
-        {
-            return IgnoreSecurityCode.ContainsKey(url);
-        }
+        [DataMember(Name = "sites", IsRequired = false)]
+        public IEnumerable<string> Sites { get; set; }
 
-        /// <summary>
-        /// Gets the ignore security codes.
-        /// </summary>
-        /// <returns>The hash table of Url.</returns>
-        private static Dictionary<string, bool> InitializeSecurityCodeSection()
-        {
-            Dictionary<string, bool> ignoreHash = new Dictionary<string, bool>();
-            if (IsActive)
-            {
-                string virtualDirectory = ConfigurationManager.AppSettings["VirtualDirectory"];
-                virtualDirectory = string.IsNullOrEmpty(virtualDirectory)
-                    ? string.Empty
-                    : "/" + virtualDirectory.ToLower();
+        [DataMember(Name = "siteMainApp", IsRequired = false)]
+        public string SiteMainApp { get; set; }
 
-                foreach (var ignoreUrl in SecurityCodeSection.Instance.IgnoreUrls)
-                {
-                    IgnoreUrlElement urlElement = (IgnoreUrlElement)ignoreUrl;
-                    string url = urlElement.Url;
-                    if (!string.IsNullOrEmpty(url))
-                    {
-                        string[] urlArray = url.Split(new char[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
-                        if (urlArray.Length > 0)
-                        {
-                            foreach (string item in urlArray)
-                            {
-                                ignoreHash.Add(virtualDirectory + item.Trim(), urlElement.IsFullUrl);
-                            }
-                        }
-                    }
-                }
-            }
+        [DataMember(Name = "verifyingSecurityCodePath")]
+        public string VerifyingSecurityCodePath { get; set; }
 
-            return ignoreHash;
-        }
+        [DataMember(Name = "resetSecurityCodePath")]
+        public string ResetSecurityCodePath { get; set; }
     }
 }

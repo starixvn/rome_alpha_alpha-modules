@@ -3,10 +3,22 @@
     using System;
     using System.Web;
     using Services;
+    using Web;
 
     public class SecurityCodeHttpModule : IHttpModule
     {
-        #region IHttpModule Members
+        private readonly SecurityCodeChecker securityCodeChecker;
+        private readonly SecurityCodeHttpContext securityCodeHttpContext;
+
+        public SecurityCodeHttpModule() : this(null, null)
+        {
+        }
+
+        internal SecurityCodeHttpModule(SecurityCodeChecker securityCodeChecker, SecurityCodeHttpContext securityCodeHttpContext)
+        {
+            this.securityCodeChecker = securityCodeChecker ?? new SecurityCodeCheckerImpl();
+            this.securityCodeHttpContext = securityCodeHttpContext ?? new SecurityCodeHttpContextImpl();
+        }
 
         public void Dispose()
         {
@@ -14,22 +26,35 @@
 
         public void Init(HttpApplication context)
         {
+            if (context == null)
+            {
+                return;
+            }
+
             context.AcquireRequestState += new EventHandler(AcquireRequestState);
         }
 
-        private void AcquireRequestState(object sender, EventArgs e)
+        internal void AcquireRequestState(object sender, EventArgs e)
         {
-            string redirectUrl = SecurityCodeChecker.GetRedirectUrl();
-
-            if (redirectUrl != null)
+            if (!securityCodeHttpContext.IsValidRequest())
             {
-                var response = HttpContext.Current.Response;
+                return;
+            }
 
-                response.ContentType = "text/html";
-                response.Redirect(redirectUrl, true);
+            var relativePath = securityCodeHttpContext.GetRelativePath();
+            var isRequiredSecurityCode = this.securityCodeChecker.IsRequiredSecurityCode(relativePath);
+
+            if (isRequiredSecurityCode)
+            {
+                if (securityCodeHttpContext.IsAjaxRequest())
+                {
+                    securityCodeHttpContext.DenyAjaxRequest();
+                }
+                else
+                {
+                    securityCodeHttpContext.RedirectToVerifySecurityCodePage();
+                }
             }
         }
-
-        #endregion IHttpModule Members
     }
 }

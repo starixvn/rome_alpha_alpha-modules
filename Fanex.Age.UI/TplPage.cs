@@ -12,10 +12,7 @@ namespace Fanex.Age.UI
 {
     using System.Collections;
     using System.Web;
-    using System.Web.Helpers;
     using System.Web.UI;
-    using Fanex.Razorbill.Security.Services;
-    using Fanex.Razorbill.Security.Sessions;
     using Sunplus.Agent.Model.BL.Definitions;
 
     /// <summary>
@@ -34,27 +31,6 @@ namespace Fanex.Age.UI
         protected JsonData JsonData = new JsonData(10);
 
         protected int PiwikSiteId { get; set; }
-
-        private ISecurityCodeSession _securityCodeSession;
-
-        /// <summary>
-        /// Gets the security code session.
-        /// </summary>
-        /// <value>
-        /// The security code session.
-        /// </value>
-        protected ISecurityCodeSession SecurityCodeSession
-        {
-            get
-            {
-                if (null == HttpContext.Current.Session)
-                {
-                    return null;
-                }
-
-                return _securityCodeSession ?? (_securityCodeSession = CookieLessSessionFactory.SecurityCodeSession);
-            }
-        }
 
         /// <summary>
         /// Register an object as JSON format. Access object in client site by _page.objName.
@@ -106,12 +82,12 @@ namespace Fanex.Age.UI
                 Response.ContentType = "text/html";
 
                 // Check Security Code - New Flow
-                string redirectUrl = SecurityCodeChecker.GetRedirectUrl();
+                //string redirectUrl = SecurityCodeChecker.GetRedirectUrl();
 
-                if (redirectUrl != null)
-                {
-                    Response.Redirect(redirectUrl, true);
-                }
+                //if (redirectUrl != null)
+                //{
+                //    Response.Redirect(redirectUrl, true);
+                //}
 
                 _Parameters = new Hashtable();
 
@@ -154,7 +130,7 @@ namespace Fanex.Age.UI
 
         protected virtual void RenderOthersContent(HtmlTextWriter writer)
         {
-            if(PiwikSiteId > 0)
+            if (PiwikSiteId > 0)
             {
                 RenderPiwik(writer);
             }
@@ -162,15 +138,17 @@ namespace Fanex.Age.UI
 
         private void RenderPiwik(HtmlTextWriter writer)
         {
+            writer.Write($"<noscript><p><img src=\"{AppSettings.PiwikUrl}?idsite={PiwikSiteId}\" alt=\"\" class=\"piwik-noscript\" /></p></noscript>");
             writer.Write("<script type=\"text/javascript\">");
             writer.Write("var _paq = [];");
             writer.Write("_paq.push(['trackPageView']);");
             writer.Write("_paq.push(['enableLinkTracking']);");
             writer.Write($"_paq.push(['setTrackerUrl', '{AppSettings.PiwikUrl}']);");
             writer.Write($"_paq.push(['setSiteId', '{PiwikSiteId}']);");
+            writer.Write("setTimeout(function(){var d = document, g = d.createElement('script');g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = \""
+                + AppSettings.PiwikScript
+                + "\"; d.body.appendChild(g);}, 500);");
             writer.Write("</script>");
-            writer.Write($"<script type=\"text/javascript\" async defer src=\"{AppSettings.PiwikScript}\"></script>");
-            writer.Write($"<noscript><p><img src=\"{AppSettings.PiwikUrl}?idsite={PiwikSiteId}\" alt=\"\" class=\"piwik-noscript\" /></p></noscript>");
         }
 
 

@@ -4,8 +4,6 @@ namespace Fanex.Age.UI
     using System.Collections;
     using System.Web;
     using System.Web.SessionState;
-    using Fanex.Razorbill.Security.Configurations;
-
     /// <summary>
     /// Implement IHttpHandler, process request and return in JSON format.
     /// All ashx must be inherited form this handler.
@@ -20,19 +18,7 @@ namespace Fanex.Age.UI
         protected bool IsValidateRequest = true; 
 
         protected HttpContext _context;
-       
-        protected ISecurityCode SecurityCodeChecker
-        {
-            get
-            {
-                if (!SecurityCodeConfig.IsActive)
-                {
-                    return new CheckSecurityCode();
-                }
-
-                return new NewFlowSecurityCode(this.Response);
-            }
-        }
+      
 
         public new bool IsReusable
         {
@@ -115,27 +101,10 @@ namespace Fanex.Age.UI
             }
             else
             {
-                // check security code
-                // if fail this function only return 2 error codes: required sec code or input wrong sec code
-                string errMsg;
-                ErrorType errCode = SecurityCodeChecker.RequiredSecurityCode(context.Request, CurrentUserSession, out errMsg);
-                if (errCode == ErrorType.Success)
-                {
-                    // Doing data5m5
-                    _View = InvokeData(Parameters);
+                // Doing data5m5
+                _View = InvokeData(Parameters);
 
-                    RenderResult(ref _Result);
-                }
-                else
-                {
-                    Result result = new Result(errCode, errMsg);
-                    if (errCode == ErrorType.RequiredSecurityCode)
-                    {
-                        result.ErrMsg = context.Request.RawUrl;
-                    }
-
-                    _Result.AsResult(result);
-                }
+                RenderResult(ref _Result);
             }
 
             Response.Write(Json.Render(_Result));

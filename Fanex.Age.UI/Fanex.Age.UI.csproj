@@ -113,10 +113,6 @@
       <HintPath>..\packages\Fanex.Logging.1.0.0.0\lib\net40\Fanex.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Razorbill.Security, Version=3.0.0.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Razorbill.Security.3.0.0.4\lib\net40\Fanex.Razorbill.Security.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Fanex.Security.Captcha, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Security.Captcha.1.0.1\lib\net40\Fanex.Security.Captcha.dll</HintPath>
       <Private>True</Private>
@@ -142,7 +138,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="ILogger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HandHistoryLibrary.1.0.0.43\lib\net40\ILogger.dll</HintPath>
+      <HintPath>..\packages\ILogger.1.0.0.0\lib\net40\ILogger.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
@@ -158,7 +154,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="NetUtility, Version=1.0.4199.22106, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HandHistoryLibrary.1.0.0.43\lib\net40\NetUtility.dll</HintPath>
+      <HintPath>..\packages\NetUtility.1.0.4199.22106\lib\net40\NetUtility.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Nini, Version=1.1.0.0, Culture=neutral, PublicKeyToken=691faec150a7fa7b, processorArchitecture=MSIL">
@@ -181,8 +177,8 @@
       <HintPath>..\packages\Sunplus.Agent.Model.Base.3.0.1.10\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Casino, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sunplus.Agent.Model.Casino.3.0.0.1\lib\net40\Sunplus.Agent.Model.Casino.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Casino, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sunplus.Agent.Model.Casino.3.0.0.2\lib\net40\Sunplus.Agent.Model.Casino.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.DataAccessLibrary, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
@@ -201,8 +197,8 @@
       <HintPath>..\packages\Sunplus.Agent.Model.SecurityCode.3.0.0.1\lib\net40\Sunplus.Agent.Model.SecurityCode.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Utilities, Version=3.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sunplus.Agent.Utilities.3.0.0.3\lib\net40\Sunplus.Agent.Utilities.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Utilities, Version=3.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sunplus.Agent.Utilities.3.0.0.4\lib\net40\Sunplus.Agent.Utilities.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Core.Common, Version=1.1.4505.19054, Culture=neutral, processorArchitecture=MSIL">
@@ -250,7 +246,6 @@
     </Compile>
     <Compile Include="Common.cs" />
     <Compile Include="ErrorType.cs" />
-    <Compile Include="ISecurityCode.cs" />
     <Compile Include="JsonData.cs" />
     <Compile Include="JsonError.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

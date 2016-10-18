@@ -102,7 +102,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="ILogger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HandHistoryLibrary.1.0.0.43\lib\net40\ILogger.dll</HintPath>
+      <HintPath>..\packages\ILogger.1.0.0.0\lib\net40\ILogger.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
@@ -114,7 +114,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="NetUtility, Version=1.0.4199.22106, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HandHistoryLibrary.1.0.0.43\lib\net40\NetUtility.dll</HintPath>
+      <HintPath>..\packages\NetUtility.1.0.4199.22106\lib\net40\NetUtility.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Nini, Version=1.1.0.0, Culture=neutral, PublicKeyToken=691faec150a7fa7b, processorArchitecture=MSIL">
@@ -129,8 +129,8 @@
       <HintPath>..\packages\Sunplus.Agent.Model.Base.3.0.1.10\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Casino, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sunplus.Agent.Model.Casino.3.0.0.1\lib\net40\Sunplus.Agent.Model.Casino.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Casino, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sunplus.Agent.Model.Casino.3.0.0.2\lib\net40\Sunplus.Agent.Model.Casino.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.DataAccessLibrary, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
@@ -149,8 +149,8 @@
       <HintPath>..\packages\Sunplus.Agent.Model.SecurityCode.3.0.0.1\lib\net40\Sunplus.Agent.Model.SecurityCode.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Utilities, Version=3.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sunplus.Agent.Utilities.3.0.0.3\lib\net40\Sunplus.Agent.Utilities.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Utilities, Version=3.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sunplus.Agent.Utilities.3.0.0.4\lib\net40\Sunplus.Agent.Utilities.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Core.Common, Version=1.1.4505.19054, Culture=neutral, processorArchitecture=MSIL">
@@ -192,14 +192,7 @@
     <Compile Include="Configurations\AuthenticationSection\GroupLevelElement.cs" />
     <Compile Include="Configurations\AuthenticationSection\PageAccessCollection.cs" />
     <Compile Include="Configurations\AuthenticationSection\PageAccessElement.cs" />
-    <Compile Include="Configurations\SecurityCodeConfig.cs" />
-    <Compile Include="Configurations\SecurityCodeSection.cs" />
     <Compile Include="Configurations\WebAppSettings.cs" />
-    <Compile Include="Controllers\BasedController.cs" />
-    <Compile Include="Controllers\SecurityCodeBasedPage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Controllers\SecurityCodeController.cs" />
     <Compile Include="Customer\AuthenticateCustomer.cs" />
     <Compile Include="Customer\CustomerSettingRenovation\CustomerSettingClientRegistration.cs" />
     <Compile Include="Customer\GoldDeluxeAuthorizationService.cs" />
@@ -207,28 +200,14 @@
     <Compile Include="Encryption\Encryptor.cs" />
     <Compile Include="Entities\CustomerPermissionResult.cs" />
     <Compile Include="Entities\Result.cs" />
-    <Compile Include="Entities\SecurityCodeStatus.cs" />
     <Compile Include="Entities\UserRole.cs" />
     <Compile Include="Filter\AntiXSRFFilter.cs" />
     <Compile Include="Helpers\IPHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Authentication\AuthenticationRepository.cs" />
     <Compile Include="Repositories\Authentication\IAuthenticationRepository.cs" />
-    <Compile Include="Repositories\ISecurityCodeRepository.cs" />
-    <Compile Include="Repositories\SecurityCodeRepository.cs" />
-    <Compile Include="Resources\Lang.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Lang.resx</DependentUpon>
-    </Compile>
     <Compile Include="Services\Authentication\AuthenticationService.cs" />
     <Compile Include="Services\Authentication\IAuthenticationService.cs" />
-    <Compile Include="Services\ISecurityCodeService.cs" />
-    <Compile Include="Services\SecurityCodeChecker.cs" />
-    <Compile Include="Services\SecurityCodeService.cs" />
-    <Compile Include="Sessions\CookieLessSessionFactory.cs" />
-    <Compile Include="Sessions\ISecurityCodeSession.cs" />
-    <Compile Include="Sessions\SecurityCodeSession.cs" />
     <Compile Include="SpamFilter\UserFilter.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -237,31 +216,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Lang.ja-JP.resx">
-      <LastGenOutput>Lang.ja-JP.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Lang.ko-KR.resx">
-      <LastGenOutput>Lang.ko-KR.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Lang.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Lang.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Lang.th-TH.resx">
-      <LastGenOutput>Lang.th-TH.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Lang.vi-VN.resx">
-      <LastGenOutput>Lang.vi-VN.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Lang.zh-CN.resx">
-      <LastGenOutput>Lang.zh-CN.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Lang.zh-TW.resx">
-      <LastGenOutput>Lang.zh-TW.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
