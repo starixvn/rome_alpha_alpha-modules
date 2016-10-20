@@ -52,8 +52,7 @@
                 "Username: " + UserSession.Current.UserName,
                 "Sub Account Id: " + UserSession.Current.SubAccId,
                 "Session Id: " + HttpContext.Current.Session.SessionID,
-                headerInfo,
-                "Request Body: " + GetRequestBody(HttpContext.Current.Request));
+                headerInfo);
         }
 
         private static string GetRequestBody(HttpRequest request)
