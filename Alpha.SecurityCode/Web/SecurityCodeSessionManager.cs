@@ -10,6 +10,6 @@
             }
         }
 
-        public static SecurityCodeSession SecurityCodeSession { get; internal set; }
+        public static SecurityCodeSession SecurityCodeSession { get; set; }
     }
 }

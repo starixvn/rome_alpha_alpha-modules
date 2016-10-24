@@ -9,6 +9,7 @@
 
         //// security code
         private const string IsAlreadyInputSecurityCodeKey = "SecurityCodeSession.IsAlreadyInputSecurityCodeKey";
+        private const string IsEnabledOtpKey = "SecurityCodeSession.IsEnabledOtp";
 
         public bool IsAlreadyInputSecurityCode
         {
@@ -53,6 +54,20 @@
             get
             {
                 return UserSession.Current.Site;
+            }
+        }
+
+        public bool IsEnabledOtp
+        {
+            get
+            {
+                var isEnabledOtp = GetProperty(IsEnabledOtpKey);
+                return isEnabledOtp == null ? false : (bool)isEnabledOtp;
+            }
+
+            set
+            {
+                SetProperty(IsEnabledOtpKey, value);
             }
         }
 

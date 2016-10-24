@@ -9,17 +9,22 @@
     {
         public bool IsRequiredSecurityCode(string relativePath)
         {
-            if (SecurityCodeSessionManager.SecurityCodeSession.IsAlreadyInputSecurityCode
-                || SecurityCodeSessionManager.SecurityCodeSession.IsInternal)
+            if (ByPassSecurity())
             {
                 return false;
             }
 
-            if (!IsEnableSecurityCode())
+            if (!SecurityCodeSessionManager.SecurityCodeSession.IsEnabledOtp 
+                && !IsEnableSecurityCode())
             {
                 return false;
             }
 
+            return IsRequiredSecurity(relativePath);
+        }
+
+        private bool IsRequiredSecurity(string relativePath)
+        {
             if (!string.IsNullOrWhiteSpace(relativePath))
             {
                 var relativePathToLower = relativePath.ToLower();
@@ -30,6 +35,17 @@
                         return true;
                     }
                 }
+            }
+
+            return false;
+        }
+
+        private bool ByPassSecurity()
+        {
+            if (SecurityCodeSessionManager.SecurityCodeSession.IsAlreadyInputSecurityCode
+                || SecurityCodeSessionManager.SecurityCodeSession.IsInternal)
+            {
+                return true;
             }
 
             return false;
@@ -74,6 +90,11 @@
             }
 
             return false;
+        }
+
+        private bool IsEnableOtp()
+        {
+            return SecurityCodeSessionManager.SecurityCodeSession.IsEnabledOtp;
         }
     }
 }

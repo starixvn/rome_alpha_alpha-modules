@@ -23,5 +23,12 @@
 
         [DataMember(Name = "resetSecurityCodePath")]
         public string ResetSecurityCodePath { get; set; }
+
+        [DataMember(Name = "verifyingOtpPath")]
+        public string VerifyingOtpPath { get; set; }
+
+        [DataMember(Name = "isSiteMain")]
+        public bool IsSiteMain { get; set; }
+
     }
 }

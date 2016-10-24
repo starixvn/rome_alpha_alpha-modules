@@ -1,10 +1,5 @@
 ﻿namespace Alpha.SecurityCode.Tests.HttpModules
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using NSubstitute;
     using NUnit.Framework;
     using SecurityCode.HttpModules;
@@ -29,57 +24,57 @@
         [Test]
         public void AcquireRequestState_RequestIsNotValid_DontExecuteIsRequiredSecurityCode()
         {
-            //// Arrange
+            // Arrange
             securityCodeHttpContext.IsValidRequest().Returns(false);
 
-            //// Act
+            // Act
             securityCodeHttpModule.AcquireRequestState(null, null);
 
-            //// Assert
+            // Assert
             securityCodeChecker.DidNotReceive().IsRequiredSecurityCode(Arg.Any<string>());
         }
 
         [Test]
         public void AcquireRequestState_RequestIsValid_ExecuteIsRequiredSecurityCode()
         {
-            //// Arrange
+            // Arrange
             securityCodeHttpContext.IsValidRequest().Returns(true);
             securityCodeHttpContext.GetRelativePath().Returns("/RelativePath");
 
-            //// Act
+            // Act
             securityCodeHttpModule.AcquireRequestState(null, null);
 
-            //// Assert
+            // Assert
             securityCodeChecker.Received().IsRequiredSecurityCode("/RelativePath");
         }
 
         [Test]
         public void AcquireRequestState_GetActionIsRequiredCheck_ExecuteRedirectToVerifySecurityCodePage()
         {
-            //// Arrange
+            // Arrange
             securityCodeHttpContext.IsValidRequest().Returns(true);
             securityCodeHttpContext.IsAjaxRequest().Returns(false);
             securityCodeChecker.IsRequiredSecurityCode(Arg.Any<string>()).Returns(true);
 
-            //// Act
+            // Act
             securityCodeHttpModule.AcquireRequestState(null, null);
 
-            //// Assert
+            // Assert
             securityCodeHttpContext.Received().RedirectToVerifySecurityCodePage();
         }
 
         [Test]
         public void AcquireRequestState_PostAjaxActionIsRequiredCheck_ExecuteDenyAjaxRequest()
         {
-            //// Arrange
+            // Arrange
             securityCodeHttpContext.IsValidRequest().Returns(true);
             securityCodeHttpContext.IsAjaxRequest().Returns(true);
             securityCodeChecker.IsRequiredSecurityCode(Arg.Any<string>()).Returns(true);
 
-            //// Act
+            // Act
             securityCodeHttpModule.AcquireRequestState(null, null);
 
-            //// Assert
+            // Assert
             securityCodeHttpContext.Received().DenyAjaxRequest();
         }
     }

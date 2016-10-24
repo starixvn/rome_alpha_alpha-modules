@@ -126,6 +126,8 @@ namespace Sunplus.Agent.Model.Entities
 
         private const string ISSYNCEDALLBET = "ISSYNCEDALLBET";
 
+        private const string ISENABLEDOTP = "ISENABLEDOTP";
+
         private string asNetSessionId;
 
         #endregion Contructors

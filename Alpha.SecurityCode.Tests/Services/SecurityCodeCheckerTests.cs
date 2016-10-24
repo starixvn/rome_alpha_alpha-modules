@@ -26,20 +26,20 @@
         [Test]
         public void IsRequiredSecurityCode_SecurityCodeCheckingIsInActive_ReturnFalse()
         {
-            //// Arrange
+            // Arrange
             AppSettings.SecurityCodeConfig.IsActive = false;
 
-            //// Act
+            // Act
             var isRequired = securityCodeChecker.IsRequiredSecurityCode("/relative-path");
 
-            //// Assert
+            // Assert
             Assert.IsFalse(isRequired);
         }
 
         [Test]
         public void IsRequiredSecurityCode_UserSiteIsNotRequiredToCheckSecurityCode_ReturnFalse()
         {
-            //// Arrange
+            // Arrange
             AppSettings.SecurityCodeConfig = new SecurityCodeConfig
             {
                 IsActive = true,
@@ -52,10 +52,10 @@
 
             SecurityCodeSessionManager.SecurityCodeSession.UserSite.Returns("Site3");
 
-            //// Act
+            // Act
             var isRequired = securityCodeChecker.IsRequiredSecurityCode("/relative-path");
 
-            //// Assert
+            // Assert
             Assert.IsFalse(isRequired);
         }
 
@@ -74,10 +74,10 @@
             SecurityCodeSessionManager.SecurityCodeSession.UserSite.Returns("Site3");
             SecurityCodeSessionManager.SecurityCodeSession.IsAlreadyInputSecurityCode.Returns(true);
 
-            //// Act
+            // Act
             var isRequired = securityCodeChecker.IsRequiredSecurityCode("/relative-path");
 
-            //// Assert
+            // Assert
             Assert.IsFalse(isRequired);
         }
 
@@ -102,10 +102,10 @@
             SecurityCodeSessionManager.SecurityCodeSession.IsAlreadyInputSecurityCode.Returns(false);
             var currentRelativePath = "/relative-path3";
 
-            //// Act
+            // Act
             var isRequired = securityCodeChecker.IsRequiredSecurityCode(currentRelativePath);
 
-            //// Assert
+            // Assert
             Assert.IsFalse(isRequired);
         }
 
@@ -132,15 +132,15 @@
             SecurityCodeSessionManager.SecurityCodeSession.IsAlreadyInputSecurityCode.Returns(false);
             SecurityCodeSessionManager.SecurityCodeSession.SecurityCode.Returns("securitycode");
 
-            //// Act
+            // Act
             var isRequired = securityCodeChecker.IsRequiredSecurityCode(currentRelativePath);
 
-            //// Assert
+            // Assert
             Assert.IsTrue(isRequired);
         }
 
         [Test]
-        public void IsRequiredSecurityCode_SiteIsNotInConfigAndPathIsRequiredSecurityCode_ReturnTrue()
+        public void IsRequiredSecurityCode_AllSitesIsRequiredAndPathIsRequiredSecurityCode_ReturnTrue()
         {
             AppSettings.SecurityCodeConfig = new SecurityCodeConfig
             {
@@ -158,10 +158,10 @@
             SecurityCodeSessionManager.SecurityCodeSession.IsAlreadyInputSecurityCode.Returns(false);
             SecurityCodeSessionManager.SecurityCodeSession.SecurityCode.Returns("securitycode");
 
-            //// Act
+            // Act
             var isRequired = securityCodeChecker.IsRequiredSecurityCode(currentRelativePath);
 
-            //// Assert
+            // Assert
             Assert.IsTrue(isRequired);
         }
 
@@ -183,10 +183,10 @@
 
             SecurityCodeSessionManager.SecurityCodeSession.IsInternal.Returns(true);
 
-            //// Act
+            // Act
             var isRequired = securityCodeChecker.IsRequiredSecurityCode(currentRelativePath);
 
-            //// Assert
+            // Assert
             Assert.IsFalse(isRequired);
         }
 
@@ -211,10 +211,10 @@
             SecurityCodeSessionManager.SecurityCodeSession.IsInternal.Returns(false);
             SecurityCodeSessionManager.SecurityCodeSession.IsForcedChangeSecurityCode.Returns(true);
 
-            //// Act
+            // Act
             var isRequired = securityCodeChecker.IsRequiredSecurityCode(currentRelativePath);
 
-            //// Assert
+            // Assert
             Assert.IsTrue(isRequired);
         }
 
@@ -238,10 +238,10 @@
             SecurityCodeSessionManager.SecurityCodeSession.SecurityCode.Returns(string.Empty);
             SecurityCodeSessionManager.SecurityCodeSession.IsInternal.Returns(false);
 
-            //// Act
+            // Act
             var isRequired = securityCodeChecker.IsRequiredSecurityCode(currentRelativePath);
 
-            //// Assert
+            // Assert
             Assert.IsFalse(isRequired);
         }
 
@@ -251,7 +251,10 @@
             AppSettings.SecurityCodeConfig = new SecurityCodeConfig
             {
                 IsActive = true,
-                Sites = Enumerable.Empty<string>(),
+                Sites = new List<string>
+                {
+                    "Site2"
+                },
                 Paths = new List<string>
                 {
                     "/relative-path1",
@@ -259,17 +262,50 @@
                 }
             };
 
-            var currentRelativePath = "/relative-path3";
+            var currentRelativePath = "/relative-path2";
 
+            SecurityCodeSessionManager.SecurityCodeSession.UserSite.Returns("site1");
             SecurityCodeSessionManager.SecurityCodeSession.IsAlreadyInputSecurityCode.Returns(false);
             SecurityCodeSessionManager.SecurityCodeSession.SecurityCode.Returns("SecurityCode");
             SecurityCodeSessionManager.SecurityCodeSession.IsInternal.Returns(false);
 
-            //// Act
+            // Act
             var isRequired = securityCodeChecker.IsRequiredSecurityCode(currentRelativePath);
 
-            //// Assert
+            // Assert
             Assert.IsFalse(isRequired);
+        }
+
+        [Test]
+        public void IsRequiredSecurityCode_SiteIsNotOfferedSCButUserUsesOTP_ReturnTrue()
+        {
+            AppSettings.SecurityCodeConfig = new SecurityCodeConfig
+            {
+                IsActive = true,
+                Sites = new List<string>
+                {
+                    "Site2"
+                },
+                Paths = new List<string>
+                {
+                    "/relative-path1",
+                    "/relative-path2"
+                }
+            };
+
+            var currentRelativePath = "/relative-path2";
+
+            SecurityCodeSessionManager.SecurityCodeSession.UserSite.Returns("site1");
+            SecurityCodeSessionManager.SecurityCodeSession.IsAlreadyInputSecurityCode.Returns(false);
+            SecurityCodeSessionManager.SecurityCodeSession.SecurityCode.Returns("SecurityCode");
+            SecurityCodeSessionManager.SecurityCodeSession.IsInternal.Returns(false);
+            SecurityCodeSessionManager.SecurityCodeSession.IsEnabledOtp.Returns(true);
+
+            // Act
+            var isRequired = securityCodeChecker.IsRequiredSecurityCode(currentRelativePath);
+
+            // Assert
+            Assert.IsTrue(isRequired);
         }
 
         #endregion Is Required Security Code Test cases
@@ -279,29 +315,27 @@
         [Test]
         public void IsForcedChangeSecurityCode_AdminInternalLogin_ReturnFalse()
         {
-            //// Arrange
+            // Arrange
             SecurityCodeSessionManager.SecurityCodeSession.IsInternal.Returns(true);
 
-            //// Act
+            // Act
             var isForced = securityCodeChecker.IsForcedChangeSecurityCode();
 
-            //// Assert
-
+            // Assert
             Assert.IsFalse(isForced);
         }
 
         [Test]
         public void IsForcedChangeSecurityCode_UserAreBeingForcedChange_ReturnTrue()
         {
-            //// Arrange
+            // Arrange
             SecurityCodeSessionManager.SecurityCodeSession.IsInternal.Returns(false);
             SecurityCodeSessionManager.SecurityCodeSession.IsForcedChangeSecurityCode.Returns(true);
 
-            //// Act
+            // Act
             var isForced = securityCodeChecker.IsForcedChangeSecurityCode();
 
-            //// Assert
-
+            // Assert
             Assert.IsTrue(isForced);
         }
 
@@ -312,27 +346,27 @@
         [Test]
         public void IsEnableSecurityCode_SecurityCodeCheckingIsInActive_ReturnFalse()
         {
-            //// Arrange
+            // Arrange
             AppSettings.SecurityCodeConfig.IsActive = false;
 
-            //// Act
+            // Act
             var isEnbabled = securityCodeChecker.IsEnableSecurityCode();
 
-            //// Assert
+            // Assert
             Assert.IsFalse(isEnbabled);
         }
 
         [Test]
         public void IsEnableSecurityCode_UserAreBeingForcedChange_ReturnTrue()
         {
-            //// Arrange
+            // Arrange
             AppSettings.SecurityCodeConfig.IsActive = true;
             SecurityCodeSessionManager.SecurityCodeSession.IsForcedChangeSecurityCode.Returns(true);
 
-            //// Act
+            // Act
             var isEnbabled = securityCodeChecker.IsEnableSecurityCode();
 
-            //// Assert
+            // Assert
             Assert.True(isEnbabled);
         }
 
@@ -350,10 +384,10 @@
 
             SecurityCodeSessionManager.SecurityCodeSession.UserSite.Returns("Site3");
 
-            //// Act
+            // Act
             var isEnbabled = securityCodeChecker.IsEnableSecurityCode();
 
-            //// Assert
+            // Assert
             Assert.IsFalse(isEnbabled);
         }
 
@@ -371,10 +405,10 @@
 
             SecurityCodeSessionManager.SecurityCodeSession.UserSite.Returns("Site1");
 
-            //// Act
+            // Act
             var isEnbabled = securityCodeChecker.IsEnableSecurityCode();
 
-            //// Assert
+            // Assert
             Assert.IsFalse(isEnbabled);
         }
 

@@ -11,5 +11,7 @@
         bool IsInternal { get; }
 
         string UserSite { get; }
+
+        bool IsEnabledOtp { get; set; }
     }
 }
