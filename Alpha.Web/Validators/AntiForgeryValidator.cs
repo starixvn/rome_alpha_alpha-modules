@@ -1,7 +1,6 @@
-﻿namespace Alpha.Auth.Web.Validators
+﻿namespace Alpha.Web.Validators
 {
     using System;
-    using System.Configuration;
     using System.Web;
     using System.Web.Helpers;
     using Configurations;
@@ -16,7 +15,7 @@
 
         public static Result ValidateRequest()
         {
-            if (!AlphaAuthSection.Instance.EnableAntiXSRF)
+            if (!AlphaWebSection.Instance.EnableAntiXSRF)
             {
                 return Result.Success;
             }

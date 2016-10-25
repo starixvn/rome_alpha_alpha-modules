@@ -1,4 +1,4 @@
-﻿namespace Alpha.Auth.Web.Validators
+﻿namespace Alpha.Web.Validators
 {
     using System;
     using System.Collections.Specialized;

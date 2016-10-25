@@ -1,4 +1,4 @@
-﻿namespace Alpha.Auth.Web
+﻿namespace Alpha.Web
 {
     using System.Text.RegularExpressions;
     using Fanex.Common;

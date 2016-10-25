@@ -1,18 +1,18 @@
-﻿namespace Alpha.Auth.Configurations
+﻿namespace Alpha.Web.Configurations
 {
     using System.Configuration;
 
-    public class AlphaAuthSection : ConfigurationSection
+    public class AlphaWebSection : ConfigurationSection
     {
         private const string EnableAntiXSRFName = "enableAntiXSRF";
         private const string EnableSessionValidationName = "enableSessionValidation";
         private const string EnableKickOutWhenSessionInvalidName = "enableKickOutWhenSessionInvalid";
         private const string SessionVerificationTokenCookieName = "sessionVerificationTokenCookie";
 
-        private static AlphaAuthSection instance
-            = ConfigurationManager.GetSection("AlphaAuthSection") as AlphaAuthSection;
+        private static AlphaWebSection instance
+            = ConfigurationManager.GetSection("AlphaWebSection") as AlphaWebSection;
 
-        public static AlphaAuthSection Instance
+        public static AlphaWebSection Instance
         {
             get
             {

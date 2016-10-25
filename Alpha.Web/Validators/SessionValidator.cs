@@ -1,4 +1,4 @@
-﻿namespace Alpha.Auth.Web.Validators
+﻿namespace Alpha.Web.Validators
 {
     using System;
     using System.Text;
@@ -13,7 +13,7 @@
         {
             get
             {
-                return AlphaAuthSection.Instance.SessionVerificationTokenCookie + HttpContext.Current.Session.SessionID;
+                return AlphaWebSection.Instance.SessionVerificationTokenCookie + HttpContext.Current.Session.SessionID;
             }
         }
 
@@ -24,7 +24,7 @@
         /// </summary>
         public static void Validate()
         {
-            if (!AlphaAuthSection.Instance.EnableSessionValidation)
+            if (!AlphaWebSection.Instance.EnableSessionValidation)
             {
                 return;
             }
@@ -47,7 +47,7 @@
                     ValidationLogger.WriteWarning(ex, "Session validation failed. Cached information" + cookieValue.Value);
                 }
 
-                if (AlphaAuthSection.Instance.EnableKickOutWhenSessionInvalid)
+                if (AlphaWebSection.Instance.EnableKickOutWhenSessionInvalid)
                 {
                     var session = HttpContext.Current.Session;
 
@@ -65,7 +65,7 @@
 
         public static void AddSessionVerificationToken()
         {
-            if (!AlphaAuthSection.Instance.EnableSessionValidation)
+            if (!AlphaWebSection.Instance.EnableSessionValidation)
             {
                 return;
             }

@@ -1,4 +1,4 @@
-﻿namespace Alpha.Auth.Models
+﻿namespace Alpha.Web.Models
 {
     public class Result
     {

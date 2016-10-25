@@ -125,7 +125,7 @@
         {
             get
             {
-               return UserSessionService.GetUserSessionInstance(HttpContext.Current.Session.SessionID);
+                return UserSessionService.GetUserSessionInstance(HttpContext.Current.Session.SessionID);
             }
         }
 
