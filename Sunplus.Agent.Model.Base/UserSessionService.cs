@@ -307,6 +307,7 @@ namespace Sunplus.Agent.Model.BL
             }
 
             session.IsDisabledSuperLive = !values.Contains("disablesuperlive") || (bool)values["disablesuperlive"];
+            session.IsSyncedAllBet = values.Contains("syncedallbet") && (bool)values["syncedallbet"];
         }
 
         private static KeyValuePair<int, string>[] ProductSpNames()

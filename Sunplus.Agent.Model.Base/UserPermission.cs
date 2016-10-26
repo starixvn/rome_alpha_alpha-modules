@@ -343,5 +343,28 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             return CurrentUserSession.GetDisabledProduct(product);
         }
+
+        public static bool IsShowProduct(int productId)
+        {
+            switch (productId)
+            {
+                case 2: // racing
+                    return IsShowRacing;
+                case 3: // Number Game
+                    return IsShowNumberGame;
+                case 4: // Live Casino
+                    return IsShowLiveCasino;
+                case 5: // Virtual Sports
+                    return IsShowVirtualSports;
+                case 8: // Keno
+                    return IsShowKenoSetting;
+                case 12: // Gold Deluxe
+                    return IsShowGoldDeluxeSettingForCredit;
+                case 15: // Colossus Bets
+                    return IsShowColossusBets;
+                default:
+                    return false;
+            }
+        }
     }
 }
