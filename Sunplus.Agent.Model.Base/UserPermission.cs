@@ -344,10 +344,12 @@ namespace Sunplus.Agent.Model.Entities.Permission
             return CurrentUserSession.GetDisabledProduct(product);
         }
 
-        public static bool IsShowProduct(int productId)
+        public static bool HasPermissionOnProduct(int productId)
         {
             switch (productId)
             {
+                case 1: // sportsbook
+                    return true;
                 case 2: // racing
                     return IsShowRacing;
                 case 3: // Number Game
@@ -363,7 +365,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
                 case 15: // Colossus Bets
                     return IsShowColossusBets;
                 default:
-                    return false;
+                    return IsEnableProduct(productId) && IsSyncedProduct(productId);
             }
         }
     }
