@@ -160,37 +160,9 @@ namespace Sunplus.Agent.Model.BL
                 session.IsPasswordExpired = false;
             }
 
-            session.IsCasinoDisabled = (bool)values["iscasinodisabled"];
-            session.IsCasinoSync = (bool)values["iscasinosync"];
-
-            if (values.Contains("disablep2p"))
-            {
-                session.IsP2PDisabled = (bool)values["disablep2p"];
-            }
-
-            if (values.Contains("disablelivecasino"))
-            {
-                session.IsLiveCasinoDisabled = (bool)values["disablelivecasino"];
-            }
-
-            if (values.Contains("synclivecasino"))
-            {
-                session.IsLiveCasinoSync = (bool)values["synclivecasino"];
-            }
-
             if (values.Contains("doublecommlosing"))
             {
                 session.IsDoubleCommLosing = (bool)values["doublecommlosing"];
-            }
-
-            if (values.Contains("disablevirtualsports"))
-            {
-                session.IsDisabledVirtualSports = (bool)values["disablevirtualsports"];
-            }
-
-            if (values.Contains("hidevirtualsports"))
-            {
-                session.IsHideVirtualSports = (bool)values["hidevirtualsports"];
             }
 
             if (values.Contains("nickname"))
@@ -210,22 +182,71 @@ namespace Sunplus.Agent.Model.BL
 
             session.DisplayNickName = session.IsNickname ? session.NickName : session.UserName;
 
-            if (values.Contains("disablenumber"))
-            {
-                session.IsNumberGameDisabled = (bool)values["disablenumber"];
-            }
-
-            if (values.Contains("disablebingo"))
-            {
-                session.IsBingoDisabled = (bool)values["disablebingo"];
-            }
-
-            if (values.Contains("syncbingo"))
-            {
-                session.IsBingoSync = (bool)values["syncbingo"];
-            }
-
             session.OnUserId = (int)values["on_userid"];
+
+            SetProductStatus(session, values);
+            SetProductStatusToDictionary(session, values);
+
+            session.IsDisabledFI = (bool)values["disablefi"];
+            session.IsDisabledAutoMPT = (bool)values["disableautompt"];
+            session.SRecommendId = (int)values["srecommend"];
+            session.MRecommendId = (int)values["mrecommend"];
+            session.ARecommendId = (int)values["arecommend"];
+            session.IsAdminCanViewVNIP = (bool)values["isadmincanviewvnip"];
+            session.IsAllowedTotalBalanceTransfer = (bool)values["isallowedtotalbalancetransfer"];
+            session.IsShowConsolidatedReport = (bool)values["isshowconsolidated"];
+            session.IsShowBetChoiceLimit = (bool)values["isShowBetChoiceLimit"];
+
+            if (AppSettings.IsSupportMyanmarOdds)
+            {
+                session.IsMyanmarOdds = Converter.ToBool(values["ismyanmarodds"]);
+            }
+            
+            if (values.ContainsKey("isimbc"))
+            {
+                session.IsIMBCCustomer = Converter.ToBool(values["isimbc"]);
+            }
+
+            if (!string.IsNullOrWhiteSpace(AppSettings.SubAccountPermission_LockAdminAccounts)
+                && Regex.IsMatch(string.Format(",{0},", AppSettings.SubAccountPermission_LockAdminAccounts), string.Format(",{0},", session.AdminId), RegexOptions.IgnoreCase)
+                && session.IsInternal)
+            {
+                session.IsLimitedHostPermisionOnSubAccountFunction = true;
+            }
+            else
+            {
+                session.IsLimitedHostPermisionOnSubAccountFunction = false;
+            }
+        }
+
+        private static Dictionary<int, string> ProductSpNames()
+        {
+            var result = new Dictionary<int, string>();
+            result.Add(ProductIdConstants.CockFighting, "cockfighting");
+            result.Add(ProductIdConstants.Cricket, "cricket");
+            result.Add(ProductIdConstants.AllBet, "allbet");
+            result.Add(ProductIdConstants.Voidbridge, "voidbridge");
+
+            return result;
+        }
+
+        private static void SetProductStatus(UserSessionBase session, Hashtable values)
+        {
+            session.IsCasinoDisabled = (bool)values["iscasinodisabled"];
+            session.IsCasinoSync = (bool)values["iscasinosync"];
+
+            session.IsP2PDisabled = GetProductStatus("disablep2p", values, true);
+
+            session.IsLiveCasinoDisabled = GetProductStatus("disablelivecasino", values, true);
+            session.IsLiveCasinoSync = GetProductStatus("synclivecasino", values, false);
+
+            session.IsDisabledVirtualSports = GetProductStatus("disablevirtualsports", values, true);
+            session.IsHideVirtualSports = GetProductStatus("hidevirtualsports", values, true);
+
+            session.IsNumberGameDisabled = GetProductStatus("disablenumber", values, true);
+
+            session.IsBingoDisabled = GetProductStatus("disablebingo", values, true);
+            session.IsBingoSync = GetProductStatus("syncbingo", values, false);
 
             // Extra informations
             if (values.Contains("disable151_41"))
@@ -239,20 +260,28 @@ namespace Sunplus.Agent.Model.BL
             }
 
             // Will be removed when Racing was launched
-            if (values.Contains("disablehorseracing"))
-            {
-                session.IsDisabledHR = (bool)values["disablehorseracing"];
-            }
+            session.IsDisabledHR = GetProductStatus("disablehorseracing", values, true);
 
-            session.IsHideKeno = !values.Contains("hidekeno") || (bool)values["hidekeno"];
-            session.IsHideGoldDeluxe = !values.Contains("hidegolddeluxe") || (bool)values["hidegolddeluxe"];
-            session.DisableGoldDeluxe = !values.Contains("disablegolddeluxe") || (bool)values["disablegolddeluxe"];
+            session.IsHideKeno = GetProductStatus("hidekeno", values, true);
 
-            session.IsHideColossusBets = !values.Contains("hidecolossusbet") || (bool)values["hidecolossusbet"];
-            session.DisableColossusBets = !values.Contains("disablecolossusbet") || (bool)values["disablecolossusbet"];
+            session.IsHideGoldDeluxe = GetProductStatus("hidegolddeluxe", values, true);
+            session.DisableGoldDeluxe = GetProductStatus("disablegolddeluxe", values, true);
 
-            session.IsHideSportsbook2 = !values.Contains("hidemuaythai") || Converter.ToBool(values["hidemuaythai"]);
-            session.DisableSportsbook2 = !values.Contains("disablemuaythai") || Converter.ToBool(values["disablemuaythai"]);
+            session.IsHideColossusBets = GetProductStatus("hidecolossusbet", values, true);
+            session.DisableColossusBets = GetProductStatus("disablecolossusbet", values, true);
+
+            session.IsHideSportsbook2 = GetProductStatus("hidemuaythai", values, true);
+            session.DisableSportsbook2 = GetProductStatus("disablemuaythai", values, true);
+
+            session.IsDisabledESports = GetProductStatus("disableesports", values, true);
+
+            session.IsDisabledSuperLive = GetProductStatus("disablesuperlive", values, true);
+
+            session.IsSyncedAllBet = GetProductStatus("syncedallbet", values, false);
+        }
+
+        private static void SetProductStatusToDictionary(UserSessionBase session, Hashtable values)
+        {
 
             var products = ProductSpNames();
 
@@ -270,44 +299,35 @@ namespace Sunplus.Agent.Model.BL
 
             ProductManager.SetProductsStatusToSession(values);
 
-            session.IsDisabledFI = (bool)values["disablefi"];
-            session.IsDisabledAutoMPT = (bool)values["disableautompt"];
-            session.SRecommendId = (int)values["srecommend"];
-            session.MRecommendId = (int)values["mrecommend"];
-            session.ARecommendId = (int)values["arecommend"];
-            session.IsAdminCanViewVNIP = (bool)values["isadmincanviewvnip"];
-            session.IsAllowedTotalBalanceTransfer = (bool)values["isallowedtotalbalancetransfer"];
-            session.IsShowConsolidatedReport = (bool)values["isshowconsolidated"];
-            session.IsShowBetChoiceLimit = (bool)values["isShowBetChoiceLimit"];
+            session.DisableProducts[ProductIdConstants.RNGCasino] = (bool)values["iscasinodisabled"];
+            session.SyncProducts[ProductIdConstants.RNGCasino] = (bool)values["iscasinosync"];
 
-            if (AppSettings.IsSupportMyanmarOdds)
-            {
-                session.IsMyanmarOdds = Converter.ToBool(values["ismyanmarodds"]);
-            }
+            session.DisableProducts[ProductIdConstants.P2P] = GetProductStatus("disablep2p", values, true);
 
-            if (values.ContainsKey("isimbc"))
-            {
-                session.IsIMBCCustomer = Converter.ToBool(values["isimbc"]);
-            }
+            session.DisableProducts[ProductIdConstants.LiveCasino] = GetProductStatus("disablelivecasino", values, true);
+            session.SyncProducts[ProductIdConstants.LiveCasino] = GetProductStatus("synclivecasino", values, false);
 
-            if (!string.IsNullOrWhiteSpace(AppSettings.SubAccountPermission_LockAdminAccounts)
-                && Regex.IsMatch(string.Format(",{0},", AppSettings.SubAccountPermission_LockAdminAccounts), string.Format(",{0},", session.AdminId), RegexOptions.IgnoreCase)
-                && session.IsInternal)
-            {
-                session.IsLimitedHostPermisionOnSubAccountFunction = true;
-            }
-            else
-            {
-                session.IsLimitedHostPermisionOnSubAccountFunction = false;
-            }
+            session.DisableProducts[ProductIdConstants.VirtualSports] = GetProductStatus("disablevirtualsports", values, true);
+            session.HideProducts[ProductIdConstants.VirtualSports] = GetProductStatus("hidevirtualsports", values, true);
 
-            if (values.Contains("disableesports"))
-            {
-                session.IsDisabledESports = (bool)values["disableesports"];
-            }
+            session.DisableProducts[ProductIdConstants.NumberGame] = GetProductStatus("disablenumber", values, true);
 
-            session.IsDisabledSuperLive = !values.Contains("disablesuperlive") || (bool)values["disablesuperlive"];
-            session.IsSyncedAllBet = values.Contains("syncedallbet") && (bool)values["syncedallbet"];
+            session.DisableProducts[ProductIdConstants.Bingo] = GetProductStatus("disablebingo", values, true);
+            session.SyncProducts[ProductIdConstants.Bingo] = GetProductStatus("syncbingo", values, false);
+            session.DisableProducts[ProductIdConstants.Racing] = GetProductStatus("disablehorseracing", values, true);
+
+            session.HideProducts[ProductIdConstants.Keno] = GetProductStatus("hidekeno", values, true);
+
+            session.HideProducts[ProductIdConstants.GoldDeluxe] = GetProductStatus("hidegolddeluxe", values, true);
+            session.DisableProducts[ProductIdConstants.GoldDeluxe] = GetProductStatus("disablegolddeluxe", values, true);
+
+            session.HideProducts[ProductIdConstants.ColossusBets] = GetProductStatus("hidecolossusbet", values, true);
+            session.DisableProducts[ProductIdConstants.ColossusBets] = GetProductStatus("disablecolossusbet", values, true);
+
+            session.HideProducts[ProductIdConstants.Sportsbook2] = GetProductStatus("hidemuaythai", values, true);
+            session.DisableProducts[ProductIdConstants.Sportsbook2] = GetProductStatus("disablemuaythai", values, true);
+
+            session.SyncProducts[ProductIdConstants.AllBet] = GetProductStatus("syncedallbet", values, false);
         }
 
         private static KeyValuePair<int, string>[] ProductSpNames()
@@ -319,6 +339,11 @@ namespace Sunplus.Agent.Model.BL
                 new KeyValuePair<int, string>(ProductIdConstants.AllBet, "allbet"),
                 new KeyValuePair<int, string>(ProductIdConstants.Voidbridge, "voidbridge")
             };
+        }
+
+        private static bool GetProductStatus(string productStatus, Hashtable values, bool defaultValue)
+        {
+            return values.Contains("productStatus") ? (bool)values["productStatus"] : defaultValue;
         }
     }
 }
