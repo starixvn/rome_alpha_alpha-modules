@@ -2,9 +2,9 @@
 {
     public class CacheRefFactory
     {
-        private static ICacheRefService _cacheRefService = new CacheRefService();
+        private static CacheRefService _cacheRefService = new CacheRefServiceImpl();
 
-        public static ICacheRefService CacheRef
+        public static CacheRefService CacheRef
         {
             get { return _cacheRefService; }
             set { _cacheRefService = value; }

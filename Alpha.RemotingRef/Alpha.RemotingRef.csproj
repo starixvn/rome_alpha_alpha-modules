@@ -49,8 +49,8 @@
   <ItemGroup>
     <Compile Include="CacheRef.cs" />
     <Compile Include="CacheRefFactory.cs" />
+    <Compile Include="CacheRefServiceImpl.cs" />
     <Compile Include="CacheRefService.cs" />
-    <Compile Include="ICacheRefService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

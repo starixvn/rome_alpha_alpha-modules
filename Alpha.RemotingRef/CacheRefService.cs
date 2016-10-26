@@ -1,65 +1,29 @@
 ﻿namespace Alpha.RemotingRef
 {
-    public class CacheRefService : ICacheRefService
+    public interface CacheRefService
     {
-        public string GetBetType(object betTypeId)
-        {
-            return CacheRef.GetBetTtype(betTypeId);
-        }
+        string GetBetType(object betTypeId);
 
-        public string GetBetType(object betTypeId, object betId)
-        {
-            return CacheRef.GetBetType(betTypeId, betId);
-        }
+        string GetBetType(object betTypeId, object betId);
 
-        public string GetBetTypeName(object betTypeId)
-        {
-            return CacheRef.GetBetTypeName(betTypeId);
-        }
+        string GetBetTypeName(object betTypeId);
 
-        public string GetCasinoBetItem(object betStatusId)
-        {
-            return CacheRef.GetCasinoBetItem(betStatusId);
-        }
+        string GetSportName(object sportId);
 
-        public string GetFncIndexName(object indexId)
-        {
-            return CacheRef.GetFncIndexName(indexId);
-        }
+        string GetTeamName(object teamId);
 
-        public string GetHorseTeamName(object codeId)
-        {
-            return CacheRef.GetHorseTeamName(codeId);
-        }
+        string GetRouletteBetItem(object itemId);
 
-        public string GetLeagueName(object leagueId)
-        {
-            return CacheRef.GetLeagueName(leagueId);
-        }
+        string GetCasinoBetItem(object betStatusId);
 
-        public string GetOddsTypeName(object oddsTypeId)
-        {
-            return CacheRef.GetOddsTypeName(oddsTypeId);
-        }
+        string GetLeagueName(object leagueId);
 
-        public string GetRouletteBetItem(object itemId)
-        {
-            return CacheRef.GetRouletteBetItem(itemId);
-        }
+        string GetFncIndexName(object indexId);
 
-        public string GetSportName(object sportId)
-        {
-            return CacheRef.GetSportName(sportId);
-        }
+        string GetHorseTeamName(object codeId);
 
-        public string GetTeamName(object teamId)
-        {
-            return CacheRef.GetTeamName(teamId);
-        }
+        string GetOddsTypeName(object oddsTypeId);
 
-        public string GetProductName(int productId)
-        {
-            return CacheRef.GetProductName(productId);
-        }
+        string GetProductName(int productId);
     }
 }
