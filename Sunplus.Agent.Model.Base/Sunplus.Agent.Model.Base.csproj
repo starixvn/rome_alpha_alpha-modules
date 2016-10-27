@@ -67,6 +67,7 @@
     <Compile Include="IEntity.cs" />
     <Compile Include="IUserSession.cs" />
     <Compile Include="PageAccess.cs" />
+    <Compile Include="ProductTransform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubAccount.cs" />
     <Compile Include="UserPermission.cs" />

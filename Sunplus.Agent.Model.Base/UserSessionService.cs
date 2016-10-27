@@ -5,6 +5,7 @@ namespace Sunplus.Agent.Model.BL
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
     using Fanex.Common;
+    using Model.Base;
     using Fanex.Products;
     using Model.Definitions;
     using Sunplus.Agent.Model.BL.Definitions;
@@ -219,17 +220,6 @@ namespace Sunplus.Agent.Model.BL
             }
         }
 
-        private static Dictionary<int, string> ProductSpNames()
-        {
-            var result = new Dictionary<int, string>();
-            result.Add(ProductIdConstants.CockFighting, "cockfighting");
-            result.Add(ProductIdConstants.Cricket, "cricket");
-            result.Add(ProductIdConstants.AllBet, "allbet");
-            result.Add(ProductIdConstants.Voidbridge, "voidbridge");
-
-            return result;
-        }
-
         private static void SetProductStatus(UserSessionBase session, Hashtable values)
         {
             session.IsCasinoDisabled = (bool)values["iscasinodisabled"];
@@ -283,19 +273,6 @@ namespace Sunplus.Agent.Model.BL
         private static void SetProductStatusToDictionary(UserSessionBase session, Hashtable values)
         {
 
-            var products = ProductSpNames();
-
-            foreach (var product in products)
-            {
-                var storedProcedureName = "hide" + product.Value;
-                session.SetHideProduct(product.Key, values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : true);
-
-                storedProcedureName = "disable" + product.Value;
-                session.SetDisabledProduct(product.Key, values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : true);
-
-                storedProcedureName = "synced" + product.Value;
-                session.SetSyncedProduct(product.Key, values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : false);
-            }
 
             ProductManager.SetProductsStatusToSession(values);
 
@@ -328,6 +305,8 @@ namespace Sunplus.Agent.Model.BL
             session.DisableProducts[ProductIdConstants.Sportsbook2] = GetProductStatus("disablemuaythai", values, true);
 
             session.SyncProducts[ProductIdConstants.AllBet] = GetProductStatus("syncedallbet", values, false);
+            
+            ProductTransform.TransformProductStatus(session, values);
         }
 
         private static KeyValuePair<int, string>[] ProductSpNames()
@@ -343,7 +322,7 @@ namespace Sunplus.Agent.Model.BL
 
         private static bool GetProductStatus(string productStatus, Hashtable values, bool defaultValue)
         {
-            return values.Contains("productStatus") ? (bool)values["productStatus"] : defaultValue;
+            return values.Contains(productStatus) ? (bool)values[productStatus] : defaultValue;
         }
     }
 }
