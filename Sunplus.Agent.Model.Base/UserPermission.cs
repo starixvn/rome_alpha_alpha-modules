@@ -3,7 +3,6 @@ namespace Sunplus.Agent.Model.Entities.Permission
     using System;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
-    using Fanex.CustomerSetting.Module.Keno.KenoSetting.Configurations;
     using Sunplus.Agent.Model.BL.Definitions;
     using Sunplus.Agent.Model.Entities.Base;
 
@@ -213,7 +212,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return KenoSection.Instance.ShowSetting && !CurrentUserSession.IsHideKeno;
+                return AppSettings.IsEnableKeno && !CurrentUserSession.IsHideKeno;
             }
         }
 
@@ -261,7 +260,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return KenoSection.Instance.Enable && !CurrentUserSession.IsHideKeno;
+                return AppSettings.IsEnableKeno && !CurrentUserSession.IsHideKeno;
             }
         }
 
