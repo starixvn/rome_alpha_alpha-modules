@@ -1,7 +1,7 @@
 ﻿namespace Fanex.Age.UI
 {
     using System.Web.UI;
-    using Alpha.Auth.Web.Validators;
+    using Alpha.Web.Validators;
 
     /// <summary>
     /// Each .aspx file inherits from this class will be automatically add security information for checking later

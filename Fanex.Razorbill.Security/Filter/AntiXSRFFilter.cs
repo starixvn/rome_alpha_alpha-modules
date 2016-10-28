@@ -1,7 +1,7 @@
 ﻿namespace Fanex.Razorbill.Security.Filter
 {
     using System.Web.Mvc;
-    using Alpha.Auth.Web.Validators;
+    using Alpha.Web.Validators;
     using Entities;
 
     public class AntiXSRFFilter : ActionFilterAttribute
@@ -17,7 +17,7 @@
             base.OnActionExecuting(filterContext);
         }
 
-        private static void ActionDenied(ActionExecutingContext filterContext, Alpha.Auth.Models.Result antiXSRFResult)
+        private static void ActionDenied(ActionExecutingContext filterContext, Alpha.Web.Models.Result antiXSRFResult)
         {
             var request = filterContext.HttpContext.Request;
             if (request.IsAjaxRequest())

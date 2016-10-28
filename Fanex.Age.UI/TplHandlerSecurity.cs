@@ -1,6 +1,6 @@
 ﻿namespace Fanex.Age.UI
 {
-    using Alpha.Auth.Web.Validators;
+    using Alpha.Web.Validators;
 
     /// <summary>
     /// Each .ashx file inherits from this class will be automatically checked security
