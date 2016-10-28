@@ -7,9 +7,10 @@ namespace Sunplus.Agent.Model.DL.UserMessage
     [Obsolete("Should rename to Sunplus.Agent.Model.Messages")]
     public class UserMessageDAO : Sunplus.Agent.Model.DL.Base.DAOBase
     {
-        private static int maxWaitingConnection = 2;        
+        private static int maxWaitingConnection = 2;
         private static object lockObject = new object();
         private static volatile int waitingConnection = 0;
+
         private static string[] colNameOfDataTable = new string[]
             {
                 "Content_ch", "System.String",
@@ -35,7 +36,7 @@ namespace Sunplus.Agent.Model.DL.UserMessage
             };
 
         private bool limitConnection; // Default is true.
-        
+
         public UserMessageDAO()
             : this(true)
         {
@@ -59,6 +60,7 @@ namespace Sunplus.Agent.Model.DL.UserMessage
         }
 
         #region Helper
+
         public static DataTable CreateDataTable()
         {
             DataTable dt = new DataTable();
@@ -82,9 +84,10 @@ namespace Sunplus.Agent.Model.DL.UserMessage
                 AddDataRow(row, desTable);
             }
         }
+
         #endregion Helper
 
-        #region High-light and balloon messages        
+        #region High-light and balloon messages
 
         public new DataTable ExecSpTable(string name, Hashtable parameters, int timeOut)
         {
@@ -250,7 +253,7 @@ namespace Sunplus.Agent.Model.DL.UserMessage
             htb.Add("username", userName);
             object result = ExecSp("Dot_Msg_SetPriMsgRead", htb);
             return result != null;
-        }        
+        }
 
         #endregion High-light and balloon messages
 
@@ -379,7 +382,7 @@ namespace Sunplus.Agent.Model.DL.UserMessage
             return base.ExecSpTable("Age_MoveBetsProcessNotification", new Hashtable());
         }
 
-        #endregion
+        #endregion Notification During Move-bet Process
 
         private static object GetValue(DataRow row, string fieldname)
         {

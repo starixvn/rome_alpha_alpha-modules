@@ -4,6 +4,7 @@ namespace Sunplus.Agent.Model.BL.UserMessage
     using System.Collections.Generic;
     using System.Data;
     using Fanex.Caching;
+    using Fanex.Data;
     using Sunplus.Agent.Model.BL.Definitions;
     using Sunplus.Agent.Model.DL.UserMessage;
 
@@ -39,12 +40,15 @@ namespace Sunplus.Agent.Model.BL.UserMessage
                 case "en-US":
                     content = msg["Content_en"] as string;
                     break;
+
                 case "th-TH":
                     content = msg["Content_th"] as string;
                     break;
+
                 case "zh-CN":
                     content = msg["Content_cs"] as string;
                     break;
+
                 case "zh-TW":
                     content = msg["Content_ch"] as string;
                     if (string.IsNullOrEmpty(content))
@@ -53,9 +57,11 @@ namespace Sunplus.Agent.Model.BL.UserMessage
                     }
 
                     break;
+
                 case "ja-JP":
                     content = msg["Content_jp"] as string;
                     break;
+
                 case "ko-KR":
                     content = msg["Content_ko"] as string;
                     break;
@@ -263,6 +269,31 @@ namespace Sunplus.Agent.Model.BL.UserMessage
         {
             string message = string.Empty;
 
+            var notification = GetNotificationDuringMoveBetsProcessFromCache();
+
+            if (notification != null && notification.TryGetValue(language ?? CurrentSession.Language, out message))
+            {
+                return message;
+            }
+
+            return message;
+        }
+
+        public DateTime GetMoveBetsEndTime()
+        {
+            var endTime = DateTime.MinValue;
+            var notification = GetNotificationDuringMoveBetsProcessFromCache();
+
+            if (notification != null && notification.ContainsKey("endTime"))
+            {
+                DateTime.TryParse(notification["endTime"], out endTime);
+            }
+
+            return endTime;
+        }
+
+        private IDictionary<string, string> GetNotificationDuringMoveBetsProcessFromCache()
+        {
             string key = "__Sunplus.Agent.Model.BL.UserMessage.UserMessageBO.NotificationMoveBets__";
 
             ICache cache = CacheService.CreateInstance(CacheType.MemoryCache);
@@ -275,12 +306,7 @@ namespace Sunplus.Agent.Model.BL.UserMessage
                 cache.Set(key, notification, DateTime.Now.AddMinutes(1));
             }
 
-            if (notification != null && notification.TryGetValue(language ?? CurrentSession.Language, out message))
-            {
-                return message;
-            }
-
-            return message;
+            return notification;
         }
 
         private IDictionary<string, string> GetNotificationDuringMoveBetsProcess()
@@ -303,12 +329,13 @@ namespace Sunplus.Agent.Model.BL.UserMessage
                     moveBetsMessage["vi-VN"] = drow["content_vi"].ToString();
                     moveBetsMessage["zh-CN"] = drow["content_cs"].ToString();
                     moveBetsMessage["zh-TW"] = drow["content_ch"].ToString();
+                    moveBetsMessage["endTime"] = drow["MBBUEndTime"].ToString();
                 }
             }
 
             return moveBetsMessage;
         }
 
-        #endregion
+        #endregion Notification During Move-bet Process
     }
 }
