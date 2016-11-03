@@ -56,8 +56,6 @@
       <HintPath>..\packages\Fanex.CustomerSetting.Module.Keno.KenoSetting.1.0.0.4\lib\net40\Fanex.CustomerSetting.Module.Keno.KenoSetting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.CustomerSetting.Module.KenoStatus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.CustomerSetting.Module.KenoStatus.1.0.0.2\lib\net40\Fanex.CustomerSetting.Module.KenoStatus.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Data, Version=0.5.404.59, Culture=neutral, processorArchitecture=MSIL">
@@ -112,12 +110,12 @@
       <HintPath>..\packages\RemotingRef.1.0.0.13\lib\net40\RemotingRef.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SPSRemoting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.2.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sunplus.Agent.Model.Base.3.0.2.2-sitereports06\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.2.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sunplus.Agent.Model.Base.3.0.2.3\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
+    <Reference Include="SPSRemoting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.Casino, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">

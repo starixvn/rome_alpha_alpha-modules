@@ -359,6 +359,8 @@ namespace Sunplus.Agent.Model.Entities.Permission
                     return IsShowLiveCasino;
                 case 5: // Virtual Sports
                     return IsShowVirtualSports;
+                case 6: // Casino
+                    return IsShowCasino;
                 case 8: // Keno
                     return IsShowKenoSetting;
                 case 12: // Gold Deluxe
