@@ -14,7 +14,7 @@
     public class BaseController : Controller
     {
         public const string English = "en-US";
-        private CultureInfo defaultCulture = CultureInfo.CreateSpecificCulture(English);
+        private readonly CultureInfo defaultCulture = CultureInfo.CreateSpecificCulture(English);
 
         [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods",
             MessageId = "0", Justification = "Reviewed!")]
@@ -30,7 +30,7 @@
         }
 
         [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "Reviewed", Justification = "Verified")]
-        private void UnAuthentication(AuthorizationContext filterContext)
+        protected void UnAuthentication(AuthorizationContext filterContext)
         {
             HttpResponseBase response = filterContext.HttpContext.Response;
 
