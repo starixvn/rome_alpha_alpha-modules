@@ -82,6 +82,8 @@
     <Compile Include="Formater.cs" />
     <Compile Include="HtmlGenerator.cs" />
     <Compile Include="Language.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="LoggerImpl.cs" />
     <Compile Include="Logs.cs" />
     <Compile Include="LogsFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

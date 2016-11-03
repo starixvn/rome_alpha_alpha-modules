@@ -73,7 +73,7 @@ namespace Sunplus.Agent.Utilities
             LogService.Error(message);
         }
 
-        private static string FullExceptionToString(Exception ex, int customerId = 0)
+        public static string FullExceptionToString(Exception ex, int customerId = 0)
         {
             if (ex == null || HttpContext.Current == null)
             {
