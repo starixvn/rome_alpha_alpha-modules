@@ -1,7 +1,7 @@
+using System;
+
 namespace Sunplus.Agent.Model.BL.Definitions
 {
-    using System;
-
     [Obsolete("Should rename to Sunplus.Agent.Model.Definitions")]
     public enum SportType : int
     {
@@ -69,6 +69,9 @@ namespace Sunplus.Agent.Model.BL.Definitions
         HRFixedOdds = 154,
         GoldDeluxe = 255,
         AllBet = 211,
-        Voidbridge = 212
+        Voidbridge = 212,
+        // NG2.
+        NG2Start = 213,
+        NG2End = 220
     }
 }

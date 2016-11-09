@@ -22,5 +22,7 @@
 
 		public const int AllBet = 21;
         public const int Voidbridge = 22;
+
+        public const int NG2 = 23;
     }
 }

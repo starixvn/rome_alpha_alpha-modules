@@ -1,7 +1,6 @@
 ﻿namespace Sunplus.Agent.Model.Base
 {
     using System;
-    using System.Collections.Generic;
     using System.Globalization;
     using System.Runtime.Serialization;
     using BL.Definitions;
@@ -104,19 +103,6 @@
             }
         }
 
-        public Dictionary<int, bool> DisableProducts
-        {
-            get
-            {
-                return UserSession.Current.DisableProducts;
-            }
-
-            set
-            {
-                UserSession.Current.DisableProducts = value;
-            }
-        }
-
         public bool DisableSportsbook2
         {
             get
@@ -140,19 +126,6 @@
             set
             {
                 UserSession.Current.DisplayNickName = value;
-            }
-        }
-
-        public Dictionary<int, bool> HideProducts
-        {
-            get
-            {
-                return UserSession.Current.HideProducts;
-            }
-
-            set
-            {
-                UserSession.Current.HideProducts = value;
             }
         }
 
@@ -693,19 +666,6 @@
             }
         }
 
-        public bool IsSyncedAllBet
-        {
-            get
-            {
-                return UserSession.Current.IsSyncedAllBet;
-            }
-
-            set
-            {
-                UserSession.Current.IsSyncedAllBet = value;
-            }
-        }
-
         public string LangKey
         {
             get
@@ -898,19 +858,6 @@
             }
         }
 
-        public Dictionary<int, bool> SyncProducts
-        {
-            get
-            {
-                return UserSession.Current.SyncProducts;
-            }
-
-            set
-            {
-                UserSession.Current.SyncProducts = value;
-            }
-        }
-
         public int UserId
         {
             get
@@ -940,9 +887,39 @@
             }
         }
 
+        public bool GetDisabledProduct(int productId)
+        {
+            return UserSession.Current.GetDisabledProduct(productId);
+        }
+
+        public bool GetHideProduct(int productId)
+        {
+            return UserSession.Current.GetHideProduct(productId);
+        }
+
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             UserSession.Current.GetObjectData(info, context);
+        }
+
+        public bool GetSyncedProduct(int productId)
+        {
+            return UserSession.Current.GetSyncedProduct(productId);
+        }
+
+        public void SetDisabledProduct(int productId, bool value)
+        {
+            UserSession.Current.SetDisabledProduct(productId, value);
+        }
+
+        public void SetHideProduct(int productId, bool value)
+        {
+            UserSession.Current.SetHideProduct(productId, value);
+        }
+
+        public void SetSyncedProduct(int productId, bool value)
+        {
+            UserSession.Current.SetSyncedProduct(productId, value);
         }
     }
 }

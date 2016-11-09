@@ -5,8 +5,9 @@ namespace Sunplus.Agent.Model.BL
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
     using Fanex.Common;
+    using Fanex.Products;
+    using Model.Definitions;
     using Sunplus.Agent.Model.BL.Definitions;
-    using Sunplus.Agent.Model.Definitions;
     using Sunplus.Agent.Model.Entities;
 
     [Obsolete("Should rename to Sunplus.Agent.Model.Base")]
@@ -253,21 +254,21 @@ namespace Sunplus.Agent.Model.BL
             session.IsHideSportsbook2 = !values.Contains("hidemuaythai") || Converter.ToBool(values["hidemuaythai"]);
             session.DisableSportsbook2 = !values.Contains("disablemuaythai") || Converter.ToBool(values["disablemuaythai"]);
 
-            session.HideProducts = new Dictionary<int, bool>();
-            session.DisableProducts = new Dictionary<int, bool>();
-            session.SyncProducts = new Dictionary<int, bool>();
             var products = ProductSpNames();
+
             foreach (var product in products)
             {
                 var storedProcedureName = "hide" + product.Value;
-                session.HideProducts[product.Key] = values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : true;
+                session.SetHideProduct(product.Key, values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : true);
 
                 storedProcedureName = "disable" + product.Value;
-                session.DisableProducts[product.Key] = values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : true;
+                session.SetDisabledProduct(product.Key, values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : true);
 
                 storedProcedureName = "synced" + product.Value;
-                session.SyncProducts[product.Key] = values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : false;
+                session.SetSyncedProduct(product.Key, values.Contains(storedProcedureName) ? Converter.ToBool(values[storedProcedureName]) : false);
             }
+
+            ProductManager.SetProductsStatusToSession(values);
 
             session.IsDisabledFI = (bool)values["disablefi"];
             session.IsDisabledAutoMPT = (bool)values["disableautompt"];
@@ -284,7 +285,7 @@ namespace Sunplus.Agent.Model.BL
                 session.IsMyanmarOdds = Converter.ToBool(values["ismyanmarodds"]);
             }
 
-            if (AppSettings.IsEnabledProduct(ProductIdConstants.Cricket))
+            if (values.ContainsKey("isimbc"))
             {
                 session.IsIMBCCustomer = Converter.ToBool(values["isimbc"]);
             }
@@ -306,19 +307,17 @@ namespace Sunplus.Agent.Model.BL
             }
 
             session.IsDisabledSuperLive = !values.Contains("disablesuperlive") || (bool)values["disablesuperlive"];
+        }
 
-			session.IsSyncedAllBet = values.Contains("syncedallbet") && (bool)values["syncedallbet"];
-		}
-
-        private static Dictionary<int, string> ProductSpNames()
+        private static KeyValuePair<int, string>[] ProductSpNames()
         {
-            var result = new Dictionary<int, string>();
-            result.Add(ProductIdConstants.CockFighting, "cockfighting");
-            result.Add(ProductIdConstants.Cricket, "cricket");
-            result.Add(ProductIdConstants.AllBet, "allbet");
-            result.Add(ProductIdConstants.Voidbridge, "voidbridge");
-
-            return result;
-		}
+            return new KeyValuePair<int, string>[]
+            {
+                new KeyValuePair<int, string>(ProductIdConstants.CockFighting, "cockfighting"),
+                new KeyValuePair<int, string>(ProductIdConstants.Cricket, "cricket"),
+                new KeyValuePair<int, string>(ProductIdConstants.AllBet, "allbet"),
+                new KeyValuePair<int, string>(ProductIdConstants.Voidbridge, "voidbridge")
+            };
+        }
     }
 }

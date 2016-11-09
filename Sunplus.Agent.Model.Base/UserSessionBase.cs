@@ -1,7 +1,6 @@
 namespace Sunplus.Agent.Model.Entities
 {
     using System;
-    using System.Collections.Generic;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
@@ -119,9 +118,9 @@ namespace Sunplus.Agent.Model.Entities
 
         private const string DISABLESUPERLIVE = "DISABLESUPERLIVE";
 
-        private const string HIDEPRODUCTS = "HIDEPRODUCTS";
-        private const string DISABLEPRODUCTS = "DISABLEPRODUCTS";
-        private const string SYNCPRODUCTS = "SYNCPRODUCTS";
+        private const string HIDEPRODUCT = "HIDEPRODUCT";
+        private const string DISABLEDPRODUCT = "DISABLEDPRODUCT";
+        private const string SYNCEDPRODUCT = "SYNCEDPRODUCT";
 
         private const string USERLOGINIP = "USERLOGINIP";
 
@@ -1485,46 +1484,40 @@ namespace Sunplus.Agent.Model.Entities
             }
         }
 
-        public Dictionary<int, bool> HideProducts
+        public bool GetHideProduct(int productId)
         {
-            get
-            {
-                object value = GetProperty(HIDEPRODUCTS);
-                return value as Dictionary<int, bool>;
-            }
+            object value = GetProperty(HIDEPRODUCT + "_" + productId);
 
-            set
-            {
-                SetProperty(HIDEPRODUCTS, value);
-            }
+            return (null == value) ? true : (bool)value;
         }
 
-        public Dictionary<int, bool> DisableProducts
+        public void SetHideProduct(int productId, bool value)
         {
-            get
-            {
-                object value = GetProperty(DISABLEPRODUCTS);
-                return value as Dictionary<int, bool>;
-            }
-
-            set
-            {
-                SetProperty(DISABLEPRODUCTS, value);
-            }
+            SetProperty(HIDEPRODUCT + "_" + productId, value);
         }
 
-        public Dictionary<int, bool> SyncProducts
+        public bool GetSyncedProduct(int productId)
         {
-            get
-            {
-                object value = GetProperty(SYNCPRODUCTS);
-                return value as Dictionary<int, bool>;
-            }
+            object value = GetProperty(SYNCEDPRODUCT + "_" + productId);
 
-            set
-            {
-                SetProperty(SYNCPRODUCTS, value);
-            }
+            return (null == value) ? false : (bool)value;
+        }
+
+        public void SetSyncedProduct(int productId, bool value)
+        {
+            SetProperty(SYNCEDPRODUCT + "_" + productId, value);
+        }
+
+        public bool GetDisabledProduct(int productId)
+        {
+            object value = GetProperty(DISABLEDPRODUCT + "_" + productId);
+
+            return (null == value) ? true : (bool)value;
+        }
+
+        public void SetDisabledProduct(int productId, bool value)
+        {
+            SetProperty(DISABLEDPRODUCT + "_" + productId, value);
         }
 
         public string UserLoginIp
@@ -1569,19 +1562,6 @@ namespace Sunplus.Agent.Model.Entities
             set
             {
                 this.SetProperty("ISINTERNALWEBVPN", value);
-            }
-        }
-
-        public bool IsSyncedAllBet
-        {
-            get
-            {
-                object value = GetProperty(ISSYNCEDALLBET);
-                return value != null && (bool)value;
-            }
-            set
-            {
-                SetProperty(ISSYNCEDALLBET, value);
             }
         }
 
