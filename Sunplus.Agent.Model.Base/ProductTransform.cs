@@ -38,9 +38,9 @@
         {
             foreach (var productName in ProductNames)
             {
-                session.HideProducts[productName.Key] = GetProductStatus("hide" + productName.Value, values, true);
-                session.DisableProducts[productName.Key] = GetProductStatus("disable" + productName.Value, values, true);
-                session.SyncProducts[productName.Key] = GetProductStatus("synced" + productName.Value, values, false);
+                session.SetHideProduct(productName.Key, GetProductStatus("hide" + productName.Value, values, true));
+                session.SetDisabledProduct(productName.Key, GetProductStatus("disable" + productName.Value, values, true));
+                session.SetSyncedProduct(productName.Key, GetProductStatus("synced" + productName.Value, values, false));
             }
         }
 
@@ -73,13 +73,13 @@
             foreach (var productId in productIds)
             {
                 var prefix = "hide-";
-                session.HideProducts[productId] = GetProductStatus(prefix + productId, values, StatusDefaultValues[prefix]);
+                session.SetHideProduct(productId, GetProductStatus(prefix + productId, values, StatusDefaultValues[prefix]));
 
                 prefix = "disable-";
-                session.DisableProducts[productId] = GetProductStatus(prefix + productId, values, StatusDefaultValues[prefix]);
+                session.SetDisabledProduct(productId, GetProductStatus(prefix + productId, values, StatusDefaultValues[prefix]));
 
                 prefix = "synced-";
-                session.SyncProducts[productId] = GetProductStatus(prefix + productId, values, StatusDefaultValues[prefix]);
+                session.SetSyncedProduct(productId, GetProductStatus(prefix + productId, values, StatusDefaultValues[prefix]));
             }
         }
     }

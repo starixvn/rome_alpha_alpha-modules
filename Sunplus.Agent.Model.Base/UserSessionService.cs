@@ -202,7 +202,7 @@ namespace Sunplus.Agent.Model.BL
             {
                 session.IsMyanmarOdds = Converter.ToBool(values["ismyanmarodds"]);
             }
-            
+
             if (values.ContainsKey("isimbc"))
             {
                 session.IsIMBCCustomer = Converter.ToBool(values["isimbc"]);
@@ -266,46 +266,43 @@ namespace Sunplus.Agent.Model.BL
             session.IsDisabledESports = GetProductStatus("disableesports", values, true);
 
             session.IsDisabledSuperLive = GetProductStatus("disablesuperlive", values, true);
-
-            session.IsSyncedAllBet = GetProductStatus("syncedallbet", values, false);
         }
 
         private static void SetProductStatusToDictionary(UserSessionBase session, Hashtable values)
         {
-
-
             ProductManager.SetProductsStatusToSession(values);
 
-            session.DisableProducts[ProductIdConstants.RNGCasino] = (bool)values["iscasinodisabled"];
-            session.SyncProducts[ProductIdConstants.RNGCasino] = (bool)values["iscasinosync"];
+            session.SetDisabledProduct(ProductIdConstants.RNGCasino, (bool)values["iscasinodisabled"]);
+            session.SetSyncedProduct(ProductIdConstants.RNGCasino, (bool)values["iscasinosync"]);
 
-            session.DisableProducts[ProductIdConstants.P2P] = GetProductStatus("disablep2p", values, true);
+            session.SetDisabledProduct(ProductIdConstants.P2P, (bool)values["disablep2p"]);
 
-            session.DisableProducts[ProductIdConstants.LiveCasino] = GetProductStatus("disablelivecasino", values, true);
-            session.SyncProducts[ProductIdConstants.LiveCasino] = GetProductStatus("synclivecasino", values, false);
+            session.SetDisabledProduct(ProductIdConstants.LiveCasino, GetProductStatus("disablelivecasino", values, true));
+            session.SetSyncedProduct(ProductIdConstants.LiveCasino, GetProductStatus("synclivecasino", values, false));
 
-            session.DisableProducts[ProductIdConstants.VirtualSports] = GetProductStatus("disablevirtualsports", values, true);
-            session.HideProducts[ProductIdConstants.VirtualSports] = GetProductStatus("hidevirtualsports", values, true);
+            session.SetDisabledProduct(ProductIdConstants.VirtualSports, GetProductStatus("disablevirtualsports", values, true));
+            session.SetHideProduct(ProductIdConstants.VirtualSports, GetProductStatus("hidevirtualsports", values, false));
 
-            session.DisableProducts[ProductIdConstants.NumberGame] = GetProductStatus("disablenumber", values, true);
+            session.SetDisabledProduct(ProductIdConstants.NumberGame, GetProductStatus("disablenumber", values, true));
 
-            session.DisableProducts[ProductIdConstants.Bingo] = GetProductStatus("disablebingo", values, true);
-            session.SyncProducts[ProductIdConstants.Bingo] = GetProductStatus("syncbingo", values, false);
-            session.DisableProducts[ProductIdConstants.Racing] = GetProductStatus("disablehorseracing", values, true);
+            session.SetDisabledProduct(ProductIdConstants.Bingo, GetProductStatus("disablebingo", values, true));
+            session.SetSyncedProduct(ProductIdConstants.Bingo, GetProductStatus("syncbingo", values, false));
 
-            session.HideProducts[ProductIdConstants.Keno] = GetProductStatus("hidekeno", values, true);
+            session.SetDisabledProduct(ProductIdConstants.Racing, GetProductStatus("disablehorseracing", values, true));
 
-            session.HideProducts[ProductIdConstants.GoldDeluxe] = GetProductStatus("hidegolddeluxe", values, true);
-            session.DisableProducts[ProductIdConstants.GoldDeluxe] = GetProductStatus("disablegolddeluxe", values, true);
+            session.SetHideProduct(ProductIdConstants.Keno, GetProductStatus("hidekeno", values, true));
 
-            session.HideProducts[ProductIdConstants.ColossusBets] = GetProductStatus("hidecolossusbet", values, true);
-            session.DisableProducts[ProductIdConstants.ColossusBets] = GetProductStatus("disablecolossusbet", values, true);
+            session.SetHideProduct(ProductIdConstants.GoldDeluxe, GetProductStatus("hidegolddeluxe", values, true));
+            session.SetDisabledProduct(ProductIdConstants.GoldDeluxe, GetProductStatus("disablegolddeluxe", values, true));
 
-            session.HideProducts[ProductIdConstants.Sportsbook2] = GetProductStatus("hidemuaythai", values, true);
-            session.DisableProducts[ProductIdConstants.Sportsbook2] = GetProductStatus("disablemuaythai", values, true);
+            session.SetHideProduct(ProductIdConstants.ColossusBets, GetProductStatus("hidecolossusbet", values, true));
+            session.SetDisabledProduct(ProductIdConstants.ColossusBets, GetProductStatus("disablecolossusbet", values, true));
 
-            session.SyncProducts[ProductIdConstants.AllBet] = GetProductStatus("syncedallbet", values, false);
-            
+            session.SetHideProduct(ProductIdConstants.Sportsbook2, GetProductStatus("hidemuaythai", values, true));
+            session.SetDisabledProduct(ProductIdConstants.Sportsbook2, GetProductStatus("disablemuaythai", values, true));
+
+            session.SetSyncedProduct(ProductIdConstants.AllBet, GetProductStatus("syncedallbet", values, true));
+
             ProductTransform.TransformProductStatus(session, values);
         }
 

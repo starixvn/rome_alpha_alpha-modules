@@ -138,7 +138,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return CurrentUserSession.SyncProducts[ProductIdConstants.RNGCasino];
+                return CurrentUserSession.GetSyncedProduct(ProductIdConstants.RNGCasino);
             }
         }
 
@@ -146,7 +146,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return AppSettings.IsEnableBingo && CurrentUserSession.SyncProducts[ProductIdConstants.Bingo];
+                return AppSettings.IsEnableBingo && CurrentUserSession.GetSyncedProduct(ProductIdConstants.Bingo);
             }
         }
 
@@ -156,7 +156,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
             {
                 return (!IsNeutral ||
                    (CurrentUserSession.Site != null && creditNeutralSite.IndexOf(CurrentUserSession.Site, 0, StringComparison.CurrentCultureIgnoreCase) != -1))
-                   && CurrentUserSession.SyncProducts[ProductIdConstants.Bingo];
+                   && CurrentUserSession.GetSyncedProduct(ProductIdConstants.Bingo);
             }
         }
 
@@ -189,7 +189,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return /*!IsNeutral && */AppSettings.IsEnableP2P && CurrentUserSession.DisableProducts[ProductIdConstants.P2P];
+                return /*!IsNeutral && */AppSettings.IsEnableP2P && !CurrentUserSession.GetDisabledProduct(ProductIdConstants.P2P);
             }
         }
 
@@ -197,7 +197,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return AppSettings.IsEnableLiveCasino && CurrentUserSession.SyncProducts[ProductIdConstants.LiveCasino];
+                return AppSettings.IsEnableLiveCasino && CurrentUserSession.GetSyncedProduct(ProductIdConstants.LiveCasino);
             }
         }
 
@@ -205,7 +205,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return AppSettings.IsEnableVirtualSports && !CurrentUserSession.HideProducts[ProductIdConstants.VirtualSports];
+                return AppSettings.IsEnableVirtualSports && !CurrentUserSession.GetHideProduct(ProductIdConstants.VirtualSports);
             }
         }
 
@@ -221,7 +221,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return AppSettings.IsShowGoldDeluxeSettingForCredit && !CurrentUserSession.HideProducts[ProductIdConstants.GoldDeluxe];
+                return AppSettings.IsShowGoldDeluxeSettingForCredit && !CurrentUserSession.GetHideProduct(ProductIdConstants.GoldDeluxe);
             }
         }
 
@@ -229,7 +229,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return AppSettings.IsShowColossusBets && !CurrentUserSession.HideProducts[ProductIdConstants.ColossusBets];
+                return AppSettings.IsShowColossusBets && !CurrentUserSession.GetHideProduct(ProductIdConstants.ColossusBets);
             }
         }
 
@@ -237,7 +237,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return AppSettings.IsShowSportsbook2 && !CurrentUserSession.HideProducts[ProductIdConstants.Sportsbook2];
+                return AppSettings.IsShowSportsbook2 && !CurrentUserSession.GetHideProduct(ProductIdConstants.Sportsbook2);
             }
         }
 
