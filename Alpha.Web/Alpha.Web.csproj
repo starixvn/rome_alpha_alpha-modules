@@ -59,8 +59,9 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Base">
-      <HintPath>..\packages\Sunplus.Agent.Model.Base.3.0.2.2-sitereports06\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sunplus.Agent.Model.Base.3.0.2.4-sitereports01\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Utilities, Version=3.0.0.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Sunplus.Agent.Utilities.3.0.0.4\lib\net40\Sunplus.Agent.Utilities.dll</HintPath>

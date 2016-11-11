@@ -93,10 +93,6 @@
       <HintPath>..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.Unity.Interception.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.2.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sunplus.Agent.Model.Base.3.0.2.2-sitereports06\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RemotingRef.1.0.0.13\lib\net40\RemotingRef.dll</HintPath>
       <Private>True</Private>
@@ -105,8 +101,8 @@
       <HintPath>..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.2.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sunplus.Agent.Model.Base.3.0.2.3\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
+    <Reference Include="Sunplus.Agent.Model.Base, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sunplus.Agent.Model.Base.3.0.2.4-sitereports01\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sunplus.Agent.Model.DataAccessLibrary, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
