@@ -11,24 +11,13 @@
     /// <summary>
     /// Ricky: should review more in here, we temporary keep this code.
     /// </summary>
-    [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
+    [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
     public class CheckBelongingFilter : AuthorizeAttribute
     {
-        private readonly IAuthorizationService authorizationService;
-
-        public CheckBelongingFilter() : this(null)
-        {
-        }
-
-        internal CheckBelongingFilter(IAuthorizationService authorizationService)
-        {
-            this.authorizationService = authorizationService ?? new AuthorizationService();
-        }
-
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
             base.OnAuthorization(filterContext);
-
+            var authorizationService =  new AuthorizationService();
             if (!authorizationService.IsBelonging())
             {
                 UnAuthorization(filterContext);
