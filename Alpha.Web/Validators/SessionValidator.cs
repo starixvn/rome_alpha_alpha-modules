@@ -13,7 +13,7 @@
         {
             get
             {
-                return AlphaWebSection.Instance.SessionVerificationTokenCookie + HttpContext.Current.Session.SessionID;
+                return AppSettings.SessionVerificationTokenCookie + HttpContext.Current.Session.SessionID;
             }
         }
 
@@ -24,7 +24,7 @@
         /// </summary>
         public static void Validate()
         {
-            if (!AlphaWebSection.Instance.EnableSessionValidation)
+            if (!AppSettings.EnableSessionValidation)
             {
                 return;
             }
@@ -47,7 +47,7 @@
                     ValidationLogger.WriteWarning(ex, "Session validation failed. Cached information" + cookieValue.Value);
                 }
 
-                if (AlphaWebSection.Instance.EnableKickOutWhenSessionInvalid)
+                if (AppSettings.EnableKickOutWhenSessionInvalid)
                 {
                     var session = HttpContext.Current.Session;
 
@@ -65,7 +65,7 @@
 
         public static void AddSessionVerificationToken()
         {
-            if (!AlphaWebSection.Instance.EnableSessionValidation)
+            if (!AppSettings.EnableSessionValidation)
             {
                 return;
             }

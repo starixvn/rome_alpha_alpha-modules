@@ -4,6 +4,43 @@
 
     public static class AppSettings
     {
-        public static string OldMainAppPath => ConfigurationManager.AppSettings["OldMainAppPath"];
+        private static bool enableKickOutWhenSessionInvalid;
+        private static string sessionVerificationTokenCookie;
+        private static bool enableSessionValidation;
+        private static bool enableAntiXSRF;
+        private static string oldMainAppPath;
+
+        static AppSettings()
+        {
+            enableKickOutWhenSessionInvalid = ConfigurationManager.AppSettings["EnableKickOutWhenSessionInvalid"] != null
+                ? bool.Parse(ConfigurationManager.AppSettings["EnableKickOutWhenSessionInvalid"])
+                : false;
+
+            sessionVerificationTokenCookie = ConfigurationManager.AppSettings["SessionVerificationTokenCookie"] != null
+                ? ConfigurationManager.AppSettings["SessionVerificationTokenCookie"]
+                : "__SessionVerificationToken_";
+
+            enableSessionValidation = ConfigurationManager.AppSettings["EnableSessionValidation"] != null
+                ? bool.Parse(ConfigurationManager.AppSettings["EnableSessionValidation"])
+                : false;
+
+            enableAntiXSRF = ConfigurationManager.AppSettings["EnableAntiXSRF"] != null
+                ? bool.Parse(ConfigurationManager.AppSettings["EnableAntiXSRF"])
+                : true;
+
+            oldMainAppPath = ConfigurationManager.AppSettings["OldMainAppPath"] != null
+                ? ConfigurationManager.AppSettings["OldMainAppPath"]
+                : "ex-main";
+        }
+
+        public static string OldMainAppPath => oldMainAppPath;
+
+        public static bool EnableKickOutWhenSessionInvalid => enableKickOutWhenSessionInvalid;
+
+        public static string SessionVerificationTokenCookie => sessionVerificationTokenCookie;
+
+        public static bool EnableSessionValidation => enableSessionValidation;
+
+        public static bool EnableAntiXSRF => enableAntiXSRF;
     }
 }

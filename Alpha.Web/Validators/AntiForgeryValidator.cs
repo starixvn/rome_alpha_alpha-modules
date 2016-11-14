@@ -15,7 +15,7 @@
 
         public static Result ValidateRequest()
         {
-            if (!AlphaWebSection.Instance.EnableAntiXSRF)
+            if (!AppSettings.EnableAntiXSRF)
             {
                 return Result.Success;
             }

@@ -99,7 +99,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseController.cs" />
-    <Compile Include="Configurations\AlphaWebSection.cs" />
     <Compile Include="Configurations\AppSettings.cs" />
     <Compile Include="Filters\AntiXSRFFilter.cs" />
     <Compile Include="Helpers\AppPathHelper.cs" />
