@@ -9,6 +9,7 @@
         private static bool enableSessionValidation;
         private static bool enableAntiXSRF;
         private static string oldMainAppPath;
+        private static string mainAppPath;
 
         static AppSettings()
         {
@@ -31,6 +32,10 @@
             oldMainAppPath = ConfigurationManager.AppSettings["OldMainAppPath"] != null
                 ? ConfigurationManager.AppSettings["OldMainAppPath"]
                 : "ex-main";
+
+            mainAppPath = ConfigurationManager.AppSettings["MainAppPath"] != null
+                ? ConfigurationManager.AppSettings["MainAppPath"]
+                : "site-main";
         }
 
         public static string OldMainAppPath => oldMainAppPath;
@@ -42,5 +47,7 @@
         public static bool EnableSessionValidation => enableSessionValidation;
 
         public static bool EnableAntiXSRF => enableAntiXSRF;
+
+        public static string MainAppPath => mainAppPath;
     }
 }

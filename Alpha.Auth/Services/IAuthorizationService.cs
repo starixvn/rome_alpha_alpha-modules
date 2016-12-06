@@ -7,5 +7,7 @@
         bool IsAuthorized(string url = null);
 
         bool IsBelonging();
+
+        bool IsKickedOut();
     }
 }

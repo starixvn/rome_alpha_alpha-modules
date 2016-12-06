@@ -1,7 +1,9 @@
 ﻿namespace Alpha.Auth.Configurations
 {
+    using System;
+    using System.Collections.Generic;
     using System.Configuration;
-    using System.Web;
+    using System.Linq;
 
     public class AuthorizationSection : ConfigurationSection
     {
@@ -25,14 +27,17 @@
             }
         }
 
-        [ConfigurationProperty("fullpermission", DefaultValue = "0", IsRequired = false)]
+        [ConfigurationProperty("fullpermission", DefaultValue = "[A],[B],[C],[D],[E],[G],[H]", IsRequired = false)]
         public string FullPermission
         {
             get { return (string)this["fullpermission"]; }
             set { this["fullpermission"] = value.ToLower(); }
         }
 
-        [ConfigurationProperty("custIdQueryStringParamNameMapping", IsRequired = true)]
+        [ConfigurationProperty(
+            "custIdQueryStringParamNameMapping", 
+            DefaultValue = "custid,CustId,custId,targetCustId,id,cid,recommend,mrecommend,idagent,masterId,agentId,idAgent,idMaster,ibccustid,ACustID",  
+            IsRequired = false)]
         public string CustIdQueryStringParamNameMapping
         {
             get { return (string)this["custIdQueryStringParamNameMapping"]; }
@@ -47,7 +52,7 @@
             }
         }
 
-        [ConfigurationProperty("custIdJsonParamNameMapping", IsRequired = true, DefaultValue = "txtCustomerObject,newCustomer")]
+        [ConfigurationProperty("custIdJsonParamNameMapping", IsRequired = false, DefaultValue = "txtCustomerObject,newCustomer")]
         public string CustIdJsonParamNameMapping
         {
             get { return (string)this["custIdJsonParamNameMapping"]; }
@@ -69,11 +74,32 @@
             }
         }
 
-        [ConfigurationProperty("ignoreUrls", IsRequired = false, DefaultValue = "index.aspx")]
+        [ConfigurationProperty("ignoreUrls", IsRequired = false, DefaultValue = "SignIn.aspx,ProcessAdminLogin.ashx,ProcessAfterLogin.ashx,Captcha.ashx,ChartImg.axd,ReCheckin.ashx,SecurityCode,Header.aspx,Index.aspx")]
         public string IgnoreUrls
         {
             get { return (string)this["ignoreUrls"]; }
             set { this["ignoreUrls"] = value; }
+        }
+
+        [ConfigurationProperty("kickOutUrl", IsRequired = false, DefaultValue = "~/default/kickout")]
+        public string KickoutUrl
+        {
+            get { return (string)this["kickOutUrl"]; }
+            set { this["kickOutUrl"] = value; }
+        }
+
+        [ConfigurationProperty("ignoreRecheckinCustIdList", IsRequired = false, DefaultValue = "68287,68289,1373389,1373580,1374738,4317260,2")]
+        public string IgnoreRecheckinCustIdList
+        {
+            get { return (string)this["ignoreRecheckinCustIdList"]; }
+            set { this["ignoreRecheckinCustIdList"] = value; }
+        }
+
+        [ConfigurationProperty("enableCheckBelonging", IsRequired = false, DefaultValue = true)]
+        public bool EnableCheckBelonging
+        {
+            get { return (bool)this["enableCheckBelonging"]; }
+            set { this["enableCheckBelonging"] = value; }
         }
 
         public string[] SplitedIgnoreUrls
@@ -84,25 +110,12 @@
             }
         }
 
-        [ConfigurationProperty("indexUrl", IsRequired = false, DefaultValue = "~/Index.aspx")]
-        public string IndexUrl
+        public IEnumerable<int> IgnoreRecheckinCustIds
         {
-            get { return (string)this["indexUrl"]; }
-            set { this["indexUrl"] = value; }
-        }
-
-        [ConfigurationProperty("signOutUrl", IsRequired = false, DefaultValue = "~/SignOut.aspx")]
-        public string SignOutUrl
-        {
-            get { return (string)this["signOutUrl"]; }
-            set { this["signOutUrl"] = value; }
-        }
-
-        [ConfigurationProperty("accessDeniedUrl", IsRequired = false, DefaultValue = "~/AccessDenied.aspx")]
-        public string AccessDeniedUrl
-        {
-            get { return (string)this["accessDeniedUrl"]; }
-            set { this["accessDeniedUrl"] = value; }
+            get
+            {
+                return IgnoreRecheckinCustIdList.Split(',').Select(custId => Convert.ToInt32(custId));
+            }
         }
     }
 }

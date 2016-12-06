@@ -1,6 +1,5 @@
 ﻿namespace Alpha.Auth.Services.Impl
 {
-    using System;
     using System.Linq;
     using Alpha.Auth.DataAccesses;
     using Alpha.Auth.DataAccesses.Impl;
@@ -23,6 +22,7 @@
     {
         private const string IsCustomerActiveCacheKey = "Alpha.Auth.CustContext.IsCustomerActiveCacheKey_{0}_{1}";
         private const string SubAccountPermissionCacheKey = "Alpha.Auth.CustContext.SubAccountPermissionCacheKey_{0}_{1}";
+        private const string RecheckInCacheKey = "Alpha.Auth.CustContext.RecheckInCacheKey_{0}_{1}_{2}";
         private readonly int _cachedExpireTime;
 
         private readonly IAuthorizationDataAccess _authDataAccess;
@@ -48,6 +48,11 @@
 
         public bool IsAccountActive()
         {
+            if (_requestContext.UserSession.IsInternal)
+            {
+                return true;
+            }
+
             var isActive = _cachingService.GetOrAdd(
                 string.Format(IsCustomerActiveCacheKey, _requestContext.UserSession.CustId, _requestContext.UserSession.SubAccId),
                 () =>
@@ -138,16 +143,12 @@
 
             return IsAuthorizedOnGroupOfPage(
                 permission,
-                url,
-                _requestContext.CustId,
-                _requestContext.TransId);
+                url);
         }
 
         private bool IsAuthorizedOnGroupOfPage(
             string customerPermission,
-            string url,
-            int custId,
-            long transId)
+            string url)
         {
             var groupPageAccesses = _authorizationSection.GroupPageAccesses.Cast<GroupPageAccessElement>()
                 .Where(group => group.RoleId <= _requestContext.UserSession.RoleId);
@@ -159,7 +160,7 @@
 
                 foreach (var pageAccess in pageAccesses)
                 {
-                    var isAuthorized = IsAuthorizedOnPage(customerPermission, custId, transId, pageAccess);
+                    var isAuthorized = IsAuthorizedOnPage(customerPermission, pageAccess);
 
                     if (isAuthorized)
                     {
@@ -183,7 +184,7 @@
             return true;
         }
 
-        private bool IsAuthorizedOnPage(string customerPermission, int requestCustId, long transId, PageAccessElement pageElement)
+        private bool IsAuthorizedOnPage(string customerPermission, PageAccessElement pageElement)
         {
             var permissions = pageElement.Permission.Split(',');
 
@@ -209,6 +210,36 @@
                 _cachedExpireTime);
 
             return subAccountPermission;
+        }
+
+        public bool IsKickedOut()
+        {
+            if (_requestContext.UserSession.IsInternal)
+            {
+                return false;
+            }
+
+            if (_authorizationSection.IgnoreRecheckinCustIds.Contains(_requestContext.UserSession.CustId))
+            {
+                return false;
+            }
+
+            var onlineUserId = _requestContext.UserSession.OnUserId;
+
+            if (onlineUserId <= 0)
+            {
+                return true;
+            }
+
+            var isKickedOut = _cachingService.GetOrAdd(
+                string.Format(RecheckInCacheKey, _requestContext.UserSession.CustId, _requestContext.UserSession.SubAccId, onlineUserId),
+                () =>
+                {
+                    return _authDataAccess.IsKickedOut(onlineUserId);
+                },
+                _cachedExpireTime);
+
+            return isKickedOut;
         }
     }
 }
