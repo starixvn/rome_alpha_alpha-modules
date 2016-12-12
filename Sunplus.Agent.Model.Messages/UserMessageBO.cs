@@ -87,7 +87,7 @@ namespace Sunplus.Agent.Model.BL.UserMessage
         /// <param name="messageType"></param>
         /// <param name="siteId"></param>
         /// <returns></returns>
-        public DataTable GetMessages(int messageType, int siteId)
+        public DataTable GetMessages(int messageType, string siteId)
         {
             DataTable publicMessage = null;
             DataTable privateMessage = null;
