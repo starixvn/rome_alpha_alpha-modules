@@ -140,12 +140,16 @@ namespace Sunplus.Agent.Model.DL.UserMessage
         /// <returns></returns>
         public DataTable Acc_Msg_GetTopPubMessage(int messageType, string siteId, int latestPubMsgID, bool isTest)
         {
+            char[] separator = new char[] { ',' };
+            string[] arraySite = siteId.Split(separator);
+
             DataTable result = null;
             DataTable returnTable = CreateDataTable();
             Hashtable htb = new Hashtable();
             htb.Add("messagetype", messageType);
-            htb.Add("site1", "3000");
-            htb.Add("site2", siteId);
+            htb.Add("site1", arraySite[0]);
+            htb.Add("site2", arraySite.Length > 1 ? arraySite[1] : string.Empty);
+            htb.Add("site3", arraySite.Length > 2 ? arraySite[2] : string.Empty);
             htb.Add("latestmsgid", latestPubMsgID);
             htb.Add("istest", isTest);
 
