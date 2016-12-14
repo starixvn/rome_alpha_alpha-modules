@@ -20,6 +20,7 @@ namespace Sunplus.Agent.Model.DL.UserMessage
                 "Content_jp", "System.String",
                 "Content_ko", "System.String",
                 "Content_th", "System.String",
+                "Content_vn", "System.String",
                 "CreateTime", "System.DateTime",
                 "CreatorId", "System.Int32",
                 "CreatorName", "System.String",
@@ -432,6 +433,11 @@ namespace Sunplus.Agent.Model.DL.UserMessage
             fieldName = "Content_th";
             dr[fieldName] =
                 isBatch ? DbValue<string>.GetValue(row, fieldName).Replace("@@", betTransId) : DbValue<string>.GetValue(row, fieldName);
+
+            fieldName = "Content_vn";
+            string contentVN = string.Empty + DbValue<string>.GetValue(row, fieldName);
+            dr[fieldName] =
+                isBatch ? contentVN.Replace("@@", betTransId) : contentVN;
 
             fieldName = "CreateTime";
             dr[fieldName] = DbValue<DateTime>.GetValue(row, fieldName);
