@@ -65,6 +65,10 @@ namespace Sunplus.Agent.Model.BL.UserMessage
                 case "ko-KR":
                     content = msg["Content_ko"] as string;
                     break;
+
+                case "vi-VN":
+                    content = msg["Content_vn"] as string;
+                    break;
             }
 
             if (string.IsNullOrEmpty(content))
@@ -83,7 +87,7 @@ namespace Sunplus.Agent.Model.BL.UserMessage
         /// <param name="messageType"></param>
         /// <param name="siteId"></param>
         /// <returns></returns>
-        public DataTable GetMessages(int messageType, int siteId)
+        public DataTable GetMessages(int messageType, string siteId)
         {
             DataTable publicMessage = null;
             DataTable privateMessage = null;

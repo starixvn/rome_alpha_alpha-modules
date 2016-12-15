@@ -20,6 +20,7 @@ namespace Sunplus.Agent.Model.DL.UserMessage
                 "Content_jp", "System.String",
                 "Content_ko", "System.String",
                 "Content_th", "System.String",
+                "Content_vn", "System.String",
                 "CreateTime", "System.DateTime",
                 "CreatorId", "System.Int32",
                 "CreatorName", "System.String",
@@ -138,10 +139,10 @@ namespace Sunplus.Agent.Model.DL.UserMessage
         /// <param name="latestPubMsgID"></param>
         /// <param name="isTest"></param>
         /// <returns></returns>
-        public DataTable Acc_Msg_GetTopPubMessage(int messageType, int siteid, int latestPubMsgID, bool isTest)
+        public DataTable Acc_Msg_GetTopPubMessage(int messageType, string siteId, int latestPubMsgID, bool isTest)
         {
             char[] separator = new char[] { ',' };
-            string[] arraySite = GetParentSites1(siteid.ToString()).Split(separator);
+            string[] arraySite = siteId.Split(separator);
 
             DataTable result = null;
             DataTable returnTable = CreateDataTable();
@@ -433,6 +434,11 @@ namespace Sunplus.Agent.Model.DL.UserMessage
             dr[fieldName] =
                 isBatch ? DbValue<string>.GetValue(row, fieldName).Replace("@@", betTransId) : DbValue<string>.GetValue(row, fieldName);
 
+            fieldName = "Content_vn";
+            string contentVN = string.Empty + DbValue<string>.GetValue(row, fieldName);
+            dr[fieldName] =
+                isBatch ? contentVN.Replace("@@", betTransId) : contentVN;
+
             fieldName = "CreateTime";
             dr[fieldName] = DbValue<DateTime>.GetValue(row, fieldName);
 
@@ -470,39 +476,6 @@ namespace Sunplus.Agent.Model.DL.UserMessage
             dr[fieldName] = DbValue<string>.GetValue(row, fieldName);
 
             msg.Rows.Add(dr);
-        }
-
-        private static string GetParentSites1(string siteId)
-        {
-            ArrayList list = new ArrayList();
-            int num = 0;
-            for (int i = siteId.Length - 1; i >= 0; i--)
-            {
-                if (siteId[i] != '0')
-                {
-                    num = i;
-                    break;
-                }
-            }
-
-            for (int j = 1; j <= num; j++)
-            {
-                string str = string.Empty;
-                for (int m = j; m < siteId.Length; m++)
-                {
-                    str = str + "0";
-                }
-
-                list.Add(siteId.Remove(j) + str);
-            }
-
-            string str2 = string.Empty;
-            for (int k = 0; k < list.Count; k++)
-            {
-                str2 = str2 + list[k] + ",";
-            }
-
-            return str2 + siteId;
         }
     }
 }
