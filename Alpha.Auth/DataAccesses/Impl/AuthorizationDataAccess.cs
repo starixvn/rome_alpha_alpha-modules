@@ -1,5 +1,6 @@
 ﻿namespace Alpha.Auth.DataAccesses.Impl
 {
+    using System;
     using System.Collections;
     using Fanex.Common;
     using Fanex.Data;
@@ -124,6 +125,22 @@
                 objectDb.ExecuteNonQuery(parameters);
                 var outputs = objectDb.GetOuputParams();
                 return Converter.To<byte>(outputs["roleid"]) > 0 && (isInternal || Converter.ToBool(outputs["isactive"]));
+            }
+        }
+
+        public bool IsKickedOut(int onlineUserId)
+        {
+            using (var objectDb = new ObjectDb("Age_ReCheckin"))
+            {
+                dynamic inputParams = new Hashtable
+                {
+                    { "on_userid", onlineUserId },
+                    { "iskickedout", 0 }
+                };
+
+                objectDb.ExecuteNonQuery(inputParams);
+
+                return Converter.ToBool(objectDb.GetOuputParams()["iskickedout"]);
             }
         }
     }

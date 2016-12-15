@@ -17,5 +17,7 @@
             int currentCustId,
             int subAccountId,
             bool isInternal);
+
+        bool IsKickedOut(int onlineUserId);
     }
 }

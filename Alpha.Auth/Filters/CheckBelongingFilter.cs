@@ -1,10 +1,11 @@
 ﻿namespace Alpha.Auth.Filters
 {
     using System;
+    using System.Net;
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Security;
-    using Services;
+    using Configurations;
     using Services.Impl;
     using Web.Helpers;
 
@@ -17,10 +18,24 @@
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
             base.OnAuthorization(filterContext);
-            var authorizationService =  new AuthorizationService();
-            if (!authorizationService.IsBelonging())
+            var authorizationService = new AuthorizationService();
+            if (AuthorizationSection.Instance.EnableCheckBelonging 
+                && !authorizationService.IsBelonging())
             {
                 UnAuthorization(filterContext);
+            }
+
+            if (!string.IsNullOrWhiteSpace(AuthorizationSection.Instance.KickoutUrl))
+            {
+                if (!authorizationService.IsAccountActive())
+                {
+                    KickoutUser(filterContext, "AccountClosed");
+                }
+
+                if (authorizationService.IsKickedOut())
+                {
+                    KickoutUser(filterContext, "DuplicationLogin");
+                }
             }
         }
 
@@ -48,6 +63,32 @@
             if (!session.IsCookieless)
             {
                 FormsAuthentication.SignOut();
+            }
+        }
+
+        private void KickoutUser(AuthorizationContext filterContext, string message)
+        {
+            var underMaintenancePageAbsoluteUrl = VirtualPathUtility.ToAbsolute(AuthorizationSection.Instance.KickoutUrl).ToLower();
+            var currentPageAbsoluteUrl = filterContext.HttpContext.Request.Url.AbsolutePath.ToLower();
+            if (underMaintenancePageAbsoluteUrl == currentPageAbsoluteUrl)
+            {
+                return;
+            }
+
+            HttpResponseBase response = filterContext.HttpContext.Response;
+
+            if (filterContext.HttpContext.Request.IsAjaxRequest())
+            {
+                response.Clear();
+                response.Write(string.Format("{ \"message\": \"{0}\" }", message));
+                filterContext.Result = new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+                filterContext.Result.ExecuteResult(filterContext.Controller.ControllerContext);
+                response.TrySkipIisCustomErrors = true;
+                response.End();
+            }
+            else
+            {
+                filterContext.Result = new RedirectResult(MicroSites.MainUrl($"{AuthorizationSection.Instance.KickoutUrl}?reason={message}"));
             }
         }
     }
