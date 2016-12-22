@@ -80,7 +80,7 @@
             if (filterContext.HttpContext.Request.IsAjaxRequest())
             {
                 response.Clear();
-                response.Write(string.Format("{ \"message\": \"{0}\" }", message));
+                response.Write("{ \"message\": \"" + message + "\" }");
                 filterContext.Result = new HttpStatusCodeResult(HttpStatusCode.Forbidden);
                 filterContext.Result.ExecuteResult(filterContext.Controller.ControllerContext);
                 response.TrySkipIisCustomErrors = true;
