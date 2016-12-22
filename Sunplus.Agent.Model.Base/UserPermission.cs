@@ -3,6 +3,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
     using System;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
+    using Definitions;
     using Sunplus.Agent.Model.BL.Definitions;
     using Sunplus.Agent.Model.Entities.Base;
 
@@ -137,7 +138,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return CurrentUserSession.IsCasinoSync;
+                return CurrentUserSession.GetSyncedProduct(ProductIdConstants.RNGCasino);
             }
         }
 
@@ -145,7 +146,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return AppSettings.IsEnableBingo && CurrentUserSession.IsBingoSync;
+                return AppSettings.IsEnableBingo && CurrentUserSession.GetSyncedProduct(ProductIdConstants.Bingo);
             }
         }
 
@@ -155,7 +156,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
             {
                 return (!IsNeutral ||
                    (CurrentUserSession.Site != null && creditNeutralSite.IndexOf(CurrentUserSession.Site, 0, StringComparison.CurrentCultureIgnoreCase) != -1))
-                   && CurrentUserSession.IsBingoSync;
+                   && CurrentUserSession.GetSyncedProduct(ProductIdConstants.Bingo);
             }
         }
 
@@ -188,7 +189,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return /*!IsNeutral && */AppSettings.IsEnableP2P && !CurrentUserSession.IsP2PDisabled;
+                return /*!IsNeutral && */AppSettings.IsEnableP2P && !CurrentUserSession.GetDisabledProduct(ProductIdConstants.P2P);
             }
         }
 
@@ -196,7 +197,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return AppSettings.IsEnableLiveCasino && CurrentUserSession.IsLiveCasinoSync;
+                return AppSettings.IsEnableLiveCasino && CurrentUserSession.GetSyncedProduct(ProductIdConstants.LiveCasino);
             }
         }
 
@@ -204,7 +205,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return AppSettings.IsEnableVirtualSports && !CurrentUserSession.IsHideVirtualSports;
+                return AppSettings.IsEnableVirtualSports && !CurrentUserSession.GetHideProduct(ProductIdConstants.VirtualSports);
             }
         }
 
@@ -220,7 +221,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return AppSettings.IsShowGoldDeluxeSettingForCredit && !CurrentUserSession.IsHideGoldDeluxe;
+                return AppSettings.IsShowGoldDeluxeSettingForCredit && !CurrentUserSession.GetHideProduct(ProductIdConstants.GoldDeluxe);
             }
         }
 
@@ -228,7 +229,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return AppSettings.IsShowColossusBets && !CurrentUserSession.IsHideColossusBets;
+                return AppSettings.IsShowColossusBets && !CurrentUserSession.GetHideProduct(ProductIdConstants.ColossusBets);
             }
         }
 
@@ -236,7 +237,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return AppSettings.IsShowSportsbook2 && !CurrentUserSession.IsHideSportsbook2;
+                return AppSettings.IsShowSportsbook2 && !CurrentUserSession.GetHideProduct(ProductIdConstants.Sportsbook2);
             }
         }
 
@@ -342,6 +343,33 @@ namespace Sunplus.Agent.Model.Entities.Permission
         public static bool IsDisabledProduct(int product)
         {
             return CurrentUserSession.GetDisabledProduct(product);
+        }
+
+        public static bool HasPermissionOnProduct(int productId)
+        {
+            switch (productId)
+            {
+                case 1: // sportsbook
+                    return true;
+                case 2: // racing
+                    return IsShowRacing;
+                case 3: // Number Game
+                    return IsShowNumberGame;
+                case 4: // Live Casino
+                    return IsShowLiveCasino;
+                case 5: // Virtual Sports
+                    return IsShowVirtualSports;
+                case 6: // Casino
+                    return IsShowCasino;
+                case 8: // Keno
+                    return IsShowKenoSetting;
+                case 12: // Gold Deluxe
+                    return IsShowGoldDeluxeSettingForCredit;
+                case 15: // Colossus Bets
+                    return IsShowColossusBets;
+                default:
+                    return IsEnableProduct(productId) && IsSyncedProduct(productId);
+            }
         }
     }
 }
