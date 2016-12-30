@@ -118,6 +118,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\AppSettings.cs" />
     <Compile Include="Configurations\AuthorizationSection.cs" />
     <Compile Include="Configurations\GroupPageAccessCollection.cs" />
     <Compile Include="Configurations\GroupPageAccessElement.cs" />

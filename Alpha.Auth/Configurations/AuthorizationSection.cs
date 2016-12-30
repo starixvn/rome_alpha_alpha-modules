@@ -35,8 +35,8 @@
         }
 
         [ConfigurationProperty(
-            "custIdQueryStringParamNameMapping", 
-            DefaultValue = "custid,CustId,custId,targetCustId,id,cid,recommend,mrecommend,idagent,masterId,agentId,idAgent,idMaster,ibccustid,ACustID",  
+            "custIdQueryStringParamNameMapping",
+            DefaultValue = "custid,CustId,custId,targetCustId,id,cid,recommend,mrecommend,idagent,masterId,agentId,idAgent,idMaster,ibccustid,ACustID",
             IsRequired = false)]
         public string CustIdQueryStringParamNameMapping
         {
@@ -74,7 +74,10 @@
             }
         }
 
-        [ConfigurationProperty("ignoreUrls", IsRequired = false, DefaultValue = "SignIn.aspx,ProcessAdminLogin.ashx,ProcessAfterLogin.ashx,Captcha.ashx,ChartImg.axd,ReCheckin.ashx,SecurityCode,Header.aspx,Index.aspx")]
+        [ConfigurationProperty(
+            "ignoreUrls",
+            IsRequired = false,
+            DefaultValue = "SignIn.aspx,ProcessAdminLogin.ashx,ProcessAfterLogin.ashx,Captcha.ashx,ChartImg.axd,ReCheckin.ashx,SecurityCode,Header.aspx,Index.aspx")]
         public string IgnoreUrls
         {
             get { return (string)this["ignoreUrls"]; }

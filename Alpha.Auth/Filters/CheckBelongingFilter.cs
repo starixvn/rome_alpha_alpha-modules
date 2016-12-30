@@ -19,7 +19,7 @@
         {
             base.OnAuthorization(filterContext);
             var authorizationService = new AuthorizationService();
-            if (AuthorizationSection.Instance.EnableCheckBelonging 
+            if (AuthorizationSection.Instance.EnableCheckBelonging
                 && !authorizationService.IsBelonging())
             {
                 UnAuthorization(filterContext);
@@ -32,7 +32,8 @@
                     KickoutUser(filterContext, "AccountClosed");
                 }
 
-                if (authorizationService.IsKickedOut())
+                if (!AppSettings.IsDisabledCheckDuplicationLogin
+                    && authorizationService.IsKickedOut())
                 {
                     KickoutUser(filterContext, "DuplicationLogin");
                 }

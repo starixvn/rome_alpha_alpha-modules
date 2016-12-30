@@ -105,6 +105,7 @@
     <Compile Include="Helpers\Impl\SessionManagerImpl.cs" />
     <Compile Include="Helpers\MicroSites.cs" />
     <Compile Include="Helpers\SessionManager.cs" />
+    <Compile Include="Helpers\StaticResources.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestAnalyst.cs" />

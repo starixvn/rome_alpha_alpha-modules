@@ -10,6 +10,8 @@
         private static bool enableAntiXSRF;
         private static string oldMainAppPath;
         private static string mainAppPath;
+        private static string assetAppPath;
+        private static string staticResourcesVersion;
 
         static AppSettings()
         {
@@ -36,6 +38,14 @@
             mainAppPath = ConfigurationManager.AppSettings["MainAppPath"] != null
                 ? ConfigurationManager.AppSettings["MainAppPath"]
                 : "site-main";
+
+            assetAppPath = ConfigurationManager.AppSettings["AssetAppPath"] != null
+                ? ConfigurationManager.AppSettings["AssetAppPath"]
+                : "assets";
+
+            staticResourcesVersion = ConfigurationManager.AppSettings["AssetsApp:StaticResourcesVersion"] != null
+                ? ConfigurationManager.AppSettings["AssetsApp:StaticResourcesVersion"]
+                : "assets";
         }
 
         public static string OldMainAppPath => oldMainAppPath;
@@ -49,5 +59,9 @@
         public static bool EnableAntiXSRF => enableAntiXSRF;
 
         public static string MainAppPath => mainAppPath;
+
+        public static string AssetAppPath => assetAppPath;
+
+        public static string StaticResourcesVersion => staticResourcesVersion;
     }
 }
