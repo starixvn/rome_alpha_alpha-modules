@@ -4,6 +4,7 @@
     using System.Collections;
     using Fanex.Common;
     using Fanex.Data;
+    using Models;
 
     public class AuthorizationDataAccess : IAuthorizationDataAccess
     {
@@ -62,7 +63,7 @@
             }
         }
 
-        public bool IsBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal)
+        public BelongingInfo IsBelonging(int custId, int currentCustId, int subAccountId, long transId)
         {
             dynamic parameters = new Hashtable
             {
@@ -82,7 +83,12 @@
             {
                 objectDb.ExecuteNonQuery(parameters);
                 var outputs = objectDb.GetOuputParams();
-                return Converter.To<byte>(outputs["roleid"]) > 0 && (isInternal ? true : Converter.ToBool(outputs["isactive"]));
+
+                return new BelongingInfo
+                {
+                    RoleId = Converter.To<byte>(outputs["roleid"]),
+                    IsActive = Converter.ToBool(outputs["isactive"])
+                };
             }
         }
 

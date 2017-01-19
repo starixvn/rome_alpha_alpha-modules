@@ -10,10 +10,11 @@
     using NSubstitute;
     using NUnit.Framework;
     using Sunplus.Agent.Model.Entities;
+
     [TestFixture]
     public class AuthorizationServiceTests
     {
-        private IAuthorizationService _authorizationService;
+        private AuthorizationService _authorizationService;
         private IAuthorizationDataAccess _authorizationDataAccess;
         private IRequestContext _requestContext;
         private IStatisticService _statisticService;
@@ -121,35 +122,96 @@
             _requestContext.UserSession.CustId.Returns(1);
             _requestContext.UserSession.IsInternal.Returns(true);
             _requestContext.UserSession.SubAccId.Returns(2);
+            _authorizationDataAccess
+                .IsBelonging(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<int>(), Arg.Any<long>())
+                .Returns(new BelongingInfo { RoleId = 1, IsActive = true });
 
             //// Act
             _authorizationService.IsBelonging();
 
             //// Assert
-            _authorizationDataAccess.Received().IsBelonging(100, 1, 2, 2222, true);
+            _authorizationDataAccess.Received().IsBelonging(100, 1, 2, 2222);
         }
 
-        [TestCase(true)]
-        [TestCase(false)]
-        public void IsBelonging_UrlNeedBeCheckedBelonging_ReturnIsBelongingFromDatabase(bool expectedIsBelonging)
+        [Test]
+        public void IsBelonging_RoleIdIsZero_ReturnFalse()
         {
             //// Arrange
-            _requestContext.Url.Returns("_MemberInfo/SearchAndCopy/Header.aspx");
-            _requestContext.CustId.Returns(100);
-            _requestContext.TransId.Returns(2222);
-            _requestContext.UserSession.RoleId.Returns((byte)3);
-            _requestContext.UserSession.CustId.Returns(1);
-            _requestContext.UserSession.IsInternal.Returns(true);
-            _requestContext.UserSession.SubAccId.Returns(2);
             _authorizationDataAccess
-                .IsBelonging(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<int>(), Arg.Any<long>(), Arg.Any<bool>())
-                .Returns(expectedIsBelonging);
+                .IsBelonging(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<int>(), Arg.Any<long>())
+                .Returns(new BelongingInfo { RoleId = 0 });
 
             //// Act
-            var isBelong = _authorizationService.IsBelonging();
+            var isBelong = _authorizationService.IsBelonging(_requestContext);
 
             ////
-            Assert.AreEqual(expectedIsBelonging, isBelong);
+            Assert.IsFalse(isBelong);
+        }
+
+        [Test]
+        public void IsBelonging_CurrentUserViewUplineLink_ReturnFalse()
+        {
+            //// Arrange
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _authorizationDataAccess
+                .IsBelonging(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<int>(), Arg.Any<long>())
+                .Returns(new BelongingInfo { RoleId = 4 });
+
+            //// Act
+            var isBelong = _authorizationService.IsBelonging(_requestContext);
+
+            ////
+            Assert.IsFalse(isBelong);
+        }
+
+        [Test]
+        public void IsBelonging_UserIsInternal_ReturnTrue()
+        {
+            //// Arrange
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.IsInternal.Returns(true);
+            _authorizationDataAccess
+                .IsBelonging(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<int>(), Arg.Any<long>())
+                .Returns(new BelongingInfo { RoleId = 2 });
+
+            //// Act
+            var isBelong = _authorizationService.IsBelonging(_requestContext);
+
+            ////
+            Assert.IsTrue(isBelong);
+        }
+
+        [Test]
+        public void IsBelonging_UserIsInactive_ReturnFalse()
+        {
+            //// Arrange
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _authorizationDataAccess
+                .IsBelonging(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<int>(), Arg.Any<long>())
+                .Returns(new BelongingInfo { RoleId = 2, IsActive = false });
+
+            //// Act
+            var isBelong = _authorizationService.IsBelonging(_requestContext);
+
+            ////
+            Assert.IsFalse(isBelong);
+        }
+
+        [Test]
+        public void IsBelonging_UserIsActive_ReturnTrue()
+        {
+            //// Arrange
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.IsInternal.Returns(true);
+            _authorizationDataAccess
+                .IsBelonging(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<int>(), Arg.Any<long>())
+                .Returns(new BelongingInfo { RoleId = 2, IsActive = true });
+
+            //// Act
+            var isBelong = _authorizationService.IsBelonging(_requestContext);
+
+            ////
+            Assert.IsTrue(isBelong);
         }
 
         [Test]
@@ -163,6 +225,9 @@
             _requestContext.UserSession.CustId.Returns(1);
             _requestContext.UserSession.IsInternal.Returns(true);
             _requestContext.UserSession.SubAccId.Returns(2);
+            _authorizationDataAccess
+                .IsBelonging(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<int>(), Arg.Any<long>())
+                .Returns(new BelongingInfo { RoleId = 1, IsActive = true });
 
             //// Act
             _authorizationService.IsBelonging();
@@ -205,8 +270,8 @@
             _requestContext.UserSession.IsInternal.Returns(true);
             _requestContext.UserSession.SubAccId.Returns(2);
             _authorizationDataAccess
-                .IsBelonging(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<int>(), Arg.Any<long>(), Arg.Any<bool>())
-                .Returns(false);
+                .IsBelonging(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<int>(), Arg.Any<long>())
+                .Returns(new BelongingInfo { RoleId = 0 });
 
             //// Act
             var isBelonging = _authorizationService.IsBelonging();
@@ -233,7 +298,7 @@
 
             //// Assert
             _authorizationDataAccess.Received().IsBelongingOld(100, 1, 2222);
-            _authorizationDataAccess.DidNotReceive().IsBelonging(100, 1, 2, 2222, true);
+            _authorizationDataAccess.DidNotReceive().IsBelonging(100, 1, 2, 2222);
         }
 
         [Test]
@@ -247,12 +312,15 @@
             _requestContext.UserSession.CustId.Returns(1);
             _requestContext.UserSession.IsInternal.Returns(true);
             _requestContext.UserSession.SubAccId.Returns(2);
+            _authorizationDataAccess
+                .IsBelonging(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<int>(), Arg.Any<long>())
+                .Returns(new BelongingInfo { RoleId = 1, IsActive = true });
 
             //// Act
             _authorizationService.IsBelonging();
 
             //// Assert
-            _authorizationDataAccess.Received().IsBelonging(100, 1, 2, 2222, true);
+            _authorizationDataAccess.Received().IsBelonging(100, 1, 2, 2222);
         }
 
         [Test]
@@ -352,7 +420,8 @@
             _requestContext.UserSession.CustId.Returns(100);
             _requestContext.UserSession.SubAccId.Returns(101);
             var fullPermission = "[A]";
-            _requestContext.UserSession.SubPageAccess.Returns(new PageAccess {
+            _requestContext.UserSession.SubPageAccess.Returns(new PageAccess
+            {
                 CreateAccount = true
             });
 
@@ -415,6 +484,6 @@
                                 "Demo Site");
         }
 
-        #endregion
+        #endregion Check Authorized
     }
 }
