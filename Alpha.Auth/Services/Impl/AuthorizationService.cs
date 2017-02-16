@@ -117,12 +117,29 @@
                     _requestContext.UserSession.CustId,
                     _requestContext.TransId)
 
-                : _authDataAccess.IsBelonging(
-                    _requestContext.CustId,
-                    _requestContext.UserSession.CustId,
-                    _requestContext.UserSession.SubAccId,
-                    _requestContext.TransId,
-                    _requestContext.UserSession.IsInternal);
+                : IsBelonging(_requestContext);
+        }
+
+        internal bool IsBelonging(IRequestContext requestContext)
+        {
+            var belongingInfo = _authDataAccess.IsBelonging(
+                    requestContext.CustId,
+                    requestContext.UserSession.CustId,
+                    requestContext.UserSession.SubAccId,
+                    requestContext.TransId);
+
+            if (belongingInfo.RoleId == 0
+                || belongingInfo.RoleId >= requestContext.UserSession.RoleId)
+            {
+                return false;
+            }
+
+            if (requestContext.UserSession.IsInternal)
+            {
+                return true;
+            }
+
+            return belongingInfo.IsActive;
         }
 
         public bool IsAuthorized(string url = null)

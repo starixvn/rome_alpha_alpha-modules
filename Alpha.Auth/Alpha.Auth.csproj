@@ -118,12 +118,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\AppSettings.cs" />
     <Compile Include="Configurations\AuthorizationSection.cs" />
     <Compile Include="Configurations\GroupPageAccessCollection.cs" />
     <Compile Include="Configurations\GroupPageAccessElement.cs" />
     <Compile Include="Configurations\PageAccessCollection.cs" />
     <Compile Include="Configurations\PageAccessElement.cs" />
     <Compile Include="Filters\CheckBelongingFilter.cs" />
+    <Compile Include="Models\BelongingInfo.cs" />
     <Compile Include="Models\IRequestContext.cs" />
     <Compile Include="Models\RequestContext.cs" />
     <Compile Include="Services\ICachingService.cs" />

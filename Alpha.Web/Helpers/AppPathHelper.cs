@@ -36,5 +36,20 @@
 
             return appPath;
         }
+
+        public static string GetRelativePath(string virtualPath, string absolutePath)
+        {
+            if (string.IsNullOrWhiteSpace(virtualPath) || string.IsNullOrWhiteSpace(absolutePath))
+            {
+                return virtualPath;
+            }
+
+            if (absolutePath.StartsWith(virtualPath, StringComparison.OrdinalIgnoreCase))
+            {
+                return absolutePath.Substring(virtualPath.Length + 1);
+            }
+
+            return absolutePath;
+        }
     }
 }

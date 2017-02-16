@@ -7,6 +7,7 @@
     using System.Web.Security;
     using Configurations;
     using Services.Impl;
+    using Sunplus.Agent.Model.Entities;
     using Web.Helpers;
 
     /// <summary>
@@ -19,10 +20,20 @@
         {
             base.OnAuthorization(filterContext);
             var authorizationService = new AuthorizationService();
-            if (AuthorizationSection.Instance.EnableCheckBelonging 
-                && !authorizationService.IsBelonging())
+            if (AuthorizationSection.Instance.EnableCheckBelonging)
             {
-                UnAuthorization(filterContext);
+                if (!authorizationService.IsBelonging())
+                {
+                    UnAuthorization(filterContext);
+                    return;
+                }
+
+                if (UserSession.Current.IsSubAcc
+                    && !authorizationService.IsAuthorized())
+                {
+                    KickoutUser(filterContext, "NoPermission");
+                    return;
+                }
             }
 
             if (!string.IsNullOrWhiteSpace(AuthorizationSection.Instance.KickoutUrl))
@@ -30,9 +41,11 @@
                 if (!authorizationService.IsAccountActive())
                 {
                     KickoutUser(filterContext, "AccountClosed");
+                    return;
                 }
 
-                if (authorizationService.IsKickedOut())
+                if (!AppSettings.IsDisabledCheckDuplicationLogin
+                    && authorizationService.IsKickedOut())
                 {
                     KickoutUser(filterContext, "DuplicationLogin");
                 }
