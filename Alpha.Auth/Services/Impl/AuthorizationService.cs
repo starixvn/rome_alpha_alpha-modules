@@ -21,25 +21,21 @@
     public class AuthorizationService : IAuthorizationService
     {
         private const string IsCustomerActiveCacheKey = "Alpha.Auth.CustContext.IsCustomerActiveCacheKey_{0}_{1}";
-        private const string SubAccountPermissionCacheKey = "Alpha.Auth.CustContext.SubAccountPermissionCacheKey_{0}_{1}";
         private const string RecheckInCacheKey = "Alpha.Auth.CustContext.RecheckInCacheKey_{0}_{1}_{2}";
         private readonly int _cachedExpireTime;
 
         private readonly IAuthorizationDataAccess _authDataAccess;
-        private readonly IStatisticService _statisticService;
         private readonly IRequestContext _requestContext;
         private readonly ICachingService _cachingService;
         private readonly AuthorizationSection _authorizationSection;
 
         public AuthorizationService(
-            IStatisticService statisticService = null,
             IRequestContext requestContext = null,
             ICachingService cachingService = null,
             IAuthorizationDataAccess dataAccess = null,
             AuthorizationSection authorizationSection = null)
         {
             _authDataAccess = dataAccess ?? new AuthorizationDataAccess();
-            _statisticService = statisticService ?? new StatisticService();
             _cachingService = cachingService ?? new CachingService();
             _requestContext = requestContext ?? new RequestContext();
             _authorizationSection = authorizationSection ?? AuthorizationSection.Instance;
@@ -67,20 +63,20 @@
         public bool IsBelonging()
         {
             var isBelonging = true;
-            var groupPageAccesses = _authorizationSection.GroupPageAccesses.Cast<GroupPageAccessElement>()
-                .Where(group => group.RoleId <= _requestContext.UserSession.RoleId);
+            var currentUrl = _requestContext.Url.ToUpperInvariant();
 
-            foreach (GroupPageAccessElement groupPageAccess in groupPageAccesses)
+            foreach (GroupPageAccessElement groupPageAccess in _authorizationSection.GroupPageAccessList)
             {
-                var pageAccesses = groupPageAccess.PageAccesses.Cast<PageAccessElement>()
-                    .Where(pageAccess => _requestContext.Url.ToLower().Contains(pageAccess.Url.ToLower()));
-
-                foreach (PageAccessElement pageAccess in pageAccesses)
+                if (groupPageAccess.RoleId <= _requestContext.UserSession.RoleId)
                 {
-                    if (_requestContext.CustId != 0
-                        && pageAccess.IsCheckBelonging)
+                    foreach (PageAccessElement pageAccess in groupPageAccess.PageAccesses)
                     {
-                        return IsBelongingOnPage(pageAccess);
+                        if (currentUrl.Contains(pageAccess.Url.ToUpperInvariant())
+                            && _requestContext.CustId != 0
+                            && pageAccess.IsCheckBelonging)
+                        {
+                            return IsBelongingOnPage(pageAccess);
+                        }
                     }
                 }
             }
@@ -151,49 +147,39 @@
                 return true;
             }
 
-            var permission = _authorizationSection.FullPermission;
+            var permissions = _authorizationSection.FullPermission;
 
             if (_requestContext.UserSession.SubAccId > 0)
             {
-                permission = _requestContext.UserSession.SubPageAccess;
+                permissions = _requestContext.UserSession.SubPageAccess;
             }
 
-            return IsAuthorizedOnGroupOfPage(
-                permission,
+            return HasPermissionToViewUrl(
+                permissions,
                 url);
         }
 
-        private bool IsAuthorizedOnGroupOfPage(
-            string customerPermission,
+        private bool HasPermissionToViewUrl(
+            string permissions,
             string url)
         {
-            var groupPageAccesses = _authorizationSection.GroupPageAccesses.Cast<GroupPageAccessElement>()
-                .Where(group => group.RoleId <= _requestContext.UserSession.RoleId);
+            url = url.ToUpperInvariant();
 
-            foreach (var groupPageAccess in groupPageAccesses)
+            foreach (var groupPageAccess in _authorizationSection.GroupPageAccessList)
             {
-                var pageAccesses = groupPageAccess.PageAccesses.Cast<PageAccessElement>()
-                    .Where(pageAccess => url.ToLower().Contains(pageAccess.Url.ToLower()));
-
-                foreach (var pageAccess in pageAccesses)
+                if (groupPageAccess.RoleId <= _requestContext.UserSession.RoleId)
                 {
-                    var isAuthorized = IsAuthorizedOnPage(customerPermission, pageAccess);
-
-                    if (isAuthorized)
+                    foreach (PageAccessElement pageAccess in groupPageAccess.PageAccesses)
                     {
-                        if (!_requestContext.UserSession.IsInternal)
+                        if (url.Contains(pageAccess.Url.ToUpperInvariant()))
                         {
-                            //// Update page visit if user has permission and is not internal user.
-                            _statisticService.UpdateFunctionUsage(
-                                pageAccess.Url,
-                                pageAccess.MainFunctionName,
-                                pageAccess.SubFunctionName,
-                                _requestContext.UserSession.Site);
+                            var isAuthorized = IsAuthorizedOnPage(permissions, pageAccess);
+
+                            if (!isAuthorized)
+                            {
+                                return false;
+                            }
                         }
-                    }
-                    else
-                    {
-                        return false;
                     }
                 }
             }
@@ -201,13 +187,13 @@
             return true;
         }
 
-        private bool IsAuthorizedOnPage(string customerPermission, PageAccessElement pageElement)
+        private bool IsAuthorizedOnPage(string permissions, PageAccessElement pageElement)
         {
-            var permissions = pageElement.Permission.Split(',');
+            var requiredPermission = pageElement.Permission.Split(',');
 
-            foreach (var permission in permissions)
+            foreach (var permission in requiredPermission)
             {
-                if (customerPermission.Contains(permission))
+                if (permissions.Contains(permission))
                 {
                     return true;
                 }
@@ -216,18 +202,18 @@
             return false;
         }
 
-        private string GetSubPermission()
-        {
-            var subAccountPermission = _cachingService.GetOrAdd(
-                string.Format(SubAccountPermissionCacheKey, _requestContext.UserSession.CustId, _requestContext.UserSession.SubAccId),
-                () =>
-                {
-                    return _authDataAccess.GetSubAccountPermission(_requestContext.UserSession.SubAccId);
-                },
-                _cachedExpireTime);
+        ////private string GetSubPermission()
+        ////{
+        ////    var subAccountPermission = _cachingService.GetOrAdd(
+        ////        string.Format(SubAccountPermissionCacheKey, _requestContext.UserSession.CustId, _requestContext.UserSession.SubAccId),
+        ////        () =>
+        ////        {
+        ////            return _authDataAccess.GetSubAccountPermission(_requestContext.UserSession.SubAccId);
+        ////        },
+        ////        _cachedExpireTime);
 
-            return subAccountPermission;
-        }
+        ////    return subAccountPermission;
+        ////}
 
         public bool IsKickedOut()
         {

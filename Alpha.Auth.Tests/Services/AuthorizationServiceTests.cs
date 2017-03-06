@@ -2,6 +2,7 @@
 {
     using System;
     using System.Configuration;
+    using System.Linq;
     using Auth.Services;
     using Auth.Services.Impl;
     using Configurations;
@@ -17,7 +18,6 @@
         private AuthorizationService _authorizationService;
         private IAuthorizationDataAccess _authorizationDataAccess;
         private IRequestContext _requestContext;
-        private IStatisticService _statisticService;
         private ICachingService _cachingService;
         private AuthorizationSection _authorizationSection;
 
@@ -33,13 +33,12 @@
         public void SetUp()
         {
             _authorizationDataAccess = Substitute.For<IAuthorizationDataAccess>();
-            _statisticService = Substitute.For<IStatisticService>();
             _requestContext = Substitute.For<IRequestContext>();
             _cachingService = Substitute.For<ICachingService>();
             _authorizationSection = ReadConfigurations();
+            _authorizationSection.GroupPageAccessList = _authorizationSection.GroupPageAccesses.Cast<GroupPageAccessElement>();
 
             _authorizationService = new AuthorizationService(
-                _statisticService,
                 _requestContext,
                 _cachingService,
                 _authorizationDataAccess,
@@ -456,32 +455,6 @@
 
             //// Assert
             Assert.IsFalse(isAuthorized);
-        }
-
-        [Test]
-        public void IsAuthorized_SubAccountHasPermissionOnPage_ExecuteUpdateFunctionUsage()
-        {
-            //// Arrange
-            var url = "IsAllowByThemselve.aspx";
-            _requestContext.CustId.Returns(103);
-            _requestContext.UserSession.RoleId.Returns((byte)3);
-            _requestContext.UserSession.CustId.Returns(100);
-            _requestContext.UserSession.SubAccId.Returns(101);
-            _requestContext.UserSession.Site.Returns("Demo Site");
-            _requestContext.UserSession.SubPageAccess.Returns(new PageAccess
-            {
-                CreateAccount = true
-            });
-
-            //// Act
-            _authorizationService.IsAuthorized(url);
-
-            //// Assert
-            _statisticService.Received().UpdateFunctionUsage(
-                                url,
-                                "Is Allow By Themselve",
-                                "SC - Agent Info",
-                                "Demo Site");
         }
 
         #endregion Check Authorized

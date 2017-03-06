@@ -10,6 +10,12 @@
         private static AuthorizationSection instance
            = ConfigurationManager.GetSection("AuthorizationSection") as AuthorizationSection;
 
+        private static IEnumerable<GroupPageAccessElement> groupPageAccesses = instance?.GroupPageAccesses.Cast<GroupPageAccessElement>();
+
+        private static string[] custIdQueryStringParamNames;
+        private static string[] custIdJsonParamNames;
+        private static string[] splitedIgnoreUrls;
+
         public static AuthorizationSection Instance
         {
             get
@@ -27,11 +33,26 @@
             }
         }
 
+        public IEnumerable<GroupPageAccessElement> GroupPageAccessList
+        {
+            get
+            {
+                return groupPageAccesses;
+            }
+
+            internal set
+            {
+#pragma warning disable S2696 // Instance members should not write to "static" fields
+                groupPageAccesses = value;
+#pragma warning restore S2696 // Instance members should not write to "static" fields
+            }
+        }
+
         [ConfigurationProperty("fullpermission", DefaultValue = "[A],[B],[C],[D],[E],[G],[H]", IsRequired = false)]
         public string FullPermission
         {
             get { return (string)this["fullpermission"]; }
-            set { this["fullpermission"] = value.ToLower(); }
+            set { this["fullpermission"] = value.ToLowerInvariant(); }
         }
 
         [ConfigurationProperty(
@@ -48,7 +69,14 @@
         {
             get
             {
-                return CustIdQueryStringParamNameMapping.Split(',');
+                if (custIdQueryStringParamNames == null)
+                {
+#pragma warning disable S2696 // Instance members should not write to "static" fields
+                    custIdQueryStringParamNames = CustIdQueryStringParamNameMapping.Split(',');
+#pragma warning restore S2696 // Instance members should not write to "static" fields
+                }
+
+                return custIdQueryStringParamNames;
             }
         }
 
@@ -70,7 +98,14 @@
         {
             get
             {
-                return CustIdJsonParamNameMapping.Split(',');
+                if (custIdJsonParamNames == null)
+                {
+#pragma warning disable S2696 // Instance members should not write to "static" fields
+                    custIdJsonParamNames = CustIdJsonParamNameMapping.Split(',');
+#pragma warning restore S2696 // Instance members should not write to "static" fields
+                }
+
+                return custIdJsonParamNames;
             }
         }
 
@@ -109,7 +144,14 @@
         {
             get
             {
-                return IgnoreUrls.Split(',');
+                if (splitedIgnoreUrls == null)
+                {
+#pragma warning disable S2696 // Instance members should not write to "static" fields
+                    splitedIgnoreUrls = IgnoreUrls.Split(',');
+#pragma warning restore S2696 // Instance members should not write to "static" fields
+                }
+
+                return splitedIgnoreUrls;
             }
         }
 
