@@ -29,6 +29,5 @@
 
         [DataMember(Name = "isSiteMain")]
         public bool IsSiteMain { get; set; }
-
     }
 }
