@@ -80,8 +80,7 @@
                         continue;
                     }
 
-                    var currentParamName = Regex.Replace(custIdQueryStringParamName, @"^\s+", string.Empty);
-                    _custId = Converter.ToInt(request[currentParamName]);
+                    _custId = Converter.ToInt(request[custIdQueryStringParamName]);
 
                     if (_custId > 0)
                     {
@@ -89,9 +88,9 @@
                     }
 
                     if (request.Form.Count > 0
-                        && request.Form.AllKeys.Contains(currentParamName))
+                        && request.Form.AllKeys.Contains(custIdQueryStringParamName))
                     {
-                        _custId = Converter.ToInt(request.Form[currentParamName]);
+                        _custId = Converter.ToInt(request.Form[custIdQueryStringParamName]);
 
                         if (_custId > 0)
                         {

@@ -133,12 +133,8 @@
     <Compile Include="HttpModules\AuthorizationHttpModule.cs" />
     <Compile Include="DataAccesses\Impl\AuthorizationDataAccess.cs" />
     <Compile Include="DataAccesses\IAuthorizationDataAccess.cs" />
-    <Compile Include="DataAccesses\IStatisticDataAccess.cs" />
     <Compile Include="Services\Impl\AuthorizationService.cs" />
     <Compile Include="Services\IAuthorizationService.cs" />
-    <Compile Include="Services\IStatisticService.cs" />
-    <Compile Include="Services\Impl\StatisticService.cs" />
-    <Compile Include="DataAccesses\Impl\StatisticDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
