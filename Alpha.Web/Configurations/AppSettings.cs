@@ -12,6 +12,8 @@
         private static string mainAppPath;
         private static string assetAppPath;
         private static string staticResourcesVersion;
+        private static string googleAnalyticUrl;
+        private static string googleAnalyticId;
 
         static AppSettings()
         {
@@ -31,21 +33,17 @@
                 ? bool.Parse(ConfigurationManager.AppSettings["EnableAntiXSRF"])
                 : true;
 
-            oldMainAppPath = ConfigurationManager.AppSettings["OldMainAppPath"] != null
-                ? ConfigurationManager.AppSettings["OldMainAppPath"]
-                : "ex-main";
+            oldMainAppPath = ConfigurationManager.AppSettings["OldMainAppPath"] ?? "ex-main";
 
-            mainAppPath = ConfigurationManager.AppSettings["MainAppPath"] != null
-                ? ConfigurationManager.AppSettings["MainAppPath"]
-                : "site-main";
+            mainAppPath = ConfigurationManager.AppSettings["MainAppPath"] ?? "site-main";
 
-            assetAppPath = ConfigurationManager.AppSettings["AssetAppPath"] != null
-                ? ConfigurationManager.AppSettings["AssetAppPath"]
-                : "assets";
+            assetAppPath = ConfigurationManager.AppSettings["AssetAppPath"] ?? "assets";
 
-            staticResourcesVersion = ConfigurationManager.AppSettings["AssetsApp:StaticResourcesVersion"] != null
-                ? ConfigurationManager.AppSettings["AssetsApp:StaticResourcesVersion"]
-                : "assets";
+            staticResourcesVersion = ConfigurationManager.AppSettings["AssetsApp:StaticResourcesVersion"] ?? "100";
+
+            googleAnalyticUrl = ConfigurationManager.AppSettings["GoogleAnalyticUrl"] ?? "https://www.google-analytics.com/analytics.js";
+
+            googleAnalyticId = ConfigurationManager.AppSettings["GoogleAnalyticId"];
         }
 
         public static string OldMainAppPath => oldMainAppPath;
@@ -63,5 +61,9 @@
         public static string AssetAppPath => assetAppPath;
 
         public static string StaticResourcesVersion => staticResourcesVersion;
+
+        public static string GoogleAnalyticUrl => googleAnalyticUrl;
+
+        public static string GoogleAnalyticId => googleAnalyticId;
     }
 }
