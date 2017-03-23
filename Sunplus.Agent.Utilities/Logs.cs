@@ -107,6 +107,7 @@ namespace Sunplus.Agent.Utilities
                 "REFERRER: " + httpRequest.UrlReferrer,
                 "FORM: " + formString,
                 "SOURCE: " + ex.Source,
+                "STACKTRACE: " + ex.StackTrace,
                 "TARGETSITE: " + ex.TargetSite,
                 "DETAIL: " + ex,
                 "CULTURE: " + Thread.CurrentThread.CurrentUICulture,
