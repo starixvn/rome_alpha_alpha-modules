@@ -2,6 +2,7 @@ namespace Sunplus.Agent.Model.BL.UserMessage
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Data;
     using Fanex.Caching;
     using Fanex.Data;
@@ -96,11 +97,11 @@ namespace Sunplus.Agent.Model.BL.UserMessage
             publicMessage = cache.Get<DataTable>(key);
             if (publicMessage == null)
             {
-                publicMessage = this.userMessageDAO.Acc_Msg_GetTopPubMessage(messageType, siteId, 0, false);
+                publicMessage = this.userMessageDAO.Acc_Msg_GetTopPubMessage(messageType, siteId, 0, ConfigurationManager.AppSettings["LocalTest"] == "1");
                 cache.Set<DataTable>(key, publicMessage, DateTime.Now.AddSeconds(30));
             }
 
-            privateMessage = this.userMessageDAO.Dot_Msg_GetTopPriMessage24(CurrentSession.CustId, 0, false);
+            privateMessage = this.userMessageDAO.Dot_Msg_GetTopPriMessage24(CurrentSession.CustId, 0, ConfigurationManager.AppSettings["LocalTest"] == "1");
             DataTable returnTable = UserMessageDAO.CreateDataTable();
             if (publicMessage.Rows.Count > 0)
             {
