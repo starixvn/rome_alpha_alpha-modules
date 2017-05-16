@@ -18,7 +18,8 @@ namespace Alpha.RemotingRef
             { "zh-CN", "cs" },
             { "ja-JP", "jp" },
             { "ko-KR", "ko" },
-            { "vi-VN", "vn" }
+            { "vi-VN", "vn" },
+            { "th-TH", "th" }
         };
 
         private static string CurrentLanguageCode
