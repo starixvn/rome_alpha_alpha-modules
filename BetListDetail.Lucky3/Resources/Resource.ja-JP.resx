@@ -156,4 +156,7 @@
   <data name="Winloss" xml:space="preserve">
     <value>Win loss</value>
   </data>
+  <data name="WinningShare" xml:space="preserve">
+    <value>Winning share</value>
+  </data>
 </root>

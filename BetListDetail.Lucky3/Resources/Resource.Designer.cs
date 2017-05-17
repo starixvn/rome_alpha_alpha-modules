@@ -176,5 +176,14 @@ namespace Fanex.BetListDetail.Lucky3.Resources {
                 return ResourceManager.GetString("Winloss", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Winning share.
+        /// </summary>
+        public static string WinningShare {
+            get {
+                return ResourceManager.GetString("WinningShare", resourceCulture);
+            }
+        }
     }
 }

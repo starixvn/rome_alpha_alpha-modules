@@ -7,9 +7,10 @@ namespace Fanex.BetListDetail.Lucky3.ViewModels
 {
     public class Lucky3DetailViewModel
     {
-        public Lucky3DetailViewModel(IEnumerable<Lucky3DetailModel> details)
+        public Lucky3DetailViewModel(IEnumerable<Lucky3DetailModel> details, int userLevel)
         {
             this.Details = details;
+            this.UserLevel = userLevel;
             CalculateTotal();
         }
 
@@ -62,9 +63,11 @@ namespace Fanex.BetListDetail.Lucky3.ViewModels
             }
         }
 
-        public string FormatDiscount(decimal discount) => string.Format(Constant.NumberFormat, discount * 100m);
+        public string FormatDiscount(decimal discount) => string.Format(Constant.DiscountTemplate, discount * 100m);
 
-        public string FormatMoney(decimal stake) => string.Format(Constant.NumberFormat, stake);
+        public string FormatCommission(decimal commission) => string.Format(Constant.CommissionTemplate, commission);
+
+        public string FormatMoney(decimal stake) => string.Format(Constant.MoneyTemplate, stake);
 
         public string FormatWinLost(decimal? winlost)
         {
@@ -81,7 +84,7 @@ namespace Fanex.BetListDetail.Lucky3.ViewModels
             }
 
             return text;
-        }       
+        }
 
         private void CalculateTotal()
         {
