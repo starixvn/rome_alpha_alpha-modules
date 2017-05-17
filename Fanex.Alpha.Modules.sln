@@ -91,7 +91,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Announcements", "Anno
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BetList", "BetList", "{F680CDFF-832D-4599-BD23-CD1D11269E47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.BetListDetail.Lucky3", "BetListDetail.Lucky3\Fanex.BetListDetail.Lucky3.csproj", "{BF710FD3-D488-4EF3-B664-0398CAE1E4C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.BetListDetail.Lucky3", "Fanex.BetListDetail.Lucky3\Fanex.BetListDetail.Lucky3.csproj", "{BF710FD3-D488-4EF3-B664-0398CAE1E4C5}"
 EndProject
 
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9A17ACC1-45EB-4ADC-9F68-9227DBCE62A8}"

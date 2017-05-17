@@ -117,8 +117,8 @@
 
                 <td>Lose</td>
             </tr>
-            <tr>
-                <td colspan="5">@Resources.Total</td>
+            <tr class="bl_footertotal">
+                <td colspan="5" class="text-right">@Resources.Total</td>
                 <td>@Model.FormatWinLost(Model.TotalWinlost)</td>
                 @if (Model.IsSuper)
                 {
@@ -143,6 +143,7 @@
             </tr>
         }
     </tbody>
+
 </table>
 
 
