@@ -1,6 +1,6 @@
 ﻿namespace Fanex.BetListDetail.Lucky3.Criteria
 {
-    public class GetLucky3DetailCriteria
+    public class GetLucky3DetailParameter
     {
         public long TransactionId { get; set; }
 

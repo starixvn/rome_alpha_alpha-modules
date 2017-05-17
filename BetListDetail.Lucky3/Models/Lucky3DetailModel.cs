@@ -11,11 +11,11 @@ namespace Fanex.BetListDetail.Lucky3.Models
 
         public int MatchId { get; set; }
 
-        public int Customerid { get; set; }
+        public int CustomerId { get; set; }
 
         public int BetType { get; set; }
 
-        public int StatusId { get; set; }
+        public string Status { get; set; }
 
         public string TransactionDescription { get; set; }
 
@@ -33,18 +33,18 @@ namespace Fanex.BetListDetail.Lucky3.Models
 
         public decimal? Winlost { get; set; }
 
-        public decimal? PlayerCommition { get; set; }
+        public decimal? PlayerCommission { get; set; }
 
         public decimal SuperDiscount { get; set; }
 
         public decimal AgentDiscount { get; set; }
 
-        public decimal Discount { get; set; }
+        public decimal MasterDiscount { get; set; }
 
-        public decimal SuperCommition { get; set; }
+        public decimal SuperCommission { get; set; }
 
-        public decimal AgentCommition { get; set; }
+        public decimal AgentCommission { get; set; }
 
-        public decimal Commmition { get; set; }
+        public decimal MasterCommission { get; set; }
     }
 }

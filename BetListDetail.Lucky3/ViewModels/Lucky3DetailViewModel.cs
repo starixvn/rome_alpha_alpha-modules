@@ -1,46 +1,27 @@
-﻿using Fanex.BetListDetail.Lucky3.Enums;
+﻿using Fanex.BetListDetail.Lucky3.Constants;
+using Fanex.BetListDetail.Lucky3.Enums;
 using Fanex.BetListDetail.Lucky3.Models;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Fanex.BetListDetail.Lucky3.ViewModels
 {
     public class Lucky3DetailViewModel
     {
-        public IEnumerable<Lucky3DetailModel> Details { get; set; }
-
-        public decimal? TotalWinlost
+        public Lucky3DetailViewModel(IEnumerable<Lucky3DetailModel> details)
         {
-            get
-            {
-                return Details.Sum(i => i.Winlost);
-            }
+            this.Details = details;
+            CalculateTotal();
         }
 
-        public decimal TotalSuperDiscount
-        {
-            get
-            {
-                return Details.Sum(i => i.SuperDiscount);
-            }
-        }
+        public IEnumerable<Lucky3DetailModel> Details { get; }
 
-        public decimal TotalMasterDiscount
-        {
-            get
-            {
-                return Details.Sum(i => i.Discount);
-            }
-        }
+        public decimal? TotalWinlost { get; private set; }
 
-        public decimal TotalAgentDiscount
-        {
-            get
-            {
-                return Details.Sum(i => i.AgentDiscount);
-            }
-        }
+        public decimal TotalSuperCommission { get; private set; }
+
+        public decimal TotalMasterCommission { get; private set; }
+
+        public decimal TotalAgentCommission { get; private set; }
 
         public int TotalColumns
         {
@@ -78,6 +59,42 @@ namespace Fanex.BetListDetail.Lucky3.ViewModels
             get
             {
                 return UserLevel == (int)UserTypes.Agent;
+            }
+        }
+
+        public string FormatDiscount(decimal discount) => string.Format(Constant.NumberFormat, discount * 100m);
+
+        public string FormatMoney(decimal stake) => string.Format(Constant.NumberFormat, stake);
+
+        public string FormatWinLost(decimal? winlost)
+        {
+            if (!winlost.HasValue)
+            {
+                return string.Empty;
+            }
+
+            var text = FormatMoney(winlost.Value);
+            var lessThanZero = winlost.Value < 0;
+            if (lessThanZero)
+            {
+                text = string.Format(Constant.NegativeNumberDisplay, text);
+            }
+
+            return text;
+        }       
+
+        private void CalculateTotal()
+        {
+            TotalWinlost = 0;
+            TotalSuperCommission = 0;
+            TotalMasterCommission = 0;
+            TotalAgentCommission = 0;
+            foreach (var detail in Details)
+            {
+                TotalWinlost += detail.Winlost;
+                TotalSuperCommission += detail.SuperCommission;
+                TotalMasterCommission += detail.MasterCommission;
+                TotalAgentCommission += detail.AgentCommission;
             }
         }
     }
