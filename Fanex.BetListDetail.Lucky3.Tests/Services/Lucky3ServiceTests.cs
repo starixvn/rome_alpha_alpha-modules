@@ -23,7 +23,7 @@ namespace Fanex.BetListDetail.Lucky3.Tests.Services
         public void GetBetListDetail_InvalidParameter_ReturnEmptyList()
         {
             //// Arrange                        
-            var parameter = Substitute.For<GetLucky3DetailParameter>();
+            var parameter = Substitute.For<IGetLucky3DetailParameter>();
             parameter.IsValid().Returns(false);
 
             //// Act

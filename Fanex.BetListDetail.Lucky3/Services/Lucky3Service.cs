@@ -14,7 +14,7 @@ namespace Fanex.BetListDetail.Lucky3.Services
             this.lucky3DataAccess = lucky3DataAccess;
         }
 
-        public IEnumerable<Lucky3DetailModel> GetBetListDetail(GetLucky3DetailParameter criteria)
+        public IEnumerable<Lucky3DetailModel> GetBetListDetail(IGetLucky3DetailParameter criteria)
         {
             IEnumerable<Lucky3DetailModel> details = new List<Lucky3DetailModel>();
             if (criteria.IsValid())

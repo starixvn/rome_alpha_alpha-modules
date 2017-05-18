@@ -1,11 +1,11 @@
 ﻿namespace Fanex.BetListDetail.Lucky3.Criteria
 {
-    public class GetLucky3DetailParameter : ParameterBase
+    public class GetLucky3DetailParameter : IGetLucky3DetailParameter
     {
         public long TransactionId { get; set; }
 
         public long CustomerId { get; set; }
 
-        public override bool IsValid() => TransactionId > 0 && CustomerId > 0;
+        public bool IsValid() => TransactionId > 0 && CustomerId > 0;
     }
 }

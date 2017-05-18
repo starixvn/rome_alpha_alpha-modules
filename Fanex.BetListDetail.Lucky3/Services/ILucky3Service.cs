@@ -6,6 +6,6 @@ namespace Fanex.BetListDetail.Lucky3.Services
 {
     public interface ILucky3Service
     {
-        IEnumerable<Lucky3DetailModel> GetBetListDetail(GetLucky3DetailParameter criteria);
+        IEnumerable<Lucky3DetailModel> GetBetListDetail(IGetLucky3DetailParameter criteria);
     }
 }

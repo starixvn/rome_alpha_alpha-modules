@@ -89,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Constant.cs" />
-    <Compile Include="Criteria\ParameterBase.cs" />
+    <Compile Include="Criteria\IGetLucky3DetailParameter.cs" />
     <Compile Include="Criteria\GetLucky3DetailParameter.cs" />
     <Compile Include="DataAccesses\ILucky3DataAccess.cs" />
     <Compile Include="Enums\UserTypes.cs" />
