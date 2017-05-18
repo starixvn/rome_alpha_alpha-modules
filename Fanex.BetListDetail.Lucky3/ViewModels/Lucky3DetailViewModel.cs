@@ -37,7 +37,7 @@ namespace Fanex.BetListDetail.Lucky3.ViewModels
             }
         }
 
-        public int UserLevel { protected get; set; }
+        public int UserLevel { get; }
 
         public bool IsSuper
         {
