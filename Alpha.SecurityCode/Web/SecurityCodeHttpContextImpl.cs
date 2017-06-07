@@ -31,7 +31,7 @@
         public string GetRelativePath()
         {
             var request = HttpContext.Current.Request;
-            return request.Url.AbsolutePath.Replace(request.ApplicationPath, string.Empty);
+            return request.Url.PathAndQuery.Replace(request.ApplicationPath, string.Empty);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "Reviewed")]
