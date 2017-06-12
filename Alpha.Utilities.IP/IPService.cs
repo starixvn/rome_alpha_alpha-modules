@@ -48,13 +48,16 @@
             return vietnamIPs;
         }
 
-        private int ConvertIPToNumber(string ipAddress)
+        private long ConvertIPToNumber(string ipAddress)
         {
             IPAddress parsedIpAddress;
 
             if (IPAddress.TryParse(ipAddress, out parsedIpAddress))
             {
-                return BitConverter.ToInt32(parsedIpAddress.GetAddressBytes().Reverse().ToArray(), 0);
+                var addressBytes = parsedIpAddress.GetAddressBytes();
+                Array.Reverse(addressBytes);
+
+                return BitConverter.ToUInt32(addressBytes, 0);
             }
 
             return 0;
