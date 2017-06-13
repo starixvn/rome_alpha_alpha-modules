@@ -8,9 +8,15 @@
         private static string sessionVerificationTokenCookie;
         private static bool enableSessionValidation;
         private static bool enableAntiXSRF;
+
         private static string oldMainAppPath;
         private static string mainAppPath;
         private static string assetAppPath;
+
+        private static string reportsAppPath;
+        private static string betListsAppPath;
+        private static string memberInfoAppPath;
+
         private static string staticResourcesVersion;
         private static string googleAnalyticUrl;
         private static string googleAnalyticId;
@@ -39,6 +45,10 @@
 
             assetAppPath = ConfigurationManager.AppSettings["AssetAppPath"] ?? "assets";
 
+            reportsAppPath = ConfigurationManager.AppSettings["ReportsAppPath"] ?? "site-reports";
+            betListsAppPath = ConfigurationManager.AppSettings["BetListsAppPath"] ?? "site-betlists";
+            memberInfoAppPath = ConfigurationManager.AppSettings["MemberInfoAppPath"] ?? "site-memberinfo";
+
             staticResourcesVersion = ConfigurationManager.AppSettings["AssetsApp:StaticResourcesVersion"] ?? "100";
 
             googleAnalyticUrl = ConfigurationManager.AppSettings["GoogleAnalyticUrl"] ?? "https://www.google-analytics.com/analytics.js";
@@ -59,6 +69,12 @@
         public static string MainAppPath => mainAppPath;
 
         public static string AssetAppPath => assetAppPath;
+
+        public static string ReportsAppPath => reportsAppPath;
+
+        public static string BetListsAppPath => betListsAppPath;
+
+        public static string MemberInfoAppPath => memberInfoAppPath;
 
         public static string StaticResourcesVersion => staticResourcesVersion;
 
