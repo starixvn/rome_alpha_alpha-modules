@@ -887,6 +887,14 @@
             }
         }
 
+        public bool IsAllDayBalTransfer
+        {
+            get
+            {
+                return UserSession.Current.IsAllDayBalTransfer;
+            }
+        }
+
         public bool GetDisabledProduct(int productId)
         {
             return UserSession.Current.GetDisabledProduct(productId);

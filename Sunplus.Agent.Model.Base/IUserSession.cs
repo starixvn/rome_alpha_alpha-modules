@@ -657,5 +657,7 @@ namespace Sunplus.Agent.Model.Entities
             get;
             set;
         }
+
+        bool IsAllDayBalTransfer { get; }
     }
 }
