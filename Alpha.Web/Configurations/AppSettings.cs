@@ -21,6 +21,8 @@
         private static string googleAnalyticUrl;
         private static string googleAnalyticId;
 
+        private static bool isIntegrationTest;
+
         static AppSettings()
         {
             enableKickOutWhenSessionInvalid = ConfigurationManager.AppSettings["EnableKickOutWhenSessionInvalid"] != null
@@ -54,6 +56,8 @@
             googleAnalyticUrl = ConfigurationManager.AppSettings["GoogleAnalyticUrl"] ?? "https://www.google-analytics.com/analytics.js";
 
             googleAnalyticId = ConfigurationManager.AppSettings["GoogleAnalyticId"];
+
+            isIntegrationTest = ConfigurationManager.AppSettings["IsIntegrationTest"] == "1";
         }
 
         public static string OldMainAppPath => oldMainAppPath;
@@ -81,5 +85,7 @@
         public static string GoogleAnalyticUrl => googleAnalyticUrl;
 
         public static string GoogleAnalyticId => googleAnalyticId;
+
+        public static bool IsIntegrationTest => isIntegrationTest;
     }
 }

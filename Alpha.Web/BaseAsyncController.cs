@@ -8,6 +8,7 @@
     using System.Web.Mvc;
     using System.Web.Routing;
     using System.Web.Security;
+    using Configurations;
     using Helpers;
     using Sunplus.Agent.Model.Entities;
 
@@ -22,8 +23,10 @@
         {
             base.OnAuthorization(filterContext);
 
-            if (!filterContext.HttpContext.User.Identity.IsAuthenticated
-                || UserSession.Current.UserId <= 0)
+            var isAuthenticated = AppSettings.IsIntegrationTest ||
+                (filterContext.HttpContext.User.Identity.IsAuthenticated && UserSession.Current.UserId > 0);
+
+            if (!isAuthenticated)
             {
                 UnAuthentication(filterContext);
             }
