@@ -9,7 +9,7 @@ namespace Sunplus.Agent.Model.DL.Transfer
     [Obsolete("Should rename to Sunplus.Agent.Model.Transfer")]
     public class TransferDAO : DAOBase
     {
-        public int Age_Transfer_Ins_Ag(string fromCustId, string toUserName, int creatorId, int subAccId, string ip, double amt, bool isFullTransfer, string superIdStransferTotal, string language, out string errMsg)
+        public int Age_Transfer_Ins_Ag(string fromCustId, string toUserName, int creatorId, int subAccId, string ip, double amt, bool isFullTransfer, string superIdStransferTotal, string language, bool isAllDayBalTransfer, out string errMsg)
         {
             // isYes=1 --> Only Yesterday
             // isYes=0 --> Get All
@@ -22,7 +22,8 @@ namespace Sunplus.Agent.Model.DL.Transfer
                 { "creator", creatorId },
                 { "language", language },
                 { "subaccid", subAccId },
-                { "ip", ip }
+                { "ip", ip },
+                { "isalldaybaltransfer", isAllDayBalTransfer }
             };
             //// AppSession.UserID : UserID of Admin Login
             var outputs = new Hashtable();
@@ -90,7 +91,7 @@ namespace Sunplus.Agent.Model.DL.Transfer
             return (int)outputs["errcode"];
         }
 
-        public int Age_Transfer_InsClearBalance_Ag(string toCustIds, int subAccId, int creatorId, int fromCustId, string ip, string status, string language, string superIdStransferTotal, out string errMsg)
+        public int Age_Transfer_InsClearBalance_Ag(string toCustIds, int subAccId, int creatorId, int fromCustId, string ip, string status, string language, string superIdStransferTotal, bool isAllDayBalTransfer, out string errMsg)
         {
             var parameters = new Hashtable
             {
@@ -101,7 +102,8 @@ namespace Sunplus.Agent.Model.DL.Transfer
                 { "subaccid", subAccId },
                 { "ip", ip },
                 { "custstatus", status },
-                { "superidstransfertotal", superIdStransferTotal }
+                { "superidstransfertotal", superIdStransferTotal },
+                { "isalldaybaltransfer", isAllDayBalTransfer }
             };
 
             var outputs = ExecSpHashtable("Age_Transfer_InsClearBalance_Ag", parameters);
