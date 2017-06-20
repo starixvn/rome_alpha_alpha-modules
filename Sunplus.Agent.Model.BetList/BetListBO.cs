@@ -1,12 +1,12 @@
-namespace Sunplus.Agent.Model.BL.BetList
+﻿namespace Sunplus.Agent.Model.BL.BetList
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Data;
     using Fanex.Caching;
     using Fanex.Data.DNAide;
     using Sunplus.Agent.Model.BL.Definitions;
     using Sunplus.Agent.Model.DL.BetList;
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
 
     [Obsolete("Should rename to Sunplus.Agent.Model.BetList")]
     public class BetListBO : Sunplus.Agent.Model.BL.Base.BOBase
@@ -466,48 +466,6 @@ namespace Sunplus.Agent.Model.BL.BetList
             return runningBets;
         }
 
-        #endregion RunningByBettypeAndMatch
-
-        #region DailyStatement
-
-        /// <summary>
-        /// GetDailyStatement
-        /// </summary>
-        /// <param name="custId"></param>
-        /// <param name="dateFrom"></param>
-        /// <param name="transType"></param>
-        /// <param name="outDataTable"></param>
-        /// <returns></returns>
-        public DataTable GetDailyStatement(int custId, DateTime dateFrom, int transType, out DataTable outDataTable)
-        {
-            BetListDAO betListDAO = new BetListDAO();
-
-            string language = CurrentSession.LangKey;
-
-            DataTable daillyBets = betListDAO.Age_BetList_SelByDayAll_Mem(custId, dateFrom, transType, language, MoveBetsDate, out outDataTable);
-            return daillyBets;
-        }
-
-        /// <summary>
-        /// GetDailyStatement old from table 14
-        /// </summary>
-        /// <param name="custId"></param>
-        /// <param name="dateFrom"></param>
-        /// <param name="outDataTable"></param>
-        /// <returns></returns>
-        public DataTable GetDailyStatementOld(int custId, DateTime dateFrom, int transType, out DataTable outDataTable)
-        {
-            BetListDAO betListDAO = new BetListDAO();
-
-            string language = CurrentSession.LangKey;
-
-            DataTable daillyBets = betListDAO.Age_BetList_SelByDayAll_Mem_Old(custId, dateFrom, language, transType, out outDataTable);
-            return daillyBets;
-        }
-
-        #endregion DailyStatement
-
-        #region RunningBetByBetType
 
         /// <summary>
         /// Get running bets by bettype

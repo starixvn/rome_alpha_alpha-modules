@@ -1,10 +1,10 @@
-namespace Sunplus.Agent.Model.DL.BetList
+﻿namespace Sunplus.Agent.Model.DL.BetList
 {
+    using Fanex.Data.DNAide;
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Data;
-    using Fanex.Data.DNAide;
 
     [Obsolete("Should rename to Sunplus.Agent.Model.BetList")]
     public class BetListDAO : Sunplus.Agent.Model.DL.Base.DAOBase
@@ -845,81 +845,7 @@ namespace Sunplus.Agent.Model.DL.BetList
             }
         }
 
-        #endregion RunningByBettypeAndMatch
 
-        #region DailyStatement
-
-        /// <summary>
-        /// Get dailly statement
-        /// </summary>
-        /// <param name="custId"></param>
-        /// <param name="dateFrom"></param>
-        /// <param name="transType"></param>
-        /// <param name="language"></param>
-        /// <returns></returns>
-        public DataTable Age_BetList_SelByDayAll_Mem(int custId, DateTime dateFrom, int transType, string language, DateTime moveBetsDay, out DataTable outDataTable)
-        {
-            // Parameters
-            Hashtable parameters = new Hashtable();
-            parameters.Add("custid", custId);
-            parameters.Add("fromdate", dateFrom);
-            parameters.Add("transtype", transType);
-            parameters.Add("language", language);
-            parameters.Add("movebetsday", moveBetsDay);
-
-            DataSet result = ExecSpDataset("Age_BetList_SelByDayAll_Mem", parameters);
-
-            // Check exist a DataTable in DataSet
-            if (result.Tables.Count > 0)
-            {
-                outDataTable = result.Tables.Count > 1 ? result.Tables[01] : new DataTable();
-                return result.Tables[0];
-            }
-            else
-            {
-                // Throw DataException and log the SP calling
-                AgentDataAccessException error = new AgentDataAccessException("Age_BetList_SelByDayAll_Mem", parameters);
-                Sunplus.Agent.Utilities.Logs.Write(error);
-                throw error;
-            }
-        }
-
-        /// <summary>
-        /// Get dailly statement old data from table 14
-        /// </summary>
-        /// <param name="custId"></param>
-        /// <param name="dateFrom"></param>
-        /// <param name="language"></param>
-        /// <returns></returns>
-        public DataTable Age_BetList_SelByDayAll_Mem_Old(int custId, DateTime dateFrom, string language, int transType, out DataTable outDataTable)
-        {
-            // Parameters
-            Hashtable parameters = new Hashtable();
-            parameters.Add("custid", custId);
-            parameters.Add("fromdate", dateFrom);
-            parameters.Add("language", language);
-            parameters.Add("transtype", transType);
-
-            DataSet result = ExecSpDataset("Age_BetList_SelByDayAll_Mem_Old", parameters);
-
-            // Check exist a DataTable in DataSet
-            if (result.Tables.Count > 0)
-            {
-                outDataTable = result.Tables.Count > 1 ? result.Tables[01] : new DataTable();
-                return result.Tables[0];
-            }
-            else
-            {
-                // Throw DataException and log the SP calling
-                AgentDataAccessException error = new AgentDataAccessException("Age_BetList_SelByDayAll_Mem_Old", parameters);
-                Sunplus.Agent.Utilities.Logs.Write(error);
-                throw error;
-            }
-        }
-
-        #endregion DailyStatement
-
-        #region RunningByBettype
 
         /// <summary>
         /// Get running bets by bet type for agent
