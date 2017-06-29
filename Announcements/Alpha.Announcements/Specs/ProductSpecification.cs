@@ -3,11 +3,14 @@
     using Models;
     using System.Collections.Generic;
     using System.Linq;
+    using Newtonsoft.Json.Linq;
+    using System.Collections;
 
     public class ProductSpecification : CompositeSpecification<IParam>
     {
         public const string SpecificationId = "E4FE1443-C8D0-4E63-A355-08661859295E";
         private const string SpecificationName = "Products";
+        private IEnumerable<byte> ProductIds { get; set; }
 
         public ProductSpecification()
         {
@@ -30,11 +33,9 @@
 
             set
             {
-                ProductIds = value is IEnumerable<byte> ? value : ProductIds;
+                ProductIds = value is IEnumerable ? ((JArray)value).Select(x => (byte)x).ToList() : ProductIds;
             }
         }
-
-        public IEnumerable<byte> ProductIds { get; set; }
 
         public override bool IsSatisfiedBy(IParam param) =>
             SpecificationOperator == SpecificationOperator.In

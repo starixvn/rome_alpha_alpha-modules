@@ -3,11 +3,14 @@
     using Models;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Collections;
+    using Newtonsoft.Json.Linq;
 
     public class CurrencySpecification : CompositeSpecification<IParam>
     {
         public const string SpecificationId = "9504BDEB-4F6D-4617-BBA6-B1266AC38830";
         private const string SpecificationName = "Currencies";
+        private IEnumerable<byte> CurrencyIds { get; set; }
 
         public CurrencySpecification()
         {
@@ -30,11 +33,9 @@
 
             set
             {
-                CurrencyIds = value is IEnumerable<byte> ? value : CurrencyIds;
+                CurrencyIds = value is IEnumerable ? ((JArray)value).Select(x => (byte)x).ToList() : CurrencyIds;
             }
         }
-
-        public IEnumerable<byte> CurrencyIds { get; set; }
 
         public override bool IsSatisfiedBy(IParam param) =>
             SpecificationOperator == SpecificationOperator.In
