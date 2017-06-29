@@ -19,7 +19,7 @@
             // Arrange
             var userLevelSpec = new UserLevelSpecification(new List<byte> { 1, 2 });
             userLevelSpec.SpecificationOperator = SpecificationOperator.In;
-            var user = Substitute.For<IUser>();
+            var user = Substitute.For<IParam>();
             user.LevelId.Returns(userLevel);
 
             // Act
@@ -37,7 +37,7 @@
             // Arrange
             var userLevelSpec = new UserLevelSpecification(new List<byte> { 0 });
             userLevelSpec.SpecificationOperator = SpecificationOperator.In;
-            var user = Substitute.For<IUser>();
+            var user = Substitute.For<IParam>();
             user.LevelId.Returns(userLevel);
 
             // Act
@@ -54,7 +54,7 @@
             // Arrange
             var userLevelSpec = new UserLevelSpecification(new List<byte> { 1 });
             userLevelSpec.SpecificationOperator = SpecificationOperator.In;
-            var user = Substitute.For<IUser>();
+            var user = Substitute.For<IParam>();
             user.LevelId.Returns(userLevel);
 
             // Act
@@ -71,7 +71,7 @@
             // Arrange
             var userLevelSpec = new UserLevelSpecification(new List<byte> { 1 });
             userLevelSpec.SpecificationOperator = SpecificationOperator.NotIn;
-            var user = Substitute.For<IUser>();
+            var user = Substitute.For<IParam>();
             user.LevelId.Returns(userLevel);
 
             // Act
@@ -89,7 +89,7 @@
             // Arrange
             var userLevelSpec = new UserLevelSpecification(new List<byte> { 0 });
             userLevelSpec.SpecificationOperator = SpecificationOperator.NotIn;
-            var user = Substitute.For<IUser>();
+            var user = Substitute.For<IParam>();
             user.LevelId.Returns(userLevel);
 
             // Act

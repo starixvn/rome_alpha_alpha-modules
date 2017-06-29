@@ -1,6 +1,8 @@
-﻿namespace Alpha.Announcements.Models
+﻿using System.Collections.Generic;
+
+namespace Alpha.Announcements.Models
 {
-    public interface IUser
+    public interface IParam
     {
         int Id { get; }
 
@@ -16,11 +18,13 @@
 
         string LangKey { get; }
 
-        int CurrencyId { get; }
+        byte CurrencyId { get; }
 
         int ARecommendId { get; }
 
         string Site { get; }
+
+        IEnumerable<byte> OfferedProductIds { get; }
 
         bool IsSubAcc { get; }
     }

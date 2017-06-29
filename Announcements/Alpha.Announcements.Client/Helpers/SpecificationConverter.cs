@@ -5,7 +5,7 @@
     using Newtonsoft.Json.Linq;
     using Specs;
 
-    public class SpecificationConverter : JsonCreationConverter<ISpecification<IUser>>
+    public class SpecificationConverter : JsonCreationConverter<ISpecification<IParam>>
     {
         protected override Type GetTargetType(Type type, JObject obj)
         {

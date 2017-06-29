@@ -22,7 +22,7 @@
 
         public bool IsActive { get; set; }
 
-        public IEnumerable<ISpecification<IUser>> Specifications { get; set; }
+        public IEnumerable<ISpecification<IParam>> Specifications { get; set; }
 
         public string Title { get; set; }
 

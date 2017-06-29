@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\IUser.cs" />
+    <Compile Include="Models\IParam.cs" />
     <Compile Include="Models\Announcement.cs" />
     <Compile Include="Models\MessageContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -49,6 +49,9 @@
     <Compile Include="Services\SpecificationService.cs" />
     <Compile Include="Specs\CompositeSpecification.cs" />
     <Compile Include="Specs\ISpecification.cs" />
+    <Compile Include="Specs\ProductSpecification.cs" />
+    <Compile Include="Specs\CurrencySpecification.cs" />
+    <Compile Include="Specs\UserIdSpecification.cs" />
     <Compile Include="Specs\SiteSpecification.cs" />
     <Compile Include="Specs\UserLevelSpecification.cs" />
   </ItemGroup>

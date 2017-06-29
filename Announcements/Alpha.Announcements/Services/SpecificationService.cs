@@ -7,12 +7,12 @@
 
     public interface SpecificationService
     {
-        bool IsSatisfied(IEnumerable<ISpecification<IUser>> specifications, IUser user);
+        bool IsSatisfied(IEnumerable<ISpecification<IParam>> specifications, IParam user);
     }
 
     public class SpecificationServiceImpl : SpecificationService
     {
-        public bool IsSatisfied(IEnumerable<ISpecification<IUser>> specifications, IUser user)
+        public bool IsSatisfied(IEnumerable<ISpecification<IParam>> specifications, IParam user)
         {
             if (user == null)
             {

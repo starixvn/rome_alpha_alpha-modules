@@ -10,16 +10,16 @@
 
     public interface SpecificationFactory
     {
-        IEnumerable<ISpecification<IUser>> LoadSpecifications();
+        IEnumerable<ISpecification<IParam>> LoadSpecifications();
     }
 
     public class SpecificationFactoryImpl : SpecificationFactory
     {
         private static readonly object LockObject = new object();
         private static IList<Type> specificationTypes;
-        private static IList<ISpecification<IUser>> specifications = new List<ISpecification<IUser>>();
+        private static IList<ISpecification<IParam>> specifications = new List<ISpecification<IParam>>();
 
-        public IEnumerable<ISpecification<IUser>> LoadSpecifications()
+        public IEnumerable<ISpecification<IParam>> LoadSpecifications()
         {
             var specTypes = GetSpecificationTypes();
 
@@ -41,7 +41,7 @@
         {
             foreach (var specType in specTypes)
             {
-                var specification = Activator.CreateInstance(specType) as ISpecification<IUser>;
+                var specification = Activator.CreateInstance(specType) as ISpecification<IParam>;
                 if (specification != null
                     && specification.Combinable)
                 {
@@ -54,7 +54,7 @@
         {
             if (specificationTypes == null || !specificationTypes.Any())
             {
-                var specType = typeof(ISpecification<IUser>);
+                var specType = typeof(ISpecification<IParam>);
 
                 specificationTypes = GetRefferencedAssemblies()
                     .SelectMany(assembly => assembly.GetTypes())

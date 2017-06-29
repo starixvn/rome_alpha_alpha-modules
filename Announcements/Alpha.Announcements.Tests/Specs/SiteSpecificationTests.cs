@@ -18,7 +18,7 @@
             // Arrange
             var siteSpec = new SiteSpecification(new List<string> { "Site1", "Site2" });
             siteSpec.SpecificationOperator = SpecificationOperator.In;
-            var user = Substitute.For<IUser>();
+            var user = Substitute.For<IParam>();
             user.Site.Returns("Site1");
 
             // Act
@@ -34,7 +34,7 @@
             // Arrange
             var siteSpec = new SiteSpecification(new List<string> { "Site1", "Site2" });
             siteSpec.SpecificationOperator = SpecificationOperator.In;
-            var user = Substitute.For<IUser>();
+            var user = Substitute.For<IParam>();
             user.Site.Returns("Site3");
 
             // Act
@@ -51,7 +51,7 @@
             // Arrange
             var siteSpec = new SiteSpecification(new List<string> { "Site1", "Site2" });
             siteSpec.SpecificationOperator = SpecificationOperator.NotIn;
-            var user = Substitute.For<IUser>();
+            var user = Substitute.For<IParam>();
             user.Site.Returns(userSite);
 
             // Act
@@ -68,7 +68,7 @@
             // Arrange
             var siteSpec = new SiteSpecification(new List<string> { "Site1", "Site2" });
             siteSpec.SpecificationOperator = SpecificationOperator.NotIn;
-            var user = Substitute.For<IUser>();
+            var user = Substitute.For<IParam>();
             user.Site.Returns(userSite);
 
             // Act

@@ -12,20 +12,20 @@
     public class SpecificationServiceImplTests
     {
         private SpecificationService specificationService;
-        private IUser user;
+        private IParam user;
 
         [SetUp]
         public void SetUp()
         {
             specificationService = new SpecificationServiceImpl();
-            user = Substitute.For<IUser>();
+            user = Substitute.For<IParam>();
         }
 
         [Test]
         public void IsSatisfied_NoSpecificationRequired_ReturnTrue()
         {
             // Act
-            var actualIsSatisfied = specificationService.IsSatisfied(Enumerable.Empty<ISpecification<IUser>>(), user);
+            var actualIsSatisfied = specificationService.IsSatisfied(Enumerable.Empty<ISpecification<IParam>>(), user);
 
             // Assert
             Assert.IsTrue(actualIsSatisfied);
@@ -36,9 +36,9 @@
         {
             // Act
             var actualIsSatisfied = specificationService.IsSatisfied(
-                new List<ISpecification<IUser>>
+                new List<ISpecification<IParam>>
                 {
-                    Substitute.For<ISpecification<IUser>>()
+                    Substitute.For<ISpecification<IParam>>()
                 },
                 user);
 
@@ -50,15 +50,15 @@
         public void IsSatisfied_ConjuntionIsAnd_AndOneSpecificationIsNotSatisfied_ReturnFalse()
         {
             // Arrange
-            var spec1 = Substitute.For<ISpecification<IUser>>();
+            var spec1 = Substitute.For<ISpecification<IParam>>();
             spec1.ConjunctionOperator.Returns(ConjunctionOperator.And);
-            spec1.IsSatisfiedBy(Arg.Any<IUser>()).Returns(false);
+            spec1.IsSatisfiedBy(Arg.Any<IParam>()).Returns(false);
 
-            var spec2 = Substitute.For<ISpecification<IUser>>();
+            var spec2 = Substitute.For<ISpecification<IParam>>();
             spec2.ConjunctionOperator.Returns(ConjunctionOperator.And);
-            spec2.IsSatisfiedBy(Arg.Any<IUser>()).Returns(true);
+            spec2.IsSatisfiedBy(Arg.Any<IParam>()).Returns(true);
 
-            var specs = new List<ISpecification<IUser>>
+            var specs = new List<ISpecification<IParam>>
                 {
                     spec1,
                     spec2
@@ -75,15 +75,15 @@
         public void IsSatisfied_ConjuntionIsAnd_AllSpecsAreSatisfied_ReturnTrue()
         {
             // Arrange
-            var spec1 = Substitute.ForPartsOf<CompositeSpecification<IUser>>();
+            var spec1 = Substitute.ForPartsOf<CompositeSpecification<IParam>>();
             spec1.ConjunctionOperator = ConjunctionOperator.And;
-            spec1.IsSatisfiedBy(Arg.Any<IUser>()).Returns(true);
+            spec1.IsSatisfiedBy(Arg.Any<IParam>()).Returns(true);
 
-            var spec2 = Substitute.ForPartsOf<CompositeSpecification<IUser>>();
+            var spec2 = Substitute.ForPartsOf<CompositeSpecification<IParam>>();
             spec2.ConjunctionOperator = ConjunctionOperator.And;
-            spec2.IsSatisfiedBy(Arg.Any<IUser>()).Returns(true);
+            spec2.IsSatisfiedBy(Arg.Any<IParam>()).Returns(true);
 
-            var specs = new List<ISpecification<IUser>>
+            var specs = new List<ISpecification<IParam>>
                 {
                     spec1,
                     spec2
@@ -100,15 +100,15 @@
         public void IsSatisfied_ConjuntionIsOr_AllSpecsAreSatisfied_ReturnTrue()
         {
             // Arrange
-            var spec1 = Substitute.ForPartsOf<CompositeSpecification<IUser>>();
+            var spec1 = Substitute.ForPartsOf<CompositeSpecification<IParam>>();
             spec1.ConjunctionOperator = ConjunctionOperator.Or;
-            spec1.IsSatisfiedBy(Arg.Any<IUser>()).Returns(true);
+            spec1.IsSatisfiedBy(Arg.Any<IParam>()).Returns(true);
 
-            var spec2 = Substitute.ForPartsOf<CompositeSpecification<IUser>>();
+            var spec2 = Substitute.ForPartsOf<CompositeSpecification<IParam>>();
             spec2.ConjunctionOperator = ConjunctionOperator.Or;
-            spec2.IsSatisfiedBy(Arg.Any<IUser>()).Returns(true);
+            spec2.IsSatisfiedBy(Arg.Any<IParam>()).Returns(true);
 
-            var specs = new List<ISpecification<IUser>>
+            var specs = new List<ISpecification<IParam>>
                 {
                     spec1,
                     spec2
@@ -125,15 +125,15 @@
         public void IsSatisfied_ConjuntionIsOr_OneOfSpecIsSatisfied_ReturnTrue()
         {
             // Arrange
-            var spec1 = Substitute.ForPartsOf<CompositeSpecification<IUser>>();
+            var spec1 = Substitute.ForPartsOf<CompositeSpecification<IParam>>();
             spec1.ConjunctionOperator = ConjunctionOperator.Or;
-            spec1.IsSatisfiedBy(Arg.Any<IUser>()).Returns(false);
+            spec1.IsSatisfiedBy(Arg.Any<IParam>()).Returns(false);
 
-            var spec2 = Substitute.ForPartsOf<CompositeSpecification<IUser>>();
+            var spec2 = Substitute.ForPartsOf<CompositeSpecification<IParam>>();
             spec2.ConjunctionOperator = ConjunctionOperator.Or;
-            spec2.IsSatisfiedBy(Arg.Any<IUser>()).Returns(true);
+            spec2.IsSatisfiedBy(Arg.Any<IParam>()).Returns(true);
 
-            var specs = new List<ISpecification<IUser>>
+            var specs = new List<ISpecification<IParam>>
                 {
                     spec1,
                     spec2
@@ -157,18 +157,18 @@
             bool expectedResult)
         {
             // Arrange
-            var spec1 = Substitute.ForPartsOf<CompositeSpecification<IUser>>();
-            spec1.IsSatisfiedBy(Arg.Any<IUser>()).Returns(isSpec1Statisfied);
+            var spec1 = Substitute.ForPartsOf<CompositeSpecification<IParam>>();
+            spec1.IsSatisfiedBy(Arg.Any<IParam>()).Returns(isSpec1Statisfied);
 
-            var spec2 = Substitute.ForPartsOf<CompositeSpecification<IUser>>();
+            var spec2 = Substitute.ForPartsOf<CompositeSpecification<IParam>>();
             spec2.ConjunctionOperator = ConjunctionOperator.Or;
-            spec2.IsSatisfiedBy(Arg.Any<IUser>()).Returns(isSpec2Statisfied);
+            spec2.IsSatisfiedBy(Arg.Any<IParam>()).Returns(isSpec2Statisfied);
 
-            var spec3 = Substitute.ForPartsOf<CompositeSpecification<IUser>>();
+            var spec3 = Substitute.ForPartsOf<CompositeSpecification<IParam>>();
             spec3.ConjunctionOperator = ConjunctionOperator.And;
-            spec3.IsSatisfiedBy(Arg.Any<IUser>()).Returns(isSpec3Statisfied);
+            spec3.IsSatisfiedBy(Arg.Any<IParam>()).Returns(isSpec3Statisfied);
 
-            var specs = new List<ISpecification<IUser>>
+            var specs = new List<ISpecification<IParam>>
                 {
                     spec1,
                     spec2,
