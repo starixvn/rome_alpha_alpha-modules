@@ -36,10 +36,10 @@
 
         public IEnumerable<byte> ProductIds { get; set; }
 
-        public override bool IsSatisfiedBy(IParam user) =>
+        public override bool IsSatisfiedBy(IParam param) =>
             SpecificationOperator == SpecificationOperator.In
-                    ? IsContainsOfferedProductId(user.OfferedProductIds)
-                    : !IsContainsOfferedProductId(user.OfferedProductIds);
+                    ? IsContainsOfferedProductId(param.OfferedProductIds)
+                    : !IsContainsOfferedProductId(param.OfferedProductIds);
 
         private bool IsContainsOfferedProductId(IEnumerable<byte> offeredProductIds)
              => ProductIds.Any(productId => offeredProductIds.Any(offeredProductId => offeredProductId.Equals(productId)));

@@ -7,14 +7,14 @@
 
     public interface SpecificationService
     {
-        bool IsSatisfied(IEnumerable<ISpecification<IParam>> specifications, IParam user);
+        bool IsSatisfied(IEnumerable<ISpecification<IParam>> specifications, IParam param);
     }
 
     public class SpecificationServiceImpl : SpecificationService
     {
-        public bool IsSatisfied(IEnumerable<ISpecification<IParam>> specifications, IParam user)
+        public bool IsSatisfied(IEnumerable<ISpecification<IParam>> specifications, IParam param)
         {
-            if (user == null)
+            if (param == null)
             {
                 return false;
             }
@@ -34,7 +34,7 @@
                        : accumulateSpecification.And(nextSpec);
             }
 
-            return accumulateSpecification.IsSatisfiedBy(user);
+            return accumulateSpecification.IsSatisfiedBy(param);
         }
     }
 }

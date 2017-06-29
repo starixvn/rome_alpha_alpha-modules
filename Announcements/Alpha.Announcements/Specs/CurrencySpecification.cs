@@ -36,10 +36,10 @@
 
         public IEnumerable<byte> CurrencyIds { get; set; }
 
-        public override bool IsSatisfiedBy(IParam user) =>
+        public override bool IsSatisfiedBy(IParam param) =>
             SpecificationOperator == SpecificationOperator.In
-                    ? IsContainsCurrencyId(user.CurrencyId)
-                    : !IsContainsCurrencyId(user.CurrencyId);
+                    ? IsContainsCurrencyId(param.CurrencyId)
+                    : !IsContainsCurrencyId(param.CurrencyId);
 
         private bool IsContainsCurrencyId(byte currencyId) => CurrencyIds.Contains(currencyId);
     }

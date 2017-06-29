@@ -36,10 +36,10 @@
 
         public IEnumerable<byte> Levels { get; set; }
 
-        public override bool IsSatisfiedBy(IParam user) =>
+        public override bool IsSatisfiedBy(IParam param) =>
              SpecificationOperator == SpecificationOperator.In
-                ? IsUserLevelInList(user.LevelId)
-                : !IsUserLevelInList(user.LevelId);
+                ? IsUserLevelInList(param.LevelId)
+                : !IsUserLevelInList(param.LevelId);
 
         private bool IsUserLevelInList(byte userLevelId) =>
             Levels.Contains((byte)0)

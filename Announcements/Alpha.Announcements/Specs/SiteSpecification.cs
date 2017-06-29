@@ -36,10 +36,10 @@
 
         public IEnumerable<string> Sites { get; set; }
 
-        public override bool IsSatisfiedBy(IParam user) =>
+        public override bool IsSatisfiedBy(IParam param) =>
             SpecificationOperator == SpecificationOperator.In
-                    ? IsContainsSite(user.Site)
-                    : !IsContainsSite(user.Site);
+                    ? IsContainsSite(param.Site)
+                    : !IsContainsSite(param.Site);
 
         private bool IsContainsSite(string site) => Sites.Contains(site);
     }

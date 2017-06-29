@@ -36,10 +36,10 @@
 
         public IEnumerable<int> UserIds { get; set; }
 
-        public override bool IsSatisfiedBy(IParam user) =>
+        public override bool IsSatisfiedBy(IParam param) =>
             SpecificationOperator == SpecificationOperator.In
-                    ? IsContainsUserId(user.Id)
-                    : !IsContainsUserId(user.Id);
+                    ? IsContainsUserId(param.Id)
+                    : !IsContainsUserId(param.Id);
 
         private bool IsContainsUserId(int userId) => UserIds.Contains(userId);
     }
