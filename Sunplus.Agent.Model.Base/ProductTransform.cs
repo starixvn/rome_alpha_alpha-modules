@@ -9,6 +9,7 @@
     {
         private static readonly Dictionary<int, string> ProductNames = new Dictionary<int, string>
         {
+            [5]="virtualsports",
             [19] = "cockfighting",
             [20] = "cricket",
             [21] = "allbet",
