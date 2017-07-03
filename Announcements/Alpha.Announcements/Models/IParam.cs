@@ -27,5 +27,7 @@ namespace Alpha.Announcements.Models
         IEnumerable<byte> OfferedProductIds { get; }
 
         bool IsSubAcc { get; }
+
+        bool IsSyncedCasino { get; }
     }
 }
