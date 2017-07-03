@@ -484,7 +484,7 @@ namespace Sunplus.Agent.Model.BL.BetList
 
             string language = CurrentSession.LangKey;
 
-            DataTable daillyBets = betListDAO.Age_BetList_SelByDayAll_Mem(custId, dateFrom, transType, language, out outDataTable);
+            DataTable daillyBets = betListDAO.Age_BetList_SelByDayAll_Mem(custId, dateFrom, transType, language, MoveBetsDate, out outDataTable);
             return daillyBets;
         }
 

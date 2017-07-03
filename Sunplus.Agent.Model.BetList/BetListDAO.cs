@@ -857,7 +857,7 @@ namespace Sunplus.Agent.Model.DL.BetList
         /// <param name="transType"></param>
         /// <param name="language"></param>
         /// <returns></returns>
-        public DataTable Age_BetList_SelByDayAll_Mem(int custId, DateTime dateFrom, int transType, string language, out DataTable outDataTable)
+        public DataTable Age_BetList_SelByDayAll_Mem(int custId, DateTime dateFrom, int transType, string language, DateTime moveBetsDay, out DataTable outDataTable)
         {
             // Parameters
             Hashtable parameters = new Hashtable();
@@ -865,6 +865,7 @@ namespace Sunplus.Agent.Model.DL.BetList
             parameters.Add("fromdate", dateFrom);
             parameters.Add("transtype", transType);
             parameters.Add("language", language);
+            parameters.Add("movebetsday", moveBetsDay);
 
             DataSet result = ExecSpDataset("Age_BetList_SelByDayAll_Mem", parameters);
 
