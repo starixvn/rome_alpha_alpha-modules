@@ -4,9 +4,9 @@ namespace Alpha.Announcements.Models
 {
     public interface IParam
     {
-        int Id { get; }
+        int UserId { get; }
 
-        string Name { get; }
+        string UserName { get; }
 
         string Language { get; }
 

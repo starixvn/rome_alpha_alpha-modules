@@ -39,8 +39,8 @@
 
         public override bool IsSatisfiedBy(IParam param) =>
             SpecificationOperator == SpecificationOperator.In
-                    ? IsContainsUserId(param.Id)
-                    : !IsContainsUserId(param.Id);
+                    ? IsContainsUserId(param.UserId)
+                    : !IsContainsUserId(param.UserId);
 
         private bool IsContainsUserId(int userId) => UserIds.Contains(userId);
     }

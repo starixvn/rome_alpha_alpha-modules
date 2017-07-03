@@ -1,13 +1,10 @@
 ﻿namespace Alpha.Announcements.Tests.Specs
 {
+    using System.Collections.Generic;
     using Announcements.Specs;
     using Models;
     using NSubstitute;
     using NUnit.Framework;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
 
     [TestFixture]
     public class UserLevelSpecificationTests
@@ -19,11 +16,11 @@
             // Arrange
             var userLevelSpec = new UserLevelSpecification(new List<byte> { 1, 2 });
             userLevelSpec.SpecificationOperator = SpecificationOperator.In;
-            var user = Substitute.For<IParam>();
-            user.LevelId.Returns(userLevel);
+            var param = Substitute.For<IParam>();
+            param.LevelId.Returns(userLevel);
 
             // Act
-            var actualIsSatisfiedBy = userLevelSpec.IsSatisfiedBy(user);
+            var actualIsSatisfiedBy = userLevelSpec.IsSatisfiedBy(param);
 
             // Assert
             Assert.IsTrue(actualIsSatisfiedBy);
@@ -37,11 +34,11 @@
             // Arrange
             var userLevelSpec = new UserLevelSpecification(new List<byte> { 0 });
             userLevelSpec.SpecificationOperator = SpecificationOperator.In;
-            var user = Substitute.For<IParam>();
-            user.LevelId.Returns(userLevel);
+            var param = Substitute.For<IParam>();
+            param.LevelId.Returns(userLevel);
 
             // Act
-            var actualIsSatisfiedBy = userLevelSpec.IsSatisfiedBy(user);
+            var actualIsSatisfiedBy = userLevelSpec.IsSatisfiedBy(param);
 
             // Assert
             Assert.IsTrue(actualIsSatisfiedBy);
@@ -54,11 +51,11 @@
             // Arrange
             var userLevelSpec = new UserLevelSpecification(new List<byte> { 1 });
             userLevelSpec.SpecificationOperator = SpecificationOperator.In;
-            var user = Substitute.For<IParam>();
-            user.LevelId.Returns(userLevel);
+            var param = Substitute.For<IParam>();
+            param.LevelId.Returns(userLevel);
 
             // Act
-            var actualIsSatisfiedBy = userLevelSpec.IsSatisfiedBy(user);
+            var actualIsSatisfiedBy = userLevelSpec.IsSatisfiedBy(param);
 
             // Assert
             Assert.IsFalse(actualIsSatisfiedBy);
@@ -71,11 +68,11 @@
             // Arrange
             var userLevelSpec = new UserLevelSpecification(new List<byte> { 1 });
             userLevelSpec.SpecificationOperator = SpecificationOperator.NotIn;
-            var user = Substitute.For<IParam>();
-            user.LevelId.Returns(userLevel);
+            var param = Substitute.For<IParam>();
+            param.LevelId.Returns(userLevel);
 
             // Act
-            var actualIsSatisfiedBy = userLevelSpec.IsSatisfiedBy(user);
+            var actualIsSatisfiedBy = userLevelSpec.IsSatisfiedBy(param);
 
             // Assert
             Assert.IsTrue(actualIsSatisfiedBy);
@@ -89,11 +86,11 @@
             // Arrange
             var userLevelSpec = new UserLevelSpecification(new List<byte> { 0 });
             userLevelSpec.SpecificationOperator = SpecificationOperator.NotIn;
-            var user = Substitute.For<IParam>();
-            user.LevelId.Returns(userLevel);
+            var param = Substitute.For<IParam>();
+            param.LevelId.Returns(userLevel);
 
             // Act
-            var actualIsSatisfiedBy = userLevelSpec.IsSatisfiedBy(user);
+            var actualIsSatisfiedBy = userLevelSpec.IsSatisfiedBy(param);
 
             // Assert
             Assert.IsFalse(actualIsSatisfiedBy);

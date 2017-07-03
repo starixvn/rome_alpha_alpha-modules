@@ -58,6 +58,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SpecificationFactoryTests.cs" />
     <Compile Include="Services\SpecificationServiceImplTests.cs" />
+    <Compile Include="Specs\UserIdSpecificationTests.cs" />
+    <Compile Include="Specs\ProductSpecificationTests.cs" />
+    <Compile Include="Specs\CurrencySpecificationTests.cs" />
     <Compile Include="Specs\SiteSpecificationTests.cs" />
     <Compile Include="Specs\UserLevelSpecificationTests.cs" />
   </ItemGroup>
