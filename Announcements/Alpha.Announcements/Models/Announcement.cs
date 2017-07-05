@@ -30,7 +30,7 @@
 
         public IEnumerable<string> Systems { get; set; }
 
-        public int Order { get; set; }
+        public int Ordinal { get; set; }
 
         public DateTime FromDate { get; set; }
 

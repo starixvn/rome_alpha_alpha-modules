@@ -1,5 +1,7 @@
 ﻿namespace Alpha.Announcements.Specs
 {
+    using System.ComponentModel;
+
     public enum ConjunctionOperator
     {
         And = 1,
@@ -9,6 +11,7 @@
     public enum SpecificationOperator
     {
         In = 1,
+        [Description("Not In")]
         NotIn = 2
     }
 
