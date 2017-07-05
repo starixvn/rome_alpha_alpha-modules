@@ -164,6 +164,8 @@ namespace Sunplus.Agent.Model.BL.Definitions
 
         // Fishing World
         FishingWorldStart = 1011,
-        FishingWorldEnd = 1020
+        FishingWorldEnd = 1020,
+
+        Mix_Parlay_BetRadarVirtualSports = 2799
     }
 }
