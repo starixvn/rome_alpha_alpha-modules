@@ -8,7 +8,7 @@
 
     public class UserIdSpecification : CompositeSpecification<IParam>
     {
-        public const string SpecificationId = "66F31C82-6EB1-4296-98E6-7DC593E80B1D";
+        public const string SpecificationId = "66f31c82-6eb1-4296-98e6-7dc593e80b1d";
         private const string SpecificationName = "User Ids";
         private IEnumerable<int> UserIds { get; set; }
 
