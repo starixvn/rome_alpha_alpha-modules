@@ -124,9 +124,7 @@ namespace Sunplus.Agent.Model.Entities
 
         private const string USERLOGINIP = "USERLOGINIP";
 
-        private const string ISSYNCEDALLBET = "ISSYNCEDALLBET";
-
-        private const string ISENABLEDOTP = "ISENABLEDOTP";
+        private const string ISALLDAYBALTRANSFER = "ISALLDAYBALTRANSFER";
 
         private string asNetSessionId;
 
@@ -1411,7 +1409,6 @@ namespace Sunplus.Agent.Model.Entities
             }
         }
 
-
         #region Show/Hide Menu
 
         public bool IsShowBetChoiceLimit
@@ -1564,6 +1561,20 @@ namespace Sunplus.Agent.Model.Entities
             set
             {
                 this.SetProperty("ISINTERNALWEBVPN", value);
+            }
+        }
+
+        public bool IsAllDayBalTransfer
+        {
+            get
+            {
+                object property = GetProperty(ISALLDAYBALTRANSFER);
+                return property != null && (bool)property;
+            }
+
+            set
+            {
+                SetProperty(ISALLDAYBALTRANSFER, value);
             }
         }
 

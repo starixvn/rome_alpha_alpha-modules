@@ -35,6 +35,7 @@ namespace Sunplus.Agent.Model.BL.Transfer
                        isFullTransfer,
                        AppSettings.AllowedListSuperAccounts,
                        CurrentSession.LangKey,
+                       CurrentSession.IsAllDayBalTransfer,
                        out errMsg);
             }
 
@@ -93,6 +94,7 @@ namespace Sunplus.Agent.Model.BL.Transfer
                 status, 
                 CurrentSession.LangKey, 
                 AppSettings.AllowedListSuperAccounts,
+                CurrentSession.IsAllDayBalTransfer,
                 out errMsg); 
         }
 

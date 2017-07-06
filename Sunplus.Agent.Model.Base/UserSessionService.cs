@@ -2,11 +2,10 @@ namespace Sunplus.Agent.Model.BL
 {
     using System;
     using System.Collections;
-    using System.Collections.Generic;
     using System.Text.RegularExpressions;
     using Fanex.Common;
-    using Model.Base;
     using Fanex.Products;
+    using Model.Base;
     using Model.Definitions;
     using Sunplus.Agent.Model.BL.Definitions;
     using Sunplus.Agent.Model.Entities;
@@ -218,6 +217,8 @@ namespace Sunplus.Agent.Model.BL
             {
                 session.IsLimitedHostPermisionOnSubAccountFunction = false;
             }
+
+            session.IsAllDayBalTransfer = values.ContainsKey("isalldaybaltransfer") && (bool)values["isalldaybaltransfer"];
         }
 
         private static void SetProductStatus(UserSessionBase session, Hashtable values)
@@ -304,17 +305,6 @@ namespace Sunplus.Agent.Model.BL
             session.SetSyncedProduct(ProductIdConstants.AllBet, GetProductStatus("syncedallbet", values, true));
 
             ProductTransform.TransformProductStatus(session, values);
-        }
-
-        private static KeyValuePair<int, string>[] ProductSpNames()
-        {
-            return new KeyValuePair<int, string>[]
-            {
-                new KeyValuePair<int, string>(ProductIdConstants.CockFighting, "cockfighting"),
-                new KeyValuePair<int, string>(ProductIdConstants.Cricket, "cricket"),
-                new KeyValuePair<int, string>(ProductIdConstants.AllBet, "allbet"),
-                new KeyValuePair<int, string>(ProductIdConstants.Voidbridge, "voidbridge")
-            };
         }
 
         private static bool GetProductStatus(string productStatus, Hashtable values, bool defaultValue)
