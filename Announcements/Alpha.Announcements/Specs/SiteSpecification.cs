@@ -9,7 +9,7 @@
     public class SiteSpecification : CompositeSpecification<IParam>
     {
         public const string SpecificationId = "6edc73e0-aa87-4757-96e7-e5ffea0ce06a";
-        private const string SpecificationName = "Sites";
+        private const string SpecificationName = "Site Names";
         private IEnumerable<string> Sites { get; set; }
 
         public SiteSpecification()

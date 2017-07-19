@@ -29,5 +29,7 @@ namespace Alpha.Announcements.Models
         bool IsSubAcc { get; }
 
         bool IsSyncedCasino { get; }
+
+        bool EnableYesterdayTransfer { get; }
     }
 }

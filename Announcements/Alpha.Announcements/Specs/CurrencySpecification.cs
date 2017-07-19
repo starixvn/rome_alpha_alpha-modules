@@ -9,7 +9,7 @@
     public class CurrencySpecification : CompositeSpecification<IParam>
     {
         public const string SpecificationId = "9504bdeb-4f6d-4617-bba6-b1266ac38830";
-        private const string SpecificationName = "Currencies";
+        private const string SpecificationName = "Currency Ids";
         private IEnumerable<byte> CurrencyIds { get; set; }
 
         public CurrencySpecification()

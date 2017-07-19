@@ -9,7 +9,7 @@
     public class ProductSpecification : CompositeSpecification<IParam>
     {
         public const string SpecificationId = "e4fe1443-c8d0-4e63-a355-08661859295e";
-        private const string SpecificationName = "Products";
+        private const string SpecificationName = "Product Ids";
         private IEnumerable<byte> ProductIds { get; set; }
 
         public ProductSpecification()

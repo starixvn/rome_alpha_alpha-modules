@@ -2,11 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using Specs;
 
     public enum AnnouncementType
     {
         Popup = 1,
+
+        [Description("Header Popup")]
         HeaderPopup = 2
     }
 
@@ -35,5 +38,17 @@
         public DateTime FromDate { get; set; }
 
         public DateTime ToDate { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+
+        public int CreatorId { get; set; }
+
+        public string CreatorName { get; set; }
+
+        public DateTime LastEditDate { get; set; }
+
+        public int LastEditorId { get; set; }
+
+        public string LastEditorName { get; set; }
     }
 }
