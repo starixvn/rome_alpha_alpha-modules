@@ -6,13 +6,13 @@
     using NUnit.Framework;
 
     [TestFixture]
-    public class NotSyncedCasinoSpecificationTests
+    public class NotSyncedRNGCasinoSpecificationTests
     {
         [Test]
         public void IsSatisfiedBy_UserIsSyncCasino_ReturnFalse()
         {
             // Arrange
-            var notSyncCasinoSpec = new NotSyncedCasinoSpecification();
+            var notSyncCasinoSpec = new NotSyncedRNGCasinoSpecification();
             notSyncCasinoSpec.SpecificationOperator = SpecificationOperator.In;
             var param = Substitute.For<IParam>();
             param.IsSyncedCasino.Returns(true);
@@ -28,7 +28,7 @@
         public void IsSatisfiedBy_UserIsNotSyncCasino_ReturnTrue()
         {
             // Arrange
-            var notSyncCasinoSpec = new NotSyncedCasinoSpecification();
+            var notSyncCasinoSpec = new NotSyncedRNGCasinoSpecification();
             notSyncCasinoSpec.SpecificationOperator = SpecificationOperator.In;
             var param = Substitute.For<IParam>();
             param.IsSyncedCasino.Returns(false);

@@ -59,7 +59,7 @@
     <Compile Include="Services\SpecificationFactoryTests.cs" />
     <Compile Include="Services\SpecificationServiceImplTests.cs" />
     <Compile Include="Specs\EnableYesterdayTransferSpecificationTests.cs" />
-    <Compile Include="Specs\NotSyncedCasinoSpecificationTests.cs" />
+    <Compile Include="Specs\NotSyncedRNGCasinoSpecificationTests.cs" />
     <Compile Include="Specs\UserIdSpecificationTests.cs" />
     <Compile Include="Specs\ProductSpecificationTests.cs" />
     <Compile Include="Specs\CurrencySpecificationTests.cs" />
