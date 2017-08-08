@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Collections;
     using Newtonsoft.Json.Linq;
+    using System;
 
     public class SiteSpecification : CompositeSpecification<IParam>
     {
@@ -42,6 +43,6 @@
                     ? IsContainsSite(param.Site)
                     : !IsContainsSite(param.Site);
 
-        private bool IsContainsSite(string site) => Sites.Contains(site);
+        private bool IsContainsSite(string site) => Sites.Any(i => i.Equals(site, StringComparison.OrdinalIgnoreCase));
     }
 }
