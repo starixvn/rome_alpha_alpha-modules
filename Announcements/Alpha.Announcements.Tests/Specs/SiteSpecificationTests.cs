@@ -9,6 +9,23 @@
     [TestFixture]
     public class SiteSpecificationTests
     {
+        [TestCase("site1")]
+        [TestCase("SITE1")]
+        public void IsSatisfiedBy_SearchIgnoreCase_ReturnTrue(string site)
+        {
+            // Arrange
+            var siteSpec = new SiteSpecification(new List<string> { "Site1", "Site2" });
+            siteSpec.SpecificationOperator = SpecificationOperator.In;
+            var param = Substitute.For<IParam>();
+            param.Site.Returns(site);
+
+            // Act
+            var actualIsSatisfiedBy = siteSpec.IsSatisfiedBy(param);
+
+            // Assert
+            Assert.IsTrue(actualIsSatisfiedBy);
+        }
+
         [Test]
         public void IsSatisfiedBy_UserIsAllowedToViewAnnouncementBySite_ReturnTrue()
         {
