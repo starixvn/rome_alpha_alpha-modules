@@ -201,14 +201,6 @@ namespace Sunplus.Agent.Model.Entities.Permission
             }
         }
 
-        public static bool IsShowVirtualSports
-        {
-            get
-            {
-                return AppSettings.IsEnableVirtualSports && !CurrentUserSession.GetHideProduct(ProductIdConstants.VirtualSports);
-            }
-        }
-
         public static bool IsShowKenoSetting
         {
             get
@@ -358,7 +350,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
                 case 4: // Live Casino
                     return IsShowLiveCasino;
                 case 5: // Virtual Sports
-                    return IsShowVirtualSports;
+                    return IsEnableProduct(productId);
                 case 6: // Casino
                     return IsShowCasino;
                 case 8: // Keno

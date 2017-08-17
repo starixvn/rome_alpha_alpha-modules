@@ -231,9 +231,6 @@ namespace Sunplus.Agent.Model.BL
             session.IsLiveCasinoDisabled = GetProductStatus("disablelivecasino", values, true);
             session.IsLiveCasinoSync = GetProductStatus("synclivecasino", values, false);
 
-            session.IsDisabledVirtualSports = GetProductStatus("disablevirtualsports", values, true);
-            session.IsHideVirtualSports = GetProductStatus("hidevirtualsports", values, true);
-
             session.IsNumberGameDisabled = GetProductStatus("disablenumber", values, true);
 
             session.IsBingoDisabled = GetProductStatus("disablebingo", values, true);
@@ -281,9 +278,6 @@ namespace Sunplus.Agent.Model.BL
             session.SetDisabledProduct(ProductIdConstants.LiveCasino, GetProductStatus("disablelivecasino", values, true));
             session.SetSyncedProduct(ProductIdConstants.LiveCasino, GetProductStatus("synclivecasino", values, false));
 
-            session.SetDisabledProduct(ProductIdConstants.VirtualSports, GetProductStatus("disablevirtualsports", values, true));
-            session.SetHideProduct(ProductIdConstants.VirtualSports, GetProductStatus("hidevirtualsports", values, false));
-
             session.SetDisabledProduct(ProductIdConstants.NumberGame, GetProductStatus("disablenumber", values, true));
 
             session.SetDisabledProduct(ProductIdConstants.Bingo, GetProductStatus("disablebingo", values, true));
@@ -303,7 +297,7 @@ namespace Sunplus.Agent.Model.BL
             session.SetDisabledProduct(ProductIdConstants.Sportsbook2, GetProductStatus("disablemuaythai", values, true));
 
             session.SetSyncedProduct(ProductIdConstants.AllBet, GetProductStatus("syncedallbet", values, true));
-
+            
             ProductTransform.TransformProductStatus(session, values);
         }
 

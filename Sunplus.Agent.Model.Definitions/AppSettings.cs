@@ -80,14 +80,6 @@ namespace Sunplus.Agent.Model.BL.Definitions
             }
         }
 
-        public static bool IsEnableVirtualSports
-        {
-            get
-            {
-                return GetValue("EnableVirtualSports") == "1";
-            }
-        }
-
         public static bool IsEnableKeno
         {
             get
