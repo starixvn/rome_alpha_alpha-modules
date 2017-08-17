@@ -43,7 +43,8 @@
             Assert.IsFalse(actualIsSatisfiedBy);
         }
 
-        public void IsSatisfiedBy_OperatorIsNotIn_UserProductIsNotInOfferdProductList_ReturnTrue(byte userProductId)
+        [Test]
+        public void IsSatisfiedBy_OperatorIsNotIn_UserProductIsNotInOfferdProductList_ReturnTrue()
         {
             // Arrange
             var productSpec = new ProductSpecification(new List<byte> { 5, 7 });
@@ -58,13 +59,14 @@
             Assert.IsTrue(actualIsSatisfiedBy);
         }
 
-        public void IsSatisfiedBy_OperatorIsNotIn_UserProductIsInOfferdProductList_ReturnFalse(byte userProductId)
+        [Test]
+        public void IsSatisfiedBy_OperatorIsNotIn_UserProductIsInOfferdProductList_ReturnFalse()
         {
             // Arrange
-            var productSpec = new ProductSpecification(new List<byte> { 22, 31 });
+            var productSpec = new ProductSpecification(new List<byte> { 22, 30 });
             productSpec.SpecificationOperator = SpecificationOperator.NotIn;
             var param = Substitute.For<IParam>();
-            param.CurrencyId.Returns(userProductId);
+            param.OfferedProductIds.Returns(OfferedProductIds);
 
             // Act
             var actualIsSatisfiedBy = productSpec.IsSatisfiedBy(param);

@@ -97,6 +97,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Announcements.Tests",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Announcements.UplineIdRule", "Alpha.Announcements.UplineIds\Alpha.Announcements.UplineIdRule.csproj", "{4F326CC9-0A18-4BBA-A041-06BF5AF62A59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Announcements.UplineIdRule.Tests", "Alpha.Announcements.UplineIdRule.Tests\Alpha.Announcements.UplineIdRule.Tests.csproj", "{BDFAFA17-938B-4F29-AE36-40C18289723B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -264,6 +266,10 @@ Global
 		{4F326CC9-0A18-4BBA-A041-06BF5AF62A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F326CC9-0A18-4BBA-A041-06BF5AF62A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F326CC9-0A18-4BBA-A041-06BF5AF62A59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDFAFA17-938B-4F29-AE36-40C18289723B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDFAFA17-938B-4F29-AE36-40C18289723B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDFAFA17-938B-4F29-AE36-40C18289723B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDFAFA17-938B-4F29-AE36-40C18289723B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -312,5 +318,6 @@ Global
 		{9A17ACC1-45EB-4ADC-9F68-9227DBCE62A8} = {8E551492-55FD-4752-928C-F2B9E7FDF87B}
 		{DCF0A06A-9682-45EF-94A4-D69344A171F7} = {9A17ACC1-45EB-4ADC-9F68-9227DBCE62A8}
 		{4F326CC9-0A18-4BBA-A041-06BF5AF62A59} = {8E551492-55FD-4752-928C-F2B9E7FDF87B}
+		{BDFAFA17-938B-4F29-AE36-40C18289723B} = {9A17ACC1-45EB-4ADC-9F68-9227DBCE62A8}
 	EndGlobalSection
 EndGlobal
