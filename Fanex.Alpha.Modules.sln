@@ -97,6 +97,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Announcements.UplineI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Announcements.UplineIdRule.Tests", "Alpha.Announcements.UplineIdRule.Tests\Alpha.Announcements.UplineIdRule.Tests.csproj", "{BDFAFA17-938B-4F29-AE36-40C18289723B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.ActivityTracking", "Alpha.ActivityTracking\Alpha.ActivityTracking.csproj", "{0320E929-E211-4E54-AB1B-99336405AED7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -264,6 +266,10 @@ Global
 		{BDFAFA17-938B-4F29-AE36-40C18289723B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDFAFA17-938B-4F29-AE36-40C18289723B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDFAFA17-938B-4F29-AE36-40C18289723B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0320E929-E211-4E54-AB1B-99336405AED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0320E929-E211-4E54-AB1B-99336405AED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0320E929-E211-4E54-AB1B-99336405AED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0320E929-E211-4E54-AB1B-99336405AED7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -312,5 +318,6 @@ Global
 		{DCF0A06A-9682-45EF-94A4-D69344A171F7} = {9A17ACC1-45EB-4ADC-9F68-9227DBCE62A8}
 		{4F326CC9-0A18-4BBA-A041-06BF5AF62A59} = {8E551492-55FD-4752-928C-F2B9E7FDF87B}
 		{BDFAFA17-938B-4F29-AE36-40C18289723B} = {9A17ACC1-45EB-4ADC-9F68-9227DBCE62A8}
+		{0320E929-E211-4E54-AB1B-99336405AED7} = {F509A529-DCB4-4682-B755-E6F58929E224}
 	EndGlobalSection
 EndGlobal
