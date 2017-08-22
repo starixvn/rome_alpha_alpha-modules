@@ -45,9 +45,9 @@
 
         public string CreatorName { get; set; }
 
-        public DateTime LastEditDate { get; set; }
+        public DateTime? LastEditDate { get; set; }
 
-        public int LastEditorId { get; set; }
+        public int? LastEditorId { get; set; }
 
         public string LastEditorName { get; set; }
     }

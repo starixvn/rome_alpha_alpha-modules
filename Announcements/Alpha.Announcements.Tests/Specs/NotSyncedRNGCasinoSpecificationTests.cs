@@ -6,16 +6,19 @@
     using NUnit.Framework;
 
     [TestFixture]
-    public class NotSyncedRNGCasinoSpecificationTests
+    public class NotSyncedRnGCasinoSpecificationTests
     {
-        [Test]
-        public void IsSatisfiedBy_UserIsSyncCasino_ReturnFalse()
+        [TestCase(true, false)]
+        [TestCase(false, true)]
+        public void IsSatisfiedBy_UserSyncedCasinoIsOppositeSpecValue_ReturnFalse(
+            bool userSyncedCasino,
+            bool specSyncedCasino)
         {
             // Arrange
-            var notSyncCasinoSpec = new NotSyncedRNGCasinoSpecification();
+            var notSyncCasinoSpec = new SyncedRnGCasinoSpecification(specSyncedCasino);
             notSyncCasinoSpec.SpecificationOperator = SpecificationOperator.In;
             var param = Substitute.For<IParam>();
-            param.IsSyncedCasino.Returns(true);
+            param.IsSyncedCasino.Returns(userSyncedCasino);
 
             // Act
             var actualIsSatisfiedBy = notSyncCasinoSpec.IsSatisfiedBy(param);
@@ -24,14 +27,17 @@
             Assert.IsFalse(actualIsSatisfiedBy);
         }
 
-        [Test]
-        public void IsSatisfiedBy_UserIsNotSyncCasino_ReturnTrue()
+        [TestCase(true, true)]
+        [TestCase(false, false)]
+        public void IsSatisfiedBy_UserSyncedCasinoIsSameSpecValue_ReturnTrue(
+            bool userSyncedCasino,
+            bool specSyncedCasino)
         {
             // Arrange
-            var notSyncCasinoSpec = new NotSyncedRNGCasinoSpecification();
+            var notSyncCasinoSpec = new SyncedRnGCasinoSpecification(specSyncedCasino);
             notSyncCasinoSpec.SpecificationOperator = SpecificationOperator.In;
             var param = Substitute.For<IParam>();
-            param.IsSyncedCasino.Returns(false);
+            param.IsSyncedCasino.Returns(userSyncedCasino);
 
             // Act
             var actualIsSatisfiedBy = notSyncCasinoSpec.IsSatisfiedBy(param);

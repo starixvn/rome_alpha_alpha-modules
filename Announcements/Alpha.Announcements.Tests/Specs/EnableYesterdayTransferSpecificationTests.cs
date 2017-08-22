@@ -8,36 +8,42 @@
     [TestFixture]
     public class EnableYesterdayTransferSpecificationTests
     {
-        [Test]
-        public void IsSatisfiedBy_UserIsEnableYesterdayTransfer_ReturnTrue()
+        [TestCase(true, false)]
+        [TestCase(false, true)]
+        public void IsSatisfiedBy_UserEnableYesterdayTransferIsOppositeSpecValue_ReturnFalse(
+            bool userEnableYesterdayTransfer,
+            bool specEnableYesterdayTransfer)
         {
             // Arrange
-            var enableYesterdayTransferSpec = new EnableYesterdayTransferSpecification();
+            var enableYesterdayTransferSpec = new EnableYesterdayTransferSpecification(specEnableYesterdayTransfer);
             enableYesterdayTransferSpec.SpecificationOperator = SpecificationOperator.In;
             var param = Substitute.For<IParam>();
-            param.EnableYesterdayTransfer.Returns(true);
-
-            // Act
-            var actualIsSatisfiedBy = enableYesterdayTransferSpec.IsSatisfiedBy(param);
-
-            // Assert
-            Assert.IsTrue(actualIsSatisfiedBy);
-        }
-
-        [Test]
-        public void IsSatisfiedBy_UserIsEnableYesterdayTransfer_ReturnFalse()
-        {
-            // Arrange
-            var enableYesterdayTransferSpec = new EnableYesterdayTransferSpecification();
-            enableYesterdayTransferSpec.SpecificationOperator = SpecificationOperator.In;
-            var param = Substitute.For<IParam>();
-            param.EnableYesterdayTransfer.Returns(false);
+            param.EnableYesterdayTransfer.Returns(userEnableYesterdayTransfer);
 
             // Act
             var actualIsSatisfiedBy = enableYesterdayTransferSpec.IsSatisfiedBy(param);
 
             // Assert
             Assert.IsFalse(actualIsSatisfiedBy);
+        }
+
+        [TestCase(true, true)]
+        [TestCase(false, false)]
+        public void IsSatisfiedBy_UserIsNotEnableYesterdayTransfer_ReturnTrue(
+            bool userEnableYesterdayTransfer,
+            bool specEnableYesterdayTransfer)
+        {
+            // Arrange
+            var enableYesterdayTransferSpec = new EnableYesterdayTransferSpecification(specEnableYesterdayTransfer);
+            enableYesterdayTransferSpec.SpecificationOperator = SpecificationOperator.In;
+            var param = Substitute.For<IParam>();
+            param.EnableYesterdayTransfer.Returns(userEnableYesterdayTransfer);
+
+            // Act
+            var actualIsSatisfiedBy = enableYesterdayTransferSpec.IsSatisfiedBy(param);
+
+            // Assert
+            Assert.IsTrue(actualIsSatisfiedBy);
         }
     }
 }

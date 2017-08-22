@@ -6,6 +6,7 @@
     {
         public const string SpecificationId = "9c7da446-b1b0-434b-8965-b157246dbd19";
         private const string SpecificationName = "Enable Yesterday Transfer";
+        private bool EnableYesterdayTransfer { get; set; }
 
         public EnableYesterdayTransferSpecification()
         {
@@ -13,21 +14,25 @@
             Name = SpecificationName;
         }
 
-        public EnableYesterdayTransferSpecification(IParam param)
+        public EnableYesterdayTransferSpecification(bool enableYesterdayTransfer)
             : this()
         {
-            if (IsSatisfiedBy(param))
+            EnableYesterdayTransfer = enableYesterdayTransfer;
+        }
+
+        public override dynamic Value
+        {
+            get
             {
-                DoEnableYesterdayTransferBusiness();
+                return EnableYesterdayTransfer;
+            }
+
+            set
+            {
+                EnableYesterdayTransfer = value ?? false;
             }
         }
 
-        public override bool IsSatisfiedBy(IParam param) => param.EnableYesterdayTransfer;
-
-        private void DoEnableYesterdayTransferBusiness()
-        {
-            // TODO
-            //// Check business and do something
-        }
+        public override bool IsSatisfiedBy(IParam param) => param.EnableYesterdayTransfer.Equals(EnableYesterdayTransfer);
     }
 }

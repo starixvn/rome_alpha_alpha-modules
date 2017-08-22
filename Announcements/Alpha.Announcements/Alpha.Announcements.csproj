@@ -54,9 +54,9 @@
     <Compile Include="Specs\CompositeSpecification.cs" />
     <Compile Include="Specs\ISpecification.cs" />
     <Compile Include="Specs\EnableYesterdayTransferSpecification.cs" />
+    <Compile Include="Specs\SyncedRnGCasinoSpecification.cs" />
     <Compile Include="Specs\ProductSpecification.cs" />
     <Compile Include="Specs\CurrencySpecification.cs" />
-    <Compile Include="Specs\NotSyncedRNGCasinoSpecification.cs" />
     <Compile Include="Specs\UserIdSpecification.cs" />
     <Compile Include="Specs\SiteSpecification.cs" />
     <Compile Include="Specs\UserLevelSpecification.cs" />
