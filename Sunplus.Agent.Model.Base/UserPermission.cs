@@ -359,6 +359,8 @@ namespace Sunplus.Agent.Model.Entities.Permission
                     return IsShowGoldDeluxeSettingForCredit;
                 case 15: // Colossus Bets
                     return IsShowColossusBets;
+                case 28: // Lottery
+                    return IsEnableProduct(productId);
                 default:
                     return IsEnableProduct(productId) && IsSyncedProduct(productId);
             }
