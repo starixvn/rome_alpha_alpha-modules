@@ -9,32 +9,7 @@ namespace Sunplus.Agent.Model.DL.UserMessage
     {
         private static int maxWaitingConnection = 2;
         private static object lockObject = new object();
-        private static volatile int waitingConnection = 0;
-
-        private static string[] colNameOfDataTable = new string[]
-            {
-                "Content_ch", "System.String",
-                "Content_cs", "System.String",
-                "Content_en", "System.String",
-                "Content_it", "System.String",
-                "Content_jp", "System.String",
-                "Content_ko", "System.String",
-                "Content_th", "System.String",
-                "Content_vn", "System.String",
-                "CreateTime", "System.DateTime",
-                "CreatorId", "System.Int32",
-                "CreatorName", "System.String",
-                "IsSticky", "System.Boolean",
-                "LastUpdateName", "System.String",
-                "LastUpdateTime", "System.DateTime",
-                "LastUpdator", "System.Int32",
-                "MessageId", "System.Int32",
-                "MessageType", "System.Int32",
-                "Poster", "System.String",
-                "PostTime", "System.DateTime",
-                "UserId", "System.Int32",
-                "UserName", "System.String"
-            };
+        private static volatile int waitingConnection = 0;        
 
         private bool limitConnection; // Default is true.
 
@@ -59,34 +34,7 @@ namespace Sunplus.Agent.Model.DL.UserMessage
             get { return this.limitConnection; }
             set { this.limitConnection = value; }
         }
-
-        #region Helper
-
-        public static DataTable CreateDataTable()
-        {
-            DataTable dt = new DataTable();
-            DataColumn dc = null;
-
-            for (int idxElement = 0; idxElement < colNameOfDataTable.Length; idxElement += 2)
-            {
-                dc = new DataColumn();
-                dc.ColumnName = colNameOfDataTable[idxElement];
-                dc.DataType = Type.GetType(colNameOfDataTable[idxElement + 1]);
-                dt.Columns.Add(dc);
-            }
-
-            return dt;
-        }
-
-        public static void CopyDataTable(DataTable srcTable, DataTable desTable)
-        {
-            foreach (DataRow row in srcTable.Rows)
-            {
-                AddDataRow(row, desTable);
-            }
-        }
-
-        #endregion Helper
+      
 
         #region High-light and balloon messages
 
@@ -129,133 +77,8 @@ namespace Sunplus.Agent.Model.DL.UserMessage
         public new DataTable ExecSpTable(string name, Hashtable parameters)
         {
             return base.ExecSpTable(name, parameters, 100, false);
-        }
-
-        /// <summary>
-        /// Get top public message
-        /// </summary>
-        /// <param name="messageType"></param>
-        /// <param name="siteid"></param>
-        /// <param name="latestPubMsgID"></param>
-        /// <param name="isTest"></param>
-        /// <returns></returns>
-        public DataTable Acc_Msg_GetTopPubMessage(int messageType, string siteId, int latestPubMsgID, bool isTest)
-        {
-            char[] separator = new char[] { ',' };
-            string[] arraySite = siteId.Split(separator);
-
-            DataTable result = null;
-            DataTable returnTable = CreateDataTable();
-            Hashtable htb = new Hashtable();
-            htb.Add("messagetype", messageType);
-            htb.Add("site1", arraySite[0]);
-            htb.Add("site2", arraySite.Length > 1 ? arraySite[1] : string.Empty);
-            htb.Add("site3", arraySite.Length > 2 ? arraySite[2] : string.Empty);
-            htb.Add("latestmsgid", latestPubMsgID);
-            htb.Add("istest", isTest);
-
-            result = ExecSpTable("Acc_Msg_GetTopPubMessage", htb);
-
-            if (result != null)
-            {
-                CopyDataTable(result, returnTable);
-            }
-
-            return returnTable;
-        }
-
-        /// <summary>
-        /// Get top private message by user
-        /// </summary>
-        /// <param name="targetId"></param>
-        /// <param name="latestPriMsgId"></param>
-        /// <param name="isTest"></param>
-        /// <returns></returns>
-        public DataTable Dot_Msg_GetTopPriMessage24(int targetId, int latestPriMsgId, bool isTest)
-        {
-            DataTable result = null;
-            DataTable returnTable = CreateDataTable();
-
-            if (!this.Dot_Msg_HasPriMessage24(targetId, isTest))
-            {
-                return returnTable;
-            }
-
-            Hashtable htb2 = new Hashtable();
-            htb2.Add("userid", targetId);
-            htb2.Add("latestmsgid", latestPriMsgId);
-            htb2.Add("istest", isTest);
-
-            result = ExecSpTable("Dot_Msg_GetTopPriMessage24", htb2);
-
-            if (result != null)
-            {
-                CopyDataTable(result, returnTable);
-            }
-
-            return returnTable;
-        }
-
-        /// <summary>
-        /// Check if a user has some new private messages
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="isTest"></param>
-        /// <returns></returns>
-        public bool Dot_Msg_HasPriMessage24(int userId, bool isTest)
-        {
-            int msgId = 0;
-            DataTable result = null;
-            Hashtable htb = new Hashtable();
-            htb.Add("userid", userId);
-            htb.Add("istest", isTest);
-            result = ExecSpTable("Dot_Msg_HasPriMessage24", htb);
-            if (result != null && result.Rows.Count > 0)
-            {
-                msgId = (int)result.Rows[0]["MessageID"];
-            }
-
-            return msgId > 0 ? true : false;
-        }
-
-        /// <summary>
-        /// Get count of unread private messages by user
-        /// </summary>
-        /// <param name="userID"></param>
-        /// <param name="userName"></param>
-        /// <returns></returns>
-        public int Dot_Msg_GetPriMsgCount(int userID, string userName)
-        {
-            int count = 0;
-            DataTable result = null;
-            Hashtable htb = new Hashtable();
-            htb.Add("userid", userID);
-            htb.Add("username", userName);
-            result = ExecSpTable("Dot_Msg_GetPriMsgCount", htb);
-
-            // Check exist a DataTable in DataSet
-            if (result != null && result.Rows.Count > 0)
-            {
-                count = (int)result.Rows[0][0];
-            }
-
-            return count;
-        }
-
-        /// <summary>
-        /// Set unread private message is readed by user
-        /// </summary>
-        /// <param name="userID"></param>
-        /// <param name="userName"></param>
-        public bool Dot_Msg_SetPriMsgRead(int userID, string userName)
-        {
-            Hashtable htb = new Hashtable();
-            htb.Add("userid", userID);
-            htb.Add("username", userName);
-            object result = ExecSp("Dot_Msg_SetPriMsgRead", htb);
-            return result != null;
-        }
-
+        }    
+        
         #endregion High-light and balloon messages
 
         #region Position taking message
@@ -374,16 +197,7 @@ namespace Sunplus.Agent.Model.DL.UserMessage
             ExecSp("Age_CustomerUpdMessagesRead", htb, 600);
         }
 
-        #endregion Announcement
-
-        #region Notification During Move-bet Process
-
-        public DataTable GetNotificationDuringMoveBetsProcess()
-        {
-            return base.ExecSpTable("Age_MoveBetsProcessNotification", new Hashtable() { ["timezone"] = 8 });
-        }
-
-        #endregion Notification During Move-bet Process
+        #endregion Announcement        
 
         private static object GetValue(DataRow row, string fieldname)
         {
