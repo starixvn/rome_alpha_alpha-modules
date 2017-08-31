@@ -14,7 +14,8 @@
             [20] = "cricket",
             [21] = "allbet",
             [22] = "voidbridge",
-            [28] = "lottery"
+            [28] = "lottery",
+            [26] = "lucky3"
         };
 
         /// <summary>

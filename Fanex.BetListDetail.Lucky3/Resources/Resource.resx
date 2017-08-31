@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AgentComm" xml:space="preserve">
-    <value>Agent Comm</value>
+    <value>Agent Commission</value>
   </data>
   <data name="Bets" xml:space="preserve">
     <value>Bets</value>
@@ -127,10 +127,7 @@
     <value>Hits</value>
   </data>
   <data name="MasterComm" xml:space="preserve">
-    <value>Master Comm</value>
-  </data>
-  <data name="NoData" xml:space="preserve">
-    <value>No Data</value>
+    <value>Master Commission</value>
   </data>
   <data name="Number" xml:space="preserve">
     <value>Number</value>
@@ -138,25 +135,28 @@
   <data name="Prize" xml:space="preserve">
     <value>Prize</value>
   </data>
+  <data name="SuperComm" xml:space="preserve">
+    <value>Super Commission</value>
+  </data>
+  <data name="TotalLost" xml:space="preserve">
+    <value>Total of losing combinations</value>
+  </data>
+  <data name="WinningShare" xml:space="preserve">
+    <value>Winning Share Commission</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>No information is available</value>
+  </data>
   <data name="Stake" xml:space="preserve">
     <value>Stake</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
-  <data name="SuperComm" xml:space="preserve">
-    <value>Super Comm</value>
-  </data>
   <data name="Total" xml:space="preserve">
-    <value>Total: </value>
-  </data>
-  <data name="TotalLost" xml:space="preserve">
-    <value>Total of losing combinations</value>
+    <value>Total</value>
   </data>
   <data name="Winloss" xml:space="preserve">
-    <value>Win loss</value>
-  </data>
-  <data name="WinningShare" xml:space="preserve">
-    <value>Winning share</value>
+    <value>Win Loss</value>
   </data>
 </root>

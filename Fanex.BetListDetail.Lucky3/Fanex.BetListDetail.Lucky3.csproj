@@ -92,6 +92,8 @@
     <Compile Include="Criteria\IGetLucky3DetailParameter.cs" />
     <Compile Include="Criteria\GetLucky3DetailParameter.cs" />
     <Compile Include="DataAccesses\ILucky3DataAccess.cs" />
+    <Compile Include="Enums\Lucky3BetType.cs" />
+    <Compile Include="Enums\Lucky3Status.cs" />
     <Compile Include="Enums\UserTypes.cs" />
     <Compile Include="Models\Lucky3DetailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,6 +107,7 @@
     <Compile Include="ViewModels\Lucky3DetailViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Lucky3\Styles\images\lotto_ball.png" />
     <Content Include="Views\Lucky3\ViewDetail.cshtml" />
     <Content Include="Views\Lucky3\Styles\index.css" />
     <Content Include="Views\Web.config">
@@ -112,9 +115,7 @@
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Lucky3\Scripts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config">
       <SubType>Designer</SubType>

@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Fanex.BetListDetail.Lucky3.Models
+﻿namespace Fanex.BetListDetail.Lucky3.Models
 {
+    using Fanex.BetListDetail.Lucky3.Enums;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class Lucky3DetailModel
     {
         public long TransactionId { get; set; }
@@ -16,6 +15,8 @@ namespace Fanex.BetListDetail.Lucky3.Models
         public int BetType { get; set; }
 
         public string Status { get; set; }
+
+        public int StatusId { get; set; }
 
         public string TransactionDescription { get; set; }
 
@@ -46,5 +47,13 @@ namespace Fanex.BetListDetail.Lucky3.Models
         public decimal AgentCommission { get; set; }
 
         public decimal MasterCommission { get; set; }
+
+        public bool IsWinningShare => BetType == (int)Lucky3BetType.WinningShare;
+
+        public bool IsLosingCombination => BetType == (int)Lucky3BetType.WinLose && StatusId == (int)Lucky3Status.Lose;
+
+        public bool IsPrize => BetType == (int)Lucky3BetType.WinLose && StatusId == (int)Lucky3Status.Won;
+
+        public IEnumerable<string> Numbers => TransactionDescription.Split(',').Select(i => i.Trim());
     }
 }

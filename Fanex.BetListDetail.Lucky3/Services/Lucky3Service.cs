@@ -1,10 +1,10 @@
-﻿using Fanex.BetListDetail.Lucky3.Criteria;
-using Fanex.BetListDetail.Lucky3.DataAccesses;
-using Fanex.BetListDetail.Lucky3.Models;
-using System.Collections.Generic;
-
-namespace Fanex.BetListDetail.Lucky3.Services
+﻿namespace Fanex.BetListDetail.Lucky3.Services
 {
+    using Fanex.BetListDetail.Lucky3.Criteria;
+    using Fanex.BetListDetail.Lucky3.DataAccesses;
+    using Fanex.BetListDetail.Lucky3.Models;
+    using System.Collections.Generic;
+
     public class Lucky3Service : ILucky3Service
     {
         private readonly ILucky3DataAccess lucky3DataAccess;
@@ -15,14 +15,6 @@ namespace Fanex.BetListDetail.Lucky3.Services
         }
 
         public IEnumerable<Lucky3DetailModel> GetBetListDetail(IGetLucky3DetailParameter criteria)
-        {
-            IEnumerable<Lucky3DetailModel> details = new List<Lucky3DetailModel>();
-            if (criteria.IsValid())
-            {
-                details = lucky3DataAccess.GetLucky3Detail(criteria);
-            }
-
-            return details;
-        }
+            => lucky3DataAccess.GetLucky3Detail(criteria);
     }
 }

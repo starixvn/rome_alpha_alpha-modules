@@ -1,10 +1,11 @@
-﻿using Fanex.BetListDetail.Lucky3.Constants;
-using Fanex.BetListDetail.Lucky3.Enums;
-using Fanex.BetListDetail.Lucky3.Models;
-using System.Collections.Generic;
-
-namespace Fanex.BetListDetail.Lucky3.ViewModels
+﻿namespace Fanex.BetListDetail.Lucky3.ViewModels
 {
+    using Fanex.BetListDetail.Lucky3.Constants;
+    using Fanex.BetListDetail.Lucky3.Enums;
+    using Fanex.BetListDetail.Lucky3.Models;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class Lucky3DetailViewModel
     {
         public Lucky3DetailViewModel(IEnumerable<Lucky3DetailModel> details, int userLevel)
@@ -16,7 +17,7 @@ namespace Fanex.BetListDetail.Lucky3.ViewModels
 
         public IEnumerable<Lucky3DetailModel> Details { get; }
 
-        public decimal? TotalWinlost { get; private set; }
+        public decimal TotalWinlost { get; private set; }
 
         public decimal TotalSuperCommission { get; private set; }
 
@@ -39,29 +40,13 @@ namespace Fanex.BetListDetail.Lucky3.ViewModels
 
         public int UserLevel { get; }
 
-        public bool IsSuper
-        {
-            get
-            {
-                return UserLevel == (int)UserTypes.Super;
-            }
-        }
+        public bool IsSuper => UserLevel == (int)UserTypes.Super;
 
-        public bool IsMaster
-        {
-            get
-            {
-                return UserLevel == (int)UserTypes.Master;
-            }
-        }
+        public bool IsMaster => UserLevel == (int)UserTypes.Master;
 
-        public bool IsAgent
-        {
-            get
-            {
-                return UserLevel == (int)UserTypes.Agent;
-            }
-        }
+        public bool IsAgent => UserLevel == (int)UserTypes.Agent;
+
+        public int FormatBets(decimal bets) => (int)bets;
 
         public string FormatDiscount(decimal discount) => string.Format(Constant.DiscountTemplate, discount * 100m);
 
@@ -94,7 +79,7 @@ namespace Fanex.BetListDetail.Lucky3.ViewModels
             TotalAgentCommission = 0;
             foreach (var detail in Details)
             {
-                TotalWinlost += detail.Winlost;
+                TotalWinlost += detail.Winlost.HasValue ? detail.Winlost.Value : 0;
                 TotalSuperCommission += detail.SuperCommission;
                 TotalMasterCommission += detail.MasterCommission;
                 TotalAgentCommission += detail.AgentCommission;

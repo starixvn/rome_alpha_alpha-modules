@@ -61,7 +61,7 @@ namespace Fanex.BetListDetail.Lucky3.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Agent Comm.
+        ///   Looks up a localized string similar to Agent Commission.
         /// </summary>
         public static string AgentComm {
             get {
@@ -88,7 +88,7 @@ namespace Fanex.BetListDetail.Lucky3.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Master Comm.
+        ///   Looks up a localized string similar to Master Commission.
         /// </summary>
         public static string MasterComm {
             get {
@@ -97,7 +97,7 @@ namespace Fanex.BetListDetail.Lucky3.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No Data.
+        ///   Looks up a localized string similar to No information is available.
         /// </summary>
         public static string NoData {
             get {
@@ -142,7 +142,7 @@ namespace Fanex.BetListDetail.Lucky3.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Super Comm.
+        ///   Looks up a localized string similar to Super Commission.
         /// </summary>
         public static string SuperComm {
             get {
@@ -151,7 +151,7 @@ namespace Fanex.BetListDetail.Lucky3.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total: .
+        ///   Looks up a localized string similar to Total.
         /// </summary>
         public static string Total {
             get {
@@ -169,7 +169,7 @@ namespace Fanex.BetListDetail.Lucky3.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Win loss.
+        ///   Looks up a localized string similar to Win Loss.
         /// </summary>
         public static string Winloss {
             get {
@@ -178,7 +178,7 @@ namespace Fanex.BetListDetail.Lucky3.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Winning share.
+        ///   Looks up a localized string similar to Winning Share Commission.
         /// </summary>
         public static string WinningShare {
             get {
