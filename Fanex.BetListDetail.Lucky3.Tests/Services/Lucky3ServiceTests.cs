@@ -27,10 +27,10 @@ namespace Fanex.BetListDetail.Lucky3.Tests.Services
             parameter.IsValid().Returns(false);
 
             //// Act
-            var act = service.GetBetListDetail(parameter);            
+            var act = service.GetBetListDetail(parameter);
 
             //// Assert
-            Assert.AreEqual(0, act.Count());
+            Assert.AreEqual(0, act.Details.Count());
         }
 
         [Test]

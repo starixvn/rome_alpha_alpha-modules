@@ -6,6 +6,8 @@
 
         public long CustomerId { get; set; }
 
+        public byte LevelId { get; set; }
+
         public bool IsValid() => TransactionId > 0 && CustomerId > 0;
     }
 }

@@ -2,8 +2,7 @@
 {
     using Fanex.BetListDetail.Lucky3.Criteria;
     using Fanex.BetListDetail.Lucky3.DataAccesses;
-    using Fanex.BetListDetail.Lucky3.Models;
-    using System.Collections.Generic;
+    using ViewModels;
 
     public class Lucky3Service : ILucky3Service
     {
@@ -14,7 +13,7 @@
             this.lucky3DataAccess = lucky3DataAccess;
         }
 
-        public IEnumerable<Lucky3DetailModel> GetBetListDetail(IGetLucky3DetailParameter criteria)
-            => lucky3DataAccess.GetLucky3Detail(criteria);
+        public Lucky3DetailViewModel GetBetListDetail(IGetLucky3DetailParameter criteria)
+            => new Lucky3DetailViewModel(lucky3DataAccess.GetLucky3Detail(criteria), criteria.LevelId);
     }
 }

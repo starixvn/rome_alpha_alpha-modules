@@ -6,6 +6,8 @@
 
         long CustomerId { get; set; }
 
+        byte LevelId { get; set; }
+
         bool IsValid();
     }
 }

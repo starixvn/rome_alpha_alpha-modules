@@ -1,11 +1,10 @@
 ﻿namespace Fanex.BetListDetail.Lucky3.Services
 {
     using Fanex.BetListDetail.Lucky3.Criteria;
-    using Fanex.BetListDetail.Lucky3.Models;
-    using System.Collections.Generic;
+    using ViewModels;
 
     public interface ILucky3Service
     {
-        IEnumerable<Lucky3DetailModel> GetBetListDetail(IGetLucky3DetailParameter criteria);
+        Lucky3DetailViewModel GetBetListDetail(IGetLucky3DetailParameter criteria);
     }
 }
