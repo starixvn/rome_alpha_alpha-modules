@@ -87,7 +87,7 @@
                         </td>
                         <td>@ticket.Hits</td>
                         <td>@Model.FormatBets(ticket.Bets)</td>
-                        <td>@Model.FormatMoney(ticket.Prize)</td>
+                        <td>@Model.FormatMoney(ticket.PrizeAmount)</td>
                         <td>@Model.FormatMoney(ticket.Stake)</td>
                         <td>@Model.FormatWinLost(ticket.Winlost)</td>
                         @if (Model.IsSuper)
@@ -123,7 +123,7 @@
 
                         <td>@Model.FormatDiscount(ticket.AgentDiscount)<br /> @Model.FormatMoney(ticket.AgentCommission)</td>
 
-                        <td class="align-left">@ticket.Status</td>
+                        <td class="align-center">@ticket.Status</td>
                     </tr>
                 }
                 else if (ticket.IsWinningShare)
