@@ -380,7 +380,7 @@ namespace Sunplus.Agent.Model.DL.UserMessage
 
         public DataTable GetNotificationDuringMoveBetsProcess()
         {
-            return base.ExecSpTable("Age_MoveBetsProcessNotification", new Hashtable());
+            return base.ExecSpTable("Age_MoveBetsProcessNotification", new Hashtable() { ["timezone"] = 8 });
         }
 
         #endregion Notification During Move-bet Process
