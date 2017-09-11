@@ -30,9 +30,9 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
             string textValue, 
             int indexOption,
             int dcommIndexOption,
-            int sportOptionId,
             string onclickFunction,
-            Dictionary<string, int> unconfirmSettingOptions,
+            int sportOptionId = 0,
+            Dictionary<string, int> unconfirmSettingOptions = null,
             bool isFilter = false, 
             bool isChecked = false)
         {
@@ -68,9 +68,13 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
             CreateStatusFilterOption(indexOption);
             CreateDcommFilterOption(dcommIndexOption);
 
-            if (unconfirmSettingOptions.Count > 0)
+            if (unconfirmSettingOptions != null && unconfirmSettingOptions.Count > 0)
             {
                 CreateUnconfirmSettingFilterOption(unconfirmSettingOptions, sportOptionId);
+            }
+            else
+            {
+                tpl.UnconfirmSetting = null;
             }
 
             if (isFilter)
@@ -90,10 +94,10 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
             string textValue, 
             int indexOption, 
             int dcommIndexOption,
-            int sportOptionId,
             string onclickFunction, 
             Dictionary<object,int> dcommOptions,
-            Dictionary<string, int> unconfirmSettingOptions,
+            int sportOptionId = 0,
+            Dictionary<string, int> unconfirmSettingOptions = null,
             bool isFilter = false, 
             bool isChecked = false)
         {
@@ -131,9 +135,13 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
             CreateStatusFilterOption(indexOption);
             CreateDcommFilterOption(dcommIndexOption);
 
-            if (unconfirmSettingOptions.Count > 0)
+            if (unconfirmSettingOptions != null && unconfirmSettingOptions.Count > 0)
             {
                 CreateUnconfirmSettingFilterOption(unconfirmSettingOptions, sportOptionId);
+            }
+            else
+            {
+                tpl.UnconfirmSetting = null;
             }
 
             if (isFilter)
