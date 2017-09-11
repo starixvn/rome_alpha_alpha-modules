@@ -5217,6 +5217,15 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not filter.
+        /// </summary>
+        internal static string notFilter {
+            get {
+                return ResourceManager.GetString("notFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nov.
         /// </summary>
         internal static string nov {
@@ -6815,6 +6824,15 @@ namespace Fanex.Age.UI.Components.LocalResources {
         internal static string type {
             get {
                 return ResourceManager.GetString("type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uncomfirmed Setting.
+        /// </summary>
+        internal static string uncomfirmedSetting {
+            get {
+                return ResourceManager.GetString("uncomfirmedSetting", resourceCulture);
             }
         }
         
