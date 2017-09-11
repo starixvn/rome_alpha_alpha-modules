@@ -141,9 +141,6 @@
   <data name="TotalLost" xml:space="preserve">
     <value>Total of losing combinations</value>
   </data>
-  <data name="WinningShare" xml:space="preserve">
-    <value>获奖赢额佣金</value>
-  </data>
   <data name="NoData" xml:space="preserve">
     <value>没资料显示</value>
   </data>

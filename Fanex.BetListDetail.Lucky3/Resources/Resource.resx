@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AgentComm" xml:space="preserve">
-    <value>Agent Commission</value>
+    <value>Agent Comm</value>
   </data>
   <data name="Bets" xml:space="preserve">
     <value>Bets</value>
@@ -127,7 +127,7 @@
     <value>Hits</value>
   </data>
   <data name="MasterComm" xml:space="preserve">
-    <value>Master Commission</value>
+    <value>Master Comm</value>
   </data>
   <data name="Number" xml:space="preserve">
     <value>Number</value>
@@ -136,13 +136,13 @@
     <value>Prize</value>
   </data>
   <data name="SuperComm" xml:space="preserve">
-    <value>Super Commission</value>
+    <value>Super Comm</value>
   </data>
   <data name="TotalLost" xml:space="preserve">
     <value>Total of losing combinations</value>
   </data>
   <data name="WinningShare" xml:space="preserve">
-    <value>Winning Share Commission</value>
+    <value>Winning share</value>
   </data>
   <data name="NoData" xml:space="preserve">
     <value>No information is available</value>

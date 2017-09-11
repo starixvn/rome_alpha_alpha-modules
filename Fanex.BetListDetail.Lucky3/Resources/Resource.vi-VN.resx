@@ -141,9 +141,6 @@
   <data name="TotalLost" xml:space="preserve">
     <value>Total of losing combinations</value>
   </data>
-  <data name="WinningShare" xml:space="preserve">
-    <value>Phần chia thắng cược</value>
-  </data>
   <data name="NoData" xml:space="preserve">
     <value>Thông tin chưa được cập nhật</value>
   </data>

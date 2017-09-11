@@ -54,6 +54,6 @@
 
         public bool IsPrize => BetType == (int)Lucky3BetType.WinLose && StatusId == (int)Lucky3Status.Won;
 
-        public IEnumerable<string> Numbers => TransactionDescription.Split(',').Select(i => i.Trim());
+        public IEnumerable<int> Numbers => TransactionDescription.Split(',').Select(i => int.Parse(i.Trim()));
     }
 }

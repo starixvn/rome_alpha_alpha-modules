@@ -61,7 +61,7 @@ namespace Fanex.BetListDetail.Lucky3.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Agent Commission.
+        ///   Looks up a localized string similar to Agent Comm.
         /// </summary>
         public static string AgentComm {
             get {
@@ -88,7 +88,7 @@ namespace Fanex.BetListDetail.Lucky3.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Master Commission.
+        ///   Looks up a localized string similar to Master Comm.
         /// </summary>
         public static string MasterComm {
             get {
@@ -142,7 +142,7 @@ namespace Fanex.BetListDetail.Lucky3.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Super Commission.
+        ///   Looks up a localized string similar to Super Comm.
         /// </summary>
         public static string SuperComm {
             get {
@@ -178,7 +178,7 @@ namespace Fanex.BetListDetail.Lucky3.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Winning Share Commission.
+        ///   Looks up a localized string similar to Winning share.
         /// </summary>
         public static string WinningShare {
             get {
