@@ -107,6 +107,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.BetDetails.Lucky3", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.BetDetails.Lucky3.Tests", "Fanex.BetDetails.Lucky3.Tests\Fanex.BetDetails.Lucky3.Tests.csproj", "{4E51DA65-AA71-48D7-9D58-C32F8F34E17E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.BetListDetail.ColossusBets", "Fanex.BetListDetail.ColossusBets\Fanex.BetListDetail.ColossusBets.csproj", "{DA527ABC-FC78-4655-B2EE-4F26BBB4E253}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.BetListDetail.ColossusBets.Tests", "Fanex.BetListDetail.ColossusBet.Tests\Fanex.BetListDetail.ColossusBets.Tests.csproj", "{BE5D9501-843E-4C04-994E-57F10A95946D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -286,6 +290,14 @@ Global
 		{4E51DA65-AA71-48D7-9D58-C32F8F34E17E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E51DA65-AA71-48D7-9D58-C32F8F34E17E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E51DA65-AA71-48D7-9D58-C32F8F34E17E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA527ABC-FC78-4655-B2EE-4F26BBB4E253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA527ABC-FC78-4655-B2EE-4F26BBB4E253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA527ABC-FC78-4655-B2EE-4F26BBB4E253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA527ABC-FC78-4655-B2EE-4F26BBB4E253}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE5D9501-843E-4C04-994E-57F10A95946D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE5D9501-843E-4C04-994E-57F10A95946D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE5D9501-843E-4C04-994E-57F10A95946D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE5D9501-843E-4C04-994E-57F10A95946D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -338,5 +350,7 @@ Global
 		{BA8FAEDD-AD20-4C2D-B38E-84A8EB4D1DAD} = {F680CDFF-832D-4599-BD23-CD1D11269E47}
 		{CF9F6AEC-8AE9-41D0-A13F-3C6E0A7DA33F} = {F680CDFF-832D-4599-BD23-CD1D11269E47}
 		{4E51DA65-AA71-48D7-9D58-C32F8F34E17E} = {BA8FAEDD-AD20-4C2D-B38E-84A8EB4D1DAD}
+		{DA527ABC-FC78-4655-B2EE-4F26BBB4E253} = {F680CDFF-832D-4599-BD23-CD1D11269E47}
+		{BE5D9501-843E-4C04-994E-57F10A95946D} = {BA8FAEDD-AD20-4C2D-B38E-84A8EB4D1DAD}
 	EndGlobalSection
 EndGlobal
