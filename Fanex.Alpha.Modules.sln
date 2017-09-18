@@ -109,11 +109,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.BetDetails.Lucky3.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.BetListDetail.ColossusBets", "Fanex.BetListDetail.ColossusBets\Fanex.BetListDetail.ColossusBets.csproj", "{DA527ABC-FC78-4655-B2EE-4F26BBB4E253}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.BetListDetail.Casino", "Fanex.BetListDetail.Casino\Fanex.BetListDetail.Casino.csproj", "{CD509CB7-751F-4DBF-9A17-0241B9AAC1A5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.BetListDetail.ColossusBets.Tests", "Fanex.BetListDetail.ColossusBet.Tests\Fanex.BetListDetail.ColossusBets.Tests.csproj", "{BE5D9501-843E-4C04-994E-57F10A95946D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.BetListDetail.Casino.Tests", "Fanex.BetListDetail.Casino.Tests\Fanex.BetListDetail.Casino.Tests.csproj", "{4FEB3FB2-C26D-4C07-9EBC-23B38E1F82D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.BetDetails.Casino.Tests", "Fanex.BetDetails.Casino.Tests\Fanex.BetDetails.Casino.Tests.csproj", "{4FEB3FB2-C26D-4C07-9EBC-23B38E1F82D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.BetDetails.Casino", "Fanex.BetDetails.Casino\Fanex.BetDetails.Casino.csproj", "{CD509CB7-751F-4DBF-9A17-0241B9AAC1A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -298,10 +298,6 @@ Global
 		{DA527ABC-FC78-4655-B2EE-4F26BBB4E253}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA527ABC-FC78-4655-B2EE-4F26BBB4E253}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA527ABC-FC78-4655-B2EE-4F26BBB4E253}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD509CB7-751F-4DBF-9A17-0241B9AAC1A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD509CB7-751F-4DBF-9A17-0241B9AAC1A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD509CB7-751F-4DBF-9A17-0241B9AAC1A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD509CB7-751F-4DBF-9A17-0241B9AAC1A5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BE5D9501-843E-4C04-994E-57F10A95946D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BE5D9501-843E-4C04-994E-57F10A95946D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE5D9501-843E-4C04-994E-57F10A95946D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -310,6 +306,10 @@ Global
 		{4FEB3FB2-C26D-4C07-9EBC-23B38E1F82D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FEB3FB2-C26D-4C07-9EBC-23B38E1F82D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FEB3FB2-C26D-4C07-9EBC-23B38E1F82D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD509CB7-751F-4DBF-9A17-0241B9AAC1A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD509CB7-751F-4DBF-9A17-0241B9AAC1A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD509CB7-751F-4DBF-9A17-0241B9AAC1A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD509CB7-751F-4DBF-9A17-0241B9AAC1A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -363,8 +363,8 @@ Global
 		{CF9F6AEC-8AE9-41D0-A13F-3C6E0A7DA33F} = {F680CDFF-832D-4599-BD23-CD1D11269E47}
 		{4E51DA65-AA71-48D7-9D58-C32F8F34E17E} = {BA8FAEDD-AD20-4C2D-B38E-84A8EB4D1DAD}
 		{DA527ABC-FC78-4655-B2EE-4F26BBB4E253} = {F680CDFF-832D-4599-BD23-CD1D11269E47}
-		{CD509CB7-751F-4DBF-9A17-0241B9AAC1A5} = {F680CDFF-832D-4599-BD23-CD1D11269E47}
 		{BE5D9501-843E-4C04-994E-57F10A95946D} = {BA8FAEDD-AD20-4C2D-B38E-84A8EB4D1DAD}
 		{4FEB3FB2-C26D-4C07-9EBC-23B38E1F82D0} = {BA8FAEDD-AD20-4C2D-B38E-84A8EB4D1DAD}
+		{CD509CB7-751F-4DBF-9A17-0241B9AAC1A5} = {F680CDFF-832D-4599-BD23-CD1D11269E47}
 	EndGlobalSection
 EndGlobal
