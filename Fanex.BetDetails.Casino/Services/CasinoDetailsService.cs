@@ -1,6 +1,5 @@
 ﻿namespace Fanex.BetDetails.Casino.Services
 {
-    using System.Threading.Tasks;
     using BetList.Core.Entities;
     using DataAccesses;
     using Models;
@@ -15,7 +14,7 @@
             this.casinoDetailDataAccess = casinoDetailDataAccess;
         }
 
-        public async Task<PagedData<ITicket>> GetCasinoDetail(CasinoDetailsParam param)
-            => await casinoDetailDataAccess.GetCasinoDetail(param);
+        public PagedData<ITicket> GetCasinoDetails(CasinoDetailsParam param)
+            => casinoDetailDataAccess.GetCasinoDetails(param);
     }
 }

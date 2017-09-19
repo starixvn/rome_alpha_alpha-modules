@@ -1,6 +1,5 @@
 ﻿namespace Fanex.BetDetails.Casino.Tests.Services
 {
-    using System.Threading.Tasks;
     using Casino.Services;
     using DataAccesses;
     using NSubstitute;
@@ -21,16 +20,16 @@
         }
 
         [Test]
-        public async Task GetCasinoDetail_Always_CallGetCasinoDetailFromDataAccess()
+        public void GetCasinoDetail_Always_CallGetCasinoDetailFromDataAccess()
         {
             // Arrange
             var param = new CasinoDetailsParam(1, 1, 1, 1, 1, 100);
 
             // Act
-            await casinoDetailService.GetCasinoDetail(param);
+            casinoDetailService.GetCasinoDetails(param);
 
             // Assert
-            await casinoDetailDataAccess.Received().GetCasinoDetail(
+            casinoDetailDataAccess.Received().GetCasinoDetails(
                 Arg.Is<CasinoDetailsParam>(
                     p => p.RefNo == param.RefNo
                     && p.CustId == param.CustId
