@@ -5,6 +5,7 @@
     using BetList.Core.Entities;
     using Enums;
     using Models;
+    using Params;
 
     public class CasinoDetailsViewModel
     {
@@ -18,13 +19,21 @@
         public CasinoDetailsViewModel(
             string sportName,
             int viewerId,
-            int viewerLevel,
+            int viewerLevelId,
+            CasinoDetailsParam param,
             PagedData<ITicket> detailData,
             IBetListHTMLBuilder builder,
             ITicketHelper ticketHelper)
         {
+            SportName = sportName;
             ViewerId = viewerId;
-            ViewerLevel = (UserLevels)viewerLevel;
+            ViewerLevelId = viewerLevelId;
+
+            RefNo = param.RefNo;
+            CustId = param.CustId;
+            TransType = param.TransType;
+            ProductId = param.ProductId;
+
             DetailData = detailData;
             Builder = builder;
             TicketHelper = ticketHelper;
@@ -35,9 +44,21 @@
 
         public string Title { get; }
 
+        public long RefNo { get; }
+
+        public int CustId { get; }
+
+        public byte TransType { get; }
+
+        public string SportName { get; }
+
+        public int ProductId { get; }
+
         public int ViewerId { get; }
 
-        public UserLevels ViewerLevel { get; }
+        public int ViewerLevelId { get; }
+
+        public UserLevels ViewerLevel => (UserLevels)ViewerLevelId;
 
         public PagedData<ITicket> DetailData { get; }
 
