@@ -9,7 +9,7 @@
     {
         public const string SpecificationId = "6958e609-fd9c-4758-b757-e74e0466afd4";
         private const string SpecificationName = "Unsynchronized Setting";
-        public Dictionary<byte, string> Products { get; set; }
+        public Dictionary<string, int> Products { get; set; }
 
         public UnsynchronizedSettingSpecification()
         {
@@ -17,7 +17,7 @@
             Name = SpecificationName;
         }
 
-        public UnsynchronizedSettingSpecification(Dictionary<byte, string> products)
+        public UnsynchronizedSettingSpecification(Dictionary<string, int> products)
             : this()
         {
             Products = products;
@@ -57,12 +57,12 @@
             return param.ARecommendId;
         }
 
-        private Dictionary<byte, string> GetProducts(int userId)
+        private Dictionary<string, int> GetProducts(int userId)
         {
-            var products = new Dictionary<byte, string> ()
+            var products = new Dictionary<string, int> ()
             {
-                { 1, "Casino" },
-                { 2, "Gold Deluxe"}
+                { "Casino", 1},
+                { "Gold Deluxe", 2}
             };
 
             return products;
