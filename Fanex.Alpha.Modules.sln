@@ -89,6 +89,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Announcements", "Announceme
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Announcements", "Announcements\Alpha.Announcements\Alpha.Announcements.csproj", "{FD18E44E-C059-4F31-A302-7E59DDC88361}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BetList", "BetList", "{F680CDFF-832D-4599-BD23-CD1D11269E47}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9A17ACC1-45EB-4ADC-9F68-9227DBCE62A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Announcements.Tests", "Announcements\Alpha.Announcements.Tests\Alpha.Announcements.Tests.csproj", "{DCF0A06A-9682-45EF-94A4-D69344A171F7}"
@@ -98,6 +100,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Announcements.UplineIdRule.Tests", "Alpha.Announcements.UplineIdRule.Tests\Alpha.Announcements.UplineIdRule.Tests.csproj", "{BDFAFA17-938B-4F29-AE36-40C18289723B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.ActivityTracking", "Alpha.ActivityTracking\Alpha.ActivityTracking.csproj", "{0320E929-E211-4E54-AB1B-99336405AED7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BA8FAEDD-AD20-4C2D-B38E-84A8EB4D1DAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.BetDetails.Lucky3", "Fanex.BetDetails.Lucky3\Fanex.BetDetails.Lucky3.csproj", "{CF9F6AEC-8AE9-41D0-A13F-3C6E0A7DA33F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.BetDetails.Lucky3.Tests", "Fanex.BetDetails.Lucky3.Tests\Fanex.BetDetails.Lucky3.Tests.csproj", "{4E51DA65-AA71-48D7-9D58-C32F8F34E17E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -270,6 +278,14 @@ Global
 		{0320E929-E211-4E54-AB1B-99336405AED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0320E929-E211-4E54-AB1B-99336405AED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0320E929-E211-4E54-AB1B-99336405AED7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF9F6AEC-8AE9-41D0-A13F-3C6E0A7DA33F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF9F6AEC-8AE9-41D0-A13F-3C6E0A7DA33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF9F6AEC-8AE9-41D0-A13F-3C6E0A7DA33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF9F6AEC-8AE9-41D0-A13F-3C6E0A7DA33F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E51DA65-AA71-48D7-9D58-C32F8F34E17E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E51DA65-AA71-48D7-9D58-C32F8F34E17E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E51DA65-AA71-48D7-9D58-C32F8F34E17E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E51DA65-AA71-48D7-9D58-C32F8F34E17E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -319,5 +335,8 @@ Global
 		{4F326CC9-0A18-4BBA-A041-06BF5AF62A59} = {8E551492-55FD-4752-928C-F2B9E7FDF87B}
 		{BDFAFA17-938B-4F29-AE36-40C18289723B} = {9A17ACC1-45EB-4ADC-9F68-9227DBCE62A8}
 		{0320E929-E211-4E54-AB1B-99336405AED7} = {F509A529-DCB4-4682-B755-E6F58929E224}
+		{BA8FAEDD-AD20-4C2D-B38E-84A8EB4D1DAD} = {F680CDFF-832D-4599-BD23-CD1D11269E47}
+		{CF9F6AEC-8AE9-41D0-A13F-3C6E0A7DA33F} = {F680CDFF-832D-4599-BD23-CD1D11269E47}
+		{4E51DA65-AA71-48D7-9D58-C32F8F34E17E} = {BA8FAEDD-AD20-4C2D-B38E-84A8EB4D1DAD}
 	EndGlobalSection
 EndGlobal

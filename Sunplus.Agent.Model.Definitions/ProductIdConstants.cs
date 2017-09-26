@@ -28,5 +28,6 @@
         public const int FishingWorld = 24;
 
         public const int Lottery = 28;
+        public const int Lucky3 = 26;
     }
 }

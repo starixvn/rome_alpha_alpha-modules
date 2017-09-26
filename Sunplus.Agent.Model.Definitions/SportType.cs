@@ -54,6 +54,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
         Triathlon = 41,
         Wrestling = 42,
         ESports = 43,
+        Lucky3 = 160,
         NumberGame = 161,
         LiveCasino = 162,
         VirtualSports = 180, // Virtual Soccer
