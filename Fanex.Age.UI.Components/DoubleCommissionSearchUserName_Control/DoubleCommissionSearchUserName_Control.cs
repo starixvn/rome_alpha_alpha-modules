@@ -68,7 +68,7 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
             CreateStatusFilterOption(indexOption);
             CreateDcommFilterOption(dcommIndexOption);
 
-            if (unconfirmSettingOptions != null && unconfirmSettingOptions.Count > 0)
+            if (unconfirmSettingOptions != null && unconfirmSettingOptions.Count > 1)
             {
                 CreateUnconfirmSettingFilterOption(unconfirmSettingOptions, sportOptionId);
             }
@@ -135,7 +135,7 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
             CreateStatusFilterOption(indexOption);
             CreateDcommFilterOption(dcommIndexOption);
 
-            if (unconfirmSettingOptions != null && unconfirmSettingOptions.Count > 0)
+            if (unconfirmSettingOptions != null && unconfirmSettingOptions.Count > 1)
             {
                 CreateUnconfirmSettingFilterOption(unconfirmSettingOptions, sportOptionId);
             }

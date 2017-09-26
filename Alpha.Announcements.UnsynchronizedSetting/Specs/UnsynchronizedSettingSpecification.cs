@@ -2,70 +2,42 @@
 {
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using Announcements.Specs;
     using Models;
+    using Newtonsoft.Json.Linq;
 
     public class UnsynchronizedSettingSpecification : CompositeSpecification<IParam>
     {
         public const string SpecificationId = "6958e609-fd9c-4758-b757-e74e0466afd4";
         private const string SpecificationName = "Unsynchronized Setting";
-        public Dictionary<string, int> Products { get; set; }
 
+        public IEnumerable<int> ProductIds { get; set; }
+        
         public UnsynchronizedSettingSpecification()
         {
             Id = SpecificationId;
             Name = SpecificationName;
         }
 
-        public UnsynchronizedSettingSpecification(Dictionary<string, int> products)
-            : this()
+        public UnsynchronizedSettingSpecification(IEnumerable<int> productIds) : this()
         {
-            Products = products;
+            ProductIds = productIds;
         }
 
-        public UnsynchronizedSettingSpecification(int userId)
-           : this()
+        public override dynamic Value
         {
-            Products = GetProducts(userId);
-        }
-
-        //public override dynamic Value
-        //{
-        //    get
-        //    {
-        //        return Products;
-        //    }
-
-        //    set
-        //    {
-        //        Products = value is IEnumerable ? ((JArray)value).Select(x => (int)x).ToList() : Products;
-        //    }
-        //}
-
-        public override bool IsSatisfiedBy(IParam param)
-        {
-            var userId = GetUserId(param);
-            Products = GetProducts(userId);
-
-            return Products.Count > 0;
-        }
-
-        private int GetUserId(IParam param)
-        {
-            if (param.IsSuper) return param.SRecommendId;
-            if (param.IsMaster) return param.MRecommendId;
-            return param.ARecommendId;
-        }
-
-        private Dictionary<string, int> GetProducts(int userId)
-        {
-            var products = new Dictionary<string, int> ()
+            get
             {
-                { "Casino", 1},
-                { "Gold Deluxe", 2}
-            };
+                return ProductIds;
+            }
 
-            return products;
+            set
+            {
+                ProductIds = value is IEnumerable ? ((JArray)value).Select(x => (int)x).ToList() : ProductIds;
+            }
         }
+
+        public override bool IsSatisfiedBy(IParam param) => ProductIds.Any();
     }
 }
