@@ -4,6 +4,8 @@ using Fanex.BetDetails.Lucky3.Services;
 using NSubstitute;
 using NUnit.Framework;
 using System.Linq;
+using Fanex.BetDetails.Lucky3.Models;
+using System.Collections.Generic;
 
 namespace Fanex.BetDetails.Lucky3.Tests.Services
 {
@@ -37,7 +39,7 @@ namespace Fanex.BetDetails.Lucky3.Tests.Services
         public void GetBetListDetail_ValidParameter_CallDataAccess()
         {
             //// Arrange                        
-            var parameter = Substitute.For<GetLucky3DetailParameter>();
+            var parameter = Substitute.For<IGetLucky3DetailParameter>();
             parameter.IsValid().Returns(true);
 
             //// Act
