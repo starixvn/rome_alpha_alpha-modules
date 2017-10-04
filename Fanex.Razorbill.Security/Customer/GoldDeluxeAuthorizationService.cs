@@ -21,9 +21,9 @@
             return _authenticateCustomer.AllowReadDepenOnCustIdBelong(custId);
         }
 
-        public bool IsAuthorizedHost(AuthorizationContext authorizationContext, int custId, int actorId)
+        public bool IsAuthorizedHost(AuthorizationContext authorizationContext, int custId)
         {
-            return custId != actorId && _authenticateCustomer.AllowUpdateDepenOnCustIdBelong(custId);
+            return _authenticateCustomer.AllowUpdateDepenOnCustIdBelong(custId);
         }
 
         /// <summary>
