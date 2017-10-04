@@ -31,7 +31,7 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
             int indexOption,
             int dcommIndexOption,
             string onclickFunction,
-            int sportOptionId = 0,
+            int productIdOption = 0,
             Dictionary<string, int> unconfirmSettingOptions = null,
             bool isFilter = false, 
             bool isChecked = false)
@@ -54,15 +54,7 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
             }
 
             tpl.onClick_function = onclickFunction;
-            if (textValue.ToLower() == UIComponentsLang.enterusername.ToLower())
-            {
-                tpl.textClass = "text_italic";
-            }
-            else
-            {
-                tpl.textClass = "text_normal";
-            }
-
+            tpl.textClass = textValue.ToLower() == UIComponentsLang.enterusername.ToLower() ? "text_italic" : "text_normal";
             tpl.value = textValue;
             usernameOld = textValue;
             CreateStatusFilterOption(indexOption);
@@ -70,7 +62,7 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
 
             if (unconfirmSettingOptions != null && unconfirmSettingOptions.Count > 1)
             {
-                CreateUnconfirmSettingFilterOption(unconfirmSettingOptions, sportOptionId);
+                CreateUnconfirmSettingFilterOption(unconfirmSettingOptions, productIdOption);
             }
             else
             {
@@ -96,7 +88,7 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
             int dcommIndexOption,
             string onclickFunction, 
             Dictionary<object,int> dcommOptions,
-            int sportOptionId = 0,
+            int productIdOption = 0,
             Dictionary<string, int> unconfirmSettingOptions = null,
             bool isFilter = false, 
             bool isChecked = false)
@@ -137,7 +129,7 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
 
             if (unconfirmSettingOptions != null && unconfirmSettingOptions.Count > 1)
             {
-                CreateUnconfirmSettingFilterOption(unconfirmSettingOptions, sportOptionId);
+                CreateUnconfirmSettingFilterOption(unconfirmSettingOptions, productIdOption);
             }
             else
             {
@@ -162,15 +154,7 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
             tpl.statusOption.Clear();
             foreach (object key in statusFilterDict.Keys)
             {
-                if (index == statusFilterDict[key])
-                {
-                    tplOption.selected = "selected";
-                }
-                else
-                {
-                    tplOption.selected = string.Empty;
-                }
-
+                tplOption.selected = index == statusFilterDict[key] ? "selected" : string.Empty;
                 tplOption.optionText = key as string;
                 tplOption.optionValue = statusFilterDict[key].ToString();
                 tpl.statusOption.Append(tplOption);
@@ -183,15 +167,7 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
             tpl.DCom.dCommOption.Clear();
             foreach (object key in dcommFilterDict.Keys)
             {
-                if (index == dcommFilterDict[key])
-                {
-                    tplOption.selected = "selected";
-                }
-                else
-                {
-                    tplOption.selected = string.Empty;
-                }
-
+                tplOption.selected = index == dcommFilterDict[key] ? "selected" : string.Empty;
                 tplOption.optionText = key as string;
                 tplOption.optionValue = dcommFilterDict[key].ToString();
                 tpl.DCom.dCommOption.Append(tplOption);
@@ -213,22 +189,14 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
             }
         }
 
-        private void CreateUnconfirmSettingFilterOption(Dictionary<string, int> unconfirmSettingOptions, int sportIdOption)
+        private void CreateUnconfirmSettingFilterOption(Dictionary<string, int> unconfirmSettingOptions, int productIdOption)
         {
             DoubleCommissionSearchUserName_Control_UnconfirmSetting_unconfirmSettingOption_Block tplOption = new DoubleCommissionSearchUserName_Control_UnconfirmSetting_unconfirmSettingOption_Block();
             tpl.UnconfirmSetting.unconfirmSettingOption.Clear();
 
             foreach (string key in unconfirmSettingOptions.Keys)
             {
-                if (sportIdOption == unconfirmSettingOptions[key])
-                {
-                    tplOption.selected = "selected";
-                }
-                else
-                {
-                    tplOption.selected = string.Empty;
-                }
-
+                tplOption.selected = productIdOption == unconfirmSettingOptions[key] ? "selected" : string.Empty;
                 tplOption.optionText = key as string;
                 tplOption.optionValue = unconfirmSettingOptions[key].ToString();
                 tpl.UnconfirmSetting.unconfirmSettingOption.Append(tplOption);
