@@ -145,6 +145,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Constants\BetTypeIdConstants.cs" />
     <Compile Include="DataAccesses\ICasinoDetailsDataAccess.cs" />
     <Compile Include="Enums\UserLevels.cs" />
     <Compile Include="Models\PagedData.cs" />

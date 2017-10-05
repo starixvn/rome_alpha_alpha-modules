@@ -3,6 +3,7 @@
     using BetList.Core.Entities;
     using BetList.Core.Utils;
     using Casino.ViewModels;
+    using Constants;
     using NUnit.Framework;
 
     [TestFixture]
@@ -23,7 +24,7 @@
             Assert.AreEqual("-", viewModel.WinLost);
         }
 
-        [TestCase(500, "(NW) 0.00")]
+        [TestCase(BetTypeIdConstants.ChargeCommission, "(NW) 0.00")]
         [TestCase(1, "")]
         public void WinLost_StatusIsVoid_ShowValue(int betTypeId, string expectedWinLost)
         {
@@ -57,12 +58,12 @@
         [TestCase(BetStatus.Lose)]
         [TestCase(BetStatus.Draw)]
         [TestCase(BetStatus.Refund)]
-        public void WinLost_Default_BetTypeIs500_ShowValue(string status)
+        public void WinLost_Default_BetTypeIsChargeCommission_ShowValue(string status)
         {
             // Arrange
             var ticket = new Ticket();
             ticket.ActualStake = 100;
-            ticket.BetTypeId = 500;
+            ticket.BetTypeId = BetTypeIdConstants.ChargeCommission;
             ticket.Status = status;
 
             // Act
@@ -76,7 +77,7 @@
         [TestCase(BetStatus.Lose)]
         [TestCase(BetStatus.Draw)]
         [TestCase(BetStatus.Refund)]
-        public void WinLost_Default_BetTypeIsNot500_ShowValue(string status)
+        public void WinLost_Default_BetTypeIsNotChargeCommission_ShowValue(string status)
         {
             // Arrange
             var ticket = new Ticket();
@@ -125,11 +126,11 @@
         [TestCase(BetStatus.Lose)]
         [TestCase(BetStatus.Draw)]
         [TestCase(BetStatus.Refund)]
-        public void Comm_Default_BetTypeIs500_ShowValue(string status)
+        public void Comm_Default_BetTypeIsChargeCommission_ShowValue(string status)
         {
             // Arrange
             var ticket = new Ticket();
-            ticket.BetTypeId = 500;
+            ticket.BetTypeId = BetTypeIdConstants.ChargeCommission;
             ticket.PlayerComm = 500;
             ticket.Status = status;
 
@@ -144,7 +145,7 @@
         [TestCase(BetStatus.Lose)]
         [TestCase(BetStatus.Draw)]
         [TestCase(BetStatus.Refund)]
-        public void Comm_Default_BetTypeIsNot500_ShowValue(string status)
+        public void Comm_Default_BetTypeIsNotChargeCommission_ShowValue(string status)
         {
             // Arrange
             var ticket = new Ticket();
@@ -160,14 +161,14 @@
         }
 
         [Test]
-        public void CommVisibility_BetTypeIdIs501_IsNotIMBCMatch_ShowValue()
+        public void CommVisibility_BetTypeIdIsMatchWinner_IsNotIMBCMatch_ShowValue()
         {
             // Arrange
             var ticket = new Ticket();
             ticket.SuperDiscount = 1;
             ticket.MasterDiscount = 1;
             ticket.AgentDiscount = 1;
-            ticket.BetTypeId = 501;
+            ticket.BetTypeId = BetTypeIdConstants.MatchWinner;
             ticket.Status = BetStatus.Won;
 
             // Act
@@ -178,14 +179,14 @@
         }
 
         [Test]
-        public void CommVisibility_BetTypeIdIs501_IsIMBCMatch_ShowValue()
+        public void CommVisibility_BetTypeIdIsMatchWinner_IsIMBCMatch_ShowValue()
         {
             // Arrange
             var ticket = new Ticket();
             ticket.SuperDiscount = -1;
             ticket.MasterDiscount = 1;
             ticket.AgentDiscount = 1;
-            ticket.BetTypeId = 501;
+            ticket.BetTypeId = BetTypeIdConstants.MatchWinner;
             ticket.Status = BetStatus.Won;
 
             // Act
@@ -196,7 +197,7 @@
         }
 
         [Test]
-        public void CommVisibility_BetTypeIdIsNot501_ShowTrue()
+        public void CommVisibility_BetTypeIdIsNotMatchWinner_ShowTrue()
         {
             // Arrange
             var ticket = new Ticket();

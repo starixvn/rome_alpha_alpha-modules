@@ -2,6 +2,7 @@
 {
     using BetList.Core.Entities;
     using BetList.Core.Utils;
+    using Constants;
 
     public class WinLossBlockViewModel
     {
@@ -21,7 +22,7 @@
         {
             var isIMBCMatch = ticket.SuperDiscount < 0 || ticket.MasterDiscount < 0 || ticket.AgentDiscount < 0;
 
-            return ticket.BetTypeId != 501 || !isIMBCMatch;
+            return ticket.BetTypeId != BetTypeIdConstants.MatchWinner || !isIMBCMatch;
         }
 
         private void SetData(ITicket ticket)
@@ -37,7 +38,7 @@
                     break;
 
                 case BetStatus.Void:
-                    WinLost = ticket.BetTypeId == 500 ? "(NW) 0.00" : string.Empty;
+                    WinLost = ticket.BetTypeId == BetTypeIdConstants.ChargeCommission ? "(NW) 0.00" : string.Empty;
                     Comm = "0.00";
                     break;
 
@@ -47,8 +48,8 @@
                     break;
 
                 default:
-                    WinLost = ticket.BetTypeId == 500 ? "(NW) " + ConvertByBetType.Winloss(ticket.ActualStake) : ConvertByBetType.Winloss(ticket.Winlost);
-                    Comm = ticket.BetTypeId == 500 ? ConvertByBetType.Winloss(ticket.PlayerComm) : ConvertByBetType.Comm(ticket.PlayerComm);
+                    WinLost = ticket.BetTypeId == BetTypeIdConstants.ChargeCommission ? "(NW) " + ConvertByBetType.Winloss(ticket.ActualStake) : ConvertByBetType.Winloss(ticket.Winlost);
+                    Comm = ticket.BetTypeId == BetTypeIdConstants.ChargeCommission ? ConvertByBetType.Winloss(ticket.PlayerComm) : ConvertByBetType.Comm(ticket.PlayerComm);
                     break;
             }
         }
