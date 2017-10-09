@@ -1,0 +1,125 @@
+﻿@using Fanex.BetList.Core.Entities
+@using Fanex.BetList.Core.TicketHelper
+@using Fanex.BetDetails.Casino.ViewModels
+@using Fanex.BetDetails.Casino.App_GlobalResources
+@model CasinoDetailsViewModel
+@{
+    ViewBag.Title = Model.Title;
+}
+<form class="form-inline hide" role="form" id="betlist-form">
+    @Html.Hidden("RefNo", Model.RefNo)
+    @Html.Hidden("CustId", Model.CustId)
+    @Html.Hidden("TransType", Model.TransType)
+    @Html.Hidden("SportName", Model.SportName)
+    @Html.Hidden("ProductId", Model.ProductId)
+</form>
+<table class="tblRpt tblRpt-bordered tblRpt-striped width-100per tablesorter tblRpt-hover tbl-betlist" id="tbl-betlist">
+    <thead>
+        <tr>
+            <th class="col-number">#</th>
+            <th class="col-transtime">@Resources.transtime</th>
+            <th>@Resources.choice</th>
+            <th class="col-odds">@Resources.odds</th>
+            <th class="col-stake">@Resources.stake</th>
+            <th class="col-winloss">@Resources.lblWinLoss</th>
+            <th class="col-status">@Resources.status</th>
+            @if (Model.AllowToViewSuperPT)
+            {
+                <th class="col-pt">@Resources.superPT/ @Resources.lblComm</th>
+            }
+            @if (Model.AllowToViewMasterPT)
+            {
+                <th class="col-pt">@Resources.masterPT/ @Resources.lblComm</th>
+            }
+            <th class="col-pt">@Resources.agentPT/ @Resources.lblComm</th>
+        </tr>
+    </thead>
+    @if (Model.DetailData.Tickets.Any())
+    {
+        <tbody>
+            @{
+                var i = 1;
+                var ticketData = new List<ITicketData>();
+                foreach (var ticket in Model.DetailData.Tickets)
+                {
+                    var status = ticket.Status.ToLowerInvariant();
+                    var isShowWinLoss = !(status.Equals(BetStatus.Running) || status.Equals(BetStatus.Waiting));
+                    <tr id="r@(ticket.TransId)">
+                        <td class='w-order text-center'>@i</td>
+                        <td class="trans-block text-center nonbreak">
+                            @(new HtmlString(Model.Builder.BuildTrans(ticket)))
+                        </td>
+                        <td class="choice-block text-right sport-@(ticket.SportTypeId)">
+                            @(new HtmlString(Model.Builder.BuildChoice(ticket, Model.TicketHelper, ticketData, false)))
+                        </td>
+                        <td class="odds-block bl_underdog nonbreak text-right">
+                            @(new HtmlString(Model.Builder.BuildOdds(ticket, ticketData, CacheRef.GetOddsTypeName)))
+                        </td>
+                        <td class="stake-block bl_underdog text-right">
+                            @(new HtmlString(Model.Builder.BuildStake(ticket)))
+                        </td>
+                        @RenderWinLoss(ticket)
+                        <td class="status-block text-center sport-@(ticket.SportTypeId)">
+                            @(new HtmlString(Model.Builder.BuildStatus(ticket, Model.TicketHelper, ticketData, !string.IsNullOrEmpty(ticket.IP))))
+                        </td>
+                        @if (Model.AllowToViewSuperPT)
+                        {
+                            @RenderPTComm(ticket.SuperPositionTaking, ticket.SuperWinlost, ticket.CommStatus, ticket.SuperDiscount, ticket.SuperComm, isShowWinLoss)
+                        }
+                        @if (Model.AllowToViewMasterPT)
+                        {
+                            @RenderPTComm(ticket.MasterPositionTaking, ticket.MasterWinlost, ticket.CommStatus, ticket.MasterDiscount, ticket.AgentComm, isShowWinLoss)
+                        }
+                        @RenderPTComm(ticket.AgentPositionTaking, ticket.AgentWinlost, ticket.CommStatus, ticket.AgentDiscount, ticket.Comm, isShowWinLoss)
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+                }
+                else
+                {
+                    <tbody>
+                        <tr>
+                            <td colspan="@Model.TotalColumn" class="text-center">@Resources.NoInformationIsAvailable</td>
+                        </tr>
+                    </tbody>
+                }
+</table>
+@Pager.Render(Model.PagerViewModel)
+@Html.Hidden("viewer-id", Model.ViewerId)
+@Html.Hidden("viewer-level-id", Model.ViewerLevelId)
+@helper RenderWinLoss(ITicket ticket)
+{
+var model = new WinLossBlockViewModel(ticket);
+
+    <td class="win-loss-block text-right nonbreak">
+        <div>
+            <span class="bl_underdog">@(new HtmlString(model.WinLost))</span>
+        </div>
+        @if (model.CommVisibility)
+        {
+            <div>
+                <span class="bl_underdog">@(new HtmlString(model.Comm))</span>
+            </div>
+        }
+    </td>
+}
+@helper RenderPTComm(decimal positionTaking, decimal winLoss, string commStatus, decimal discount, decimal comm, bool isShowWinLoss)
+{
+var model = new PositionTakingBlockViewModel(positionTaking, winLoss, commStatus, discount, comm);
+    <td class="position-taking-block text-right">
+        <div class="position-taking bl_underdog">
+            <font class="pt-value">@(new HtmlString(model.PositionTakingPercent))</font><br />
+            @if (isShowWinLoss)
+            {
+                <span class="pt-winloss">@(new HtmlString(model.WinLoss))</span><br />
+            }
+        </div>
+        @(new HtmlString(model.CommissionPercent))<br />
+        @if (isShowWinLoss)
+        {
+            @(new HtmlString(model.Commission))<br />
+        }
+    </td>
+}
