@@ -4,6 +4,7 @@
     using System.IO;
     using System.Runtime.Serialization.Json;
     using System.Web;
+    using System.Web.Script.Serialization;
 
     public static class AppSettings
     {
@@ -24,11 +25,9 @@
                 var configFilePath = HttpContext.Current.Server.MapPath(FilePath);
                 if (File.Exists(configFilePath))
                 {
-                    using (Stream stream = File.OpenRead(configFilePath))
-                    {
-                        var serializer = new DataContractJsonSerializer(typeof(ColossusBets));
-                        ColossusBetsConfig = (ColossusBets)serializer.ReadObject(stream);
-                    }
+                    var text = File.ReadAllText(configFilePath);
+                    var serializer = new JavaScriptSerializer();
+                    ColossusBetsConfig = serializer.Deserialize<ColossusBets>(text);
                 }
                 else
                 {

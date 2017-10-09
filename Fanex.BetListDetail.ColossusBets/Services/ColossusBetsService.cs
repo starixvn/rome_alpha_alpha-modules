@@ -39,7 +39,7 @@
             var siteId = GetSiteIdByRole(parameter.RoleId);
             var token = GetToken(parameter.AccId, parameter.CustId);
             var memberChoice = string.Format(
-                AppSettings.ColossusBetsConfig.GetMemberChoiceAddress,
+                AppSettings.ColossusBetsConfig.MemberChoiceAddress,
                 parameter.EventId,
                 token.Data.Authorization,
                 siteId);
@@ -78,7 +78,7 @@
             var token = new TokenResultModel { ErrorCode = 1, ErrorMsg = Resources.Resource.ColossusBetsAPI_FailedToConnect };
             try
             {
-                var tokenUrl = string.Format(AppSettings.ColossusBetsConfig.GetTokenAddress, userId, customerId);
+                var tokenUrl = string.Format(AppSettings.ColossusBetsConfig.TokenAddress, userId, customerId);
                 var jsonString = webClient.DownloadString(new Uri(tokenUrl));
 
                 var serializer = new JavaScriptSerializer();
@@ -86,7 +86,7 @@
             }
             catch
             {
-                //exception.Write();
+                //// exception.Write();
             }
 
             return token;
