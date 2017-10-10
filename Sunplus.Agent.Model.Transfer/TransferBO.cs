@@ -86,30 +86,27 @@ namespace Sunplus.Agent.Model.BL.Transfer
             }
 
             return dao.Age_Transfer_InsClearBalance_Ag(
-                toCustIds, 
-                CurrentSession.SubAccId, 
-                CurrentSession.UserId, 
+                toCustIds,
+                CurrentSession.SubAccId,
+                CurrentSession.UserId,
                 CurrentSession.CustId,
-                ip, 
-                status, 
-                CurrentSession.LangKey, 
+                ip,
+                status,
+                CurrentSession.LangKey,
                 AppSettings.AllowedListSuperAccounts,
                 CurrentSession.IsAllDayBalTransfer,
-                out errMsg); 
+                out errMsg);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="status"></param>
-        /// <param name="pageIndex"></param>
-        /// <param name="totalPages"></param>
-        /// <param name="userName"></param>
-        /// <param name="isYesterdayBalance"></param>
-        /// <returns></returns>
+        public DataTable GetDataTransfer(int status, string userName, bool isYesterdayBalance)
+        {
+            int totalPages = 0;
+            return GetDataTransfer(status, 1, ref totalPages, int.MaxValue - 1, userName, isYesterdayBalance);
+        }
+
         public DataTable GetDataTransfer(int status, int pageIndex, ref int totalPages, string userName, bool isYesterdayBalance)
         {
-            return GetDataTransfer(status, pageIndex, ref totalPages, AppSettings.PageSize, userName, isYesterdayBalance);    
+            return GetDataTransfer(status, pageIndex, ref totalPages, AppSettings.PageSize, userName, isYesterdayBalance);
         }
 
         public DataTable GetDataTransfer(int status, int pageIndex, ref int totalPages, int pagesize, string userName, bool isYesterdayBalance)
@@ -212,7 +209,7 @@ namespace Sunplus.Agent.Model.BL.Transfer
         public string GetOptionTransferCondition(int custId)
         {
             TransferDAO dao = new TransferDAO();
-            return dao.Acc_CustomerSelTransferOption(custId, string.Empty);          
+            return dao.Acc_CustomerSelTransferOption(custId, string.Empty);
         }
 
         public string GetTransferCondition(int custId)
