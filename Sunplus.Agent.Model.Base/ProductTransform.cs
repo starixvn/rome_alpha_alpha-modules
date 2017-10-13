@@ -15,7 +15,8 @@
             [21] = "allbet",
             [22] = "voidbridge",
             [28] = "lottery",
-            [26] = "lucky3"
+            [26] = "lucky3",
+            [30] = "bullfighting"
         };
 
         /// <summary>

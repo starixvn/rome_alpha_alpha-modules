@@ -171,6 +171,9 @@ namespace Sunplus.Agent.Model.BL.Definitions
         // Lucky3
         Lucky3 = 1600,
         Lucky3Prize = 1601,
-        Lucky3WinningShare = 1602
+        Lucky3WinningShare = 1602,
+
+        // BullFighting
+        BullFighting = 1004
     }
 }

@@ -64,6 +64,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
         VirtualMotors = 184,
         VirtualCycling  = 185,
         VirtualTennis = 186,
+        BullFighting = 207,
         Bingo = 252,
         P2P = 253,
         Others = 1000,

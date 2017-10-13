@@ -29,5 +29,6 @@
 
         public const int Lottery = 28;
         public const int Lucky3 = 26;
+        public const int BullFighting = 30;
     }
 }
