@@ -2570,6 +2570,6 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>trên</value>
   </data>
   <data name="uncomfirmedSetting" xml:space="preserve">
-    <value>Unconfirmed Setting</value>
+    <value>Chưa Thiết Lập</value>
   </data>
 </root>
