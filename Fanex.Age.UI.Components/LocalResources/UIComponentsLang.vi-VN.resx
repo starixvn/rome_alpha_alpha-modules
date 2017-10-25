@@ -2569,4 +2569,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   <data name="Of_Pager" xml:space="preserve">
     <value>trên</value>
   </data>
+  <data name="uncomfirmedSetting" xml:space="preserve">
+    <value>Unconfirmed Setting</value>
+  </data>
 </root>

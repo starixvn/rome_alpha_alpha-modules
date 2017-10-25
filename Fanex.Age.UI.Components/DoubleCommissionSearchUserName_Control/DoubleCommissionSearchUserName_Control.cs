@@ -99,7 +99,7 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
             tpl.status = UIComponentsLang.status;
             tpl.enterusername = UIComponentsLang.enterusername;
             tpl.submit = UIComponentsLang.submit;
-            tpl.UnconfirmSetting.unconfirmSetting = "Unconfirm Setting";
+            tpl.UnconfirmSetting.unconfirmSetting = UIComponentsLang.uncomfirmedSetting;
 
             SetDoubleCommissionFilterStatus(dcommOptions);
 

@@ -6828,7 +6828,7 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uncomfirmed Setting.
+        ///   Looks up a localized string similar to Unconfirmed Setting.
         /// </summary>
         internal static string uncomfirmedSetting {
             get {

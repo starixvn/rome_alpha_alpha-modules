@@ -2612,4 +2612,7 @@ Please use the form below to set your Security Code now.</value>
   <data name="Of_Pager" xml:space="preserve">
     <value>/</value>
   </data>
+  <data name="uncomfirmedSetting" xml:space="preserve">
+    <value>Unconfirmed Setting</value>
+  </data>
 </root>

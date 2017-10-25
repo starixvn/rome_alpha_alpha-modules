@@ -2595,6 +2595,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
     <value>Not filter</value>
   </data>
   <data name="uncomfirmedSetting" xml:space="preserve">
-    <value>Uncomfirmed Setting</value>
+    <value>Unconfirmed Setting</value>
   </data>
 </root>
