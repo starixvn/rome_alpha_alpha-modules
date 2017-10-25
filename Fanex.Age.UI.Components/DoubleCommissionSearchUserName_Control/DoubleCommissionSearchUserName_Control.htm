@@ -27,6 +27,14 @@
                     <!--/dCommOption-->
                 </select>                
                 <!--/DCom-->
+                <!--UnconfirmSetting-->
+                <span class="dcommFilterHead">{unconfirmSetting}</span>
+                <select id="unconfirmSettingFilter" name="unconfirmSettingFilter">
+                    <!--unconfirmSettingOption-->
+                    <option value="{optionValue}" {selected}>{optionText}</option>
+                    <!--/unconfirmSettingOption-->
+                </select>
+                <!--/UnconfirmSetting-->
             </div>
             <!--CheckingFilter-->
             <div id="box_checking_filter"> <input type="checkbox" id="{chkId}" name="{chkId}" onclick="CheckingFilter();" {ischecked} /> {CheckBoxText}  </div>

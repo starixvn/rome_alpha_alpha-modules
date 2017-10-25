@@ -2591,4 +2591,10 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="Of_Pager" xml:space="preserve">
     <value>of</value>
   </data>
+  <data name="notFilter" xml:space="preserve">
+    <value>Not filter</value>
+  </data>
+  <data name="uncomfirmedSetting" xml:space="preserve">
+    <value>Uncomfirmed Setting</value>
+  </data>
 </root>

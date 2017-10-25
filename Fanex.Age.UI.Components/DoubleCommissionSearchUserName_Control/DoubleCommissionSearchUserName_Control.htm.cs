@@ -30,6 +30,7 @@ namespace Fanex.Age.UI.Components
 			public DoubleCommissionSearchUserName_Control_statusOption_Block statusOption = new DoubleCommissionSearchUserName_Control_statusOption_Block();
 			protected static string s7 = "</select>";
 			public DoubleCommissionSearchUserName_Control_DCom_Block DCom = new DoubleCommissionSearchUserName_Control_DCom_Block();
+			public DoubleCommissionSearchUserName_Control_UnconfirmSetting_Block UnconfirmSetting = new DoubleCommissionSearchUserName_Control_UnconfirmSetting_Block();
 			protected static string s8 = "</div>";
 			public DoubleCommissionSearchUserName_Control_CheckingFilter_Block CheckingFilter = new DoubleCommissionSearchUserName_Control_CheckingFilter_Block();
 			protected static string s9 = "<div class=\"container-btn\"><input id=\"dSubmit\" type=\"button\" value=\"";
@@ -63,6 +64,7 @@ namespace Fanex.Age.UI.Components
 					if(null != statusOption) statusOption.ToString(ref bd);
 					bd.Append(s7);
 					if(null != DCom) DCom.ToString(ref bd);
+					if(null != UnconfirmSetting) UnconfirmSetting.ToString(ref bd);
 					bd.Append(s8);
 					if(null != CheckingFilter) CheckingFilter.ToString(ref bd);
 					bd.Append(s9);
@@ -182,31 +184,79 @@ namespace Fanex.Age.UI.Components
 			}
 		}
 
-		public class DoubleCommissionSearchUserName_Control_CheckingFilter_Block: Block
+		public class DoubleCommissionSearchUserName_Control_UnconfirmSetting_Block: Block
 		{
-			protected static string s32 = "<div id=\"box_checking_filter\"> <input type=\"checkbox\" id=\"";
-			public string chkId = "{chkId}";
-			protected static string s33 = "\" name=\"";
-			protected string t1_chkId;
-			protected static string s34 = "\" onclick=\"CheckingFilter();\" ";
-			public string ischecked = "{ischecked}";
-			protected static string s35 = " /> ";
-			public string CheckBoxText = "{CheckBoxText}";
-			protected static string s36 = "</div>";
+			protected static string s32 = "<span class=\"dcommFilterHead\">";
+			public string unconfirmSetting = "{unconfirmSetting}";
+			protected static string s33 = "</span><select id=\"unconfirmSettingFilter\" name=\"unconfirmSettingFilter\">";
+			public DoubleCommissionSearchUserName_Control_UnconfirmSetting_unconfirmSettingOption_Block unconfirmSettingOption = new DoubleCommissionSearchUserName_Control_UnconfirmSetting_unconfirmSettingOption_Block();
+			protected static string s34 = "</select>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
 					bd.Append(s32);
-					bd.Append(chkId);
+					bd.Append(unconfirmSetting);
 					bd.Append(s33);
-					bd.Append(chkId);
+					if(null != unconfirmSettingOption) unconfirmSettingOption.ToString(ref bd);
 					bd.Append(s34);
-					bd.Append(ischecked);
+				}
+				if(IsAssigned){bd.Append(Value);}
+			}
+		}
+
+		public class DoubleCommissionSearchUserName_Control_UnconfirmSetting_unconfirmSettingOption_Block: Block
+		{
+			protected static string s35 = "<option value=\"";
+			public string optionValue = "{optionValue}";
+			protected static string s36 = "\" ";
+			public string selected = "{selected}";
+			protected static string s37 = ">";
+			public string optionText = "{optionText}";
+			protected static string s38 = "</option>";
+			public override void ToString(ref StringBuilder bd)
+			{
+				if(!Visible) return;
+				if(RenderChild)
+				{
 					bd.Append(s35);
-					bd.Append(CheckBoxText);
+					bd.Append(optionValue);
 					bd.Append(s36);
+					bd.Append(selected);
+					bd.Append(s37);
+					bd.Append(optionText);
+					bd.Append(s38);
+				}
+				if(IsAssigned){bd.Append(Value);}
+			}
+		}
+
+		public class DoubleCommissionSearchUserName_Control_CheckingFilter_Block: Block
+		{
+			protected static string s39 = "<div id=\"box_checking_filter\"> <input type=\"checkbox\" id=\"";
+			public string chkId = "{chkId}";
+			protected static string s40 = "\" name=\"";
+			protected string t1_chkId;
+			protected static string s41 = "\" onclick=\"CheckingFilter();\" ";
+			public string ischecked = "{ischecked}";
+			protected static string s42 = " /> ";
+			public string CheckBoxText = "{CheckBoxText}";
+			protected static string s43 = "</div>";
+			public override void ToString(ref StringBuilder bd)
+			{
+				if(!Visible) return;
+				if(RenderChild)
+				{
+					bd.Append(s39);
+					bd.Append(chkId);
+					bd.Append(s40);
+					bd.Append(chkId);
+					bd.Append(s41);
+					bd.Append(ischecked);
+					bd.Append(s42);
+					bd.Append(CheckBoxText);
+					bd.Append(s43);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
