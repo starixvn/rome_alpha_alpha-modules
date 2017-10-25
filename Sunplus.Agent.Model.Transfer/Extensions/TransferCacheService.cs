@@ -4,6 +4,7 @@ using Sunplus.Agent.Model.Entities;
 using Sunplus.Agent.Model.Transfer.Models;
 using Sunplus.Agent.Utilities.Extension;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Sunplus.Agent.Model.Transfer.Extensions
 {
@@ -111,30 +112,25 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
         private bool CompareAfterSet(string cacheKey, List<TransferCacheModel> value)
         {
             var temp = CacheExtension.Get<List<TransferCacheModel>>(cacheKey);
-            if (temp == null)
+            if (temp == null && value == null)
             {
-                return value == null;
+                return true;
             }
 
-            if (value == null)
+            if (temp != null && value != null && value.Count == temp.Count)
             {
-                return temp == null;
-            }
-
-            if (value.Count != temp.Count)
-            {
-                return false;
-            }
-
-            for (int i = 0; i < value.Count; i++)
-            {
-                if (!value[i].Equals(temp[i]))
+                for (int i = 0; i < value.Count; i++)
                 {
-                    return false;
+                    if (!value[i].Equals(temp[i]))
+                    {
+                        return false;
+                    }
                 }
+
+                return true;
             }
 
-            return true;
+            return false;
         }
 
         private string ErrorMessageFormat(List<TransferCacheModel> value)
