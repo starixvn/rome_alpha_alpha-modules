@@ -14,9 +14,24 @@ namespace Sunplus.Agent.Model.Transfer.Models
 
         public List<int> CustIds { get; set; }
 
+        public TransferCacheModel()
+        {
+            CustIds = new List<int>();
+        }
+
         public bool Equals(TransferCacheModel obj)
         {
+            if (obj == null)
+            {
+                return false;
+            }
+
             if (AdminId != obj.AdminId)
+            {
+                return false;
+            }
+
+            if (CustIds.Count != obj.CustIds.Count)
             {
                 return false;
             }

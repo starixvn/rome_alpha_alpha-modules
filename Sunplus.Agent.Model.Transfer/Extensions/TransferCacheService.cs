@@ -75,8 +75,7 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
             var newAdminTransferCache = new TransferCacheModel()
             {
                 AdminId = adminId,
-                AdminName = adminName,
-                CustIds = new List<int>()
+                AdminName = adminName
             };
 
             newAdminTransferCache.CustIds.Add(custId);
@@ -112,9 +111,14 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
         private bool CompareAfterSet(string cacheKey, List<TransferCacheModel> value)
         {
             var temp = CacheExtension.Get<List<TransferCacheModel>>(cacheKey);
-            if (temp == null && value != null)
+            if (temp == null)
             {
-                return false;
+                return value == null;
+            }
+
+            if (value == null)
+            {
+                return temp == null;
             }
 
             if (value.Count != temp.Count)
