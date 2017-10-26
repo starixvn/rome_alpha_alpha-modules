@@ -41,7 +41,7 @@ namespace Sunplus.Agent.Model.DL.Casino
         {
             DbResult dtbResult = null;
 
-            var dtbSetting = DbSettingProviderManager.CurrentDbSettingProvider.GetSetting(name);
+            var dtbSetting = DbSettingProviderManager.GetCurrentDbSettingProvider().GetSetting(name);
             string sp = dtbSetting.SpName;
 
             if (sp == NoSp)
