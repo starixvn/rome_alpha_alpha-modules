@@ -12,11 +12,15 @@
 
         string GetTeamName(object teamId);
 
+        string GetTeamName3rd(object teamId);
+
         string GetRouletteBetItem(object itemId);
 
         string GetCasinoBetItem(object betStatusId);
 
         string GetLeagueName(object leagueId);
+
+        string GetLeagueName3rd(object leagueId);
 
         string GetFncIndexName(object indexId);
 
