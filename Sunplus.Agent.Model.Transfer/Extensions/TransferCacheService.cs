@@ -1,10 +1,8 @@
-﻿using Fanex.Logging;
+﻿using System.Collections.Generic;
+using Fanex.Logging;
 using Newtonsoft.Json;
-using Sunplus.Agent.Model.Entities;
 using Sunplus.Agent.Model.Transfer.Models;
 using Sunplus.Agent.Utilities.Extension;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Sunplus.Agent.Model.Transfer.Extensions
 {

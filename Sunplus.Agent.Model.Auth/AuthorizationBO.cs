@@ -4,7 +4,9 @@ namespace Sunplus.Agent.Model.BL.Authorization
     using System.Collections;
     using System.Configuration;
     using System.Data;
+    using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
+    using Fanex.Logging.Extensions.Web;
     using Sunplus.Agent.Model.BL.Casino;
     using Sunplus.Agent.Model.BL.MemberInfo.SecurityCode;
     using Sunplus.Agent.Model.Common;
@@ -88,7 +90,7 @@ namespace Sunplus.Agent.Model.BL.Authorization
                 }
                 catch (Exception ex)
                 {
-                    Logs.WriteInfo(ex);
+                    ExceptionHandler.Handle(ex, TraceEventType.Information);
                     userSession.IsPasswordExpired = false;
                 }
 
@@ -102,7 +104,7 @@ namespace Sunplus.Agent.Model.BL.Authorization
                     }
                     catch (Exception ex)
                     {
-                        Logs.WriteInfo(ex);
+                        ExceptionHandler.Handle(ex, TraceEventType.Information);
                     }
                 }
 
@@ -141,7 +143,7 @@ namespace Sunplus.Agent.Model.BL.Authorization
 
             bool isShowBetChoiceLimit = IsShownBetChoiceLimit(custId);
             outputs.Add("isShowBetChoiceLimit", isShowBetChoiceLimit);
-          
+
             UserSessionService.SetUserSessionValues(CurrentSession, outputs);
 
             return result;

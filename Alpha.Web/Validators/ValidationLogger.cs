@@ -2,10 +2,11 @@
 {
     using System;
     using System.Collections.Specialized;
+    using System.Diagnostics;
     using System.IO;
     using System.Web;
+    using Fanex.Logging.Extensions.Web;
     using Sunplus.Agent.Model.Entities;
-    using Sunplus.Agent.Utilities;
 
     public static class ValidationLogger
     {
@@ -15,7 +16,7 @@
 
             var validationException = new Exception(logMessage);
 
-            Logs.WriteWarn(validationException);
+            ExceptionHandler.Handle(validationException, TraceEventType.Warning);
         }
 
         public static void WriteWarning(Exception ex, string message)
@@ -24,7 +25,7 @@
 
             var validationException = new Exception(logMessage, ex);
 
-            Logs.WriteWarn(validationException);
+            ExceptionHandler.Handle(validationException, TraceEventType.Warning);
         }
 
         public static void WriteInfo(string message)
@@ -33,7 +34,7 @@
 
             var validationException = new Exception(logMessage);
 
-            Logs.WriteInfo(validationException);
+            ExceptionHandler.Handle(validationException, TraceEventType.Information);
         }
 
         private static string BuildMessage(string message)

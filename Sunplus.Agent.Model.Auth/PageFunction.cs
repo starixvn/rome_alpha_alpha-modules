@@ -4,6 +4,7 @@ namespace Sunplus.Agent.Model.BL.Authorization
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Xml;
+    using Fanex.Logging.Extensions.Web;
 
     [Obsolete("Should rename to Sunplus.Agent.Model.Auth")]
     public class RolePermissionPair
@@ -100,7 +101,7 @@ namespace Sunplus.Agent.Model.BL.Authorization
                 }
                 catch (Exception e)
                 {
-                    Utilities.Logs.Write(e);
+                    ExceptionHandler.Handle(e);
                 }
             }
         }
