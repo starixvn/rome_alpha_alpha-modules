@@ -185,10 +185,6 @@
       <HintPath>..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sunplus.Agent.Configurations, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sunplus.Agent.Configurations.3.0.0.1\lib\net40\Sunplus.Agent.Configurations.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Sunplus.Agent.Model.Auth, Version=3.0.0.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Sunplus.Agent.Model.Auth.3.0.0.5\lib\net40\Sunplus.Agent.Model.Auth.dll</HintPath>
       <Private>True</Private>
