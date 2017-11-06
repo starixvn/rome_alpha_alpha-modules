@@ -8,8 +8,9 @@ namespace Sunplus.Agent.Model.DL.Base
     using Fanex.Data;
     using Fanex.Data.Configuration;
     using Fanex.Data.DNAide;
+    using Fanex.Logging.Extensions.Web;
     using Sunplus.Agent.Model.DL.Definitions;
-   
+
 
     [Obsolete("Please rename to Sunplus.Agent.Model.DataAccessLibrary")]
     public class DAOBase
@@ -32,7 +33,7 @@ namespace Sunplus.Agent.Model.DL.Base
 
             for (int i = 0; i < parameters.Count; i++)
             {
-                results.Add(DbHelper.ExecuteDbResult(name, parameters[i], DefaultTimeOut));    
+                results.Add(DbHelper.ExecuteDbResult(name, parameters[i], DefaultTimeOut));
             }
 
             return results;
@@ -44,7 +45,7 @@ namespace Sunplus.Agent.Model.DL.Base
 
             for (int i = 0; i < names.Count; i++)
             {
-                results.Add(DbHelper.ExecuteDbResult(names[i], parameters[i], DefaultTimeOut));    
+                results.Add(DbHelper.ExecuteDbResult(names[i], parameters[i], DefaultTimeOut));
             }
 
             return results;
@@ -56,7 +57,7 @@ namespace Sunplus.Agent.Model.DL.Base
 
             for (int i = 0; i < parameters.Count; i++)
             {
-                results.Add(DbHelper.ExecuteDbResult(name, parameters[i], DefaultTimeOut));    
+                results.Add(DbHelper.ExecuteDbResult(name, parameters[i], DefaultTimeOut));
             }
 
             return results;
@@ -68,7 +69,7 @@ namespace Sunplus.Agent.Model.DL.Base
 
             for (int i = 0; i < names.Count; i++)
             {
-                results.Add(DbHelper.ExecuteDbResult(names[i], parameters[i], DefaultTimeOut));    
+                results.Add(DbHelper.ExecuteDbResult(names[i], parameters[i], DefaultTimeOut));
             }
 
             return results;
@@ -187,7 +188,7 @@ namespace Sunplus.Agent.Model.DL.Base
             {
                 // Throw DataException and log the SP callingm
                 Sunplus.Agent.Model.DL.AgentDataAccessException error = new Sunplus.Agent.Model.DL.AgentDataAccessException(name, parameters);
-                Sunplus.Agent.Utilities.Logs.Write(error);
+                ExceptionHandler.Handle(error);
                 throw error;
             }
 
@@ -229,9 +230,8 @@ namespace Sunplus.Agent.Model.DL.Base
 
             //// Throw DataException and log the SP calling
             Sunplus.Agent.Model.DL.AgentDataAccessException error = new Sunplus.Agent.Model.DL.AgentDataAccessException(name, parameters);
-            Sunplus.Agent.Utilities.Logs.Write(error);
+            ExceptionHandler.Handle(error);
             throw error;
-            return null;
         }
 
         /// <summary>
@@ -305,10 +305,8 @@ namespace Sunplus.Agent.Model.DL.Base
 
             //// Throw DataException and log the SP calling
             Sunplus.Agent.Model.DL.AgentDataAccessException error = new Sunplus.Agent.Model.DL.AgentDataAccessException(name, parameters);
-            Sunplus.Agent.Utilities.Logs.Write(error);
+            ExceptionHandler.Handle(error);
             throw error;
-
-            return null;
         }
 
         #endregion

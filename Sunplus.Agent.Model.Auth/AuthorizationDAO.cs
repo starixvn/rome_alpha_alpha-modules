@@ -4,6 +4,7 @@ namespace Sunplus.Agent.Model.DL.Authorization
     using System.Collections;
     using System.Data;
     using Fanex.Common;
+    using Fanex.Logging.Extensions.Web;
     using Sunplus.Agent.Model.DL.Base;
     using Sunplus.Agent.Utilities;
 
@@ -250,7 +251,7 @@ namespace Sunplus.Agent.Model.DL.Authorization
             catch (Exception ex)
             {
                 lastChangedPwd = DateTime.MinValue;
-                Logs.Write(ex);
+                ExceptionHandler.Handle(ex);
             }
         }
 
