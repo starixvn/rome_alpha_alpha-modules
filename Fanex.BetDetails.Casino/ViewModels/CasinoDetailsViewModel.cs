@@ -72,6 +72,8 @@
 
         public int TotalColumn { get; }
 
+        public int StartNo => DetailData.PageSize * (DetailData.CurrentPageIndex - 1) + 1;
+
         public PagerViewModel PagerViewModel
             => new PagerViewModel(
                 DetailData.CurrentPageIndex,

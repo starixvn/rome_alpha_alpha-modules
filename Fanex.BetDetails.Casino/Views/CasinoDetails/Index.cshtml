@@ -87,6 +87,7 @@
                 }
 </table>
 @Pager.Render(Model.PagerViewModel)
+@Html.Hidden("cust-id", Model.CustId)
 @Html.Hidden("viewer-id", Model.ViewerId)
 @Html.Hidden("viewer-level-id", Model.ViewerLevelId)
 @helper RenderWinLoss(ITicket ticket)

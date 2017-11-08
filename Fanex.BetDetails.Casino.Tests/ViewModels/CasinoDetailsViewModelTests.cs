@@ -108,5 +108,44 @@
             // Assert
             Assert.AreEqual(expectedTitle, viewModel.Title);
         }
+
+        [Test]
+        public void StartNo_PageIndexIsFirstPage_ReturnOne()
+        {
+            // Arrange
+            var param = new CasinoDetailsParam(1, 1, 1, 6, 1, 100);
+
+            // Act
+            var viewModel = new CasinoDetailsViewModel(string.Empty, 1, 2, param, new PagedData<ITicket>(tickets, 1, 100, 0), htmlBuilder, ticketHelper);
+
+            // Assert
+            Assert.AreEqual(1, viewModel.StartNo);
+        }
+
+        [Test]
+        public void StartNo_PageIndexIsSecondPage_ReturnCorrectValue()
+        {
+            // Arrange
+            var param = new CasinoDetailsParam(1, 1, 1, 6, 1, 100);
+
+            // Act
+            var viewModel = new CasinoDetailsViewModel(string.Empty, 1, 2, param, new PagedData<ITicket>(tickets, 2, 100, 0), htmlBuilder, ticketHelper);
+
+            // Assert
+            Assert.AreEqual(101, viewModel.StartNo);
+        }
+
+        [Test]
+        public void StartNo_PageIndexIsThirdPage_ReturnCorrectValue()
+        {
+            // Arrange
+            var param = new CasinoDetailsParam(1, 1, 1, 6, 1, 100);
+
+            // Act
+            var viewModel = new CasinoDetailsViewModel(string.Empty, 1, 2, param, new PagedData<ITicket>(tickets, 3, 100, 0), htmlBuilder, ticketHelper);
+
+            // Assert
+            Assert.AreEqual(201, viewModel.StartNo);
+        }
     }
 }
