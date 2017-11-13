@@ -40,5 +40,17 @@
         {
             return AppPathHelper.GetAppPath(AppSettings.MessageAppPath, virtualPath);
         }
+
+        [SuppressMessage("Microsoft.Design", "CA1055:UriReturnValuesShouldNotBeStrings", Justification = "Reviewed!")]
+        public static string ExTotalBetsForecastUrl(string virtualPath = "~/")
+        {
+            return AppPathHelper.GetAppPath(AppSettings.ExTotalBetsForecastAppPath, virtualPath);
+        }
+
+        [SuppressMessage("Microsoft.Design", "CA1055:UriReturnValuesShouldNotBeStrings", Justification = "Reviewed!")]
+        public static string HowToUseUrl(string virtualPath = "~/")
+        {
+            return AppPathHelper.GetAppPath(AppSettings.HowToUseAppPath, virtualPath);
+        }
     }
 }
