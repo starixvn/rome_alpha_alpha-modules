@@ -24,6 +24,9 @@
 
         private static bool isIntegrationTest;
 
+        private static string exTotalBetsForecastAppPath;
+        private static string howToUseAppPath;
+
         static AppSettings()
         {
             enableKickOutWhenSessionInvalid = ConfigurationManager.AppSettings["EnableKickOutWhenSessionInvalid"] != null
@@ -61,6 +64,9 @@
             googleAnalyticId = ConfigurationManager.AppSettings["GoogleAnalyticId"];
 
             isIntegrationTest = ConfigurationManager.AppSettings["IsIntegrationTest"] == "1";
+
+            exTotalBetsForecastAppPath = ConfigurationManager.AppSettings["ExTotalBetsForecastAppPath"] ?? "ex-totalbetsforecast";
+            howToUseAppPath = ConfigurationManager.AppSettings["HowToUseAppPath"] ?? "site-howtouse";
         }
 
         public static string OldMainAppPath => oldMainAppPath;
@@ -92,5 +98,9 @@
         public static string GoogleAnalyticId => googleAnalyticId;
 
         public static bool IsIntegrationTest => isIntegrationTest;
+
+        public static string ExTotalBetsForecastAppPath => exTotalBetsForecastAppPath;
+
+        public static string HowToUseAppPath => howToUseAppPath;
     }
 }
