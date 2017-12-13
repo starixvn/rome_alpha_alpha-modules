@@ -2,19 +2,29 @@
 {
     using System;
     using System.Linq;
-    using System.Text.RegularExpressions;
     using System.Web;
+    using Alpha.Web;
     using Configurations;
     using Fanex.Common;
     using Sunplus.Agent.Model.BL;
     using Sunplus.Agent.Model.Entities;
-    using Web;
 
     public class RequestContext : IRequestContext
     {
+        private IRequestAnalyst RequestAnalyst;
         private const string RNGCasinoArea = "CustomerSetting/Casino";
         private string _url;
         private int _custId = 0;
+
+        public RequestContext() : this(null)
+        {
+
+        }
+
+        public RequestContext(IRequestAnalyst requestAnalyst)
+        {
+            this.RequestAnalyst = requestAnalyst ?? new RequestAnalyst();
+        }
 
         public string Url
         {
@@ -103,11 +113,7 @@
                 {
                     foreach (string custIdJsonParamName in custIdJsonParamNames)
                     {
-                        if (_custId == 0 &&
-                            !string.IsNullOrEmpty(request[custIdJsonParamName]))
-                        {
-                            _custId = RequestAnalyst.GetCustomerId(request[custIdJsonParamName]);
-                        }
+                        _custId = RequestAnalyst.GetCustomerId(custIdJsonParamName);
 
                         if (_custId > 0)
                         {
@@ -126,7 +132,7 @@
             {
                 return UserSessionService.GetUserSessionInstance(HttpContext.Current.Session.SessionID);
             }
-        }
+        }       
 
         private bool IsRNGCasinoUri()
         {

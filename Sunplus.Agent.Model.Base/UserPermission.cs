@@ -359,6 +359,8 @@ namespace Sunplus.Agent.Model.Entities.Permission
                     return IsShowGoldDeluxeSettingForCredit;
                 case 15: // Colossus Bets
                     return IsShowColossusBets;
+                case 16: // SP2
+                    return IsShowSportsbook2;
                 case 28: // Lottery
                 case 26: // Lucky3
                     return IsEnableProduct(productId);
