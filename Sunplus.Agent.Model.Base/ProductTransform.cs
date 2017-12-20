@@ -1,22 +1,15 @@
 ﻿namespace Sunplus.Agent.Model.Base
 {
+    using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Linq;
     using Entities;
 
     public class ProductTransform
     {
-        private static readonly Dictionary<int, string> ProductNames = new Dictionary<int, string>
-        {
-            [5]="virtualsports",
-            [19] = "cockfighting",
-            [20] = "cricket",
-            [21] = "allbet",
-            [22] = "voidbridge",
-            [28] = "lottery",
-            [26] = "lucky3"
-        };
+        private static readonly Dictionary<int, string> ProductNames = LoadProductNameMappings();
 
         /// <summary>
         /// convention for product:
@@ -84,6 +77,29 @@
                 prefix = "synced-";
                 session.SetSyncedProduct(productId, GetProductStatus(prefix + productId, values, StatusDefaultValues[prefix]));
             }
+        }
+
+        private static Dictionary<int, string> LoadProductNameMappings()
+        {
+            var result = new Dictionary<int, string>();
+            var productText = ConfigurationManager.AppSettings["ProductColumnNameMappings"];
+            if (!string.IsNullOrEmpty(productText))
+            {
+                var products = productText.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (var product in products)
+                {
+                    var items = product.Split('=');
+                    if (items.Length == 2)
+                    {
+                        var id = int.Parse(items[0]);
+                        var name = items[1].ToLowerInvariant();
+
+                        result.Add(id, name);
+                    }
+                }
+            }
+
+            return result;
         }
     }
 }

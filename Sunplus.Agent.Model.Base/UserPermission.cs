@@ -363,6 +363,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
                     return IsShowSportsbook2;
                 case 28: // Lottery
                 case 26: // Lucky3
+                case 30: // Bullfighting
                     return IsEnableProduct(productId);
                 default:
                     return IsEnableProduct(productId) && IsSyncedProduct(productId);

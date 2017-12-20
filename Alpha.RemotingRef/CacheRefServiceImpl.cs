@@ -37,6 +37,8 @@
             return CacheRef.GetLeagueName(leagueId);
         }
 
+        public string GetLeagueName3rd(object leagueId) => CacheRef.GetLeagueName3rd(leagueId);
+
         public string GetOddsTypeName(object oddsTypeId)
         {
             return CacheRef.GetOddsTypeName(oddsTypeId);
@@ -56,6 +58,8 @@
         {
             return CacheRef.GetTeamName(teamId);
         }
+
+        public string GetTeamName3rd(object teamId) => CacheRef.GetTeamName3rd(teamId);
 
         public string GetProductName(int productId)
         {
