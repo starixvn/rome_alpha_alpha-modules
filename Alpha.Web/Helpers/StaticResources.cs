@@ -17,17 +17,17 @@
         private static string minText = ".min";
 
         [SuppressMessage("Microsoft.Performance", "CA1810:InitializeReferenceTypeStaticFieldsInline", Justification = "Reviewed!")]
-        public static void Init(string version = null)
+        public static void Init(string version)
         {
             if (IsDebugMode())
             {
                 minText = string.Empty;
             }
 
-            staticResourcesVersion = version ?? GetBuildVersion();
+            staticResourcesVersion = version;
         }
 
-        private static string GetBuildVersion()
+        public static string GetBuildVersion()
         {
             Assembly assembly = Assembly.GetCallingAssembly();
             FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
