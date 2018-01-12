@@ -2,10 +2,9 @@ namespace Sunplus.Agent.Model.Entities
 {
     using System;
     using System.Data;
-    using Sunplus.Agent.Model.Entities.Base;
+    using Alpha.SubAccount.Models;
 
     // SP return subaccid, username, firstname, lastname, createdate, isnull(closed, 0) closed, PageAccess
-     [Obsolete("Should rename to Sunplus.Agent.Model.Base")]
     public class SubAccount : IEntity
     {
         public SubAccount(DataRow dataRow)
@@ -72,6 +71,6 @@ namespace Sunplus.Agent.Model.Entities
         public static implicit operator SubAccount(DataRow dataRow)
         {
             return new SubAccount(dataRow);
-        }                
+        }
     }
 }
