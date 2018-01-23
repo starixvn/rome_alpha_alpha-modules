@@ -254,12 +254,6 @@
   <data name="bettingLimitMsg" xml:space="preserve">
     <value>Vui lòng chọn ít nhất 1 giới hạn đặt cược cho mỗi loại hình cá cược</value>
   </data>
-  <data name="bingo" xml:space="preserve">
-    <value>Bingo</value>
-  </data>
-  <data name="bingoPositionTaking" xml:space="preserve">
-    <value>(%) PT của Bingo</value>
-  </data>
   <data name="bonusFreeSpin" xml:space="preserve">
     <value>Bonus Free Spin</value>
   </data>
@@ -347,9 +341,6 @@
   <data name="confirmDisableGoldDeluxeMultiple" xml:space="preserve">
     <value>WARNING!!! Are you sure you want to disable Gold Deluxe on this customer and all downlines?</value>
   </data>
-  <data name="confirmDisableLiveCasino" xml:space="preserve">
-    <value>Bạn có chắc sẽ không cho thành viên này chơi Live Casino?</value>
-  </data>
   <data name="confirmDisableMAutoPT" xml:space="preserve">
     <value>Bạn có chắc muốn tắt tính năng Auto PT đối với Master này?</value>
   </data>
@@ -373,9 +364,6 @@
   </data>
   <data name="confirmEnableGoldDeluxeMultiple" xml:space="preserve">
     <value>Do you want to enable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="confirmEnableLiveCasino" xml:space="preserve">
-    <value>Bạn có muốn cho phép thành viên này chơi Live Casino?</value>
   </data>
   <data name="confirmEnableMAutoPT" xml:space="preserve">
     <value>Bạn có muốn cho phép Master này sử dụng chức năng Auto PT?</value>
@@ -509,15 +497,6 @@
   <data name="editKeno" xml:space="preserve">
     <value>Edit Keno</value>
   </data>
-  <data name="EditLiveCasino" xml:space="preserve">
-    <value>Live Casino</value>
-  </data>
-  <data name="EditLiveCasinoMultiple" xml:space="preserve">
-    <value>Tùy chỉnh đồng loạt cho Live Casino</value>
-  </data>
-  <data name="editmultbingo" xml:space="preserve">
-    <value>Tùy chỉnh đồng loạt cho Bingo</value>
-  </data>
   <data name="editmultcs" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho Casino</value>
   </data>
@@ -539,14 +518,8 @@
   <data name="editmultkeno" xml:space="preserve">
     <value>Edit Multiple Keno</value>
   </data>
-  <data name="editmultp2p" xml:space="preserve">
-    <value>Tùy chỉnh đồng loạt cho Poker</value>
-  </data>
   <data name="editmultsportbook" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho Sportsbook</value>
-  </data>
-  <data name="editP2P" xml:space="preserve">
-    <value>Poker</value>
   </data>
   <data name="editsubacc" xml:space="preserve">
     <value>Tùy chỉnh cho tài khoản phụ</value>
@@ -720,9 +693,6 @@
   <data name="hr" xml:space="preserve">
     <value>Racing</value>
   </data>
-  <data name="HRFixedOdds" xml:space="preserve">
-    <value>Đua ngựa tỷ lệ cố định</value>
-  </data>
   <data name="hrminpt" xml:space="preserve">
     <value>PT nhỏ nhất của Racing</value>
   </data>
@@ -874,9 +844,6 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
   <data name="lblAlertDisableCSMember" xml:space="preserve">
     <value>Bạn có chắc muốn chặn thành viên này chơi Casino</value>
   </data>
-  <data name="lblAlertDisableHRFixedOddsMember" xml:space="preserve">
-    <value>Cảnh báo!!!  Bạn có chắc muốn chặn thành viên này chơi Đua ngựa tỷ lệ cố định?</value>
-  </data>
   <data name="lblAlertDisableSATote" xml:space="preserve">
     <value>Cảnh báo: Bạn có muốn chặn thành viên này chơi SA Tote và tất cả những thành viên cấp dưới trực thuộc </value>
   </data>
@@ -915,9 +882,6 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
   </data>
   <data name="lblBettingLimit" xml:space="preserve">
     <value>Giới hạn đặt cược</value>
-  </data>
-  <data name="lblBingoTraditionalHandHistory" xml:space="preserve">
-    <value>Bingo Traditional Hand History</value>
   </data>
   <data name="lblCashBalance" xml:space="preserve">
     <value>Số dư tài khoản</value>
@@ -1287,15 +1251,6 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   <data name="lblTotalBalance" xml:space="preserve">
     <value>Tổng số tiền giao dịch</value>
   </data>
-  <data name="lblTotalBGOutstanding" xml:space="preserve">
-    <value>Tổng tiền chưa xử lý của Bingo</value>
-  </data>
-  <data name="lblTotalBGTransfer" xml:space="preserve">
-    <value>Tổng số tiền chuyển khoản cho  Bingo</value>
-  </data>
-  <data name="lblTotalBGTransferOutstanding" xml:space="preserve">
-    <value>Tổng số tiền chuyển khoản /chưa xử lý bên Bingo</value>
-  </data>
   <data name="lblTotalCash" xml:space="preserve">
     <value>Tổng số dư tài khoản</value>
   </data>
@@ -1319,9 +1274,6 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   </data>
   <data name="lblTotalOutstanding" xml:space="preserve">
     <value>Tổng tiền chưa xử lý</value>
-  </data>
-  <data name="lblTotalP2PTransferOutstanding" xml:space="preserve">
-    <value>Tổng tiền chuyển khoản/chưa xử lý của Poker</value>
   </data>
   <data name="lblView1stHandicapForecast" xml:space="preserve">
     <value>Xem dự đoán kết quả hiệp 1 - Cược Chấp</value>
@@ -1352,9 +1304,6 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   </data>
   <data name="lineno" xml:space="preserve">
     <value>Line No</value>
-  </data>
-  <data name="LiveCasino" xml:space="preserve">
-    <value>Live Casino</value>
   </data>
   <data name="LiveGame" xml:space="preserve">
     <value>Live Game</value>
@@ -1664,12 +1613,6 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   <data name="over" xml:space="preserve">
     <value>Over</value>
   </data>
-  <data name="P2P" xml:space="preserve">
-    <value>Poker</value>
-  </data>
-  <data name="p2ptablesession" xml:space="preserve">
-    <value>Poker Table Session</value>
-  </data>
   <data name="pagesize" xml:space="preserve">
     <value>Dung lượng trang</value>
   </data>
@@ -1874,9 +1817,6 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   <data name="strConfirmDisableESports" xml:space="preserve">
     <value>WARNING!!! Are you sure you want to disable E-Sports on this customer and all downlines?</value>
   </data>
-  <data name="strConfirmDisableHRFixedOdds" xml:space="preserve">
-    <value>Cảnh báo!!!  Bạn có chắc muốn chặn thành viên này chơi Đua ngựa tỷ lệ cố định và tất cả những thành viên cấp dưới trực thuộc thành viên đó?</value>
-  </data>
   <data name="strConfirmDisableNumber" xml:space="preserve">
     <value>Cảnh báo!!!  Bạn có chắc muốn chặn thành viên này chơi Number Game và tất cả những thành viên cấp dưới trực thuộc thành viên đó?</value>
   </data>
@@ -1894,9 +1834,6 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   </data>
   <data name="strConfirmEnableESports" xml:space="preserve">
     <value>Do you want to enable E-Sports for this customer?</value>
-  </data>
-  <data name="strConfirmEnableHRFixedOdds" xml:space="preserve">
-    <value>Bạn có muốn cho phép thành viên này chơi  Đua ngựa tỷ lệ cố định?</value>
   </data>
   <data name="strConfirmEnableNumber" xml:space="preserve">
     <value>Bạn có muốn cho phép thành viên này chơi Number Game?</value>

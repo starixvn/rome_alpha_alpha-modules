@@ -129,47 +129,6 @@
 
         #endregion WinLossOutright
 
-        #region WinLossHR
-
-        /// <summary>
-        /// Get winloss horse racing
-        /// </summary>
-        /// <param name="betType"></param>
-        /// <param name="leagueId"></param>
-        /// <param name="race"></param>
-        /// <param name="dateFrom"></param>
-        /// <param name="dateTo"></param>
-        /// <param name="moveBetsDate"></param>
-        /// <returns></returns>
-        public DataTable GetWinlossHR(int betType, int leagueId, string race, DateTime dateFrom, DateTime dateTo, DateTime moveBetsDate, out DataTable outDataTable)
-        {
-            BetListDAO betListDAO = new BetListDAO();
-            int customerId = CurrentSession.CustId;
-            string language = CurrentSession.LangKey;
-            DataTable horseRacing = null;
-            if (CurrentSession.IsAgent)
-            {
-                horseRacing = betListDAO.Age_BetList_SelWinlossHR_Ag(customerId, betType, leagueId, race, dateFrom, dateTo, language, moveBetsDate, out outDataTable);
-            }
-            else if (CurrentSession.IsMaster)
-            {
-                horseRacing = betListDAO.Age_BetList_SelWinlossHR_MAg(customerId, betType, leagueId, race, dateFrom, dateTo, language, moveBetsDate, out outDataTable);
-            }
-            else if (CurrentSession.IsSuper)
-            {
-                horseRacing = betListDAO.Age_BetList_SelWinlossHR_SAg(customerId, betType, leagueId, race, dateFrom, dateTo, language, moveBetsDate, out outDataTable);
-            }
-            else
-            {
-                horseRacing = new DataTable();
-                outDataTable = new DataTable();
-            }
-
-            return horseRacing;
-        }
-
-        #endregion WinLossHR
-
         #region WinlossByBettypeMatch
 
         /// <summary>
@@ -324,50 +283,7 @@
         }
 
         #endregion GetDeletedBets
-
-        #region All Racing By Date
-
-        /// <summary>
-        /// Get all hr bets by match id
-        /// </summary>
-        /// <param name="betType"></param>
-        /// <param name="matchId"></param>
-        /// <param name="outDataTable"></param>
-        /// <returns></returns>
-        public DataTable GetAllRacingByMatch(int betType, int matchId, out DataTable outDataTable)
-        {
-            BetListDAO betListDAO = new BetListDAO();
-
-            string language = CurrentSession.LangKey;
-            int customerId = CurrentSession.CustId;
-
-            DataTable racingBets = null;
-
-            bool enableRacing = Entities.Permission.UserPermission.IsShowRacing;
-
-            if (enableRacing && CurrentSession.IsAgent)
-            {
-                racingBets = betListDAO.Age_BetList_SelAllByDateHR_Ag(customerId, betType, matchId, language, out outDataTable);
-            }
-            else if (enableRacing && CurrentSession.IsMaster)
-            {
-                racingBets = betListDAO.Age_BetList_SelAllByDateHR_MAg(customerId, betType, matchId, language, out outDataTable);
-            }
-            else if (enableRacing && CurrentSession.IsSuper)
-            {
-                racingBets = betListDAO.Age_BetList_SelAllByDateHR_SAg(customerId, betType, matchId, language, out outDataTable);
-            }
-            else
-            {
-                racingBets = new DataTable();
-                outDataTable = new DataTable();
-            }
-
-            return racingBets;
-        }
-
-        #endregion All Racing By Date
-
+        
         #region RunningByBettypeAndMatch
 
         /// <summary>

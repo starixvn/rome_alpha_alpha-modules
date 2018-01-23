@@ -21,7 +21,6 @@ namespace Sunplus.Agent.Model.DL.Definitions
         private static string _maintenance = "maintenance";
         private static string _dblog = "dblog";
         private static string _db03 = "db03";
-        private static string _bingo_archive = "BG_ArchiveDB";
 
         public static string MESSAGE
         {
@@ -125,14 +124,6 @@ namespace Sunplus.Agent.Model.DL.Definitions
             {
                 return _maintenance;
             }
-        }
-
-        public static string BINGO_ARCHIVE
-        {
-            get
-            {
-                return _bingo_archive;
-            }
-        }
+        }        
     }
 }

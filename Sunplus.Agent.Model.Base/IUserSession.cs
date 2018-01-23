@@ -351,17 +351,7 @@ namespace Sunplus.Agent.Model.Entities
         }
 
         #endregion Casino
-
-        #region P2P
-
-        bool IsP2PDisabled
-        {
-            get;
-            set;
-        }
-
-        #endregion P2P
-
+              
         #region LiveCasino
 
         bool IsLiveCasinoDisabled
@@ -392,23 +382,7 @@ namespace Sunplus.Agent.Model.Entities
             set;
         }
 
-        #endregion VirtualSports
-
-        #region HRFixedOdds
-
-        bool IsHideHRFixedOdds
-        {
-            get;
-            set;
-        }
-
-        bool IsDisabledHRFixedOdds
-        {
-            get;
-            set;
-        }
-
-        #endregion HRFixedOdds
+        #endregion VirtualSports        
 
         #region Keno
 
@@ -454,33 +428,13 @@ namespace Sunplus.Agent.Model.Entities
 
         #endregion Double Commission
 
-        #region Bingo
-
-        /// <summary>
-        /// Disabled Bingo status of logged-in user.
-        /// </summary>
-        bool IsBingoDisabled
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Synchronized Bingo status of logged-in user.
-        /// </summary>
-        bool IsBingoSync
-        {
-            get;
-        }
-
         /// <summary>
         /// Disabled Number Game status of logged-in user.
         /// </summary>
         bool IsNumberGameDisabled
         {
             get;
-        }
-
-        #endregion Bingo
+        }        
 
         #region Will be removed when Racing was launched
 

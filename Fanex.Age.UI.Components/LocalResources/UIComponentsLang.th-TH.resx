@@ -1100,9 +1100,6 @@
   <data name="casino" xml:space="preserve">
     <value>คาสิโน</value>
   </data>
-  <data name="P2P" xml:space="preserve">
-    <value>ผู้เล่น กับ ผู้เล่น</value>
-  </data>
   <data name="sportBook" xml:space="preserve">
     <value>กีฬ่า</value>
   </data>
@@ -1668,9 +1665,6 @@
   <data name="numbergamecomm" xml:space="preserve">
     <value>เกมหมายเลข คอมมิชั่น</value>
   </data>
-  <data name="lblBingoTraditionalHandHistory" xml:space="preserve">
-    <value>ประวัติเกมเก่าของบิงโก</value>
-  </data>
   <data name="lblDateAndTime" xml:space="preserve">
     <value>วันและเวลา</value>
   </data>
@@ -1689,12 +1683,6 @@
   <data name="confirmDisableNumberGameDownline" xml:space="preserve">
     <value>คุณแน่ใจหรือว่าต้องการปิดเกมหมายเลข ของลูกค้ารายนี้ และดาวน์ไลน์ทั้งหมด?</value>
   </data>
-  <data name="lblTotalBGOutstanding" xml:space="preserve">
-    <value>ยอดรวมบิงโกที่ยังไม่ยุติ</value>
-  </data>
-  <data name="lblTotalBGTransfer" xml:space="preserve">
-    <value>ยอดรวมการโอนย้ายบิงโก</value>
-  </data>
   <data name="confirmDisableNumberGame" xml:space="preserve">
     <value>คุณแน่ใจหรือว่าต้องการปิดเกมหมายเลข ของลูกค้ารายนี้?</value>
   </data>
@@ -1704,14 +1692,8 @@
   <data name="lblConfirmAllowDownline" xml:space="preserve">
     <value>คุณแน่ใจหรือว่าจะอนุญาตเกมหมายเลข ให้{ยูเซอร์}และดาวน์ทั้งหมด?</value>
   </data>
-  <data name="bingoPositionTaking" xml:space="preserve">
-    <value>แบ่งสู้บิงโก (%)</value>
-  </data>
   <data name="lblLiveBall" xml:space="preserve">
     <value>บอลสด</value>
-  </data>
-  <data name="editmultbingo" xml:space="preserve">
-    <value>แก้ไขหลายรายการของบิงโก</value>
   </data>
   <data name="noLimited" xml:space="preserve">
     <value>ไม่มีจำกัด</value>
@@ -1968,12 +1950,6 @@
   <data name="privateGames" xml:space="preserve">
     <value>Private Games</value>
   </data>
-  <data name="editP2P" xml:space="preserve">
-    <value>แก้ไข Poker</value>
-  </data>
-  <data name="editmultp2p" xml:space="preserve">
-    <value>แก้ไข Poker หลายทาง</value>
-  </data>
   <data name="lblSystemParlay" xml:space="preserve">
     <value>ระบบของ Parlay</value>
   </data>
@@ -2003,12 +1979,6 @@
   </data>
   <data name="lblTotalCSTransferOutstanding" xml:space="preserve">
     <value>คาซิโน ยอดรวม โอน/คงค้าง</value>
-  </data>
-  <data name="lblTotalBGTransferOutstanding" xml:space="preserve">
-    <value>Total Bingo Transfer|Outstanding</value>
-  </data>
-  <data name="lblTotalP2PTransferOutstanding" xml:space="preserve">
-    <value>ยอด โอน / คงค้าง ในPoker ทั้งหมด</value>
   </data>
   <data name="showhidecolumnAd" xml:space="preserve">
     <value>คลิกขวาที่ด้านบนเพื่อแสดง / ซ่อนคอลัมน์</value>
@@ -2062,17 +2032,8 @@
   <data name="searchExistingMember" xml:space="preserve">
     <value>ค้นหาสมาชิกที่มีอยู่</value>
   </data>
-  <data name="LiveCasino" xml:space="preserve">
-    <value>คาสิโนเกมสด</value>
-  </data>
   <data name="MasterAutoPresetPT" xml:space="preserve">
     <value>Master Auto Preset PT</value>
-  </data>
-  <data name="EditLiveCasino" xml:space="preserve">
-    <value>แก้ไข คาสิโน เกมสด</value>
-  </data>
-  <data name="EditLiveCasinoMultiple" xml:space="preserve">
-    <value>แก้ไขคาสิโนสดหลายทาง</value>
   </data>
   <data name="baccarat" xml:space="preserve">
     <value>บาคาร่า</value>
@@ -2119,12 +2080,6 @@
   <data name="updateFailed" xml:space="preserve">
     <value>อัพเดตไม่สำเร็จ เนื่องจาก สถานะของคาซิโนเกมสด ได้ถูกปิดการใช้งาน โดย อัพไลด์</value>
   </data>
-  <data name="confirmEnableLiveCasino" xml:space="preserve">
-    <value>ท่านแน่ใจหรือว่าต้องการเปิดใช้งานคาสิโนสดสำหรับ ลูกค้ารายนี้?</value>
-  </data>
-  <data name="confirmDisableLiveCasino" xml:space="preserve">
-    <value>ท่านแน่ใจหรือว่าต้องการปิดใช้งานคาสิโนสดสำหรับ ลูกค้ารายนี้?</value>
-  </data>
   <data name="msgContraintData" xml:space="preserve">
     <value>การตั้งค่าของสมาชิกท่านนี้ได้เกินกว่า อัตราความเสี่ยงที่กำหนดไว้ในปัจจุบัน ดังนั้นการตั้งค่านี้ จึงมีผลบังคับใช้สำหรับสมาชิกใหม่เท่านั้น</value>
   </data>
@@ -2163,9 +2118,6 @@
   </data>
   <data name="accSuspended" xml:space="preserve">
     <value>This account was suspended, click here to view log</value>
-  </data>
-  <data name="p2ptablesession" xml:space="preserve">
-    <value>ตารางการแข่งขัน Poker</value>
   </data>
   <data name="tableid" xml:space="preserve">
     <value>ตาราง (ID)</value>
@@ -2277,9 +2229,6 @@
   </data>
   <data name="dcommMultiEditPopupDisallowOption" xml:space="preserve">
     <value>ไม่อนุญาติดับเบิลคอมมิชชั่น</value>
-  </data>
-  <data name="bingo" xml:space="preserve">
-    <value>Bingo</value>
   </data>
   <data name="dcommMultiEditPopupOFFOption" xml:space="preserve">
     <value>ปิดดับเบิ้ลคอมมิชั่น</value>
@@ -2405,9 +2354,6 @@ Please use the form below to set your Security Code now.</value>
   <data name="consolidationreport" xml:space="preserve">
     <value>รายงานงบการเงิน</value>
   </data>
-  <data name="lblAlertDisableHRFixedOddsMember" xml:space="preserve">
-    <value>คำเตือน!!! คุณแน่ใจว่าคุณต้องการที่จะปิดการใช้งาน HR ราคาคงที่ของลูกค้านี้?</value>
-  </data>
   <data name="FunctionTurnOffError" xml:space="preserve">
     <value>เนื่องจากเซิร์ฟเวอร์ไม่ว่างในขณะนี้  ดังนั้นฟังก์ชันนี้ถูกปิดชั่วคราวโปรดลองใหม่ภายหลัง ขออภัยในความไม่สะดวกมา ณ ที่นี้ด้วย</value>
   </data>
@@ -2416,15 +2362,6 @@ Please use the form below to set your Security Code now.</value>
   </data>
   <data name="VirtualMotors" xml:space="preserve">
     <value>Virtual Motor Racing</value>
-  </data>
-  <data name="HRFixedOdds" xml:space="preserve">
-    <value>HR ราคาคงที่</value>
-  </data>
-  <data name="strConfirmDisableHRFixedOdds" xml:space="preserve">
-    <value>คำเตือน!!! คุณแน่ใจว่าคุณต้องการที่จะปิดการใช้งาน HR ราคาคงที่ของลูกค้านี้และดาวน์ไลน์ทั้งหมด?</value>
-  </data>
-  <data name="strConfirmEnableHRFixedOdds" xml:space="preserve">
-    <value>คุณต้องการที่จะเปิดใช้งาน HR ราคาคงที่ให้กับลูกค้านี้</value>
   </data>
   <data name="Keno" xml:space="preserve">
     <value>คีโน</value>
@@ -2562,9 +2499,6 @@ Please use the form below to set your Security Code now.</value>
   </data>
   <data name="EditSingleSportsbook2" xml:space="preserve">
     <value>แก้ไข หน้ากีฬา 2</value>
-  </data>
-  <data name="CockFighting" xml:space="preserve">
-    <value>Cockfighting</value>
   </data>
   <data name="Progressivebonus" xml:space="preserve">
     <value>Progressive Bonus</value>

@@ -44,12 +44,7 @@ namespace Fanex.Age.UI
         /// BetList BettypeMatch (Hdp_OU_Live_TG_OE_Outright_ML)
         /// </summary>
         public const string BetListByBetTypeMatch = "BettypeMatch";
-
-        /// <summary>
-        /// BetList BettypeMatch (RACING)
-        /// </summary>
-        public const string RacingBetListByBetTypeMatch = "RacingBettypeMatch";
-
+               
         /// <summary>
         /// BetList RunningBettypeMatch
         /// </summary>

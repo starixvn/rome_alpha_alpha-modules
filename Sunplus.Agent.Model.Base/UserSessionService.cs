@@ -82,8 +82,6 @@ namespace Sunplus.Agent.Model.BL
         /// bool iscasinodisabled,
         /// bool iscasinosync,
         /// bool disablenumber,
-        /// bool disablebingo,
-        /// bool syncbingo
         /// int on_userid,
         /// bool disablehorseracing,
         /// bool disablefi,
@@ -225,16 +223,11 @@ namespace Sunplus.Agent.Model.BL
         {
             session.IsCasinoDisabled = (bool)values["iscasinodisabled"];
             session.IsCasinoSync = (bool)values["iscasinosync"];
-
-            session.IsP2PDisabled = GetProductStatus("disablep2p", values, true);
-
+            
             session.IsLiveCasinoDisabled = GetProductStatus("disablelivecasino", values, true);
             session.IsLiveCasinoSync = GetProductStatus("synclivecasino", values, false);
 
             session.IsNumberGameDisabled = GetProductStatus("disablenumber", values, true);
-
-            session.IsBingoDisabled = GetProductStatus("disablebingo", values, true);
-            session.IsBingoSync = GetProductStatus("syncbingo", values, false);
 
             // Extra informations
             if (values.Contains("disable151_41"))
@@ -271,17 +264,12 @@ namespace Sunplus.Agent.Model.BL
             ProductManager.SetProductsStatusToSession(values);
 
             session.SetDisabledProduct(ProductIdConstants.RNGCasino, (bool)values["iscasinodisabled"]);
-            session.SetSyncedProduct(ProductIdConstants.RNGCasino, (bool)values["iscasinosync"]);
-
-            session.SetDisabledProduct(ProductIdConstants.P2P, (bool)values["disablep2p"]);
+            session.SetSyncedProduct(ProductIdConstants.RNGCasino, (bool)values["iscasinosync"]);            
 
             session.SetDisabledProduct(ProductIdConstants.LiveCasino, GetProductStatus("disablelivecasino", values, true));
             session.SetSyncedProduct(ProductIdConstants.LiveCasino, GetProductStatus("synclivecasino", values, false));
 
             session.SetDisabledProduct(ProductIdConstants.NumberGame, GetProductStatus("disablenumber", values, true));
-
-            session.SetDisabledProduct(ProductIdConstants.Bingo, GetProductStatus("disablebingo", values, true));
-            session.SetSyncedProduct(ProductIdConstants.Bingo, GetProductStatus("syncbingo", values, false));
 
             session.SetDisabledProduct(ProductIdConstants.Racing, GetProductStatus("disablehorseracing", values, true));
 

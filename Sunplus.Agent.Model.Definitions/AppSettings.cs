@@ -62,15 +62,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
             {
                 return GetValue("RemoveOnlineList") == "1";
             }
-        }
-
-        public static bool IsEnableP2P
-        {
-            get
-            {
-                return GetValue("EnableP2P") == "1";
-            }
-        }
+        }        
 
         public static bool IsEnableLiveCasino
         {
@@ -87,23 +79,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
                 return GetValue("EnableKeno") == "1";
             }
         }
-
-        public static bool IsEnableHRFixedOdds
-        {
-            get
-            {
-                return GetValue("EnableHRFixedOdds") == "1";
-            }
-        }
-
-        public static bool IsEnableBingo
-        {
-            get
-            {
-                return GetValue("EnableBingo") == "1";
-            }
-        }
-
+        
         public static bool IsEnableMemberWinLimit
         {
             get
@@ -336,22 +312,6 @@ namespace Sunplus.Agent.Model.BL.Definitions
             }
         }
 
-        public static string P2PServiceUrl
-        {
-            get
-            {
-                return GetValue("P2PServiceUrl");
-            }
-        }
-
-        public static string P2PSiteId
-        {
-            get
-            {
-                return GetValue("P2PSiteId");
-            }
-        }
-
         public static string RemoteRefURL_Msg
         {
             get
@@ -456,77 +416,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
                 return int.Parse(GetValue("DisabledAutoMaster")) != 0;
             }
         }
-
-        #region Racing configurations
-
-        /// <summary>
-        /// Disable151_31 in config.
-        /// </summary>
-        public static bool Disable151_31
-        {
-            get
-            {
-                return int.Parse(GetValue("Disable151_31")) != 0;
-            }
-        }
-
-        /// <summary>
-        /// Disable151_41 in config.
-        /// </summary>
-        public static bool Disable151_41
-        {
-            get
-            {
-                return int.Parse(GetValue("Disable151_41")) != 0;
-            }
-        }
-
-        /// <summary>
-        /// Disable151_51 in config.
-        /// </summary>
-        public static bool Disable151_51
-        {
-            get
-            {
-                return int.Parse(GetValue("Disable151_51")) != 0;
-            }
-        }
-
-        /// <summary>
-        /// Disable152_41 in config.
-        /// </summary>
-        public static bool Disable152_41
-        {
-            get
-            {
-                return int.Parse(GetValue("Disable152_41")) != 0;
-            }
-        }
-
-        /// <summary>
-        /// Disable152_51 in config.
-        /// </summary>
-        public static bool Disable152_51
-        {
-            get
-            {
-                return int.Parse(GetValue("Disable152_51")) != 0;
-            }
-        }
-
-        /// <summary>
-        /// Disable153_51 in config.
-        /// </summary>
-        public static bool Disable153_51
-        {
-            get
-            {
-                return int.Parse(GetValue("Disable153_51")) != 0;
-            }
-        }
-
-        #endregion Racing configurations
-
+        
         /// <summary>
         /// Is local test.
         /// </summary>
@@ -642,40 +532,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
             {
                 return int.Parse(GetValue("Disabled_NumberCommission")) == 1;
             }
-        }
-
-        /// <summary>
-        /// Show or Hide Commssion Bingo Game
-        /// </summary>
-        public static bool DisabledBingoCommission
-        {
-            get
-            {
-                return int.Parse(GetValue("Disabled_BingoCommission")) == 1;
-            }
-        }
-
-        /// <summary>
-        /// Hide or Show Max Transfer Bingo Only
-        /// </summary>
-        public static bool DisabledBingoMaxTransfer
-        {
-            get
-            {
-                return int.Parse(GetValue("Disabled_BingoMaxTransfer")) == 1;
-            }
-        }
-
-        /// <summary>
-        /// Disabled and Enabled Bingo and Number Game status
-        /// </summary>
-        public static bool DisableBingoStatus
-        {
-            get
-            {
-                return int.Parse(GetValue("Disabled_BingoStatus")) == 1;
-            }
-        }
+        }        
 
         /// <summary>
         /// Disabled and Enabled Number Game status

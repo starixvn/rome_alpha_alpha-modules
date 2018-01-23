@@ -1028,9 +1028,6 @@
   <data name="casino" xml:space="preserve">
     <value>카지노</value>
   </data>
-  <data name="P2P" xml:space="preserve">
-    <value>Poker</value>
-  </data>
   <data name="sportBook" xml:space="preserve">
     <value>스포츠북</value>
   </data>
@@ -1458,9 +1455,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="numbergamecomm" xml:space="preserve">
     <value>넘버게임 커미션</value>
   </data>
-  <data name="lblBingoTraditionalHandHistory" xml:space="preserve">
-    <value>빙고 결과내역</value>
-  </data>
   <data name="game" xml:space="preserve">
     <value>넘버게임</value>
   </data>
@@ -1476,26 +1470,14 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="confirmDisableNumberGameDownline" xml:space="preserve">
     <value>이 고객과 모든 하부라인의 라이브 빙고게임을 비활성화 하시겠습니까?</value>
   </data>
-  <data name="lblTotalBGOutstanding" xml:space="preserve">
-    <value>총 베팅중인 빙고 금액</value>
-  </data>
-  <data name="lblTotalBGTransfer" xml:space="preserve">
-    <value>총 빙고전송금액</value>
-  </data>
   <data name="confirmDisableNumberGame" xml:space="preserve">
     <value>이 고객의 라이브 빙고게임을 비활성화 하시겠습니까?</value>
   </data>
   <data name="confirmUnSuspended" xml:space="preserve">
     <value>이 고객의 계정을 일시정지로 바꾸시겠습니까? 주의! 모든 하부라인도 일시정지 되어집니다.</value>
   </data>
-  <data name="bingoPositionTaking" xml:space="preserve">
-    <value>빙고게임 포지션(%)</value>
-  </data>
   <data name="lblLiveBall" xml:space="preserve">
     <value>라이브 공</value>
-  </data>
-  <data name="editmultbingo" xml:space="preserve">
-    <value>멀티플 빙고 수정하기</value>
   </data>
   <data name="noLimited" xml:space="preserve">
     <value>제한없음</value>
@@ -1694,12 +1676,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="privateGames" xml:space="preserve">
     <value>사설 게임</value>
   </data>
-  <data name="editP2P" xml:space="preserve">
-    <value>Poker 수정하기</value>
-  </data>
-  <data name="editmultp2p" xml:space="preserve">
-    <value>Poker 멀티수정하기</value>
-  </data>
   <data name="lblSystemParlay" xml:space="preserve">
     <value>시스템 팔레이</value>
   </data>
@@ -1729,12 +1705,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   </data>
   <data name="lblTotalCSTransferOutstanding" xml:space="preserve">
     <value>총 카지노 전송 |  대기중인 금액</value>
-  </data>
-  <data name="lblTotalBGTransferOutstanding" xml:space="preserve">
-    <value>Total Bingo Transfer|Outstanding</value>
-  </data>
-  <data name="lblTotalP2PTransferOutstanding" xml:space="preserve">
-    <value>총 Poker 전송/대기중인 금액</value>
   </data>
   <data name="monthlyWinlossChart" xml:space="preserve">
     <value>매월 승리/패배 차트</value>
@@ -1778,23 +1748,11 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="searchExistingMember" xml:space="preserve">
     <value>기존 회원 검색</value>
   </data>
-  <data name="LiveCasino" xml:space="preserve">
-    <value>라이브 카지노</value>
-  </data>
   <data name="MasterAutoPresetPT" xml:space="preserve">
     <value>Master Auto Preset PT</value>
   </data>
-  <data name="EditLiveCasino" xml:space="preserve">
-    <value>라이브 카지노 편집</value>
-  </data>
-  <data name="EditLiveCasinoMultiple" xml:space="preserve">
-    <value>라이브 카지노 멀티 수정</value>
-  </data>
   <data name="baccarat" xml:space="preserve">
     <value>바카라</value>
-  </data>
-  <data name="bingo" xml:space="preserve">
-    <value>빙고</value>
   </data>
   <data name="skip" xml:space="preserve">
     <value>다음</value>
@@ -1835,12 +1793,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="updateFailed" xml:space="preserve">
     <value>이 계정은 라이브 카지노 설정이 없거나 업라인에 의해 비활성화되어  라이브 카지노를 활성화할 수 없습니다.</value>
   </data>
-  <data name="confirmEnableLiveCasino" xml:space="preserve">
-    <value>회원의 라이브 카지노를 활성화 하시겠습니까?</value>
-  </data>
-  <data name="confirmDisableLiveCasino" xml:space="preserve">
-    <value>회원의 라이브 카지노를 비활성화 하시겠습니까?</value>
-  </data>
   <data name="generalInformation" xml:space="preserve">
     <value>일반 정보</value>
   </data>
@@ -1879,9 +1831,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   </data>
   <data name="accSuspended" xml:space="preserve">
     <value>This account was suspended, click here to view log</value>
-  </data>
-  <data name="p2ptablesession" xml:space="preserve">
-    <value>Poker 테이블 시간</value>
   </data>
   <data name="tableid" xml:space="preserve">
     <value>테이블 (ID)</value>
@@ -2091,23 +2040,11 @@ Please use the form below to change your password now.</value>
   <data name="FunctionTurnOffError" xml:space="preserve">
     <value>현재 많은 서버의 이용자로 인하여 일시적으로 이 기능을 사용하실수 없습니다. 잠시 후 다시 시도해 보시기 바랍니다. 서비스 이용에 불편을 드려 죄송합니다.</value>
   </data>
-  <data name="HRFixedOdds" xml:space="preserve">
-    <value>HR 고정 배당률</value>
-  </data>
-  <data name="strConfirmDisableHRFixedOdds" xml:space="preserve">
-    <value>주의! 모든 고객과 하부라인의 HR 고정 배당률을 비활성화 하시겠습니까?</value>
-  </data>
-  <data name="strConfirmEnableHRFixedOdds" xml:space="preserve">
-    <value>고객의 HR 고정 배당률을 활성화 하시겠습니까?</value>
-  </data>
   <data name="VirtualGreyhounds" xml:space="preserve">
     <value>Virtual Greyhounds</value>
   </data>
   <data name="VirtualMotors" xml:space="preserve">
     <value>Virtual Motor Racing</value>
-  </data>
-  <data name="lblAlertDisableHRFixedOddsMember" xml:space="preserve">
-    <value>주의! 이 고객의 HR 고정 배당률을 비활성화 하시겠습니까?</value>
   </data>
   <data name="Keno" xml:space="preserve">
     <value>케노</value>

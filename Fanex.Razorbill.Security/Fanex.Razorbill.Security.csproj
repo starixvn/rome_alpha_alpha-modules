@@ -89,10 +89,6 @@
       <HintPath>..\packages\Fanex.GoldDeluxe.CoreSetting.Alpha.1.0.0.8\lib\net40\Fanex.GoldDeluxe.CoreSetting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.LiveCasino.CoreSetting, Version=1.2.2.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.LiveCasino.CoreSetting.Alpha.1.2.2.5\lib\net40\Fanex.LiveCasino.CoreSetting.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Fanex.Products, Version=0.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Products.1.0.0.0\lib\net40\Fanex.Products.dll</HintPath>
       <Private>True</Private>
@@ -220,7 +216,6 @@
     <Compile Include="Customer\AuthenticateCustomer.cs" />
     <Compile Include="Customer\CustomerSettingRenovation\CustomerSettingClientRegistration.cs" />
     <Compile Include="Customer\GoldDeluxeAuthorizationService.cs" />
-    <Compile Include="Customer\LiveCasinoAuthorizationService.cs" />
     <Compile Include="Encryption\Encryptor.cs" />
     <Compile Include="Entities\CustomerPermissionResult.cs" />
     <Compile Include="Entities\Result.cs" />

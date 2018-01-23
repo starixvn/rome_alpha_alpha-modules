@@ -55,9 +55,7 @@ namespace Fanex.PTEngine.Age
 			protected string t0_actionName;
 			protected static string s31 = "</button></div></div></div></form>";
 			public SuperMasterEditMultipleMembers_ScriptBlock_Block ScriptBlock = new SuperMasterEditMultipleMembers_ScriptBlock_Block();
-			protected static string s32 = "<script language=\"javascript\" type=\"text/javascript\">var isOfferHRFixedOdds = \"";
-			public string isOfferHRFixedOdds = "{isOfferHRFixedOdds}";
-			protected static string s33 = "\";</script></body></html>";
+			protected static string s32 = "<script language=\"javascript\" type=\"text/javascript\"></script></body></html>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -106,8 +104,6 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s31);
 					if(null != ScriptBlock) ScriptBlock.ToString(ref bd);
 					bd.Append(s32);
-					bd.Append(isOfferHRFixedOdds);
-					bd.Append(s33);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}

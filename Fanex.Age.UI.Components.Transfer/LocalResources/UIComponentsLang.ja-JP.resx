@@ -1115,9 +1115,6 @@ M = Master, A = Agent, P = Member.
   <data name="casino" xml:space="preserve">
     <value>Casino</value>
   </data>
-  <data name="P2P" xml:space="preserve">
-    <value>Poker</value>
-  </data>
   <data name="sportBook" xml:space="preserve">
     <value>Sportsbook</value>
   </data>
@@ -1695,9 +1692,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="numbergamecomm" xml:space="preserve">
     <value>Number Game Comm</value>
   </data>
-  <data name="lblBingoTraditionalHandHistory" xml:space="preserve">
-    <value>Bingo Traditional Hand History</value>
-  </data>
   <data name="lblDateAndTime" xml:space="preserve">
     <value>Date&amp;Time</value>
   </data>
@@ -1716,12 +1710,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="confirmDisableNumberGameDownline" xml:space="preserve">
     <value>Are you sure you want to disable Number Game on this customer and all downlines?</value>
   </data>
-  <data name="lblTotalBGOutstanding" xml:space="preserve">
-    <value>Total Bingo Outstanding</value>
-  </data>
-  <data name="lblTotalBGTransfer" xml:space="preserve">
-    <value>Total Bingo Transfer</value>
-  </data>
   <data name="confirmDisableNumberGame" xml:space="preserve">
     <value>Are you sure you want to disable Number Game on this customer?</value>
   </data>
@@ -1731,14 +1719,8 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="lblConfirmAllowDownline" xml:space="preserve">
     <value>Are you sure you want to allow number game of this {username} account and all downlines?</value>
   </data>
-  <data name="bingoPositionTaking" xml:space="preserve">
-    <value>Bingo Position Taking (%)</value>
-  </data>
   <data name="lblLiveBall" xml:space="preserve">
     <value>Live Ball</value>
-  </data>
-  <data name="editmultbingo" xml:space="preserve">
-    <value>Edit Multiple Bingo</value>
   </data>
   <data name="noLimited" xml:space="preserve">
     <value>No limited</value>
@@ -1995,12 +1977,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="privateGames" xml:space="preserve">
     <value>Private Games</value>
   </data>
-  <data name="editP2P" xml:space="preserve">
-    <value>Edit Poker</value>
-  </data>
-  <data name="editmultp2p" xml:space="preserve">
-    <value>Edit Multiple Poker</value>
-  </data>
   <data name="lblSystemParlay" xml:space="preserve">
     <value>System Parlay</value>
   </data>
@@ -2030,12 +2006,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   </data>
   <data name="lblTotalCSTransferOutstanding" xml:space="preserve">
     <value>Total Casino Transfer|Outstanding</value>
-  </data>
-  <data name="lblTotalBGTransferOutstanding" xml:space="preserve">
-    <value>Total Bingo Transfer|Outstanding</value>
-  </data>
-  <data name="lblTotalP2PTransferOutstanding" xml:space="preserve">
-    <value>Total Poker Transfer|Outstanding</value>
   </data>
   <data name="showhidecolumnAd" xml:space="preserve">
     <value>Right-click on the header to show/hide columns</value>
@@ -2078,9 +2048,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   </data>
   <data name="searchExistingMember" xml:space="preserve">
     <value>Search Existing Member</value>
-  </data>
-  <data name="LiveCasino" xml:space="preserve">
-    <value>Live Casino</value>
   </data>
   <data name="baccarat" xml:space="preserve">
     <value>Baccarat</value>
@@ -2127,12 +2094,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="updateFailed" xml:space="preserve">
     <value>Updated unsuccessfully because Live Casino status has been disabled at upline</value>
   </data>
-  <data name="confirmEnableLiveCasino" xml:space="preserve">
-    <value>Are you sure you want to enable Live Casino for this customer?</value>
-  </data>
-  <data name="confirmDisableLiveCasino" xml:space="preserve">
-    <value>Are you sure you want to disable Live Casino for this customer?</value>
-  </data>
   <data name="msgContraintData" xml:space="preserve">
     <value>The settings of this member have exceeded current allocated Position Taking. Therefore the effective ones will be applied for new member.</value>
   </data>
@@ -2168,9 +2129,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   </data>
   <data name="accSuspended" xml:space="preserve">
     <value>This account was suspended, click here to view log</value>
-  </data>
-  <data name="p2ptablesession" xml:space="preserve">
-    <value>Poker Table Session</value>
   </data>
   <data name="tableid" xml:space="preserve">
     <value>Table (ID)</value>
@@ -2298,12 +2256,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="MasterAutoPresetPT" xml:space="preserve">
     <value>Master Auto Preset PT</value>
   </data>
-  <data name="EditLiveCasino" xml:space="preserve">
-    <value>Edit Live Casino</value>
-  </data>
-  <data name="EditLiveCasinoMultiple" xml:space="preserve">
-    <value>Edit Multiple Live Casino</value>
-  </data>
   <data name="multiplier" xml:space="preserve">
     <value>Multiplier</value>
   </data>
@@ -2312,9 +2264,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   </data>
   <data name="lblConfirmClearCreditMember" xml:space="preserve">
     <value>Are you sure you want to clear credit of this {username} account?</value>
-  </data>
-  <data name="bingo" xml:space="preserve">
-    <value>Bingo</value>
   </data>
   <data name="dcommMultiEditPopupOFFOption" xml:space="preserve">
     <value>Turn OFF Double Commission</value>
@@ -2441,18 +2390,6 @@ Please use the form below to set your Security Code now.</value>
   </data>
   <data name="FunctionTurnOffError" xml:space="preserve">
     <value>Our server is too busy at the moment so this function is turned off temporarily. Please try again later and sorry for the inconvenience.</value>
-  </data>
-  <data name="HRFixedOdds" xml:space="preserve">
-    <value>HR Fixed Odds</value>
-  </data>
-  <data name="strConfirmDisableHRFixedOdds" xml:space="preserve">
-    <value>WARNING!!! Are you sure you want to disable HR Fixed Odds on this customer and all downlines?</value>
-  </data>
-  <data name="strConfirmEnableHRFixedOdds" xml:space="preserve">
-    <value>Do you want to enable HR Fixed Odds for this customer?</value>
-  </data>
-  <data name="lblAlertDisableHRFixedOddsMember" xml:space="preserve">
-    <value>WARNING!!! Are you sure you want to disable HR Fixed Odds on this customer ?</value>
   </data>
   <data name="VirtualGreyhounds" xml:space="preserve">
     <value>仮想グレーハウンドレース</value>
