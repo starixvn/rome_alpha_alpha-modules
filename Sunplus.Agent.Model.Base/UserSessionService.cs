@@ -185,7 +185,6 @@ namespace Sunplus.Agent.Model.BL
             SetProductStatus(session, values);
             SetProductStatusToDictionary(session, values);
 
-            session.IsDisabledFI = (bool)values["disablefi"];
             session.IsDisabledAutoMPT = (bool)values["disableautompt"];
             session.SRecommendId = (int)values["srecommend"];
             session.MRecommendId = (int)values["mrecommend"];
@@ -222,26 +221,9 @@ namespace Sunplus.Agent.Model.BL
         private static void SetProductStatus(UserSessionBase session, Hashtable values)
         {
             session.IsCasinoDisabled = (bool)values["iscasinodisabled"];
-            session.IsCasinoSync = (bool)values["iscasinosync"];
-            
-            session.IsLiveCasinoDisabled = GetProductStatus("disablelivecasino", values, true);
-            session.IsLiveCasinoSync = GetProductStatus("synclivecasino", values, false);
+            session.IsCasinoSync = (bool)values["iscasinosync"];            
 
-            session.IsNumberGameDisabled = GetProductStatus("disablenumber", values, true);
-
-            // Extra informations
-            if (values.Contains("disable151_41"))
-            {
-                session.IsDisable151_31 = (bool)values["disable151_31"];
-                session.IsDisable151_41 = (bool)values["disable151_41"];
-                session.IsDisable151_51 = (bool)values["disable151_51"];
-                session.IsDisable152_41 = (bool)values["disable152_41"];
-                session.IsDisable152_51 = (bool)values["disable152_51"];
-                session.IsDisable153_51 = (bool)values["disable153_51"];
-            }
-
-            // Will be removed when Racing was launched
-            session.IsDisabledHR = GetProductStatus("disablehorseracing", values, true);
+            session.IsNumberGameDisabled = GetProductStatus("disablenumber", values, true);            
 
             session.IsHideKeno = GetProductStatus("hidekeno", values, true);
 
@@ -262,30 +244,19 @@ namespace Sunplus.Agent.Model.BL
         private static void SetProductStatusToDictionary(UserSessionBase session, Hashtable values)
         {
             ProductManager.SetProductsStatusToSession(values);
-
+            session.SetSyncedProduct(ProductIdConstants.LiveCasino, (bool)values["synclivecasino"]);
+            session.SetDisabledProduct(ProductIdConstants.Racing, (bool)values["disable151_au"]);
             session.SetDisabledProduct(ProductIdConstants.RNGCasino, (bool)values["iscasinodisabled"]);
             session.SetSyncedProduct(ProductIdConstants.RNGCasino, (bool)values["iscasinosync"]);            
-
-            session.SetDisabledProduct(ProductIdConstants.LiveCasino, GetProductStatus("disablelivecasino", values, true));
-            session.SetSyncedProduct(ProductIdConstants.LiveCasino, GetProductStatus("synclivecasino", values, false));
-
             session.SetDisabledProduct(ProductIdConstants.NumberGame, GetProductStatus("disablenumber", values, true));
-
-            session.SetDisabledProduct(ProductIdConstants.Racing, GetProductStatus("disablehorseracing", values, true));
-
             session.SetHideProduct(ProductIdConstants.Keno, GetProductStatus("hidekeno", values, true));
-
             session.SetHideProduct(ProductIdConstants.GoldDeluxe, GetProductStatus("hidegolddeluxe", values, true));
             session.SetDisabledProduct(ProductIdConstants.GoldDeluxe, GetProductStatus("disablegolddeluxe", values, true));
-
             session.SetHideProduct(ProductIdConstants.ColossusBets, GetProductStatus("hidecolossusbet", values, true));
             session.SetDisabledProduct(ProductIdConstants.ColossusBets, GetProductStatus("disablecolossusbet", values, true));
-
             session.SetHideProduct(ProductIdConstants.Sportsbook2, GetProductStatus("hidemuaythai", values, true));
             session.SetDisabledProduct(ProductIdConstants.Sportsbook2, GetProductStatus("disablemuaythai", values, true));
-
             session.SetSyncedProduct(ProductIdConstants.AllBet, GetProductStatus("syncedallbet", values, true));
-            
             ProductTransform.TransformProductStatus(session, values);
         }
 

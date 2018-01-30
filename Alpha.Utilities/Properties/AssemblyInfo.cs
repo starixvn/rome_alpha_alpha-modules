@@ -1,15 +1,15 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Sunplus.Agent.Model.Reports")]
+[assembly: AssemblyTitle("Alpha.Utilities")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Sunplus.Agent.Model.Reports")]
+[assembly: AssemblyProduct("Alpha.Utilities")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("04569713-21fa-4673-8a92-01e79bf50439")]
+[assembly: Guid("1589b293-75a2-4c1e-963a-4d744c4d4dd6")]
 
 // Version information for an assembly consists of the following four values:
 //

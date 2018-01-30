@@ -62,7 +62,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
             {
                 return GetValue("RemoveOnlineList") == "1";
             }
-        }        
+        }
 
         public static bool IsEnableLiveCasino
         {

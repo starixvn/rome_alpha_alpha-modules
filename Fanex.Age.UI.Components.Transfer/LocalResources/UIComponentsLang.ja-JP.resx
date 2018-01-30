@@ -180,26 +180,6 @@
   <data name="amount" xml:space="preserve">
     <value>金額</value>
   </data>
-  <data name="appliesallbettype" xml:space="preserve">
-    <value>&lt;li&gt;
-&lt;span style="color:#E59B46;"&gt;Commission 1 (Comm 1)&lt;/span&gt; applies to bettypes: Handicap, Odd/Even, Over/Under, 1st Handicap, 1st Over/Under, 1st Odd/Even, Clean Sheet, Draw No Bet, To Win To Nil, 3-Way Handicap, Home No Bet, Away No Bet, Draw/No Draw, HT/FT Odd/Even, 1H Home Team Odd/Even, Home Team Odd/Even, 1H Away Team Odd/Even, Away Team Odd/Even, Game Handicap, Set x Game Handicap, Set x Total Games, Set Handicap, Match Total Games Odd/Even, Match Total Games Over/Under, Set x Total Game Odd/Even, Moneyline, 1st Moneyline, Match Winner, Set X Winner, Set X Game Y Winner.
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span style="color:#E59B46;"&gt;Commission 2 (Comm 2)&lt;/span&gt; applies to bettypes: 1st 1x2, FT. 1x2.  
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span style="color:#E59B46;"&gt;Commission 3 (Comm 3)&lt;/span&gt; applies to other bettypes.  
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span style="color:#E59B46;"&gt;Number Game Comm (Number Game Commission)&lt;/span&gt; applies to bettypes of Number Game.
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span style="color:#E59B46;"&gt;HR Fixed Odds (Horse Racing Fixed Odds Commission)&lt;/span&gt; applies to bettypes of Horse Racing Fixed Odds.
-&lt;/li&gt;
-&lt;li&gt;
-M = Master, A = Agent, P = Member.
-&lt;/li&gt;</value>
-  </data>
   <data name="balance" xml:space="preserve">
     <value>残高</value>
   </data>
@@ -968,9 +948,6 @@ M = Master, A = Agent, P = Member.
   <data name="ViewHistoryReport2" xml:space="preserve">
     <value>View History Report</value>
   </data>
-  <data name="Horse" xml:space="preserve">
-    <value>Racing</value>
-  </data>
   <data name="lblEditMaster" xml:space="preserve">
     <value>Edit Master</value>
   </data>
@@ -983,9 +960,6 @@ M = Master, A = Agent, P = Member.
   <data name="lblConfirmEditAgent" xml:space="preserve">
     <value>You have changed this agent not to take auto position taking.&lt;br&gt;Do you want to update all member's position taking to:</value>
   </data>
-  <data name="lblRace" xml:space="preserve">
-    <value>Race </value>
-  </data>
   <data name="No1" xml:space="preserve">
     <value>第1</value>
   </data>
@@ -997,9 +971,6 @@ M = Master, A = Agent, P = Member.
   </data>
   <data name="noothers" xml:space="preserve">
     <value>th</value>
-  </data>
-  <data name="hr" xml:space="preserve">
-    <value>Racing</value>
   </data>
   <data name="No4" xml:space="preserve">
     <value>4th</value>
@@ -1087,9 +1058,6 @@ M = Master, A = Agent, P = Member.
   </data>
   <data name="userisnotonline" xml:space="preserve">
     <value>This user is not online</value>
-  </data>
-  <data name="lbledithr" xml:space="preserve">
-    <value>Edit Racing</value>
   </data>
   <data name="lblEditInfo" xml:space="preserve">
     <value>Edit Info</value>
@@ -1307,9 +1275,6 @@ M = Master, A = Agent, P = Member.
   <data name="editmultsportbook" xml:space="preserve">
     <value>Edit Multiple Sportsbook</value>
   </data>
-  <data name="editmulthr" xml:space="preserve">
-    <value>Edit Multiple Racing</value>
-  </data>
   <data name="transferCreditMsg" xml:space="preserve">
     <value>Max transfer credit must be between min and max limit value.</value>
   </data>
@@ -1318,9 +1283,6 @@ M = Master, A = Agent, P = Member.
   </data>
   <data name="pcomm3" xml:space="preserve">
     <value>ポジション 手数料 (3)</value>
-  </data>
-  <data name="hrminpt" xml:space="preserve">
-    <value>Racing's Min PT</value>
   </data>
   <data name="updCustSettingFailed" xml:space="preserve">
     <value>Update cust setting failed!</value>
@@ -1704,9 +1666,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="low" xml:space="preserve">
     <value>Low</value>
   </data>
-  <data name="SportHorseNumberGame" xml:space="preserve">
-    <value>Sportsbook - Racing - Number Game</value>
-  </data>
   <data name="confirmDisableNumberGameDownline" xml:space="preserve">
     <value>Are you sure you want to disable Number Game on this customer and all downlines?</value>
   </data>
@@ -1764,14 +1723,8 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="warningmultipletransfer" xml:space="preserve">
     <value>Warning: if balance is full transfered, the &lt;font class="highlight"&gt;highlighted&lt;/font&gt; members below will have negative bet credit and consequently, they might lose more than their given credit.</value>
   </data>
-  <data name="Racebook" xml:space="preserve">
-    <value>Racing</value>
-  </data>
   <data name="subTotal" xml:space="preserve">
     <value>Sub Total</value>
-  </data>
-  <data name="horseRacing" xml:space="preserve">
-    <value>Racing</value>
   </data>
   <data name="greyHound" xml:space="preserve">
     <value>Greyhound</value>
@@ -2091,20 +2044,8 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="masterMaxCreditInvalid" xml:space="preserve">
     <value>Master Max Credit must be between {0} and {1}</value>
   </data>
-  <data name="updateFailed" xml:space="preserve">
-    <value>Updated unsuccessfully because Live Casino status has been disabled at upline</value>
-  </data>
   <data name="msgContraintData" xml:space="preserve">
     <value>The settings of this member have exceeded current allocated Position Taking. Therefore the effective ones will be applied for new member.</value>
-  </data>
-  <data name="infoSearchAndCopyMaster" xml:space="preserve">
-    <value>Products without preview such as {0} will also be offered to new master.</value>
-  </data>
-  <data name="infoSearchAndCopyAgent" xml:space="preserve">
-    <value>Products without preview such as Live Casino will also be offered to new agent.</value>
-  </data>
-  <data name="infoSearchAndCopyMember" xml:space="preserve">
-    <value>Products without preview such as Live Casino will also be offered to new member.</value>
   </data>
   <data name="creditInvalid" xml:space="preserve">
     <value>Given credit value is invalid</value>
@@ -2323,9 +2264,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="lblPasswordWrongRule" xml:space="preserve">
     <value>Your password does not meet the minimum security requirement.</value>
   </data>
-  <data name="virtualHorsesRacing" xml:space="preserve">
-    <value>Virtual Horse Racing</value>
-  </data>
   <data name="superCommissionByBetType" xml:space="preserve">
     <value>Super Commission By Bet Type</value>
   </data>
@@ -2393,9 +2331,6 @@ Please use the form below to set your Security Code now.</value>
   </data>
   <data name="VirtualGreyhounds" xml:space="preserve">
     <value>仮想グレーハウンドレース</value>
-  </data>
-  <data name="VirtualMotors" xml:space="preserve">
-    <value>Virtual Motor Racing</value>
   </data>
   <data name="Keno" xml:space="preserve">
     <value>Keno</value>

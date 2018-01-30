@@ -64,25 +64,12 @@ namespace Sunplus.Agent.Model.Entities
         private const string ISCASINODISABLED = "ISCASINODISABLED";
         private const string ISCASINOSYNC = "ISCASINOSYNC";
         private const string ISNOTCURRENCYCASINO = "ISNOTCURRENCYCASINO";
-        private const string ISLIVECASINODISABLED = "ISLIVECASINODISABLED";
-        private const string ISLIVECASINOSYNC = "ISLIVECASINOSYNC";        
         private const string ISNUMBERGAMEDISABLED = "ISNUMBERGAMEDISABLED";
 
         private const string ISDOUBLECOMMLOSING = "DOUBLECOMMLOSING";
 
         private const string ISHIDEVIRTUALSPORTS = "ISHIDEVIRTUALSPORTS";
         private const string ISDISABLEDVIRTUALSPORTS = "ISDISABLEDVIRTUALSPORTS";
-
-        private const string ISALLOWHRCURRENCY = "ISALLOWHRCURRENCY";
-        private const string ISDISABLEDHR = "ISDISABLEDHR";
-        private const string ISDISABLE151_31 = "ISDISABLE151_31";
-        private const string ISDISABLE151_41 = "ISDISABLE151_41";
-        private const string ISDISABLE151_51 = "ISDISABLE151_51";
-        private const string ISDISABLE152_41 = "ISDISABLE152_41";
-        private const string ISDISABLE152_51 = "ISDISABLE152_51";
-        private const string ISDISABLE153_51 = "ISDISABLE153_51";
-
-        private const string ISDISABLEDFI = "_IsDisabledFI";
         private const string ISDISABLEDAUTOMPT = "ISDISABLEDAUTOMPT";
 
         private const string SRECOMMENDID = "SRECOMMENDID";
@@ -874,39 +861,7 @@ namespace Sunplus.Agent.Model.Entities
             }
         }
 
-        #endregion Casino
-              
-        #region Live Casino
-
-        public bool IsLiveCasinoDisabled
-        {
-            get
-            {
-                object value = this.GetProperty(ISLIVECASINODISABLED);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISLIVECASINODISABLED, value);
-            }
-        }
-
-        public bool IsLiveCasinoSync
-        {
-            get
-            {
-                object value = this.GetProperty(ISLIVECASINOSYNC);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISLIVECASINOSYNC, value);
-            }
-        }
-
-        #endregion Live Casino
+        #endregion Casino           
 
         #region Double Comm Losing
 
@@ -1088,140 +1043,6 @@ namespace Sunplus.Agent.Model.Entities
                 this.SetProperty(ISNUMBERGAMEDISABLED, value);
             }
         }
-
-        #region Racing
-
-        public bool IsAllowHRCurrency
-        {
-            get
-            {
-                object value = this.GetProperty(ISALLOWHRCURRENCY);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISALLOWHRCURRENCY, value);
-            }
-        }
-
-        public bool IsDisabledHR
-        {
-            get
-            {
-                object value = this.GetProperty(ISDISABLEDHR);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISDISABLEDHR, value);
-            }
-        }
-
-        public bool IsDisable151_31
-        {
-            get
-            {
-                object value = this.GetProperty(ISDISABLE151_31);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISDISABLE151_31, value);
-            }
-        }
-
-        public bool IsDisable151_41
-        {
-            get
-            {
-                object value = this.GetProperty(ISDISABLE151_41);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISDISABLE151_41, value);
-            }
-        }
-
-        public bool IsDisable151_51
-        {
-            get
-            {
-                object value = this.GetProperty(ISDISABLE151_51);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISDISABLE151_51, value);
-            }
-        }
-
-        public bool IsDisable152_41
-        {
-            get
-            {
-                object value = this.GetProperty(ISDISABLE152_41);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISDISABLE152_41, value);
-            }
-        }
-
-        public bool IsDisable152_51
-        {
-            get
-            {
-                object value = this.GetProperty(ISDISABLE152_51);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISDISABLE152_51, value);
-            }
-        }
-
-        public bool IsDisable153_51
-        {
-            get
-            {
-                object value = this.GetProperty(ISDISABLE153_51);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISDISABLE153_51, value);
-            }
-        }
-
-        #endregion Racing
-
-        #region Will be removed when Racing was launched
-
-        public bool IsDisabledFI
-        {
-            get
-            {
-                object value = this.GetProperty(ISDISABLEDFI);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISDISABLEDFI, value);
-            }
-        }
-
-        #endregion Will be removed when Racing was launched
 
         #region PostionTaking
 

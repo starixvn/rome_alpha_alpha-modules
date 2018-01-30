@@ -1,15 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A9A305CE-11DC-45C7-BF3E-22CFCA023BEA}</ProjectGuid>
+    <ProjectGuid>{D16BEC82-9EAD-4ED5-9875-18C5035333AD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sunplus.Agent.Model.Racing</RootNamespace>
-    <AssemblyName>Sunplus.Agent.Model.Racing</AssemblyName>
+    <RootNamespace>Sunplus.Agent.Model.Auth</RootNamespace>
+    <AssemblyName>Sunplus.Agent.Model.Auth</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -36,8 +36,24 @@
       <HintPath>..\packages\Alpha.SubAccount.1.0.0\lib\net40\Alpha.SubAccount.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="CasinoLibrary, Version=1.0.2.14, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CasinoLibrary.1.0.2.17\lib\net40\CasinoLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CasinoSetting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CasinoLibrary.1.0.2.17\lib\net40\CasinoSetting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CasinoUtility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CasinoLibrary.1.0.2.17\lib\net40\CasinoUtility.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Fanex.Common, Version=1.0.404.97, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Common.1.0.404.97\lib\net40\Fanex.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.CustomerSetting.Module.Casino, Version=2.0.0.13, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.CustomerSetting.Module.Casino.Alpha.2.0.0.13\lib\net40\Fanex.CustomerSetting.Module.Casino.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.CustomerSetting.Module.Keno.KenoSetting, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
@@ -48,16 +64,32 @@
       <HintPath>..\packages\Fanex.Data.0.5.404.59\lib\net40\Fanex.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Logging.1.0.0.0\lib\net40\Fanex.Logging.dll</HintPath>
+    <Reference Include="Fanex.Logging, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Logging.1.0.4\lib\net40\Fanex.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Logging.Extensions, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Logging.Extensions.1.0.5\lib\net40\Fanex.Logging.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Logging.Extensions.Web, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Logging.Extensions.Web.1.0.5\lib\net40\Fanex.Logging.Extensions.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Products, Version=0.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Products.1.0.0.0\lib\net40\Fanex.Products.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="HandHistoryLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CasinoLibrary.1.0.2.17\lib\net40\HandHistoryLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+      <HintPath>..\packages\log4net.1.2.9.0\lib\net11\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -96,6 +128,10 @@
       <HintPath>..\packages\Sunplus.Agent.Model.Base.3.0.3.3\lib\net40\Sunplus.Agent.Model.Base.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Sunplus.Agent.Model.Casino, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sunplus.Agent.Model.Casino.3.0.0.2\lib\net40\Sunplus.Agent.Model.Casino.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Sunplus.Agent.Model.DataAccessLibrary, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Sunplus.Agent.Model.DataAccessLibrary.3.0.0.1\lib\net40\Sunplus.Agent.Model.DataAccessLibrary.dll</HintPath>
       <Private>True</Private>
@@ -104,21 +140,55 @@
       <HintPath>..\packages\Sunplus.Agent.Model.Definitions.3.0.2.0\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Sunplus.Agent.Model.IpFormatter, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sunplus.Agent.Model.IpFormatter.3.0.0.1\lib\net40\Sunplus.Agent.Model.IpFormatter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sunplus.Agent.Model.SecurityCode, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sunplus.Agent.Model.SecurityCode.3.0.0.1\lib\net40\Sunplus.Agent.Model.SecurityCode.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sunplus.Agent.Utilities, Version=3.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sunplus.Agent.Utilities.3.0.0.4\lib\net40\Sunplus.Agent.Utilities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sunplus.Core.Common">
+      <HintPath>..\packages\Sunplus.Core.Common.1.1.4505.19054\lib\net40\Sunplus.Core.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Sunplus.Libraries.AOP, Version=1.0.4218.28561, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sunplus.Libraries.AOP.1.0.4218.28561\lib\net40\Sunplus.Libraries.AOP.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sunplus.Libraries.APILogger, Version=2.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sunplus.Libraries.APILogger.2.0.0.1\lib\net40\Sunplus.Libraries.APILogger.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sunplus.Libraries.ThirdPartyTestData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sunplus.Libraries.ThirdPartyTestData.1.0.0.0\lib\net40\Sunplus.Libraries.ThirdPartyTestData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.XML" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorizationBO.cs" />
+    <Compile Include="AuthorizationDAO.cs" />
+    <Compile Include="PageFunction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RacingBO.cs" />
-    <Compile Include="RacingDAO.cs" />
+    <Compile Include="StatisticBO.cs" />
+    <Compile Include="StatisticDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

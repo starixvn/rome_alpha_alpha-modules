@@ -153,14 +153,6 @@
             }
         }
 
-        public bool IsAllowHRCurrency
-        {
-            get
-            {
-                return UserSession.Current.IsAllowHRCurrency;
-            }
-        }
-
         public bool IsBelongTo9Currency
         {
             get
@@ -200,54 +192,6 @@
             }
         }
 
-        public bool IsDisable151_31
-        {
-            get
-            {
-                return UserSession.Current.IsDisable151_31;
-            }
-        }
-
-        public bool IsDisable151_41
-        {
-            get
-            {
-                return UserSession.Current.IsDisable151_41;
-            }
-        }
-
-        public bool IsDisable151_51
-        {
-            get
-            {
-                return UserSession.Current.IsDisable151_51;
-            }
-        }
-
-        public bool IsDisable152_41
-        {
-            get
-            {
-                return UserSession.Current.IsDisable152_41;
-            }
-        }
-
-        public bool IsDisable152_51
-        {
-            get
-            {
-                return UserSession.Current.IsDisable152_51;
-            }
-        }
-
-        public bool IsDisable153_51
-        {
-            get
-            {
-                return UserSession.Current.IsDisable153_51;
-            }
-        }
-
         public bool IsDisabledAutoMPT
         {
             get
@@ -280,24 +224,8 @@
             {
                 UserSession.Current.IsDisabledESports = value;
             }
-        }
+        }       
 
-        public bool IsDisabledFI
-        {
-            get
-            {
-                return UserSession.Current.IsDisabledFI;
-            }
-        }
-
-        public bool IsDisabledHR
-        {
-            get
-            {
-                return UserSession.Current.IsDisabledHR;
-            }
-        }
-       
         public bool IsDisabledSuperLive
         {
             get
@@ -460,33 +388,7 @@
             {
                 UserSession.Current.IsLimitedHostPermisionOnSubAccountFunction = value;
             }
-        }
-
-        public bool IsLiveCasinoDisabled
-        {
-            get
-            {
-                return UserSession.Current.IsLiveCasinoDisabled;
-            }
-
-            set
-            {
-                UserSession.Current.IsLiveCasinoDisabled = value;
-            }
-        }
-
-        public bool IsLiveCasinoSync
-        {
-            get
-            {
-                return UserSession.Current.IsLiveCasinoSync;
-            }
-
-            set
-            {
-                UserSession.Current.IsLiveCasinoSync = value;
-            }
-        }
+        }        
 
         public bool IsLogged
         {

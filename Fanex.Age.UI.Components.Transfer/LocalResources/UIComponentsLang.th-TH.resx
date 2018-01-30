@@ -183,14 +183,6 @@
   <data name="amount" xml:space="preserve">
     <value>จำนวนเงิน</value>
   </data>
-  <data name="appliesallbettype" xml:space="preserve">
-    <value>&lt;li&gt;&lt;span style="color:#E59B46;"&gt;คอมมิชชั่น 1 (คอมม1)&lt;/span&gt; จะถูกนำไปใช้กับชนิดการเดิมพันดังนี้ : แต้มต่อ, คู่/คี่, สูง/ต่ำ, ครึ่งแรกแต้มต่อ, ครึ่งแรกสุง/ต่ำ, ครึ่งแรกคู่/คี่,  ไม่มีการยิงประตู, ได้เงินคืนหากเสมอ, แฮนดิแคป 3 ทาง ,ได้เงินคืนหากเจ้าบ้านชนะ, ได้เงินคืนหากทีมเยือนชนะ, ได้เงินคืนหากเสมอ, ครึ่งแรก/เต็มเวลา คี่/คู่, เจ้าบ้านครึ่งแรก คี่/คู่, เจ้าบ้าน คี่/คู่, ทีมเยือนครึ่งแรก คี่/คู่, ทีมเยือน คี่/คู่, Game Handicap, Set x Game Handicap, Set x Total Games, Set Handicap, Match Total Games Odd/Even, Match Total Games Over/Under, Set x Total Game Odd/Even, Moneyline, 1st Moneyline, Match Winner, Set X Winner, Set X Game Y Winner.&lt;/li&gt;
-&lt;li&gt;&lt;span style="color:#E59B46;"&gt;Commission 2(Comm 2)&lt;/span&gt; applies to ALL types of 1x2 bets.&lt;/li&gt;
-&lt;li&gt;&lt;span style="color:#E59B46;"&gt;ค่าคอมมิชชั่น3 (คอม3)&lt;/span&gt; นำไปใช้กับประเภทการเดิมพันอื่น ๆ &lt;/li&gt;
-&lt;li&gt;&lt;span style="color:#E59B46;"&gt;ค่าคอมของเกมหมายเลข (ค่าคอมมิชชั่นของเกมหมายเลข)&lt;/span&gt; นำไปใช้กับประเภทการเดิมพันอื่นๆ ของเกมหมายเลข&lt;/li&gt;
-&lt;li&gt;&lt;span style="color:#E59B46;"&gt;HR ราคาคงที่ (ราคาคงที่ของม้าแข่ง)&lt;/span&gt;  นำไปใช้กับประเภทการเดิมพันอื่นๆ ของราคาคงที่ของม้าแข่ง&lt;/li&gt;
-&lt;li&gt;M = มาสเตอร์, A = เอเย่น, P = สมาชิก&lt;/li&gt;</value>
-  </data>
   <data name="balance" xml:space="preserve">
     <value>ยอดเงิน</value>
   </data>
@@ -959,12 +951,6 @@
   <data name="accpermission" xml:space="preserve">
     <value>สิทธิ์ของบัญชี</value>
   </data>
-  <data name="hr" xml:space="preserve">
-    <value>การแข่งขันความเร็ว</value>
-  </data>
-  <data name="Horse" xml:space="preserve">
-    <value>การแข่งขันความเร็ว</value>
-  </data>
   <data name="lblEditMaster" xml:space="preserve">
     <value>แก้ไขมาสเตอร์</value>
   </data>
@@ -976,9 +962,6 @@
   </data>
   <data name="lblConfirmEditAgent" xml:space="preserve">
     <value>คุณได้เปลี่ยนเอเย่นท่านนี้ไม่ถือแบ่งสู้อัตโนมัติ&lt;br&gt;คุณต้องการจะอัพเดทแบ่งสู้บนสมาชิกทั้งหมกหรือไม่</value>
-  </data>
-  <data name="lblRace" xml:space="preserve">
-    <value>แข่งขัน</value>
   </data>
   <data name="No1" xml:space="preserve">
     <value>1</value>
@@ -1072,9 +1055,6 @@
   </data>
   <data name="userisnotonline" xml:space="preserve">
     <value>ยูเซอร์ไม่ได้ออนไลน์</value>
-  </data>
-  <data name="lbledithr" xml:space="preserve">
-    <value>แก้ไข การแข่งขันม้า</value>
   </data>
   <data name="lblEditInfo" xml:space="preserve">
     <value>แก้ไขข้อมูล</value>
@@ -1271,9 +1251,6 @@
   <data name="editmultsportbook" xml:space="preserve">
     <value>แก้ไขรายการของกีฬาหลายฝ่าย</value>
   </data>
-  <data name="editmulthr" xml:space="preserve">
-    <value>แก้ไขหลายรายการของการแข่งม้า</value>
-  </data>
   <data name="transferCreditMsg" xml:space="preserve">
     <value>วงเงินเครดิตต้องเท่ากับมูลค่าระหว่างสูงสุดและต่ำสุด</value>
   </data>
@@ -1282,9 +1259,6 @@
   </data>
   <data name="pcomm3" xml:space="preserve">
     <value>คอมมิชชั่นของผู้เล่น สำหรับประเภทการเดิมพันชนิดที่ 3</value>
-  </data>
-  <data name="hrminpt" xml:space="preserve">
-    <value>ม้าแข่ง แบ่งสู้ขั้นต่ำ</value>
   </data>
   <data name="updCustSettingFailed" xml:space="preserve">
     <value>อัพเดทการตั้งค่าของลูกค้าล้มเหลว</value>
@@ -1677,9 +1651,6 @@
   <data name="low" xml:space="preserve">
     <value>Low</value>
   </data>
-  <data name="SportHorseNumberGame" xml:space="preserve">
-    <value>การทายผลกีฬา-ม้าแข่ง-เกมหมายเลข</value>
-  </data>
   <data name="confirmDisableNumberGameDownline" xml:space="preserve">
     <value>คุณแน่ใจหรือว่าต้องการปิดเกมหมายเลข ของลูกค้ารายนี้ และดาวน์ไลน์ทั้งหมด?</value>
   </data>
@@ -1737,14 +1708,8 @@
   <data name="warningmultipletransfer" xml:space="preserve">
     <value>คำเตือน :  หากโอนยอดเงินเต็ม สมาชิกด้านล่างที่ไฮไลต์อาจมียอดเงินวางเดิมพันติดลบ ฉะนั้นสมาชิกอาจจะมียอดเสียมากกว่าเครดิตของเขาเอง</value>
   </data>
-  <data name="Racebook" xml:space="preserve">
-    <value>การแข่งขันความเร็ว</value>
-  </data>
   <data name="subTotal" xml:space="preserve">
     <value>ยอดรวม</value>
-  </data>
-  <data name="horseRacing" xml:space="preserve">
-    <value>การแข่งขันความเร็ว</value>
   </data>
   <data name="greyHound" xml:space="preserve">
     <value>การแข่งขันสุนัข Greyhound</value>
@@ -2077,20 +2042,8 @@
   <data name="masterMaxCreditInvalid" xml:space="preserve">
     <value>เครดิตสูงสุดของมาสเตอร์ต้องอยู่ระหว่าง {0} และ {1}</value>
   </data>
-  <data name="updateFailed" xml:space="preserve">
-    <value>อัพเดตไม่สำเร็จ เนื่องจาก สถานะของคาซิโนเกมสด ได้ถูกปิดการใช้งาน โดย อัพไลด์</value>
-  </data>
   <data name="msgContraintData" xml:space="preserve">
     <value>การตั้งค่าของสมาชิกท่านนี้ได้เกินกว่า อัตราความเสี่ยงที่กำหนดไว้ในปัจจุบัน ดังนั้นการตั้งค่านี้ จึงมีผลบังคับใช้สำหรับสมาชิกใหม่เท่านั้น</value>
-  </data>
-  <data name="infoSearchAndCopyMaster" xml:space="preserve">
-    <value>โปรดักที่ไม่มีตัวอย่างเช่น คาสิโนเกมสดก็จะคัดลอกไปยังมาสเตอร์ใหม่ </value>
-  </data>
-  <data name="infoSearchAndCopyAgent" xml:space="preserve">
-    <value>โปรดักที่ไม่มีตัวอย่างเช่น คาสิโนเกมสดก็จะคัดลอกไปยังเอเย่นต์ใหม่</value>
-  </data>
-  <data name="infoSearchAndCopyMember" xml:space="preserve">
-    <value>โปรดักที่ไม่มีตัวอย่างเช่น คาสิโนเกมสดก็จะคัดลอกไปยังสมาชิกใหม่</value>
   </data>
   <data name="creditInvalid" xml:space="preserve">
     <value>จำนวนเงินเครดิตที่ให้ ไม่ถูกต้อง</value>
@@ -2289,9 +2242,6 @@
   <data name="lblPasswordWrongRule" xml:space="preserve">
     <value>รหัสผ่านของคุณไม่เป็นไปตามข้อแม้ของการรักษาความปลอดภัย</value>
   </data>
-  <data name="virtualHorsesRacing" xml:space="preserve">
-    <value>Virtual Horse Racing</value>
-  </data>
   <data name="superCommissionByBetType" xml:space="preserve">
     <value>Super Commission By Bet Type</value>
   </data>
@@ -2359,9 +2309,6 @@ Please use the form below to set your Security Code now.</value>
   </data>
   <data name="VirtualGreyhounds" xml:space="preserve">
     <value>แข่งเกรย์ฮาวด์ออนไลน์</value>
-  </data>
-  <data name="VirtualMotors" xml:space="preserve">
-    <value>Virtual Motor Racing</value>
   </data>
   <data name="Keno" xml:space="preserve">
     <value>คีโน</value>

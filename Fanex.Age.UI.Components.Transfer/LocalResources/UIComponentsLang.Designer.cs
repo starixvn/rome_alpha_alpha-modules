@@ -549,16 +549,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;li&gt;
-        ///&lt;span style=&quot;color:#E59B46;&quot;&gt;Commission 1 (Comm 1)&lt;/span&gt; applies to bettypes: Handicap, Odd/Even, Over/Under, 1st Handicap, 1st Over/Under, 1st Odd/Even, Clean Sheet, Draw No Bet, To Win To Nil, 3-Way Handicap, Home No Bet, Away No Bet, Draw/No Draw, HT/FT Odd/Even, 1H Home Team Odd/Even, Home Team Odd/Even, 1H Away Team Odd/Even, Away Team Odd/Even, Game Handicap, Set x Game Handicap, Set x Total Games, Set Handicap, Match Total Games Odd/Even, Match Total Games Over/Under, Set x Total Game Odd/Even [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string appliesallbettype {
-            get {
-                return ResourceManager.GetString("appliesallbettype", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Apr.
         /// </summary>
         internal static string apr {
@@ -1532,15 +1522,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Multiple Racing.
-        /// </summary>
-        internal static string editmulthr {
-            get {
-                return ResourceManager.GetString("editmulthr", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Edit Multiple Double Comm.
         /// </summary>
         internal static string editMultipleDoubleComm {
@@ -2099,42 +2080,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Racing.
-        /// </summary>
-        internal static string Horse {
-            get {
-                return ResourceManager.GetString("Horse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Racing.
-        /// </summary>
-        internal static string horseRacing {
-            get {
-                return ResourceManager.GetString("horseRacing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Racing.
-        /// </summary>
-        internal static string hr {
-            get {
-                return ResourceManager.GetString("hr", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Racing&apos;s Min PT.
-        /// </summary>
-        internal static string hrminpt {
-            get {
-                return ResourceManager.GetString("hrminpt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Access denied.
         /// </summary>
         internal static string HttpError_403 {
@@ -2221,33 +2166,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         internal static string informSecCode {
             get {
                 return ResourceManager.GetString("informSecCode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Products without preview such as Live Casino will also be offered to new agent..
-        /// </summary>
-        internal static string infoSearchAndCopyAgent {
-            get {
-                return ResourceManager.GetString("infoSearchAndCopyAgent", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Products without preview such as Live Casino will also be offered to new master..
-        /// </summary>
-        internal static string infoSearchAndCopyMaster {
-            get {
-                return ResourceManager.GetString("infoSearchAndCopyMaster", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Products without preview such as Live Casino will also be offered to new member..
-        /// </summary>
-        internal static string infoSearchAndCopyMember {
-            get {
-                return ResourceManager.GetString("infoSearchAndCopyMember", resourceCulture);
             }
         }
         
@@ -3118,15 +3036,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Racing.
-        /// </summary>
-        internal static string lbledithr {
-            get {
-                return ResourceManager.GetString("lbledithr", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Edit Info.
         /// </summary>
         internal static string lblEditInfo {
@@ -3898,15 +3807,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         internal static string lblPresetPTSuper {
             get {
                 return ResourceManager.GetString("lblPresetPTSuper", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Race .
-        /// </summary>
-        internal static string lblRace {
-            get {
-                return ResourceManager.GetString("lblRace", resourceCulture);
             }
         }
         
@@ -5478,15 +5378,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Racing.
-        /// </summary>
-        internal static string Racebook {
-            get {
-                return ResourceManager.GetString("Racebook", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Ref No.
         /// </summary>
         internal static string refno {
@@ -5942,15 +5833,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         internal static string sportconsolidatedreport {
             get {
                 return ResourceManager.GetString("sportconsolidatedreport", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sportsbook - Racing - Number Game.
-        /// </summary>
-        internal static string SportHorseNumberGame {
-            get {
-                return ResourceManager.GetString("SportHorseNumberGame", resourceCulture);
             }
         }
         
@@ -6648,15 +6530,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Updated unsuccessfully because Live Casino status has been disabled at upline.
-        /// </summary>
-        internal static string updateFailed {
-            get {
-                return ResourceManager.GetString("updateFailed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Updated unsuccessfully because Gold Deluxe status has been disabled at upline.
         /// </summary>
         internal static string updateGoldDeluxeFailed {
@@ -6887,24 +6760,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         internal static string VirtualGreyhounds {
             get {
                 return ResourceManager.GetString("VirtualGreyhounds", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Virtual Horse Racing.
-        /// </summary>
-        internal static string virtualHorsesRacing {
-            get {
-                return ResourceManager.GetString("virtualHorsesRacing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Virtual Motor Racing.
-        /// </summary>
-        internal static string VirtualMotors {
-            get {
-                return ResourceManager.GetString("VirtualMotors", resourceCulture);
             }
         }
         

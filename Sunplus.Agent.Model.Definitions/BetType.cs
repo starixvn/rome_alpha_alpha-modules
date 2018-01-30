@@ -54,12 +54,9 @@ namespace Sunplus.Agent.Model.BL.Definitions
         _60_min_OE = 65,
         End_of_day_OE = 66,
         Casino_Games = 71,
-        P2P_Games = 72,
-        Bingo = 73,
         Home_No_Bet = 121,
         Away_No_Bet = 122,
         Draw_NoDraw = 123,
-        P2P = 1000,
 
         // Number Game.
         _1st_Ball_OU = 81,
@@ -72,13 +69,6 @@ namespace Sunplus.Agent.Model.BL.Definitions
         Warrior = 88,
         Next_Combo = 89,
         NumberWheel = 90,
-
-        // Live Casino.
-        Baccarat = 1101,
-        Roulette = 1102,
-        LiveBaccarat = 1103,
-        LiveRoulette = 1104,
-        Sicbo = 1103,
 
         // Virtual Soccer.
         VS_Handicap = 1201,

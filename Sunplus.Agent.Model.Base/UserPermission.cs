@@ -20,37 +20,21 @@ namespace Sunplus.Agent.Model.Entities.Permission
             {
                 return false;
             }
-        }
+        }        
 
-        public static bool IsDisabledFI
-        {
-            get
-            {
-                return true;
-            }
-        }
-        
         public static bool IsShowRacing
         {
             get
             {
                 return AppSettings.IsEnabledProduct(ProductIdConstants.Racing) && !IsDisabledProduct(ProductIdConstants.Racing);
             }
-        }   
+        }
 
         public static bool IsShowNumberGroup
         {
             get
             {
                 return AppSettings.EnableNumberGroup;
-            }
-        }
-
-        public static bool IsShowFinance
-        {
-            get
-            {
-                return false;
             }
         }
 
@@ -102,14 +86,6 @@ namespace Sunplus.Agent.Model.Entities.Permission
             get
             {
                 return AppSettings.IsShowMixedSport;
-            }
-        }       
-
-        public static bool IsShowLiveCasino
-        {
-            get
-            {
-                return AppSettings.IsEnableLiveCasino && CurrentUserSession.GetSyncedProduct(ProductIdConstants.LiveCasino);
             }
         }
 
@@ -239,6 +215,14 @@ namespace Sunplus.Agent.Model.Entities.Permission
         public static bool IsDisabledProduct(int product)
         {
             return CurrentUserSession.GetDisabledProduct(product);
+        }
+
+        public static bool IsShowLiveCasino
+        {
+            get
+            {
+                return AppSettings.IsEnableLiveCasino && CurrentUserSession.GetSyncedProduct(ProductIdConstants.LiveCasino);
+            }
         }
 
         public static bool HasPermissionOnProduct(int productId)

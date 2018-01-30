@@ -281,26 +281,6 @@ Please use the form below to set your Security Code now.</value>
   <data name="announcement" xml:space="preserve">
     <value>Announcement</value>
   </data>
-  <data name="appliesallbettype" xml:space="preserve">
-    <value>&lt;li&gt;
-&lt;span style="color:#E59B46;"&gt;Commission 1 (Comm 1)&lt;/span&gt; applies to bettypes: Handicap, Odd/Even, Over/Under, 1st Handicap, 1st Over/Under, 1st Odd/Even, Clean Sheet, Draw No Bet, To Win To Nil, 3-Way Handicap, Home No Bet, Away No Bet, Draw/No Draw, HT/FT Odd/Even, 1H Home Team Odd/Even, Home Team Odd/Even, 1H Away Team Odd/Even, Away Team Odd/Even, Game Handicap, Set x Game Handicap, Set x Total Games, Set Handicap, Match Total Games Odd/Even, Match Total Games Over/Under, Set x Total Game Odd/Even, Moneyline, 1st Moneyline, Match Winner, Set X Winner, Set X Game Y Winner.
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span style="color:#E59B46;"&gt;Commission 2 (Comm 2)&lt;/span&gt; applies to bettypes: 1st 1x2, FT. 1x2.  
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span style="color:#E59B46;"&gt;Commission 3 (Comm 3)&lt;/span&gt; applies to other bettypes.  
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span style="color:#E59B46;"&gt;Number Game Comm (Number Game Commission)&lt;/span&gt; applies to bettypes of Number Game.
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span style="color:#E59B46;"&gt;HR Fixed Odds (Horse Racing Fixed Odds Commission)&lt;/span&gt; applies to bettypes of Horse Racing Fixed Odds.
-&lt;/li&gt;
-&lt;li&gt;
-M = Master, A = Agent, P = Member.
-&lt;/li&gt;</value>
-  </data>
   <data name="apr" xml:space="preserve">
     <value>Apr</value>
   </data>
@@ -626,9 +606,6 @@ Warning, all members under this agent can't place outright bet!</value>
   <data name="editmultfinance" xml:space="preserve">
     <value>Edit Multiple Finance's PT</value>
   </data>
-  <data name="editmulthr" xml:space="preserve">
-    <value>Edit Multiple Racing</value>
-  </data>
   <data name="editMultipleDoubleComm" xml:space="preserve">
     <value>Edit Multiple Double Comm</value>
   </data>
@@ -809,18 +786,6 @@ Warning, all members under this agent can't place outright bet!</value>
   <data name="home2" xml:space="preserve">
     <value>Home</value>
   </data>
-  <data name="Horse" xml:space="preserve">
-    <value>Racing</value>
-  </data>
-  <data name="horseRacing" xml:space="preserve">
-    <value>Racing</value>
-  </data>
-  <data name="hr" xml:space="preserve">
-    <value>Racing</value>
-  </data>
-  <data name="hrminpt" xml:space="preserve">
-    <value>Racing's Min PT</value>
-  </data>
   <data name="HttpError_403" xml:space="preserve">
     <value>Access denied</value>
   </data>
@@ -850,15 +815,6 @@ Warning, all members under this agent can't place outright bet!</value>
   </data>
   <data name="informSecCode" xml:space="preserve">
     <value>Please input your security code before proceeding!</value>
-  </data>
-  <data name="infoSearchAndCopyAgent" xml:space="preserve">
-    <value>Products without preview such as Live Casino will also be offered to new agent.</value>
-  </data>
-  <data name="infoSearchAndCopyMaster" xml:space="preserve">
-    <value>Products without preview such as Live Casino will also be offered to new master.</value>
-  </data>
-  <data name="infoSearchAndCopyMember" xml:space="preserve">
-    <value>Products without preview such as Live Casino will also be offered to new member.</value>
   </data>
   <data name="introNickname" xml:space="preserve">
     <value>&lt;div&gt;Dear customers! Now you can login with your own nickname&lt;/div&gt;
@@ -1150,9 +1106,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="lbleditcomm" xml:space="preserve">
     <value>Edit Commission</value>
   </data>
-  <data name="lbledithr" xml:space="preserve">
-    <value>Edit Racing</value>
-  </data>
   <data name="lblEditInfo" xml:space="preserve">
     <value>Edit Info</value>
   </data>
@@ -1418,9 +1371,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   </data>
   <data name="lblPresetPTSuper" xml:space="preserve">
     <value>Super Preset PT</value>
-  </data>
-  <data name="lblRace" xml:space="preserve">
-    <value>Race </value>
   </data>
   <data name="lblRequiredSecCode" xml:space="preserve">
     <value>Security Code (SC) must be:
@@ -1951,9 +1901,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="product" xml:space="preserve">
     <value>Product</value>
   </data>
-  <data name="Racebook" xml:space="preserve">
-    <value>Racing</value>
-  </data>
   <data name="refno" xml:space="preserve">
     <value>Ref No</value>
   </data>
@@ -2107,9 +2054,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   </data>
   <data name="sportconsolidatedreport" xml:space="preserve">
     <value>Sport Consolidated Report</value>
-  </data>
-  <data name="SportHorseNumberGame" xml:space="preserve">
-    <value>Sportsbook - Racing - Number Game</value>
   </data>
   <data name="sportwinlossanalysisreport" xml:space="preserve">
     <value>Sport Winloss Analysis</value>
@@ -2330,9 +2274,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="updateCS" xml:space="preserve">
     <value>Update Casino Setting</value>
   </data>
-  <data name="updateFailed" xml:space="preserve">
-    <value>Updated unsuccessfully because Live Casino status has been disabled at upline</value>
-  </data>
   <data name="updateGoldDeluxeFailed" xml:space="preserve">
     <value>Updated unsuccessfully because Gold Deluxe status has been disabled at upline</value>
   </data>
@@ -2410,12 +2351,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   </data>
   <data name="VirtualGreyhounds" xml:space="preserve">
     <value>Virtual Greyhounds</value>
-  </data>
-  <data name="virtualHorsesRacing" xml:space="preserve">
-    <value>Virtual Horse Racing</value>
-  </data>
-  <data name="VirtualMotors" xml:space="preserve">
-    <value>Virtual Motor Racing</value>
   </data>
   <data name="VirtualSoccer" xml:space="preserve">
     <value>Virtual Soccer</value>

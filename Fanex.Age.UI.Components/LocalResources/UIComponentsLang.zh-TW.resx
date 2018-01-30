@@ -183,14 +183,6 @@
   <data name="amount" xml:space="preserve">
     <value>金額</value>
   </data>
-  <data name="appliesallbettype" xml:space="preserve">
-    <value>&lt;li&gt;&lt;span style="color:#E59B46;"&gt;佣金1(%)&lt;/span&gt; 適用於投注類型: 亞洲盤、單雙、大小盤、上半場亞洲盤、上半場大小盤、上半場單雙、零失球、獲胜球隊(平局退款)、零失球的勝方、三項讓分投注、主隊(不獲胜球隊)、客隊(不獲胜球隊)、平局/不是平局, 半場/全場 單/雙, 半場主隊單/雙, 主隊單/雙, 半場客隊單/雙, 客隊單/雙, Game Handicap, Set x Game Handicap, Set x Total Games, Set Handicap, Match Total Games Odd/Even, Match Total Games Over/Under, Set x Total Game Odd/Even, 獨贏, 上半場獨贏, (獨贏) &amp; (獲勝者), 第 x 盤獲勝者, 第 x 盤 - 第 y 局獲勝者.&lt;/li&gt;
-&lt;li&gt;&lt;span style="color:#E59B46;"&gt;佣金2&lt;/span&gt; 適用於所有1x2類型的投注.&lt;/li&gt;
-&lt;li&gt;&lt;span style="color:#E59B46;"&gt;佣金3&lt;/span&gt; 應用於其他投注類別.&lt;/li&gt;
-&lt;li&gt;&lt;span style="color:#E59B46;"&gt;百練賽傭金 (百練賽傭金)&lt;/span&gt; 適用於百練賽的投注類別.&lt;/li&gt;
-&lt;li&gt;&lt;span style="color:#E59B46;"&gt;固定賠率賽馬 (固定賠率賽馬傭金)&lt;/span&gt; 應用於固定賠率賽馬的投注類別.&lt;/li&gt;
-&lt;li&gt;M = 總代理, A = 代理, P = 會員&lt;/li&gt;</value>
-  </data>
   <data name="balance" xml:space="preserve">
     <value>現金</value>
   </data>
@@ -908,12 +900,6 @@
   <data name="March" xml:space="preserve">
     <value>三月</value>
   </data>
-  <data name="hr" xml:space="preserve">
-    <value>賽馬</value>
-  </data>
-  <data name="Horse" xml:space="preserve">
-    <value>賽馬</value>
-  </data>
   <data name="lblEditMaster" xml:space="preserve">
     <value>修改總代理</value>
   </data>
@@ -925,9 +911,6 @@
   </data>
   <data name="lblConfirmEditAgent" xml:space="preserve">
     <value>您已更改於此代理不使用自動佔成。&lt;br&gt;您是否要更改所有會員的佔成數至:</value>
-  </data>
-  <data name="lblRace" xml:space="preserve">
-    <value>賽事</value>
   </data>
   <data name="No1" xml:space="preserve">
     <value>第一</value>
@@ -1066,9 +1049,6 @@
   </data>
   <data name="userisnotonline" xml:space="preserve">
     <value>此會員沒上線</value>
-  </data>
-  <data name="lbledithr" xml:space="preserve">
-    <value>修改賽馬</value>
   </data>
   <data name="lblEditInfo" xml:space="preserve">
     <value>修改資料</value>
@@ -1271,9 +1251,6 @@
   <data name="editmultsportbook" xml:space="preserve">
     <value>修改多重體育博彩</value>
   </data>
-  <data name="editmulthr" xml:space="preserve">
-    <value>修改多重賽馬</value>
-  </data>
   <data name="transferCreditMsg" xml:space="preserve">
     <value>最大轉帳額度必須介於最小和最大限制價值</value>
   </data>
@@ -1282,9 +1259,6 @@
   </data>
   <data name="pcomm3" xml:space="preserve">
     <value>会员佣金 (3)</value>
-  </data>
-  <data name="hrminpt" xml:space="preserve">
-    <value>賽馬的最低佔成數</value>
   </data>
   <data name="updCustSettingFailed" xml:space="preserve">
     <value>更新客戶設置失敗！</value>
@@ -1677,9 +1651,6 @@
   <data name="low" xml:space="preserve">
     <value>普通限額</value>
   </data>
-  <data name="SportHorseNumberGame" xml:space="preserve">
-    <value>體育博彩-賽馬-百練賽</value>
-  </data>
   <data name="confirmDisableNumberGameDownline" xml:space="preserve">
     <value>您確定你需要禁用客戶和所有下線的數字游戲嗎？</value>
   </data>
@@ -1737,14 +1708,8 @@
   <data name="warningmultipletransfer" xml:space="preserve">
     <value>注意: 若昨天餘額被全數轉賬, 被&lt;font class="highlight"&gt;特別顯示&lt;/font&gt; 會員的投注金額將显示負數。因此, 他們有可能輸超過信用額度。</value>
   </data>
-  <data name="Racebook" xml:space="preserve">
-    <value>賽馬</value>
-  </data>
   <data name="subTotal" xml:space="preserve">
     <value>小計</value>
-  </data>
-  <data name="horseRacing" xml:space="preserve">
-    <value>賽馬</value>
   </data>
   <data name="greyHound" xml:space="preserve">
     <value>賽狗</value>
@@ -2076,20 +2041,8 @@
   <data name="masterMaxCreditInvalid" xml:space="preserve">
     <value>總代理最高信用額應在{0}和{1}之間</value>
   </data>
-  <data name="updateFailed" xml:space="preserve">
-    <value>修改失敗，因為上線的娛樂廳狀態以被禁止</value>
-  </data>
   <data name="msgContraintData" xml:space="preserve">
     <value>此會員之設置已超過當前被分配的佔成數。因此, 這只會生效於新增會員。</value>
-  </data>
-  <data name="infoSearchAndCopyMaster" xml:space="preserve">
-    <value>新增總代理時，產品若無預覽功能(例如: 現場娛樂廳) 也將進行複制。</value>
-  </data>
-  <data name="infoSearchAndCopyAgent" xml:space="preserve">
-    <value>新增代理時，產品若無預覽功能(例如: 現場娛樂廳) 也將進行複制。</value>
-  </data>
-  <data name="infoSearchAndCopyMember" xml:space="preserve">
-    <value>新增會員時，產品若無預覽功能(例如: 現場娛樂廳) 也將進行複制。</value>
   </data>
   <data name="creditInvalid" xml:space="preserve">
     <value>信用額度數值不正確</value>
@@ -2287,9 +2240,6 @@
   <data name="lblPasswordWrongRule" xml:space="preserve">
     <value>您的密码不符合最低安全要求</value>
   </data>
-  <data name="virtualHorsesRacing" xml:space="preserve">
-    <value>虛擬賽馬</value>
-  </data>
   <data name="superCommissionByBetType" xml:space="preserve">
     <value>Super Commission By Bet Type</value>
   </data>
@@ -2392,9 +2342,6 @@
   </data>
   <data name="VirtualGreyhounds" xml:space="preserve">
     <value>虛擬賽狗</value>
-  </data>
-  <data name="VirtualMotors" xml:space="preserve">
-    <value>虛擬賽車</value>
   </data>
   <data name="Keno" xml:space="preserve">
     <value>快樂彩</value>
