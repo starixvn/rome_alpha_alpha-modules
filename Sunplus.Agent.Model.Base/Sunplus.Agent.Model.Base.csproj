@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Alpha.SubAccount, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Alpha.SubAccount.1.0.0.0-BetListPermission-03\lib\net40\Alpha.SubAccount.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Fanex.Common, Version=1.0.404.97, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Common.1.0.404.97\lib\net40\Fanex.Common.dll</HintPath>
       <Private>True</Private>
@@ -66,10 +70,8 @@
     <Compile Include="BOBase.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="IUserSession.cs" />
-    <Compile Include="PageAccess.cs" />
     <Compile Include="ProductTransform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SubAccount.cs" />
     <Compile Include="UserPermission.cs" />
     <Compile Include="UserSession.cs" />
     <Compile Include="UserSessionBase.cs" />
