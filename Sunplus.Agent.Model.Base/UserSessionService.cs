@@ -1,4 +1,4 @@
-namespace Sunplus.Agent.Model.BL
+﻿namespace Sunplus.Agent.Model.BL
 {
     using System;
     using System.Collections;
@@ -52,11 +52,11 @@ namespace Sunplus.Agent.Model.BL
         /// <param name="values"></param>
         /// <param name="netSessionId"></param>
         /// <returns></returns>
-        public static IUserSession CreateUserSessionInstance(Hashtable values, string netSessionId)
+        public static IUserSession CreateUserSessionInstance(Hashtable values, string netSessionId, Action<Hashtable> SetUserStatusAction)
         {
             UserSessionBase session = new UserSessionBase(netSessionId);
 
-            SetUserSessionValues(session, values);
+            SetUserSessionValues(session, values, SetUserStatusAction);
 
             return session;
         }
@@ -95,7 +95,7 @@ namespace Sunplus.Agent.Model.BL
         /// </summary>
         /// <param name="userSession"></param>
         /// <param name="values"></param>
-        public static void SetUserSessionValues(IUserSession userSession, Hashtable values)
+        public static void SetUserSessionValues(IUserSession userSession, Hashtable values, Action<Hashtable> setUserStatusAction)
         {
             if (null == userSession)
             {
@@ -185,6 +185,8 @@ namespace Sunplus.Agent.Model.BL
             SetProductStatus(session, values);
             SetProductStatusToDictionary(session, values);
 
+            setUserStatusAction(values);
+
             session.IsDisabledAutoMPT = (bool)values["disableautompt"];
             session.SRecommendId = (int)values["srecommend"];
             session.MRecommendId = (int)values["mrecommend"];
@@ -257,6 +259,7 @@ namespace Sunplus.Agent.Model.BL
             session.SetHideProduct(ProductIdConstants.Sportsbook2, GetProductStatus("hidemuaythai", values, true));
             session.SetDisabledProduct(ProductIdConstants.Sportsbook2, GetProductStatus("disablemuaythai", values, true));
             session.SetSyncedProduct(ProductIdConstants.AllBet, GetProductStatus("syncedallbet", values, true));
+
             ProductTransform.TransformProductStatus(session, values);
         }
 
