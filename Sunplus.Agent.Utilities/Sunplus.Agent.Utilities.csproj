@@ -90,8 +90,6 @@
     <Compile Include="Encryptor.cs" />
     <Compile Include="EncryptorImpl.cs" />
     <Compile Include="Extension\CacheExtension.cs" />
-    <Compile Include="Extension\DateTimeExtensions.cs" />
-    <Compile Include="Extension\NameValueCollectionExt.cs" />
     <Compile Include="Formater.cs" />
     <Compile Include="HtmlGenerator.cs" />
     <Compile Include="Language.cs" />

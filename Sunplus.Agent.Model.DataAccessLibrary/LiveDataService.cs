@@ -16,7 +16,7 @@ namespace Sunplus.Agent.Model.DL.Base
         /// <remarks/>
         public LiveDataService()
         {
-            this.Url = ConfigurationManager.AppSettings["LiveDataService"]; //Sunplus.Agent.Configurations.AppSettings.Configuration.Get("LiveDataService");
+            this.Url = ConfigurationManager.AppSettings["LiveDataService"];
         }
 
         #region Invoke

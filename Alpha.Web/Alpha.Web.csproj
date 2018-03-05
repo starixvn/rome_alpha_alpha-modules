@@ -153,12 +153,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Sunplus.Agent.Configurations\Sunplus.Agent.Configurations.csproj">
-      <Project>{8542F564-E19A-4DA0-AB5F-93668EA9D84E}</Project>
-      <Name>Sunplus.Agent.Configurations</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

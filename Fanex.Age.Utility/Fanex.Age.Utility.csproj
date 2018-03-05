@@ -53,13 +53,8 @@
     <Compile Include="CaptchaUtil\CaptchaInfo.cs" />
     <Compile Include="CaptchaUtil\CaptchaLogging.cs" />
     <Compile Include="CaptchaUtil\Enums.cs" />
-    <Compile Include="Data\DataExtension.cs" />
-    <Compile Include="DateTime\DateTimeExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReflectionUtil.cs" />
-    <Compile Include="ResourceUtil\CardImages.cs" />
-    <Compile Include="String\MiscExtension.cs" />
-    <Compile Include="String\NullableConvert.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
