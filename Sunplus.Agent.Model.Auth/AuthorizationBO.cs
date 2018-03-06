@@ -58,7 +58,7 @@
             out int errCode,
             out string errMsg,
             ref IUserSession userSession,
-            Action<Hashtable> setUserStatusAction)
+            Action<IUserSession, Hashtable> setUserStatusAction)
         {
             Hashtable outputs = new Hashtable();
             bool isSubAcc;
@@ -178,7 +178,7 @@
             out int errCode,
             out string errMsg,
             ref IUserSession userSession,
-            Action<Hashtable> setUserStatusAction)
+            Action<IUserSession, Hashtable> setUserStatusAction)
         {
             Hashtable outputs = new Hashtable();
 
@@ -257,7 +257,7 @@
             out int errCode,
             out string errMsg,
             ref IUserSession userSession,
-            Action<Hashtable> setUserStatusAction)
+            Action<IUserSession, Hashtable> setUserStatusAction)
         {
             return this.AfterSignIn(
                 custId,
@@ -292,7 +292,7 @@
             out int errCode,
             out string errMsg,
             ref IUserSession userSession,
-            Action<Hashtable> setUserStatusAction,
+            Action<IUserSession, Hashtable> setUserStatusAction,
             string systemLogin = "NAP")
         {
             Hashtable outputs = this.dao.Age_LoginDownline_Admin(userName, adminId, loginTime, CurrentSession.LangKey, requestInfo, out errCode, out errMsg);

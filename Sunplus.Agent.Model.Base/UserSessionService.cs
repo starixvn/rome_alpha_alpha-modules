@@ -52,7 +52,7 @@
         /// <param name="values"></param>
         /// <param name="netSessionId"></param>
         /// <returns></returns>
-        public static IUserSession CreateUserSessionInstance(Hashtable values, string netSessionId, Action<Hashtable> SetUserStatusAction)
+        public static IUserSession CreateUserSessionInstance(Hashtable values, string netSessionId, Action<IUserSession, Hashtable> SetUserStatusAction)
         {
             UserSessionBase session = new UserSessionBase(netSessionId);
 
@@ -95,7 +95,7 @@
         /// </summary>
         /// <param name="userSession"></param>
         /// <param name="values"></param>
-        public static void SetUserSessionValues(IUserSession userSession, Hashtable values, Action<Hashtable> setUserStatusAction)
+        public static void SetUserSessionValues(IUserSession userSession, Hashtable values, Action<IUserSession, Hashtable> setUserStatusAction)
         {
             if (null == userSession)
             {
@@ -185,7 +185,7 @@
             SetProductStatus(session, values);
             SetProductStatusToDictionary(session, values);
 
-            setUserStatusAction(values);
+            setUserStatusAction(session, values);
 
             session.IsDisabledAutoMPT = (bool)values["disableautompt"];
             session.SRecommendId = (int)values["srecommend"];
