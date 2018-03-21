@@ -65,10 +65,5 @@
         {
             return CacheRef.GetProductName(productId);
         }
-
-        public string GetResourceData(string refId, string resourceId)
-        {
-            return CacheRef.GetResourceData(refId, resourceId);
-        }
     }
 }

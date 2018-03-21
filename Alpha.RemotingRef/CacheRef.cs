@@ -107,10 +107,5 @@ namespace Alpha.RemotingRef
         {
             return RefData.GetResourceDataByRefIdAndResourceId("Product", productId.ToString(), CurrentLanguageCode, string.Empty);
         }
-
-        public static string GetResourceData(string refId, string resourceId)
-        {
-            return RefData.GetResourceDataByRefIdAndResourceId(refId, resourceId, CurrentLanguageCode, string.Empty);
-        }
     }
 }

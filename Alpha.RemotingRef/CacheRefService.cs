@@ -29,7 +29,5 @@
         string GetOddsTypeName(object oddsTypeId);
 
         string GetProductName(int productId);
-
-        string GetResourceData(string refId, string resourceId);
     }
 }
