@@ -153,14 +153,6 @@
             }
         }
 
-        public bool IsAllowHRCurrency
-        {
-            get
-            {
-                return UserSession.Current.IsAllowHRCurrency;
-            }
-        }
-
         public bool IsBelongTo9Currency
         {
             get
@@ -172,23 +164,7 @@
             {
                 UserSession.Current.IsBelongTo9Currency = value;
             }
-        }
-
-        public bool IsBingoDisabled
-        {
-            get
-            {
-                return UserSession.Current.IsBingoDisabled;
-            }
-        }
-
-        public bool IsBingoSync
-        {
-            get
-            {
-                return UserSession.Current.IsBingoSync;
-            }
-        }
+        }  
 
         public bool IsCasinoDisabled
         {
@@ -213,54 +189,6 @@
             set
             {
                 UserSession.Current.IsCasinoSync = value;
-            }
-        }
-
-        public bool IsDisable151_31
-        {
-            get
-            {
-                return UserSession.Current.IsDisable151_31;
-            }
-        }
-
-        public bool IsDisable151_41
-        {
-            get
-            {
-                return UserSession.Current.IsDisable151_41;
-            }
-        }
-
-        public bool IsDisable151_51
-        {
-            get
-            {
-                return UserSession.Current.IsDisable151_51;
-            }
-        }
-
-        public bool IsDisable152_41
-        {
-            get
-            {
-                return UserSession.Current.IsDisable152_41;
-            }
-        }
-
-        public bool IsDisable152_51
-        {
-            get
-            {
-                return UserSession.Current.IsDisable152_51;
-            }
-        }
-
-        public bool IsDisable153_51
-        {
-            get
-            {
-                return UserSession.Current.IsDisable153_51;
             }
         }
 
@@ -296,36 +224,7 @@
             {
                 UserSession.Current.IsDisabledESports = value;
             }
-        }
-
-        public bool IsDisabledFI
-        {
-            get
-            {
-                return UserSession.Current.IsDisabledFI;
-            }
-        }
-
-        public bool IsDisabledHR
-        {
-            get
-            {
-                return UserSession.Current.IsDisabledHR;
-            }
-        }
-
-        public bool IsDisabledHRFixedOdds
-        {
-            get
-            {
-                return UserSession.Current.IsDisabledHRFixedOdds;
-            }
-
-            set
-            {
-                UserSession.Current.IsDisabledHRFixedOdds = value;
-            }
-        }
+        }       
 
         public bool IsDisabledSuperLive
         {
@@ -403,20 +302,7 @@
             {
                 UserSession.Current.IsHideGoldDeluxe = value;
             }
-        }
-
-        public bool IsHideHRFixedOdds
-        {
-            get
-            {
-                return UserSession.Current.IsHideHRFixedOdds;
-            }
-
-            set
-            {
-                UserSession.Current.IsHideHRFixedOdds = value;
-            }
-        }
+        }       
 
         public bool IsHideKeno
         {
@@ -502,33 +388,7 @@
             {
                 UserSession.Current.IsLimitedHostPermisionOnSubAccountFunction = value;
             }
-        }
-
-        public bool IsLiveCasinoDisabled
-        {
-            get
-            {
-                return UserSession.Current.IsLiveCasinoDisabled;
-            }
-
-            set
-            {
-                UserSession.Current.IsLiveCasinoDisabled = value;
-            }
-        }
-
-        public bool IsLiveCasinoSync
-        {
-            get
-            {
-                return UserSession.Current.IsLiveCasinoSync;
-            }
-
-            set
-            {
-                UserSession.Current.IsLiveCasinoSync = value;
-            }
-        }
+        }        
 
         public bool IsLogged
         {
@@ -609,20 +469,7 @@
             {
                 return UserSession.Current.IsNumberGameDisabled;
             }
-        }
-
-        public bool IsP2PDisabled
-        {
-            get
-            {
-                return UserSession.Current.IsP2PDisabled;
-            }
-
-            set
-            {
-                UserSession.Current.IsP2PDisabled = value;
-            }
-        }
+        }       
 
         public bool IsPasswordExpired
         {

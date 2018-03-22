@@ -558,16 +558,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;li&gt;
-        ///&lt;span style=&quot;color:#E59B46;&quot;&gt;Commission 1 (Comm 1)&lt;/span&gt; applies to bettypes: Handicap, Odd/Even, Over/Under, 1st Handicap, 1st Over/Under, 1st Odd/Even, Clean Sheet, Draw No Bet, To Win To Nil, 3-Way Handicap, Home No Bet, Away No Bet, Draw/No Draw, HT/FT Odd/Even, 1H Home Team Odd/Even, Home Team Odd/Even, 1H Away Team Odd/Even, Away Team Odd/Even, Game Handicap, Set x Game Handicap, Set x Total Games, Set Handicap, Match Total Games Odd/Even, Match Total Games Over/Under, Set x Total Game Odd/Even [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string appliesallbettype {
-            get {
-                return ResourceManager.GetString("appliesallbettype", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Apr.
         /// </summary>
         internal static string apr {
@@ -730,24 +720,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bingo.
-        /// </summary>
-        internal static string bingo {
-            get {
-                return ResourceManager.GetString("bingo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Bingo Position Taking (%).
-        /// </summary>
-        internal static string bingoPositionTaking {
-            get {
-                return ResourceManager.GetString("bingoPositionTaking", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Bonus Free Spin.
         /// </summary>
         internal static string bonusFreeSpin {
@@ -870,15 +842,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         internal static string closed {
             get {
                 return ResourceManager.GetString("closed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cockfighting.
-        /// </summary>
-        internal static string CockFighting {
-            get {
-                return ResourceManager.GetString("CockFighting", resourceCulture);
             }
         }
         
@@ -1045,15 +1008,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to disable Live Casino for this customer?.
-        /// </summary>
-        internal static string confirmDisableLiveCasino {
-            get {
-                return ResourceManager.GetString("confirmDisableLiveCasino", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to disable auto position taking feature of this master?.
         /// </summary>
         internal static string confirmDisableMAutoPT {
@@ -1123,15 +1077,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         internal static string confirmEnableGoldDeluxeMultiple {
             get {
                 return ResourceManager.GetString("confirmEnableGoldDeluxeMultiple", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to enable Live Casino for this customer?.
-        /// </summary>
-        internal static string confirmEnableLiveCasino {
-            get {
-                return ResourceManager.GetString("confirmEnableLiveCasino", resourceCulture);
             }
         }
         
@@ -1568,33 +1513,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Live Casino.
-        /// </summary>
-        internal static string EditLiveCasino {
-            get {
-                return ResourceManager.GetString("EditLiveCasino", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edit Multiple Live Casino.
-        /// </summary>
-        internal static string EditLiveCasinoMultiple {
-            get {
-                return ResourceManager.GetString("EditLiveCasinoMultiple", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edit Multiple Bingo.
-        /// </summary>
-        internal static string editmultbingo {
-            get {
-                return ResourceManager.GetString("editmultbingo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Edit Multiple Casino.
         /// </summary>
         internal static string editmultcs {
@@ -1609,15 +1527,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         internal static string editmultfinance {
             get {
                 return ResourceManager.GetString("editmultfinance", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edit Multiple Racing.
-        /// </summary>
-        internal static string editmulthr {
-            get {
-                return ResourceManager.GetString("editmulthr", resourceCulture);
             }
         }
         
@@ -1667,29 +1576,11 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Multiple Poker.
-        /// </summary>
-        internal static string editmultp2p {
-            get {
-                return ResourceManager.GetString("editmultp2p", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Edit Multiple Sportsbook.
         /// </summary>
         internal static string editmultsportbook {
             get {
                 return ResourceManager.GetString("editmultsportbook", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edit Poker.
-        /// </summary>
-        internal static string editP2P {
-            get {
-                return ResourceManager.GetString("editP2P", resourceCulture);
             }
         }
         
@@ -2198,51 +2089,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Racing.
-        /// </summary>
-        internal static string Horse {
-            get {
-                return ResourceManager.GetString("Horse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Racing.
-        /// </summary>
-        internal static string horseRacing {
-            get {
-                return ResourceManager.GetString("horseRacing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Racing.
-        /// </summary>
-        internal static string hr {
-            get {
-                return ResourceManager.GetString("hr", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to HR Fixed Odds.
-        /// </summary>
-        internal static string HRFixedOdds {
-            get {
-                return ResourceManager.GetString("HRFixedOdds", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Racing&apos;s Min PT.
-        /// </summary>
-        internal static string hrminpt {
-            get {
-                return ResourceManager.GetString("hrminpt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Access denied.
         /// </summary>
         internal static string HttpError_403 {
@@ -2329,33 +2175,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         internal static string informSecCode {
             get {
                 return ResourceManager.GetString("informSecCode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Products without preview such as Live Casino will also be offered to new agent..
-        /// </summary>
-        internal static string infoSearchAndCopyAgent {
-            get {
-                return ResourceManager.GetString("infoSearchAndCopyAgent", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Products without preview such as Live Casino will also be offered to new master..
-        /// </summary>
-        internal static string infoSearchAndCopyMaster {
-            get {
-                return ResourceManager.GetString("infoSearchAndCopyMaster", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Products without preview such as Live Casino will also be offered to new member..
-        /// </summary>
-        internal static string infoSearchAndCopyMember {
-            get {
-                return ResourceManager.GetString("infoSearchAndCopyMember", resourceCulture);
             }
         }
         
@@ -2749,15 +2568,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to WARNING!!! Are you sure you want to disable HR Fixed Odds on this customer ?.
-        /// </summary>
-        internal static string lblAlertDisableHRFixedOddsMember {
-            get {
-                return ResourceManager.GetString("lblAlertDisableHRFixedOddsMember", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to WARNING!!! Are you sure you want to disable SA Tote on this customer and all downlines?.
         /// </summary>
         internal static string lblAlertDisableSATote {
@@ -2898,15 +2708,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         internal static string lblBettingLimit {
             get {
                 return ResourceManager.GetString("lblBettingLimit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Bingo Traditional Hand History.
-        /// </summary>
-        internal static string lblBingoTraditionalHandHistory {
-            get {
-                return ResourceManager.GetString("lblBingoTraditionalHandHistory", resourceCulture);
             }
         }
         
@@ -3240,15 +3041,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         internal static string lbleditcomm {
             get {
                 return ResourceManager.GetString("lbleditcomm", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edit Racing.
-        /// </summary>
-        internal static string lbledithr {
-            get {
-                return ResourceManager.GetString("lbledithr", resourceCulture);
             }
         }
         
@@ -4028,15 +3820,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Race .
-        /// </summary>
-        internal static string lblRace {
-            get {
-                return ResourceManager.GetString("lblRace", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Security Code (SC) must be:
         ///
         ///    * Numeric digits only.
@@ -4243,33 +4026,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total Bingo Outstanding.
-        /// </summary>
-        internal static string lblTotalBGOutstanding {
-            get {
-                return ResourceManager.GetString("lblTotalBGOutstanding", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Total Bingo Transfer.
-        /// </summary>
-        internal static string lblTotalBGTransfer {
-            get {
-                return ResourceManager.GetString("lblTotalBGTransfer", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Total Bingo Transfer|Outstanding.
-        /// </summary>
-        internal static string lblTotalBGTransferOutstanding {
-            get {
-                return ResourceManager.GetString("lblTotalBGTransferOutstanding", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Total Casino Outstanding.
         /// </summary>
         internal static string lblTotalCSOutstanding {
@@ -4329,15 +4085,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         internal static string lblTotalOutstanding {
             get {
                 return ResourceManager.GetString("lblTotalOutstanding", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Total Poker Transfer|Outstanding.
-        /// </summary>
-        internal static string lblTotalP2PTransferOutstanding {
-            get {
-                return ResourceManager.GetString("lblTotalP2PTransferOutstanding", resourceCulture);
             }
         }
         
@@ -4437,15 +4184,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         internal static string lineno {
             get {
                 return ResourceManager.GetString("lineno", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Live Casino.
-        /// </summary>
-        internal static string LiveCasino {
-            get {
-                return ResourceManager.GetString("LiveCasino", resourceCulture);
             }
         }
         
@@ -5451,24 +5189,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Poker.
-        /// </summary>
-        internal static string P2P {
-            get {
-                return ResourceManager.GetString("P2P", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Poker Table Session.
-        /// </summary>
-        internal static string p2ptablesession {
-            get {
-                return ResourceManager.GetString("p2ptablesession", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Page Size:.
         /// </summary>
         internal static string pagesize {
@@ -5690,15 +5410,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         internal static string Progressivebonus {
             get {
                 return ResourceManager.GetString("Progressivebonus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Racing.
-        /// </summary>
-        internal static string Racebook {
-            get {
-                return ResourceManager.GetString("Racebook", resourceCulture);
             }
         }
         
@@ -6162,15 +5873,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sportsbook - Racing - Number Game.
-        /// </summary>
-        internal static string SportHorseNumberGame {
-            get {
-                return ResourceManager.GetString("SportHorseNumberGame", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Sportsbook 2.
         /// </summary>
         internal static string Sportsbook2 {
@@ -6261,15 +5963,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to WARNING!!! Are you sure you want to disable HR Fixed Odds on this customer and all downlines?.
-        /// </summary>
-        internal static string strConfirmDisableHRFixedOdds {
-            get {
-                return ResourceManager.GetString("strConfirmDisableHRFixedOdds", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to WARNING!!! Are you sure you want to disable Number Game on this customer and all downlines?.
         /// </summary>
         internal static string strConfirmDisableNumber {
@@ -6320,15 +6013,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         internal static string strConfirmEnableESports {
             get {
                 return ResourceManager.GetString("strConfirmEnableESports", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Do you want to enable HR Fixed Odds for this customer?.
-        /// </summary>
-        internal static string strConfirmEnableHRFixedOdds {
-            get {
-                return ResourceManager.GetString("strConfirmEnableHRFixedOdds", resourceCulture);
             }
         }
         
@@ -6891,15 +6575,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Updated unsuccessfully because Live Casino status has been disabled at upline.
-        /// </summary>
-        internal static string updateFailed {
-            get {
-                return ResourceManager.GetString("updateFailed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Updated unsuccessfully because Gold Deluxe status has been disabled at upline.
         /// </summary>
         internal static string updateGoldDeluxeFailed {
@@ -7130,24 +6805,6 @@ namespace Fanex.Age.UI.Components.LocalResources {
         internal static string VirtualGreyhounds {
             get {
                 return ResourceManager.GetString("VirtualGreyhounds", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Virtual Horse Racing.
-        /// </summary>
-        internal static string virtualHorsesRacing {
-            get {
-                return ResourceManager.GetString("virtualHorsesRacing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Virtual Motor Racing.
-        /// </summary>
-        internal static string VirtualMotors {
-            get {
-                return ResourceManager.GetString("VirtualMotors", resourceCulture);
             }
         }
         

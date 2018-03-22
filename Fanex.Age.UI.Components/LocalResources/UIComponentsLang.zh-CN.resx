@@ -183,14 +183,6 @@
   <data name="amount" xml:space="preserve">
     <value>金额</value>
   </data>
-  <data name="appliesallbettype" xml:space="preserve">
-    <value>&lt;li&gt;&lt;span style="color:#E59B46;"&gt;佣金 1(%)&lt;/span&gt; 适用于投注类型: 亚洲盘、单双、大小盘、上半场亚洲盘、上半场大小盘、上半场单双、零失球、获胜球队 (平局退款)、零失球的胜方、三项让分投注、主队 (不获胜球队)、客队 (不获胜球队)、平局/不是平局, 半场/全场 单/双, 半场主队单/双, 主队单/双, 半场客队单/双, 客队单/双, Game Handicap, Set x Game Handicap, Set x Total Games, Set Handicap, Match Total Games Odd/Even, Match Total Games Over/Under, Set x Total Game Odd/Even, 独赢, 上半场独赢, (独赢) &amp; (获胜者), 第 x 盘获胜者, 第 x 盘 - 第 y 局获胜者.&lt;/li&gt;
-&lt;li&gt;&lt;span style="color:#E59B46;"&gt;佣金2&lt;/span&gt; 适用于所有1x2类型的投注.&lt;/li&gt;
-&lt;li&gt;&lt;span style="color:#E59B46;"&gt;佣金3&lt;/span&gt; 应用于其他投注类别.&lt;/li&gt;
-&lt;li&gt;&lt;span style="color:#E59B46;"&gt;百练赛佣金 (百练赛佣金)&lt;/span&gt; 适用于百练赛的投注类别.&lt;/li&gt;
-&lt;li&gt;&lt;span style="color:#E59B46;"&gt;固定赔率赛马 (固定赔率赛马佣金)&lt;/span&gt; 应用于固定赔率赛马的投注类别.&lt;/li&gt;
-&lt;li&gt;M = 总代理, A = 代理, P = 会员&lt;/li&gt;</value>
-  </data>
   <data name="balance" xml:space="preserve">
     <value>现金</value>
   </data>
@@ -902,9 +894,6 @@
   <data name="forcechangepwd" xml:space="preserve">
     <value>您必须更换密码于第一次登入。</value>
   </data>
-  <data name="Horse" xml:space="preserve">
-    <value>赛马</value>
-  </data>
   <data name="lblEditMaster" xml:space="preserve">
     <value>修改总代理</value>
   </data>
@@ -916,9 +905,6 @@
   </data>
   <data name="lblConfirmEditAgent" xml:space="preserve">
     <value>您已更改于此代理不使用自动占成。&lt;br&gt;您是否要更改所有会员的占成数至:</value>
-  </data>
-  <data name="lblRace" xml:space="preserve">
-    <value>赛事</value>
   </data>
   <data name="No1" xml:space="preserve">
     <value>第一</value>
@@ -976,9 +962,6 @@
   </data>
   <data name="ViewDataInMonth" xml:space="preserve">
     <value>查阅每月报告</value>
-  </data>
-  <data name="hr" xml:space="preserve">
-    <value>赛马</value>
   </data>
   <data name="No4" xml:space="preserve">
     <value>第四</value>
@@ -1067,9 +1050,6 @@
   <data name="userisnotonline" xml:space="preserve">
     <value>此会员没上线</value>
   </data>
-  <data name="lbledithr" xml:space="preserve">
-    <value>修改赛马</value>
-  </data>
   <data name="lblEditInfo" xml:space="preserve">
     <value>修改资料</value>
   </data>
@@ -1093,9 +1073,6 @@
   </data>
   <data name="casino" xml:space="preserve">
     <value>娱乐城</value>
-  </data>
-  <data name="P2P" xml:space="preserve">
-    <value>扑克</value>
   </data>
   <data name="sportBook" xml:space="preserve">
     <value>体育博彩</value>
@@ -1274,9 +1251,6 @@
   <data name="editmultsportbook" xml:space="preserve">
     <value>修改多重体育博彩</value>
   </data>
-  <data name="editmulthr" xml:space="preserve">
-    <value>修改多重赛马</value>
-  </data>
   <data name="transferCreditMsg" xml:space="preserve">
     <value>最大转帐额度必须介于最小和最大限制价值</value>
   </data>
@@ -1285,9 +1259,6 @@
   </data>
   <data name="pcomm3" xml:space="preserve">
     <value>会员佣金(3)</value>
-  </data>
-  <data name="hrminpt" xml:space="preserve">
-    <value>赛马的最低占成数</value>
   </data>
   <data name="updCustSettingFailed" xml:space="preserve">
     <value>更新客户设置失败！</value>
@@ -1668,9 +1639,6 @@
   <data name="numbergamecomm" xml:space="preserve">
     <value>百练赛游戏佣金</value>
   </data>
-  <data name="lblBingoTraditionalHandHistory" xml:space="preserve">
-    <value>宾果传统游戏历史</value>
-  </data>
   <data name="lblDateAndTime" xml:space="preserve">
     <value>日期和时间</value>
   </data>
@@ -1683,17 +1651,8 @@
   <data name="low" xml:space="preserve">
     <value>普通限额</value>
   </data>
-  <data name="SportHorseNumberGame" xml:space="preserve">
-    <value>体育博彩-赛马-百练赛</value>
-  </data>
   <data name="confirmDisableNumberGameDownline" xml:space="preserve">
     <value>您确定你需要禁用客户和所有下线的数字游戏吗？</value>
-  </data>
-  <data name="lblTotalBGOutstanding" xml:space="preserve">
-    <value>宾果未结束交易总和</value>
-  </data>
-  <data name="lblTotalBGTransfer" xml:space="preserve">
-    <value>宾果转账总和</value>
   </data>
   <data name="confirmDisableNumberGame" xml:space="preserve">
     <value>您确定你需要禁用客户的数字游戏吗？</value>
@@ -1704,14 +1663,8 @@
   <data name="lblConfirmAllowDownline" xml:space="preserve">
     <value>您确认你要允许数字游戏给此用户名和所有下线吗？</value>
   </data>
-  <data name="bingoPositionTaking" xml:space="preserve">
-    <value>宾果占成 %</value>
-  </data>
   <data name="lblLiveBall" xml:space="preserve">
     <value>现场球</value>
-  </data>
-  <data name="editmultbingo" xml:space="preserve">
-    <value>修改多重宾果</value>
   </data>
   <data name="noLimited" xml:space="preserve">
     <value>没有限制</value>
@@ -1755,14 +1708,8 @@
   <data name="warningmultipletransfer" xml:space="preserve">
     <value>注意: 若昨天余额被全数转账, 被 &lt;font class="highlight"&gt;特别显示&lt;/font&gt; 会员的投注金额将显示负数。因此, 他们的输额有可能超过信用额度。</value>
   </data>
-  <data name="Racebook" xml:space="preserve">
-    <value>赛马</value>
-  </data>
   <data name="subTotal" xml:space="preserve">
     <value>小计</value>
-  </data>
-  <data name="horseRacing" xml:space="preserve">
-    <value>赛马</value>
   </data>
   <data name="greyHound" xml:space="preserve">
     <value>赛狗</value>
@@ -1968,12 +1915,6 @@
   <data name="privateGames" xml:space="preserve">
     <value>私人游戏</value>
   </data>
-  <data name="editP2P" xml:space="preserve">
-    <value>修改扑克</value>
-  </data>
-  <data name="editmultp2p" xml:space="preserve">
-    <value>修改多重扑克</value>
-  </data>
   <data name="lblSystemParlay" xml:space="preserve">
     <value>系统Parlay</value>
   </data>
@@ -2003,12 +1944,6 @@
   </data>
   <data name="lblTotalCSTransferOutstanding" xml:space="preserve">
     <value>到娱乐城的总转账额|未完成交易额</value>
-  </data>
-  <data name="lblTotalBGTransferOutstanding" xml:space="preserve">
-    <value>Total Bingo Transfer|Outstanding</value>
-  </data>
-  <data name="lblTotalP2PTransferOutstanding" xml:space="preserve">
-    <value>到扑克的总转账额|未完成交易额</value>
   </data>
   <data name="showhidecolumnAd" xml:space="preserve">
     <value>右键单击以显示/隐藏列行</value>
@@ -2061,17 +1996,8 @@
   <data name="searchExistingMember" xml:space="preserve">
     <value>搜索现有的会员</value>
   </data>
-  <data name="LiveCasino" xml:space="preserve">
-    <value>娱乐厅</value>
-  </data>
   <data name="MasterAutoPresetPT" xml:space="preserve">
     <value>Master Auto Preset PT</value>
-  </data>
-  <data name="EditLiveCasino" xml:space="preserve">
-    <value>修改娱乐厅</value>
-  </data>
-  <data name="EditLiveCasinoMultiple" xml:space="preserve">
-    <value>修改多重真人荷官</value>
   </data>
   <data name="baccarat" xml:space="preserve">
     <value>百家乐</value>
@@ -2115,26 +2041,8 @@
   <data name="masterMaxCreditInvalid" xml:space="preserve">
     <value>总代理最高信用额应在{0}和{1}之间</value>
   </data>
-  <data name="updateFailed" xml:space="preserve">
-    <value>修改失败，因为上线的娱乐厅状态以被禁止</value>
-  </data>
-  <data name="confirmEnableLiveCasino" xml:space="preserve">
-    <value>您要启用娱乐厅予此会员？</value>
-  </data>
-  <data name="confirmDisableLiveCasino" xml:space="preserve">
-    <value>您要禁止此会员参与娱乐厅？</value>
-  </data>
   <data name="msgContraintData" xml:space="preserve">
     <value>此会员之设置已超过当前被分配的占成数。因此, 这只会生效于新增会员。</value>
-  </data>
-  <data name="infoSearchAndCopyMaster" xml:space="preserve">
-    <value>新增总代理时，产品若无预览功能 (例如: 现场娱乐厅) 也将进行复制。</value>
-  </data>
-  <data name="infoSearchAndCopyAgent" xml:space="preserve">
-    <value>新增代理时，产品若无预览功能 (例如: 现场娱乐厅) 也将进行复制。</value>
-  </data>
-  <data name="infoSearchAndCopyMember" xml:space="preserve">
-    <value>新增会员时，产品若无预览功能 (例如: 现场娱乐厅) 也将进行复制。</value>
   </data>
   <data name="creditInvalid" xml:space="preserve">
     <value>信用额度数值不正确</value>
@@ -2159,9 +2067,6 @@
   </data>
   <data name="accSuspended" xml:space="preserve">
     <value>This account was suspended, click here to view log</value>
-  </data>
-  <data name="p2ptablesession" xml:space="preserve">
-    <value>扑克的游戏桌时段</value>
   </data>
   <data name="tableid" xml:space="preserve">
     <value>游戏桌号</value>
@@ -2277,9 +2182,6 @@
   <data name="lblNoDraw" xml:space="preserve">
     <value>No Draw</value>
   </data>
-  <data name="bingo" xml:space="preserve">
-    <value>Bingo</value>
-  </data>
   <data name="dcommMultiEditPopupOFFOption" xml:space="preserve">
     <value>关闭双倍佣金</value>
   </data>
@@ -2338,9 +2240,6 @@
   </data>
   <data name="lblPasswordWrongRule" xml:space="preserve">
     <value>您的密码不符合最低安全要求</value>
-  </data>
-  <data name="virtualHorsesRacing" xml:space="preserve">
-    <value>虚拟赛马</value>
   </data>
   <data name="superCommissionByBetType" xml:space="preserve">
     <value>Super Commission By Bet Type</value>
@@ -2445,21 +2344,6 @@
   <data name="VirtualGreyhounds" xml:space="preserve">
     <value>虚拟赛狗</value>
   </data>
-  <data name="VirtualMotors" xml:space="preserve">
-    <value>虚拟赛车</value>
-  </data>
-  <data name="HRFixedOdds" xml:space="preserve">
-    <value>固定赔率赛马</value>
-  </data>
-  <data name="lblAlertDisableHRFixedOddsMember" xml:space="preserve">
-    <value>警告!!! 您确定禁用此户口固定赔率赛马游戏吗?</value>
-  </data>
-  <data name="strConfirmDisableHRFixedOdds" xml:space="preserve">
-    <value>警告!!! 您确定禁用此户口和其下线固定赔率赛马游戏吗?</value>
-  </data>
-  <data name="strConfirmEnableHRFixedOdds" xml:space="preserve">
-    <value>您确定开启此户口固定赔率赛马游戏吗?</value>
-  </data>
   <data name="Keno" xml:space="preserve">
     <value>快乐彩</value>
   </data>
@@ -2561,9 +2445,6 @@
   </data>
   <data name="EditSingleSportsbook2" xml:space="preserve">
     <value>修改体育博彩2</value>
-  </data>
-  <data name="CockFighting" xml:space="preserve">
-    <value>Cockfighting</value>
   </data>
   <data name="Progressivebonus" xml:space="preserve">
     <value>Progressive Bonus</value>

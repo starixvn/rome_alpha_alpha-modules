@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -281,26 +281,6 @@ Please use the form below to set your Security Code now.</value>
   <data name="announcement" xml:space="preserve">
     <value>Announcement</value>
   </data>
-  <data name="appliesallbettype" xml:space="preserve">
-    <value>&lt;li&gt;
-&lt;span style="color:#E59B46;"&gt;Commission 1 (Comm 1)&lt;/span&gt; applies to bettypes: Handicap, Odd/Even, Over/Under, 1st Handicap, 1st Over/Under, 1st Odd/Even, Clean Sheet, Draw No Bet, To Win To Nil, 3-Way Handicap, Home No Bet, Away No Bet, Draw/No Draw, HT/FT Odd/Even, 1H Home Team Odd/Even, Home Team Odd/Even, 1H Away Team Odd/Even, Away Team Odd/Even, Game Handicap, Set x Game Handicap, Set x Total Games, Set Handicap, Match Total Games Odd/Even, Match Total Games Over/Under, Set x Total Game Odd/Even, Moneyline, 1st Moneyline, Match Winner, Set X Winner, Set X Game Y Winner.
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span style="color:#E59B46;"&gt;Commission 2 (Comm 2)&lt;/span&gt; applies to bettypes: 1st 1x2, FT. 1x2.  
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span style="color:#E59B46;"&gt;Commission 3 (Comm 3)&lt;/span&gt; applies to other bettypes.  
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span style="color:#E59B46;"&gt;Number Game Comm (Number Game Commission)&lt;/span&gt; applies to bettypes of Number Game.
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span style="color:#E59B46;"&gt;HR Fixed Odds (Horse Racing Fixed Odds Commission)&lt;/span&gt; applies to bettypes of Horse Racing Fixed Odds.
-&lt;/li&gt;
-&lt;li&gt;
-M = Master, A = Agent, P = Member.
-&lt;/li&gt;</value>
-  </data>
   <data name="apr" xml:space="preserve">
     <value>Apr</value>
   </data>
@@ -354,12 +334,6 @@ M = Master, A = Agent, P = Member.
   </data>
   <data name="bettingLimitMsg" xml:space="preserve">
     <value>Please choose at least 1 betting limit for each game type</value>
-  </data>
-  <data name="bingo" xml:space="preserve">
-    <value>Bingo</value>
-  </data>
-  <data name="bingoPositionTaking" xml:space="preserve">
-    <value>Bingo Position Taking (%)</value>
   </data>
   <data name="bonusFreeSpin" xml:space="preserve">
     <value>Bonus Free Spin</value>
@@ -454,9 +428,6 @@ M = Master, A = Agent, P = Member.
   <data name="confirmDisableGoldDeluxeMultiple" xml:space="preserve">
     <value>WARNING!!! Are you sure you want to disable Gold Deluxe on this customer and all downlines?</value>
   </data>
-  <data name="confirmDisableLiveCasino" xml:space="preserve">
-    <value>Are you sure you want to disable Live Casino for this customer?</value>
-  </data>
   <data name="confirmDisableMAutoPT" xml:space="preserve">
     <value>Are you sure you want to disable auto position taking feature of this master?</value>
   </data>
@@ -484,9 +455,6 @@ Warning, all members under this agent can't place outright bet!</value>
   </data>
   <data name="confirmEnableGoldDeluxeMultiple" xml:space="preserve">
     <value>Do you want to enable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="confirmEnableLiveCasino" xml:space="preserve">
-    <value>Are you sure you want to enable Live Casino for this customer?</value>
   </data>
   <data name="confirmEnableMAutoPT" xml:space="preserve">
     <value>Are you sure you want to enable auto position taking feature of this master?</value>
@@ -632,23 +600,11 @@ Warning, all members under this agent can't place outright bet!</value>
   <data name="editKeno" xml:space="preserve">
     <value>Edit Keno</value>
   </data>
-  <data name="EditLiveCasino" xml:space="preserve">
-    <value>Edit Live Casino</value>
-  </data>
-  <data name="EditLiveCasinoMultiple" xml:space="preserve">
-    <value>Edit Multiple Live Casino</value>
-  </data>
-  <data name="editmultbingo" xml:space="preserve">
-    <value>Edit Multiple Bingo</value>
-  </data>
   <data name="editmultcs" xml:space="preserve">
     <value>Edit Multiple Casino</value>
   </data>
   <data name="editmultfinance" xml:space="preserve">
     <value>Edit Multiple Finance's PT</value>
-  </data>
-  <data name="editmulthr" xml:space="preserve">
-    <value>Edit Multiple Racing</value>
   </data>
   <data name="editMultipleDoubleComm" xml:space="preserve">
     <value>Edit Multiple Double Comm</value>
@@ -662,14 +618,8 @@ Warning, all members under this agent can't place outright bet!</value>
   <data name="editmultkeno" xml:space="preserve">
     <value>Edit Multiple Keno</value>
   </data>
-  <data name="editmultp2p" xml:space="preserve">
-    <value>Edit Multiple Poker</value>
-  </data>
   <data name="editmultsportbook" xml:space="preserve">
     <value>Edit Multiple Sportsbook</value>
-  </data>
-  <data name="editP2P" xml:space="preserve">
-    <value>Edit Poker</value>
   </data>
   <data name="editsubacc" xml:space="preserve">
     <value>Edit Sub Account</value>
@@ -836,21 +786,6 @@ Warning, all members under this agent can't place outright bet!</value>
   <data name="home2" xml:space="preserve">
     <value>Home</value>
   </data>
-  <data name="Horse" xml:space="preserve">
-    <value>Racing</value>
-  </data>
-  <data name="horseRacing" xml:space="preserve">
-    <value>Racing</value>
-  </data>
-  <data name="hr" xml:space="preserve">
-    <value>Racing</value>
-  </data>
-  <data name="HRFixedOdds" xml:space="preserve">
-    <value>HR Fixed Odds</value>
-  </data>
-  <data name="hrminpt" xml:space="preserve">
-    <value>Racing's Min PT</value>
-  </data>
   <data name="HttpError_403" xml:space="preserve">
     <value>Access denied</value>
   </data>
@@ -880,15 +815,6 @@ Warning, all members under this agent can't place outright bet!</value>
   </data>
   <data name="informSecCode" xml:space="preserve">
     <value>Please input your security code before proceeding!</value>
-  </data>
-  <data name="infoSearchAndCopyAgent" xml:space="preserve">
-    <value>Products without preview such as Live Casino will also be offered to new agent.</value>
-  </data>
-  <data name="infoSearchAndCopyMaster" xml:space="preserve">
-    <value>Products without preview such as Live Casino will also be offered to new master.</value>
-  </data>
-  <data name="infoSearchAndCopyMember" xml:space="preserve">
-    <value>Products without preview such as Live Casino will also be offered to new member.</value>
   </data>
   <data name="introNickname" xml:space="preserve">
     <value>&lt;div&gt;Dear customers! Now you can login with your own nickname&lt;/div&gt;
@@ -1021,9 +947,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="lblAlertDisableCSMember" xml:space="preserve">
     <value>Are you sure you want to disable Casino on this customer?</value>
   </data>
-  <data name="lblAlertDisableHRFixedOddsMember" xml:space="preserve">
-    <value>WARNING!!! Are you sure you want to disable HR Fixed Odds on this customer ?</value>
-  </data>
   <data name="lblAlertDisableSATote" xml:space="preserve">
     <value>WARNING!!! Are you sure you want to disable SA Tote on this customer and all downlines?</value>
   </data>
@@ -1071,9 +994,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   </data>
   <data name="lblBettingLimit" xml:space="preserve">
     <value>Betting Limit</value>
-  </data>
-  <data name="lblBingoTraditionalHandHistory" xml:space="preserve">
-    <value>Bingo Traditional Hand History</value>
   </data>
   <data name="lblBold" xml:space="preserve">
     <value>Bold</value>
@@ -1185,9 +1105,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   </data>
   <data name="lbleditcomm" xml:space="preserve">
     <value>Edit Commission</value>
-  </data>
-  <data name="lbledithr" xml:space="preserve">
-    <value>Edit Racing</value>
   </data>
   <data name="lblEditInfo" xml:space="preserve">
     <value>Edit Info</value>
@@ -1455,9 +1372,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="lblPresetPTSuper" xml:space="preserve">
     <value>Super Preset PT</value>
   </data>
-  <data name="lblRace" xml:space="preserve">
-    <value>Race </value>
-  </data>
   <data name="lblRequiredSecCode" xml:space="preserve">
     <value>Security Code (SC) must be:
 
@@ -1532,15 +1446,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="lblTotalBalance" xml:space="preserve">
     <value>Total Balance</value>
   </data>
-  <data name="lblTotalBGOutstanding" xml:space="preserve">
-    <value>Total Bingo Outstanding</value>
-  </data>
-  <data name="lblTotalBGTransfer" xml:space="preserve">
-    <value>Total Bingo Transfer</value>
-  </data>
-  <data name="lblTotalBGTransferOutstanding" xml:space="preserve">
-    <value>Total Bingo Transfer|Outstanding</value>
-  </data>
   <data name="lblTotalCSOutstanding" xml:space="preserve">
     <value>Total Casino Outstanding</value>
   </data>
@@ -1561,9 +1466,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   </data>
   <data name="lblTotalOutstanding" xml:space="preserve">
     <value>Total Outstanding</value>
-  </data>
-  <data name="lblTotalP2PTransferOutstanding" xml:space="preserve">
-    <value>Total Poker Transfer|Outstanding</value>
   </data>
   <data name="lblView1stHandicapForecast" xml:space="preserve">
     <value>View 1st Handicap Forecast</value>
@@ -1597,9 +1499,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   </data>
   <data name="lineno" xml:space="preserve">
     <value>Line No</value>
-  </data>
-  <data name="LiveCasino" xml:space="preserve">
-    <value>Live Casino</value>
   </data>
   <data name="LiveGame" xml:space="preserve">
     <value>Live Game</value>
@@ -1930,12 +1829,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="owner" xml:space="preserve">
     <value>Owner</value>
   </data>
-  <data name="P2P" xml:space="preserve">
-    <value>Poker</value>
-  </data>
-  <data name="p2ptablesession" xml:space="preserve">
-    <value>Poker Table Session</value>
-  </data>
   <data name="pagesize" xml:space="preserve">
     <value>Page Size:</value>
   </data>
@@ -2007,9 +1900,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   </data>
   <data name="product" xml:space="preserve">
     <value>Product</value>
-  </data>
-  <data name="Racebook" xml:space="preserve">
-    <value>Racing</value>
   </data>
   <data name="refno" xml:space="preserve">
     <value>Ref No</value>
@@ -2165,9 +2055,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="sportconsolidatedreport" xml:space="preserve">
     <value>Sport Consolidated Report</value>
   </data>
-  <data name="SportHorseNumberGame" xml:space="preserve">
-    <value>Sportsbook - Racing - Number Game</value>
-  </data>
   <data name="sportwinlossanalysisreport" xml:space="preserve">
     <value>Sport Winloss Analysis</value>
   </data>
@@ -2195,9 +2082,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="strConfirmDisableESports" xml:space="preserve">
     <value>WARNING!!! Are you sure you want to disable E-Sports on this customer and all downlines?</value>
   </data>
-  <data name="strConfirmDisableHRFixedOdds" xml:space="preserve">
-    <value>WARNING!!! Are you sure you want to disable HR Fixed Odds on this customer and all downlines?</value>
-  </data>
   <data name="strConfirmDisableNumber" xml:space="preserve">
     <value>WARNING!!! Are you sure you want to disable Number Game on this customer and all downlines?</value>
   </data>
@@ -2215,9 +2099,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   </data>
   <data name="strConfirmEnableESports" xml:space="preserve">
     <value>Do you want to enable E-Sports for this customer?</value>
-  </data>
-  <data name="strConfirmEnableHRFixedOdds" xml:space="preserve">
-    <value>Do you want to enable HR Fixed Odds for this customer?</value>
   </data>
   <data name="strConfirmEnableNumber" xml:space="preserve">
     <value>Do you want to enable Number Game for this customer?</value>
@@ -2393,9 +2274,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="updateCS" xml:space="preserve">
     <value>Update Casino Setting</value>
   </data>
-  <data name="updateFailed" xml:space="preserve">
-    <value>Updated unsuccessfully because Live Casino status has been disabled at upline</value>
-  </data>
   <data name="updateGoldDeluxeFailed" xml:space="preserve">
     <value>Updated unsuccessfully because Gold Deluxe status has been disabled at upline</value>
   </data>
@@ -2473,12 +2351,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   </data>
   <data name="VirtualGreyhounds" xml:space="preserve">
     <value>Virtual Greyhounds</value>
-  </data>
-  <data name="virtualHorsesRacing" xml:space="preserve">
-    <value>Virtual Horse Racing</value>
-  </data>
-  <data name="VirtualMotors" xml:space="preserve">
-    <value>Virtual Motor Racing</value>
   </data>
   <data name="VirtualSoccer" xml:space="preserve">
     <value>Virtual Soccer</value>

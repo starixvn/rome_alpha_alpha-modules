@@ -350,33 +350,7 @@ namespace Sunplus.Agent.Model.Entities
             set;
         }
 
-        #endregion Casino
-
-        #region P2P
-
-        bool IsP2PDisabled
-        {
-            get;
-            set;
-        }
-
-        #endregion P2P
-
-        #region LiveCasino
-
-        bool IsLiveCasinoDisabled
-        {
-            get;
-            set;
-        }
-
-        bool IsLiveCasinoSync
-        {
-            get;
-            set;
-        }
-
-        #endregion LiveCasino
+        #endregion Casino       
 
         #region VirtualSports
 
@@ -392,23 +366,7 @@ namespace Sunplus.Agent.Model.Entities
             set;
         }
 
-        #endregion VirtualSports
-
-        #region HRFixedOdds
-
-        bool IsHideHRFixedOdds
-        {
-            get;
-            set;
-        }
-
-        bool IsDisabledHRFixedOdds
-        {
-            get;
-            set;
-        }
-
-        #endregion HRFixedOdds
+        #endregion VirtualSports        
 
         #region Keno
 
@@ -454,104 +412,13 @@ namespace Sunplus.Agent.Model.Entities
 
         #endregion Double Commission
 
-        #region Bingo
-
-        /// <summary>
-        /// Disabled Bingo status of logged-in user.
-        /// </summary>
-        bool IsBingoDisabled
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Synchronized Bingo status of logged-in user.
-        /// </summary>
-        bool IsBingoSync
-        {
-            get;
-        }
-
         /// <summary>
         /// Disabled Number Game status of logged-in user.
         /// </summary>
         bool IsNumberGameDisabled
         {
             get;
-        }
-
-        #endregion Bingo
-
-        #region Will be removed when Racing was launched
-
-        bool IsDisabledHR
-        {
-            get;
-        }
-
-        bool IsDisabledFI
-        {
-            get;
-        }
-
-        #endregion Will be removed when Racing was launched
-
-        #region Racing
-
-        bool IsAllowHRCurrency
-        {
-            get;
-        }
-
-        /// <summary>
-        /// HR-SA
-        /// </summary>
-        bool IsDisable151_31
-        {
-            get;
-        }
-
-        /// <summary>
-        /// HR-UK
-        /// </summary>
-        bool IsDisable151_41
-        {
-            get;
-        }
-
-        /// <summary>
-        /// HR-AU
-        /// </summary>
-        bool IsDisable151_51
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Greyhound-UK
-        /// </summary>
-        bool IsDisable152_41
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Greyhound-AU
-        /// </summary>
-        bool IsDisable152_51
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Harness-AU
-        /// </summary>
-        bool IsDisable153_51
-        {
-            get;
-        }
-
-        #endregion Racing
+        }       
 
         #region PostionTaking
 

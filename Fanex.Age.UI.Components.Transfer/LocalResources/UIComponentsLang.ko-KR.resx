@@ -183,17 +183,6 @@
   <data name="amount" xml:space="preserve">
     <value>총액</value>
   </data>
-  <data name="appliesallbettype" xml:space="preserve">
-    <value>&lt;li&gt;
-			수수료 1(수수료 1) 모든 아시안 핸디캡에 적용됩니다,초과와 미만 그리고 홀수 짝수 배팅
-, Moneyline, 1st Moneyline, Match Winner, Set X Winner, Set X Game Y Winner.
-					&lt;/li&gt;&lt;li&gt;
-		Commission 2(Comm 2) applies to ALL types of 1x2 bets.  
-		&lt;/li&gt;
-		&lt;li&gt;
-		수수료 3(수수료 3) 수수료 1을 제외한 다른 배팅에 모두 적용됩니.  
-		&lt;/li&gt;</value>
-  </data>
   <data name="balance" xml:space="preserve">
     <value>잔액</value>
   </data>
@@ -962,12 +951,6 @@
   <data name="accpermission" xml:space="preserve">
     <value>계정 허가</value>
   </data>
-  <data name="hr" xml:space="preserve">
-    <value>경마</value>
-  </data>
-  <data name="Horse" xml:space="preserve">
-    <value>경마</value>
-  </data>
   <data name="lblEditMaster" xml:space="preserve">
     <value>마스터수정</value>
   </data>
@@ -979,9 +962,6 @@
   </data>
   <data name="lblConfirmEditAgent" xml:space="preserve">
     <value>해당 에이전트는 자동 거래조건을 설정 하지 못하게 변경 하였습니다.모든회원의 거래조건을 바꾸기를 원하십니까:</value>
-  </data>
-  <data name="lblRace" xml:space="preserve">
-    <value>경주</value>
   </data>
   <data name="No1" xml:space="preserve">
     <value>첫번째</value>
@@ -1088,9 +1068,6 @@
   <data name="userisnotonline" xml:space="preserve">
     <value>회원이 온라인 상에 있지 않습니다.</value>
   </data>
-  <data name="lbledithr" xml:space="preserve">
-    <value>경마설정수정</value>
-  </data>
   <data name="lblEditInfo" xml:space="preserve">
     <value>고객정보</value>
   </data>
@@ -1168,9 +1145,6 @@
   </data>
   <data name="casino" xml:space="preserve">
     <value>카지노</value>
-  </data>
-  <data name="P2P" xml:space="preserve">
-    <value>Poker</value>
   </data>
   <data name="sportBook" xml:space="preserve">
     <value>스포츠북</value>
@@ -1277,9 +1251,6 @@
   <data name="editmultsportbook" xml:space="preserve">
     <value>멀티플 스포츠 북 수정하기</value>
   </data>
-  <data name="editmulthr" xml:space="preserve">
-    <value>멀티플 레이싱 수정하기</value>
-  </data>
   <data name="transferCreditMsg" xml:space="preserve">
     <value>최대 전송하는 포인트(크레딧)은 최소값과 최대한도값 사이여야만 합니다.</value>
   </data>
@@ -1288,9 +1259,6 @@
   </data>
   <data name="pcomm3" xml:space="preserve">
     <value>P 수수료 3</value>
-  </data>
-  <data name="hrminpt" xml:space="preserve">
-    <value>경마 최소 PT</value>
   </data>
   <data name="updCustSettingFailed" xml:space="preserve">
     <value>Cust 업데이트 설정에 실패하였습니다.</value>
@@ -1662,9 +1630,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="numbergamecomm" xml:space="preserve">
     <value>넘버게임 커미션</value>
   </data>
-  <data name="lblBingoTraditionalHandHistory" xml:space="preserve">
-    <value>빙고 결과내역</value>
-  </data>
   <data name="lblDateAndTime" xml:space="preserve">
     <value>날짜&amp;시간</value>
   </data>
@@ -1677,17 +1642,8 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="low" xml:space="preserve">
     <value>로우</value>
   </data>
-  <data name="SportHorseNumberGame" xml:space="preserve">
-    <value>스포츠북-레이싱-라이브빙고게임</value>
-  </data>
   <data name="confirmDisableNumberGameDownline" xml:space="preserve">
     <value>이 고객과 모든 하부라인의 라이브 빙고게임을 비활성화 하시겠습니까?</value>
-  </data>
-  <data name="lblTotalBGOutstanding" xml:space="preserve">
-    <value>총 베팅중인 빙고 금액</value>
-  </data>
-  <data name="lblTotalBGTransfer" xml:space="preserve">
-    <value>총 빙고전송금액</value>
   </data>
   <data name="confirmDisableNumberGame" xml:space="preserve">
     <value>이 고객의 라이브 빙고게임을 비활성화 하시겠습니까?</value>
@@ -1698,14 +1654,8 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="lblConfirmAllowDownline" xml:space="preserve">
     <value>Are you sure you want to allow number game of this {username} account and all downlines?</value>
   </data>
-  <data name="bingoPositionTaking" xml:space="preserve">
-    <value>빙고게임 포지션(%)</value>
-  </data>
   <data name="lblLiveBall" xml:space="preserve">
     <value>라이브 공</value>
-  </data>
-  <data name="editmultbingo" xml:space="preserve">
-    <value>멀티플 빙고 수정하기</value>
   </data>
   <data name="noLimited" xml:space="preserve">
     <value>제한없음</value>
@@ -1749,14 +1699,8 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="warningmultipletransfer" xml:space="preserve">
     <value>Warning: if balance is full transfered, the &lt;font class="highlight"&gt;highlighted&lt;/font&gt; members below will have negative bet credit and consequently, they might lose more than their given credit.</value>
   </data>
-  <data name="Racebook" xml:space="preserve">
-    <value>경마</value>
-  </data>
   <data name="subTotal" xml:space="preserve">
     <value>총 하위</value>
-  </data>
-  <data name="horseRacing" xml:space="preserve">
-    <value>경마</value>
   </data>
   <data name="greyHound" xml:space="preserve">
     <value>그레이 하운드</value>
@@ -1962,12 +1906,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="privateGames" xml:space="preserve">
     <value>사설 게임</value>
   </data>
-  <data name="editP2P" xml:space="preserve">
-    <value>Poker 수정하기</value>
-  </data>
-  <data name="editmultp2p" xml:space="preserve">
-    <value>Poker 멀티수정하기</value>
-  </data>
   <data name="lblSystemParlay" xml:space="preserve">
     <value>시스템 팔레이</value>
   </data>
@@ -1997,12 +1935,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   </data>
   <data name="lblTotalCSTransferOutstanding" xml:space="preserve">
     <value>총 카지노 전송 |  대기중인 금액</value>
-  </data>
-  <data name="lblTotalBGTransferOutstanding" xml:space="preserve">
-    <value>Total Bingo Transfer|Outstanding</value>
-  </data>
-  <data name="lblTotalP2PTransferOutstanding" xml:space="preserve">
-    <value>총 Poker 전송/대기중인 금액</value>
   </data>
   <data name="showhidecolumnAd" xml:space="preserve">
     <value>머리글에 마우스의 오른쪽 버튼을 클릭하시면 열 표시/숨기기  선택하실수 있습니다.</value>
@@ -2055,23 +1987,11 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="searchExistingMember" xml:space="preserve">
     <value>기존 회원 검색</value>
   </data>
-  <data name="LiveCasino" xml:space="preserve">
-    <value>라이브 카지노</value>
-  </data>
   <data name="MasterAutoPresetPT" xml:space="preserve">
     <value>Master Auto Preset PT</value>
   </data>
-  <data name="EditLiveCasino" xml:space="preserve">
-    <value>라이브 카지노 편집</value>
-  </data>
-  <data name="EditLiveCasinoMultiple" xml:space="preserve">
-    <value>라이브 카지노 멀티 수정</value>
-  </data>
   <data name="baccarat" xml:space="preserve">
     <value>바카라</value>
-  </data>
-  <data name="bingo" xml:space="preserve">
-    <value>빙고</value>
   </data>
   <data name="skip" xml:space="preserve">
     <value>다음</value>
@@ -2112,26 +2032,8 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="masterMaxCreditInvalid" xml:space="preserve">
     <value>마스터 최대 크레딧은 {0}과 {1}사이이여만 합니다. </value>
   </data>
-  <data name="updateFailed" xml:space="preserve">
-    <value>이 계정은 라이브 카지노 설정이 없거나 업라인에 의해 비활성화되어  라이브 카지노를 활성화할 수 없습니다.</value>
-  </data>
-  <data name="confirmEnableLiveCasino" xml:space="preserve">
-    <value>회원의 라이브 카지노를 활성화 하시겠습니까?</value>
-  </data>
-  <data name="confirmDisableLiveCasino" xml:space="preserve">
-    <value>회원의 라이브 카지노를 비활성화 하시겠습니까?</value>
-  </data>
   <data name="msgContraintData" xml:space="preserve">
     <value>현재 회원에게 주어진 포지션 테이킹 설정이 초과되었습니다. 이에 따라, 새로운 설정은 새로운 회원부터 적용됩니다.</value>
-  </data>
-  <data name="infoSearchAndCopyMaster" xml:space="preserve">
-    <value>라이브카지노 세팅은 미리보기 없이 새로운 마스터에게 제공되어집니다.</value>
-  </data>
-  <data name="infoSearchAndCopyAgent" xml:space="preserve">
-    <value>라이브카지노 세팅은 미리보기 없이 새로운 에이젼트에게 제공되어집니다.</value>
-  </data>
-  <data name="infoSearchAndCopyMember" xml:space="preserve">
-    <value>라이브카지노 세팅은 미리보기 없이 새로운 회원에게 제공되어집니다.</value>
   </data>
   <data name="creditInvalid" xml:space="preserve">
     <value>주어진 충전금액이 잘못 되었습니다.</value>
@@ -2156,9 +2058,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   </data>
   <data name="accSuspended" xml:space="preserve">
     <value>This account was suspended, click here to view log</value>
-  </data>
-  <data name="p2ptablesession" xml:space="preserve">
-    <value>Poker 테이블 시간</value>
   </data>
   <data name="tableid" xml:space="preserve">
     <value>테이블 (ID)</value>
@@ -2341,9 +2240,6 @@ Please use the form below to change your password now.</value>
   <data name="lblPasswordWrongRule" xml:space="preserve">
     <value>입력하신 비밀번호는 최소 보안 요구 사항을 충족하지 않습니다</value>
   </data>
-  <data name="virtualHorsesRacing" xml:space="preserve">
-    <value>Virtual Horse Racing</value>
-  </data>
   <data name="superCommissionByBetType" xml:space="preserve">
     <value>Super Commission By Bet Type</value>
   </data>
@@ -2409,23 +2305,8 @@ Please use the form below to set your Security Code now.</value>
   <data name="FunctionTurnOffError" xml:space="preserve">
     <value>현재 많은 서버의 이용자로 인하여 일시적으로 이 기능을 사용하실수 없습니다. 잠시 후 다시 시도해 보시기 바랍니다. 서비스 이용에 불편을 드려 죄송합니다.</value>
   </data>
-  <data name="HRFixedOdds" xml:space="preserve">
-    <value>HR 고정 배당률</value>
-  </data>
-  <data name="strConfirmDisableHRFixedOdds" xml:space="preserve">
-    <value>주의! 모든 고객과 하부라인의 HR 고정 배당률을 비활성화 하시겠습니까?</value>
-  </data>
-  <data name="strConfirmEnableHRFixedOdds" xml:space="preserve">
-    <value>고객의 HR 고정 배당률을 활성화 하시겠습니까?</value>
-  </data>
   <data name="VirtualGreyhounds" xml:space="preserve">
     <value>Virtual Greyhounds</value>
-  </data>
-  <data name="VirtualMotors" xml:space="preserve">
-    <value>Virtual Motor Racing</value>
-  </data>
-  <data name="lblAlertDisableHRFixedOddsMember" xml:space="preserve">
-    <value>주의! 이 고객의 HR 고정 배당률을 비활성화 하시겠습니까?</value>
   </data>
   <data name="Keno" xml:space="preserve">
     <value>케노</value>

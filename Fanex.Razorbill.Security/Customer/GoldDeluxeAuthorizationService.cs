@@ -14,7 +14,6 @@
     public class GoldDeluxeAuthorizationService : IGoldDeluxeAuthorizationService
     {
         private AuthenticateCustomer _authenticateCustomer = new AuthenticateCustomer();
-        private SettingService _livecasinoService = new SettingService();
 
         public bool IsAuthorizedRead(AuthorizationContext authorizationContext, int custId)
         {

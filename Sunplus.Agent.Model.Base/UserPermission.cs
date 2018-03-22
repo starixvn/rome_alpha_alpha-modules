@@ -20,99 +20,21 @@ namespace Sunplus.Agent.Model.Entities.Permission
             {
                 return false;
             }
-        }
-
-        public static bool IsDisabledFI
-        {
-            get
-            {
-                return true;
-            }
-        }
-
-        #region Racing
+        }        
 
         public static bool IsShowRacing
         {
             get
             {
-                return IsShowRacing_151_31 |
-                    IsShowRacing_151_41 |
-                    IsShowRacing_151_51 |
-                    IsShowRacing_152_41 |
-                    IsShowRacing_152_51 |
-                    IsShowRacing_153_51;
+                return AppSettings.IsEnabledProduct(ProductIdConstants.Racing) && !IsDisabledProduct(ProductIdConstants.Racing);
             }
         }
-
-        public static bool IsShowRacing_151_31
-        {
-            get
-            {
-                if (AppSettings.ISPOSuperId == CurrentUserSession.SRecommendId || AppSettings.SpecialSuperId == CurrentUserSession.SRecommendId)
-                {
-                    return true;
-                }
-
-                return !AppSettings.Disable151_31;
-            }
-        }
-
-        public static bool IsShowRacing_151_41
-        {
-            get
-            {
-                return !AppSettings.Disable151_41;
-            }
-        }
-
-        public static bool IsShowRacing_151_51
-        {
-            get
-            {
-                return !AppSettings.Disable151_51;
-            }
-        }
-
-        public static bool IsShowRacing_152_41
-        {
-            get
-            {
-                return !AppSettings.Disable152_41;
-            }
-        }
-
-        public static bool IsShowRacing_152_51
-        {
-            get
-            {
-                return !AppSettings.Disable152_51;
-            }
-        }
-
-        public static bool IsShowRacing_153_51
-        {
-            get
-            {
-                return !AppSettings.Disable153_51;
-            }
-        }
-
-        #endregion Racing
 
         public static bool IsShowNumberGroup
         {
             get
             {
                 return AppSettings.EnableNumberGroup;
-            }
-        }
-
-        public static bool IsShowFinance
-        {
-            get
-            {
-                return false;
             }
         }
 
@@ -140,25 +62,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
             {
                 return CurrentUserSession.GetSyncedProduct(ProductIdConstants.RNGCasino);
             }
-        }
-
-        public static bool IsShowBingo
-        {
-            get
-            {
-                return AppSettings.IsEnableBingo && CurrentUserSession.GetSyncedProduct(ProductIdConstants.Bingo);
-            }
-        }
-
-        public static bool IsShowBingoReport
-        {
-            get
-            {
-                return (!IsNeutral ||
-                   (CurrentUserSession.Site != null && creditNeutralSite.IndexOf(CurrentUserSession.Site, 0, StringComparison.CurrentCultureIgnoreCase) != -1))
-                   && CurrentUserSession.GetSyncedProduct(ProductIdConstants.Bingo);
-            }
-        }
+        }        
 
         public static string CreditNeutralSite
         {
@@ -182,22 +86,6 @@ namespace Sunplus.Agent.Model.Entities.Permission
             get
             {
                 return AppSettings.IsShowMixedSport;
-            }
-        }
-
-        public static bool IsShowP2P
-        {
-            get
-            {
-                return /*!IsNeutral && */AppSettings.IsEnableP2P && !CurrentUserSession.GetDisabledProduct(ProductIdConstants.P2P);
-            }
-        }
-
-        public static bool IsShowLiveCasino
-        {
-            get
-            {
-                return AppSettings.IsEnableLiveCasino && CurrentUserSession.GetSyncedProduct(ProductIdConstants.LiveCasino);
             }
         }
 
@@ -230,14 +118,6 @@ namespace Sunplus.Agent.Model.Entities.Permission
             get
             {
                 return AppSettings.IsShowSportsbook2 && !CurrentUserSession.GetHideProduct(ProductIdConstants.Sportsbook2);
-            }
-        }
-
-        public static bool IsShowHRFixedOdds
-        {
-            get
-            {
-                return AppSettings.IsEnableHRFixedOdds && !CurrentUserSession.IsHideHRFixedOdds;
             }
         }
 
@@ -335,6 +215,14 @@ namespace Sunplus.Agent.Model.Entities.Permission
         public static bool IsDisabledProduct(int product)
         {
             return CurrentUserSession.GetDisabledProduct(product);
+        }
+
+        public static bool IsShowLiveCasino
+        {
+            get
+            {
+                return AppSettings.IsEnableLiveCasino && CurrentUserSession.GetSyncedProduct(ProductIdConstants.LiveCasino);
+            }
         }
 
         public static bool HasPermissionOnProduct(int productId)
