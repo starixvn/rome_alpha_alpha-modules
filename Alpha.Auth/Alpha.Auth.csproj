@@ -136,9 +136,12 @@
   <ItemGroup>
     <Compile Include="Configurations\AppSettings.cs" />
     <Compile Include="Configurations\AuthorizationSection.cs" />
+    <Compile Include="Configurations\DeniedPageHelper.cs" />
     <Compile Include="Configurations\GroupPageAccessCollection.cs" />
     <Compile Include="Configurations\GroupPageAccessElement.cs" />
+    <Compile Include="Configurations\DeniedPageCollection.cs" />
     <Compile Include="Configurations\PageAccessCollection.cs" />
+    <Compile Include="Configurations\DeniedPageElement.cs" />
     <Compile Include="Configurations\PageAccessElement.cs" />
     <Compile Include="Filters\CheckBelongingFilter.cs" />
     <Compile Include="Models\BelongingInfo.cs" />

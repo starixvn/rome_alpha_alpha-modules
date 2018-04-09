@@ -28,8 +28,7 @@
                     return;
                 }
 
-                if (UserSession.Current.IsSubAcc
-                    && !authorizationService.IsAuthorized())
+                if (!authorizationService.IsAuthorized())
                 {
                     KickoutUser(filterContext, "NoPermission");
                     return;

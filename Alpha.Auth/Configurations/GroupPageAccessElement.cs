@@ -30,5 +30,18 @@
                 return (PageAccessCollection)base["PageAccesses"];
             }
         }
+
+        [ConfigurationProperty("DeniedPages", IsDefaultCollection = false)]
+        [ConfigurationCollection(typeof(DeniedPageCollection),
+            AddItemName = "add",
+            ClearItemsName = "clear",
+            RemoveItemName = "remove")]
+        public DeniedPageCollection DeniedPages
+        {
+            get
+            {
+                return (DeniedPageCollection)base["DeniedPages"];
+            }
+        }
     }
 }

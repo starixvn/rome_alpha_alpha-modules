@@ -1,5 +1,6 @@
 ﻿namespace Alpha.Auth.Services.Impl
 {
+    using System;
     using System.Linq;
     using Alpha.Auth.DataAccesses;
     using Alpha.Auth.DataAccesses.Impl;
@@ -107,7 +108,6 @@
             }
 
             return _requestContext.IsDataStoreInDataWarehouse
-
                 ? _authDataAccess.IsBelongingOld(
                     _requestContext.CustId,
                     _requestContext.UserSession.CustId,
@@ -140,31 +140,36 @@
 
         public bool IsAuthorized(string url = null)
         {
-            url = url ?? _requestContext.Url;
+            url = url ?? _requestContext.Url;            
 
             if (string.IsNullOrEmpty(url))
             {
                 return true;
             }
 
-            var permissions = _authorizationSection.FullPermission;
-
+            url = url.ToUpperInvariant();
+            var subAccHasPermissionToViewUrl = true;
             if (_requestContext.UserSession.SubAccId > 0)
             {
-                permissions = _requestContext.UserSession.SubPageAccess;
+                subAccHasPermissionToViewUrl = CheckSubAccHasPermissionToViewUrl(
+                    _requestContext.UserSession.SubPageAccess
+                    , url);
             }
 
-            return HasPermissionToViewUrl(
-                permissions,
-                url);
+            return HasPermissionToViewUrl(url) && subAccHasPermissionToViewUrl;
         }
 
-        private bool HasPermissionToViewUrl(
+        private bool HasPermissionToViewUrl(string currentUrlAccess)
+        {
+            var deniedpages = DeniedPageHelper.GetDeniedPages(_requestContext.UserSession.RoleId);
+
+            return !deniedpages.Any(i => currentUrlAccess.Contains(i.Url.ToUpperInvariant()));
+        }
+
+        private bool CheckSubAccHasPermissionToViewUrl(
             string permissions,
             string url)
         {
-            url = url.ToUpperInvariant();
-
             foreach (var groupPageAccess in _authorizationSection.GroupPageAccessList)
             {
                 if (groupPageAccess.RoleId <= _requestContext.UserSession.RoleId)

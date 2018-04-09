@@ -65,6 +65,6 @@
         {
             get { return (bool)this["isviewedbygroupheadline"]; }
             set { this["isviewedbygroupheadline"] = value; }
-        }
+        }        
     }
 }
