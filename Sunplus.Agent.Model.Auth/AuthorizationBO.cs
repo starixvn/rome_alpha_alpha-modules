@@ -1,4 +1,4 @@
-namespace Sunplus.Agent.Model.BL.Authorization
+﻿namespace Sunplus.Agent.Model.BL.Authorization
 {
     using System;
     using System.Collections;
@@ -12,7 +12,6 @@ namespace Sunplus.Agent.Model.BL.Authorization
     using Sunplus.Agent.Model.Common;
     using Sunplus.Agent.Model.DL.Authorization;
     using Sunplus.Agent.Model.Entities;
-    using Sunplus.Agent.Utilities;
 
     [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
     [Obsolete("Should rename to Sunplus.Agent.Model.Auth")]
@@ -52,7 +51,14 @@ namespace Sunplus.Agent.Model.BL.Authorization
         /// <param name="errMsg"></param>
         /// <param name="userSession"></param>
         /// <returns></returns>
-        public bool SignIn(string userName, string password, Hashtable requestInfo, out int errCode, out string errMsg, ref IUserSession userSession)
+        public bool SignIn(
+            string userName,
+            string password,
+            Hashtable requestInfo,
+            out int errCode,
+            out string errMsg,
+            ref IUserSession userSession,
+            Action<IUserSession, Hashtable> setUserStatusAction)
         {
             Hashtable outputs = new Hashtable();
             bool isSubAcc;
@@ -144,7 +150,7 @@ namespace Sunplus.Agent.Model.BL.Authorization
             bool isShowBetChoiceLimit = IsShownBetChoiceLimit(custId);
             outputs.Add("isShowBetChoiceLimit", isShowBetChoiceLimit);
 
-            UserSessionService.SetUserSessionValues(CurrentSession, outputs);
+            UserSessionService.SetUserSessionValues(CurrentSession, outputs, setUserStatusAction);
 
             return result;
         }
@@ -161,7 +167,18 @@ namespace Sunplus.Agent.Model.BL.Authorization
         /// <param name="errMsg"></param>
         /// <param name="userSession"></param>
         /// <returns></returns>
-        public bool AfterSignIn(int custId, string password, int subAccId, string nickname, bool isNickname, DateTime loginTime, Hashtable requestInfo, out int errCode, out string errMsg, ref IUserSession userSession)
+        public bool AfterSignIn(
+            int custId,
+            string password,
+            int subAccId,
+            string nickname,
+            bool isNickname,
+            DateTime loginTime,
+            Hashtable requestInfo,
+            out int errCode,
+            out string errMsg,
+            ref IUserSession userSession,
+            Action<IUserSession, Hashtable> setUserStatusAction)
         {
             Hashtable outputs = new Hashtable();
 
@@ -214,7 +231,7 @@ namespace Sunplus.Agent.Model.BL.Authorization
             bool isShowBetChoiceLimit = IsShownBetChoiceLimit(custId);
             outputs.Add("isShowBetChoiceLimit", isShowBetChoiceLimit);
 
-            UserSessionService.SetUserSessionValues(CurrentSession, outputs);
+            UserSessionService.SetUserSessionValues(CurrentSession, outputs, setUserStatusAction);
 
             return errCode == 0;
         }
@@ -231,9 +248,29 @@ namespace Sunplus.Agent.Model.BL.Authorization
         /// <param name="errMsg"></param>
         /// <param name="userSession"></param>
         /// <returns></returns>
-        public bool AfterSignIn(int custId, string password, int subAccId, DateTime loginTime, Hashtable requestInfo, out int errCode, out string errMsg, ref IUserSession userSession)
+        public bool AfterSignIn(
+            int custId,
+            string password,
+            int subAccId,
+            DateTime loginTime,
+            Hashtable requestInfo,
+            out int errCode,
+            out string errMsg,
+            ref IUserSession userSession,
+            Action<IUserSession, Hashtable> setUserStatusAction)
         {
-            return this.AfterSignIn(custId, password, subAccId, null, false, loginTime, requestInfo, out errCode, out errMsg, ref userSession);
+            return this.AfterSignIn(
+                custId,
+                password,
+                subAccId,
+                null,
+                false,
+                loginTime,
+                requestInfo,
+                out errCode,
+                out errMsg,
+                ref userSession,
+                setUserStatusAction);
         }
 
         /// <summary>
@@ -247,7 +284,16 @@ namespace Sunplus.Agent.Model.BL.Authorization
         /// <param name="errMsg"></param>
         /// <param name="userSession"></param>
         /// <returns></returns>
-        public bool InternalSignIn(string userName, int adminId, DateTime loginTime, Hashtable requestInfo, out int errCode, out string errMsg, ref IUserSession userSession, string systemLogin = "NAP")
+        public bool InternalSignIn(
+            string userName,
+            int adminId,
+            DateTime loginTime,
+            Hashtable requestInfo,
+            out int errCode,
+            out string errMsg,
+            ref IUserSession userSession,
+            Action<IUserSession, Hashtable> setUserStatusAction,
+            string systemLogin = "NAP")
         {
             Hashtable outputs = this.dao.Age_LoginDownline_Admin(userName, adminId, loginTime, CurrentSession.LangKey, requestInfo, out errCode, out errMsg);
 
@@ -293,7 +339,7 @@ namespace Sunplus.Agent.Model.BL.Authorization
             bool isShowBetChoiceLimit = IsShownBetChoiceLimit(custId);
             outputs.Add("isShowBetChoiceLimit", isShowBetChoiceLimit);
 
-            UserSessionService.SetUserSessionValues(CurrentSession, outputs);
+            UserSessionService.SetUserSessionValues(CurrentSession, outputs, setUserStatusAction);
 
             return errCode == 0;
         }

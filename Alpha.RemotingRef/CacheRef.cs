@@ -67,7 +67,7 @@ namespace Alpha.RemotingRef
             return RefData.GetTeamName(teamId.ToString(), CurrentLanguageCode, string.Empty);
         }
 
-        public static string GetTeamName3rd(object teamId) 
+        public static string GetTeamName3rd(object teamId)
             => RefData.GetTeamName3rd(teamId.ToString(), CurrentLanguageCode, string.Empty);
 
         public static string GetRouletteBetItem(object itemId)
