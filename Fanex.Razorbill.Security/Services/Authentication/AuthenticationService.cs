@@ -106,14 +106,7 @@
             }
         }
 
-        /// <summary>
-        /// Function to check belonging.
-        /// </summary>
-        /// <param name="custId">The Customer ID.</param>
-        /// <param name="transId">Transaction ID.</param>
-        /// <param name="isDataWarehouse">Is Data warehouse.</param>
-        /// <returns>Return belonging status.</returns>
-        public bool CheckBelonging(int custId, long transId, bool isDataWarehouse)
+        public bool IsAuthorized()
         {
             if (HttpContext.Current.Session == null)
             {
@@ -128,7 +121,35 @@
                 return true;
             }
 
-            var isBelonging = VerifyRequestingUrlAgainstConfigFile(custId, transId, isDataWarehouse, currentUrlAccess);
+            var isAuthorization = CheckAuthorizationAgainstConfigFile(currentUrlAccess.ToUpperInvariant());
+
+            return isAuthorization;
+
+        }
+
+        /// <summary>
+        /// Function to check belonging.
+        /// </summary>
+        /// <param name="custId">The Customer ID.</param>
+        /// <param name="transId">Transaction ID.</param>
+        /// <param name="isDataWarehouse">Is Data warehouse.</param>
+        /// <returns>Return belonging status.</returns>
+        public bool CheckBelonging(int custId, int uplineId, byte uplineRoleId, long transId, bool isDataWarehouse)
+        {
+            if (HttpContext.Current.Session == null)
+            {
+                return false;
+            }
+
+            var currentUrlAccess = GetUrlAccessByCustomerWithoutDirectoryPath();
+
+            if (IgnoreSpecialFileTypes() ||
+                currentUrlAccess.Equals("index.aspx", StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+
+            var isBelonging = VerifyRequestingUrlAgainstConfigFile(custId, uplineId, uplineRoleId, transId, isDataWarehouse, currentUrlAccess);
 
             return isBelonging;
         }
@@ -180,6 +201,13 @@
             return customerPermission;
         }
 
+        private bool CheckAuthorizationAgainstConfigFile(string currentUrlAccess)
+        {
+            var deniedpages = DeniedPageHelper.GetDeniedPages(UserSession.Current.RoleId);
+
+            return !deniedpages.Any(i => currentUrlAccess.Contains(i.Url.ToUpperInvariant()));
+        }
+
         private bool IgnoreSpecialFileTypes()
         {
             var pattern = "([^\\s]+(\\.(?i)(jpg|png|gif|bmp|css|js))$)";
@@ -203,7 +231,7 @@
             return _urlRequest;
         }
 
-        private bool VerifyRequestingUrlAgainstConfigFile(int custId, long transId, bool isDataWarehouse, string currentUrlAccess)
+        private bool VerifyRequestingUrlAgainstConfigFile(int custId, int uplineId, byte uplineRoleId, long transId, bool isDataWarehouse, string currentUrlAccess)
         {
             var isBelonging = true;
             var authenticationSection = AuthenticationSection.Instance;
@@ -226,6 +254,13 @@
                         {
                             foreach (PageAccessElement pageElement in pageAccess)
                             {
+                                if (pageElement.IsCheckUpline
+                                    && (UserSession.Current.CustId != uplineId
+                                    || (UserSession.Current.RoleId != uplineRoleId && uplineRoleId > 0)))
+                                {
+                                    return false;
+                                }
+
                                 // Check belonging when:
                                 // - downline id not equal 0
                                 // - and current requesting url need to check belonging
@@ -245,7 +280,7 @@
                                     var netSessionId = HttpContext.Current.Session.SessionID;
                                     _userSession = UserSessionService.GetUserSessionInstance(netSessionId);
 
-                                    if (pageElement.IsViewedByGroupHeadline 
+                                    if (pageElement.IsViewedByGroupHeadline
                                         && _authenticationRepsitory.Age_Rpt_CustomerConsolidatedGroup_CheckBelonging(custId, _userSession.CustId, _userSession.SubAccId, transId, _userSession.IsInternal))
                                     {
                                         return true;

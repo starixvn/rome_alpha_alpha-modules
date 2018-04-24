@@ -357,31 +357,7 @@
         #endregion Check Belonging
 
         #region Check Authorized
-
-        ////[Test]
-        ////public void IsAuthorized_CurrentAccIsSubAccount_ExecuteGetOrAddSubPermission()
-        ////{
-        ////    //// Arrange
-        ////    var url = "IsAllowByThemselve.aspx";
-        ////    _requestContext.CustId.Returns(103);
-        ////    _requestContext.UserSession.RoleId.Returns((byte)3);
-        ////    _requestContext.UserSession.CustId.Returns(100);
-        ////    _requestContext.UserSession.SubAccId.Returns(101);
-        ////    _requestContext.UserSession.SubPageAccess.Returns(new PageAccess
-        ////    {
-        ////        CreateAccount = true
-        ////    });
-
-        ////    //// Act
-        ////    _authorizationService.IsAuthorized(url);
-
-        ////    //// Assert
-        ////    _cachingService.Received().GetOrAdd(
-        ////        "Alpha.Auth.CustContext.SubAccountPermissionCacheKey_100_101",
-        ////        Arg.Any<Func<string>>(),
-        ////        50);
-        ////}
-
+              
         [Test]
         public void IsAuthorized_SubAccountHasFullPermission_ReturnTrue()
         {
@@ -455,6 +431,59 @@
 
             //// Assert
             Assert.IsFalse(isAuthorized);
+        }
+
+        [Test]
+        public void IsAuthorized_SubAccountHasPermissionOnPageAndHacker_ReturnFalse()
+        {
+            //// Arrange
+            var url = "unaccesspage.aspx";
+            _requestContext.CustId.Returns(103);
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.CustId.Returns(100);
+            _requestContext.UserSession.SubAccId.Returns(101);
+            _requestContext.UserSession.SubPageAccess.Returns(new PageAccess
+            {
+                CreateAccount = true
+            });
+
+            //// Act
+            var isAuthorized = _authorizationService.IsAuthorized(url);
+
+            //// Assert
+            Assert.IsFalse(isAuthorized);
+        }
+
+        [Test]
+        public void IsAuthorized_AccountIsHacker_ReturnFalse()
+        {
+            //// Arrange
+            var url = "unaccesspage.aspx";
+            _requestContext.CustId.Returns(103);
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.CustId.Returns(100);           
+
+            //// Act
+            var isAuthorized = _authorizationService.IsAuthorized(url);
+
+            //// Assert
+            Assert.IsFalse(isAuthorized);
+        }
+
+        [Test]
+        public void IsAuthorized_AccountIsNormalUser_ReturnTrue()
+        {
+            //// Arrange
+            var url = "agentlist.aspx";
+            _requestContext.CustId.Returns(103);
+            _requestContext.UserSession.RoleId.Returns((byte)3);
+            _requestContext.UserSession.CustId.Returns(100);
+
+            //// Act
+            var isAuthorized = _authorizationService.IsAuthorized(url);
+
+            //// Assert
+            Assert.IsTrue(isAuthorized);
         }
 
         #endregion Check Authorized

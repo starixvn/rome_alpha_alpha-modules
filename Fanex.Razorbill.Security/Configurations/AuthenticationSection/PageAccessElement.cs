@@ -73,5 +73,12 @@
             get { return (bool)this["isviewedbygroupheadline"]; }
             set { this["isviewedbygroupheadline"] = value; }
         }
+
+        [ConfigurationProperty("ischeckupline", DefaultValue = false, IsRequired = false, IsKey = false)]
+        public bool IsCheckUpline
+        {
+            get { return (bool)this["ischeckupline"]; }
+            set { this["ischeckupline"] = value; }
+        }
     }
 }

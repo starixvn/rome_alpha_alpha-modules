@@ -211,11 +211,14 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\ModuleRegistrator.cs" />
+    <Compile Include="Configurations\AuthenticationSection\DeniedPageCollection.cs" />
+    <Compile Include="Configurations\AuthenticationSection\DeniedPageElement.cs" />
     <Compile Include="Configurations\AuthenticationSection\AuthenticationSection.cs" />
     <Compile Include="Configurations\AuthenticationSection\GroupLevelCollection.cs" />
     <Compile Include="Configurations\AuthenticationSection\GroupLevelElement.cs" />
     <Compile Include="Configurations\AuthenticationSection\PageAccessCollection.cs" />
     <Compile Include="Configurations\AuthenticationSection\PageAccessElement.cs" />
+    <Compile Include="Configurations\DeniedPageHelper.cs" />
     <Compile Include="Configurations\WebAppSettings.cs" />
     <Compile Include="Customer\AuthenticateCustomer.cs" />
     <Compile Include="Customer\CustomerSettingRenovation\CustomerSettingClientRegistration.cs" />

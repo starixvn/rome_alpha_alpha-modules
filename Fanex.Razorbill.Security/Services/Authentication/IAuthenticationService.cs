@@ -11,6 +11,8 @@
 
         CustomerPermissionResult CheckingCustomerPermission(int custId, long transId, bool isDataWarehouse);
 
-        bool CheckBelonging(int custId, long transId, bool isDataWarehouse);
+        bool CheckBelonging(int custId, int uplineId, byte uplineRoleId, long transId, bool isDataWarehouse);
+
+        bool IsAuthorized();
     }
 }
