@@ -13,16 +13,16 @@
     public class RequestAnalyst : IRequestAnalyst
     {
         public RequestAnalyst()
-        {            
+        {
         }
 
         public int GetCustomerId(string parameterName)
         {
-            var customerId = 0;            
+            var customerId = 0;
             if (!string.IsNullOrEmpty(parameterName))
             {
                 var jsonString = GetJsonDataInRequestBody(HttpContext.Current.Request.InputStream);
-                var pattern = string.Format("(\"{0}\":)(?<paramValue>[^,]+)", parameterName);
+                var pattern = string.Format("(\"{0}\":)(?<paramValue>[^,}}]+)", parameterName);
                 Match regexMatch = Regex.Match(jsonString, pattern, RegexOptions.IgnoreCase);
                 if (regexMatch.Success)
                 {
