@@ -1305,6 +1305,18 @@ namespace Sunplus.Agent.Model.Entities
             }
         }
 
+        public T GetProperty<T>(string propertyName)
+        {
+            var value = GetProperty(propertyName);
+
+            return value == null ?  default(T): (T)value;
+        }
+
+        public void SetProperty(string propertyName, object value)
+        {
+            HttpContext.Current.Session[this.asNetSessionId + HYPHEN + propertyName] = value;
+        }
+
         #region ISerializable Members
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
@@ -1342,12 +1354,7 @@ namespace Sunplus.Agent.Model.Entities
         private object GetProperty(string name)
         {
             return HttpContext.Current.Session[this.asNetSessionId + HYPHEN + name];
-        }
-
-        private void SetProperty(string name, object value)
-        {
-            HttpContext.Current.Session[this.asNetSessionId + HYPHEN + name] = value;
-        }
+        }        
 
         #endregion Controller
     }
