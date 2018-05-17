@@ -526,5 +526,9 @@ namespace Sunplus.Agent.Model.Entities
         }
 
         bool IsAllDayBalTransfer { get; }
+
+        T GetProperty<T>(string propertyName);
+
+        void SetProperty(string propertyName, object value);
     }
 }

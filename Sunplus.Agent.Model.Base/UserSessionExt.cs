@@ -164,7 +164,7 @@
             {
                 UserSession.Current.IsBelongTo9Currency = value;
             }
-        }  
+        }
 
         public bool IsCasinoDisabled
         {
@@ -224,7 +224,7 @@
             {
                 UserSession.Current.IsDisabledESports = value;
             }
-        }       
+        }
 
         public bool IsDisabledSuperLive
         {
@@ -302,7 +302,7 @@
             {
                 UserSession.Current.IsHideGoldDeluxe = value;
             }
-        }       
+        }
 
         public bool IsHideKeno
         {
@@ -388,7 +388,7 @@
             {
                 UserSession.Current.IsLimitedHostPermisionOnSubAccountFunction = value;
             }
-        }        
+        }
 
         public bool IsLogged
         {
@@ -469,7 +469,7 @@
             {
                 return UserSession.Current.IsNumberGameDisabled;
             }
-        }       
+        }
 
         public bool IsPasswordExpired
         {
@@ -775,6 +775,16 @@
         public void SetSyncedProduct(int productId, bool value)
         {
             UserSession.Current.SetSyncedProduct(productId, value);
+        }
+
+        public T GetProperty<T>(string propertyName)
+        {
+            return UserSession.Current.GetProperty<T>(propertyName);
+        }
+
+        public void SetProperty(string propertyName, object value)
+        {
+            UserSession.Current.SetProperty(propertyName, value);
         }
     }
 }
