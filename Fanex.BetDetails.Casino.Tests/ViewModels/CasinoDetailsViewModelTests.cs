@@ -31,7 +31,7 @@
             var param = new CasinoDetailsParam(1, 1, 1, 6, 1, 100);
 
             // Act
-            var viewModel = new CasinoDetailsViewModel("", 1, 4, param, new PagedData<ITicket>(tickets, 1, 100, 0), htmlBuilder, ticketHelper);
+            var viewModel = new CasinoDetailsBaseViewModel("", 1, 4, param, new PagedData<ITicket>(tickets, 1, 100, 0), htmlBuilder, ticketHelper);
 
             // Assert
             Assert.True(viewModel.AllowToViewSuperPT);
@@ -45,7 +45,7 @@
             var param = new CasinoDetailsParam(1, 1, 1, 6, 1, 100);
 
             // Act
-            var viewModel = new CasinoDetailsViewModel("", 1, viewerLevel, param, new PagedData<ITicket>(tickets, 1, 100, 0), htmlBuilder, ticketHelper);
+            var viewModel = new CasinoDetailsBaseViewModel("", 1, viewerLevel, param, new PagedData<ITicket>(tickets, 1, 100, 0), htmlBuilder, ticketHelper);
 
             // Assert
             Assert.False(viewModel.AllowToViewSuperPT);
@@ -59,7 +59,7 @@
             var param = new CasinoDetailsParam(1, 1, 1, 6, 1, 100);
 
             // Act
-            var viewModel = new CasinoDetailsViewModel("", 1, viewerLevel, param, new PagedData<ITicket>(tickets, 1, 100, 0), htmlBuilder, ticketHelper);
+            var viewModel = new CasinoDetailsBaseViewModel("", 1, viewerLevel, param, new PagedData<ITicket>(tickets, 1, 100, 0), htmlBuilder, ticketHelper);
 
             // Assert
             Assert.True(viewModel.AllowToViewMasterPT);
@@ -72,7 +72,7 @@
             var param = new CasinoDetailsParam(1, 1, 1, 6, 1, 100);
 
             // Act
-            var viewModel = new CasinoDetailsViewModel("", 1, 2, param, new PagedData<ITicket>(tickets, 1, 100, 0), htmlBuilder, ticketHelper);
+            var viewModel = new CasinoDetailsBaseViewModel("", 1, 2, param, new PagedData<ITicket>(tickets, 1, 100, 0), htmlBuilder, ticketHelper);
 
             // Assert
             Assert.False(viewModel.AllowToViewMasterPT);
@@ -86,7 +86,7 @@
             var param = new CasinoDetailsParam(1, 1, 1, 6, 1, 100);
 
             // Act
-            var viewModel = new CasinoDetailsViewModel(sportName, 1, 2, param, new PagedData<ITicket>(tickets, 1, 100, 0), htmlBuilder, ticketHelper);
+            var viewModel = new CasinoDetailsBaseViewModel(sportName, 1, 2, param, new PagedData<ITicket>(tickets, 1, 100, 0), htmlBuilder, ticketHelper);
 
             // Assert
             Assert.AreEqual("RNG Casino Details", viewModel.Title);
@@ -103,7 +103,7 @@
 
 
             // Act
-            var viewModel = new CasinoDetailsViewModel(sportName, 1, 2, param, new PagedData<ITicket>(tickets, 1, 100, 0), htmlBuilder, ticketHelper);
+            var viewModel = new CasinoDetailsBaseViewModel(sportName, 1, 2, param, new PagedData<ITicket>(tickets, 1, 100, 0), htmlBuilder, ticketHelper);
 
             // Assert
             Assert.AreEqual(expectedTitle, viewModel.Title);
@@ -116,7 +116,7 @@
             var param = new CasinoDetailsParam(1, 1, 1, 6, 1, 100);
 
             // Act
-            var viewModel = new CasinoDetailsViewModel(string.Empty, 1, 2, param, new PagedData<ITicket>(tickets, 1, 100, 0), htmlBuilder, ticketHelper);
+            var viewModel = new CasinoDetailsBaseViewModel(string.Empty, 1, 2, param, new PagedData<ITicket>(tickets, 1, 100, 0), htmlBuilder, ticketHelper);
 
             // Assert
             Assert.AreEqual(1, viewModel.StartNo);
@@ -129,7 +129,7 @@
             var param = new CasinoDetailsParam(1, 1, 1, 6, 1, 100);
 
             // Act
-            var viewModel = new CasinoDetailsViewModel(string.Empty, 1, 2, param, new PagedData<ITicket>(tickets, 2, 100, 0), htmlBuilder, ticketHelper);
+            var viewModel = new CasinoDetailsBaseViewModel(string.Empty, 1, 2, param, new PagedData<ITicket>(tickets, 2, 100, 0), htmlBuilder, ticketHelper);
 
             // Assert
             Assert.AreEqual(101, viewModel.StartNo);
@@ -142,7 +142,7 @@
             var param = new CasinoDetailsParam(1, 1, 1, 6, 1, 100);
 
             // Act
-            var viewModel = new CasinoDetailsViewModel(string.Empty, 1, 2, param, new PagedData<ITicket>(tickets, 3, 100, 0), htmlBuilder, ticketHelper);
+            var viewModel = new CasinoDetailsBaseViewModel(string.Empty, 1, 2, param, new PagedData<ITicket>(tickets, 3, 100, 0), htmlBuilder, ticketHelper);
 
             // Assert
             Assert.AreEqual(201, viewModel.StartNo);

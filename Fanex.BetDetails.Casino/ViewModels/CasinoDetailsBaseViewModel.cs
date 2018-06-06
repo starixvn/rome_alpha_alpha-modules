@@ -7,7 +7,7 @@
     using Models;
     using Params;
 
-    public class CasinoDetailsViewModel
+    public class CasinoDetailsBaseViewModel
     {
         private static readonly IDictionary<UserLevels, int> TotalColumnByViewLevel = new Dictionary<UserLevels, int>
         {
@@ -16,7 +16,7 @@
             { UserLevels.Super, 10 }
         };
 
-        public CasinoDetailsViewModel(
+        public CasinoDetailsBaseViewModel(
             string sportName,
             int viewerId,
             int viewerLevelId,
