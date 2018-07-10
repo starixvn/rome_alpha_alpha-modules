@@ -3,20 +3,10 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using Specs;
-
-    public enum AnnouncementType
-    {
-        Popup = 1,
-
-        [Description("Header Popup")]
-        HeaderPopup = 2
-    }
+    using Specs;    
 
     public class Announcement
     {
-        public AnnouncementType AnnouncementType { get; set; }
-
         public string Code { get; set; }
 
         public IEnumerable<MessageContent> Contents { get; set; }
@@ -31,13 +21,9 @@
 
         public IEnumerable<string> Environments { get; set; }
 
-        public IEnumerable<string> Systems { get; set; }
+        public IEnumerable<string> Systems { get; set; }        
 
-        public int Ordinal { get; set; }
-
-        public DateTime FromDate { get; set; }
-
-        public DateTime ToDate { get; set; }
+        public DateTime ReleasedDate { get; set; }
 
         public DateTime CreatedDate { get; set; }
 
