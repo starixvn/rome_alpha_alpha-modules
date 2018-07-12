@@ -5,7 +5,7 @@ using System.Data;
 
 namespace Fanex.Products.Services
 {
-    public class Product_5: Product_23, IProduct
+    public class Product_5 : Product_23, IProduct
     {
         public Product_5(bool webConfigActive)
             : base(webConfigActive)

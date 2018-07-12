@@ -223,9 +223,9 @@
         private static void SetProductStatus(UserSessionBase session, Hashtable values)
         {
             session.IsCasinoDisabled = (bool)values["iscasinodisabled"];
-            session.IsCasinoSync = (bool)values["iscasinosync"];            
+            session.IsCasinoSync = (bool)values["iscasinosync"];
 
-            session.IsNumberGameDisabled = GetProductStatus("disablenumber", values, true);            
+            session.IsNumberGameDisabled = GetProductStatus("disablenumber", values, true);
 
             session.IsHideKeno = GetProductStatus("hidekeno", values, true);
 
@@ -249,7 +249,7 @@
             session.SetSyncedProduct(ProductIdConstants.LiveCasino, (bool)values["synclivecasino"]);
             session.SetDisabledProduct(ProductIdConstants.Racing, (bool)values["disable151_au"]);
             session.SetDisabledProduct(ProductIdConstants.RNGCasino, (bool)values["iscasinodisabled"]);
-            session.SetSyncedProduct(ProductIdConstants.RNGCasino, (bool)values["iscasinosync"]);            
+            session.SetSyncedProduct(ProductIdConstants.RNGCasino, (bool)values["iscasinosync"]);
             session.SetDisabledProduct(ProductIdConstants.NumberGame, GetProductStatus("disablenumber", values, true));
             session.SetHideProduct(ProductIdConstants.Keno, GetProductStatus("hidekeno", values, true));
             session.SetHideProduct(ProductIdConstants.GoldDeluxe, GetProductStatus("hidegolddeluxe", values, true));
@@ -259,6 +259,13 @@
             session.SetHideProduct(ProductIdConstants.Sportsbook2, GetProductStatus("hidemuaythai", values, true));
             session.SetDisabledProduct(ProductIdConstants.Sportsbook2, GetProductStatus("disablemuaythai", values, true));
             session.SetSyncedProduct(ProductIdConstants.AllBet, GetProductStatus("syncedallbet", values, true));
+
+            session.SetHideProduct(ProductIdConstants.PokerGames, GetProductStatus("hidepokergames", values, true));
+            var isDisabledPokerGames = GetProductStatus("disablepokergames1401", values, true) &&
+                GetProductStatus("disablepokergames1402", values, true) &&
+                GetProductStatus("disablepokergames1403", values, true) &&
+                GetProductStatus("disablepokergames1404", values, true);
+            session.SetDisabledProduct(ProductIdConstants.PokerGames, isDisabledPokerGames);
 
             ProductTransform.TransformProductStatus(session, values);
         }

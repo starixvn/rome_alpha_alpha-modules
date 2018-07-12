@@ -20,7 +20,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
             {
                 return false;
             }
-        }        
+        }
 
         public static bool IsShowRacing
         {
@@ -62,7 +62,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
             {
                 return CurrentUserSession.GetSyncedProduct(ProductIdConstants.RNGCasino);
             }
-        }        
+        }
 
         public static string CreditNeutralSite
         {
@@ -237,8 +237,6 @@ namespace Sunplus.Agent.Model.Entities.Permission
                     return IsShowNumberGame;
                 case 4: // Live Casino
                     return IsShowLiveCasino;
-                case 5: // Virtual Sports
-                    return IsEnableProduct(productId);
                 case 6: // Casino
                     return IsShowCasino;
                 case 8: // Keno
@@ -249,9 +247,11 @@ namespace Sunplus.Agent.Model.Entities.Permission
                     return IsShowColossusBets;
                 case 16: // SP2
                     return IsShowSportsbook2;
+                case 5: // Virtual Sports
                 case 28: // Lottery
                 case 26: // Lucky3
                 case 30: // Bullfighting
+                case 33: // PokerGames
                     return IsEnableProduct(productId);
                 default:
                     return IsEnableProduct(productId) && IsSyncedProduct(productId);
