@@ -27,6 +27,7 @@
 
         private static string exTotalBetsForecastAppPath;
         private static string howToUseAppPath;
+        private static string transferAppPath;
 
         static AppSettings()
         {
@@ -65,6 +66,7 @@
 
             exTotalBetsForecastAppPath = ConfigurationManager.AppSettings["ExTotalBetsForecastAppPath"] ?? "ex-totalbetsforecast";
             howToUseAppPath = ConfigurationManager.AppSettings["HowToUseAppPath"] ?? "site-howtouse";
+            transferAppPath = ConfigurationManager.AppSettings["TransferAppPath"] ?? "site-transfer";
         }
 
         public static string OldMainAppPath => oldMainAppPath;
@@ -102,5 +104,7 @@
         public static string ExTotalBetsForecastAppPath => exTotalBetsForecastAppPath;
 
         public static string HowToUseAppPath => howToUseAppPath;
+
+        public static string TransferAppPath => transferAppPath;
     }
 }
