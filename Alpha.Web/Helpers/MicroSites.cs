@@ -52,5 +52,11 @@
         {
             return AppPathHelper.GetAppPath(AppSettings.HowToUseAppPath, virtualPath);
         }
+
+        [SuppressMessage("Microsoft.Design", "CA1055:UriReturnValuesShouldNotBeStrings", Justification = "Reviewed!")]
+        public static string AccountInfoUrl(string virtualPath = "~/")
+        {
+            return AppPathHelper.GetAppPath(AppSettings.AccountInfoAppPath, virtualPath);
+        }
     }
 }

@@ -17,6 +17,7 @@
         private static string betListsAppPath;
         private static string memberInfoAppPath;
         private static string messageAppPath;
+        private static string accountInfoAppPath;
 
         private static string staticResourcesVersion;
         private static string googleAnalyticUrl;
@@ -46,16 +47,13 @@
                 : true;
 
             oldMainAppPath = ConfigurationManager.AppSettings["OldMainAppPath"] ?? "ex-main";
-
             mainAppPath = ConfigurationManager.AppSettings["MainAppPath"] ?? "site-main";
-
             assetAppPath = ConfigurationManager.AppSettings["AssetAppPath"] ?? "assets";
-
             reportsAppPath = ConfigurationManager.AppSettings["ReportsAppPath"] ?? "site-reports";
             betListsAppPath = ConfigurationManager.AppSettings["BetListsAppPath"] ?? "site-betlists";
             memberInfoAppPath = ConfigurationManager.AppSettings["MemberInfoAppPath"] ?? "site-memberinfo";
-
             messageAppPath = ConfigurationManager.AppSettings["MessageAppPath"] ?? "site-message";
+            accountInfoAppPath = ConfigurationManager.AppSettings["AccountInfoAppPath"] ?? "site-accountinfo";
 
             staticResourcesVersion = ConfigurationManager.AppSettings["AssetsApp:StaticResourcesVersion"] ?? "100";
 
@@ -90,6 +88,8 @@
         public static string MemberInfoAppPath => memberInfoAppPath;
 
         public static string MessageAppPath => messageAppPath;
+
+        public static string AccountInfoAppPath => accountInfoAppPath;
 
         public static string StaticResourcesVersion => staticResourcesVersion;
 
