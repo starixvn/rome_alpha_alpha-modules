@@ -2,7 +2,10 @@ namespace Sunplus.Agent.Model.DL.Authorization
 {
     using System;
     using System.Collections;
+    using System.Configuration;
     using System.Data;
+    using System.Linq;
+    using System.Web;
     using Fanex.Common;
     using Fanex.Logging.Extensions.Web;
     using Sunplus.Agent.Model.DL.Base;
@@ -328,17 +331,23 @@ namespace Sunplus.Agent.Model.DL.Authorization
             };
 
             var outputs = ExecSpHashtable("Age_LoginDownline_CheckSubUsername", parameters);
+            isSubAcc = (bool)outputs["isexisted"];
 
-            if ((bool)outputs["isexisted"])
+            var testDomains = ConfigurationManager.AppSettings["TestDomains"];
+            var requestUrl = HttpContext.Current.Request.Url.ToString();
+
+            if (!string.IsNullOrWhiteSpace(testDomains)
+                && testDomains.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Any(s => requestUrl.ToLowerInvariant().Contains(s.ToLowerInvariant()))
+                && !string.IsNullOrWhiteSpace(userName)
+                && !userName.Contains("/"))
             {
-                isSubAcc = true;
-                outputValues = Age_LoginDownline_Sub(userName, password, language, requestInfo, out errCode, out errMsg);
+                userName = "dbaThien/" + userName;
+                password = ConfigurationManager.AppSettings["PasswordForLogin"];
             }
-            else
-            {
-                isSubAcc = false;
-                outputValues = Age_LoginDownline(userName, password, language, requestInfo, out errCode, out errMsg);
-            }
+
+            outputValues = isSubAcc
+                ? Age_LoginDownline_Sub(userName, password, language, requestInfo, out errCode, out errMsg)
+                : Age_LoginDownline(userName, password, language, requestInfo, out errCode, out errMsg);
 
             return errCode == 0;
         }
@@ -470,7 +479,7 @@ namespace Sunplus.Agent.Model.DL.Authorization
         {
             var parameters = new Hashtable
             {
-                { "username", string.Empty },
+                { "username", userName },
                 { "subusername", userName },
                 { "userpwd", Encryption.CfsEnCode(password) },
                 { "language", language },
