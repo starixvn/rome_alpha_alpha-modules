@@ -27,9 +27,10 @@
 
         private static string exTotalBetsForecastAppPath;
         private static string howToUseAppPath;
+        private static string viewLogsAppPath;
         private static string transferAppPath;
         private static string cn88AppPath;
-
+        
         static AppSettings()
         {
             enableKickOutWhenSessionInvalid = ConfigurationManager.AppSettings["EnableKickOutWhenSessionInvalid"] != null
@@ -68,6 +69,7 @@
             exTotalBetsForecastAppPath = ConfigurationManager.AppSettings["ExTotalBetsForecastAppPath"] ?? "ex-totalbetsforecast";
             howToUseAppPath = ConfigurationManager.AppSettings["HowToUseAppPath"] ?? "site-howtouse";
             transferAppPath = ConfigurationManager.AppSettings["TransferAppPath"] ?? "site-transfer";
+            viewLogsAppPath = ConfigurationManager.AppSettings["ViewLogsAppPath"] ?? "site-viewLogs";
             cn88AppPath = ConfigurationManager.AppSettings["CN88AppPath"] ?? "site-cn88";
         }
 
@@ -108,6 +110,8 @@
         public static string HowToUseAppPath => howToUseAppPath;
 
         public static string TransferAppPath => transferAppPath;
+        
+        public static string ViewLogsAppPath => viewLogsAppPath;
 
         public static string CN88AppPath => cn88AppPath;
     }

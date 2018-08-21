@@ -70,5 +70,11 @@
         {
             return AppPathHelper.GetAppPath(AppSettings.CN88AppPath, virtualPath);
         }
+
+        [SuppressMessage("Microsoft.Design", "CA1055:UriReturnValuesShouldNotBeStrings", Justification = "Reviewed!")]
+        public static string ViewLogUrl(string virtualPath = "~/")
+        {
+            return AppPathHelper.GetAppPath(AppSettings.ViewLogsAppPath, virtualPath);
+        }
     }
 }
