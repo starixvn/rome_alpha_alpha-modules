@@ -80,11 +80,13 @@
     <Compile Include="Configurations\ProductSection.cs" />
     <Compile Include="Enums\DCSIcon.cs" />
     <Compile Include="Extensions\DataRowExtension.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="ProductManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseProduct.cs" />
     <Compile Include="Services\Product_23.cs" />
     <Compile Include="Services\IProduct.cs" />
+    <Compile Include="Services\Product_33.cs" />
     <Compile Include="Services\Product_5.cs" />
     <Compile Include="Utilities\RefDataUtility.cs" />
     <Compile Include="Utilities\SessionUtility.cs" />
