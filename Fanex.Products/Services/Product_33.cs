@@ -30,7 +30,7 @@ namespace Fanex.Products.Services
         {
             if (ShowSettings)
             {
-                var betTypes = new[] { 1401, 1402, 1403, 1404 };
+                var betTypes = new[] { 1401, 1402, 1403, 1404, 1405 };
                 var isEnabled = betTypes.Any(betType =>
                 {
                     string disabledColumnName = "disablepokergames" + betType;
