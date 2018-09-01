@@ -18,6 +18,14 @@ namespace Fanex.Products.Services
             return true;
         }
 
+        public override bool ShowReport
+        {
+            get
+            {
+                return true;
+            }
+        }
+
         public override DCSIcon GetDCSIcon(DataRow drow)
         {
             if (ShowSettings)
