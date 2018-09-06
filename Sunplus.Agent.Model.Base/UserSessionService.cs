@@ -264,7 +264,8 @@
             var isDisabledPokerGames = GetProductStatus("disablepokergames1401", values, true) &&
                 GetProductStatus("disablepokergames1402", values, true) &&
                 GetProductStatus("disablepokergames1403", values, true) &&
-                GetProductStatus("disablepokergames1404", values, true);
+                GetProductStatus("disablepokergames1404", values, true) &&
+                GetProductStatus("disablepokergames1405", values, true);
             session.SetDisabledProduct(ProductIdConstants.PokerGames, isDisabledPokerGames);
 
             ProductTransform.TransformProductStatus(session, values);
