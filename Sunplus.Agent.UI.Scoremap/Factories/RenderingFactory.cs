@@ -3,13 +3,15 @@ namespace Sunplus.Agent.UI.ScoreMap.Factories
     using System;
     using System.Data;
     using System.Text;
-    using Sunplus.Agent.Model.BL.Cache;
+    using System.Threading;
+    using Fanex.RemotingRef;
     using UI;
 
     public class RenderingFactory
     {
         private static int NUM_COLUMN = 7;
         private static int ALL_ITEM = 49;
+
         public static void Render(Boolean isSmartPhone, DataTable listScoreMap, DataTable listMatch , StringBuilder content, bool isRefresh)
         {
             // Append content
@@ -73,15 +75,15 @@ namespace Sunplus.Agent.UI.ScoreMap.Factories
             string matchId = row["matchid"].ToString();
             if (isSmartPhone)
             {
-                header.SmartPhoneMatchName.Home = CacheRef.GetTeamName(row["homeid"]);
-                header.SmartPhoneMatchName.Away = CacheRef.GetTeamName(row["awayid"]);
+                header.SmartPhoneMatchName.Home = GetTeamName(row["homeid"]);
+                header.SmartPhoneMatchName.Away = GetTeamName(row["awayid"]);
                 header.SmartPhoneMatchName.matchId = matchId;
                 header.FullSiteMatchName = null;
             }
             else
             {
-                header.FullSiteMatchName.Home = CacheRef.GetTeamName(row["homeid"]);
-                header.FullSiteMatchName.Away = CacheRef.GetTeamName(row["awayid"]);
+                header.FullSiteMatchName.Home = GetTeamName(row["homeid"]);
+                header.FullSiteMatchName.Away = GetTeamName(row["awayid"]);
                 header.FullSiteMatchName.matchId = matchId;
                 header.SmartPhoneMatchName = null;
             }
@@ -116,5 +118,11 @@ namespace Sunplus.Agent.UI.ScoreMap.Factories
             }
             footer.ToString(ref content);
         }
+
+        private static string GetTeamName(object teamId)
+            => new RemotingRefService().GetTeamName(teamId.ToString(), LanguageCode);
+
+        private static string LanguageCode
+            => Thread.CurrentThread.CurrentCulture.Name;
     }
 }
