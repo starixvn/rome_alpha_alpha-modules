@@ -8,6 +8,8 @@
     using Sunplus.Agent.Model.BL.Authorization;
     using Sunplus.Agent.Model.Entities;
     using Fanex.Razorbill.Security.Configurations;
+    using System;
+    using System.Linq;
 
     /// <summary>
     /// TODO: Update summary.
@@ -136,7 +138,7 @@
                     {
                         var custidFounded = Regex.Replace(regexMatch.Groups[2].ToString(), @"[^a-zA-Z0-9_.]+", string.Empty, RegexOptions.Compiled);
 
-                        custId = Converter.ToInt(custidFounded);
+                        custId = Convert.ToInt32(custidFounded);
                     }
 
                     if (custId > 0)
@@ -145,17 +147,21 @@
                     }
                 }
 
-                custId = Converter.ToInt(HttpContext.Current.Request[currentParamName]);
-                if (custId > 0)
+                var request = HttpContext.Current.Request;
+                if (request.Params.AllKeys.Any(param => string.Equals(param, currentParamName, StringComparison.InvariantCulture)))
                 {
-                    break;
-                }
+                    custId = Convert.ToInt32(request[currentParamName]);
+                    if (custId > 0)
+                    {
+                        break;
+                    }
 
-                custId = Converter.ToInt(HttpContext.Current.Request.Form[currentParamName]);
-                if (custId > 0)
-                {
-                    break;
-                }                    
+                    custId = Convert.ToInt32(request.Form[currentParamName]);
+                    if (custId > 0)
+                    {
+                        break;
+                    }
+                }
             }
 
             return custId;
