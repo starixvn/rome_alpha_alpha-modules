@@ -2120,4 +2120,10 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="EditSingleSportsbook2" xml:space="preserve">
     <value>Edit Sportsbook 2</value>
   </data>
+  <data name="NotePTSetting" xml:space="preserve">
+    <value>For E-Sports' PT Settings, please use Sportsbook 2 instead</value>
+  </data>
+  <data name="NoteSportsbookSetting" xml:space="preserve">
+    <value>For E-Sports' PT and Bet Settings, please use Sportsbook 2 instead</value>
+  </data>
 </root>
