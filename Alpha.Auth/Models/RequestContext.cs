@@ -1,11 +1,10 @@
 ﻿namespace Alpha.Auth.Models
 {
+    using System;
+    using System.Web;
     using Configurations;
     using Sunplus.Agent.Model.BL;
     using Sunplus.Agent.Model.Entities;
-    using System;
-    using System.Linq;
-    using System.Web;
     using Web;
 
     public class RequestContext : IRequestContext
@@ -89,7 +88,7 @@
                         continue;
                     }
 
-                    if (request.Params.AllKeys.Any(param => string.Equals(param, custIdQueryStringParamName, StringComparison.InvariantCulture)))
+                    if (!string.IsNullOrEmpty(request[custIdQueryStringParamName]))
                     {
                         _custId = Convert.ToInt32(request[custIdQueryStringParamName]);
                         if (_custId > 0)

@@ -1,15 +1,13 @@
 ﻿namespace Fanex.Razorbill.Security.Customer
 {
+    using System;
     using System.Text.RegularExpressions;
     using System.Web;
-    using Fanex.Common;
     using Fanex.CustomerSetting.Security.Authenticate;
+    using Fanex.Razorbill.Security.Configurations;
     using Sunplus.Agent.Model.BL;
     using Sunplus.Agent.Model.BL.Authorization;
     using Sunplus.Agent.Model.Entities;
-    using Fanex.Razorbill.Security.Configurations;
-    using System;
-    using System.Linq;
 
     /// <summary>
     /// TODO: Update summary.
@@ -104,7 +102,7 @@
         }
 
         private int GetCustomerIdFromRequest()
-        {            
+        {
             var custId = 0;
             var trackingValue = string.Empty;
             if (HttpContext.Current.Request.Form["model"] != null)
@@ -148,7 +146,7 @@
                 }
 
                 var request = HttpContext.Current.Request;
-                if (request.Params.AllKeys.Any(param => string.Equals(param, currentParamName, StringComparison.InvariantCulture)))
+                if (!string.IsNullOrEmpty(request[currentParamName]))
                 {
                     custId = Convert.ToInt32(request[currentParamName]);
                     if (custId > 0)
