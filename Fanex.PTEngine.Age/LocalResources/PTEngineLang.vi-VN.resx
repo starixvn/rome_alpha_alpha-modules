@@ -2115,4 +2115,10 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   <data name="EditSingleSportsbook2" xml:space="preserve">
     <value>Edit Sportsbook 2</value>
   </data>
+  <data name="NotePTSetting" xml:space="preserve">
+    <value>Vui lòng dùng Sportsbook 2 để thiết lập PT cho E-Sports</value>
+  </data>
+  <data name="NoteSportsbookSetting" xml:space="preserve">
+    <value>Vui lòng dùng Sportsbook 2 để thiết lập Giới Hạn Cược và PT cho E-Sports</value>
+  </data>
 </root>
