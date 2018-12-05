@@ -1,19 +1,20 @@
 ﻿namespace Fanex.Razorbill.Security.Customer
 {
+    using Common;
+    using GoldDeluxe.CoreSetting.Services;
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Text.RegularExpressions;
     using System.Web;
     using System.Web.Mvc;
-    using Fanex.Common;
-    using Fanex.GoldDeluxe.CoreSetting.Services;
 
     /// <summary>
     /// Gold Deluxe authentication.
     /// </summary>
     public class GoldDeluxeAuthorizationService : IGoldDeluxeAuthorizationService
     {
-        private AuthenticateCustomer _authenticateCustomer = new AuthenticateCustomer();
+        private readonly AuthenticateCustomer _authenticateCustomer = new AuthenticateCustomer();
 
         public bool IsAuthorizedRead(AuthorizationContext authorizationContext, int custId)
         {
@@ -68,7 +69,7 @@
                     continue;
                 }
 
-                if (!_authenticateCustomer.AllowUpdateDepenOnCustIdBelong(Converter.ToInt(custId)))
+                if (!_authenticateCustomer.AllowUpdateDepenOnCustIdBelong(Convert.ToInt32(custId)))
                 {
                     return false;
                 }

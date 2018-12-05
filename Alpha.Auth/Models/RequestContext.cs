@@ -1,17 +1,15 @@
 ﻿namespace Alpha.Auth.Models
 {
     using System;
-    using System.Linq;
     using System.Web;
-    using Alpha.Web;
     using Configurations;
-    using Fanex.Common;
     using Sunplus.Agent.Model.BL;
     using Sunplus.Agent.Model.Entities;
+    using Web;
 
     public class RequestContext : IRequestContext
     {
-        private IRequestAnalyst RequestAnalyst;
+        private readonly IRequestAnalyst RequestAnalyst;
         private const string RNGCasinoArea = "CustomerSetting/Casino";
         private string _url;
         private int _custId = 0;
@@ -90,18 +88,15 @@
                         continue;
                     }
 
-                    _custId = Converter.ToInt(request[custIdQueryStringParamName]);
-
-                    if (_custId > 0)
+                    if (!string.IsNullOrEmpty(request[custIdQueryStringParamName]))
                     {
-                        break;
-                    }
+                        _custId = Convert.ToInt32(request[custIdQueryStringParamName]);
+                        if (_custId > 0)
+                        {
+                            break;
+                        }
 
-                    if (request.Form.Count > 0
-                        && request.Form.AllKeys.Contains(custIdQueryStringParamName))
-                    {
-                        _custId = Converter.ToInt(request.Form[custIdQueryStringParamName]);
-
+                        _custId = Convert.ToInt32(request.Form[custIdQueryStringParamName]);
                         if (_custId > 0)
                         {
                             break;
