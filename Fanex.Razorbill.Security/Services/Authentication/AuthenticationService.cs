@@ -36,7 +36,7 @@
         {
             _currentUserSession = UserSessionService.GetUserSessionInstance(HttpContext.Current.Session.SessionID);
             _authenticationRepsitory = new AuthenticationRepository();
-            _urlRequest = urlRequest;
+           _urlRequest = urlRequest;
         }
 
         public string CustomerCurrentStatus
@@ -404,6 +404,11 @@
                 string.Format("{0}_{1}", newPermission, DateTime.Now.AddSeconds(Converter.ToInt(ConfigurationManager.AppSettings["CustomerStatusExpireTime"])));
 
             return newPermission;
+        }
+
+        public bool IsMultipleCustomersBelonging(string custIds)
+        {
+            return _authenticationRepsitory.IsMultipleCustomersBelonging(custIds, _currentUserSession.CustId, _currentUserSession.SubAccId, _currentUserSession.IsInternal);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿namespace Fanex.Razorbill.Security.Repositories.Authentication
 {
+    using System;
     using System.Collections;
     using Fanex.Common;
     using Fanex.Data;
@@ -127,6 +128,25 @@
             }
 
             return isBelonging;
+        }
+
+        public bool IsMultipleCustomersBelonging(string custIds, int currentCustId, int subAccountId, bool isInternal)
+        {
+            dynamic parameters = new Hashtable
+            {
+                { "sessioncustid", currentCustId },
+                { "subaccountid", subAccountId },
+                { "custid", custIds },
+                { "roleid", 0 },
+                { "isactive", true }
+            };
+
+            using (var objectDb = new ObjectDb("Age_CustomerSelCheckBelonging_MultiCust"))
+            {
+                objectDb.ExecuteNonQuery(parameters);
+                var outputs = objectDb.GetOuputParams();
+                return Converter.To<byte>(outputs["roleid"]) > 0 && (isInternal || Converter.ToBool(outputs["isactive"]));
+            }
         }
     }
 }

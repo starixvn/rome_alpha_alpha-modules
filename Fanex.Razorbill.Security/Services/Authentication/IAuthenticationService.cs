@@ -14,5 +14,7 @@
         bool CheckBelonging(int custId, int uplineId, byte uplineRoleId, long transId, bool isDataWarehouse);
 
         bool IsAuthorized();
+
+        bool IsMultipleCustomersBelonging(string custIds);
     }
 }
