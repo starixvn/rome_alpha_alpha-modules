@@ -75,8 +75,8 @@
       <HintPath>..\packages\Fanex.Age.UI.3.0.3.0\lib\net461\Fanex.Age.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Age.UI.Components, Version=3.0.1.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Age.UI.Components.3.0.1.1\lib\net461\Fanex.Age.UI.Components.dll</HintPath>
+    <Reference Include="Fanex.Age.UI.Components, Version=3.0.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Age.UI.Components.3.0.1.2-zhhans-01\lib\net461\Fanex.Age.UI.Components.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Common, Version=1.0.404.97, Culture=neutral, processorArchitecture=MSIL">
@@ -172,6 +172,7 @@
     <EmbeddedResource Include="LocalResources\PTEngineLang.th-TH.resx" />
     <EmbeddedResource Include="LocalResources\PTEngineLang.vi-VN.resx" />
     <EmbeddedResource Include="LocalResources\PTEngineLang.zh-CN.resx" />
+    <EmbeddedResource Include="LocalResources\PTEngineLang.zh-Hans.resx" />
     <EmbeddedResource Include="LocalResources\PTEngineLang.zh-TW.resx" />
   </ItemGroup>
   <ItemGroup>

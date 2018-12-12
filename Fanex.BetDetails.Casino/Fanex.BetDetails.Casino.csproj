@@ -196,6 +196,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\Resources.zh-Hans.resx">
+      <LastGenOutput>Resources.zh-Hans.designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="App_GlobalResources\Resources.zh-TW.resx">
       <LastGenOutput>Resources.zh-TW.designer.cs</LastGenOutput>
     </EmbeddedResource>

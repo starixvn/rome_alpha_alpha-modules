@@ -54,6 +54,7 @@ namespace Sunplus.Agent.Model.BL.Casino
                 case "ja-JP": return original + "_Jp";
                 case "zh-TW": return original + "_Ct"; // Traditional
                 case "zh-CN": return original + "_Cs"; // Simplified
+                case "zh-Hans": return original + "_Ha"; // Simplified
                 case "th-TH": return original + "_Th";
                 case "ko-KR": return original + "_Ko";
                 default: return original + "_En";

@@ -147,6 +147,7 @@
     <EmbeddedResource Include="LocalResources\UIScoreMapLang.th-TH.resx" />
     <EmbeddedResource Include="LocalResources\UIScoreMapLang.vi-VN.resx" />
     <EmbeddedResource Include="LocalResources\UIScoreMapLang.zh-CN.resx" />
+    <EmbeddedResource Include="LocalResources\UIScoreMapLang.zh-Hans.resx" />
     <EmbeddedResource Include="LocalResources\UIScoreMapLang.zh-TW.resx" />
   </ItemGroup>
   <ItemGroup>

@@ -139,6 +139,7 @@
     <EmbeddedResource Include="Resources\Resource.th-TH.resx" />
     <EmbeddedResource Include="Resources\Resource.vi-VN.resx" />
     <EmbeddedResource Include="Resources\Resource.zh-CN.resx" />
+    <EmbeddedResource Include="Resources\Resource.zh-Hans.resx" />
     <EmbeddedResource Include="Resources\Resource.zh-TW.resx" />
   </ItemGroup>
   <PropertyGroup>

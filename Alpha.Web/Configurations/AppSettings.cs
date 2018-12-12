@@ -28,6 +28,7 @@
         private static string exTotalBetsForecastAppPath;
         private static string howToUseAppPath;
         private static string transferAppPath;
+        private static string cn88AppPath;
 
         static AppSettings()
         {
@@ -67,6 +68,7 @@
             exTotalBetsForecastAppPath = ConfigurationManager.AppSettings["ExTotalBetsForecastAppPath"] ?? "ex-totalbetsforecast";
             howToUseAppPath = ConfigurationManager.AppSettings["HowToUseAppPath"] ?? "site-howtouse";
             transferAppPath = ConfigurationManager.AppSettings["TransferAppPath"] ?? "site-transfer";
+            cn88AppPath = ConfigurationManager.AppSettings["CN88AppPath"] ?? "site-cn88";
         }
 
         public static string OldMainAppPath => oldMainAppPath;
@@ -106,5 +108,7 @@
         public static string HowToUseAppPath => howToUseAppPath;
 
         public static string TransferAppPath => transferAppPath;
+
+        public static string CN88AppPath => cn88AppPath;
     }
 }

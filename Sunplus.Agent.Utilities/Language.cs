@@ -5,10 +5,10 @@ namespace Sunplus.Agent.Model.Common
     [Obsolete("Should change namespace to Sunplus.Agent.Utilities")]
     public static class Language
     {
-        private static readonly string[] Languages = new string[] { "en-US", "zh-TW", "ja-JP", "th-TH", "zh-CN", "ko-KR", "vi-VN" };
+        private static readonly string[] Languages = new string[] { "en-US", "zh-TW", "ja-JP", "th-TH", "zh-CN", "ko-KR", "vi-VN", "zh-Hans" };
 
         // E,J,CT,CS,TH,KO.
-        private static readonly string[] LanguagesKeys = new string[] { "E", "CT", "J", "TH", "CS", "KO", "VI" };
+        private static readonly string[] LanguagesKeys = new string[] { "E", "CT", "J", "TH", "CS", "KO", "VI", "HA" };
 
         /// <summary>
         /// Check is valid language string.

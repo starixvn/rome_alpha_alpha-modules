@@ -96,6 +96,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Labels.zh-Hans.resx" />
     <EmbeddedResource Include="Resources\Labels.zh-TW.resx">
       <LastGenOutput>Labels.zh-TW.Designer.cs</LastGenOutput>
     </EmbeddedResource>
