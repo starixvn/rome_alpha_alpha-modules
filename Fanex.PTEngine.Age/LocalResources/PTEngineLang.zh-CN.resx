@@ -2116,4 +2116,10 @@
   <data name="EditSingleSportsbook2" xml:space="preserve">
     <value>修改体育博彩2</value>
   </data>
+  <data name="NoteSportsbookSetting" xml:space="preserve">
+    <value>对于电子竞技占成数和投注设置，请使用体育博彩2功能</value>
+  </data>
+  <data name="NotePTSetting" xml:space="preserve">
+    <value>对于电子竞技占成数设置，请使用体育博彩2功能</value>
+  </data>
 </root>

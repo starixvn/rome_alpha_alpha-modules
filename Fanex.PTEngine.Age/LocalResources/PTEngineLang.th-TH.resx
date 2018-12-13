@@ -2117,4 +2117,10 @@
   <data name="EditSingleSportsbook2" xml:space="preserve">
     <value>แก้ไข หน้ากีฬา 2</value>
   </data>
+  <data name="NoteSportsbookSetting" xml:space="preserve">
+    <value>การตั้งค่าเดิมพันและแบ่งสู้ของ E-Sports กรุณาทำการตั้งค่าที่ Sportsbook 2</value>
+  </data>
+  <data name="NotePTSetting" xml:space="preserve">
+    <value>การตั้งค่าแบ่งสู้ของ E-Sports กรุณาทำการตั้งค่าที่ Sportsbook 2</value>
+  </data>
 </root>

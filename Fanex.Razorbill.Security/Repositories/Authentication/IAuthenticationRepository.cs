@@ -14,5 +14,11 @@
         bool Age_CustomerSelCheckBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal);
 
         bool Age_Rpt_CustomerConsolidatedGroup_CheckBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal);
+
+        bool IsMultipleCustomersBelonging(
+            string custIds,
+            int currentCustId,
+            int subAccountId,
+            bool isInternal);
     }
 }
