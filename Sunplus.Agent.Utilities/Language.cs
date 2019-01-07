@@ -8,7 +8,7 @@ namespace Sunplus.Agent.Model.Common
         private static readonly string[] Languages = new string[] { "en-US", "zh-TW", "ja-JP", "th-TH", "zh-CN", "ko-KR", "vi-VN", "zh-Hans" };
 
         // E,J,CT,CS,TH,KO.
-        private static readonly string[] LanguagesKeys = new string[] { "E", "CT", "J", "TH", "CS", "KO", "VI", "HA" };
+        private static readonly string[] LanguagesKeys = new string[] { "E", "CT", "J", "TH", "CS", "KO", "VI", "CN" };
 
         /// <summary>
         /// Check is valid language string.
