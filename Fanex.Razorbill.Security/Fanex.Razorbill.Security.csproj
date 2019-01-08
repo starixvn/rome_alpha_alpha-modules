@@ -60,6 +60,10 @@
       <HintPath>..\packages\CasinoLibrary.2.0.2.28015\lib\net40\CasinoUtility.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="CN88.CustomerSetting.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CN88.CustomerSetting.Client.1.0.0-beta03\lib\net461\CN88.CustomerSetting.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Couchbase, Version=1.2.6.0, Culture=neutral, PublicKeyToken=05e9c6b5a9ec94c2, processorArchitecture=MSIL">
       <HintPath>..\packages\CouchbaseNetClient.1.2.6.2\lib\net40\Couchbase.dll</HintPath>
       <Private>True</Private>
@@ -240,6 +244,7 @@
     <Compile Include="Configurations\DeniedPageHelper.cs" />
     <Compile Include="Configurations\WebAppSettings.cs" />
     <Compile Include="Customer\AuthenticateCustomer.cs" />
+    <Compile Include="Customer\CustomerSettingRenovation\CN88CustomerSettingClientRegistration.cs" />
     <Compile Include="Customer\CustomerSettingRenovation\CustomerSettingClientRegistration.cs" />
     <Compile Include="Customer\GoldDeluxeAuthorizationService.cs" />
     <Compile Include="Encryption\Encryptor.cs" />
