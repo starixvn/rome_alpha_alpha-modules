@@ -2121,4 +2121,10 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   <data name="NoteSportsbookSetting" xml:space="preserve">
     <value>Vui lòng dùng Sportsbook 2 để thiết lập Giới Hạn Cược và PT cho E-Sports</value>
   </data>
+  <data name="MemberUnlimitedBetSettingWarningMessage" xml:space="preserve">
+    <value>Inputting 0 / 0 / 0 / (0) into Min Bet / Max Bet / Max Per Match / (Max Per Ball) will prevent member from playing the game.</value>
+  </data>
+  <data name="SMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
+    <value>Inputting Min Bet = Max Bet = Max Per Match = (Max Per Ball) = 0 means that you will not limit the bet setting of this account.&lt;br/&gt;In order to prevent members from playing the game, set the value to 0 / 0.1 / 0.1 / (0.1) for Min Bet / Max Bet / Max Per Match / (Max Per Ball).</value>
+  </data>
 </root>
