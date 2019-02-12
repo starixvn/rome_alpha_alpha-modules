@@ -2123,9 +2123,9 @@
     <value>对于电子竞技占成数设置，请使用体育博彩2功能</value>
   </data>
   <data name="MemberUnlimitedBetSettingWarningMessage" xml:space="preserve">
-    <value>Inputting 0 / 0 / 0 / (0) into Min Bet / Max Bet / Max Per Match / (Max Per Ball) will prevent member from playing the game.</value>
+    <value>输入最低投注/ 最高投注/ 单场限额/ (单粒球最高投注)：0 / 0 / 0 / (0) 可限制会员进行投注此产品。</value>
   </data>
   <data name="SMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
-    <value>Inputting Min Bet = Max Bet = Max Per Match = (Max Per Ball) = 0 means that you will not limit the bet setting of this account.&lt;br/&gt;In order to prevent members from playing the game, set the value to 0 / 0.1 / 0.1 / (0.1) for Min Bet / Max Bet / Max Per Match / (Max Per Ball).</value>
+    <value>设置最低投注 = 最高投注 = 单场限额 = (单粒球最高投注) = 0 即代表没有限制此账号的投注设定。&lt;br/&gt;倘若欲限制会员进行投注，您可设置 最低投注 / 最高投注 / 单场限额 /(单粒球最高投注) ： 0 / 0.1 / 0.1/ 0.1</value>
   </data>
 </root>
