@@ -45,23 +45,25 @@ namespace Fanex.PTEngine.Age
 			public string actionName = "{actionName}";
 			protected static string s23 = "</button></div></div><div class=\"commission\"><div class=\"customerInfoBlock6\"><span data-bind=\"text: customer.userNames\"></span></div><div class=\"maincontent_box\"><div class=\"alertwarning\">";
 			protected static string s24{get{return LocalResources.PTEngineLang.NoteSportsbookSetting;}}
-			protected static string s25 = "</div></div><div class=\"headerTab\" id=\"statusHeader\">";
-			protected static string s26{get{return LocalResources.PTEngineLang.status;}}
-			protected static string s27 = "</div><div class=\"clearBlock\"><div class=\"customerInfoBlock7\"><label for=\"closed\">";
-			protected static string s28{get{return LocalResources.PTEngineLang.closed;}}
-			protected static string s29 = "</label></div><div class=\"customerInfoBlock5\"><input name=\"closed\" id=\"closed\" type=\"checkbox\" data-bind=\"checked: customer.statusSetting.closed\" /></div></div></div>";
+			protected static string s25 = "</div></div><div class=\"maincontent_box\"><div class=\"alertwarning\">";
+			protected static string s26{get{return LocalResources.PTEngineLang.SMAUnlimitedBetSettingWarningMessage;}}
+			protected static string s27 = "</div></div><div class=\"headerTab\" id=\"statusHeader\">";
+			protected static string s28{get{return LocalResources.PTEngineLang.status;}}
+			protected static string s29 = "</div><div class=\"clearBlock\"><div class=\"customerInfoBlock7\"><label for=\"closed\">";
+			protected static string s30{get{return LocalResources.PTEngineLang.closed;}}
+			protected static string s31 = "</label></div><div class=\"customerInfoBlock5\"><input name=\"closed\" id=\"closed\" type=\"checkbox\" data-bind=\"checked: customer.statusSetting.closed\" /></div></div></div>";
 			public string commisstionControl = "{commisstionControl}";
-			protected static string s30 = "<div class=\"clearBlock\"></div><br /><div class=\"headerBetSetting\">";
-			protected static string s31{get{return LocalResources.PTEngineLang.lblBetSetting;}}
-			protected static string s32 = "</div><div id=\"bettingLimitContainer\"></div><br /><div class=\"clearBlock\"></div><div class=\"headerPositionTaking\">";
-			protected static string s33{get{return LocalResources.PTEngineLang.positiontaking;}}
-			protected static string s34 = "<div style=\"float:right;\"><a class=\"infoIco\"href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
-			protected static string s35{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
-			protected static string s36 = "\"></a></div></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"btnMain\">";
+			protected static string s32 = "<div class=\"clearBlock\"></div><br /><div class=\"headerBetSetting\">";
+			protected static string s33{get{return LocalResources.PTEngineLang.lblBetSetting;}}
+			protected static string s34 = "</div><div id=\"bettingLimitContainer\"></div><br /><div class=\"clearBlock\"></div><div class=\"headerPositionTaking\">";
+			protected static string s35{get{return LocalResources.PTEngineLang.positiontaking;}}
+			protected static string s36 = "<div style=\"float:right;\"><a class=\"infoIco\"href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
+			protected static string s37{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
+			protected static string s38 = "\"></a></div></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"btnMain\">";
 			protected string t0_actionName;
-			protected static string s37 = "</button></div></div></div></form>";
+			protected static string s39 = "</button></div></div></div></form>";
 			public EditMultipleMasters_ScriptBlock_Block ScriptBlock = new EditMultipleMasters_ScriptBlock_Block();
-			protected static string s38 = "</body></html>";
+			protected static string s40 = "</body></html>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -104,18 +106,20 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s27);
 					bd.Append(s28);
 					bd.Append(s29);
-					bd.Append(commisstionControl);
 					bd.Append(s30);
 					bd.Append(s31);
+					bd.Append(commisstionControl);
 					bd.Append(s32);
 					bd.Append(s33);
 					bd.Append(s34);
 					bd.Append(s35);
 					bd.Append(s36);
-					bd.Append(actionName);
 					bd.Append(s37);
-					if(null != ScriptBlock) ScriptBlock.ToString(ref bd);
 					bd.Append(s38);
+					bd.Append(actionName);
+					bd.Append(s39);
+					if(null != ScriptBlock) ScriptBlock.ToString(ref bd);
+					bd.Append(s40);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
