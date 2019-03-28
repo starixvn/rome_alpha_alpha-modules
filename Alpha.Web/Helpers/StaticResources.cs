@@ -49,6 +49,13 @@
             return new HtmlString(styleHtml);
         }
 
+        private static IHtmlString RenderStyleWithMedia(int maxDeviceWidth, params string[] paths)
+        {
+            var styleHtml = string.Join(string.Empty, paths.Select(path => $"<link href=\"{ path }\" rel=\"stylesheet\" type=\"text/css\" media=\"screen and (max-device-width: {maxDeviceWidth}px)\">"));
+
+            return new HtmlString(styleHtml);
+        }
+
         private static IHtmlString RenderScript(params string[] paths)
         {
             var scriptHtml = string.Join(string.Empty, paths.Select(path => $"<script src=\"{ path }\" type=\"text/javascript\"></script>"));
@@ -74,6 +81,16 @@
                 paths.Select(path => VirtualPathUtility.ToAbsolute($"{path}{minText}.css?v={staticResourcesVersion}")));
 
             return RenderStyle(styleHtml);
+        }
+
+        [SuppressMessage("Microsoft.Design", "CA1055:UriReturnValuesShouldNotBeStrings", Justification = "Reviewed!")]
+        public static IHtmlString RenderStylesWithMedia(int maxDeviceWidth, params string[] paths)
+        {
+            var styleHtml = string.Join(
+                string.Empty,
+                paths.Select(path => VirtualPathUtility.ToAbsolute($"{path}{minText}.css?v={staticResourcesVersion}")));
+
+            return RenderStyleWithMedia(maxDeviceWidth, styleHtml);
         }
 
         [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible", Justification = "Reviewed!")]
