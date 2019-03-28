@@ -61,3 +61,7 @@ Libraries/Fanex.Age.Business.Interface/obj/Debug/DesignTimeResolveAssemblyRefere
 *.suo
 .vs/config/applicationhost.config
 /OpenCover/*
+/.vs/Fanex.Alpha.Modules/v15/Server/sqlite3/db.lock
+/.vs/Fanex.Alpha.Modules/v15/Server/sqlite3/storage.ide
+/.vs/Fanex.Alpha.Modules/v15/Server/sqlite3/storage.ide-shm
+/.vs/Fanex.Alpha.Modules/v15/Server/sqlite3/storage.ide-wal

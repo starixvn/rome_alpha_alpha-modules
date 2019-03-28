@@ -27,8 +27,9 @@
 
         private static string exTotalBetsForecastAppPath;
         private static string howToUseAppPath;
+        private static string viewLogsAppPath;
         private static string transferAppPath;
-
+        
         static AppSettings()
         {
             enableKickOutWhenSessionInvalid = ConfigurationManager.AppSettings["EnableKickOutWhenSessionInvalid"] != null
@@ -67,6 +68,7 @@
             exTotalBetsForecastAppPath = ConfigurationManager.AppSettings["ExTotalBetsForecastAppPath"] ?? "ex-totalbetsforecast";
             howToUseAppPath = ConfigurationManager.AppSettings["HowToUseAppPath"] ?? "site-howtouse";
             transferAppPath = ConfigurationManager.AppSettings["TransferAppPath"] ?? "site-transfer";
+            viewLogsAppPath = ConfigurationManager.AppSettings["ViewLogsAppPath"] ?? "site-viewLogs";
         }
 
         public static string OldMainAppPath => oldMainAppPath;
@@ -106,5 +108,7 @@
         public static string HowToUseAppPath => howToUseAppPath;
 
         public static string TransferAppPath => transferAppPath;
+        
+        public static string ViewLogsAppPath => viewLogsAppPath;
     }
 }

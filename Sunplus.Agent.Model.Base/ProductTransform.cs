@@ -21,7 +21,7 @@
         {
             ["hide-"] = true,
             ["disable-"] = true,
-            ["synced-"] = false
+            ["synced-"] = true
         };
 
         public static void TransformProductStatus(UserSessionBase session, Hashtable values)
@@ -36,7 +36,7 @@
             {
                 session.SetHideProduct(productName.Key, GetProductStatus("hide" + productName.Value, values, true));
                 session.SetDisabledProduct(productName.Key, GetProductStatus("disable" + productName.Value, values, true));
-                session.SetSyncedProduct(productName.Key, GetProductStatus("synced" + productName.Value, values, false));
+                session.SetSyncedProduct(productName.Key, GetProductStatus("synced" + productName.Value, values, true));
             }
         }
 
