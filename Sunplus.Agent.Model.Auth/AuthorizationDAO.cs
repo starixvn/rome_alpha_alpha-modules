@@ -432,7 +432,8 @@ namespace Sunplus.Agent.Model.DL.Authorization
             string userName,
             string nickName,
             byte roleId,
-            int serverId)
+            int serverId,
+            string reason = null)
         {
             var parameters = new Hashtable
             {
@@ -440,7 +441,8 @@ namespace Sunplus.Agent.Model.DL.Authorization
                 { "username", userName },
                 { "roleid", roleId },
                 { "serverid", serverId },
-                { "nickname", nickName }
+                { "nickname", nickName },
+                { "reason", reason }
             };
 
             ExecSp("Acc_CheckOut", parameters);

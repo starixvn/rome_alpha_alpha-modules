@@ -347,9 +347,15 @@
         /// <summary>
         /// Check-out On_User database. Remove user session.
         /// </summary>
-        public void SignOut()
+        public void SignOut(string reason = null)
         {
-            this.dao.Acc_CheckOut(CurrentSession.OnUserId, CurrentSession.SubAccId > 0 ? CurrentSession.SubUserName : CurrentSession.UserName, CurrentSession.IsNickname ? CurrentSession.NickName : string.Empty, CurrentSession.RoleId, CurrentSession.ServerId);
+            this.dao.Acc_CheckOut(
+                CurrentSession.OnUserId,
+                CurrentSession.SubAccId > 0 ? CurrentSession.SubUserName : CurrentSession.UserName,
+                CurrentSession.IsNickname ? CurrentSession.NickName : string.Empty,
+                CurrentSession.RoleId,
+                CurrentSession.ServerId,
+                reason);
 
             UserSessionService.RemoveUserSession(CurrentSession);
         }
