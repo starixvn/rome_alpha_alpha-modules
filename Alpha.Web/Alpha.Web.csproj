@@ -131,6 +131,7 @@
     <Compile Include="BaseAsyncController.cs" />
     <Compile Include="BaseController.cs" />
     <Compile Include="Configurations\AppSettings.cs" />
+    <Compile Include="Filters\AfterLoginFlowFilter.cs" />
     <Compile Include="Filters\AntiXSRFFilter.cs" />
     <Compile Include="Filters\NoCacheFilter.cs" />
     <Compile Include="Helpers\AppPathHelper.cs" />
