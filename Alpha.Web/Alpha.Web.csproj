@@ -138,6 +138,7 @@
     <Compile Include="Helpers\GoogleAnalyticHepler.cs" />
     <Compile Include="Helpers\Impl\SessionManagerImpl.cs" />
     <Compile Include="Helpers\MicroSites.cs" />
+    <Compile Include="Helpers\NicknameChecker.cs" />
     <Compile Include="Helpers\SessionManager.cs" />
     <Compile Include="Helpers\StaticResources.cs" />
     <Compile Include="Models\Result.cs" />

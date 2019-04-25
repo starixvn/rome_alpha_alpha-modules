@@ -1,6 +1,9 @@
 ﻿namespace Alpha.Web.Configurations
 {
+    using System;
+    using System.Collections.Generic;
     using System.Configuration;
+    using System.Linq;
 
     public static class AppSettings
     {
@@ -29,7 +32,10 @@
         private static string howToUseAppPath;
         private static string viewLogsAppPath;
         private static string transferAppPath;
-        
+
+        private static DateTime? forceLoginNicknameDate;
+        private static IDictionary<int, bool> forceLoginNicknameIgnoreList;
+
         static AppSettings()
         {
             enableKickOutWhenSessionInvalid = ConfigurationManager.AppSettings["EnableKickOutWhenSessionInvalid"] != null
@@ -69,6 +75,8 @@
             howToUseAppPath = ConfigurationManager.AppSettings["HowToUseAppPath"] ?? "site-howtouse";
             transferAppPath = ConfigurationManager.AppSettings["TransferAppPath"] ?? "site-transfer";
             viewLogsAppPath = ConfigurationManager.AppSettings["ViewLogsAppPath"] ?? "site-viewLogs";
+
+            GetForceLoginNicknameConfiguration();
         }
 
         public static string OldMainAppPath => oldMainAppPath;
@@ -110,5 +118,24 @@
         public static string TransferAppPath => transferAppPath;
         
         public static string ViewLogsAppPath => viewLogsAppPath;
+
+        public static DateTime? ForceLoginNicknameDate => forceLoginNicknameDate;
+
+        public static IDictionary<int, bool> ForceLoginNicknameIgnoreList => forceLoginNicknameIgnoreList;
+
+        private static void GetForceLoginNicknameConfiguration()
+        {
+            var forceLoginNicknameDateValue = ConfigurationManager.AppSettings["ForceLoginNicknameDate"];
+            forceLoginNicknameDate = string.IsNullOrWhiteSpace(forceLoginNicknameDateValue)
+                ? default(DateTime?)
+                : DateTime.ParseExact(forceLoginNicknameDateValue, "dd/MM/yyyy", null);
+
+            var forceLoginNicknameIgnoreListValue = ConfigurationManager.AppSettings["ForceLoginNicknameIgnoreList"];
+            forceLoginNicknameIgnoreList = string.IsNullOrWhiteSpace(forceLoginNicknameIgnoreListValue)
+                ? new Dictionary<int, bool>()
+                : forceLoginNicknameIgnoreListValue
+                    .Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries)
+                    .ToDictionary(kvp => int.Parse(kvp), kvp => true);
+        }
     }
 }

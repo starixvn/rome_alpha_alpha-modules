@@ -28,6 +28,7 @@
 
         private bool IsValidSession(ActionExecutingContext filterContext)
             => filterContext.HttpContext?.Session != null
+            && !filterContext.IsChildAction
             && userSession.UserId > 0
             && !userSession.IsInternal;
 
@@ -44,38 +45,52 @@
 
             if (userSession.IsForcedSecurityCode)
             {
-                return ForceChangeSecurityCodeUrl(currentUrl);
+                return ForceChangeSecurityCodeUrl(currentUrl, userSession.SecurityCode);
             }
 
-            if (IsSetNickName)
+            if (IsForceLoginByNickname)
             {
-                return CreateNickNameUrl(currentUrl, userSession.CustId);
+                return CreateNickNameUrl(currentUrl);
             }
 
             return null;
         }
 
-        private bool IsSetNickName
-            => !userSession.IsSubAcc && !userSession.IsNicknameLoginOnly;
-
         private bool IsForceChangePassword
             => !userSession.IsLogged || userSession.IsPasswordExpired;
-
-        private static string CreateNickNameUrl(string currentUrl, int custId)
-            => currentUrl.Equals("LoginOption/Index", StringComparison.OrdinalIgnoreCase)
-            ? null
-            : MicroSites.OldMainUrl("~/LoginOption/Index?custid=" + custId);
 
         private static string ForceChangePasswordUrl(string currentUrl)
             => currentUrl.Equals("Password/ForceChangePassword", StringComparison.OrdinalIgnoreCase)
             ? null
             : MicroSites.MainUrl("~/Password/ForceChangePassword");
 
-        private static string ForceChangeSecurityCodeUrl(string currentUrl)
+        private static string ForceChangeSecurityCodeUrl(string currentUrl, string securityCode)
         {
-            return currentUrl.Equals("SecurityCode/Index", StringComparison.OrdinalIgnoreCase)
+            if (string.IsNullOrWhiteSpace(securityCode))
+            {
+                return currentUrl.Equals("SecurityCode/ChangeSecurityCodeFirstLogin", StringComparison.OrdinalIgnoreCase)
+                    ? null
+                    : "~/SecurityCode/ChangeSecurityCodeFirstLogin";
+            }
+
+            return currentUrl.Equals("SecurityCode/ChangeSecurityCodeByForcing", StringComparison.OrdinalIgnoreCase)
                 ? null
-                : MicroSites.MainUrl("~/SecurityCode/Index");
+                : "~/SecurityCode/ChangeSecurityCodeByForcing";
         }
+
+        private bool IsForceLoginByNickname
+        {
+            get
+            {
+                NicknameChecker nicknameChecker = new NicknameCheckerImpl(userSession: userSession);
+
+                return nicknameChecker.IsForceLoginByNickname;
+            }
+        }
+
+        private static string CreateNickNameUrl(string currentUrl)
+            => currentUrl.Equals("Nickname/Index", StringComparison.OrdinalIgnoreCase)
+            ? null
+            : MicroSites.MainUrl("~/Nickname/Index");
     }
 }
