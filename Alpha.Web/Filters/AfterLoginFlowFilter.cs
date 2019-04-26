@@ -38,23 +38,29 @@
             var controllerName = actionDescriptor.ControllerDescriptor.ControllerName;
             var currentUrl = $"{controllerName}/{actionDescriptor.ActionName}";
 
-            if (IsForceChangePassword)
+            if (!IsInIgnoreUrl(currentUrl))
             {
-                return ForceChangePasswordUrl(currentUrl);
-            }
+                if (IsForceChangePassword)
+                {
+                    return ForceChangePasswordUrl(currentUrl);
+                }
 
-            if (userSession.IsForcedSecurityCode)
-            {
-                return ForceChangeSecurityCodeUrl(currentUrl, userSession.SecurityCode);
-            }
+                if (userSession.IsForcedSecurityCode)
+                {
+                    return ForceChangeSecurityCodeUrl(currentUrl, userSession.SecurityCode);
+                }
 
-            if (IsForceLoginByNickname)
-            {
-                return CreateNickNameUrl(currentUrl);
+                if (IsForceLoginByNickname)
+                {
+                    return CreateNickNameUrl(currentUrl);
+                }
             }
 
             return null;
         }
+
+        private bool IsInIgnoreUrl(string currentUrl)
+            => currentUrl.Equals("Language/Change", StringComparison.OrdinalIgnoreCase);
 
         private bool IsForceChangePassword
             => !userSession.IsLogged || userSession.IsPasswordExpired;
