@@ -34,13 +34,14 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
             int productIdOption = 0,
             Dictionary<string, int> unconfirmSettingOptions = null,
             bool isFilter = false, 
-            bool isChecked = false)
+            bool isChecked = false,
+            string enterusername = null)
         {
             if (parent != null) parent.RegisterComponent("SearchUserName_Control", this);
 
             tpl.username = UIComponentsLang.username;
             tpl.status = UIComponentsLang.status;
-            tpl.enterusername = UIComponentsLang.enterusername;
+            tpl.enterusername = enterusername ?? UIComponentsLang.enterusername;
             tpl.submit = UIComponentsLang.submit;
             tpl.UnconfirmSetting.unconfirmSetting = UIComponentsLang.uncomfirmedSetting;
 
@@ -91,13 +92,14 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
             int productIdOption = 0,
             Dictionary<string, int> unconfirmSettingOptions = null,
             bool isFilter = false, 
-            bool isChecked = false)
+            bool isChecked = false,
+            string enterusername = null)
         {
             if (parent != null) parent.RegisterComponent("SearchUserName_Control", this);
 
             tpl.username = UIComponentsLang.username;
             tpl.status = UIComponentsLang.status;
-            tpl.enterusername = UIComponentsLang.enterusername;
+            tpl.enterusername = enterusername ?? UIComponentsLang.enterusername;
             tpl.submit = UIComponentsLang.submit;
             tpl.UnconfirmSetting.unconfirmSetting = UIComponentsLang.uncomfirmedSetting;
 
