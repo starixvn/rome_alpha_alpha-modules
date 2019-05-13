@@ -108,20 +108,6 @@
                         <input name="closed" id="closed" type="checkbox" data-bind="checked: customer.statusSetting.closed, enable: customer.statusSetting.uplineClosed ? false : true" />
                     </div>
                 </div>
-                <div class="clearBlock">
-                    <div class="customerInfoViewBlock1">
-                    </div>
-                    <div class="customerInfoViewBlock2NoBorderLeft">
-                    </div>
-                    <div class="customerInfoViewBlock1">
-                        <label for="suspended">
-                            {static:LocalResources.PTEngineLang.suspended}
-                        </label>
-                    </div>
-                    <div class="customerInfoViewBlock2">
-                        <input name="suspended" id="suspended" type="checkbox" data-bind="checked: customer.statusSetting.suspended, enable: (customer.statusSetting.uplineSuspended || customer.statusSetting.uplineClosed) ? false : true" />
-                    </div>
-                </div>
             </div>
             <!--CommissionBlock-->
             <div class="commission">

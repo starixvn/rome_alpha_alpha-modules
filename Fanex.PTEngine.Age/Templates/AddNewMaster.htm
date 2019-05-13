@@ -144,14 +144,8 @@
                             <input name="allowautopt" id="allowautopt" type="checkbox" data-bind="checked: customer.statusSetting.disableAutoMPT" />
                         </div>
                     </div>
-                    <div class="customerInfoBlock3">
-                        <label for="suspended">
-                            {static:LocalResources.PTEngineLang.suspended}
-                        </label>
-                    </div>
-                    <div class="customerInfoBlock4">
-                        <input name="suspended" id="suspended" type="checkbox" data-bind="checked: customer.statusSetting.suspended, enable: context.targetCustId > 0 ? true : !customer.statusSetting.suspended" />
-                    </div>
+                    <div class="customerInfoBlock3"></div>
+                    <div class="customerInfoBlock4"></div>
                 </div>
             </div>
             {commisstionControl}

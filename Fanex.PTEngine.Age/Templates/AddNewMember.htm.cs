@@ -74,28 +74,25 @@ namespace Fanex.PTEngine.Age
 			public AddNewMember_LabelGroup_Block LabelGroup = new AddNewMember_LabelGroup_Block();
 			protected static string s47 = "</div><div class=\"customerInfoBlock3\"><label for=\"closed\">";
 			protected static string s48{get{return LocalResources.PTEngineLang.closed;}}
-			protected static string s49 = "</label></div><div class=\"customerInfoBlock4\"><input name=\"closed\" id=\"closed\" type=\"checkbox\" data-bind=\"checked: customer.statusSetting.closed, enable: customer.statusSetting.uplineClosed ? false : true\" /></div></div><div class=\"clearBlock\"><div class=\"customerInfoBlock1\"><label for=\"suspended\">";
-			protected static string s50{get{return LocalResources.PTEngineLang.suspended;}}
-			protected static string s51 = "</label></div><div class=\"customerInfoBlock2\"><input name=\"suspended\" id=\"suspended\" type=\"checkbox\" data-bind=\"checked: customer.statusSetting.suspended, enable: (customer.statusSetting.uplineSuspended || customer.statusSetting.uplineClosed) ? false : true\" /></div>";
+			protected static string s49 = "</label></div><div class=\"customerInfoBlock4\"><input name=\"closed\" id=\"closed\" type=\"checkbox\" data-bind=\"checked: customer.statusSetting.closed, enable: customer.statusSetting.uplineClosed ? false : true\" /></div></div>";
 			public AddNewMember_Captcha_Block Captcha = new AddNewMember_Captcha_Block();
-			public AddNewMember_NoCaptcha_Block NoCaptcha = new AddNewMember_NoCaptcha_Block();
-			protected static string s52 = "</div></div>";
+			protected static string s50 = "</div>";
 			public AddNewMember_CommissionBlock_Block CommissionBlock = new AddNewMember_CommissionBlock_Block();
-			protected static string s53 = "<div class=\"clearBlock\"></div><br /><div class=\"headerBetSetting\">";
-			protected static string s54{get{return LocalResources.PTEngineLang.lblBetSetting;}}
-			protected static string s55 = "</div><div id=\"bettingLimitContainer\"></div><br /><div class=\"clearBlock\"></div><div class=\"headerPositionTaking\">";
-			protected static string s56{get{return LocalResources.PTEngineLang.positiontaking;}}
-			protected static string s57 = "<a class=\"infoIco\" href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
-			protected static string s58{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
-			protected static string s59 = "\"></a></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\"class=\"buttonSubmit ";
+			protected static string s51 = "<div class=\"clearBlock\"></div><br /><div class=\"headerBetSetting\">";
+			protected static string s52{get{return LocalResources.PTEngineLang.lblBetSetting;}}
+			protected static string s53 = "</div><div id=\"bettingLimitContainer\"></div><br /><div class=\"clearBlock\"></div><div class=\"headerPositionTaking\">";
+			protected static string s54{get{return LocalResources.PTEngineLang.positiontaking;}}
+			protected static string s55 = "<a class=\"infoIco\" href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
+			protected static string s56{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
+			protected static string s57 = "\"></a></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\"class=\"buttonSubmit ";
 			protected string t1_actionName;
-			protected static string s60 = "\">";
+			protected static string s58 = "\">";
 			protected string t2_actionName;
-			protected static string s61 = "</button></div></div></div></form><script language=\"javascript\" type=\"text/javascript\">var isShowMyanmarOdds = \"";
+			protected static string s59 = "</button></div></div></div></form><script language=\"javascript\" type=\"text/javascript\">var isShowMyanmarOdds = \"";
 			public string isShowMyanmarOdds = "{isShowMyanmarOdds}";
-			protected static string s62 = "\";</script>";
+			protected static string s60 = "\";</script>";
 			public AddNewMember_ScriptBlock_Block ScriptBlock = new AddNewMember_ScriptBlock_Block();
-			protected static string s63 = "</body></html>";
+			protected static string s61 = "</body></html>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -163,27 +160,24 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s47);
 					bd.Append(s48);
 					bd.Append(s49);
-					bd.Append(s50);
-					bd.Append(s51);
 					if(null != Captcha) Captcha.ToString(ref bd);
-					if(null != NoCaptcha) NoCaptcha.ToString(ref bd);
-					bd.Append(s52);
+					bd.Append(s50);
 					if(null != CommissionBlock) CommissionBlock.ToString(ref bd);
+					bd.Append(s51);
+					bd.Append(s52);
 					bd.Append(s53);
 					bd.Append(s54);
 					bd.Append(s55);
 					bd.Append(s56);
 					bd.Append(s57);
+					bd.Append(actionName);
 					bd.Append(s58);
+					bd.Append(actionName);
 					bd.Append(s59);
-					bd.Append(actionName);
-					bd.Append(s60);
-					bd.Append(actionName);
-					bd.Append(s61);
 					bd.Append(isShowMyanmarOdds);
-					bd.Append(s62);
+					bd.Append(s60);
 					if(null != ScriptBlock) ScriptBlock.ToString(ref bd);
-					bd.Append(s63);
+					bd.Append(s61);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -206,25 +200,25 @@ namespace Fanex.PTEngine.Age
 
 		public class AddNewMember_UserNameAndPasswordBlock_Block: Block
 		{
-			protected static string s64 = "<div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
-			protected static string s65{get{return LocalResources.PTEngineLang.username;}}
-			protected static string s66 = "</div><div class=\"customerInfoBlock2\"><b><span data-bind=\"text: customer.userName\"></span></b><select id=\"selectedOne\" name=\"selectedOne\"></select><select id=\"selectedTwo\" name=\"selectedTwo\"></select><select id=\"selectedThree\" name=\"selectedThree\"></select><span id=\"msgIcon\">&nbsp;&nbsp;&nbsp;</span></div><div class=\"customerInfoBlock3\">";
-			protected static string s67{get{return LocalResources.PTEngineLang.password;}}
-			protected static string s68 = "</div><div class=\"customerInfoBlock4\" id=\"divPassword\" title=\"";
-			protected static string s69{get{return LocalResources.PTEngineLang.lblPasswordRequire;}}
-			protected static string s70 = "\"><div class=\"float_l\"><input id=\"password\" autocomplete=\"off\" class=\"textBoxInfo\" type=\"password\" data-bind=\"value: customer.password\"onkeyup=\"return Fanex.Customer.CheckPassword(this, 'spnNewPwdIcon');\" maxlength=\"50\" /></div><div class=\"float_l pt3\"><span id=\"spnNewPwdIcon\">&nbsp;</span></div></div></div>";
+			protected static string s62 = "<div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
+			protected static string s63{get{return LocalResources.PTEngineLang.username;}}
+			protected static string s64 = "</div><div class=\"customerInfoBlock2\"><b><span data-bind=\"text: customer.userName\"></span></b><select id=\"selectedOne\" name=\"selectedOne\"></select><select id=\"selectedTwo\" name=\"selectedTwo\"></select><select id=\"selectedThree\" name=\"selectedThree\"></select><span id=\"msgIcon\">&nbsp;&nbsp;&nbsp;</span></div><div class=\"customerInfoBlock3\">";
+			protected static string s65{get{return LocalResources.PTEngineLang.password;}}
+			protected static string s66 = "</div><div class=\"customerInfoBlock4\" id=\"divPassword\" title=\"";
+			protected static string s67{get{return LocalResources.PTEngineLang.lblPasswordRequire;}}
+			protected static string s68 = "\"><div class=\"float_l\"><input id=\"password\" autocomplete=\"off\" class=\"textBoxInfo\" type=\"password\" data-bind=\"value: customer.password\"onkeyup=\"return Fanex.Customer.CheckPassword(this, 'spnNewPwdIcon');\" maxlength=\"50\" /></div><div class=\"float_l pt3\"><span id=\"spnNewPwdIcon\">&nbsp;</span></div></div></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
+					bd.Append(s62);
+					bd.Append(s63);
 					bd.Append(s64);
 					bd.Append(s65);
 					bd.Append(s66);
 					bd.Append(s67);
 					bd.Append(s68);
-					bd.Append(s69);
-					bd.Append(s70);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -232,13 +226,13 @@ namespace Fanex.PTEngine.Age
 
 		public class AddNewMember_SelectGroup_Block: Block
 		{
-			protected static string s71 = "<select id=\"group\" name=\"group\"></select>";
+			protected static string s69 = "<select id=\"group\" name=\"group\"></select>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s71);
+					bd.Append(s69);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -246,13 +240,13 @@ namespace Fanex.PTEngine.Age
 
 		public class AddNewMember_LabelGroup_Block: Block
 		{
-			protected static string s72 = "<span data-bind=\"text: customer.group\"></span>";
+			protected static string s70 = "<span data-bind=\"text: customer.group\"></span>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s72);
+					bd.Append(s70);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -260,31 +254,17 @@ namespace Fanex.PTEngine.Age
 
 		public class AddNewMember_Captcha_Block: Block
 		{
-			protected static string s73 = "<div class=\"customerInfoBlock3\" onclick=\"Fanex.Customer.NewMember.ReLoadNewCaptcha()\"><img src=\"";
-			protected static string s74{get{return AbsoluteUrl2("_Authorization/Handlers/Captcha.ashx");}}
-			protected static string s75 = "\" id=\"imgCaptCha\" alt=\"\" style=\"cursor: pointer;height: 22px\" /></div><div class=\"customerInfoBlock4\"><input name=\"textBoxCaptcha\" id=\"textBoxCaptcha\" class=\"textBoxInfo\" type=\"text\"maxlength=\"4\" autocomplete=\"off\" style=\"width: 50px\" /></div>";
+			protected static string s71 = "<div class=\"clearBlock\"><div class=\"customerInfoBlock1\" onclick=\"Fanex.Customer.NewMember.ReLoadNewCaptcha()\"><img src=\"";
+			protected static string s72{get{return AbsoluteUrl2("_Authorization/Handlers/Captcha.ashx");}}
+			protected static string s73 = "\" id=\"imgCaptCha\" alt=\"\" style=\"cursor: pointer;height: 22px\" /></div><div class=\"customerInfoBlock2\"><input name=\"textBoxCaptcha\" id=\"textBoxCaptcha\" class=\"textBoxInfo\" type=\"text\"maxlength=\"4\" autocomplete=\"off\" style=\"width: 50px\" /></div><div class=\"customerInfoBlock3\"></div><div class=\"customerInfoBlock4\"></div></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
+					bd.Append(s71);
+					bd.Append(s72);
 					bd.Append(s73);
-					bd.Append(s74);
-					bd.Append(s75);
-				}
-				if(IsAssigned){bd.Append(Value);}
-			}
-		}
-
-		public class AddNewMember_NoCaptcha_Block: Block
-		{
-			protected static string s76 = "<div class=\"customerInfoBlock3\"></div><div class=\"customerInfoBlock4NoBorderLeft\"></div>";
-			public override void ToString(ref StringBuilder bd)
-			{
-				if(!Visible) return;
-				if(RenderChild)
-				{
-					bd.Append(s76);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -292,28 +272,31 @@ namespace Fanex.PTEngine.Age
 
 		public class AddNewMember_CommissionBlock_Block: Block
 		{
-			protected static string s77 = "<div class=\"commission\"><div class=\"headerTab\">";
-			protected static string s78{get{return LocalResources.PTEngineLang.commission;}}
-			protected static string s79 = "</div><div class=\"clearBlock\"><div class=\"commissionBlock1 commissionHeader\"></div><div class=\"commissionBlock2 commissionHeader\">";
-			protected static string s80{get{return LocalResources.PTEngineLang.lblCommissionForAgent;}}
-			protected static string s81 = "</div><div class=\"commissionBlock2 commissionHeader\">";
-			protected static string s82{get{return LocalResources.PTEngineLang.lblCommissionForMember;}}
-			protected static string s83 = "</div></div><div class=\"clearBlock\"><div class=\"commissionBlock1\">";
-			protected static string s84{get{return LocalResources.PTEngineLang.lblAsianHDC_OU_OE;}}
-			protected static string s85 = "</div><div class=\"commissionBlock2\"><input type=\"text\" id=\"textBoxDiscountAsian\" name=\"textBoxDiscountAsian\" class=\"textBoxComm\"disabled=\"true\" /></div><div class=\"commissionBlock2\"><select id=\"discountAsian\" name=\"discountAsian\" class=\"widthGroup\"></select></div></div><div class=\"clearBlock\"><div class=\"commissionBlock1\">";
-			protected static string s86{get{return LocalResources.PTEngineLang.lbl1x2;}}
-			protected static string s87 = "</div><div class=\"commissionBlock2\"><input type=\"text\" id=\"textBoxDiscount1x2\" class=\"textBoxComm\" disabled=\"true\" data-bind=\"value: customer.commissionSetting.discount1x2\" /></div><div class=\"commissionBlock2\"><select id=\"discount1x2\" name=\"discount1x2\" class=\"widthGroup\"></select></div></div><div class=\"clearBlock\"><div class=\"commissionBlock1\">";
-			protected static string s88{get{return LocalResources.PTEngineLang.lblOtherTypes;}}
-			protected static string s89 = "</div><div class=\"commissionBlock2\"><input type=\"text\" id=\"textBoxDiscountCS\" class=\"textBoxComm\" disabled=\"true\" data-bind=\"value: customer.commissionSetting.discountCS\" /></div><div class=\"commissionBlock2\"><select id=\"discountCS\" name=\"discountCS\" class=\"widthGroup\"></select></div></div><div class=\"clearBlock\"><div class=\"commissionBlock1\">";
-			protected static string s90{get{return LocalResources.PTEngineLang.numbergamecomm;}}
-			protected static string s91 = "</div><div class=\"commissionBlock2\"><input type=\"text\" id=\"textBoxDiscountNumber\" class=\"textBoxComm\" disabled=\"true\"data-bind=\"value: customer.commissionSetting.discountNumber\" /></div><div class=\"commissionBlock2\"><select id=\"discountNumber\" name=\"discountNumber\" class=\"widthGroup\"></select></div></div>";
+			protected static string s74 = "<div class=\"commission\"><div class=\"headerTab\">";
+			protected static string s75{get{return LocalResources.PTEngineLang.commission;}}
+			protected static string s76 = "</div><div class=\"clearBlock\"><div class=\"commissionBlock1 commissionHeader\"></div><div class=\"commissionBlock2 commissionHeader\">";
+			protected static string s77{get{return LocalResources.PTEngineLang.lblCommissionForAgent;}}
+			protected static string s78 = "</div><div class=\"commissionBlock2 commissionHeader\">";
+			protected static string s79{get{return LocalResources.PTEngineLang.lblCommissionForMember;}}
+			protected static string s80 = "</div></div><div class=\"clearBlock\"><div class=\"commissionBlock1\">";
+			protected static string s81{get{return LocalResources.PTEngineLang.lblAsianHDC_OU_OE;}}
+			protected static string s82 = "</div><div class=\"commissionBlock2\"><input type=\"text\" id=\"textBoxDiscountAsian\" name=\"textBoxDiscountAsian\" class=\"textBoxComm\"disabled=\"true\" /></div><div class=\"commissionBlock2\"><select id=\"discountAsian\" name=\"discountAsian\" class=\"widthGroup\"></select></div></div><div class=\"clearBlock\"><div class=\"commissionBlock1\">";
+			protected static string s83{get{return LocalResources.PTEngineLang.lbl1x2;}}
+			protected static string s84 = "</div><div class=\"commissionBlock2\"><input type=\"text\" id=\"textBoxDiscount1x2\" class=\"textBoxComm\" disabled=\"true\" data-bind=\"value: customer.commissionSetting.discount1x2\" /></div><div class=\"commissionBlock2\"><select id=\"discount1x2\" name=\"discount1x2\" class=\"widthGroup\"></select></div></div><div class=\"clearBlock\"><div class=\"commissionBlock1\">";
+			protected static string s85{get{return LocalResources.PTEngineLang.lblOtherTypes;}}
+			protected static string s86 = "</div><div class=\"commissionBlock2\"><input type=\"text\" id=\"textBoxDiscountCS\" class=\"textBoxComm\" disabled=\"true\" data-bind=\"value: customer.commissionSetting.discountCS\" /></div><div class=\"commissionBlock2\"><select id=\"discountCS\" name=\"discountCS\" class=\"widthGroup\"></select></div></div><div class=\"clearBlock\"><div class=\"commissionBlock1\">";
+			protected static string s87{get{return LocalResources.PTEngineLang.numbergamecomm;}}
+			protected static string s88 = "</div><div class=\"commissionBlock2\"><input type=\"text\" id=\"textBoxDiscountNumber\" class=\"textBoxComm\" disabled=\"true\"data-bind=\"value: customer.commissionSetting.discountNumber\" /></div><div class=\"commissionBlock2\"><select id=\"discountNumber\" name=\"discountNumber\" class=\"widthGroup\"></select></div></div>";
 			public AddNewMember_CommissionBlock_MyanmarOdds_Block MyanmarOdds = new AddNewMember_CommissionBlock_MyanmarOdds_Block();
-			protected static string s92 = "<div class=\"clearBlock\"></div></div>";
+			protected static string s89 = "<div class=\"clearBlock\"></div></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
+					bd.Append(s74);
+					bd.Append(s75);
+					bd.Append(s76);
 					bd.Append(s77);
 					bd.Append(s78);
 					bd.Append(s79);
@@ -326,11 +309,8 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s86);
 					bd.Append(s87);
 					bd.Append(s88);
-					bd.Append(s89);
-					bd.Append(s90);
-					bd.Append(s91);
 					if(null != MyanmarOdds) MyanmarOdds.ToString(ref bd);
-					bd.Append(s92);
+					bd.Append(s89);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -338,17 +318,17 @@ namespace Fanex.PTEngine.Age
 
 		public class AddNewMember_CommissionBlock_MyanmarOdds_Block: Block
 		{
-			protected static string s93 = "<div class=\"clearBlock\"><div class=\"commissionBlock1\">";
-			protected static string s94{get{return LocalResources.PTEngineLang.Symbol_OddsPercentage;}}
-			protected static string s95 = "</div><div class=\"commissionBlock2\"><input type=\"text\" id=\"textBoxDiscountMyanmarOdds\" class=\"textBoxComm\" disabled=\"true\" data-bind=\"value: customer.commissionSetting.discountMyanmarOdds\" /></div><div class=\"commissionBlock2\"><select id=\"oddsPercentage\" name=\"discountMyanmarOdds\" class=\"widthGroup\"></select></div></div>";
+			protected static string s90 = "<div class=\"clearBlock\"><div class=\"commissionBlock1\">";
+			protected static string s91{get{return LocalResources.PTEngineLang.Symbol_OddsPercentage;}}
+			protected static string s92 = "</div><div class=\"commissionBlock2\"><input type=\"text\" id=\"textBoxDiscountMyanmarOdds\" class=\"textBoxComm\" disabled=\"true\" data-bind=\"value: customer.commissionSetting.discountMyanmarOdds\" /></div><div class=\"commissionBlock2\"><select id=\"oddsPercentage\" name=\"discountMyanmarOdds\" class=\"widthGroup\"></select></div></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s93);
-					bd.Append(s94);
-					bd.Append(s95);
+					bd.Append(s90);
+					bd.Append(s91);
+					bd.Append(s92);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
