@@ -491,7 +491,7 @@ Warning, all members under this agent can't place outright bet!</value>
     <value>Edit Gold Deluxe</value>
   </data>
   <data name="editKeno" xml:space="preserve">
-    <value>Edit Keno</value>
+    <value>Edit RNG Keno</value>
   </data>
   <data name="editmultcs" xml:space="preserve">
     <value>Edit Multiple Casino</value>
@@ -509,7 +509,7 @@ Warning, all members under this agent can't place outright bet!</value>
     <value>Edit Multiple Virtual Sports</value>
   </data>
   <data name="editmultkeno" xml:space="preserve">
-    <value>Edit Multiple Keno</value>
+    <value>Edit Multiple RNG Keno</value>
   </data>
   <data name="editmultsportbook" xml:space="preserve">
     <value>Edit Multiple Sportsbook</value>
@@ -741,7 +741,7 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
     <value>Jungle Wild Mode</value>
   </data>
   <data name="Keno" xml:space="preserve">
-    <value>Keno</value>
+    <value>RNG Keno</value>
   </data>
   <data name="last" xml:space="preserve">
     <value>Last</value>

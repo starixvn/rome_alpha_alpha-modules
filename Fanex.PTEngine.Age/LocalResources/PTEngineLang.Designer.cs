@@ -1178,7 +1178,7 @@ namespace Fanex.PTEngine.Age.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Keno.
+        ///   Looks up a localized string similar to Edit RNG Keno.
         /// </summary>
         internal static string editKeno {
             get {
@@ -1241,7 +1241,7 @@ namespace Fanex.PTEngine.Age.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Multiple Keno.
+        ///   Looks up a localized string similar to Edit Multiple RNG Keno.
         /// </summary>
         internal static string editmultkeno {
             get {
@@ -1944,7 +1944,7 @@ namespace Fanex.PTEngine.Age.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Keno.
+        ///   Looks up a localized string similar to RNG Keno.
         /// </summary>
         internal static string Keno {
             get {
