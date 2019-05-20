@@ -35,6 +35,7 @@
 
         private static DateTime? forceLoginNicknameDate;
         private static IDictionary<int, bool> forceLoginNicknameIgnoreList;
+        private static DateTime? forceLoginNicknameDate4SubAccount;
 
         static AppSettings()
         {
@@ -123,6 +124,8 @@
 
         public static IDictionary<int, bool> ForceLoginNicknameIgnoreList => forceLoginNicknameIgnoreList;
 
+        public static DateTime? ForceLoginNicknameDate4SubAccount => forceLoginNicknameDate4SubAccount;
+
         private static void GetForceLoginNicknameConfiguration()
         {
             var forceLoginNicknameDateValue = ConfigurationManager.AppSettings["ForceLoginNicknameDate"];
@@ -136,6 +139,11 @@
                 : forceLoginNicknameIgnoreListValue
                     .Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries)
                     .ToDictionary(kvp => int.Parse(kvp), kvp => true);
+
+            var forceLoginNicknameDate4SubAccountValue = ConfigurationManager.AppSettings["ForceLoginNicknameDate4SubAccount"];
+            forceLoginNicknameDate4SubAccount = string.IsNullOrWhiteSpace(forceLoginNicknameDate4SubAccountValue)
+                ? default(DateTime?)
+                : DateTime.ParseExact(forceLoginNicknameDate4SubAccountValue, "dd/MM/yyyy", null);
         }
     }
 }

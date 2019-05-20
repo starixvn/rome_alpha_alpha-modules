@@ -1,7 +1,6 @@
 ﻿namespace Alpha.Web.Helpers
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using Configurations;
     using Sunplus.Agent.Model.Base;
@@ -24,8 +23,6 @@
 
     public class NicknameCheckerImpl : NicknameChecker
     {
-        private readonly DateTime? forceLoginDate;
-        private readonly IDictionary<int, bool> forceLoginIgnoreList;
         private readonly IUserSession userSession;
 
         private bool? isOfferForceLogin;
@@ -34,20 +31,22 @@
         private bool? isForceLoginByNickname;
         private bool? isOfferForceLoginAndOverDueDate;
 
-        public NicknameCheckerImpl(
-            DateTime? forceLoginDate = null,
-            IDictionary<int, bool> forceLoginIgnoreList = null,
-            IUserSession userSession = null)
+        public NicknameCheckerImpl(IUserSession userSession = null)
         {
-            this.forceLoginDate = forceLoginDate ?? AppSettings.ForceLoginNicknameDate;
-            this.forceLoginIgnoreList = forceLoginIgnoreList ?? AppSettings.ForceLoginNicknameIgnoreList;
             this.userSession = userSession ?? new UserSessionExt();
         }
 
         public string ForceLoginDate
-            => forceLoginDate == null
-            ? string.Empty
-            : forceLoginDate.Value.ToString("dd/MM/yyyy");
+        {
+            get
+            {
+                var forceLoginDate = GetForceLoginDate();
+
+                return forceLoginDate == null
+                    ? string.Empty
+                    : forceLoginDate.Value.ToString("dd/MM/yyyy");
+            }
+        }
 
         public bool IsOfferForceLogin
         {
@@ -55,7 +54,7 @@
             {
                 if (isOfferForceLogin == null)
                 {
-                    if (userSession.IsSubAcc || forceLoginDate == null)
+                    if (GetForceLoginDate() == null)
                     {
                         isOfferForceLogin = false;
                     }
@@ -84,20 +83,20 @@
             {
                 if (isOfferForceLoginFlow == null)
                 {
-                    if (userSession.IsInternal || userSession.IsSubAcc || forceLoginDate == null)
+                    if (userSession.IsInternal || GetForceLoginDate() == null)
                     {
                         isOfferForceLoginFlow = false;
                     }
                     else
                     {
-                        var isIgnore = forceLoginIgnoreList.Count > 0
+                        var isIgnore = AppSettings.ForceLoginNicknameIgnoreList.Count > 0
                             && new[]
                             {
                                 userSession.SRecommendId,
                                 userSession.MRecommendId,
                                 userSession.ARecommendId,
                                 userSession.CustId
-                            }.Any(id => id != 0 && forceLoginIgnoreList.ContainsKey(id));
+                            }.Any(id => id != 0 && AppSettings.ForceLoginNicknameIgnoreList.ContainsKey(id));
 
                         isOfferForceLoginFlow = isIgnore
                             ? false
@@ -113,7 +112,7 @@
         {
             get
             {
-                isRecommendLoginByNickname = isRecommendLoginByNickname ?? IsOfferForceLoginFlow && forceLoginDate.Value > DateTime.Today;
+                isRecommendLoginByNickname = isRecommendLoginByNickname ?? IsOfferForceLoginFlow && GetForceLoginDate().Value > DateTime.Today;
 
                 return isRecommendLoginByNickname.Value;
             }
@@ -123,7 +122,7 @@
         {
             get
             {
-                isForceLoginByNickname = isForceLoginByNickname ?? IsOfferForceLoginFlow && forceLoginDate.Value <= DateTime.Today;
+                isForceLoginByNickname = isForceLoginByNickname ?? IsOfferForceLoginFlow && GetForceLoginDate().Value <= DateTime.Today;
 
                 return isForceLoginByNickname.Value;
             }
@@ -133,11 +132,15 @@
         {
             get
             {
-                isOfferForceLoginAndOverDueDate = isOfferForceLoginAndOverDueDate ?? IsOfferForceLogin && forceLoginDate.Value <= DateTime.Today;
+                isOfferForceLoginAndOverDueDate = isOfferForceLoginAndOverDueDate ?? IsOfferForceLogin && GetForceLoginDate().Value <= DateTime.Today;
 
                 return isOfferForceLoginAndOverDueDate.Value;
             }
         }
-        
+
+        private DateTime? GetForceLoginDate()
+            => userSession.IsSubAcc
+            ? AppSettings.ForceLoginNicknameDate4SubAccount
+            : AppSettings.ForceLoginNicknameDate;
     }
 }
