@@ -900,7 +900,7 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
     <value>1st OU</value>
   </data>
   <data name="lbl1x2" xml:space="preserve">
-    <value>1 X 2</value>
+    <value>1X2</value>
   </data>
   <data name="lblA" xml:space="preserve">
     <value>A = Agent</value>
@@ -2182,7 +2182,7 @@ Notes: your password is cAsE sEnSiTiVe</value>
     <value>Comm1: applies to Asian HDP, Over Under and Odd Even bets.</value>
   </data>
   <data name="tipcomm2" xml:space="preserve">
-    <value>Comm2: applies to 1x2 bets.</value>
+    <value>Comm2: applies to 1X2 bets.</value>
   </data>
   <data name="tipcomm3" xml:space="preserve">
     <value>Comm3: applies to other bets.</value>

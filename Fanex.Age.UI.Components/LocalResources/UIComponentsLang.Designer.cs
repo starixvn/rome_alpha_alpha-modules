@@ -2424,7 +2424,7 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1 X 2.
+        ///   Looks up a localized string similar to 1X2.
         /// </summary>
         internal static string lbl1x2 {
             get {
@@ -6278,7 +6278,7 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Comm2: applies to 1x2 bets..
+        ///   Looks up a localized string similar to Comm2: applies to 1X2 bets..
         /// </summary>
         internal static string tipcomm2 {
             get {
