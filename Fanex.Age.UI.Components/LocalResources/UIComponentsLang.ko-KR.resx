@@ -2318,7 +2318,7 @@ Please use the form below to set your Security Code now.</value>
     <value>버추얼 사이클링</value>
   </data>
   <data name="editKeno" xml:space="preserve">
-    <value>Edit Keno</value>
+    <value>Edit RNG Keno</value>
   </data>
   <data name="VirtualSpeedway" xml:space="preserve">
     <value>버추얼 스피드웨이</value>
@@ -2351,7 +2351,7 @@ Please use the form below to set your Security Code now.</value>
     <value>Click to view PT Info</value>
   </data>
   <data name="editmultkeno" xml:space="preserve">
-    <value>Edit Multiple Keno</value>
+    <value>Edit Multiple RNG Keno</value>
   </data>
   <data name="detailtooltip" xml:space="preserve">
     <value>Click to view result detail</value>

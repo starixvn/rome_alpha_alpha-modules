@@ -2015,7 +2015,7 @@ Notes: your password is cAsE sEnSiTiVe</value>
     <value>仮想グレーハウンドレース</value>
   </data>
   <data name="Keno" xml:space="preserve">
-    <value>Keno</value>
+    <value>RNG Keno</value>
   </data>
   <data name="VirtualCycling" xml:space="preserve">
     <value>가상온라인 사이클링</value>
@@ -2024,7 +2024,7 @@ Notes: your password is cAsE sEnSiTiVe</value>
     <value>가상온라인 오토바이경주</value>
   </data>
   <data name="editKeno" xml:space="preserve">
-    <value>Edit Keno</value>
+    <value>Edit RNG Keno</value>
   </data>
   <data name="ACommPercent" xml:space="preserve">
     <value>AComm%</value>

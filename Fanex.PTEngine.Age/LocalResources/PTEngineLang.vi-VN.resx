@@ -487,7 +487,7 @@
     <value>Edit Gold Deluxe</value>
   </data>
   <data name="editKeno" xml:space="preserve">
-    <value>Edit Keno</value>
+    <value>Edit RNG Keno</value>
   </data>
   <data name="editmultcs" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho Casino</value>
@@ -505,7 +505,7 @@
     <value>Tùy chỉnh đồng loạt cho Virtual Sports</value>
   </data>
   <data name="editmultkeno" xml:space="preserve">
-    <value>Edit Multiple Keno</value>
+    <value>Edit Multiple RNG Keno</value>
   </data>
   <data name="editmultsportbook" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho Sportsbook</value>
@@ -738,7 +738,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Jungle Wild Mode</value>
   </data>
   <data name="Keno" xml:space="preserve">
-    <value>Keno</value>
+    <value>RNG Keno</value>
   </data>
   <data name="last" xml:space="preserve">
     <value>Cuối cùng</value>
