@@ -14,6 +14,13 @@ namespace Sunplus.Agent.Model.BL.Transfer
         {
         }
 
+        public DataTable GetSuperInAutomateTransferAll(int custId)
+        {
+            var dao = new TransferDAO();
+
+            return dao.GetSuperInAutomateTransferAll(custId);
+        }
+
         public int UpdateTransferYesBalance(string custId, double amt, bool isFullTransfer, bool isChecked, string status, string ip, out string errMsg)
         {
             if (!isChecked)

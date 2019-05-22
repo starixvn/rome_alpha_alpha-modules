@@ -10,6 +10,17 @@ namespace Sunplus.Agent.Model.DL.Transfer
     [Obsolete("Should rename to Sunplus.Agent.Model.Transfer")]
     public class TransferDAO : DAOBase
     {
+        public DataTable GetSuperInAutomateTransferAll(int custId)
+        {
+            var htb = new Hashtable
+            {
+                { "custid", custId }
+            };
+
+            var rs = ExecSp("Acc_CustomerSelSuperAutoTransfer", htb);
+
+            return rs.ResultSet.Tables[0];
+        }
         public int Age_Transfer_Ins_Ag(string fromCustId, string toUserName, int creatorId, int subAccId, string ip, double amt, bool isFullTransfer, string superIdStransferTotal, string language, bool isAllDayBalTransfer, out string errMsg)
         {
             // isYes=1 --> Only Yesterday
