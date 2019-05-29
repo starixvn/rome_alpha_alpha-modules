@@ -593,7 +593,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Edit Gold Deluxe</value>
   </data>
   <data name="editKeno" xml:space="preserve">
-    <value>Edit Keno</value>
+    <value>Edit RNG Keno</value>
   </data>
   <data name="editmultcs" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho Casino</value>
@@ -611,7 +611,7 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Tùy chỉnh đồng loạt cho Virtual Sports</value>
   </data>
   <data name="editmultkeno" xml:space="preserve">
-    <value>Edit Multiple Keno</value>
+    <value>Edit Multiple RNG Keno</value>
   </data>
   <data name="editmultsportbook" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho Sportsbook</value>
@@ -858,7 +858,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Jungle Wild Mode</value>
   </data>
   <data name="Keno" xml:space="preserve">
-    <value>Keno</value>
+    <value>RNG Keno</value>
   </data>
   <data name="last" xml:space="preserve">
     <value>Cuối cùng</value>
@@ -1116,7 +1116,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Cho phép Casino</value>
   </data>
   <data name="lblEnableKeno" xml:space="preserve">
-    <value>Enable Keno</value>
+    <value>Enable RNG Keno</value>
   </data>
   <data name="lblEnableNumber" xml:space="preserve">
     <value>Cho phép Number Game</value>

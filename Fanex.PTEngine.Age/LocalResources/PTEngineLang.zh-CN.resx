@@ -319,7 +319,7 @@
     <value>上半场大小盘</value>
   </data>
   <data name="lbl1x2" xml:space="preserve">
-    <value>1 X 2</value>
+    <value>独赢盘</value>
   </data>
   <data name="lblABalInfo" xml:space="preserve">
     <value>代理馀额资讯</value>
@@ -598,7 +598,7 @@
     <value>星期一</value>
   </data>
   <data name="moneyline" xml:space="preserve">
-    <value>独赢</value>
+    <value>胜负盘</value>
   </data>
   <data name="MotorSports" xml:space="preserve">
     <value>赛车</value>
@@ -1093,7 +1093,7 @@
     <value>修改多重体育博彩</value>
   </data>
   <data name="lbl1x2Comm" xml:space="preserve">
-    <value>1x2 佣金</value>
+    <value>独赢盘佣金</value>
   </data>
   <data name="pcomm3" xml:space="preserve">
     <value>会员佣金(3)</value>
@@ -1102,7 +1102,7 @@
     <value>佣金1：适用于亚洲让球，大小和单双投注。</value>
   </data>
   <data name="tipcomm2" xml:space="preserve">
-    <value>佣金2：适用于1x2投注。</value>
+    <value>佣金2：适用于獨贏投注。</value>
   </data>
   <data name="tipcomm3" xml:space="preserve">
     <value>佣金3：适用于其它投注。</value>

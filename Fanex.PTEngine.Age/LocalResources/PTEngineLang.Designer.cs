@@ -1178,7 +1178,7 @@ namespace Fanex.PTEngine.Age.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Keno.
+        ///   Looks up a localized string similar to Edit RNG Keno.
         /// </summary>
         internal static string editKeno {
             get {
@@ -1241,7 +1241,7 @@ namespace Fanex.PTEngine.Age.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Multiple Keno.
+        ///   Looks up a localized string similar to Edit Multiple RNG Keno.
         /// </summary>
         internal static string editmultkeno {
             get {
@@ -1944,7 +1944,7 @@ namespace Fanex.PTEngine.Age.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Keno.
+        ///   Looks up a localized string similar to RNG Keno.
         /// </summary>
         internal static string Keno {
             get {
@@ -2034,7 +2034,7 @@ namespace Fanex.PTEngine.Age.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1 X 2.
+        ///   Looks up a localized string similar to 1X2.
         /// </summary>
         internal static string lbl1x2 {
             get {
@@ -2043,7 +2043,7 @@ namespace Fanex.PTEngine.Age.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1x2 Comm.
+        ///   Looks up a localized string similar to 1X2 Comm.
         /// </summary>
         internal static string lbl1x2Comm {
             get {
@@ -5348,7 +5348,7 @@ namespace Fanex.PTEngine.Age.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Comm2: applies to 1x2 bets..
+        ///   Looks up a localized string similar to Comm2: applies to 1X2 bets..
         /// </summary>
         internal static string tipcomm2 {
             get {

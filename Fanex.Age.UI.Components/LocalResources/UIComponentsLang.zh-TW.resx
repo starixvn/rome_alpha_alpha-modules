@@ -346,7 +346,7 @@
     <value>上半場大小盤</value>
   </data>
   <data name="lbl1x2" xml:space="preserve">
-    <value>1 X 2</value>
+    <value>獨贏盤</value>
   </data>
   <data name="lblABalInfo" xml:space="preserve">
     <value>代理餘額資訊</value>
@@ -658,7 +658,7 @@
     <value>星期一</value>
   </data>
   <data name="moneyline" xml:space="preserve">
-    <value>獨贏</value>
+    <value>勝負盤</value>
   </data>
   <data name="MotorSports" xml:space="preserve">
     <value>賽車</value>
@@ -1123,7 +1123,7 @@
     <value>同步</value>
   </data>
   <data name="lblML2" xml:space="preserve">
-    <value>獨贏</value>
+    <value>勝負盤</value>
   </data>
   <data name="messageIDHeader" xml:space="preserve">
     <value>代碼</value>
@@ -1267,7 +1267,7 @@
     <value>佣金1：適用於亞洲讓球，大小和單雙投注。</value>
   </data>
   <data name="tipcomm2" xml:space="preserve">
-    <value>佣金2：適用於1x2投注。</value>
+    <value>佣金2：適用於獨贏投注。</value>
   </data>
   <data name="tipcomm3" xml:space="preserve">
     <value>佣金3：適用於其它投注。</value>
