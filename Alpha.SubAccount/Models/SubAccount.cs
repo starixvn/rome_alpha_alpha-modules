@@ -4,7 +4,7 @@ namespace Sunplus.Agent.Model.Entities
     using System.Data;
     using Alpha.SubAccount.Models;
 
-    // SP return subaccid, username, firstname, lastname, createdate, isnull(closed, 0) closed, PageAccess
+    // SP return subaccid, username, nickname, firstname, lastname, createdate, isnull(closed, 0) closed, PageAccess
     public class SubAccount : IEntity
     {
         public SubAccount(DataRow dataRow)
@@ -16,6 +16,12 @@ namespace Sunplus.Agent.Model.Entities
         {
             this.Id = (int)dataRow["subaccid"];
             this.UserName = dataRow["username"] as string;
+
+            if (ColumnExists(dataRow, "nickname"))
+            {
+                this.NickName = dataRow["nickname"] as string;
+            }
+
             this.FirstName = dataRow["firstname"] as string;
             this.LastName = dataRow["lastname"] as string;
             if (isGetCreatedDate)
@@ -36,6 +42,12 @@ namespace Sunplus.Agent.Model.Entities
         {
             this.Id = (int)reader["subaccid"];
             this.UserName = reader["username"] as string;
+
+            if (ColumnExists(reader, "nickname"))
+            {
+                this.NickName = reader["nickname"] as string;
+            }
+
             this.FirstName = reader["firstname"] as string;
             this.LastName = reader["lastname"] as string;
             if (isGetCreatedDate)
@@ -56,6 +68,8 @@ namespace Sunplus.Agent.Model.Entities
 
         public string UserName { get; set; }
 
+        public string NickName { get; set; }
+
         public string PassWord { get; set; }
 
         public string FirstName { get; set; }
@@ -71,6 +85,22 @@ namespace Sunplus.Agent.Model.Entities
         public static implicit operator SubAccount(DataRow dataRow)
         {
             return new SubAccount(dataRow);
+        }
+
+        private static bool ColumnExists(DataRow dataRow, string columnName)
+            => dataRow.Table.Columns.Contains(columnName);
+
+        private static bool ColumnExists(IDataReader reader, string columnName)
+        {
+            for (int i = 0, fieldCount = reader.FieldCount; i < fieldCount; i++)
+            {
+                if (reader.GetName(i).Equals(columnName, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
