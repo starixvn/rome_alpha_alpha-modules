@@ -6,6 +6,7 @@ namespace Sunplus.Agent.Model.DL.Authorization
     using System.Data;
     using System.Linq;
     using System.Web;
+    using Auth;
     using Fanex.Common;
     using Fanex.Logging.Extensions.Web;
     using Sunplus.Agent.Model.DL.Base;
@@ -851,6 +852,25 @@ namespace Sunplus.Agent.Model.DL.Authorization
             DataTable dataTable = ExecSpTable("Age_CustSetting_BetChoiceLimitCheck", parameters);
 
             return Converter.To<bool>(dataTable.Rows[0][0]);
+        }
+
+        public KickoutInfo Recheckin(int onlineUserId)
+        {
+            if (onlineUserId <= 0)
+            {
+                return new KickoutInfo(true);
+            }
+
+            var outputs = ExecSpHashtable(
+                "Acc_ReCheckin",
+                new Hashtable
+                {
+                    ["on_userid"] = onlineUserId
+                });
+
+            return new KickoutInfo(
+                Convert.ToBoolean(outputs["iskickedout"]),
+                Convert.ToByte(outputs["kickoutreason"]));
         }
     }
 }

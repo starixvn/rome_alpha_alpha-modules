@@ -1,6 +1,5 @@
 ﻿namespace Alpha.Auth.Services.Impl
 {
-    using System;
     using System.Linq;
     using Alpha.Auth.DataAccesses;
     using Alpha.Auth.DataAccesses.Impl;
@@ -220,26 +219,26 @@
         ////    return subAccountPermission;
         ////}
 
-        public bool IsKickedOut()
+        public KickoutInfo IsKickedOut()
         {
             if (_requestContext.UserSession.IsInternal)
             {
-                return false;
+                return new KickoutInfo(false);
             }
 
             if (_authorizationSection.IgnoreRecheckinCustIds.Contains(_requestContext.UserSession.CustId))
             {
-                return false;
+                return new KickoutInfo(false);
             }
 
             var onlineUserId = _requestContext.UserSession.OnUserId;
 
             if (onlineUserId <= 0)
             {
-                return true;
+                return new KickoutInfo(true);
             }
 
-            var isKickedOut = _cachingService.GetOrAdd(
+            var kickoutInfo = _cachingService.GetOrAdd(
                 string.Format(RecheckInCacheKey, _requestContext.UserSession.CustId, _requestContext.UserSession.SubAccId, onlineUserId),
                 () =>
                 {
@@ -247,7 +246,7 @@
                 },
                 _cachedExpireTime);
 
-            return isKickedOut;
+            return kickoutInfo;
         }
     }
 }

@@ -231,6 +231,7 @@
   <ItemGroup>
     <Compile Include="AuthorizationBO.cs" />
     <Compile Include="AuthorizationDAO.cs" />
+    <Compile Include="KickoutInfo.cs" />
     <Compile Include="PageFunction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatisticBO.cs" />

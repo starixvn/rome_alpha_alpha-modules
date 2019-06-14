@@ -147,6 +147,7 @@
     <Compile Include="Filters\CheckBelongingFilter.cs" />
     <Compile Include="Models\BelongingInfo.cs" />
     <Compile Include="Models\IRequestContext.cs" />
+    <Compile Include="Models\KickoutInfo.cs" />
     <Compile Include="Models\RequestContext.cs" />
     <Compile Include="Services\ICachingService.cs" />
     <Compile Include="Services\Impl\CachingService.cs" />

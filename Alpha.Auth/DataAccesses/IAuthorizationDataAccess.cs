@@ -1,6 +1,6 @@
 ﻿namespace Alpha.Auth.DataAccesses
 {
-    using Alpha.Auth.Models;
+    using Models;
 
     public interface IAuthorizationDataAccess
     {
@@ -20,6 +20,6 @@
             int subAccountId,
             bool isInternal);
 
-        bool IsKickedOut(int onlineUserId);
+        KickoutInfo IsKickedOut(int onlineUserId);
     }
 }

@@ -134,19 +134,21 @@
             }
         }
 
-        public bool IsKickedOut(int onlineUserId)
+        public KickoutInfo IsKickedOut(int onlineUserId)
         {
             using (var objectDb = new ObjectDb("Age_ReCheckin"))
             {
                 dynamic inputParams = new Hashtable
                 {
                     { "on_userid", onlineUserId },
-                    { "iskickedout", 0 }
+                    { "iskickedout", 0 },
+                    { "kickoutreason", 0 }
                 };
 
                 objectDb.ExecuteNonQuery(inputParams);
+                var outputParams = objectDb.GetOuputParams();
 
-                return Converter.ToBool(objectDb.GetOuputParams()["iskickedout"]);
+                return new KickoutInfo(Converter.ToBool(outputParams["iskickedout"]), Convert.ToByte(outputParams["kickoutreason"]));
             }
         }
     }

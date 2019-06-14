@@ -7,7 +7,6 @@
     using System.Web.Security;
     using Configurations;
     using Services.Impl;
-    using Sunplus.Agent.Model.Entities;
     using Web.Helpers;
 
     /// <summary>
@@ -43,10 +42,14 @@
                     return;
                 }
 
-                if (!AppSettings.IsDisabledCheckDuplicationLogin
-                    && authorizationService.IsKickedOut())
+                if (!AppSettings.IsDisabledCheckDuplicationLogin)
                 {
-                    KickoutUser(filterContext, "DuplicationLogin");
+                    var kickOutInfo = authorizationService.IsKickedOut();
+
+                    if (kickOutInfo.IsKickedOut)
+                    {
+                        KickoutUser(filterContext, kickOutInfo.KickOutReason == 1 ? "KickoutByForceChangePassword" : "DuplicationLogin");
+                    }
                 }
             }
         }
