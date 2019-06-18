@@ -4,6 +4,7 @@
     using System.Configuration;
     using System.IO;
     using System.Runtime.Serialization.Json;
+    using System.Text;
     using System.Web;
 
     public static class AppSettings
@@ -31,8 +32,9 @@
                 var configFilePath = HttpContext.Current.Server.MapPath(SecurityCodeConfigFilePath);
                 if (File.Exists(configFilePath))
                 {
-                    using (Stream stream = File.OpenRead(configFilePath))
+                    using (StreamReader sr = new StreamReader(configFilePath))
                     {
+                        MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(sr.ReadToEnd()));
                         var serializer = new DataContractJsonSerializer(typeof(SecurityCodeConfig));
                         SecurityCodeConfig = (SecurityCodeConfig)serializer.ReadObject(stream);
                     }
