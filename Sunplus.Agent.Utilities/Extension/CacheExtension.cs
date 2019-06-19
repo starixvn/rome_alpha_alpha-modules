@@ -2,6 +2,7 @@
 {
     using Couchbase;
     using Enyim.Caching.Memcached;
+    using System;
 
     /// <summary>
     /// Cache Extension.
@@ -26,14 +27,16 @@
         /// <param name="key">Cache key.</param>
         /// <param name="value">Cache value.</param>
         /// <param name="expireTime">Expire time [Second].</param>
-        public static void Set(string key, object value, int expireTime = 1200)
+        public static void Set(string key, object value, int expireTime = 0)
         {
-            _couchbaseClient.ExecuteStore(
-                StoreMode.Set,
-                key,
-                value,
-                Couchbase.Operations.PersistTo.One,
-                Couchbase.Operations.ReplicateTo.Two);
+            if (expireTime == 0)
+            {
+                _couchbaseClient.ExecuteStore(StoreMode.Set, key, value);
+            }
+            else
+            {
+                _couchbaseClient.ExecuteStore(StoreMode.Set, key, value, DateTime.Now.AddSeconds(expireTime));
+            }
         }
 
         public static void Remove(string key)

@@ -735,5 +735,13 @@ namespace Sunplus.Agent.Model.BL.Definitions
         {
             return GetValue("EnableProduct-" + product) == "1";
         }
+
+        public static int MultipleTransferCacheTimeOut
+        {
+            get
+            {
+                return int.Parse(GetValue("MultipleTransferCacheTimeOut"));
+            }
+        }
     }
 }
