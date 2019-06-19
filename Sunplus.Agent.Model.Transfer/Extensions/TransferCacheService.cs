@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Fanex.Logging;
 using Newtonsoft.Json;
+using Sunplus.Agent.Model.BL.Definitions;
 using Sunplus.Agent.Model.Transfer.Models;
 using Sunplus.Agent.Utilities.Extension;
 
@@ -32,7 +33,7 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
 
         public bool Set(string cacheKey, List<TransferCacheModel> value)
         {
-            CacheExtension.Set(cacheKey, value);
+            CacheExtension.Set(cacheKey, value, AppSettings.MultipleTransferCacheTimeOut);
             if (!CompareAfterSet(cacheKey, value))
             {
                 Logger.Log.Error(ErrorMessageFormat(value));
