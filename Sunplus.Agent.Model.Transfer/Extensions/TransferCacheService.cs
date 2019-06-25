@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Enyim.Caching.Memcached.Results;
 using Fanex.Logging;
 using Newtonsoft.Json;
 using Sunplus.Agent.Model.BL.Definitions;
 using Sunplus.Agent.Model.Transfer.Models;
 using Sunplus.Agent.Utilities.Extension;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace Sunplus.Agent.Model.Transfer.Extensions
 {
@@ -17,6 +19,8 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
 
         TransferCacheModel CacheContains(List<TransferCacheModel> listTransferCacheModel, int custId);
 
+        TransferCacheModel CacheContainsExcludeSelf(List<TransferCacheModel> listTransferCacheModel, int selfAdminId, int custId);
+
         void CacheAdd(List<TransferCacheModel> listTransferCacheModel, int custId, int adminId, string adminName);
 
         void CacheRemove(List<TransferCacheModel> listTransferCacheModel, int custId);
@@ -26,6 +30,19 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
 
     public class TransferCacheServiceImplement : TransferCacheService
     {
+        private int _adminId;
+
+        private string _adminName = "Agent";
+
+        public TransferCacheServiceImplement() : this(0, string.Empty)
+        { }
+
+        public TransferCacheServiceImplement(int adminId, string adminName)
+        {
+            _adminId = adminId;
+            _adminName = adminName;
+        }
+
         public List<TransferCacheModel> Get(string cacheKey)
         {
             return CacheExtension.Get<List<TransferCacheModel>>(cacheKey);
@@ -33,10 +50,15 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
 
         public bool Set(string cacheKey, List<TransferCacheModel> value)
         {
-            CacheExtension.Set(cacheKey, value, AppSettings.MultipleTransferCacheTimeOut);
+            var result = CacheExtension.Set(cacheKey, value, AppSettings.MultipleTransferCacheTimeOut);
+            if (AppSettings.EnableTransferLogInfo)
+            {
+                LogService.Info(InfoMessageFormat(value, result), "Alpha-Transfer");
+            }
+
             if (!CompareAfterSet(cacheKey, value))
             {
-                Logger.Log.Error(ErrorMessageFormat(value));
+                LogService.Error(ErrorMessageFormat(value));
                 return false;
             }
 
@@ -53,6 +75,19 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
             foreach (var item in listTransferCacheModel)
             {
                 if (item.CustIds.Contains(0) || item.CustIds.Contains(custId))
+                {
+                    return item;
+                }
+            }
+
+            return null;
+        }
+
+        public TransferCacheModel CacheContainsExcludeSelf(List<TransferCacheModel> listTransferCacheModel, int selfAdminId, int custId)
+        {
+            foreach (var item in listTransferCacheModel)
+            {
+                if (item.AdminId != selfAdminId && (item.CustIds.Contains(0) || item.CustIds.Contains(custId)))
                 {
                     return item;
                 }
@@ -133,12 +168,9 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
         }
 
         private string ErrorMessageFormat(List<TransferCacheModel> value)
-        {
-            string msg = "[Agent Transfer Process] Couchbase cannot set value: ";
-            msg += JsonConvert.SerializeObject(value);
-            return msg;
-        }
+            => $"[Agent Transfer Process] Couchbase cannot set value: {JsonConvert.SerializeObject(value)}";
 
-
+        private string InfoMessageFormat(List<TransferCacheModel> value, IStoreOperationResult result)
+            => $"[Agent Transfer Process - PID: {Thread.CurrentThread.ManagedThreadId}] {_adminName}({_adminId}) set couchbase value to: {JsonConvert.SerializeObject(value)}; CAS: {JsonConvert.SerializeObject(result)}";
     }
 }

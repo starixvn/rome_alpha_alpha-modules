@@ -35,7 +35,7 @@ namespace Sunplus.Agent.Model.Transfer.Services
             dataTransfer = bo.GetDataTransfer(request.Status, request.UserName, request.IsYesterdayBalance);
             transferStatus = new TransferStatus();
             request.IsClose = GetStatus();
-            transferCacheService = new TransferCacheServiceImplement();
+            transferCacheService = new TransferCacheServiceImplement(multipleTransferMemberRequest.AdminId, multipleTransferMemberRequest.AdminName);
             cacheKey = string.Format(TransferConstants.AgentTransferMemberListCache, request.AgentId);
         }
 
@@ -225,8 +225,8 @@ namespace Sunplus.Agent.Model.Transfer.Services
                 {
                     foreach (int custid in listCustId)
                     {
-                        var adminsTransferAll = transferCacheService.CacheContains(listMemberTransferCache, 0);
-                        var adminsTransferConcurrent = transferCacheService.CacheContains(listMemberTransferCache, custid);
+                        var adminsTransferAll = transferCacheService.CacheContainsExcludeSelf(listMemberTransferCache, request.AdminId, 0);
+                        var adminsTransferConcurrent = transferCacheService.CacheContainsExcludeSelf(listMemberTransferCache, request.AdminId, custid);
                         if (adminsTransferAll != null)
                         {
                             listInvalidCustId.Add(custid);
@@ -259,7 +259,7 @@ namespace Sunplus.Agent.Model.Transfer.Services
             }
             catch (Exception ex)
             {
-                Logger.Log.Error(this.GetCacheErrorMessage(ex));
+                Logger.Log.Error(this.GetCacheErrorMessage(ex), ex);
                 return false;
             }
         }

@@ -79,7 +79,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
                 return GetValue("EnableKeno") == "1";
             }
         }
-        
+
         public static bool IsEnableMemberWinLimit
         {
             get
@@ -416,7 +416,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
                 return int.Parse(GetValue("DisabledAutoMaster")) != 0;
             }
         }
-        
+
         /// <summary>
         /// Is local test.
         /// </summary>
@@ -532,7 +532,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
             {
                 return int.Parse(GetValue("Disabled_NumberCommission")) == 1;
             }
-        }        
+        }
 
         /// <summary>
         /// Disabled and Enabled Number Game status
@@ -741,6 +741,22 @@ namespace Sunplus.Agent.Model.BL.Definitions
             get
             {
                 return int.Parse(GetValue("MultipleTransferCacheTimeOut"));
+            }
+        }
+
+        public static bool EnableTransferLogInfo
+        {
+            get
+            {
+                return int.Parse(GetValue("EnableTransferLogInfo")) != 0;
+            }
+        }
+
+        public static int TransferLogCategory
+        {
+            get
+            {
+                return int.Parse(GetValue("TransferLogCategory"));
             }
         }
     }
