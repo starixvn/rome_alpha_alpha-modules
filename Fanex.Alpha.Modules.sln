@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Age.UI", "Fanex.Age.UI\Fanex.Age.UI.csproj", "{8CF3E76A-81DB-4D8C-B999-9B4D428591F5}"
 EndProject
@@ -107,7 +107,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.SubAccount", "Alpha.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.SubAccount.Tests", "Alpha.SubAccount.Tests\Alpha.SubAccount.Tests.csproj", "{AEA30151-EAE2-427B-854D-C354A82BF7F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.BetDetails.BetBuilder", "Fanex.BetDetails.BetBuilder\Fanex.BetDetails.BetBuilder.csproj", "{AA87BF9F-E979-4AAB-9BAE-FEF50FD22056}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Logging", "Alpha.Logging\Alpha.Logging.csproj", "{A23B4240-E165-45D9-9301-0A35C3433E4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -462,14 +462,14 @@ Global
 		{AEA30151-EAE2-427B-854D-C354A82BF7F6}.Debug-NAP|Any CPU.Build.0 = Debug|Any CPU
 		{AEA30151-EAE2-427B-854D-C354A82BF7F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEA30151-EAE2-427B-854D-C354A82BF7F6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA87BF9F-E979-4AAB-9BAE-FEF50FD22056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA87BF9F-E979-4AAB-9BAE-FEF50FD22056}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA87BF9F-E979-4AAB-9BAE-FEF50FD22056}.Debug-Alpha|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA87BF9F-E979-4AAB-9BAE-FEF50FD22056}.Debug-Alpha|Any CPU.Build.0 = Debug|Any CPU
-		{AA87BF9F-E979-4AAB-9BAE-FEF50FD22056}.Debug-NAP|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA87BF9F-E979-4AAB-9BAE-FEF50FD22056}.Debug-NAP|Any CPU.Build.0 = Debug|Any CPU
-		{AA87BF9F-E979-4AAB-9BAE-FEF50FD22056}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA87BF9F-E979-4AAB-9BAE-FEF50FD22056}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A23B4240-E165-45D9-9301-0A35C3433E4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A23B4240-E165-45D9-9301-0A35C3433E4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A23B4240-E165-45D9-9301-0A35C3433E4B}.Debug-Alpha|Any CPU.ActiveCfg = Debug|Any CPU
+		{A23B4240-E165-45D9-9301-0A35C3433E4B}.Debug-Alpha|Any CPU.Build.0 = Debug|Any CPU
+		{A23B4240-E165-45D9-9301-0A35C3433E4B}.Debug-NAP|Any CPU.ActiveCfg = Debug|Any CPU
+		{A23B4240-E165-45D9-9301-0A35C3433E4B}.Debug-NAP|Any CPU.Build.0 = Debug|Any CPU
+		{A23B4240-E165-45D9-9301-0A35C3433E4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A23B4240-E165-45D9-9301-0A35C3433E4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -522,6 +522,9 @@ Global
 		{D07D42D2-EC3E-4DCC-8AD7-7A9DBBF36D57} = {B0039864-7DF1-4AC1-9367-571915A28E62}
 		{C15BD223-4E21-46A6-BD52-768046CF60EB} = {F509A529-DCB4-4682-B755-E6F58929E224}
 		{AEA30151-EAE2-427B-854D-C354A82BF7F6} = {8EF59B32-3C5D-4AAD-98E0-059FAC1F1539}
-		{AA87BF9F-E979-4AAB-9BAE-FEF50FD22056} = {F680CDFF-832D-4599-BD23-CD1D11269E47}
+		{A23B4240-E165-45D9-9301-0A35C3433E4B} = {F509A529-DCB4-4682-B755-E6F58929E224}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C870D1EF-7756-43B1-9AA4-F8FDEF9CBA4B}
 	EndGlobalSection
 EndGlobal
