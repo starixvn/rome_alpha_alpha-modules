@@ -136,21 +136,7 @@
                         </span><= <span data-bind="text: customer.credit"
                                         id="lblMemberMaxCredit"></span>
                     </div>
-                    <div class="customerInfoBlock3">
-                        <label for="suspended">
-                            {static:LocalResources.PTEngineLang.suspended}
-                        </label>
-                    </div>
-                    <div class="customerInfoBlock4">
-                        <input name="suspended" id="suspended" type="checkbox" data-bind="checked: customer.statusSetting.suspended, enable: (customer.statusSetting.uplineSuspended || customer.statusSetting.uplineClosed) ? false : true" />
-                    </div>
-                </div>
-                <!--Close-->
-                <div class="clearBlock">
-                    <div class="customerInfoBlock1">
-                    </div>
-                    <div class="customerInfoBlock2NoBorderLeft">
-                    </div>
+                    <!--Close-->
                     <div class="customerInfoBlock3">
                         <label for="closed">
                             {static:LocalResources.PTEngineLang.closed}
@@ -159,8 +145,14 @@
                     <div class="customerInfoBlock4">
                         <input name="closed" id="closed" type="checkbox" data-bind="checked: customer.statusSetting.closed, enable: customer.statusSetting.uplineClosed ? false : true" />
                     </div>
+                    <!--/Close-->
+                    <!--EmptyClosedBlock-->
+                    <div class="customerInfoBlock3">
+                    </div>
+                    <div class="customerInfoBlock4">
+                    </div>
+                    <!--/EmptyClosedBlock-->
                 </div>
-                <!--/Close-->
             </div>
             {commisstionControl}
             <!--TransferConditionBlock-->

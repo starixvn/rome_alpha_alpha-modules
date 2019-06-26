@@ -145,32 +145,22 @@
                         <input name="closed" id="closed" type="checkbox" data-bind="checked: customer.statusSetting.closed, enable: customer.statusSetting.uplineClosed ? false : true" />
                     </div>
                 </div>
+                <!--Captcha-->
                 <div class="clearBlock">
-                    <div class="customerInfoBlock1">
-                        <label for="suspended">
-                            {static:LocalResources.PTEngineLang.suspended}
-                        </label>
-                    </div>
-                    <div class="customerInfoBlock2">
-                        <input name="suspended" id="suspended" type="checkbox" data-bind="checked: customer.statusSetting.suspended, enable: (customer.statusSetting.uplineSuspended || customer.statusSetting.uplineClosed) ? false : true" />
-                    </div>
-                    <!--Captcha-->
-                    <div class="customerInfoBlock3" onclick="Fanex.Customer.NewMember.ReLoadNewCaptcha()">
+                    <div class="customerInfoBlock1" onclick="Fanex.Customer.NewMember.ReLoadNewCaptcha()">
                         <img src="../_Authorization/Handlers/Captcha.ashx" id="imgCaptCha" alt="" style="cursor: pointer;
                         height: 22px" />
                     </div>
-                    <div class="customerInfoBlock4">
+                    <div class="customerInfoBlock2">
                         <input name="textBoxCaptcha" id="textBoxCaptcha" class="textBoxInfo" type="text"
                                maxlength="4" autocomplete="off" style="width: 50px" />
                     </div>
-                    <!--/Captcha-->
-                    <!--NoCaptcha-->
                     <div class="customerInfoBlock3">
                     </div>
-                    <div class="customerInfoBlock4NoBorderLeft">
+                    <div class="customerInfoBlock4">
                     </div>
-                    <!--/NoCaptcha-->
                 </div>
+                <!--/Captcha-->
             </div>
             <!--CommissionBlock-->
             <div class="commission">

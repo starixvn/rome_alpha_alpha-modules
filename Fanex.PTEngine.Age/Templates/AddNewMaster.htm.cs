@@ -73,24 +73,22 @@ namespace Fanex.PTEngine.Age
 			protected static string s47{get{return LocalResources.PTEngineLang.closed;}}
 			protected static string s48 = "</label></div><div class=\"customerInfoBlock2\"><input name=\"closed\" id=\"closed\" type=\"checkbox\" data-bind=\"checked: customer.statusSetting.closed\" /></div></div><div id=\"allowautoptId\"><div class=\"customerInfoBlock1\"><label for=\"allowautopt\">";
 			protected static string s49{get{return LocalResources.PTEngineLang.allowautopt;}}
-			protected static string s50 = "</label></div><div class=\"customerInfoBlock2\"><input name=\"allowautopt\" id=\"allowautopt\" type=\"checkbox\" data-bind=\"checked: customer.statusSetting.disableAutoMPT\" /></div></div><div class=\"customerInfoBlock3\"><label for=\"suspended\">";
-			protected static string s51{get{return LocalResources.PTEngineLang.suspended;}}
-			protected static string s52 = "</label></div><div class=\"customerInfoBlock4\"><input name=\"suspended\" id=\"suspended\" type=\"checkbox\" data-bind=\"checked: customer.statusSetting.suspended, enable: context.targetCustId > 0 ? true : !customer.statusSetting.suspended\" /></div></div></div>";
+			protected static string s50 = "</label></div><div class=\"customerInfoBlock2\"><input name=\"allowautopt\" id=\"allowautopt\" type=\"checkbox\" data-bind=\"checked: customer.statusSetting.disableAutoMPT\" /></div></div><div class=\"customerInfoBlock3\"></div><div class=\"customerInfoBlock4\"></div></div></div>";
 			public string commisstionControl = "{commisstionControl}";
 			public AddNewMaster_TransferConditionBlock_Block TransferConditionBlock = new AddNewMaster_TransferConditionBlock_Block();
-			protected static string s53 = "<div class=\"clearBlock\"></div><br /><div class=\"headerBetSetting\">";
-			protected static string s54{get{return LocalResources.PTEngineLang.lblBetSetting;}}
-			protected static string s55 = "</div><div id=\"bettingLimitContainer\"></div><br /><div class=\"clearBlock\"></div><div class=\"headerPositionTaking\">";
-			protected static string s56{get{return LocalResources.PTEngineLang.positiontaking;}}
-			protected static string s57 = "<a class=\"infoIco\" href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
-			protected static string s58{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
-			protected static string s59 = "\"></a></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"buttonSubmit ";
+			protected static string s51 = "<div class=\"clearBlock\"></div><br /><div class=\"headerBetSetting\">";
+			protected static string s52{get{return LocalResources.PTEngineLang.lblBetSetting;}}
+			protected static string s53 = "</div><div id=\"bettingLimitContainer\"></div><br /><div class=\"clearBlock\"></div><div class=\"headerPositionTaking\">";
+			protected static string s54{get{return LocalResources.PTEngineLang.positiontaking;}}
+			protected static string s55 = "<a class=\"infoIco\" href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
+			protected static string s56{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
+			protected static string s57 = "\"></a></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"buttonSubmit ";
 			protected string t1_actionName;
-			protected static string s60 = "\">";
+			protected static string s58 = "\">";
 			protected string t2_actionName;
-			protected static string s61 = "</button></div></div></div></form>";
+			protected static string s59 = "</button></div></div></div></form>";
 			public AddNewMaster_ScriptBlock_Block ScriptBlock = new AddNewMaster_ScriptBlock_Block();
-			protected static string s62 = "</body></html>";
+			protected static string s60 = "</body></html>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -157,23 +155,21 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s48);
 					bd.Append(s49);
 					bd.Append(s50);
-					bd.Append(s51);
-					bd.Append(s52);
 					bd.Append(commisstionControl);
 					if(null != TransferConditionBlock) TransferConditionBlock.ToString(ref bd);
+					bd.Append(s51);
+					bd.Append(s52);
 					bd.Append(s53);
 					bd.Append(s54);
 					bd.Append(s55);
 					bd.Append(s56);
 					bd.Append(s57);
+					bd.Append(actionName);
 					bd.Append(s58);
+					bd.Append(actionName);
 					bd.Append(s59);
-					bd.Append(actionName);
-					bd.Append(s60);
-					bd.Append(actionName);
-					bd.Append(s61);
 					if(null != ScriptBlock) ScriptBlock.ToString(ref bd);
-					bd.Append(s62);
+					bd.Append(s60);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -196,25 +192,25 @@ namespace Fanex.PTEngine.Age
 
 		public class AddNewMaster_UserNameAndPasswordBlock_Block: Block
 		{
-			protected static string s63 = "<div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
-			protected static string s64{get{return LocalResources.PTEngineLang.username;}}
-			protected static string s65 = "</div><div class=\"customerInfoBlock2\"><b><span data-bind=\"text: customer.userName\"></span></b><select id=\"selectedOne\" name=\"selectedOne\"></select><select id=\"selectedTwo\" name=\"selectedTwo\"></select><span id=\"msgIcon\">&nbsp;&nbsp;&nbsp;</span></div><div class=\"customerInfoBlock3\">";
-			protected static string s66{get{return LocalResources.PTEngineLang.password;}}
-			protected static string s67 = "</div><div class=\"customerInfoBlock4\" id=\"divPassword\" title=\"";
-			protected static string s68{get{return LocalResources.PTEngineLang.lblPasswordRequire;}}
-			protected static string s69 = "\"><div class=\"float_l\"><input id=\"password\" autocomplete=\"off\" class=\"textBoxInfo\" type=\"password\" data-bind=\"value: customer.password\"onkeyup=\"return Fanex.Customer.CheckPassword(this, 'spnNewPwdIcon');\" maxlength=\"50\" /></div><div class=\"float_l pt3\"><span id=\"spnNewPwdIcon\">&nbsp;</span></div></div></div>";
+			protected static string s61 = "<div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
+			protected static string s62{get{return LocalResources.PTEngineLang.username;}}
+			protected static string s63 = "</div><div class=\"customerInfoBlock2\"><b><span data-bind=\"text: customer.userName\"></span></b><select id=\"selectedOne\" name=\"selectedOne\"></select><select id=\"selectedTwo\" name=\"selectedTwo\"></select><span id=\"msgIcon\">&nbsp;&nbsp;&nbsp;</span></div><div class=\"customerInfoBlock3\">";
+			protected static string s64{get{return LocalResources.PTEngineLang.password;}}
+			protected static string s65 = "</div><div class=\"customerInfoBlock4\" id=\"divPassword\" title=\"";
+			protected static string s66{get{return LocalResources.PTEngineLang.lblPasswordRequire;}}
+			protected static string s67 = "\"><div class=\"float_l\"><input id=\"password\" autocomplete=\"off\" class=\"textBoxInfo\" type=\"password\" data-bind=\"value: customer.password\"onkeyup=\"return Fanex.Customer.CheckPassword(this, 'spnNewPwdIcon');\" maxlength=\"50\" /></div><div class=\"float_l pt3\"><span id=\"spnNewPwdIcon\">&nbsp;</span></div></div></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
+					bd.Append(s61);
+					bd.Append(s62);
 					bd.Append(s63);
 					bd.Append(s64);
 					bd.Append(s65);
 					bd.Append(s66);
 					bd.Append(s67);
-					bd.Append(s68);
-					bd.Append(s69);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -222,13 +218,13 @@ namespace Fanex.PTEngine.Age
 
 		public class AddNewMaster_TransferConditionBlock_Block: Block
 		{
-			protected static string s70{get{return new Fanex.PTEngine.Age.Templates.TransferCondition_Template();}}
+			protected static string s68{get{return new Fanex.PTEngine.Age.Templates.TransferCondition_Template();}}
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s70);
+					bd.Append(s68);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
