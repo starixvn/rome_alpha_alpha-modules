@@ -6,6 +6,7 @@
     using Alpha.Logging.Configurations;
     using Alpha.Logging.LogEngines;
     using Fanex.Logging;
+    using Fanex.Logging.Extensions;
     using Fanex.Logging.Extensions.Web;
 
     public static class LoggingConfig
