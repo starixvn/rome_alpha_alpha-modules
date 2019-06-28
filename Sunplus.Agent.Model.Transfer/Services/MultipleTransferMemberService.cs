@@ -225,8 +225,8 @@ namespace Sunplus.Agent.Model.Transfer.Services
                 {
                     foreach (int custid in listCustId)
                     {
-                        var adminsTransferAll = transferCacheService.CacheContainsExcludeSelf(listMemberTransferCache, request.AdminId, 0);
-                        var adminsTransferConcurrent = transferCacheService.CacheContainsExcludeSelf(listMemberTransferCache, request.AdminId, custid);
+                        var adminsTransferAll = transferCacheService.CacheContains(listMemberTransferCache, 0);
+                        var adminsTransferConcurrent = transferCacheService.CacheContains(listMemberTransferCache, custid);
                         if (adminsTransferAll != null)
                         {
                             listInvalidCustId.Add(custid);
