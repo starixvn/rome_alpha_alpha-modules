@@ -7,41 +7,65 @@
     using Alpha.Logging.LogEngines;
     using Fanex.Logging;
     using Fanex.Logging.Extensions;
-    using Fanex.Logging.Extensions.Web;
 
     public static class LoggingConfig
     {
+        [ThreadStatic]
+        private static ExceptionHandlerAdapter exceptionHandler;
+        [ThreadStatic]
+        private static LogManagerAdapter logManager;
+        [ThreadStatic]
+        private static LoggingConfiguration loggingConfiguration;
+
+        public static ExceptionHandlerAdapter ExceptionHandler
+        {
+            get => exceptionHandler ?? new ExceptionHandlerAdapter();
+            set => exceptionHandler = value;
+        }
+
+        public static LogManagerAdapter LogManager
+        {
+            get => logManager ?? new LogManagerAdapter();
+            set => logManager = value;
+        }
+
+        public static LoggingConfiguration LoggingConfiguration
+        {
+            get => loggingConfiguration ?? new LoggingConfiguration();
+            set => loggingConfiguration = value;
+        }
+
         public static void Init(IEnumerable<string> sensitiveInfo = null, Func<Exception, IDictionary<string, object>> getDbExceptionInfo = null)
         {
             var libs = AppSettings.LogLibs.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             var logEngines = libs.Select(CreateLogLib).Where(engine => engine != null);
+            var logDefaultCategory = AppSettings.LoggingDefaultCategory;
 
-            LogManager.SetDefaultLogCategory(AppSettings.LoggingDefaultCategory).Use(logEngines);
+            LogManager.SetDefaultLogCategory(logDefaultCategory).Use(logEngines);
 
             var regexSensitiveInfo = GetRegexToHideSensitiveInfo(sensitiveInfo ?? Enumerable.Empty<string>());
-            var loggingConfiguration = new LoggingConfiguration().GetHttpHeaderInfo().HideSensitiveInfo(regexSensitiveInfo);
+            LoggingConfiguration = LoggingConfiguration.GetHttpHeaderInfo().HideSensitiveInfo(regexSensitiveInfo);
             if (getDbExceptionInfo != null)
             {
-                loggingConfiguration.UseGetDbExceptionInfo(getDbExceptionInfo);
+                LoggingConfiguration = LoggingConfiguration.UseGetDbExceptionInfo(getDbExceptionInfo);
             }
 
-            ExceptionHandler.UseConfig(loggingConfiguration);
+            ExceptionHandler.UseConfig(LoggingConfiguration);
         }
 
-        private static List<string> GetRegexToHideSensitiveInfo(IEnumerable<string> sensitiveInfo)
+        public static List<string> GetRegexToHideSensitiveInfo(IEnumerable<string> sensitiveInfo)
         {
             var result = new List<string>();
-
-            foreach (var info in sensitiveInfo)
+            sensitiveInfo?.ToList().ForEach(info =>
             {
                 result.Add($"(?:{info}=)(?<paramValue>[^&|^\\s]+)");
                 result.Add($"(\"{info}\":)(?<paramValue>[^,|^\r]+)");
-            }
+            });
 
             return result;
         }
 
-        private static ILogEngine CreateLogLib(string libName)
+        public static ILogEngine CreateLogLib(string libName)
         {
             var type = Type.GetType($"Alpha.Logging.LogEngines.{libName}LogEngine");
             if (type == null)

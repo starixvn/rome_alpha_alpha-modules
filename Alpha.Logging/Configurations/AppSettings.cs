@@ -15,8 +15,6 @@
             set => appSettingValues = value;
         }
 
-        public static string GetConfigValue(string configName) => AppSettingValues[configName];
-
         public static string LoggingDefaultCategory => AppSettingValues["Fanex.Logging:DefaultCategory"];
 
         public static string LogLibs => AppSettingValues["LogLibs"];
@@ -26,6 +24,8 @@
         public static string SentryBackendUrl => AppSettingValues["Fanex.Logging:SentryBackendUrl"];
 
         public static string SentryUrl => AppSettingValues["Fanex.Logging:SentryUrl"];
+
+        public static string AssetAppPath => AppSettingValues["AssetAppPath"];
 
     }
 }

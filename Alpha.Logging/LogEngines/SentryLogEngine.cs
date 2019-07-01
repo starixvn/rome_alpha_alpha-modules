@@ -14,7 +14,7 @@
                 FrontEndDsn = new SharpRaven.Dsn(AppSettings.SentryUrl)
             };
 
-            return new SentryLogging(sentryOptions, $"{AppSettings.GetConfigValue("AssetAppPath")}/bundles/common/raven.min.js");
+            return new SentryLogging(sentryOptions, $"{AppSettings.AssetAppPath}/bundles/common/raven.min.js");
         }
     }
 }
