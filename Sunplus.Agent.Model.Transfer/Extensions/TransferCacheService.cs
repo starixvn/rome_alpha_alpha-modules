@@ -53,7 +53,7 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
             var result = CacheExtension.Set(cacheKey, value, AppSettings.MultipleTransferCacheTimeOut);
             if (AppSettings.EnableTransferLogInfo)
             {
-                LogService.Info(InfoMessageFormat(value, result), "Alpha-Transfer");
+                LogService.Info(InfoMessageFormat(value, result), AppSettings.TransferLogCategory);
             }
 
             if (!CompareAfterSet(cacheKey, value))
