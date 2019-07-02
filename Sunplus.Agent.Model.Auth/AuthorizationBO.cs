@@ -6,6 +6,7 @@
     using System.Data;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
+    using Auth;
     using Fanex.Logging.Extensions.Web;
     using Sunplus.Agent.Model.BL.Casino;
     using Sunplus.Agent.Model.BL.MemberInfo.SecurityCode;
@@ -609,5 +610,8 @@
         }
 
         #endregion Security code
+
+        public KickoutInfo Recheckin(int onlineUserId)
+            => dao.Recheckin(onlineUserId);
     }
 }

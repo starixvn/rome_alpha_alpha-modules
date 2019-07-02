@@ -1,5 +1,7 @@
 ﻿namespace Alpha.Auth.Services
 {
+    using Models;
+
     public interface IAuthorizationService
     {
         bool IsAccountActive();
@@ -8,6 +10,6 @@
 
         bool IsBelonging();
 
-        bool IsKickedOut();
+        KickoutInfo IsKickedOut();
     }
 }
