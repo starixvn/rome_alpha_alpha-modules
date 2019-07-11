@@ -45,12 +45,18 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
 
         public List<TransferCacheModel> Get(string cacheKey)
         {
-            return CacheExtension.Get<List<TransferCacheModel>>(cacheKey);
+            string value = CacheExtension.Get<string>(cacheKey);
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return null;
+            }
+
+            return JsonConvert.DeserializeObject<List<TransferCacheModel>>(value);
         }
 
         public bool Set(string cacheKey, List<TransferCacheModel> value)
         {
-            var result = CacheExtension.Set(cacheKey, value, AppSettings.MultipleTransferCacheTimeOut);
+            var result = CacheExtension.Set(cacheKey, JsonConvert.SerializeObject(value), AppSettings.MultipleTransferCacheTimeOut);
             if (AppSettings.EnableTransferLogInfo)
             {
                 LogService.Info(InfoMessageFormat(value, result), AppSettings.TransferLogCategory);
@@ -145,7 +151,7 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
 
         private bool CompareAfterSet(string cacheKey, List<TransferCacheModel> value)
         {
-            var temp = CacheExtension.Get<List<TransferCacheModel>>(cacheKey);
+            var temp = this.Get(cacheKey);
             if (temp == null && value == null)
             {
                 return true;

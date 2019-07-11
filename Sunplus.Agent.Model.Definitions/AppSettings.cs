@@ -752,11 +752,11 @@ namespace Sunplus.Agent.Model.BL.Definitions
             }
         }
 
-        public static int TransferLogCategory
+        public static string TransferLogCategory
         {
             get
             {
-                return int.Parse(GetValue("TransferLogCategory"));
+                return GetValue("TransferLogCategory");
             }
         }
     }

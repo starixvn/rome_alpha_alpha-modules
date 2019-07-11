@@ -7,7 +7,7 @@ namespace Sunplus.Agent.Model.Transfer.Constants
 {
     public class TransferConstants
     {
-        public const string AgentTransferMemberListCache = "Fanex.Razorbill.Module.Common.Constants.AgentTransferMemberListCache_{0}";
+        public const string AgentTransferMemberListCache = "AgentMultipleTransfer_{0}";
 
         public const string SuccessTransferResultMessage = "Successful transfer(s): {0}<br/>";
 
