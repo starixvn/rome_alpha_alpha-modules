@@ -60,9 +60,7 @@ namespace Fanex.PTEngine.Age
 			protected static string s14{get{return LocalResources.PTEngineLang.lbl1x2Comm;}}
 			protected static string s15 = "</td><td><select id=\"discount1x2\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
 			protected static string s16{get{return LocalResources.PTEngineLang.lblOtherComm;}}
-			protected static string s17 = "</td><td><select id=\"discountCS\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
-			protected static string s18{get{return LocalResources.PTEngineLang.numbergamecomm;}}
-			protected static string s19 = "</td><td><select id=\"discountNumber\" class=\"widthGroup\"></select></td><td class=\"groupCom\"></td><td></td></tr></tbody></table>";
+			protected static string s17 = "</td><td><select id=\"discountCS\" class=\"widthGroup\"></select></td><td class=\"groupCom\"></td><td></td><td class=\"groupCom\"></td><td></td></tr></tbody></table>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -81,8 +79,6 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s15);
 					bd.Append(s16);
 					bd.Append(s17);
-					bd.Append(s18);
-					bd.Append(s19);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -90,22 +86,22 @@ namespace Fanex.PTEngine.Age
 
 		public class Commission_Customer_MyanmarOdds_Block: Block
 		{
-			protected static string s20 = "<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" width=\"100%\"><tbody><tr><td class=\"groupCom\">";
-			protected static string s21{get{return LocalResources.PTEngineLang.lblGroupa;}}
-			protected static string s22 = "</td><td class=\"widthGroup\"><select id=\"groupA\" name=\"groupA\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
-			protected static string s23{get{return LocalResources.PTEngineLang.lbl1x2Comm;}}
-			protected static string s24 = "</td><td><select id=\"discount1x2\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
-			protected static string s25{get{return LocalResources.PTEngineLang.lblOtherComm;}}
-			protected static string s26 = "</td><td><select id=\"discountCS\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
-			protected static string s27{get{return LocalResources.PTEngineLang.numbergamecomm;}}
-			protected static string s28 = "</td><td><select id=\"discountNumber\" class=\"widthGroup\"></select></td></tr><tr><td colspan=\"8\" class=\"line\"></td></tr><tr><td class=\"groupCom\"></td><td></td><td class=\"groupCom\">";
-			protected static string s29{get{return LocalResources.PTEngineLang.Symbol_OddsPercentage;}}
-			protected static string s30 = "</td><td><select id=\"oddsPercentage\" class=\"widthGroup\"></select></td><td colspan=\"4\"></td></tr><!--/MyanmarOdds--></tbody></table>";
+			protected static string s18 = "<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" width=\"100%\"><tbody><tr><td class=\"groupCom\">";
+			protected static string s19{get{return LocalResources.PTEngineLang.lblGroupa;}}
+			protected static string s20 = "</td><td class=\"widthGroup\"><select id=\"groupA\" name=\"groupA\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
+			protected static string s21{get{return LocalResources.PTEngineLang.lbl1x2Comm;}}
+			protected static string s22 = "</td><td><select id=\"discount1x2\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
+			protected static string s23{get{return LocalResources.PTEngineLang.lblOtherComm;}}
+			protected static string s24 = "</td><td><select id=\"discountCS\" class=\"widthGroup\"></select></td><td class=\"groupCom\"></td><td></td></tr><tr><td colspan=\"8\" class=\"line\"></td></tr><tr><td class=\"groupCom\"></td><td></td><td class=\"groupCom\">";
+			protected static string s25{get{return LocalResources.PTEngineLang.Symbol_OddsPercentage;}}
+			protected static string s26 = "</td><td><select id=\"oddsPercentage\" class=\"widthGroup\"></select></td><td colspan=\"4\"></td></tr><!--/MyanmarOdds--></tbody></table>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
+					bd.Append(s18);
+					bd.Append(s19);
 					bd.Append(s20);
 					bd.Append(s21);
 					bd.Append(s22);
@@ -113,10 +109,6 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s24);
 					bd.Append(s25);
 					bd.Append(s26);
-					bd.Append(s27);
-					bd.Append(s28);
-					bd.Append(s29);
-					bd.Append(s30);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
