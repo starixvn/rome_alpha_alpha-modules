@@ -92,9 +92,9 @@ namespace Fanex.PTEngine.Age
 			protected static string s21{get{return LocalResources.PTEngineLang.lbl1x2Comm;}}
 			protected static string s22 = "</td><td><select id=\"discount1x2\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
 			protected static string s23{get{return LocalResources.PTEngineLang.lblOtherComm;}}
-			protected static string s24 = "</td><td><select id=\"discountCS\" class=\"widthGroup\"></select></td><td class=\"groupCom\"></td><td></td></tr><tr><td colspan=\"8\" class=\"line\"></td></tr><tr><td class=\"groupCom\"></td><td></td><td class=\"groupCom\">";
+			protected static string s24 = "</td><td><select id=\"discountCS\" class=\"widthGroup\"></select></td><td class=\"groupCom\"></td><td></td></tr><tr><td colspan=\"8\" class=\"line\"></td></tr><tr><td class=\"groupCom\">";
 			protected static string s25{get{return LocalResources.PTEngineLang.Symbol_OddsPercentage;}}
-			protected static string s26 = "</td><td><select id=\"oddsPercentage\" class=\"widthGroup\"></select></td><td colspan=\"4\"></td></tr><!--/MyanmarOdds--></tbody></table>";
+			protected static string s26 = "</td><td><select id=\"oddsPercentage\" class=\"widthGroup\"></select></td><td class=\"groupCom\"></td><td></td><td colspan=\"4\"></td></tr><!--/MyanmarOdds--></tbody></table>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
