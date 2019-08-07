@@ -200,11 +200,9 @@ namespace Fanex.PTEngine.Age
 			protected static string s70{get{return LocalResources.PTEngineLang.lbl1x2;}}
 			protected static string s71 = "</div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting2.playerDiscount1x2\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.discount1x2\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscount1x2\"></span></div></div><div class=\"clearBlock\"><div class=\"commissionViewBlock1\">";
 			protected static string s72{get{return LocalResources.PTEngineLang.lblOtherTypes;}}
-			protected static string s73 = "</div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting2.playerDiscountCs\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.discountCS\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscountCs\"></span></div></div><div class=\"clearBlock\"><div class=\"commissionViewBlock1\">";
-			protected static string s74{get{return LocalResources.PTEngineLang.numbergamecomm;}}
-			protected static string s75 = "</div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting2.playerDiscountNumber\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.discountNumber\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscountNumber\"></span></div></div>";
+			protected static string s73 = "</div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting2.playerDiscountCs\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.discountCS\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscountCs\"></span></div></div>";
 			public SuperEditMember_CommissionBlock_MyanmarOdds_Block MyanmarOdds = new SuperEditMember_CommissionBlock_MyanmarOdds_Block();
-			protected static string s76 = "<div class=\"clearBlock\"></div></div>";
+			protected static string s74 = "<div class=\"clearBlock\"></div></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -225,10 +223,8 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s71);
 					bd.Append(s72);
 					bd.Append(s73);
-					bd.Append(s74);
-					bd.Append(s75);
 					if(null != MyanmarOdds) MyanmarOdds.ToString(ref bd);
-					bd.Append(s76);
+					bd.Append(s74);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -236,17 +232,17 @@ namespace Fanex.PTEngine.Age
 
 		public class SuperEditMember_CommissionBlock_MyanmarOdds_Block: Block
 		{
-			protected static string s77 = "<div class=\"clearBlock\"><div class=\"commissionViewBlock1\">";
-			protected static string s78{get{return LocalResources.PTEngineLang.Symbol_OddsPercentage;}}
-			protected static string s79 = "</div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting2.playerDiscountMyanmarOdds\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.discountMyanmarOdds\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscountMyanmarOdds\"></span></div></div>";
+			protected static string s75 = "<div class=\"clearBlock\"><div class=\"commissionViewBlock1\">";
+			protected static string s76{get{return LocalResources.PTEngineLang.Symbol_OddsPercentage;}}
+			protected static string s77 = "</div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting2.playerDiscountMyanmarOdds\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.discountMyanmarOdds\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscountMyanmarOdds\"></span></div></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
+					bd.Append(s75);
+					bd.Append(s76);
 					bd.Append(s77);
-					bd.Append(s78);
-					bd.Append(s79);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}

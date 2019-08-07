@@ -194,11 +194,9 @@ namespace Fanex.PTEngine.Age
 			protected static string s67{get{return LocalResources.PTEngineLang.lbl1x2;}}
 			protected static string s68 = "</div><div class=\"commissionBlock2\"><span data-bind=\"text: customer.commissionSetting.discount1x2\"></span></div><div class=\"commissionBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscount1x2\"></span></div></div><div class=\"clearBlock\"><div class=\"commissionBlock1\">";
 			protected static string s69{get{return LocalResources.PTEngineLang.lblOtherTypes;}}
-			protected static string s70 = "</div><div class=\"commissionBlock2\"><span data-bind=\"text: customer.commissionSetting.discountCS\"></span></div><div class=\"commissionBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscountCs\"></span></div></div><div class=\"clearBlock\"><div class=\"commissionBlock1\">";
-			protected static string s71{get{return LocalResources.PTEngineLang.numbergamecomm;}}
-			protected static string s72 = "</div><div class=\"commissionBlock2\"><span data-bind=\"text: customer.commissionSetting.discountNumber\"></span></div><div class=\"commissionBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscountNumber\"></span></div></div>";
+			protected static string s70 = "</div><div class=\"commissionBlock2\"><span data-bind=\"text: customer.commissionSetting.discountCS\"></span></div><div class=\"commissionBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscountCs\"></span></div></div>";
 			public MasterEditMember_CommissionBlock_MyanmarOdds_Block MyanmarOdds = new MasterEditMember_CommissionBlock_MyanmarOdds_Block();
-			protected static string s73 = "<div class=\"clearBlock\"></div></div>";
+			protected static string s71 = "<div class=\"clearBlock\"></div></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -217,10 +215,8 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s68);
 					bd.Append(s69);
 					bd.Append(s70);
-					bd.Append(s71);
-					bd.Append(s72);
 					if(null != MyanmarOdds) MyanmarOdds.ToString(ref bd);
-					bd.Append(s73);
+					bd.Append(s71);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -228,17 +224,17 @@ namespace Fanex.PTEngine.Age
 
 		public class MasterEditMember_CommissionBlock_MyanmarOdds_Block: Block
 		{
-			protected static string s74 = "<div class=\"clearBlock\"><div class=\"commissionBlock1\">";
-			protected static string s75{get{return LocalResources.PTEngineLang.Symbol_OddsPercentage;}}
-			protected static string s76 = "</div><div class=\"commissionBlock2\"><span data-bind=\"text: customer.commissionSetting.discountMyanmarOdds\"></span></div><div class=\"commissionBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscountMyanmarOdds\"></span></div></div>";
+			protected static string s72 = "<div class=\"clearBlock\"><div class=\"commissionBlock1\">";
+			protected static string s73{get{return LocalResources.PTEngineLang.Symbol_OddsPercentage;}}
+			protected static string s74 = "</div><div class=\"commissionBlock2\"><span data-bind=\"text: customer.commissionSetting.discountMyanmarOdds\"></span></div><div class=\"commissionBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscountMyanmarOdds\"></span></div></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
+					bd.Append(s72);
+					bd.Append(s73);
 					bd.Append(s74);
-					bd.Append(s75);
-					bd.Append(s76);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
