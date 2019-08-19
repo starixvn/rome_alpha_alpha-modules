@@ -2089,9 +2089,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="editMultipleGoldDeluxe" xml:space="preserve">
     <value>Edit Multiple Gold Deluxe</value>
   </data>
-  <data name="ColossusBets" xml:space="preserve">
-    <value>Colossus Bets</value>
-  </data>
   <data name="lblNotAuthorized" xml:space="preserve">
     <value>You are not authorized on this function</value>
   </data>
@@ -2126,9 +2123,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   </data>
   <data name="titleFirstTimeSecCode" xml:space="preserve">
     <value>Security Code</value>
-  </data>
-  <data name="UpdateColossusBetsStatus" xml:space="preserve">
-    <value>Update Colossus Bets Status</value>
   </data>
   <data name="Symbol_OddsPercentage" xml:space="preserve">
     <value>% Odds</value>

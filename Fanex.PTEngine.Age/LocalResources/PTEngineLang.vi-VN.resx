@@ -2097,14 +2097,8 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   <data name="youcantransfer" xml:space="preserve">
     <value>Bạn có thể chuyển khoản tối đa là:</value>
   </data>
-  <data name="ColossusBets" xml:space="preserve">
-    <value>Colossus Bets</value>
-  </data>
   <data name="Sportsbook2" xml:space="preserve">
     <value>Sportsbook 2</value>
-  </data>
-  <data name="UpdateColossusBetsStatus" xml:space="preserve">
-    <value>Update Colossus Bets Status</value>
   </data>
   <data name="Symbol_OddsPercentage" xml:space="preserve">
     <value>% Odds</value>

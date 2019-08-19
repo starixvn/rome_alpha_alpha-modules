@@ -2067,9 +2067,6 @@
   <data name="updateGoldDeluxeFailed" xml:space="preserve">
     <value>Updated unsuccessfully because Gold Deluxe status has been disabled at upline</value>
   </data>
-  <data name="ColossusBets" xml:space="preserve">
-    <value>Colossus Bets</value>
-  </data>
   <data name="ConfirmSecurityCode" xml:space="preserve">
     <value>Confirm Security Code</value>
   </data>
@@ -2101,9 +2098,6 @@
   </data>
   <data name="titleFirstTimeSecCode" xml:space="preserve">
     <value>Security Code</value>
-  </data>
-  <data name="UpdateColossusBetsStatus" xml:space="preserve">
-    <value>Update Colossus Bets Status</value>
   </data>
   <data name="Symbol_OddsPercentage" xml:space="preserve">
     <value>% Odds</value>

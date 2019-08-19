@@ -13,23 +13,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
     {
         private static string neutralSite = "789y,"; // Seperate by comma
         private static string creditNeutralSite = "789y,"; // Seperate by comma
-
-        public static bool IsDisabledHR
-        {
-            get
-            {
-                return false;
-            }
-        }
-
-        public static bool IsShowRacing
-        {
-            get
-            {
-                return AppSettings.IsEnabledProduct(ProductIdConstants.Racing) && !IsDisabledProduct(ProductIdConstants.Racing);
-            }
-        }
-
+        
         public static bool IsShowNumberGroup
         {
             get
@@ -105,14 +89,6 @@ namespace Sunplus.Agent.Model.Entities.Permission
             }
         }
 
-        public static bool IsShowColossusBets
-        {
-            get
-            {
-                return AppSettings.IsShowColossusBets && !CurrentUserSession.GetHideProduct(ProductIdConstants.ColossusBets);
-            }
-        }
-
         public static bool IsShowSportsbook2
         {
             get
@@ -178,14 +154,6 @@ namespace Sunplus.Agent.Model.Entities.Permission
             }
         }
 
-        public static bool IsIMBCCustomer
-        {
-            get
-            {
-                return CurrentUserSession.IsIMBCCustomer;
-            }
-        }
-
         public static bool IsShowSuperLive
         {
             get
@@ -217,41 +185,24 @@ namespace Sunplus.Agent.Model.Entities.Permission
             return CurrentUserSession.GetDisabledProduct(product);
         }
 
-        public static bool IsShowLiveCasino
-        {
-            get
-            {
-                return AppSettings.IsEnableLiveCasino && CurrentUserSession.GetSyncedProduct(ProductIdConstants.LiveCasino);
-            }
-        }
-
         public static bool HasPermissionOnProduct(int productId)
         {
             switch (productId)
             {
                 case 1: // sportsbook
                     return true;
-                case 2: // racing
-                    return IsShowRacing;
                 case 3: // Number Game
                     return IsShowNumberGame;
-                case 4: // Live Casino
-                    return IsShowLiveCasino;
                 case 6: // Casino
                     return IsShowCasino;
                 case 8: // Keno
                     return IsShowKenoSetting;
                 case 12: // Gold Deluxe
                     return IsShowGoldDeluxeSettingForCredit;
-                case 15: // Colossus Bets
-                    return IsShowColossusBets;
                 case 16: // SP2
                     return IsShowSportsbook2;
                 case 5: // Virtual Sports
                 case 28: // Lottery
-                case 26: // Lucky3
-                case 30: // Bullfighting
-                case 33: // PokerGames
                     return IsEnableProduct(productId);
                 default:
                     return IsEnableProduct(productId) && IsSyncedProduct(productId);

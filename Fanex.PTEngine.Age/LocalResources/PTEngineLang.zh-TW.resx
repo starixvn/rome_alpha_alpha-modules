@@ -2097,12 +2097,6 @@
   <data name="editMultipleGoldDeluxe" xml:space="preserve">
     <value>修改多重GD真人娛樂場</value>
   </data>
-  <data name="ColossusBets" xml:space="preserve">
-    <value>Colossus Bets</value>
-  </data>
-  <data name="UpdateColossusBetsStatus" xml:space="preserve">
-    <value>Update Colossus Bets Status</value>
-  </data>
   <data name="Symbol_OddsPercentage" xml:space="preserve">
     <value>% Odds</value>
   </data>

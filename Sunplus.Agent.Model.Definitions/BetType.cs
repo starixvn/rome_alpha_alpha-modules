@@ -156,14 +156,6 @@ namespace Sunplus.Agent.Model.BL.Definitions
         FishingWorldStart = 1011,
         FishingWorldEnd = 1020,
 
-        Mix_Parlay_BetRadarVirtualSports = 2799,
-
-        // Lucky3
-        Lucky3 = 1600,
-        Lucky3Prize = 1601,
-        Lucky3WinningShare = 1602,
-
-        // BullFighting
-        BullFighting = 1004
+        Mix_Parlay_BetRadarVirtualSports = 2799
     }
 }
