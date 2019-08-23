@@ -2098,9 +2098,6 @@
   <data name="updateGoldDeluxeFailed" xml:space="preserve">
     <value>更新不成功因GD真人娱乐场已被上线禁用</value>
   </data>
-  <data name="Symbol_OddsPercentage" xml:space="preserve">
-    <value>% Odds</value>
-  </data>
   <data name="Sportsbook2" xml:space="preserve">
     <value>体育博彩 2</value>
   </data>

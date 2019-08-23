@@ -17,10 +17,7 @@ namespace Fanex.PTEngine.Age
 			protected static string s1{get{return LocalResources.PTEngineLang.commission;}}
 			protected static string s2 = "</div><div class=\"pt3 pb3\">";
 			public Commission_Customer_Not_MyanmarOdds_Block Customer_Not_MyanmarOdds = new Commission_Customer_Not_MyanmarOdds_Block();
-			public Commission_Customer_MyanmarOdds_Block Customer_MyanmarOdds = new Commission_Customer_MyanmarOdds_Block();
-			protected static string s3 = "</div></div><script language=\"javascript\" type=\"text/javascript\">var isShowMyanmarOdds = \"";
-			public string isShowMyanmarOdds = "{isShowMyanmarOdds}";
-			protected static string s4 = "\";</script>";
+			protected static string s3 = "</div></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -30,10 +27,7 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s1);
 					bd.Append(s2);
 					if(null != Customer_Not_MyanmarOdds) Customer_Not_MyanmarOdds.ToString(ref bd);
-					if(null != Customer_MyanmarOdds) Customer_MyanmarOdds.ToString(ref bd);
 					bd.Append(s3);
-					bd.Append(isShowMyanmarOdds);
-					bd.Append(s4);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -48,24 +42,25 @@ namespace Fanex.PTEngine.Age
 
 		public class Commission_Customer_Not_MyanmarOdds_Block: Block
 		{
-			protected static string s5 = "<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" width=\"100%\"><tbody><tr><td class=\"groupCom\">";
-			protected static string s6{get{return LocalResources.PTEngineLang.lblGroupa;}}
-			protected static string s7 = "</td><td class=\"widthGroup\"><select id=\"groupA\" name=\"groupA\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
-			protected static string s8{get{return LocalResources.PTEngineLang.lblGroupb;}}
-			protected static string s9 = "</td><td class=\"widthGroup\"><select id=\"groupB\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
-			protected static string s10{get{return LocalResources.PTEngineLang.lblGroupc;}}
-			protected static string s11 = "</td><td class=\"widthGroup\"><select id=\"groupC\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
-			protected static string s12{get{return LocalResources.PTEngineLang.lblGroupd;}}
-			protected static string s13 = "</td><td class=\"widthGroup\"><select id=\"groupD\" class=\"widthGroup\"></select></td></tr><tr><td colspan=\"8\" class=\"line\"></td></tr><tr><td class=\"groupCom\">";
-			protected static string s14{get{return LocalResources.PTEngineLang.lbl1x2Comm;}}
-			protected static string s15 = "</td><td><select id=\"discount1x2\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
-			protected static string s16{get{return LocalResources.PTEngineLang.lblOtherComm;}}
-			protected static string s17 = "</td><td><select id=\"discountCS\" class=\"widthGroup\"></select></td><td class=\"groupCom\"></td><td></td><td class=\"groupCom\"></td><td></td></tr></tbody></table>";
+			protected static string s4 = "<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" width=\"100%\"><tbody><tr><td class=\"groupCom\">";
+			protected static string s5{get{return LocalResources.PTEngineLang.lblGroupa;}}
+			protected static string s6 = "</td><td class=\"widthGroup\"><select id=\"groupA\" name=\"groupA\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
+			protected static string s7{get{return LocalResources.PTEngineLang.lblGroupb;}}
+			protected static string s8 = "</td><td class=\"widthGroup\"><select id=\"groupB\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
+			protected static string s9{get{return LocalResources.PTEngineLang.lblGroupc;}}
+			protected static string s10 = "</td><td class=\"widthGroup\"><select id=\"groupC\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
+			protected static string s11{get{return LocalResources.PTEngineLang.lblGroupd;}}
+			protected static string s12 = "</td><td class=\"widthGroup\"><select id=\"groupD\" class=\"widthGroup\"></select></td></tr><tr><td colspan=\"8\" class=\"line\"></td></tr><tr><td class=\"groupCom\">";
+			protected static string s13{get{return LocalResources.PTEngineLang.lbl1x2Comm;}}
+			protected static string s14 = "</td><td><select id=\"discount1x2\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
+			protected static string s15{get{return LocalResources.PTEngineLang.lblOtherComm;}}
+			protected static string s16 = "</td><td><select id=\"discountCS\" class=\"widthGroup\"></select></td><td class=\"groupCom\"></td><td></td><td class=\"groupCom\"></td><td></td></tr></tbody></table>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
+					bd.Append(s4);
 					bd.Append(s5);
 					bd.Append(s6);
 					bd.Append(s7);
@@ -78,37 +73,6 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s14);
 					bd.Append(s15);
 					bd.Append(s16);
-					bd.Append(s17);
-				}
-				if(IsAssigned){bd.Append(Value);}
-			}
-		}
-
-		public class Commission_Customer_MyanmarOdds_Block: Block
-		{
-			protected static string s18 = "<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" width=\"100%\"><tbody><tr><td class=\"groupCom\">";
-			protected static string s19{get{return LocalResources.PTEngineLang.lblGroupa;}}
-			protected static string s20 = "</td><td class=\"widthGroup\"><select id=\"groupA\" name=\"groupA\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
-			protected static string s21{get{return LocalResources.PTEngineLang.lbl1x2Comm;}}
-			protected static string s22 = "</td><td><select id=\"discount1x2\" class=\"widthGroup\"></select></td><td class=\"groupCom\">";
-			protected static string s23{get{return LocalResources.PTEngineLang.lblOtherComm;}}
-			protected static string s24 = "</td><td><select id=\"discountCS\" class=\"widthGroup\"></select></td><td class=\"groupCom\"></td><td></td></tr><tr><td colspan=\"8\" class=\"line\"></td></tr><tr><td class=\"groupCom\">";
-			protected static string s25{get{return LocalResources.PTEngineLang.Symbol_OddsPercentage;}}
-			protected static string s26 = "</td><td><select id=\"oddsPercentage\" class=\"widthGroup\"></select></td><td class=\"groupCom\"></td><td></td><td colspan=\"4\"></td></tr><!--/MyanmarOdds--></tbody></table>";
-			public override void ToString(ref StringBuilder bd)
-			{
-				if(!Visible) return;
-				if(RenderChild)
-				{
-					bd.Append(s18);
-					bd.Append(s19);
-					bd.Append(s20);
-					bd.Append(s21);
-					bd.Append(s22);
-					bd.Append(s23);
-					bd.Append(s24);
-					bd.Append(s25);
-					bd.Append(s26);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}

@@ -372,19 +372,6 @@
             }
         }
 
-        public bool IsMyanmarOdds
-        {
-            get
-            {
-                return UserSession.Current.IsMyanmarOdds;
-            }
-
-            set
-            {
-                UserSession.Current.IsMyanmarOdds = value;
-            }
-        }
-
         public bool IsNickname
         {
             get

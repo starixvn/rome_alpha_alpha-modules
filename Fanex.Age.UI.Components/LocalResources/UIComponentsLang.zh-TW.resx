@@ -2424,12 +2424,6 @@
   <data name="lblNotAskSecCodeAgain" xml:space="preserve">
     <value>Don't ask me again in this session</value>
   </data>
-  <data name="Symbol_OddsPercentage" xml:space="preserve">
-    <value>% Odds</value>
-  </data>
-  <data name="Symbol_MyanmarOdds" xml:space="preserve">
-    <value>% Odds</value>
-  </data>
   <data name="Sportsbook2" xml:space="preserve">
     <value>體育博彩 2</value>
   </data>

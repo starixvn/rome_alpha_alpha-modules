@@ -196,11 +196,6 @@
             session.IsShowConsolidatedReport = (bool)values["isshowconsolidated"];
             session.IsShowBetChoiceLimit = (bool)values["isShowBetChoiceLimit"];
 
-            if (AppSettings.IsSupportMyanmarOdds)
-            {
-                session.IsMyanmarOdds = Converter.ToBool(values["ismyanmarodds"]);
-            }
-
             if (!string.IsNullOrWhiteSpace(AppSettings.SubAccountPermission_LockAdminAccounts)
                 && Regex.IsMatch(string.Format(",{0},", AppSettings.SubAccountPermission_LockAdminAccounts), string.Format(",{0},", session.AdminId), RegexOptions.IgnoreCase)
                 && session.IsInternal)

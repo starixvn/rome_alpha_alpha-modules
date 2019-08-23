@@ -88,7 +88,6 @@ namespace Sunplus.Agent.Model.Entities
         private const string ISLIMITHOSTPERMISSIONONSUBACCOUNTFUNCTION = "ISLIMITHOSTPERMISSIONONSUBACCOUNTFUNCTION";
 
         private const string ISDISABLEDESPORTS = "ISDISABLEDESPORTS";
-        private const string ISMYANMARODDS = "ISMYANMARODDS";
         private const string ISIMBCCUSTOMER = "ISIMBCCUSTOMER";
 
         private const string ISHIDESPORTSBOOK2 = "ISHIDESPORTSBOOK2";
@@ -1132,20 +1131,6 @@ namespace Sunplus.Agent.Model.Entities
                 this.SetProperty(ISDISABLEDESPORTS, value);
             }
         }
-
-        public bool IsMyanmarOdds
-        {
-            get
-            {
-                object value = this.GetProperty(ISMYANMARODDS);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISMYANMARODDS, value);
-            }
-        }        
 
         public bool IsDisabledSuperLive
         {

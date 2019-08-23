@@ -2100,9 +2100,6 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   <data name="Sportsbook2" xml:space="preserve">
     <value>Sportsbook 2</value>
   </data>
-  <data name="Symbol_OddsPercentage" xml:space="preserve">
-    <value>% Odds</value>
-  </data>
   <data name="EditMultipleSportsbook2" xml:space="preserve">
     <value>Edit Multiple Sportsbook 2</value>
   </data>

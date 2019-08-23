@@ -491,8 +491,6 @@ namespace Sunplus.Agent.Model.Entities
             set;
         }
 
-        bool IsMyanmarOdds { get; set; }
-
         bool IsDisabledSuperLive { get; set; }
 
         bool GetHideProduct(int productId);

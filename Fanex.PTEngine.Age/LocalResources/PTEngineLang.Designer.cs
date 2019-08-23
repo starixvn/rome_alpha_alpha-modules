@@ -5258,15 +5258,6 @@ namespace Fanex.PTEngine.Age.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to % Odds.
-        /// </summary>
-        internal static string Symbol_OddsPercentage {
-            get {
-                return ResourceManager.GetString("Symbol_OddsPercentage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Synchronize.
         /// </summary>
         internal static string sync {

@@ -2451,12 +2451,6 @@ Please use the form below to set your Security Code now.</value>
   <data name="titleFirstTimeSecCode" xml:space="preserve">
     <value>Security Code</value>
   </data>
-  <data name="Symbol_OddsPercentage" xml:space="preserve">
-    <value>% Odds</value>
-  </data>
-  <data name="Symbol_MyanmarOdds" xml:space="preserve">
-    <value>% Odds</value>
-  </data>
   <data name="Sportsbook2" xml:space="preserve">
     <value>Sportsbook 2</value>
   </data>
