@@ -229,7 +229,7 @@
     <value>คุณแน่ใจว่าคุณต้องการโอนเงิน</value>
   </data>
   <data name="correctscore" xml:space="preserve">
-    <value>ทายผลสกอร์</value>
+    <value>คะแนนที่ถูกต้อง</value>
   </data>
   <data name="createaccount" xml:space="preserve">
     <value>สร้างบัญชี</value>
