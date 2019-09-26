@@ -229,7 +229,7 @@
     <value>전송하시겠습니까</value>
   </data>
   <data name="correctscore" xml:space="preserve">
-    <value>정확한 점수</value>
+    <value>정확한 득점</value>
   </data>
   <data name="createaccount" xml:space="preserve">
     <value>계정 만들기</value>

@@ -226,7 +226,7 @@
     <value>送金してよろしいですか</value>
   </data>
   <data name="correctscore" xml:space="preserve">
-    <value>コレクトスコア</value>
+    <value>正しいスコア</value>
   </data>
   <data name="createaccount" xml:space="preserve">
     <value>Create Account</value>
