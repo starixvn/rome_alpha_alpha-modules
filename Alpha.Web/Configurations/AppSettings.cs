@@ -33,6 +33,8 @@
         private static string viewLogsAppPath;
         private static string transferAppPath;
 
+        private static bool updateCreditReplicateServer;
+
         private static DateTime? forceLoginNicknameDate;
         private static IDictionary<int, bool> forceLoginNicknameIgnoreList;
         private static DateTime? forceLoginNicknameDate4SubAccount;
@@ -77,6 +79,7 @@
             transferAppPath = ConfigurationManager.AppSettings["TransferAppPath"] ?? "site-transfer";
             viewLogsAppPath = ConfigurationManager.AppSettings["ViewLogsAppPath"] ?? "site-viewLogs";
 
+            updateCreditReplicateServer = ConfigurationManager.AppSettings["UpdateCreditReplicateServer"] == "1";
             GetForceLoginNicknameConfiguration();
         }
 
@@ -125,6 +128,8 @@
         public static IDictionary<int, bool> ForceLoginNicknameIgnoreList => forceLoginNicknameIgnoreList;
 
         public static DateTime? ForceLoginNicknameDate4SubAccount => forceLoginNicknameDate4SubAccount;
+
+        public static bool GetUpdateCreditReplicateServer() => updateCreditReplicateServer;
 
         private static void GetForceLoginNicknameConfiguration()
         {
