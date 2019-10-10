@@ -129,7 +129,7 @@
 
         public static DateTime? ForceLoginNicknameDate4SubAccount => forceLoginNicknameDate4SubAccount;
 
-        public static bool GetUpdateCreditReplicateServer() => updateCreditReplicateServer;
+        public static bool UpdateCreditBothDBCustAndDBAge => updateCreditReplicateServer;
 
         private static void GetForceLoginNicknameConfiguration()
         {
