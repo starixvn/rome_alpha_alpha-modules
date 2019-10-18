@@ -161,42 +161,6 @@
         }
 
         [Test]
-        public void CommVisibility_BetTypeIdIsMatchWinner_IsNotIMBCMatch_ShowValue()
-        {
-            // Arrange
-            var ticket = new Ticket();
-            ticket.SuperDiscount = 1;
-            ticket.MasterDiscount = 1;
-            ticket.AgentDiscount = 1;
-            ticket.BetTypeId = BetTypeIdConstants.MatchWinner;
-            ticket.Status = BetStatus.Won;
-
-            // Act
-            var viewModel = new WinLossBlockViewModel(ticket);
-
-            // Assert
-            Assert.True(viewModel.CommVisibility);
-        }
-
-        [Test]
-        public void CommVisibility_BetTypeIdIsMatchWinner_IsIMBCMatch_ShowValue()
-        {
-            // Arrange
-            var ticket = new Ticket();
-            ticket.SuperDiscount = -1;
-            ticket.MasterDiscount = 1;
-            ticket.AgentDiscount = 1;
-            ticket.BetTypeId = BetTypeIdConstants.MatchWinner;
-            ticket.Status = BetStatus.Won;
-
-            // Act
-            var viewModel = new WinLossBlockViewModel(ticket);
-
-            // Assert
-            Assert.False(viewModel.CommVisibility);
-        }
-
-        [Test]
         public void CommVisibility_BetTypeIdIsNotMatchWinner_ShowTrue()
         {
             // Arrange

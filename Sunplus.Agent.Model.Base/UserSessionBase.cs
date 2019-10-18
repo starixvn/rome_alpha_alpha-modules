@@ -88,7 +88,6 @@ namespace Sunplus.Agent.Model.Entities
         private const string ISLIMITHOSTPERMISSIONONSUBACCOUNTFUNCTION = "ISLIMITHOSTPERMISSIONONSUBACCOUNTFUNCTION";
 
         private const string ISDISABLEDESPORTS = "ISDISABLEDESPORTS";
-        private const string ISIMBCCUSTOMER = "ISIMBCCUSTOMER";
 
         private const string ISHIDESPORTSBOOK2 = "ISHIDESPORTSBOOK2";
         private const string DISABLESPORTSBOOK2 = "DISABLESPORTSBOOK2";
