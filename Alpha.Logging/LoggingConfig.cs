@@ -35,10 +35,10 @@
             set => loggingConfiguration = value;
         }
 
-        public static void Init(IEnumerable<string> sensitiveInfo = null, Func<Exception, IDictionary<string, object>> getDbExceptionInfo = null)
+        public static void Init(IEnumerable<string> sensitiveInfo = null, Func<Exception, IDictionary<string, object>> getDbExceptionInfo = null, string ravenScriptPath = null)
         {
             var libs = AppSettings.LogLibs.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-            var logEngines = libs.Select(CreateLogLib).Where(engine => engine != null);
+            var logEngines = libs.Select(lib => CreateLogLib(lib, ravenScriptPath)).Where(engine => engine != null);
             var logDefaultCategory = AppSettings.LoggingDefaultCategory;
 
             LogManager.SetDefaultLogCategory(logDefaultCategory).Use(logEngines);
@@ -65,7 +65,7 @@
             return result;
         }
 
-        public static ILogEngine CreateLogLib(string libName)
+        public static ILogEngine CreateLogLib(string libName, string ravenScriptPath = null)
         {
             var type = Type.GetType($"Alpha.Logging.LogEngines.{libName}LogEngine");
             if (type == null)
@@ -75,7 +75,7 @@
 
             var engine = Activator.CreateInstance(type) as LogEngineFactory;
 
-            return engine?.Create();
+            return engine?.Create(ravenScriptPath);
         }
     }
 }
