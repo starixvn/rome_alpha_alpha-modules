@@ -6,7 +6,7 @@
 
     public class SentryLogEngine : LogEngineFactory
     {
-        public ILogEngine Create()
+        public ILogEngine Create(string ravenScriptPath = null)
         {
             var sentryOptions = new SentryEngineOptions
             {
@@ -14,7 +14,7 @@
                 FrontEndDsn = new SharpRaven.Dsn(AppSettings.SentryUrl)
             };
 
-            return new SentryLogging(sentryOptions, $"{AppSettings.AssetAppPath}/bundles/common/raven.min.js");
+            return new SentryLogging(sentryOptions, string.IsNullOrWhiteSpace(ravenScriptPath) ? $"{AppSettings.AssetAppPath}/bundles/common/raven.min.js" : ravenScriptPath);
         }
     }
 }

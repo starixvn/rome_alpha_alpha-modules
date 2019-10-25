@@ -4,6 +4,6 @@
 
     public interface LogEngineFactory
     {
-        ILogEngine Create();
+        ILogEngine Create(string ravenScriptPath = null);
     }
 }
