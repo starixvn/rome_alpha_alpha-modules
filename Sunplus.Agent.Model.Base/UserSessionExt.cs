@@ -77,19 +77,6 @@
             }
         }
 
-        public bool DisableColossusBets
-        {
-            get
-            {
-                return UserSession.Current.DisableColossusBets;
-            }
-
-            set
-            {
-                UserSession.Current.DisableColossusBets = value;
-            }
-        }
-
         public bool DisableGoldDeluxe
         {
             get
@@ -278,19 +265,6 @@
             }
         }
 
-        public bool IsHideColossusBets
-        {
-            get
-            {
-                return UserSession.Current.IsHideColossusBets;
-            }
-
-            set
-            {
-                UserSession.Current.IsHideColossusBets = value;
-            }
-        }
-
         public bool IsHideGoldDeluxe
         {
             get
@@ -340,19 +314,6 @@
             set
             {
                 UserSession.Current.IsHideVirtualSports = value;
-            }
-        }
-
-        public bool IsIMBCCustomer
-        {
-            get
-            {
-                return UserSession.Current.IsIMBCCustomer;
-            }
-
-            set
-            {
-                UserSession.Current.IsIMBCCustomer = value;
             }
         }
 
@@ -408,19 +369,6 @@
             get
             {
                 return UserSession.Current.IsMaster;
-            }
-        }
-
-        public bool IsMyanmarOdds
-        {
-            get
-            {
-                return UserSession.Current.IsMyanmarOdds;
-            }
-
-            set
-            {
-                UserSession.Current.IsMyanmarOdds = value;
             }
         }
 

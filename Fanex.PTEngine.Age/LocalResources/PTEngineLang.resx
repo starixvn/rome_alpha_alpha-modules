@@ -2102,15 +2102,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="youcantransfer" xml:space="preserve">
     <value>You can transfer up to</value>
   </data>
-  <data name="ColossusBets" xml:space="preserve">
-    <value>Colossus Bets</value>
-  </data>
-  <data name="UpdateColossusBetsStatus" xml:space="preserve">
-    <value>Update Colossus Bets Status</value>
-  </data>
-  <data name="Symbol_OddsPercentage" xml:space="preserve">
-    <value>% Odds</value>
-  </data>
   <data name="Sportsbook2" xml:space="preserve">
     <value>Sportsbook 2</value>
   </data>

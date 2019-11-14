@@ -50,9 +50,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
         Triathlon = 41,
         Wrestling = 42,
         ESports = 43,
-        Lucky3 = 160,
         NumberGame = 161,
-        LiveCasino = 162,
         VirtualSports = 180, // Virtual Soccer
         VirtualHorsesRacing = 181,
         VirtualGreyhounds = 182,
@@ -60,7 +58,6 @@ namespace Sunplus.Agent.Model.BL.Definitions
         VirtualMotors = 184,
         VirtualCycling  = 185,
         VirtualTennis = 186,
-        BullFighting = 207,
         Others = 1000,
         GoldDeluxe = 255,
         AllBet = 211,

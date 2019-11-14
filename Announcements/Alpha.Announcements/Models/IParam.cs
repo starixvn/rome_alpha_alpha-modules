@@ -32,8 +32,6 @@
 
         bool IsAgent { get; }
 
-        bool IsIMBCCustomer { get; }
-
         string Site { get; }
 
         IEnumerable<byte> OfferedProductIds { get; }

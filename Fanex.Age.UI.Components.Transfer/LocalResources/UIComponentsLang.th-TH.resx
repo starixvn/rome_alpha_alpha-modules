@@ -2388,9 +2388,6 @@ Please use the form below to set your Security Code now.</value>
   <data name="updateGoldDeluxeFailed" xml:space="preserve">
     <value>Updated unsuccessfully because Gold Deluxe status has been disabled at upline</value>
   </data>
-  <data name="ColossusBets" xml:space="preserve">
-    <value>Colossus Bets</value>
-  </data>
   <data name="ConfirmSecurityCode" xml:space="preserve">
     <value>Confirm Security Code</value>
   </data>
@@ -2428,15 +2425,6 @@ Please use the form below to set your Security Code now.</value>
   </data>
   <data name="titleFirstTimeSecCode" xml:space="preserve">
     <value>Security Code</value>
-  </data>
-  <data name="UpdateColossusBetsStatus" xml:space="preserve">
-    <value>Update Colossus Bets Status</value>
-  </data>
-  <data name="Symbol_OddsPercentage" xml:space="preserve">
-    <value>% Odds</value>
-  </data>
-  <data name="Symbol_MyanmarOdds" xml:space="preserve">
-    <value>% Odds</value>
   </data>
   <data name="Sportsbook2" xml:space="preserve">
     <value>กีฬ่า 2</value>

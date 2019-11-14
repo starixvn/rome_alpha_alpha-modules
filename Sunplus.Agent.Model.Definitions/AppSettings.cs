@@ -64,14 +64,6 @@ namespace Sunplus.Agent.Model.BL.Definitions
             }
         }
 
-        public static bool IsEnableLiveCasino
-        {
-            get
-            {
-                return GetValue("EnableLiveCasino") == "1";
-            }
-        }
-
         public static bool IsEnableKeno
         {
             get
@@ -101,22 +93,6 @@ namespace Sunplus.Agent.Model.BL.Definitions
             get
             {
                 return GetValue("IsShowGoldDeluxeSettingForCredit") == "1";
-            }
-        }
-
-        public static bool IsShowColossusBets
-        {
-            get
-            {
-                return GetValue("IsShowColossusBets") == "1";
-            }
-        }
-
-        public static bool IsSupportMyanmarOdds
-        {
-            get
-            {
-                return GetValue("IsShowMyanmarOdds") == "1";
             }
         }
 

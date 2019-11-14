@@ -386,14 +386,6 @@ namespace Sunplus.Agent.Model.Entities
 
         #endregion GoldDeluxe
 
-        #region Colossus Bets
-
-        bool IsHideColossusBets { get; set; }
-
-        bool DisableColossusBets { get; set; }
-
-        #endregion Colossus Bets
-
         #region Sportsbook2
 
         bool IsHideSportsbook2 { get; set; }
@@ -499,8 +491,6 @@ namespace Sunplus.Agent.Model.Entities
             set;
         }
 
-        bool IsMyanmarOdds { get; set; }
-
         bool IsDisabledSuperLive { get; set; }
 
         bool GetHideProduct(int productId);
@@ -516,8 +506,6 @@ namespace Sunplus.Agent.Model.Entities
         void SetDisabledProduct(int productId, bool value);
 
         string UserLoginIp { get; set; }
-
-        bool IsIMBCCustomer { get; set; }
 
         bool IsInternalWebVPN
         {

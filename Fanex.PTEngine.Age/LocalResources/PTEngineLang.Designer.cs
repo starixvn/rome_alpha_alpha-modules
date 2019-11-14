@@ -583,15 +583,6 @@ namespace Fanex.PTEngine.Age.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Colossus Bets.
-        /// </summary>
-        internal static string ColossusBets {
-            get {
-                return ResourceManager.GetString("ColossusBets", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Comm.
         /// </summary>
         internal static string com {
@@ -5267,15 +5258,6 @@ namespace Fanex.PTEngine.Age.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to % Odds.
-        /// </summary>
-        internal static string Symbol_OddsPercentage {
-            get {
-                return ResourceManager.GetString("Symbol_OddsPercentage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Synchronize.
         /// </summary>
         internal static string sync {
@@ -5605,15 +5587,6 @@ namespace Fanex.PTEngine.Age.LocalResources {
         internal static string updateaccount {
             get {
                 return ResourceManager.GetString("updateaccount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Update Colossus Bets Status.
-        /// </summary>
-        internal static string UpdateColossusBetsStatus {
-            get {
-                return ResourceManager.GetString("UpdateColossusBetsStatus", resourceCulture);
             }
         }
         

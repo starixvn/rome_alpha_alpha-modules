@@ -85,14 +85,9 @@ namespace Sunplus.Agent.Model.Entities
         private const string ISHIDEGOLDDELUXE = "ISHIDEGOLDDELUXE";
         private const string DISABLEGOLDDELUXE = "DISABLEGOLDDELUXE";
 
-        private const string ISHIDECOLOSSUSBETS = "ISHIDECOLOSSUSBETs";
-        private const string DISABLECOLOSSUSBETS = "DISABLECOLOSSUSBET";
-
         private const string ISLIMITHOSTPERMISSIONONSUBACCOUNTFUNCTION = "ISLIMITHOSTPERMISSIONONSUBACCOUNTFUNCTION";
 
         private const string ISDISABLEDESPORTS = "ISDISABLEDESPORTS";
-        private const string ISMYANMARODDS = "ISMYANMARODDS";
-        private const string ISIMBCCUSTOMER = "ISIMBCCUSTOMER";
 
         private const string ISHIDESPORTSBOOK2 = "ISHIDESPORTSBOOK2";
         private const string DISABLESPORTSBOOK2 = "DISABLESPORTSBOOK2";
@@ -963,38 +958,6 @@ namespace Sunplus.Agent.Model.Entities
 
         #endregion GoldDeluxe
 
-        #region Colossus Bets
-
-        public bool IsHideColossusBets
-        {
-            get
-            {
-                object value = this.GetProperty(ISHIDECOLOSSUSBETS);
-                return (null == value) ? true : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISHIDECOLOSSUSBETS, value);
-            }
-        }
-
-        public bool DisableColossusBets
-        {
-            get
-            {
-                object value = this.GetProperty(DISABLECOLOSSUSBETS);
-                return (null == value) ? true : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(DISABLECOLOSSUSBETS, value);
-            }
-        }
-
-        #endregion Colossus Bets
-
         #region Sportsbook2
 
         public bool IsHideSportsbook2
@@ -1165,34 +1128,6 @@ namespace Sunplus.Agent.Model.Entities
             set
             {
                 this.SetProperty(ISDISABLEDESPORTS, value);
-            }
-        }
-
-        public bool IsMyanmarOdds
-        {
-            get
-            {
-                object value = this.GetProperty(ISMYANMARODDS);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISMYANMARODDS, value);
-            }
-        }
-
-        public bool IsIMBCCustomer
-        {
-            get
-            {
-                object value = this.GetProperty(ISIMBCCUSTOMER);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISIMBCCUSTOMER, value);
             }
         }
 
