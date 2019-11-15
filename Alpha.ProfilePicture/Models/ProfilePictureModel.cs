@@ -11,7 +11,7 @@
         public ProfilePictureModel(int imageId, byte[] image)
         {
             ImageId = imageId;
-            Image = $"data:image/jpeg;base64,{Convert.ToBase64String(image)}";
+            Image = image == null ? string.Empty : $"data:image/jpeg;base64,{Convert.ToBase64String(image)}";
         }
 
         public int ImageId { get; private set; }

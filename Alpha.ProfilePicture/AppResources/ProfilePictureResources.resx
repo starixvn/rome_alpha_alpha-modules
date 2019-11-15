@@ -129,8 +129,11 @@
   <data name="PictureLibrary" xml:space="preserve">
     <value>Picture Library</value>
   </data>
+  <data name="ProfilePictureUpdatedFailed" xml:space="preserve">
+    <value>Profile picture update failed.</value>
+  </data>
   <data name="ProfilePictureUpdatedSuccessfully" xml:space="preserve">
-    <value>Profile picture updated successfully.</value>
+    <value>Profile picture update successfully.</value>
   </data>
   <data name="Reset" xml:space="preserve">
     <value>Reset</value>

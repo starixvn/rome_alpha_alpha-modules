@@ -97,7 +97,16 @@ namespace Alpha.ProfilePicture.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Profile picture updated successfully..
+        ///   Looks up a localized string similar to Profile picture update failed..
+        /// </summary>
+        public static string ProfilePictureUpdatedFailed {
+            get {
+                return ResourceManager.GetString("ProfilePictureUpdatedFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile picture update successfully..
         /// </summary>
         public static string ProfilePictureUpdatedSuccessfully {
             get {

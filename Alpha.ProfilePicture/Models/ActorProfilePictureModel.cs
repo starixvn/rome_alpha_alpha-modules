@@ -21,6 +21,6 @@
 
         public int ImageId { get; private set; }
 
-        public string ImageBase64String => $"data:image/jpeg;base64,{Convert.ToBase64String(Image)}";
+        public string ImageBase64String => Image == null ? string.Empty : $"data:image/jpeg;base64,{Convert.ToBase64String(Image)}";
     }
 }
