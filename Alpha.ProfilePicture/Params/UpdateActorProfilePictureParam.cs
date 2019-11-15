@@ -6,7 +6,7 @@
             int actorId,
             int? imageId,
             byte[] image,
-            byte mode,
+            int mode,
             bool isDefault,
             string ip)
         {
@@ -23,7 +23,7 @@
 
         public byte[] Image { get; }
 
-        public byte Mode { get; }
+        public int Mode { get; }
 
         public bool IsDefault { get; }
 

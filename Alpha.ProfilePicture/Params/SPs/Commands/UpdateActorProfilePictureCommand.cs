@@ -10,7 +10,7 @@
             int? imageId,
             byte[] image,
             bool isDefault,
-            byte mode,
+            int mode,
             string ip)
         {
             ActorId = actorId;
@@ -41,7 +41,7 @@
 
         public bool IsMainServer => true;
 
-        public byte Mode { get; }
+        public int Mode { get; }
 
         public string IP { get; }
 

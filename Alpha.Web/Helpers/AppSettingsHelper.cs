@@ -7,5 +7,8 @@
     {
         [SuppressMessage("Microsoft.Design", "CA1055:UriReturnValuesShouldNotBeStrings", Justification = "Reviewed!")]
         public static bool GetUpdateCreditReplicateServer() => AppSettings.UpdateCreditBothDBCustAndDBAge;
+
+        [SuppressMessage("Microsoft.Design", "CA1055:UriReturnValuesShouldNotBeStrings", Justification = "Reviewed!")]
+        public static int GetInsertProfilePictureSiteMode() => AppSettings.InsertProfilePictureSiteMode;
     }
 }

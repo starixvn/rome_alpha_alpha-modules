@@ -57,7 +57,8 @@
         {
             try
             {
-                return await dynamicRepository.GetAsync<ActorProfilePictureModel>(new SelectActorProfilePictureCriteria(custId)).ConfigureAwait(false);
+                var model = await dynamicRepository.GetAsync<ActorProfilePictureModel>(new SelectActorProfilePictureCriteria(custId)).ConfigureAwait(false);
+                return model ?? new ActorProfilePictureModel();
             }
             catch
             {
@@ -69,7 +70,8 @@
         {
             try
             {
-                return dynamicRepository.Get<ActorProfilePictureModel>(new SelectActorProfilePictureCriteria(custId));
+                var model = dynamicRepository.Get<ActorProfilePictureModel>(new SelectActorProfilePictureCriteria(custId));
+                return model ?? new ActorProfilePictureModel();
             }
             catch
             {
