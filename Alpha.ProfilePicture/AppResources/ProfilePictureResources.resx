@@ -130,16 +130,16 @@
     <value>Picture Library</value>
   </data>
   <data name="ProfilePictureUpdatedFailed" xml:space="preserve">
-    <value>Profile picture update failed.</value>
+    <value>Your profile picture has been uploaded failed !</value>
   </data>
   <data name="ProfilePictureUpdatedSuccessfully" xml:space="preserve">
-    <value>Profile picture update successfully.</value>
+    <value>Your profile picture has been uploaded successfully !</value>
   </data>
   <data name="Reset" xml:space="preserve">
     <value>Reset</value>
   </data>
   <data name="Selected" xml:space="preserve">
-    <value>Selected</value>
+    <value>Select</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>Submit</value>

@@ -97,7 +97,7 @@ namespace Alpha.ProfilePicture.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Profile picture update failed..
+        ///   Looks up a localized string similar to Your profile picture has been uploaded failed !.
         /// </summary>
         public static string ProfilePictureUpdatedFailed {
             get {
@@ -106,7 +106,7 @@ namespace Alpha.ProfilePicture.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Profile picture update successfully..
+        ///   Looks up a localized string similar to Your profile picture has been uploaded successfully !.
         /// </summary>
         public static string ProfilePictureUpdatedSuccessfully {
             get {
@@ -124,7 +124,7 @@ namespace Alpha.ProfilePicture.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Selected.
+        ///   Looks up a localized string similar to Select.
         /// </summary>
         public static string Selected {
             get {

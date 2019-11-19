@@ -53,7 +53,7 @@
             catch (Exception ex)
             {
                 ExceptionHandler.Handle(ex);
-                return ProfilePictureResult.CreateErrorResult(100, filename);
+                return ProfilePictureResult.CreateErrorResult(ErrorCodeDefault, filename);
             }
         }
 
