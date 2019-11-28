@@ -690,6 +690,58 @@
             }
         }
 
+        public bool IsRobot
+        {
+            get
+            {
+                return UserSession.Current.IsRobot;
+            }
+
+            set
+            {
+                UserSession.Current.IsRobot = value;
+            }
+        }
+
+        public bool RobotIsBrowserless
+        {
+            get
+            {
+                return UserSession.Current.RobotIsBrowserless;
+            }
+
+            set
+            {
+                UserSession.Current.RobotIsBrowserless = value;
+            }
+        }
+
+        public decimal RobotCaptchaScore
+        {
+            get
+            {
+                return UserSession.Current.RobotCaptchaScore;
+            }
+
+            set
+            {
+                UserSession.Current.RobotCaptchaScore = value;
+            }
+        }
+
+        public int RobotCaptchaFailedCount
+        {
+            get
+            {
+                return UserSession.Current.RobotCaptchaFailedCount;
+            }
+
+            set
+            {
+                UserSession.Current.RobotCaptchaFailedCount = value;
+            }
+        }
+
         public bool GetDisabledProduct(int productId)
         {
             return UserSession.Current.GetDisabledProduct(productId);

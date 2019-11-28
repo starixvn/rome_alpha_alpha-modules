@@ -40,6 +40,11 @@
 
             if (!IsInIgnoreUrl(currentUrl))
             {
+                if (userSession.IsRobot)
+                {
+                    return CaptchaUrl(currentUrl);
+                }
+
                 if (IsForceChangePassword)
                 {
                     return ForceChangePasswordUrl(currentUrl);
@@ -60,7 +65,16 @@
         }
 
         private bool IsInIgnoreUrl(string currentUrl)
-            => currentUrl.Equals("Language/Change", StringComparison.OrdinalIgnoreCase);
+            => currentUrl.Equals("Language/Change", StringComparison.OrdinalIgnoreCase)
+            || currentUrl.Equals("Default/Kickout", StringComparison.OrdinalIgnoreCase);
+
+        private  string CaptchaUrl(string currentUrl)
+            => currentUrl.Equals("RobotCaptcha/Index", StringComparison.OrdinalIgnoreCase)
+                || currentUrl.Equals("RobotCaptcha/Check", StringComparison.OrdinalIgnoreCase)
+                || currentUrl.Equals("DefaultCaptcha/Generate", StringComparison.OrdinalIgnoreCase)
+                || currentUrl.Equals("DefaultCaptcha/Refresh", StringComparison.OrdinalIgnoreCase)
+            ? null
+            : MicroSites.MainUrl($"~/RobotCaptcha/Index");
 
         private bool IsForceChangePassword
             => !userSession.IsLogged || userSession.IsPasswordExpired;

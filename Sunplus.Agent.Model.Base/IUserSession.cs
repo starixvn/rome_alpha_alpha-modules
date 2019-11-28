@@ -515,6 +515,14 @@ namespace Sunplus.Agent.Model.Entities
 
         bool IsAllDayBalTransfer { get; }
 
+        bool IsRobot { get; set; }
+
+        bool RobotIsBrowserless { get; set; }
+
+        decimal RobotCaptchaScore { get; set; }
+
+        int RobotCaptchaFailedCount { get; set; }
+
         T GetProperty<T>(string propertyName);
 
         void SetProperty(string propertyName, object value);

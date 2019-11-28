@@ -102,6 +102,11 @@ namespace Sunplus.Agent.Model.Entities
 
         private const string ISALLDAYBALTRANSFER = "ISALLDAYBALTRANSFER";
 
+        private const string ISROBOT = "ISROBOT";
+        private const string ROBOTISBROWSERLESS = "ROBOTISBROWSERLESS";
+        private const string ROBOTCAPTCHASCORE = "ROBOTCAPTCHASCORE";
+        private const string ROBOTCAPTCHAFAILEDCOUNT = "ROBOTCAPTCHAFAILEDCOUNT";
+
         private string asNetSessionId;
 
         #endregion Contructors
@@ -1237,6 +1242,58 @@ namespace Sunplus.Agent.Model.Entities
             set
             {
                 SetProperty(ISALLDAYBALTRANSFER, value);
+            }
+        }
+
+        public bool IsRobot
+        {
+            get
+            {
+                return GetProperty<bool>(ISROBOT);
+            }
+
+            set
+            {
+                SetProperty(ISROBOT, value);
+            }
+        }
+
+        public bool RobotIsBrowserless
+        {
+            get
+            {
+                return GetProperty<bool>(ROBOTISBROWSERLESS);
+            }
+
+            set
+            {
+                SetProperty(ROBOTISBROWSERLESS, value);
+            }
+        }
+
+        public decimal RobotCaptchaScore
+        {
+            get
+            {
+                return GetProperty<decimal>(ROBOTCAPTCHASCORE);
+            }
+
+            set
+            {
+                SetProperty(ROBOTCAPTCHASCORE, value);
+            }
+        }
+
+        public int RobotCaptchaFailedCount
+        {
+            get
+            {
+                return GetProperty<int>(ROBOTCAPTCHAFAILEDCOUNT);
+            }
+
+            set
+            {
+                SetProperty(ROBOTCAPTCHAFAILEDCOUNT, value);
             }
         }
 
