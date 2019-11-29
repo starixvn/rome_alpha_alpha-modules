@@ -120,20 +120,26 @@
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="FailByFileType" xml:space="preserve">
+    <value>Tập tin đang tải lên không phải là một hình ảnh, vui lòng thử lại !</value>
+  </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>You are not authorized on this function.</value>
   </data>
   <data name="OrChooseFromOurGallery" xml:space="preserve">
-    <value>or choose from our gallery</value>
+    <value>hoặc chọn từ thư viện</value>
   </data>
   <data name="PictureLibrary" xml:space="preserve">
-    <value>Picture Library</value>
+    <value>Thư viện ảnh</value>
+  </data>
+  <data name="ProfilePicture" xml:space="preserve">
+    <value>Hình đại diện</value>
   </data>
   <data name="ProfilePictureUpdatedFailed" xml:space="preserve">
-    <value>Your profile picture has been uploaded failed !</value>
+    <value>Lỗi tải ảnh lên!</value>
   </data>
   <data name="ProfilePictureUpdatedSuccessfully" xml:space="preserve">
-    <value>Your profile picture has been uploaded successfully !</value>
+    <value>Hình đại diện của bạn đã được tải lên thành công.</value>
   </data>
   <data name="Reset" xml:space="preserve">
     <value>Reset</value>
@@ -148,9 +154,9 @@
     <value>There is no change to update !</value>
   </data>
   <data name="UploadFromYourDevice" xml:space="preserve">
-    <value>Upload from your device</value>
+    <value>Tải ảnh lên</value>
   </data>
   <data name="ViewAll" xml:space="preserve">
-    <value>View All</value>
+    <value>Xem tất cả</value>
   </data>
 </root>

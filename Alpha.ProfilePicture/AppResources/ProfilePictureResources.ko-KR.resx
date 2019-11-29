@@ -120,6 +120,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="FailByFileType" xml:space="preserve">
+    <value>The uploading file is not a picture, please try again!</value>
+  </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>You are not authorized on this function.</value>
   </data>
@@ -129,8 +132,11 @@
   <data name="PictureLibrary" xml:space="preserve">
     <value>Picture Library</value>
   </data>
+  <data name="ProfilePicture" xml:space="preserve">
+    <value>Profile picture</value>
+  </data>
   <data name="ProfilePictureUpdatedFailed" xml:space="preserve">
-    <value>Your profile picture has been uploaded failed !</value>
+    <value>Failed to upload photo!</value>
   </data>
   <data name="ProfilePictureUpdatedSuccessfully" xml:space="preserve">
     <value>Your profile picture has been uploaded successfully !</value>

@@ -118,39 +118,45 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>取消</value>
+  </data>
+  <data name="FailByFileType" xml:space="preserve">
+    <value>上传的文件不是图片, 请重试!</value>
   </data>
   <data name="NotAuthorized" xml:space="preserve">
-    <value>You are not authorized on this function.</value>
+    <value>您没有使用此功能的权限</value>
   </data>
   <data name="OrChooseFromOurGallery" xml:space="preserve">
-    <value>or choose from our gallery</value>
+    <value>或从我们的图库中选择</value>
   </data>
   <data name="PictureLibrary" xml:space="preserve">
-    <value>Picture Library</value>
+    <value>个人资料图片库</value>
+  </data>
+  <data name="ProfilePicture" xml:space="preserve">
+    <value>个人头像</value>
   </data>
   <data name="ProfilePictureUpdatedFailed" xml:space="preserve">
-    <value>Your profile picture has been uploaded failed !</value>
+    <value>上传照片失败！</value>
   </data>
   <data name="ProfilePictureUpdatedSuccessfully" xml:space="preserve">
-    <value>Your profile picture has been uploaded successfully !</value>
+    <value>您的个人头像已成功上传.</value>
   </data>
   <data name="Reset" xml:space="preserve">
-    <value>Reset</value>
+    <value>重填</value>
   </data>
   <data name="Selected" xml:space="preserve">
-    <value>Select</value>
+    <value>选择</value>
   </data>
   <data name="Submit" xml:space="preserve">
-    <value>Submit</value>
+    <value>提交</value>
   </data>
   <data name="ThereIsNoChange" xml:space="preserve">
-    <value>There is no change to update !</value>
+    <value>没有任何的变化更新。</value>
   </data>
   <data name="UploadFromYourDevice" xml:space="preserve">
-    <value>Upload from your device</value>
+    <value>从您的设备上传</value>
   </data>
   <data name="ViewAll" xml:space="preserve">
-    <value>View All</value>
+    <value>查看全部</value>
   </data>
 </root>

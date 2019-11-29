@@ -6,7 +6,6 @@
     using Alpha.ProfilePicture.Params;
     using Alpha.ProfilePicture.Params.SPs.Commands;
     using Alpha.ProfilePicture.Params.SPs.Criteria;
-    using Fanex.Caching;
     using Fanex.Data.Repository;
     using Fanex.Logging.Extensions.Web;
     using System;
@@ -16,7 +15,7 @@
 
     public interface ProfilePictureServices
     {
-        ProfilePictureResult UpdateManualProfilePictureCommand(byte[] image, string filename);
+        ProfilePictureResult UpdateManualProfilePictureCommand(byte[] image, bool isMBC);
 
         Task<ActorProfilePictureModel> GetActorProfilePictureAsync(int custId);
 
@@ -35,16 +34,17 @@
         private readonly IDynamicRepository dynamicRepository;
         private readonly ProfilePictureResult ErrorDefaultResult =
             ProfilePictureResult.CreateErrorResult(ErrorCodeDefault, ProfilePictureResources.ProfilePictureUpdatedFailed);
+
         public ProfilePictureServicesImpl(IDynamicRepository dynamicRepository)
         {
             this.dynamicRepository = dynamicRepository;
         }
 
-        public ProfilePictureResult UpdateManualProfilePictureCommand(byte[] image, string filename)
+        public ProfilePictureResult UpdateManualProfilePictureCommand(byte[] image, bool isMBC)
         {
             try
             {
-                var command = new UpdateManualProfilePictureCommand(image);
+                var command = new UpdateManualProfilePictureCommand(image, isMBC);
 
                 dynamicRepository.Execute(command);
 
@@ -53,7 +53,7 @@
             catch (Exception ex)
             {
                 ExceptionHandler.Handle(ex);
-                return ProfilePictureResult.CreateErrorResult(ErrorCodeDefault, filename);
+                return ProfilePictureResult.CreateErrorResult(ErrorCodeDefault, ex.Message);
             }
         }
 

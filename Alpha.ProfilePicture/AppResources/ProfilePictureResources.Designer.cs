@@ -70,6 +70,15 @@ namespace Alpha.ProfilePicture.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The uploading file is not a picture, please try again!.
+        /// </summary>
+        public static string FailByFileType {
+            get {
+                return ResourceManager.GetString("FailByFileType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You are not authorized on this function..
         /// </summary>
         public static string NotAuthorized {
@@ -93,6 +102,15 @@ namespace Alpha.ProfilePicture.AppResources {
         public static string PictureLibrary {
             get {
                 return ResourceManager.GetString("PictureLibrary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile picture.
+        /// </summary>
+        public static string ProfilePicture {
+            get {
+                return ResourceManager.GetString("ProfilePicture", resourceCulture);
             }
         }
         
