@@ -960,16 +960,16 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Bạn có muốn cho phép thành viên này chơi UK Tote  </value>
   </data>
   <data name="lblAsianHDC_OU_OE" xml:space="preserve">
-    <value>Asian HDP, OU, OE</value>
+    <value>Cược chấp châu Á, Tài Xỉu, Lẻ Chẵn</value>
   </data>
   <data name="lblAutoMasterResestPosition" xml:space="preserve">
-    <value>Auto Master Preset</value>
+    <value>Thiết lập tự động của Master</value>
   </data>
   <data name="lblAutoPTSuper" xml:space="preserve">
-    <value>Auto PT của Super</value>
+    <value>PT tự động của Super</value>
   </data>
   <data name="lblAutoSuperPresetPosition" xml:space="preserve">
-    <value>Auto Super Preset</value>
+    <value>Thiết lập tự động của Super</value>
   </data>
   <data name="lblBack" xml:space="preserve">
     <value>Trở lại</value>
@@ -1731,7 +1731,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Không giới hạn</value>
   </data>
   <data name="none" xml:space="preserve">
-    <value>None</value>
+    <value>Bỏ Chọn</value>
   </data>
   <data name="noothers" xml:space="preserve">
     <value>th</value>
