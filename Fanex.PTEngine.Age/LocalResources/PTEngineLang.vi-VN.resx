@@ -831,7 +831,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Bạn có muốn cho phép thành viên này chơi UK Tote  </value>
   </data>
   <data name="lblAsianHDC_OU_OE" xml:space="preserve">
-    <value>Asian HDP, OU, OE</value>
+    <value>Cược chấp châu Á, Tài Xỉu, Lẻ Chẵn</value>
   </data>
   <data name="lblBack" xml:space="preserve">
     <value>Trở lại</value>
@@ -1063,7 +1063,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Lẻ/Chẵn</value>
   </data>
   <data name="lblOtherComm" xml:space="preserve">
-    <value>Others Comm</value>
+    <value>Nhóm Khác</value>
   </data>
   <data name="lblOtherTypes" xml:space="preserve">
     <value>Loại cược khác</value>
@@ -1072,7 +1072,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Cược Thắng</value>
   </data>
   <data name="lblOverUnder" xml:space="preserve">
-    <value>Over/Under </value>
+    <value>Tài/Xỉu </value>
   </data>
   <data name="lblPasswordChangedOK" xml:space="preserve">
     <value>Mật khẩu của bạn đã được thay đổi thành công.</value>
@@ -1196,7 +1196,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>System Parlay</value>
   </data>
   <data name="lblTG" xml:space="preserve">
-    <value>TG</value>
+    <value>Tổng số bàn thắng</value>
   </data>
   <data name="lblTMasterAC" xml:space="preserve">
     <value>Số tài khoản Master hiện đang: Kích hoạt/Khóa/Đình chỉ</value>
@@ -1250,7 +1250,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Xem dự đoán kết quả - Tài Xỉu</value>
   </data>
   <data name="lblWin" xml:space="preserve">
-    <value>Win</value>
+    <value>Thắng</value>
   </data>
   <data name="lblWinLoss" xml:space="preserve">
     <value>Thắng thua</value>
@@ -1268,7 +1268,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Line No</value>
   </data>
   <data name="LiveGame" xml:space="preserve">
-    <value>Live Game</value>
+    <value>Trực Tiếp</value>
   </data>
   <data name="loading" xml:space="preserve">
     <value>Đang tải </value>
@@ -1307,7 +1307,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Số dư tài khoản của Master</value>
   </data>
   <data name="masterCommissionByBetType" xml:space="preserve">
-    <value>Master Commission By Bet Type</value>
+    <value>Hoa hồng theo loại cược của Master</value>
   </data>
   <data name="mastergivencredit" xml:space="preserve">
     <value>Hạn mức tín dụng được cấp của Master</value>
@@ -1498,7 +1498,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Không giới hạn</value>
   </data>
   <data name="none" xml:space="preserve">
-    <value>None</value>
+    <value>Bỏ Chọn</value>
   </data>
   <data name="noothers" xml:space="preserve">
     <value>th</value>
@@ -1552,7 +1552,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Mở</value>
   </data>
   <data name="other" xml:space="preserve">
-    <value>Other</value>
+    <value>Khác</value>
   </data>
   <data name="OtherBettypes" xml:space="preserve">
     <value>Loại cược khác</value>
@@ -1573,7 +1573,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Giao dịch chưa xử lý</value>
   </data>
   <data name="over" xml:space="preserve">
-    <value>Over</value>
+    <value>Tài</value>
   </data>
   <data name="pagesize" xml:space="preserve">
     <value>Dung lượng trang</value>
@@ -1624,7 +1624,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Position Taking</value>
   </data>
   <data name="PreGame" xml:space="preserve">
-    <value>Pre Game</value>
+    <value>Chưa bắt đầu</value>
   </data>
   <data name="preview" xml:space="preserve">
     <value>Xem trước</value>
@@ -1816,7 +1816,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Super</value>
   </data>
   <data name="superCommissionByBetType" xml:space="preserve">
-    <value>Super Commission By Bet Type</value>
+    <value>Hoa hồng theo loại cược của Super</value>
   </data>
   <data name="supergivencredit" xml:space="preserve">
     <value>Tổng hạn mức tín dụng của  Super</value>
@@ -2038,13 +2038,13 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Danh sách đặt cược bị Hủy/ Từ Chối (cách đây 3 ngày )</value>
   </data>
   <data name="warrior" xml:space="preserve">
-    <value>Warrior</value>
+    <value>Chiến Binh</value>
   </data>
   <data name="warrior2ndBall" xml:space="preserve">
-    <value>2nd ball win</value>
+    <value>Banh thứ 2 thắng</value>
   </data>
   <data name="warrior3rdBall" xml:space="preserve">
-    <value>3rd ball win</value>
+    <value>Banh thứ 3 thắng</value>
   </data>
   <data name="wed" xml:space="preserve">
     <value>Thứ 4</value>
