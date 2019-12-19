@@ -34,6 +34,7 @@
         private static string transferAppPath;
 
         private static bool updateCreditReplicateServer;
+        private static int insertProfilePictureSiteMode;
 
         private static DateTime? forceLoginNicknameDate;
         private static IDictionary<int, bool> forceLoginNicknameIgnoreList;
@@ -80,6 +81,8 @@
             viewLogsAppPath = ConfigurationManager.AppSettings["ViewLogsAppPath"] ?? "site-viewLogs";
 
             updateCreditReplicateServer = ConfigurationManager.AppSettings["UpdateCreditReplicateServer"] == "1";
+            insertProfilePictureSiteMode = Fanex.Common.Converter.ToInt(ConfigurationManager.AppSettings["InsertProfilePictureSiteMode"]);
+
             GetForceLoginNicknameConfiguration();
         }
 
@@ -130,6 +133,8 @@
         public static DateTime? ForceLoginNicknameDate4SubAccount => forceLoginNicknameDate4SubAccount;
 
         public static bool UpdateCreditBothDBCustAndDBAge => updateCreditReplicateServer;
+
+        public static int InsertProfilePictureSiteMode => insertProfilePictureSiteMode;
 
         private static void GetForceLoginNicknameConfiguration()
         {
