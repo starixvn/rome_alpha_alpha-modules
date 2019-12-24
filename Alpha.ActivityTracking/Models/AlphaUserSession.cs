@@ -39,5 +39,11 @@ namespace Alpha.ActivityTracking.Models
             : LevelId == MasterLevelId ?
             $"Super: { UserSession.Current.SRecommendId}"
             : string.Empty;
+
+        public bool RobotIsBrowserless => UserSession.Current.RobotIsBrowserless;
+
+        public decimal RobotCaptchaScore => UserSession.Current.RobotCaptchaScore;
+
+        public int RobotCaptchaFailedCount => UserSession.Current.RobotCaptchaFailedCount;
     }
 }
