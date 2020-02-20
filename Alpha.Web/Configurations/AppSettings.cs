@@ -35,6 +35,7 @@
 
         private static bool updateCreditReplicateServer;
         private static int insertProfilePictureSiteMode;
+        private static string siteGroup;
 
         private static DateTime? forceLoginNicknameDate;
         private static IDictionary<int, bool> forceLoginNicknameIgnoreList;
@@ -82,6 +83,7 @@
 
             updateCreditReplicateServer = ConfigurationManager.AppSettings["UpdateCreditReplicateServer"] == "1";
             insertProfilePictureSiteMode = Fanex.Common.Converter.ToInt(ConfigurationManager.AppSettings["InsertProfilePictureSiteMode"]);
+            siteGroup = ConfigurationManager.AppSettings["SiteGroup"];
 
             GetForceLoginNicknameConfiguration();
         }
@@ -135,6 +137,8 @@
         public static bool UpdateCreditBothDBCustAndDBAge => updateCreditReplicateServer;
 
         public static int InsertProfilePictureSiteMode => insertProfilePictureSiteMode;
+
+        public static string SiteGroup => siteGroup;
 
         private static void GetForceLoginNicknameConfiguration()
         {
