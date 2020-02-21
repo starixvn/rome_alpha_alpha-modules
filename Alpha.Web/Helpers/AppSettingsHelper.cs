@@ -9,9 +9,9 @@
 
         public static int GetInsertProfilePictureSiteMode() => AppSettings.InsertProfilePictureSiteMode;
 
-        public static bool DisallowedAccessProductBySites(string site) =>
+        public static bool HideProductStatusBySites(string site) =>
              Array.Exists(
-                 AppSettings.DisallowedAccessProductSites, 
+                 AppSettings.HideProductStatusSites, 
                  disallowedSite => disallowedSite.Equals(site, StringComparison.OrdinalIgnoreCase));
     }
 }

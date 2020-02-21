@@ -35,7 +35,7 @@
 
         private static bool updateCreditReplicateServer;
         private static int insertProfilePictureSiteMode;
-        private static string[] disallowedAccessProductSites;
+        private static string[] hideProductStatusSites;
 
         private static DateTime? forceLoginNicknameDate;
         private static IDictionary<int, bool> forceLoginNicknameIgnoreList;
@@ -84,8 +84,8 @@
             updateCreditReplicateServer = ConfigurationManager.AppSettings["UpdateCreditReplicateServer"] == "1";
             insertProfilePictureSiteMode = Fanex.Common.Converter.ToInt(ConfigurationManager.AppSettings["InsertProfilePictureSiteMode"]);
 
-            disallowedAccessProductSites = string.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["DisallowedAccessProduct:Sites"]) ?
-            new string[] { } : ConfigurationManager.AppSettings["DisallowedAccessProduct:Sites"].Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            hideProductStatusSites = string.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["HideProductStatus:Sites"]) ?
+            new string[] { } : ConfigurationManager.AppSettings["HideProductStatus:Sites"].Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
             GetForceLoginNicknameConfiguration();
         }
@@ -140,7 +140,7 @@
 
         public static int InsertProfilePictureSiteMode => insertProfilePictureSiteMode;
 
-        public static string[] DisallowedAccessProductSites => disallowedAccessProductSites;
+        public static string[] HideProductStatusSites => hideProductStatusSites;
 
         private static void GetForceLoginNicknameConfiguration()
         {
