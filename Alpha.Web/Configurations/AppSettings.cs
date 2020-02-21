@@ -37,6 +37,8 @@
         private static int insertProfilePictureSiteMode;
         private static string[] hideProductStatusSites;
 
+        private static string productConfigsFileRelativePath;
+
         private static DateTime? forceLoginNicknameDate;
         private static IDictionary<int, bool> forceLoginNicknameIgnoreList;
         private static DateTime? forceLoginNicknameDate4SubAccount;
@@ -86,6 +88,8 @@
 
             hideProductStatusSites = string.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["HideProductStatus:Sites"]) ?
             new string[] { } : ConfigurationManager.AppSettings["HideProductStatus:Sites"].Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            productConfigsFileRelativePath = ConfigurationManager.AppSettings["ProductConfigsFileRelativePath"];
 
             GetForceLoginNicknameConfiguration();
         }
@@ -139,6 +143,8 @@
         public static bool UpdateCreditBothDBCustAndDBAge => updateCreditReplicateServer;
 
         public static int InsertProfilePictureSiteMode => insertProfilePictureSiteMode;
+
+        public static string ProductConfigsFileRelativePath => productConfigsFileRelativePath;
 
         public static string[] HideProductStatusSites => hideProductStatusSites;
 

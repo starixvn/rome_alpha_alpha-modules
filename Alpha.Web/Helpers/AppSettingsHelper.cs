@@ -13,5 +13,7 @@
              Array.Exists(
                  AppSettings.HideProductStatusSites, 
                  disallowedSite => disallowedSite.Equals(site, StringComparison.OrdinalIgnoreCase));
+
+        public static string GetProductConfigsFileRelativePath() => AppSettings.ProductConfigsFileRelativePath;
     }
 }
