@@ -49,9 +49,10 @@ namespace Fanex.PTEngine.Age
 			protected string t0_actionName;
 			protected static string s25 = "</button></div></div><div class=\"maincontent_box\"><div class=\"alertwarning\">";
 			protected static string s26{get{return LocalResources.PTEngineLang.NoteSportsbookSetting;}}
-			protected static string s27 = "</div></div>";
+			protected static string s27 = "</div></div><div class=\"maincontent_box\">";
+			public AddNewMaster_RemoveWhenIsMBCAccount_Block RemoveWhenIsMBCAccount = new AddNewMaster_RemoveWhenIsMBCAccount_Block();
 			public AddNewMaster_RemoveWhenIsSpecialAccount_Block RemoveWhenIsSpecialAccount = new AddNewMaster_RemoveWhenIsSpecialAccount_Block();
-			protected static string s28 = "<div class=\"customerInfo\"><div class=\"headerTab\">";
+			protected static string s28 = "</div><div class=\"customerInfo\"><div class=\"headerTab\">";
 			protected static string s29{get{return LocalResources.PTEngineLang.generalInformation;}}
 			protected static string s30 = "</div>";
 			public AddNewMaster_UserNameAndPasswordBlock_Block UserNameAndPasswordBlock = new AddNewMaster_UserNameAndPasswordBlock_Block();
@@ -131,6 +132,7 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s25);
 					bd.Append(s26);
 					bd.Append(s27);
+					if(null != RemoveWhenIsMBCAccount) RemoveWhenIsMBCAccount.ToString(ref bd);
 					if(null != RemoveWhenIsSpecialAccount) RemoveWhenIsSpecialAccount.ToString(ref bd);
 					bd.Append(s28);
 					bd.Append(s29);
@@ -190,11 +192,11 @@ namespace Fanex.PTEngine.Age
 			}
 		}
 
-		public class AddNewMaster_RemoveWhenIsSpecialAccount_Block: Block
+		public class AddNewMaster_RemoveWhenIsMBCAccount_Block: Block
 		{
-			protected static string s60 = "<div class=\"maincontent_box\"><div class=\"alertwarning\">";
-			protected static string s61{get{return LocalResources.PTEngineLang.SMAUnlimitedBetSettingWarningMessage;}}
-			protected static string s62 = "</div></div>";
+			protected static string s60 = "<div class=\"alertwarning\">";
+			protected static string s61{get{return LocalResources.PTEngineLang.SpecialSMAUnlimitedBetSettingWarningMessage;}}
+			protected static string s62 = "</div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -208,15 +210,11 @@ namespace Fanex.PTEngine.Age
 			}
 		}
 
-		public class AddNewMaster_UserNameAndPasswordBlock_Block: Block
+		public class AddNewMaster_RemoveWhenIsSpecialAccount_Block: Block
 		{
-			protected static string s63 = "<div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
-			protected static string s64{get{return LocalResources.PTEngineLang.username;}}
-			protected static string s65 = "</div><div class=\"customerInfoBlock2\"><b><span data-bind=\"text: customer.userName\"></span></b><select id=\"selectedOne\" name=\"selectedOne\"></select><select id=\"selectedTwo\" name=\"selectedTwo\"></select><span id=\"msgIcon\">&nbsp;&nbsp;&nbsp;</span></div><div class=\"customerInfoBlock3\">";
-			protected static string s66{get{return LocalResources.PTEngineLang.password;}}
-			protected static string s67 = "</div><div class=\"customerInfoBlock4\" id=\"divPassword\" title=\"";
-			protected static string s68{get{return LocalResources.PTEngineLang.lblPasswordRequire;}}
-			protected static string s69 = "\"><div class=\"float_l\"><input id=\"password\" autocomplete=\"off\" class=\"textBoxInfo\" type=\"password\" data-bind=\"value: customer.password\"onkeyup=\"return Fanex.Customer.CheckPassword(this, 'spnNewPwdIcon');\" maxlength=\"50\" /></div><div class=\"float_l pt3\"><span id=\"spnNewPwdIcon\">&nbsp;</span></div></div></div>";
+			protected static string s63 = "<div class=\"alertwarning\">";
+			protected static string s64{get{return LocalResources.PTEngineLang.SMAUnlimitedBetSettingWarningMessage;}}
+			protected static string s65 = "</div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -225,10 +223,32 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s63);
 					bd.Append(s64);
 					bd.Append(s65);
+				}
+				if(IsAssigned){bd.Append(Value);}
+			}
+		}
+
+		public class AddNewMaster_UserNameAndPasswordBlock_Block: Block
+		{
+			protected static string s66 = "<div class=\"clearBlock\"><div class=\"customerInfoBlock1\">";
+			protected static string s67{get{return LocalResources.PTEngineLang.username;}}
+			protected static string s68 = "</div><div class=\"customerInfoBlock2\"><b><span data-bind=\"text: customer.userName\"></span></b><select id=\"selectedOne\" name=\"selectedOne\"></select><select id=\"selectedTwo\" name=\"selectedTwo\"></select><span id=\"msgIcon\">&nbsp;&nbsp;&nbsp;</span></div><div class=\"customerInfoBlock3\">";
+			protected static string s69{get{return LocalResources.PTEngineLang.password;}}
+			protected static string s70 = "</div><div class=\"customerInfoBlock4\" id=\"divPassword\" title=\"";
+			protected static string s71{get{return LocalResources.PTEngineLang.lblPasswordRequire;}}
+			protected static string s72 = "\"><div class=\"float_l\"><input id=\"password\" autocomplete=\"off\" class=\"textBoxInfo\" type=\"password\" data-bind=\"value: customer.password\"onkeyup=\"return Fanex.Customer.CheckPassword(this, 'spnNewPwdIcon');\" maxlength=\"50\" /></div><div class=\"float_l pt3\"><span id=\"spnNewPwdIcon\">&nbsp;</span></div></div></div>";
+			public override void ToString(ref StringBuilder bd)
+			{
+				if(!Visible) return;
+				if(RenderChild)
+				{
 					bd.Append(s66);
 					bd.Append(s67);
 					bd.Append(s68);
 					bd.Append(s69);
+					bd.Append(s70);
+					bd.Append(s71);
+					bd.Append(s72);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -236,13 +256,13 @@ namespace Fanex.PTEngine.Age
 
 		public class AddNewMaster_TransferConditionBlock_Block: Block
 		{
-			protected static string s70{get{return new Fanex.PTEngine.Age.Templates.TransferCondition_Template();}}
+			protected static string s73{get{return new Fanex.PTEngine.Age.Templates.TransferCondition_Template();}}
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s70);
+					bd.Append(s73);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}

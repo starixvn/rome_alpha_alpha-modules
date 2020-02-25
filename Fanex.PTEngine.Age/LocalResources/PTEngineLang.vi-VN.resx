@@ -2118,4 +2118,11 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   <data name="SMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
     <value>Cược nhỏ nhất = Cược lớn nhất = Cược tối đa cho 1 trận = (Cược tối đa cho 1 lượt banh) = 0, nghĩa là bạn sẽ không giới hạn mức cược cho tài khoản này.&lt;br/&gt;Để ngăn không cho Member đặt cược, hãy thiết lập giá trị Cược nhỏ nhất / Cược lớn nhất/ Cược tối đa cho 1 trận/ (Cược tối đa cho 1 lượt banh) là 0 / 0.1 / 0.1 / (0.1)</value>
   </data>
+  <data name="SpecialMemberUnlimitedBetSettingWarningMessage" xml:space="preserve">
+    <value>Inputting 0 / 0 / 0  for Min Bet / Max Bet / Max Per Match will prevent members from playing the game (for Sportsbook only).</value>
+  </data>
+  <data name="SpecialSMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
+    <value>Inputting Min Bet = Max Bet = Max Per Match = 0 means that you will not limit the bet setting of this account.
+In order to prevent members from playing the game, set the value to 0 / 0.1 / 0.1 for Min Bet / Max Bet / Max Per Match (for Sportsbook only).</value>
+  </data>
 </root>

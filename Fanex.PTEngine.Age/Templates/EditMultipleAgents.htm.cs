@@ -45,9 +45,10 @@ namespace Fanex.PTEngine.Age
 			public string actionName = "{actionName}";
 			protected static string s23 = "</button></div></div><div class=\"commission\"><div class=\"customerInfoBlock6\"><span data-bind=\"text: customer.userNames\"></span></div><div class=\"maincontent_box\"><div class=\"alertwarning\">";
 			protected static string s24{get{return LocalResources.PTEngineLang.NoteSportsbookSetting;}}
-			protected static string s25 = "</div></div>";
+			protected static string s25 = "</div></div><div class=\"maincontent_box\">";
+			public EditMultipleAgents_RemoveWhenIsMBCAccount_Block RemoveWhenIsMBCAccount = new EditMultipleAgents_RemoveWhenIsMBCAccount_Block();
 			public EditMultipleAgents_RemoveWhenIsSpecialAccount_Block RemoveWhenIsSpecialAccount = new EditMultipleAgents_RemoveWhenIsSpecialAccount_Block();
-			protected static string s26 = "<div class=\"headerTab\" id=\"statusHeader\">";
+			protected static string s26 = "</div><div class=\"headerTab\" id=\"statusHeader\">";
 			protected static string s27{get{return LocalResources.PTEngineLang.status;}}
 			protected static string s28 = "</div><div class=\"clearBlock\"><div class=\"customerInfoBlock7\"><label for=\"closed\">";
 			protected static string s29{get{return LocalResources.PTEngineLang.closed;}}
@@ -102,6 +103,7 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s23);
 					bd.Append(s24);
 					bd.Append(s25);
+					if(null != RemoveWhenIsMBCAccount) RemoveWhenIsMBCAccount.ToString(ref bd);
 					if(null != RemoveWhenIsSpecialAccount) RemoveWhenIsSpecialAccount.ToString(ref bd);
 					bd.Append(s26);
 					bd.Append(s27);
@@ -140,11 +142,11 @@ namespace Fanex.PTEngine.Age
 			}
 		}
 
-		public class EditMultipleAgents_RemoveWhenIsSpecialAccount_Block: Block
+		public class EditMultipleAgents_RemoveWhenIsMBCAccount_Block: Block
 		{
-			protected static string s40 = "<div class=\"maincontent_box\"><div class=\"alertwarning\">";
-			protected static string s41{get{return LocalResources.PTEngineLang.SMAUnlimitedBetSettingWarningMessage;}}
-			protected static string s42 = "</div></div>";
+			protected static string s40 = "<div class=\"alertwarning\">";
+			protected static string s41{get{return LocalResources.PTEngineLang.SpecialSMAUnlimitedBetSettingWarningMessage;}}
+			protected static string s42 = "</div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -153,6 +155,24 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s40);
 					bd.Append(s41);
 					bd.Append(s42);
+				}
+				if(IsAssigned){bd.Append(Value);}
+			}
+		}
+
+		public class EditMultipleAgents_RemoveWhenIsSpecialAccount_Block: Block
+		{
+			protected static string s43 = "<div class=\"alertwarning\">";
+			protected static string s44{get{return LocalResources.PTEngineLang.SMAUnlimitedBetSettingWarningMessage;}}
+			protected static string s45 = "</div>";
+			public override void ToString(ref StringBuilder bd)
+			{
+				if(!Visible) return;
+				if(RenderChild)
+				{
+					bd.Append(s43);
+					bd.Append(s44);
+					bd.Append(s45);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}

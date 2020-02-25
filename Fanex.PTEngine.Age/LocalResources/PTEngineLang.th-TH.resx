@@ -2120,4 +2120,11 @@
   <data name="SMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
     <value>ป้อนค่าเดิมพันต่ำสุด = ค่าเดิมพันสูงสุด = ค่าเดิมพันสูงสุดต่อคู่การแข่งขัน = (ค่าเดิมพันสูงสุดต่อบอล) = 0 หมายความว่าคุณจะไม่ จำกัด การตั้งค่าการเดิมพันของบัญชีนี้&lt;br/&gt;เพื่อป้องกันไม่ให้สมาชิกเล่นเกม คุณสามารถตั้งค่าเป็น 0 / 0.1 / 0.1 / (0.1) สำหรับค่าเดิมพันต่ำสุด / ค่าเดิมพันสูงสุด / ค่าเดิมพันสูงสุดต่อการแข่งขัน / (ค่าเดิมพันสูงสุดต่อบอล)</value>
   </data>
+  <data name="SpecialMemberUnlimitedBetSettingWarningMessage" xml:space="preserve">
+    <value>Inputting 0 / 0 / 0  for Min Bet / Max Bet / Max Per Match will prevent members from playing the game (for Sportsbook only).</value>
+  </data>
+  <data name="SpecialSMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
+    <value>Inputting Min Bet = Max Bet = Max Per Match = 0 means that you will not limit the bet setting of this account.
+In order to prevent members from playing the game, set the value to 0 / 0.1 / 0.1 for Min Bet / Max Bet / Max Per Match (for Sportsbook only).</value>
+  </data>
 </root>

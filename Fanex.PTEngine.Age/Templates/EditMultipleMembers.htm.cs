@@ -45,9 +45,10 @@ namespace Fanex.PTEngine.Age
 			public string actionName = "{actionName}";
 			protected static string s23 = "</button></div></div><div class=\"commission\"><div class=\"customerInfoBlock6\"><span data-bind=\"text: customer.userNames\"></span></div><div class=\"maincontent_box\"><div class=\"alertwarning\">";
 			protected static string s24{get{return LocalResources.PTEngineLang.NoteSportsbookSetting;}}
-			protected static string s25 = "</div></div>";
+			protected static string s25 = "</div></div><div class=\"maincontent_box\">";
+			public EditMultipleMembers_RemoveWhenIsMBCAccount_Block RemoveWhenIsMBCAccount = new EditMultipleMembers_RemoveWhenIsMBCAccount_Block();
 			public EditMultipleMembers_RemoveWhenIsSpecialAccount_Block RemoveWhenIsSpecialAccount = new EditMultipleMembers_RemoveWhenIsSpecialAccount_Block();
-			protected static string s26 = "<div class=\"headerTab\" id=\"statusHeader\">";
+			protected static string s26 = "</div><div class=\"headerTab\" id=\"statusHeader\">";
 			protected static string s27{get{return LocalResources.PTEngineLang.status;}}
 			protected static string s28 = "</div><div class=\"clearBlock\"><div class=\"customerInfoBlock7\"><label for=\"closed\">";
 			protected static string s29{get{return LocalResources.PTEngineLang.closed;}}
@@ -102,6 +103,7 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s23);
 					bd.Append(s24);
 					bd.Append(s25);
+					if(null != RemoveWhenIsMBCAccount) RemoveWhenIsMBCAccount.ToString(ref bd);
 					if(null != RemoveWhenIsSpecialAccount) RemoveWhenIsSpecialAccount.ToString(ref bd);
 					bd.Append(s26);
 					bd.Append(s27);
@@ -140,11 +142,11 @@ namespace Fanex.PTEngine.Age
 			}
 		}
 
-		public class EditMultipleMembers_RemoveWhenIsSpecialAccount_Block: Block
+		public class EditMultipleMembers_RemoveWhenIsMBCAccount_Block: Block
 		{
-			protected static string s40 = "<div class=\"maincontent_box\"><div class=\"alertwarning\">";
-			protected static string s41{get{return LocalResources.PTEngineLang.SMAUnlimitedBetSettingWarningMessage;}}
-			protected static string s42 = "</div></div>";
+			protected static string s40 = "<div class=\"alertwarning\">";
+			protected static string s41{get{return LocalResources.PTEngineLang.SpecialMemberUnlimitedBetSettingWarningMessage;}}
+			protected static string s42 = "</div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -158,21 +160,11 @@ namespace Fanex.PTEngine.Age
 			}
 		}
 
-		public class EditMultipleMembers_CommissionBlock_Block: Block
+		public class EditMultipleMembers_RemoveWhenIsSpecialAccount_Block: Block
 		{
-			protected static string s43 = "<div class=\"commission\"><div class=\"headerTab\" id=\"commissionHeader\">";
-			protected static string s44{get{return LocalResources.PTEngineLang.commission;}}
-			protected static string s45 = "</div><div class=\"clearBlock\"><div class=\"commissionBlock1 commissionHeader\"></div><div class=\"commissionBlock2 commissionHeader\">";
-			protected static string s46{get{return LocalResources.PTEngineLang.lblCommissionForAgent;}}
-			protected static string s47 = "</div><div class=\"commissionBlock2 commissionHeader\">";
-			protected static string s48{get{return LocalResources.PTEngineLang.lblCommissionForMember;}}
-			protected static string s49 = "</div></div><div class=\"clearBlock\"><div class=\"commissionBlock1\">";
-			protected static string s50{get{return LocalResources.PTEngineLang.lblAsianHDC_OU_OE;}}
-			protected static string s51 = "</div><div class=\"commissionBlock2\"><input type=\"text\" id=\"textBoxDiscountAsian\" name=\"textBoxDiscountAsian\" class=\"textBoxComm\"disabled=\"true\" /></div><div class=\"commissionBlock2\"><select id=\"discountAsian\" name=\"discountAsian\" class=\"widthGroup\"></select></div></div><div class=\"clearBlock\"><div class=\"commissionBlock1\">";
-			protected static string s52{get{return LocalResources.PTEngineLang.lbl1x2;}}
-			protected static string s53 = "</div><div class=\"commissionBlock2\"><input type=\"text\" id=\"textBoxDiscount1x2\" class=\"textBoxComm\" disabled=\"true\" data-bind=\"value: customer.commissionSetting.discount1x2\" /></div><div class=\"commissionBlock2\"><select id=\"discount1x2\" name=\"discount1x2\" class=\"widthGroup\"></select></div></div><div class=\"clearBlock\"><div class=\"commissionBlock1\">";
-			protected static string s54{get{return LocalResources.PTEngineLang.lblOtherTypes;}}
-			protected static string s55 = "</div><div class=\"commissionBlock2\"><input type=\"text\" id=\"textBoxDiscountCS\" class=\"textBoxComm\" disabled=\"true\" data-bind=\"value: customer.commissionSetting.discountCS\" /></div><div class=\"commissionBlock2\"><select id=\"discountCS\" name=\"discountCS\" class=\"widthGroup\"></select></div></div><div class=\"clearBlock\"></div></div>";
+			protected static string s43 = "<div class=\"alertwarning\">";
+			protected static string s44{get{return LocalResources.PTEngineLang.MemberUnlimitedBetSettingWarningMessage;}}
+			protected static string s45 = "</div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -181,6 +173,31 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s43);
 					bd.Append(s44);
 					bd.Append(s45);
+				}
+				if(IsAssigned){bd.Append(Value);}
+			}
+		}
+
+		public class EditMultipleMembers_CommissionBlock_Block: Block
+		{
+			protected static string s46 = "<div class=\"commission\"><div class=\"headerTab\" id=\"commissionHeader\">";
+			protected static string s47{get{return LocalResources.PTEngineLang.commission;}}
+			protected static string s48 = "</div><div class=\"clearBlock\"><div class=\"commissionBlock1 commissionHeader\"></div><div class=\"commissionBlock2 commissionHeader\">";
+			protected static string s49{get{return LocalResources.PTEngineLang.lblCommissionForAgent;}}
+			protected static string s50 = "</div><div class=\"commissionBlock2 commissionHeader\">";
+			protected static string s51{get{return LocalResources.PTEngineLang.lblCommissionForMember;}}
+			protected static string s52 = "</div></div><div class=\"clearBlock\"><div class=\"commissionBlock1\">";
+			protected static string s53{get{return LocalResources.PTEngineLang.lblAsianHDC_OU_OE;}}
+			protected static string s54 = "</div><div class=\"commissionBlock2\"><input type=\"text\" id=\"textBoxDiscountAsian\" name=\"textBoxDiscountAsian\" class=\"textBoxComm\"disabled=\"true\" /></div><div class=\"commissionBlock2\"><select id=\"discountAsian\" name=\"discountAsian\" class=\"widthGroup\"></select></div></div><div class=\"clearBlock\"><div class=\"commissionBlock1\">";
+			protected static string s55{get{return LocalResources.PTEngineLang.lbl1x2;}}
+			protected static string s56 = "</div><div class=\"commissionBlock2\"><input type=\"text\" id=\"textBoxDiscount1x2\" class=\"textBoxComm\" disabled=\"true\" data-bind=\"value: customer.commissionSetting.discount1x2\" /></div><div class=\"commissionBlock2\"><select id=\"discount1x2\" name=\"discount1x2\" class=\"widthGroup\"></select></div></div><div class=\"clearBlock\"><div class=\"commissionBlock1\">";
+			protected static string s57{get{return LocalResources.PTEngineLang.lblOtherTypes;}}
+			protected static string s58 = "</div><div class=\"commissionBlock2\"><input type=\"text\" id=\"textBoxDiscountCS\" class=\"textBoxComm\" disabled=\"true\" data-bind=\"value: customer.commissionSetting.discountCS\" /></div><div class=\"commissionBlock2\"><select id=\"discountCS\" name=\"discountCS\" class=\"widthGroup\"></select></div></div><div class=\"clearBlock\"></div></div>";
+			public override void ToString(ref StringBuilder bd)
+			{
+				if(!Visible) return;
+				if(RenderChild)
+				{
 					bd.Append(s46);
 					bd.Append(s47);
 					bd.Append(s48);
@@ -191,6 +208,9 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s53);
 					bd.Append(s54);
 					bd.Append(s55);
+					bd.Append(s56);
+					bd.Append(s57);
+					bd.Append(s58);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}

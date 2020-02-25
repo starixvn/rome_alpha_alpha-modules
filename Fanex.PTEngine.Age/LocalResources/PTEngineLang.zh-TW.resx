@@ -2118,4 +2118,11 @@
   <data name="SMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
     <value>設置最低投註 = 最高投註 = 單場限額 = (單粒球最高投註) = 0 即代表沒有限制此賬號的投註設定。&lt;br/&gt;倘若欲限制會員進行投註，您可設置 最低投註 / 最高投註 / 單場限額 /(單粒球最高投註) ： 0 / 0.1 / 0.1/ 0.1</value>
   </data>
+  <data name="SpecialMemberUnlimitedBetSettingWarningMessage" xml:space="preserve">
+    <value>Inputting 0 / 0 / 0  for Min Bet / Max Bet / Max Per Match will prevent members from playing the game (for Sportsbook only).</value>
+  </data>
+  <data name="SpecialSMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
+    <value>Inputting Min Bet = Max Bet = Max Per Match = 0 means that you will not limit the bet setting of this account.
+In order to prevent members from playing the game, set the value to 0 / 0.1 / 0.1 for Min Bet / Max Bet / Max Per Match (for Sportsbook only).</value>
+  </data>
 </root>
