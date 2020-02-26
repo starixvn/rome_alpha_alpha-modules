@@ -19,7 +19,7 @@ namespace Fanex.PTEngine.Age.LocalResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class PTEngineLang {
@@ -4943,7 +4943,7 @@ namespace Fanex.PTEngine.Age.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Inputting 0 / 0 / 0  for Min Bet / Max Bet / Max Per Match will prevent members from playing the game (for Sportsbook only)..
+        ///   Looks up a localized string similar to Inputting 0 / 0 / 0 for Min Bet / Max Bet / Max Per Match will prevent members from playing the game (for Sportsbook only)..
         /// </summary>
         internal static string SpecialMemberUnlimitedBetSettingWarningMessage {
             get {
@@ -4961,8 +4961,7 @@ namespace Fanex.PTEngine.Age.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Inputting Min Bet = Max Bet = Max Per Match = 0 means that you will not limit the bet setting of this account.
-        ///In order to prevent members from playing the game, set the value to 0 / 0.1 / 0.1 for Min Bet / Max Bet / Max Per Match (for Sportsbook only)..
+        ///   Looks up a localized string similar to Inputting Min Bet = Max Bet = Max Per Match = 0 means that you will not limit the bet setting of this account.&lt;br/&gt;In order to prevent members from playing the game, set the value to 0 / 0.1 / 0.1 for Min Bet / Max Bet / Max Per Match (for Sportsbook only)..
         /// </summary>
         internal static string SpecialSMAUnlimitedBetSettingWarningMessage {
             get {

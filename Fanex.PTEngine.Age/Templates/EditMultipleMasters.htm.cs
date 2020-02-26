@@ -48,23 +48,23 @@ namespace Fanex.PTEngine.Age
 			protected static string s25 = "</div></div><div class=\"maincontent_box\">";
 			public EditMultipleMasters_RemoveWhenIsMBCAccount_Block RemoveWhenIsMBCAccount = new EditMultipleMasters_RemoveWhenIsMBCAccount_Block();
 			public EditMultipleMasters_RemoveWhenIsSpecialAccount_Block RemoveWhenIsSpecialAccount = new EditMultipleMasters_RemoveWhenIsSpecialAccount_Block();
-			protected static string s26 = "</div><div class=\"maincontent_box\"><div class=\"alertwarning\">";
-			protected static string s27{get{return LocalResources.PTEngineLang.SMAUnlimitedBetSettingWarningMessage;}}
-			protected static string s28 = "</div></div><!--/RemoveWhenIsSpecialAccount--><div class=\"headerTab\" id=\"statusHeader\">";
-			protected static string s29{get{return LocalResources.PTEngineLang.status;}}
-			protected static string s30 = "</div><div class=\"clearBlock\"><div class=\"customerInfoBlock7\"><label for=\"closed\">";
-			protected static string s31{get{return LocalResources.PTEngineLang.closed;}}
-			protected static string s32 = "</label></div><div class=\"customerInfoBlock5\"><input name=\"closed\" id=\"closed\" type=\"checkbox\" data-bind=\"checked: customer.statusSetting.closed\" /></div></div></div>";
+			protected static string s26 = "</div><div class=\"headerTab\" id=\"statusHeader\">";
+			protected static string s27{get{return LocalResources.PTEngineLang.status;}}
+			protected static string s28 = "</div><div class=\"clearBlock\"><div class=\"customerInfoBlock7\"><label for=\"closed\">";
+			protected static string s29{get{return LocalResources.PTEngineLang.closed;}}
+			protected static string s30 = "</label></div><div class=\"customerInfoBlock5\"><input name=\"closed\" id=\"closed\" type=\"checkbox\" data-bind=\"checked: customer.statusSetting.closed\" /></div></div></div>";
 			public string commisstionControl = "{commisstionControl}";
-			protected static string s33 = "<div class=\"clearBlock\"></div><br /><div class=\"headerBetSetting\">";
-			protected static string s34{get{return LocalResources.PTEngineLang.lblBetSetting;}}
-			protected static string s35 = "</div><div id=\"bettingLimitContainer\"></div><br /><div class=\"clearBlock\"></div><div class=\"headerPositionTaking\">";
-			protected static string s36{get{return LocalResources.PTEngineLang.positiontaking;}}
-			protected static string s37 = "<div style=\"float:right;\"><a class=\"infoIco\"href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
-			protected static string s38{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
-			protected static string s39 = "\"></a></div></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"btnMain\">";
+			protected static string s31 = "<div class=\"clearBlock\"></div><br /><div class=\"headerBetSetting\">";
+			protected static string s32{get{return LocalResources.PTEngineLang.lblBetSetting;}}
+			protected static string s33 = "</div><div id=\"bettingLimitContainer\"></div><br /><div class=\"clearBlock\"></div><div class=\"headerPositionTaking\">";
+			protected static string s34{get{return LocalResources.PTEngineLang.positiontaking;}}
+			protected static string s35 = "<div style=\"float:right;\"><a class=\"infoIco\"href=\"../../../PositionTakingInformation/PositionTakingBetTypeReference\" target=\"_blank\" title=\"";
+			protected static string s36{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
+			protected static string s37 = "\"></a></div></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\" class=\"btnMain\">";
 			protected string t0_actionName;
-			protected static string s40 = "</button></div></div></div></form><!--ScriptBlock--><!--/ScriptBlock--></body></html>";
+			protected static string s38 = "</button></div></div></div></form>";
+			public EditMultipleMasters_ScriptBlock_Block ScriptBlock = new EditMultipleMasters_ScriptBlock_Block();
+			protected static string s39 = "</body></html>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -110,18 +110,18 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s28);
 					bd.Append(s29);
 					bd.Append(s30);
+					bd.Append(commisstionControl);
 					bd.Append(s31);
 					bd.Append(s32);
-					bd.Append(commisstionControl);
 					bd.Append(s33);
 					bd.Append(s34);
 					bd.Append(s35);
 					bd.Append(s36);
 					bd.Append(s37);
-					bd.Append(s38);
-					bd.Append(s39);
 					bd.Append(actionName);
-					bd.Append(s40);
+					bd.Append(s38);
+					if(null != ScriptBlock) ScriptBlock.ToString(ref bd);
+					bd.Append(s39);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -144,17 +144,17 @@ namespace Fanex.PTEngine.Age
 
 		public class EditMultipleMasters_RemoveWhenIsMBCAccount_Block: Block
 		{
-			protected static string s41 = "<div class=\"alertwarning\">";
-			protected static string s42{get{return LocalResources.PTEngineLang.SpecialSMAUnlimitedBetSettingWarningMessage;}}
-			protected static string s43 = "</div>";
+			protected static string s40 = "<div class=\"alertwarning\">";
+			protected static string s41{get{return LocalResources.PTEngineLang.SpecialSMAUnlimitedBetSettingWarningMessage;}}
+			protected static string s42 = "</div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
+					bd.Append(s40);
 					bd.Append(s41);
 					bd.Append(s42);
-					bd.Append(s43);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -162,18 +162,26 @@ namespace Fanex.PTEngine.Age
 
 		public class EditMultipleMasters_RemoveWhenIsSpecialAccount_Block: Block
 		{
-			protected static string s44 = "<div class=\"alertwarning\">";
-			protected static string s45{get{return LocalResources.PTEngineLang.SMAUnlimitedBetSettingWarningMessage;}}
-			protected static string s46 = "</div>";
+			protected static string s43 = "<div class=\"alertwarning\">";
+			protected static string s44{get{return LocalResources.PTEngineLang.SMAUnlimitedBetSettingWarningMessage;}}
+			protected static string s45 = "</div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
+					bd.Append(s43);
 					bd.Append(s44);
 					bd.Append(s45);
-					bd.Append(s46);
 				}
+				if(IsAssigned){bd.Append(Value);}
+			}
+		}
+
+		public class EditMultipleMasters_ScriptBlock_Block: Block
+		{
+			public override void ToString(ref StringBuilder bd)
+			{
 				if(IsAssigned){bd.Append(Value);}
 			}
 		}

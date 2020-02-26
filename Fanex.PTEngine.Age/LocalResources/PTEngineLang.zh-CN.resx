@@ -2120,10 +2120,9 @@
     <value>设置最低投注 = 最高投注 = 单场限额 = (单粒球最高投注) = 0 即代表没有限制此账号的投注设定。&lt;br/&gt;倘若欲限制会员进行投注，您可设置 最低投注 / 最高投注 / 单场限额 /(单粒球最高投注) ： 0 / 0.1 / 0.1/ 0.1</value>
   </data>
   <data name="SpecialMemberUnlimitedBetSettingWarningMessage" xml:space="preserve">
-    <value>Inputting 0 / 0 / 0  for Min Bet / Max Bet / Max Per Match will prevent members from playing the game (for Sportsbook only).</value>
+    <value>设置 最低投注 / 最高投注 / 单场限额 为 0 / 0 / 0 可防止限制会员进行投注此产品。（仅适用于体育博彩）。</value>
   </data>
   <data name="SpecialSMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
-    <value>Inputting Min Bet = Max Bet = Max Per Match = 0 means that you will not limit the bet setting of this account.
-In order to prevent members from playing the game, set the value to 0 / 0.1 / 0.1 for Min Bet / Max Bet / Max Per Match (for Sportsbook only).</value>
+    <value>设置 最低投注 = 最高投注 = 单场限额= 0 即意味着您没有限制此账号的投注设定。&lt;br/&gt;为了防止限制会员进行投注，您可设置 最低投注 / 最高投注 / 单场限额为： 0 / 0.1 / 0.1 （仅适用于体育博彩）。</value>
   </data>
 </root>
