@@ -241,7 +241,7 @@
             session.SetDisabledProduct(ProductIdConstants.GoldDeluxe, GetProductStatus("disablegolddeluxe", values, true));
             session.SetHideProduct(ProductIdConstants.Sportsbook2, GetProductStatus("hidemuaythai", values, true));
             session.SetDisabledProduct(ProductIdConstants.Sportsbook2, GetProductStatus("disablemuaythai", values, true));
-            session.SetSyncedProduct(ProductIdConstants.AllBet, GetProductStatus("syncedallbet", values, true));
+            session.SetSyncedProduct(ProductIdConstants.LiveCasino, GetProductStatus("syncedlivecasino", values, true));
 
             ProductTransform.TransformProductStatus(session, values);
         }

@@ -156,6 +156,10 @@ namespace Sunplus.Agent.Model.BL.Definitions
         FishingWorldStart = 1011,
         FishingWorldEnd = 1020,
 
-        Mix_Parlay_BetRadarVirtualSports = 2799
+        Mix_Parlay_BetRadarVirtualSports = 2799,
+
+        // SA Gaming.
+        SaGamingRangeStart = 3001,
+        SaGamingRangeEnd = 3099,
     }
 }
