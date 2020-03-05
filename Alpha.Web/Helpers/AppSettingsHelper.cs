@@ -1,14 +1,19 @@
 ﻿namespace Alpha.Web.Helpers
 {
     using Alpha.Web.Configurations;
-    using System.Diagnostics.CodeAnalysis;
+    using System;
 
     public static class AppSettingsHelper
     {
-        [SuppressMessage("Microsoft.Design", "CA1055:UriReturnValuesShouldNotBeStrings", Justification = "Reviewed!")]
         public static bool GetUpdateCreditReplicateServer() => AppSettings.UpdateCreditBothDBCustAndDBAge;
 
-        [SuppressMessage("Microsoft.Design", "CA1055:UriReturnValuesShouldNotBeStrings", Justification = "Reviewed!")]
         public static int GetInsertProfilePictureSiteMode() => AppSettings.InsertProfilePictureSiteMode;
+
+        public static bool HideProductStatusBySites(string site) =>
+             Array.Exists(
+                 AppSettings.HideProductStatusSites, 
+                 disallowedSite => disallowedSite.Equals(site, StringComparison.OrdinalIgnoreCase));
+
+        public static string GetProductConfigsFileRelativePath() => AppSettings.ProductConfigsFileRelativePath;
     }
 }

@@ -4943,11 +4943,29 @@ namespace Fanex.PTEngine.Age.LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Inputting 0 / 0 / 0 for Min Bet / Max Bet / Max Per Match will prevent members from playing the game (for Sportsbook only)..
+        /// </summary>
+        internal static string SpecialMemberUnlimitedBetSettingWarningMessage {
+            get {
+                return ResourceManager.GetString("SpecialMemberUnlimitedBetSettingWarningMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Special Announcements.
         /// </summary>
         internal static string specialmessage {
             get {
                 return ResourceManager.GetString("specialmessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inputting Min Bet = Max Bet = Max Per Match = 0 means that you will not limit the bet setting of this account.&lt;br/&gt;In order to prevent members from playing the game, set the value to 0 / 0.1 / 0.1 for Min Bet / Max Bet / Max Per Match (for Sportsbook only)..
+        /// </summary>
+        internal static string SpecialSMAUnlimitedBetSettingWarningMessage {
+            get {
+                return ResourceManager.GetString("SpecialSMAUnlimitedBetSettingWarningMessage", resourceCulture);
             }
         }
         

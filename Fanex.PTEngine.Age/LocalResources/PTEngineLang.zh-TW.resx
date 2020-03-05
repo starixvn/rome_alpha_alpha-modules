@@ -2118,4 +2118,10 @@
   <data name="SMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
     <value>設置最低投註 = 最高投註 = 單場限額 = (單粒球最高投註) = 0 即代表沒有限制此賬號的投註設定。&lt;br/&gt;倘若欲限制會員進行投註，您可設置 最低投註 / 最高投註 / 單場限額 /(單粒球最高投註) ： 0 / 0.1 / 0.1/ 0.1</value>
   </data>
+  <data name="SpecialMemberUnlimitedBetSettingWarningMessage" xml:space="preserve">
+    <value>設置 最低投註 / 最高投註 / 單場限額 為 0 / 0 / 0 可防止限制會員進行投註此產品。（僅適用於體育博彩）。</value>
+  </data>
+  <data name="SpecialSMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
+    <value>設置 最低投註 = 最高投註 = 單場限額= 0 即意味著您沒有限制此賬號的投註設定。&lt;br/&gt;為了防止限制會員進行投註，您可設置 最低投註 / 最高投註 / 單場限額為： 0 / 0.1 / 0.1 （僅適用於體育博彩）。</value>
+  </data>
 </root>
