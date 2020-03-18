@@ -10,6 +10,7 @@ using System;
 using Fanex.Age.UI;
 using Fanex.Age.UI.Components.ShowHideColumn;
 using Sunplus.Agent.Utilities;
+using System.Linq;
 
 /// <summary>
 /// Base class for renderring context menu to show/hide columns.
@@ -166,13 +167,16 @@ public abstract class ContextMenuColumnsBase : TplPage, IContextMenuColumns
     /// Renders table classes for show/hide columns, base on HttpCookie request
     /// </summary>
     /// <param name="cols">Array of columns need to show/hide</param>
+    /// <param name="hideCols">Array of columns need to hide in cols param</param>
     /// <returns>Classes for show/hide table</returns>
-    public string RenderTableClasses(string[] cols)
+    public string RenderTableClasses(string[] cols, string[] hideCols = null)
     {
         if (this.CookieName == null)
             throw new Exception("Please call RegisterCommonScriptObjects method before this function!!!");
         else
         {
+            RegisterJavascriptObject(ContextMenuColumns.HideColumns, IsNotHideColumns(hideCols) ? string.Empty : string.Join(",", hideCols));
+
             var cookie = Request.Cookies[this.CookieName];
             var sessionId = Request.Cookies["sessionId"];
             var classes = string.Empty;
@@ -201,9 +205,13 @@ public abstract class ContextMenuColumnsBase : TplPage, IContextMenuColumns
                     {
                         classes += string.Empty;
                     }
-                    else
+                    else if (IsNotHideColumns(hideCols))
                     {
                         classes += string.Concat(" show", cols[i], " .", cols[i], " ");
+                    }
+                    else
+                    {
+                        classes += !hideCols.Any(col => col == cols[i]) ? string.Concat(" show", cols[i], " .", cols[i], " ") : string.Empty;
                     }
                 }
             }
@@ -213,6 +221,9 @@ public abstract class ContextMenuColumnsBase : TplPage, IContextMenuColumns
             return classes;
         }
     }
+
+    private static bool IsNotHideColumns(string[] hideCols)
+        => hideCols == null || hideCols.Length == 0;
 
     #endregion IContextMenuColumns Members
 }

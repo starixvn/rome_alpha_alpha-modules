@@ -21,6 +21,8 @@ namespace Fanex.Age.UI.Components.ShowHideColumn
         public const string ContextRegionIds = "containerId";
         public const string ContextContainerId = "parentId";
         public const string TableId = "tableId";
+        public const string HideColumns = "hideCols";
+
 
         ContextMenuColumns_Control_Template tpl = new ContextMenuColumns_Control_Template();
 

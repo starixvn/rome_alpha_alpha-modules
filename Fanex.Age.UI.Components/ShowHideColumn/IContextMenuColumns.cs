@@ -73,5 +73,5 @@ public interface IContextMenuColumns
     ///
     ///        return classes;
     /// </remarks>
-    string RenderTableClasses(string[] cols);
+    string RenderTableClasses(string[] cols, string[] hideCols = null);
 }
