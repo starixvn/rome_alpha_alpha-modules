@@ -13,5 +13,8 @@ namespace Fanex.Products.Extensions
         {
             return drow.HasColumn(columnName) ? drow[columnName] : null;
         }
+
+        public static string NormalizeString(this string name)
+            => (name ?? string.Empty).Replace(".", string.Empty).Replace("-", string.Empty);
     }
 }

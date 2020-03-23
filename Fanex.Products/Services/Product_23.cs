@@ -46,7 +46,7 @@ namespace Fanex.Products.Services
         {
             if (ShowSettings)
             {
-                string lowerName = Name.ToLowerInvariant();
+                string lowerName = Name.ToLowerInvariant().NormalizeString();
 
                 string syncedColumnName = "synced" + lowerName;
                 object synced = drow.GetValue(syncedColumnName);
