@@ -21,7 +21,7 @@ namespace Fanex.Products.Services
         {
             if (ShowSettings)
             {
-                string lowerName = Name.ToLowerInvariant();
+                string lowerName = Name.ToLowerInvariant().NormalizeString();
 
                 string disabledColumnName = "disable" + lowerName;
                 object disabled = drow.GetValue(disabledColumnName);
