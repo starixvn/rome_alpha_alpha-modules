@@ -94,7 +94,7 @@
 
         [TestCase("Macau Games")]
         [TestCase("Fishing World")]
-        [TestCase("Allbet")]
+        [TestCase("Live Casino")]
         public void Title_SportNameIsSupported_ReturnCorrectTitle(string sportName)
         {
             // Arrange

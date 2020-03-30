@@ -65,6 +65,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
         FishingWorld = 219,
         // NG2.
         NG2Start = 213,
-        NG2End = 220
+        NG2End = 220,
+        SaGaming = 244
     }
 }
