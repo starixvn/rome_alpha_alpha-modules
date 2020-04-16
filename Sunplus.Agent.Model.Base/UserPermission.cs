@@ -194,7 +194,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
                 case 16: // SP2
                     return IsShowSportsbook2;
                 case 5: // Virtual Sports
-                case 28: // Lottery
+                case 44: // RNG Lottery
                     return IsEnableProduct(productId);
                 default:
                     return IsEnableProduct(productId) && IsSyncedProduct(productId);

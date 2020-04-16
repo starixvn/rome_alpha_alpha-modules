@@ -24,6 +24,8 @@
 
         public const int FishingWorld = 24;
 
+        public const int RNGLottery = 44;
         public const int Lottery = 28;
+        public const int TableGames = 40;
     }
 }
