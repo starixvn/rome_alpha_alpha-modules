@@ -1297,6 +1297,18 @@ namespace Sunplus.Agent.Model.Entities
             }
         }
 
+        public bool IsSkipForceChangePassword
+        {
+            get
+            {
+                return GetProperty<bool>(ISSKIPFORCECHANGPASSWORD);
+            }
+
+            set
+            {
+                SetProperty(ISSKIPFORCECHANGPASSWORD, value);
+            }
+        }
         public T GetProperty<T>(string propertyName)
         {
             var value = GetProperty(propertyName);

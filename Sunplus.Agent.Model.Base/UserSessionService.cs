@@ -152,10 +152,12 @@
             {
                 DateTime pwdExpiry = (DateTime)values["pwdexpiry"];
                 session.IsPasswordExpired = DateTime.Compare(DateTime.Now, pwdExpiry) >= 0;
+                session.IsSkipForceChangePassword = true;
             }
             catch
             {
                 session.IsPasswordExpired = false;
+                session.IsSkipForceChangePassword = false;
             }
 
             if (values.Contains("doublecommlosing"))
