@@ -107,6 +107,7 @@ namespace Sunplus.Agent.Model.Entities
         private const string ROBOTCAPTCHASCORE = "ROBOTCAPTCHASCORE";
         private const string ROBOTCAPTCHAFAILEDCOUNT = "ROBOTCAPTCHAFAILEDCOUNT";
 
+        private const string ISSKIPFORCECHANGPASSWORD = "ISSKIPFORCECHANGPASSWORD";
         private string asNetSessionId;
 
         #endregion Contructors
