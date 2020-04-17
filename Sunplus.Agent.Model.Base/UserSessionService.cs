@@ -152,7 +152,9 @@
             {
                 DateTime pwdExpiry = (DateTime)values["pwdexpiry"];
                 session.IsPasswordExpired = DateTime.Compare(DateTime.Now, pwdExpiry) >= 0;
-                session.IsSkipForceChangePassword = true;
+
+                var defaultDateSkipForceChangePass = new DateTime(1900, 1, 1);
+                session.IsSkipForceChangePassword = DateTime.Compare(defaultDateSkipForceChangePass, pwdExpiry) == 0;
             }
             catch
             {
