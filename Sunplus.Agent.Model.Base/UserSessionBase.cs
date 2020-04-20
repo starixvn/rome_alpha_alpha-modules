@@ -107,7 +107,7 @@ namespace Sunplus.Agent.Model.Entities
         private const string ROBOTCAPTCHASCORE = "ROBOTCAPTCHASCORE";
         private const string ROBOTCAPTCHAFAILEDCOUNT = "ROBOTCAPTCHAFAILEDCOUNT";
 
-        private const string ISSKIPFORCECHANGPASSWORD = "ISSKIPFORCECHANGPASSWORD";
+        private const string ISSHOWSKIPFORCECHANGPASSWORD = "ISSHOWSKIPFORCECHANGPASSWORD";
         private string asNetSessionId;
 
         #endregion Contructors
@@ -1298,16 +1298,16 @@ namespace Sunplus.Agent.Model.Entities
             }
         }
 
-        public bool IsSkipForceChangePassword
+        public bool IsShowSkipForceChangePassword
         {
             get
             {
-                return GetProperty<bool>(ISSKIPFORCECHANGPASSWORD);
+                return GetProperty<bool>(ISSHOWSKIPFORCECHANGPASSWORD);
             }
 
             set
             {
-                SetProperty(ISSKIPFORCECHANGPASSWORD, value);
+                SetProperty(ISSHOWSKIPFORCECHANGPASSWORD, value);
             }
         }
         public T GetProperty<T>(string propertyName)

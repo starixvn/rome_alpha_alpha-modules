@@ -742,16 +742,16 @@
             }
         }
 
-        public bool IsSkipForceChangePassword
+        public bool IsShowSkipForceChangePassword
         {
             get
             {
-                return UserSession.Current.IsSkipForceChangePassword;
+                return UserSession.Current.IsShowSkipForceChangePassword;
             }
 
             set
             {
-                UserSession.Current.IsSkipForceChangePassword = value;
+                UserSession.Current.IsShowSkipForceChangePassword = value;
             }
         }
 

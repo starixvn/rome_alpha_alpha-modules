@@ -154,12 +154,12 @@
                 session.IsPasswordExpired = DateTime.Compare(DateTime.Now, pwdExpiry) >= 0;
 
                 var defaultDateSkipForceChangePass = new DateTime(1900, 1, 1);
-                session.IsSkipForceChangePassword = DateTime.Compare(defaultDateSkipForceChangePass, pwdExpiry) == 0;
+                session.IsShowSkipForceChangePassword = DateTime.Compare(pwdExpiry, defaultDateSkipForceChangePass) > 0;
             }
             catch
             {
                 session.IsPasswordExpired = false;
-                session.IsSkipForceChangePassword = false;
+                session.IsShowSkipForceChangePassword = false;
             }
 
             if (values.Contains("doublecommlosing"))

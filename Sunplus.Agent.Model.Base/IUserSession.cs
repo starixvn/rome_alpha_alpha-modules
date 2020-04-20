@@ -523,7 +523,7 @@ namespace Sunplus.Agent.Model.Entities
 
         int RobotCaptchaFailedCount { get; set; }
 
-        bool IsSkipForceChangePassword { get; set; }
+        bool IsShowSkipForceChangePassword { get; set; }
 
         T GetProperty<T>(string propertyName);
 
