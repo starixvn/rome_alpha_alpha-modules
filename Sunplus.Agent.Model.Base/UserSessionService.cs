@@ -154,7 +154,7 @@
                 session.IsPasswordExpired = DateTime.Compare(DateTime.Now, pwdExpiry) >= 0;
 
                 var defaultDateSkipForceChangePass = new DateTime(1900, 1, 1);
-                session.IsShowSkipForceChangePassword = DateTime.Compare(pwdExpiry, defaultDateSkipForceChangePass) > 0;
+                session.IsShowSkipForceChangePassword = session.IsLogged && DateTime.Compare(pwdExpiry, defaultDateSkipForceChangePass) > 0;
             }
             catch
             {
