@@ -742,6 +742,19 @@
             }
         }
 
+        public bool IsShowSkipForceChangePassword
+        {
+            get
+            {
+                return UserSession.Current.IsShowSkipForceChangePassword;
+            }
+
+            set
+            {
+                UserSession.Current.IsShowSkipForceChangePassword = value;
+            }
+        }
+
         public bool GetDisabledProduct(int productId)
         {
             return UserSession.Current.GetDisabledProduct(productId);
