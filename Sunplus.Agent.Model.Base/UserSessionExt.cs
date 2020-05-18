@@ -703,29 +703,16 @@
             }
         }
 
-        public bool RobotIsBrowserless
+        public string RobotResult
         {
             get
             {
-                return UserSession.Current.RobotIsBrowserless;
+                return UserSession.Current.RobotResult;
             }
 
             set
             {
-                UserSession.Current.RobotIsBrowserless = value;
-            }
-        }
-
-        public decimal RobotCaptchaScore
-        {
-            get
-            {
-                return UserSession.Current.RobotCaptchaScore;
-            }
-
-            set
-            {
-                UserSession.Current.RobotCaptchaScore = value;
+                UserSession.Current.RobotResult = value;
             }
         }
 

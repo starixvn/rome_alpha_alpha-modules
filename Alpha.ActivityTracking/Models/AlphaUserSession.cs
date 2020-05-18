@@ -40,9 +40,7 @@ namespace Alpha.ActivityTracking.Models
             $"Super: { UserSession.Current.SRecommendId}"
             : string.Empty;
 
-        public bool RobotIsBrowserless => UserSession.Current.RobotIsBrowserless;
-
-        public decimal RobotCaptchaScore => UserSession.Current.RobotCaptchaScore;
+        public string RobotResult => UserSession.Current.RobotResult;
 
         public int RobotCaptchaFailedCount => UserSession.Current.RobotCaptchaFailedCount;
     }
