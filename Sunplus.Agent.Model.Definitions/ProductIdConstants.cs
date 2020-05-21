@@ -17,6 +17,7 @@
         public const int SaGaming = 39;
         public const int LiveCasino = 41;
         public const int SexyGaming = 45;
+        public const int GTCasino = 46;
         public const int BBIN = 47;
         public const int Voidbridge = 22;
 
