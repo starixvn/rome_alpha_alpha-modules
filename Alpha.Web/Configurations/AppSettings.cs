@@ -38,6 +38,7 @@
         private static string[] hideProductStatusSites;
 
         private static string productConfigsFileRelativePath;
+        private static string qrCodeMemberSiteLoginConfigsPath;
 
         private static DateTime? forceLoginNicknameDate;
         private static IDictionary<int, bool> forceLoginNicknameIgnoreList;
@@ -90,6 +91,7 @@
             new string[] { } : ConfigurationManager.AppSettings["HideProductStatus:Sites"].Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
             productConfigsFileRelativePath = ConfigurationManager.AppSettings["ProductConfigsFileRelativePath"];
+            qrCodeMemberSiteLoginConfigsPath = ConfigurationManager.AppSettings["QRCodeMemberSiteLoginConfigs"];
 
             GetForceLoginNicknameConfiguration();
         }
@@ -145,6 +147,8 @@
         public static int InsertProfilePictureSiteMode => insertProfilePictureSiteMode;
 
         public static string ProductConfigsFileRelativePath => productConfigsFileRelativePath;
+
+        public static string QRCodeMemberSiteLoginConfigsPath => qrCodeMemberSiteLoginConfigsPath;
 
         public static string[] HideProductStatusSites => hideProductStatusSites;
 

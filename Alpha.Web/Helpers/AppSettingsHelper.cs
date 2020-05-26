@@ -2,6 +2,7 @@
 {
     using Alpha.Web.Configurations;
     using System;
+    using System.Web;
 
     public static class AppSettingsHelper
     {
@@ -15,5 +16,7 @@
                  disallowedSite => disallowedSite.Equals(site, StringComparison.OrdinalIgnoreCase));
 
         public static string GetProductConfigsFileRelativePath() => AppSettings.ProductConfigsFileRelativePath;
+
+        public static string GetQRCodeMemberSiteLoginConfigsPath() => AppSettings.QRCodeMemberSiteLoginConfigsPath;
     }
 }
