@@ -517,9 +517,7 @@ namespace Sunplus.Agent.Model.Entities
 
         bool IsRobot { get; set; }
 
-        bool RobotIsBrowserless { get; set; }
-
-        decimal RobotCaptchaScore { get; set; }
+        string RobotResult { get; set; }
 
         int RobotCaptchaFailedCount { get; set; }
 
