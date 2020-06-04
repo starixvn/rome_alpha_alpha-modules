@@ -109,6 +109,10 @@ namespace Sunplus.Agent.Model.Entities
         private const string ISSHOWSKIPFORCECHANGPASSWORD = "ISSHOWSKIPFORCECHANGPASSWORD";
         private string asNetSessionId;
 
+        private const string IndirectCustIdSessionKey = "IndirectCustId";
+        private const string IndirectSubAccIdSessionKey = "IndirectSubAccId";
+        private const string IndirectUsernameSessionKey = "IndirectUsername";
+
         #endregion Contructors
 
         #region Misc
@@ -1296,6 +1300,30 @@ namespace Sunplus.Agent.Model.Entities
                 SetProperty(ISSHOWSKIPFORCECHANGPASSWORD, value);
             }
         }
+
+        public bool IsIndirectLoggedIn
+        {
+            get => IndirectCustId > 0 || IndirectSubAccId > 0;
+        }
+
+        public int IndirectCustId
+        {
+            get => GetProperty<int>(IndirectCustIdSessionKey);
+            set => SetProperty(IndirectCustIdSessionKey, value);
+        }
+
+        public int IndirectSubAccId
+        {
+            get => GetProperty<int>(IndirectSubAccIdSessionKey);
+            set => SetProperty(IndirectSubAccIdSessionKey, value);
+        }
+
+        public string IndirectUsername
+        {
+            get => GetProperty<string>(IndirectUsernameSessionKey);
+            set => SetProperty(IndirectUsernameSessionKey, value);
+        }
+
         public T GetProperty<T>(string propertyName)
         {
             var value = GetProperty(propertyName);

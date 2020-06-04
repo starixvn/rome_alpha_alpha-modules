@@ -523,6 +523,14 @@ namespace Sunplus.Agent.Model.Entities
 
         bool IsShowSkipForceChangePassword { get; set; }
 
+        bool IsIndirectLoggedIn { get; }
+
+        int IndirectCustId { get; set; }
+
+        int IndirectSubAccId { get; set; }
+
+        string IndirectUsername { get; set; }
+
         T GetProperty<T>(string propertyName);
 
         void SetProperty(string propertyName, object value);
