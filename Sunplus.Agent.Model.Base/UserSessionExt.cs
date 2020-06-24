@@ -690,45 +690,6 @@
             }
         }
 
-        public bool IsRobot
-        {
-            get
-            {
-                return UserSession.Current.IsRobot;
-            }
-
-            set
-            {
-                UserSession.Current.IsRobot = value;
-            }
-        }
-
-        public string RobotResult
-        {
-            get
-            {
-                return UserSession.Current.RobotResult;
-            }
-
-            set
-            {
-                UserSession.Current.RobotResult = value;
-            }
-        }
-
-        public int RobotCaptchaFailedCount
-        {
-            get
-            {
-                return UserSession.Current.RobotCaptchaFailedCount;
-            }
-
-            set
-            {
-                UserSession.Current.RobotCaptchaFailedCount = value;
-            }
-        }
-
         public bool IsShowSkipForceChangePassword
         {
             get

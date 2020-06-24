@@ -515,12 +515,6 @@ namespace Sunplus.Agent.Model.Entities
 
         bool IsAllDayBalTransfer { get; }
 
-        bool IsRobot { get; set; }
-
-        string RobotResult { get; set; }
-
-        int RobotCaptchaFailedCount { get; set; }
-
         bool IsShowSkipForceChangePassword { get; set; }
 
         bool IsIndirectLoggedIn { get; }

@@ -102,10 +102,6 @@ namespace Sunplus.Agent.Model.Entities
 
         private const string ISALLDAYBALTRANSFER = "ISALLDAYBALTRANSFER";
 
-        private const string ISROBOT = "ISROBOT";
-        private const string ROBOTRESULT = "ROBOTRESULT";
-        private const string ROBOTCAPTCHAFAILEDCOUNT = "ROBOTCAPTCHAFAILEDCOUNT";
-
         private const string ISSHOWSKIPFORCECHANGPASSWORD = "ISSHOWSKIPFORCECHANGPASSWORD";
         private string asNetSessionId;
 
@@ -1246,45 +1242,6 @@ namespace Sunplus.Agent.Model.Entities
             set
             {
                 SetProperty(ISALLDAYBALTRANSFER, value);
-            }
-        }
-
-        public bool IsRobot
-        {
-            get
-            {
-                return GetProperty<bool>(ISROBOT);
-            }
-
-            set
-            {
-                SetProperty(ISROBOT, value);
-            }
-        }
-
-        public string RobotResult
-        {
-            get
-            {
-                return GetProperty<string>(ROBOTRESULT);
-            }
-
-            set
-            {
-                SetProperty(ROBOTRESULT, value);
-            }
-        }
-
-        public int RobotCaptchaFailedCount
-        {
-            get
-            {
-                return GetProperty<int>(ROBOTCAPTCHAFAILEDCOUNT);
-            }
-
-            set
-            {
-                SetProperty(ROBOTCAPTCHAFAILEDCOUNT, value);
             }
         }
 
