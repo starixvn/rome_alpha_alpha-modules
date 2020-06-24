@@ -206,7 +206,76 @@
 
             outputs.Add("custid", custId);
             int roleId = (int)outputs["roleid"];
-            string userName = outputs["username"] as string;
+
+            // Site name
+            outputs.Add("sitename", Sunplus.Agent.Model.BL.Definitions.AppSettings.SiteNameFromRoleId(roleId));
+
+            outputs.Add("subaccid", subAccId);
+            outputs.Add("subaccname", isSubAcc ? outputs["subusername"].ToString().ToUpperInvariant() : string.Empty);
+            if (isSubAcc)
+            {
+                outputs.Remove("subusername");
+            }
+
+            int onUserId;
+            int serverId = (int)outputs["serverid"];
+            this.dao.Acc_Checkin(custId, subAccId, userSession.NetSessionId, serverId, requestInfo["loginip"].ToString(), out onUserId);
+            outputs.Add("on_userid", onUserId);
+
+            this.GetCustomerStatus(custId, 0, ref outputs);
+
+            outputs.Add("adminid", 0);
+            bool isShowConsolidated = ConfigurationManager.AppSettings["EnableConsolidatedReport"] == "1" && this.IsShownConsilatedReport(custId);
+            outputs.Add("isshowconsolidated", isShowConsolidated);
+
+            bool isShowBetChoiceLimit = IsShownBetChoiceLimit(custId);
+            outputs.Add("isShowBetChoiceLimit", isShowBetChoiceLimit);
+
+            UserSessionService.SetUserSessionValues(CurrentSession, outputs, setUserStatusAction);
+
+            return errCode == 0;
+        }
+
+        public bool IndirectSignIn(
+            int uplineCustId,
+            int uplineSubAccId,
+            string uplineUsername,
+            int custId,
+            int subAccId,
+            string username,
+            DateTime loginTime,
+            Hashtable requestInfo,
+            out int errCode,
+            out string errMsg,
+            ref IUserSession userSession,
+            Action<IUserSession, Hashtable> setUserStatusAction)
+        {
+            Hashtable outputs = new Hashtable();
+
+            bool isSubAcc = subAccId != 0;
+
+            // Do sign-in
+            outputs = this.dao.Age_IndirectLoginClaimDownline(
+                uplineCustId,
+                uplineSubAccId,
+                uplineUsername,
+                custId,
+                subAccId,
+                username,
+                loginTime,
+                userSession.LangKey,
+                requestInfo,
+                out errCode,
+                out errMsg);
+
+            if (errCode != 0)
+            {
+                userSession = null;
+                return false;
+            }
+
+            outputs.Add("custid", custId);
+            int roleId = (int)outputs["roleid"];
 
             // Site name
             outputs.Add("sitename", Sunplus.Agent.Model.BL.Definitions.AppSettings.SiteNameFromRoleId(roleId));

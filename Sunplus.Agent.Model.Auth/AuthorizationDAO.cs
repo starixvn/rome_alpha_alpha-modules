@@ -69,6 +69,47 @@ namespace Sunplus.Agent.Model.DL.Authorization
             return outputs;
         }
 
+        public Hashtable Age_IndirectLoginClaimDownline(
+            int uplineCustId,
+            int uplineSubAccId,
+            string uplineUsername,
+            int custId,
+            int subAccId,
+            string username,
+            DateTime loginTime,
+            string language,
+            Hashtable requestInfo,
+            out int errCode,
+            out string errMsg)
+        {
+            var parameters = new Hashtable
+            {
+                { "custid", custId },
+                { "uplineusername", uplineUsername },
+                { "uplinecustid", uplineCustId },
+                { "uplinesubaccid", uplineSubAccId },
+                { "subaccid", subAccId },
+                { "username", username },
+                { "logintime", loginTime },
+                { "language", language },
+                { "roleid", 0 },
+                { "on_userid", 0 }
+            };
+
+            InsertRequestInfo(requestInfo, parameters);
+
+            var outputs = ExecSpHashtable("Age_IndirectLoginClaimDownline", parameters);
+
+            errCode = (int)outputs["errcode"];
+            errMsg = null;
+            if (errCode != 0)
+            {
+                errMsg = outputs["errmsg"] as string;
+            }
+
+            return outputs;
+        }
+
         /// <summary>
         ///     Override SMA after login.
         /// </summary>

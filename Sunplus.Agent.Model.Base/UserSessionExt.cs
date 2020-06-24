@@ -742,6 +742,29 @@
             }
         }
 
+        public bool IsIndirectLoggedIn
+        {
+            get => UserSession.Current.IsIndirectLoggedIn;
+        }
+
+        public int IndirectCustId
+        {
+            get => UserSession.Current.IndirectCustId;
+            set => UserSession.Current.IndirectCustId = value;
+        }
+
+        public int IndirectSubAccId
+        {
+            get => UserSession.Current.IndirectSubAccId;
+            set => UserSession.Current.IndirectSubAccId = value;
+        }
+
+        public string IndirectUsername
+        {
+            get => UserSession.Current.IndirectUsername;
+            set => UserSession.Current.IndirectUsername = value;
+        }
+
         public bool GetDisabledProduct(int productId)
         {
             return UserSession.Current.GetDisabledProduct(productId);
