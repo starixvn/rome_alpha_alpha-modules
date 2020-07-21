@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <Description>Alpha Net Throttling</Description>
+    <Copyright>Starixsoft</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://gitlab.nexdev.net/rome/alpha/alpha.netthrottling</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<Deterministic>true</Deterministic>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>alpha net throttling</PackageTags>
+    <Authors>Starixsoft</Authors>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Version>1.0.0-beta5</Version>
+    <AssemblyName>Alpha.NetThrottling</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Resources\**" />
+    <EmbeddedResource Remove="Resources\**" />
+    <None Remove="Resources\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Fanex.Caching" Version="2.1.0" />
+    <Reference Include="System.Configuration" />
+	<Reference Include="System.Web" />
+  </ItemGroup>
+</Project>
