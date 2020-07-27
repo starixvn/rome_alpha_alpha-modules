@@ -9,7 +9,7 @@
         {
             var request = httpContext.Request;
             var clientIp = request.GetClientIp().ToString();
-            return $"{clientIp}";
+            return $"{request.Path}_{clientIp}";
         }
     }
 }

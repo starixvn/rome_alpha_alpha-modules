@@ -42,7 +42,7 @@
                 return null;
             }
 
-            return $"{custId}";
+            return $"{httpContext.Request.Path}_{custId}";
         }
     }
 }

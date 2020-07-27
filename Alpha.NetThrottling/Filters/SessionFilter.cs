@@ -6,7 +6,7 @@
     {
         public string GetIdentity(HttpContext httpContext)
         {
-            return $"{httpContext.Session.SessionID}";
+            return $"{httpContext.Request.Path}_{httpContext.Session.SessionID}";
         }
     }
 }
