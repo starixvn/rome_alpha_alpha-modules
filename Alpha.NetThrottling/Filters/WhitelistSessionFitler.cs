@@ -7,16 +7,23 @@
 
     public class WhitelistSessionFitler : IFilter
     {
-        private static List<int> configurationCustIds = WhitelistConfiguration.Current.CustIds.Split(',').Select(int.Parse).ToList();
+        private static IEnumerable<int> configurationCustIds = ParseConfigurationCustIds();
+
         private readonly IUserSession userSession;
-        private readonly List<int> custIds;
+        private readonly IEnumerable<int> custIds;
+
+        static IEnumerable<int> ParseConfigurationCustIds()
+        {
+            var custIds = WhitelistConfiguration.Current.CustIds;
+            return string.IsNullOrWhiteSpace(custIds) ? Enumerable.Empty<int>() : custIds.Split(',').Select(int.Parse).ToList();
+        }
 
         public WhitelistSessionFitler()
             : this(null, null)
         {
         }
 
-        public WhitelistSessionFitler(IUserSession userSession, List<int> custIds)
+        public WhitelistSessionFitler(IUserSession userSession, IEnumerable<int> custIds)
         {
             this.userSession = userSession ?? UserSession.Current;
             this.custIds = custIds ?? configurationCustIds;
