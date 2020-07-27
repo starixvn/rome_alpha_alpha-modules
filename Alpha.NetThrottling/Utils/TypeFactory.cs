@@ -1,13 +1,13 @@
-﻿namespace Alpha.NetThrottling.Filters
+﻿namespace Alpha.NetThrottling.Utils
 {
     using System;
     using System.Collections.Generic;
 
-    public static class FilterFactory
+    public static class TypeFactory<T>
     {
-        private static readonly IDictionary<string, IFilter> cache = new Dictionary<string, IFilter>();
+        private static readonly IDictionary<string, T> cache = new Dictionary<string, T>();
 
-        public static IFilter Create(string typeName)
+        public static T Create(string typeName)
         {
             if (!cache.ContainsKey(typeName))
             {
@@ -23,7 +23,7 @@
             return cache[typeName];
         }
 
-        private static IFilter InternalCreate(string typeName)
+        private static T InternalCreate(string typeName)
         {
             var type = Type.GetType(typeName);
             if (type == null)
@@ -32,9 +32,9 @@
             }
 
             var instance = Activator.CreateInstance(type);
-            if (!(instance is IFilter filter))
+            if (!(instance is T filter))
             {
-                throw new InvalidCastException($"{typeName} is not a type of {typeof(IFilter)}");
+                throw new InvalidCastException($"{typeName} is not a type of {typeof(T)}");
             }
 
             cache.Add(typeName, filter);

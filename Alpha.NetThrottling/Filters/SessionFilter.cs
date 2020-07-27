@@ -4,7 +4,7 @@
 
     public class SessionFilter : IFilter
     {
-        public string GetKey(HttpContext httpContext)
+        public string GetIdentity(HttpContext httpContext)
         {
             return $"{httpContext.Session.SessionID}";
         }

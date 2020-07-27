@@ -5,7 +5,7 @@
 
     public class IpFilter : IFilter
     {
-        public string GetKey(HttpContext httpContext)
+        public string GetIdentity(HttpContext httpContext)
         {
             var request = httpContext.Request;
             var clientIp = request.GetClientIp().ToString();

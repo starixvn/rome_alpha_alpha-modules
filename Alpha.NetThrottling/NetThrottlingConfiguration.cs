@@ -13,6 +13,15 @@
             }
         }
 
+        [ConfigurationProperty("resolver")]
+        public string Resolver
+        {
+            get
+            {
+                return (string)this["resolver"];
+            }
+        }
+
         [ConfigurationProperty("keys", IsDefaultCollection = false)]
         [ConfigurationCollection(typeof(NetThrottlingKeyElement))]
         public NetThrottlingKeyCollection Keys
@@ -73,6 +82,15 @@
             }
         }
 
+        [ConfigurationProperty("manual", IsRequired = false)]
+        public bool Manual
+        {
+            get
+            {
+                return (bool)this["manual"];
+            }
+        }
+
         [ConfigurationProperty("method", IsRequired = true)]
         public string Method
         {
@@ -91,12 +109,21 @@
             }
         }
 
-        [ConfigurationProperty("periodInSeconds", IsRequired = true)]
-        public int PeriodInSeconds
+        [ConfigurationProperty("throttleDuration", IsRequired = true)]
+        public int ThrottleDuration
         {
             get
             {
-                return (int)this["periodInSeconds"];
+                return (int)this["throttleDuration"];
+            }
+        }
+
+        [ConfigurationProperty("blockDuration", IsRequired = true)]
+        public int BlockDuration
+        {
+            get
+            {
+                return (int)this["blockDuration"];
             }
         }
 

@@ -13,17 +13,27 @@
     <PackageTags>alpha net throttling</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.0.0-beta5</Version>
+    <Version>1.0.0-beta7</Version>
     <AssemblyName>Alpha.NetThrottling</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Resources\**" />
-    <EmbeddedResource Remove="Resources\**" />
-    <None Remove="Resources\**" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Fanex.Caching" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.3" />
+    <PackageReference Include="Sunplus.Agent.Model.Base" Version="3.0.5.1" />
     <Reference Include="System.Configuration" />
 	<Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\Lang.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Lang.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Lang.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

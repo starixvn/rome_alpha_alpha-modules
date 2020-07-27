@@ -2,6 +2,7 @@
 {
     using Alpha.NetThrottling.Filters;
     using Alpha.NetThrottling.Models;
+    using Alpha.NetThrottling.Utils;
     using Fanex.Caching;
     using System;
     using System.Threading.Tasks;
@@ -9,9 +10,12 @@
 
     public class NetThrottler
     {
-        public NetThrottlingConfiguration Configuration { get; private set; }
+        private const string BLOCK_PREFIX = "Block";
+        private const string THROTTLE_PREFIX = "Throttle";
 
-        public CacheService Cache { get; private set; }
+        private readonly NetThrottlingConfiguration configuration;
+
+        private readonly CacheService cache;
 
         public NetThrottler()
             : this(null, null)
@@ -20,38 +24,74 @@
 
         public NetThrottler(NetThrottlingConfiguration configuration, CacheService cache)
         {
-            Configuration = configuration ?? NetThrottlingConfiguration.Current;
-            Cache = cache ?? new CacheServiceImpl();
+            this.configuration = configuration ?? NetThrottlingConfiguration.Current;
+            this.cache = cache ?? CacheFactory.CreateDefaultService();
         }
 
-        public async Task<bool> ThrottleAsync(HttpContext context)
+        private string GenerateThrottleKey(string filterKey)
         {
-            var request = context.Request;
-            foreach (NetThrottlingKeyElement key in Configuration.Keys)
-            {
-                var isPathMatched = key.Path == "*" || key.Path == request.AppRelativeCurrentExecutionFilePath;
-                var isMethodMatched = key.Method == "*" || key.Method == request.HttpMethod;
-                if (isPathMatched && isMethodMatched)
-                {
-                    return await ThrottleAsync(context, key);
-                }
-            }
-
-            return true;
+            return $"{configuration.Prefix}_{THROTTLE_PREFIX}_{filterKey}";
         }
 
-        private async Task<bool> ThrottleAsync(HttpContext httpContext, NetThrottlingKeyElement key)
+        private string GenerateBlockKey(string filterKey)
         {
-            var filter = FilterFactory.Create(key.Filter);
-            var filterKey = filter.GetKey(httpContext);
-            if (string.IsNullOrEmpty(filterKey))
+            return $"{configuration.Prefix}_{BLOCK_PREFIX}_{filterKey}";
+        }
+
+        private async Task<bool> IsBlacklistAsync(string filterKey)
+        {
+            var blockKey = GenerateBlockKey(filterKey);
+            var blockValue = await cache.GetAsync<DateTime>(blockKey);
+            if (blockValue != DateTime.MinValue)
             {
                 return true;
             }
 
-            var id = $"{Configuration.Prefix}_{key.Name}_{filterKey}";
-            var throttleCounter = await Cache.GetAsync<ThrottleCounter>(id);
-            throttleCounter = throttleCounter == null || DateTime.Now > throttleCounter.Timestamp + TimeSpan.FromSeconds(key.PeriodInSeconds)
+            return false;
+        }
+
+        private async Task AddBlacklistAsync(string filterKey, int blockDuration)
+        {
+            var blockKey = GenerateBlockKey(filterKey);
+            await cache.SetAsync(
+                blockKey,
+                DateTime.Now, new CacheItemOptions
+                {
+                    RelativeExpiration = TimeSpan.FromSeconds(blockDuration)
+                });
+        }
+
+        public async Task<ThrottleResult> ThrottleAsync(HttpContext context)
+        {
+            var request = context.Request;
+            foreach (NetThrottlingKeyElement key in configuration.Keys)
+            {
+                if (key.Manual)
+                {
+                    continue;
+                }
+
+                var isPathMatched = key.Path == "*" || key.Path == request.AppRelativeCurrentExecutionFilePath;
+                var isMethodMatched = key.Method == "*" || key.Method == request.HttpMethod;
+                if (isPathMatched && isMethodMatched)
+                {
+                    return await ThrottleAsync(context, Mapper.From(key));
+                }
+            }
+
+            return ThrottleResult.Allowed;
+        }
+
+        public async Task<ThrottleResult> ThrottleAsync(string filterKey, int maxRequests, int throttleDuration, int blockDuration)
+        {
+            if (blockDuration != 0 && await IsBlacklistAsync(filterKey))
+            {
+                return ThrottleResult.Blocked;
+            }
+
+            var throttleKey = GenerateThrottleKey(filterKey);
+            var throttleCounter = await cache.GetAsync<ThrottleCounter>(throttleKey);
+            throttleCounter = throttleCounter == null || DateTime.Now > throttleCounter.Timestamp + TimeSpan.FromSeconds(throttleDuration)
                 ? new ThrottleCounter
                 {
                     Timestamp = DateTime.Now,
@@ -63,18 +103,63 @@
                     TotalRequests = throttleCounter.TotalRequests + 1
                 };
 
-            if (throttleCounter.TotalRequests > key.MaxRequests)
+            if (throttleCounter.TotalRequests > maxRequests)
             {
-                return false;
+                if (blockDuration != 0)
+                {
+                    await AddBlacklistAsync(filterKey, blockDuration);
+                }
+
+                return ThrottleResult.Blocked;
             }
 
-            await Cache.SetAsync(
-                id,
+            await cache.SetAsync(
+                throttleKey,
                 throttleCounter, new CacheItemOptions
                 {
-                    SlidingExpiration = TimeSpan.FromSeconds(key.PeriodInSeconds)
+                    SlidingExpiration = TimeSpan.FromSeconds(throttleDuration)
                 });
-            return true;
+            return ThrottleResult.Allowed;
+        }
+
+        public async Task<ThrottleResult> ThrottleAsync(HttpContext httpContext, ThrottlePolicy policy)
+        {
+            var filter = TypeFactory<IFilter>.Create(policy.Filter);
+            var filterIdentity = filter.GetIdentity(httpContext);
+            if (string.IsNullOrEmpty(filterIdentity))
+            {
+                return ThrottleResult.Allowed;
+            }
+
+            var filterKey = $"{policy.Name}_{filterIdentity}";
+            return await ThrottleAsync(filterKey, policy.MaxRequests, policy.ThrottleDuration, policy.BlockDuration);
+        }
+
+        public async Task<TResult> ThrottleAsync<TResult>(
+            Func<Func<TResult, Task<TResult>>, Task<TResult>> work,
+            Func<TResult> blocked,
+            string filterIdentity,
+            ThrottlePolicy policy)
+        {
+            var filterKey = $"{policy.Name}_{filterIdentity}";
+            if (await IsBlacklistAsync(filterKey))
+            {
+                return blocked();
+            }
+
+            async Task<TResult> success(TResult returnType)
+            {
+                var throttleResult = await ThrottleAsync(filterKey, policy.MaxRequests, policy.ThrottleDuration, policy.BlockDuration);
+                if (throttleResult == ThrottleResult.Blocked)
+                {
+                    await AddBlacklistAsync(filterKey, policy.BlockDuration);
+                    return blocked();
+                }
+
+                return returnType;
+            }
+
+            return await work(success);
         }
     }
 }

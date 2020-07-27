@@ -1,13 +1,30 @@
 ﻿namespace Alpha.NetThrottling
 {
+    using Alpha.NetThrottling.Models;
+    using Alpha.NetThrottling.Resolvers;
     using Alpha.NetThrottling.Utils;
+    using Fanex.Caching;
     using System;
     using System.Threading.Tasks;
     using System.Web;
 
     public class NetThrottlingHttpModule : IHttpModule
     {
-        private NetThrottler netThrottler;
+        private readonly NetThrottler netThrottler;
+        private readonly IResolver resolver;
+
+        public NetThrottlingHttpModule()
+            :this(null, null)
+        {
+        }
+
+        public NetThrottlingHttpModule(NetThrottlingConfiguration configuration, CacheService cache)
+        {
+            configuration = configuration ?? NetThrottlingConfiguration.Current;
+            cache = cache ?? CacheFactory.CreateDefaultService();
+            netThrottler = new NetThrottler(configuration, cache);
+            resolver = string.IsNullOrEmpty(configuration.Resolver) ? new DefaultResolver() : TypeFactory<IResolver>.Create(configuration.Resolver);
+        }
 
         public void Dispose()
         {
@@ -16,22 +33,18 @@
 
         public void Init(HttpApplication context)
         {
-            netThrottler = new NetThrottler();
             var wrapper = new EventHandlerTaskAsyncHelper(ThrottleRequest);
             context.AddOnBeginRequestAsync(wrapper.BeginEventHandler, wrapper.EndEventHandler);
+            context.AddOnAcquireRequestStateAsync(wrapper.BeginEventHandler, wrapper.EndEventHandler);
         }
 
         async Task ThrottleRequest(object sender, EventArgs e)
         {
             var context = ((HttpApplication)sender).Context;
-            var allowed = await netThrottler.ThrottleAsync(context);
-            if (!allowed)
+            var throttleResult = await netThrottler.ThrottleAsync(context);
+            if (throttleResult == ThrottleResult.Blocked)
             {
-                var message = "Too many requests";
-                context.Response.StatusCode = HttpStatusCodes.TooManyRequests;
-                context.Response.StatusDescription = message;
-                context.Response.Write(message);
-                context.Response.End();
+                resolver.Block(context);
             }
         }
     }
