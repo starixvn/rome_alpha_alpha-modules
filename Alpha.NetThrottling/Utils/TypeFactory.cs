@@ -15,7 +15,9 @@
                 {
                     if (!cache.ContainsKey(typeName))
                     {
-                        return InternalCreate(typeName);
+                        var filter = InternalCreate(typeName);
+                        cache.Add(typeName, filter);
+                        return filter;
                     }
                 }
             }
@@ -37,7 +39,6 @@
                 throw new InvalidCastException($"{typeName} is not a type of {typeof(T)}");
             }
 
-            cache.Add(typeName, filter);
             return filter;
         }
     }

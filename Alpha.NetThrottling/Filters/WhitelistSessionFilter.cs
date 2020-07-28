@@ -5,11 +5,9 @@
     using System.Linq;
     using System.Web;
 
-    public class WhitelistSessionFitler : IFilter
+    public class WhitelistSessionFilter : IFilter
     {
         private static IEnumerable<int> configurationCustIds = ParseConfigurationCustIds();
-
-        private readonly IUserSession userSession;
         private readonly IEnumerable<int> custIds;
 
         static IEnumerable<int> ParseConfigurationCustIds()
@@ -18,19 +16,19 @@
             return string.IsNullOrWhiteSpace(custIds) ? Enumerable.Empty<int>() : custIds.Split(',').Select(int.Parse).ToList();
         }
 
-        public WhitelistSessionFitler()
-            : this(null, null)
+        public WhitelistSessionFilter()
+            : this(null)
         {
         }
 
-        public WhitelistSessionFitler(IUserSession userSession, IEnumerable<int> custIds)
+        public WhitelistSessionFilter(IEnumerable<int> custIds)
         {
-            this.userSession = userSession ?? UserSession.Current;
             this.custIds = custIds ?? configurationCustIds;
         }
 
         public string GetIdentity(HttpContext httpContext)
         {
+            var userSession = UserSession.Current;
             if (userSession == null)
             {
                 return null;
