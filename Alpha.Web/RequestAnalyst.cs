@@ -23,10 +23,12 @@
             {
                 var jsonString = GetJsonDataInRequestBody(HttpContext.Current.Request.InputStream);
                 var pattern = string.Format("(\"{0}\":)(?<paramValue>[^,}}]+)", parameterName);
-                Match regexMatch = Regex.Match(jsonString, pattern, RegexOptions.IgnoreCase);
-                if (regexMatch.Success)
+                var regexMatches = Regex.Matches(jsonString, pattern, RegexOptions.IgnoreCase);
+                var matchLength = regexMatches.Count;
+                if (matchLength > 0)
                 {
-                    customerId = Convert.ToInt32(regexMatch.Groups["paramValue"].ToString().Replace("\"", string.Empty));
+                    var lastMatch = regexMatches[matchLength - 1];
+                    customerId = Convert.ToInt32(lastMatch.Groups["paramValue"].ToString().Replace("\"", string.Empty));
                 }
             }
 

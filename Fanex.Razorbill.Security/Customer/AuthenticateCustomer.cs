@@ -131,10 +131,10 @@
                 if (!string.IsNullOrWhiteSpace(trackingValue))
                 {
                     var pattern = "(\"" + currentParamName + "\":)([^\r\n][0-9]+)";
-                    Match regexMatch = Regex.Match(trackingValue, pattern, RegexOptions.IgnoreCase);
-                    if (regexMatch.Success)
+                    var regexMatches = Regex.Matches(trackingValue, pattern, RegexOptions.IgnoreCase);
+                    if (regexMatches.Count > 0)
                     {
-                        var custidFounded = Regex.Replace(regexMatch.Groups[2].ToString(), @"[^a-zA-Z0-9_.]+", string.Empty, RegexOptions.Compiled);
+                        var custidFounded = Regex.Replace(regexMatches[regexMatches.Count - 1].Groups[2].ToString(), @"[^a-zA-Z0-9_.]+", string.Empty, RegexOptions.Compiled);
 
                         custId = Convert.ToInt32(custidFounded);
                     }
