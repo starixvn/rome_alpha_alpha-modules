@@ -1,6 +1,6 @@
 ﻿namespace Alpha.NetThrottling.Filters
 {
-    using Sunplus.Agent.Model.Entities;
+    using Alpha.NetThrottling.Utils;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
@@ -12,8 +12,9 @@
 
         static IEnumerable<int> ParseConfigurationCustIds()
         {
-            var custIds = WhitelistConfiguration.Current.CustIds;
-            return string.IsNullOrWhiteSpace(custIds) ? Enumerable.Empty<int>() : custIds.Split(',').Select(int.Parse).ToList();
+            return string.IsNullOrWhiteSpace(WhitelistConfiguration.Current.CustIds) 
+                ? Enumerable.Empty<int>() 
+                : WhitelistConfiguration.Current.CustIds.Split(',').Select(int.Parse).ToList();
         }
 
         public WhitelistSessionFilter()
@@ -28,7 +29,7 @@
 
         public string GetIdentity(HttpContext httpContext)
         {
-            var userSession = UserSession.Current;
+            var userSession = UserSessionFactory.Create();
             if (userSession == null)
             {
                 return null;
