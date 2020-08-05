@@ -5,6 +5,7 @@
     using System.Web.Mvc;
 
     [DisableNetThrottling]
+    [AllowAnonymous]
     public class BlockedController : Controller
     {
         public ActionResult Index()
