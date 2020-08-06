@@ -1,13 +1,9 @@
 namespace Sunplus.Agent.Model.BL.UserMessage
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.Data;
-    using Fanex.Caching;
-    using Fanex.Data;
     using Sunplus.Agent.Model.BL.Definitions;
     using Sunplus.Agent.Model.DL.UserMessage;
+    using System;
+    using System.Data;
 
     [Obsolete("Should rename to Sunplus.Agent.Model.Messages")]
     public class UserMessageBO : Sunplus.Agent.Model.BL.Base.BOBase
