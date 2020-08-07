@@ -82,7 +82,7 @@
             }
         }
 
-        [ConfigurationProperty("manual", IsRequired = false)]
+        [ConfigurationProperty("manual", IsRequired = false, DefaultValue = false)]
         public bool Manual
         {
             get

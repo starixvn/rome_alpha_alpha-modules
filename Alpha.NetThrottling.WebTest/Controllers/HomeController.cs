@@ -63,15 +63,10 @@
                         return View();
                     }
                 },
-                () => RedirectToAction("AccessDenied", "Home"),
+                () => RedirectToAction("Blocked", "Error"),
                 filterIdentity,
                 loginPolicy
             );
-        }
-
-        public ActionResult AccessDenied()
-        {
-            return View();
         }
     }
 }
