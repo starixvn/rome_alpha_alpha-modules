@@ -14,8 +14,8 @@
         private const string THROTTLE_PREFIX = "Throttle";
 
         private readonly NetThrottlingConfiguration configuration;
-
         private readonly CacheService cache;
+        private readonly string cacheKeyPrefix;
 
         public NetThrottler()
             : this(null, null)
@@ -26,16 +26,19 @@
         {
             this.configuration = configuration ?? NetThrottlingConfiguration.Current;
             this.cache = cache ?? CacheFactory.CreateDefaultService();
+            cacheKeyPrefix = !string.IsNullOrWhiteSpace(this.configuration.Prefix)
+                ? this.configuration.Prefix
+                : HttpContext.Current.ApplicationInstance.GetType().BaseType.Assembly.GetName().Name;
         }
 
         private string GenerateThrottleKey(string filterKey)
         {
-            return $"{configuration.Prefix}_{THROTTLE_PREFIX}_{filterKey}";
+            return $"{cacheKeyPrefix}_{THROTTLE_PREFIX}_{filterKey}";
         }
 
         private string GenerateBlockKey(string filterKey)
         {
-            return $"{configuration.Prefix}_{BLOCK_PREFIX}_{filterKey}";
+            return $"{cacheKeyPrefix}_{BLOCK_PREFIX}_{filterKey}";
         }
 
         private async Task<bool> IsBlacklistAsync(string filterKey)

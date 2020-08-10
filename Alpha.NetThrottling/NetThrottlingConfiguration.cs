@@ -4,7 +4,7 @@
 
     public class NetThrottlingConfiguration : ConfigurationSection
     {
-        [ConfigurationProperty("prefix", IsRequired = true)]
+        [ConfigurationProperty("prefix", IsRequired = false, DefaultValue = null)]
         public string Prefix
         {
             get
