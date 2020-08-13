@@ -7,18 +7,17 @@
     <RepositoryUrl>https://gitlab.nexdev.net/rome/alpha/alpha.netthrottling</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<Deterministic>true</Deterministic>
-    <AssemblyVersion>1.0.1</AssemblyVersion>
-    <FileVersion>1.0.1</FileVersion>
+    <AssemblyVersion>1.0.3</AssemblyVersion>
+    <FileVersion>1.0.3</FileVersion>
     <RepositoryType>git</RepositoryType>
     <PackageTags>alpha net throttling</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.0.1</Version>
+    <Version>1.0.3</Version>
     <AssemblyName>Alpha.NetThrottling</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.Caching" Version="2.1.0" />
-    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.3" />
     <PackageReference Include="Sunplus.Agent.Model.Base" Version="3.0.5.1" />
     <Reference Include="System.Configuration" />
 	<Reference Include="System.Web" />
@@ -32,7 +31,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\Lang.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

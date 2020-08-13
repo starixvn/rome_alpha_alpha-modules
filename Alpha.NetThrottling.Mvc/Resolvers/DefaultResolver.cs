@@ -1,8 +1,9 @@
-﻿namespace Alpha.NetThrottling.Resolvers
+﻿namespace Alpha.NetThrottling.Mvc.Resolvers
 {
+    using Alpha.NetThrottling.Resolvers;
     using System.Web;
 
-    public class RedirectErrorPageResolver : IResolver
+    public class DefaultResolver : IResolver
     {
         public void Block(HttpContext context)
         {
