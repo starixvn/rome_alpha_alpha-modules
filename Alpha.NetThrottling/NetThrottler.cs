@@ -15,17 +15,19 @@
 
         private readonly NetThrottlingConfiguration configuration;
         private readonly CacheService cache;
+        private readonly Clock clock;
         private readonly string cacheKeyPrefix;
 
         public NetThrottler()
-            : this(null, null)
+            : this(null, null, null)
         {
         }
 
-        public NetThrottler(NetThrottlingConfiguration configuration, CacheService cache)
+        public NetThrottler(NetThrottlingConfiguration configuration, CacheService cache, Clock clock)
         {
             this.configuration = configuration ?? NetThrottlingConfiguration.Current;
             this.cache = cache ?? CacheFactory.CreateDefaultService();
+            this.clock = clock ?? new SystemClock();
             cacheKeyPrefix = !string.IsNullOrWhiteSpace(this.configuration.Prefix)
                 ? this.configuration.Prefix
                 : HttpContext.Current.ApplicationInstance.GetType().BaseType.Assembly.GetName().Name;
@@ -45,7 +47,7 @@
         {
             var blockKey = GenerateBlockKey(filterKey);
             var blockValue = await cache.GetAsync<DateTime>(blockKey);
-            if (blockValue != DateTime.MinValue)
+            if (blockValue != clock.MinValue)
             {
                 return true;
             }
@@ -58,7 +60,7 @@
             var blockKey = GenerateBlockKey(filterKey);
             await cache.SetAsync(
                 blockKey,
-                DateTime.Now, new CacheItemOptions
+                clock.Now, new CacheItemOptions
                 {
                     RelativeExpiration = TimeSpan.FromSeconds(blockDuration)
                 });
@@ -87,17 +89,17 @@
 
         public async Task<ThrottleResult> ThrottleAsync(string filterKey, int maxRequests, int throttleDuration, int blockDuration)
         {
-            if (blockDuration != 0 && await IsBlacklistAsync(filterKey))
+            if (blockDuration > 0 && await IsBlacklistAsync(filterKey))
             {
                 return ThrottleResult.Blocked;
             }
 
             var throttleKey = GenerateThrottleKey(filterKey);
             var throttleCounter = await cache.GetAsync<ThrottleCounter>(throttleKey);
-            throttleCounter = throttleCounter == null || DateTime.Now > throttleCounter.Timestamp + TimeSpan.FromSeconds(throttleDuration)
+            throttleCounter = throttleCounter == null || clock.Now > throttleCounter.Timestamp + TimeSpan.FromSeconds(throttleDuration)
                 ? new ThrottleCounter
                 {
-                    Timestamp = DateTime.Now,
+                    Timestamp = clock.Now,
                     TotalRequests = 1
                 }
                 : new ThrottleCounter
@@ -108,7 +110,7 @@
 
             if (throttleCounter.TotalRequests > maxRequests)
             {
-                if (blockDuration != 0)
+                if (blockDuration > 0)
                 {
                     await AddBlacklistAsync(filterKey, blockDuration);
                 }

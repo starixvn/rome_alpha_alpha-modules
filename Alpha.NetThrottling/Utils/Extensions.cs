@@ -15,11 +15,11 @@
             return GetIPAddress(request.Headers["X-Forwarded-For"], request.UserHostAddress);
         }
 
-        private static IPAddress GetIPAddress(string header, string hostaddress)
+        private static IPAddress GetIPAddress(string header, string hostAddress)
         {
             if (string.IsNullOrEmpty(header))
             {
-                return IPAddress.Parse(hostaddress).MapToIPv4();
+                return IPAddress.Parse(hostAddress).MapToIPv4();
             }
             else
             {

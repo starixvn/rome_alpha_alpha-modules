@@ -15,17 +15,19 @@
         private readonly NetThrottlingConfiguration configuration;
         private readonly ThrottlePolicy policy;
         private readonly CacheService cache;
+        private readonly Clock clock;
         private readonly IResolver resolver;
 
         public NetThrottlingFilterAttribute(string keyName)
-            : this(keyName, null, null)
+            : this(keyName, null, null, null)
         {
         }
 
-        public NetThrottlingFilterAttribute(string keyName, NetThrottlingConfiguration configuration, CacheService cache)
+        public NetThrottlingFilterAttribute(string keyName, NetThrottlingConfiguration configuration, CacheService cache, Clock clock)
         {
             this.configuration = configuration ?? NetThrottlingConfiguration.Current;
             this.cache = cache ?? CacheFactory.CreateDefaultService();
+            this.clock = clock ?? new SystemClock();
             resolver = string.IsNullOrEmpty(this.configuration.Resolver) ? new DefaultResolver() : TypeFactory<IResolver>.Create(this.configuration.Resolver);
             var key = this.configuration.Keys[keyName];
             if (!key.Manual)
@@ -42,7 +44,7 @@
             }
 
             var httpContext = HttpContext.Current;
-            var netThrotter = new NetThrottler(configuration, cache);
+            var netThrotter = new NetThrottler(configuration, cache, clock);
             var applyingPolicy = GetApplyingPolicy(filterContext);
             if (applyingPolicy != null)
             {

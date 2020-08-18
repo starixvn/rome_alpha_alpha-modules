@@ -14,15 +14,16 @@
         private readonly IResolver resolver;
 
         public NetThrottlingHttpModule()
-            :this(null, null)
+            :this(null, null, null)
         {
         }
 
-        public NetThrottlingHttpModule(NetThrottlingConfiguration configuration, CacheService cache)
+        public NetThrottlingHttpModule(NetThrottlingConfiguration configuration, CacheService cache, Clock clock)
         {
             configuration = configuration ?? NetThrottlingConfiguration.Current;
             cache = cache ?? CacheFactory.CreateDefaultService();
-            netThrottler = new NetThrottler(configuration, cache);
+            clock = clock ?? new SystemClock();
+            netThrottler = new NetThrottler(configuration, cache, clock);
             resolver = string.IsNullOrEmpty(configuration.Resolver) ? new DefaultResolver() : TypeFactory<IResolver>.Create(configuration.Resolver);
         }
 
