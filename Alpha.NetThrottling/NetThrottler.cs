@@ -8,45 +8,60 @@
     using System.Threading.Tasks;
     using System.Web;
 
-    public class NetThrottler
+    public interface INetThrottler
+    {
+        Task<ThrottleResult> ThrottleAsync(string filterKey, int maxRequests, int throttleDuration, int blockDuration);
+
+        Task<ThrottleResult> ThrottleAsync(HttpContext httpContext, IThrottlePolicy policy, IFilter filter);
+
+        Task<TResult> ThrottleAsync<TResult>(
+            Func<Func<TResult, Task<TResult>>, Task<TResult>> work,
+            Func<TResult> blocked,
+            IThrottlePolicy policy,
+            IFilter filter);
+
+        Task<TResult> ThrottleAsync<TResult>(
+            Func<Func<TResult, Task<TResult>>, Task<TResult>> work,
+            Func<TResult> blocked,
+            IThrottlePolicy policy,
+            string filterIdentity);
+    }
+
+    public class NetThrottler : INetThrottler
     {
         private const string BLOCK_PREFIX = "Block";
         private const string THROTTLE_PREFIX = "Throttle";
 
-        private readonly NetThrottlingConfiguration configuration;
-        private readonly CacheService cache;
+        private readonly IThrottleSetting throttleSetting;
+        private readonly CacheService cacheService;
         private readonly Clock clock;
-        private readonly string cacheKeyPrefix;
 
-        public NetThrottler()
-            : this(null, null, null)
+        public NetThrottler() :
+            this(null, null, null)
         {
         }
 
-        public NetThrottler(NetThrottlingConfiguration configuration, CacheService cache, Clock clock)
+        public NetThrottler(IThrottleSetting throttleSetting, CacheService cacheService, Clock clock)
         {
-            this.configuration = configuration ?? NetThrottlingConfiguration.Current;
-            this.cache = cache ?? CacheFactory.CreateDefaultService();
+            this.throttleSetting = throttleSetting ?? new ThrottleSetting(NetThrottlingConfiguration.Current);
+            this.cacheService = cacheService ?? CacheFactory.CreateDefaultService();
             this.clock = clock ?? new SystemClock();
-            cacheKeyPrefix = !string.IsNullOrWhiteSpace(this.configuration.Prefix)
-                ? this.configuration.Prefix
-                : HttpContext.Current.ApplicationInstance.GetType().BaseType.Assembly.GetName().Name;
         }
 
         private string GenerateThrottleKey(string filterKey)
         {
-            return $"{cacheKeyPrefix}_{THROTTLE_PREFIX}_{filterKey}";
+            return $"{throttleSetting.CacheKeyPrefix}_{THROTTLE_PREFIX}_{filterKey}";
         }
 
         private string GenerateBlockKey(string filterKey)
         {
-            return $"{cacheKeyPrefix}_{BLOCK_PREFIX}_{filterKey}";
+            return $"{throttleSetting.CacheKeyPrefix}_{BLOCK_PREFIX}_{filterKey}";
         }
 
         private async Task<bool> IsBlacklistAsync(string filterKey)
         {
             var blockKey = GenerateBlockKey(filterKey);
-            var blockValue = await cache.GetAsync<DateTime>(blockKey);
+            var blockValue = await cacheService.GetAsync<DateTime>(blockKey);
             if (blockValue != clock.MinValue)
             {
                 return true;
@@ -58,7 +73,7 @@
         private async Task AddBlacklistAsync(string filterKey, int blockDuration)
         {
             var blockKey = GenerateBlockKey(filterKey);
-            await cache.SetAsync(
+            await cacheService.SetAsync(
                 blockKey,
                 clock.Now, new CacheItemOptions
                 {
@@ -66,36 +81,15 @@
                 });
         }
 
-        public async Task<ThrottleResult> ThrottleAsync(HttpContext context)
-        {
-            var request = context.Request;
-            foreach (NetThrottlingKeyElement key in configuration.Keys)
-            {
-                if (key.Manual)
-                {
-                    continue;
-                }
-
-                var isPathMatched = key.Path == "*" || key.Path == request.AppRelativeCurrentExecutionFilePath;
-                var isMethodMatched = key.Method == "*" || key.Method == request.HttpMethod;
-                if (isPathMatched && isMethodMatched)
-                {
-                    return await ThrottleAsync(context, Mapper.From(key));
-                }
-            }
-
-            return ThrottleResult.Allowed;
-        }
-
         public async Task<ThrottleResult> ThrottleAsync(string filterKey, int maxRequests, int throttleDuration, int blockDuration)
         {
-            if (blockDuration > 0 && await IsBlacklistAsync(filterKey))
+            if (await IsBlacklistAsync(filterKey))
             {
                 return ThrottleResult.Blocked;
             }
 
             var throttleKey = GenerateThrottleKey(filterKey);
-            var throttleCounter = await cache.GetAsync<ThrottleCounter>(throttleKey);
+            var throttleCounter = await cacheService.GetAsync<ThrottleCounter>(throttleKey);
             throttleCounter = throttleCounter == null || clock.Now > throttleCounter.Timestamp + TimeSpan.FromSeconds(throttleDuration)
                 ? new ThrottleCounter
                 {
@@ -110,15 +104,11 @@
 
             if (throttleCounter.TotalRequests > maxRequests)
             {
-                if (blockDuration > 0)
-                {
-                    await AddBlacklistAsync(filterKey, blockDuration);
-                }
-
+                await AddBlacklistAsync(filterKey, blockDuration);
                 return ThrottleResult.Blocked;
             }
 
-            await cache.SetAsync(
+            await cacheService.SetAsync(
                 throttleKey,
                 throttleCounter, new CacheItemOptions
                 {
@@ -127,9 +117,8 @@
             return ThrottleResult.Allowed;
         }
 
-        public async Task<ThrottleResult> ThrottleAsync(HttpContext httpContext, ThrottlePolicy policy)
+        public async Task<ThrottleResult> ThrottleAsync(HttpContext httpContext, IThrottlePolicy policy, IFilter filter)
         {
-            var filter = TypeFactory<IFilter>.Create(policy.Filter);
             var filterIdentity = filter.GetIdentity(httpContext);
             if (string.IsNullOrEmpty(filterIdentity))
             {
@@ -143,8 +132,18 @@
         public async Task<TResult> ThrottleAsync<TResult>(
             Func<Func<TResult, Task<TResult>>, Task<TResult>> work,
             Func<TResult> blocked,
-            string filterIdentity,
-            ThrottlePolicy policy)
+            IThrottlePolicy policy,
+            IFilter filter)
+        {
+            var filterIdentity = filter.GetIdentity(HttpContext.Current);
+            return await ThrottleAsync(work, blocked, policy, filterIdentity);
+        }
+
+        public async Task<TResult> ThrottleAsync<TResult>(
+            Func<Func<TResult, Task<TResult>>, Task<TResult>> work,
+            Func<TResult> blocked,
+            IThrottlePolicy policy,
+            string filterIdentity)
         {
             var filterKey = $"{policy.Name}_{filterIdentity}";
             if (await IsBlacklistAsync(filterKey))

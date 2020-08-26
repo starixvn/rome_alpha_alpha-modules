@@ -8,10 +8,11 @@
     {
         public void Block(HttpContext context)
         {
-            context.Response.StatusCode = HttpStatusCodes.TooManyRequests;
-            context.Response.StatusDescription = Lang.BlockedContent;
-            context.Response.Write(Lang.BlockedContent);
-            context.Response.End();
+            var response = context.Response;
+            response.StatusCode = HttpStatusCodes.TooManyRequests;
+            response.StatusDescription = Lang.BlockedContent;
+            response.Write(Lang.BlockedContent);
+            response.End();
         }
     }
 }

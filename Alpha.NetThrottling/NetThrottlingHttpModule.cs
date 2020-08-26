@@ -1,7 +1,7 @@
 ﻿namespace Alpha.NetThrottling
 {
+    using Alpha.NetThrottling.Filters;
     using Alpha.NetThrottling.Models;
-    using Alpha.NetThrottling.Resolvers;
     using Alpha.NetThrottling.Utils;
     using Fanex.Caching;
     using System;
@@ -10,21 +10,21 @@
 
     public class NetThrottlingHttpModule : IHttpModule
     {
-        private readonly NetThrottler netThrottler;
-        private readonly IResolver resolver;
+        private readonly INetThrottler netThrottler;
+        private readonly IThrottleSetting throttleSetting;
 
         public NetThrottlingHttpModule()
-            :this(null, null, null)
+            : this(null, null, null)
         {
         }
 
-        public NetThrottlingHttpModule(NetThrottlingConfiguration configuration, CacheService cache, Clock clock)
+        public NetThrottlingHttpModule(NetThrottlingConfiguration configuration, CacheService cacheService, Clock clock)
         {
             configuration = configuration ?? NetThrottlingConfiguration.Current;
-            cache = cache ?? CacheFactory.CreateDefaultService();
+            throttleSetting = new ThrottleSetting(configuration);
+            cacheService = cacheService ?? CacheFactory.CreateDefaultService();
             clock = clock ?? new SystemClock();
-            netThrottler = new NetThrottler(configuration, cache, clock);
-            resolver = string.IsNullOrEmpty(configuration.Resolver) ? new DefaultResolver() : TypeFactory<IResolver>.Create(configuration.Resolver);
+            netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
         }
 
         public void Dispose()
@@ -39,14 +39,29 @@
             context.AddOnAcquireRequestStateAsync(wrapper.BeginEventHandler, wrapper.EndEventHandler);
         }
 
-        async Task ThrottleRequest(object sender, EventArgs e)
+        private async Task ThrottleRequest(object sender, EventArgs e)
         {
             var context = ((HttpApplication)sender).Context;
-            var throttleResult = await netThrottler.ThrottleAsync(context);
+            var throttleResult = await ThrottleAsync(context);
             if (throttleResult == ThrottleResult.Blocked)
             {
-                resolver.Block(context);
+                throttleSetting.Resolver.Block(context);
             }
+        }
+
+        private async Task<ThrottleResult> ThrottleAsync(HttpContext context)
+        {
+            foreach (var key in throttleSetting.Keys)
+            {
+                if (!key.Manual && key.IsMatchRequest(context.Request))
+                {
+                    var throttlePolicy = new ThrottlePolicy(key);
+                    var filter = string.IsNullOrEmpty(key.Filter) ? null : TypeFactory<IFilter>.Create(key.Filter);
+                    return await netThrottler.ThrottleAsync(context, throttlePolicy, filter);
+                }
+            }
+
+            return ThrottleResult.Allowed;
         }
     }
 }

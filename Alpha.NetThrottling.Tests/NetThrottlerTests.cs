@@ -1,42 +1,38 @@
 ﻿namespace Alpha.NetThrottling.Tests
 {
+    using Alpha.NetThrottling.Filters;
     using Alpha.NetThrottling.Models;
+    using Alpha.NetThrottling.Tests.Utils;
     using Alpha.NetThrottling.Utils;
     using Fanex.Caching;
     using NSubstitute;
     using System;
-    using System.Configuration;
-    using System.IO;
     using System.Threading.Tasks;
+    using System.Web;
     using Xunit;
 
-    public class NetThrottlerTests
+    public class NetThrottlerTests : IClassFixture<NetThrottlingConfigurationFixture>
     {
-        private readonly NetThrottlingConfiguration configuration;
+        private readonly IThrottleSetting throttleSetting;
         private readonly CacheService cacheService;
         private readonly Clock clock;
-        private readonly NetThrottler netThrottler;
 
-        public NetThrottlerTests()
+        public NetThrottlerTests(NetThrottlingConfigurationFixture fixture)
         {
-            var configFileMap = new ExeConfigurationFileMap()
-            {
-                ExeConfigFilename = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "NetThrottlerTests.config")
-            };
-            var config = ConfigurationManager.OpenMappedExeConfiguration(configFileMap, ConfigurationUserLevel.None);
-            configuration = config.GetSection("Alpha.NetThrottling") as NetThrottlingConfiguration;
             cacheService = Substitute.For<CacheService>();
             clock = Substitute.For<Clock>();
-            netThrottler = new NetThrottler(configuration, cacheService, clock);
+            throttleSetting = Substitute.For<IThrottleSetting>();
+            throttleSetting.CacheKeyPrefix.Returns("NetThrottlerTests");
         }
 
         [Fact]
-        public async Task ThrottleAsync_ReturnsBlocked_IfBlacklistAndBlockDurationGreaterThanZero()
+        public async Task ThrottleAsync_ReturnsBlocked_IfKeyIsBlacklist()
         {
             // Arrange
-            cacheService.GetAsync<DateTime>(Arg.Any<string>()).Returns(Task.FromResult(DateTime.Now));
+            cacheService.GetAsync<DateTime>(Arg.Any<string>()).Returns(Task.FromResult(new DateTime(2020, 8, 8, 8, 8, 8)));
 
             // Act
+            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
             var throttleResult = await netThrottler.ThrottleAsync("FilterKey1", 10, 10, 10);
 
             // Assert
@@ -45,7 +41,55 @@
         }
 
         [Fact]
-        public async Task ThrottleAsync_SetBlacklist_IfBlockDurationIsGreaterThanZero()
+        public async Task ThrottleAsync_NotBlacklist_FirstRequest()
+        {
+            // Arrange
+            cacheService.GetAsync<DateTime>(Arg.Any<string>()).Returns(Task.FromResult(DateTime.MinValue));
+            cacheService.GetAsync<ThrottleCounter>(Arg.Any<string>()).Returns(Task.FromResult<ThrottleCounter>(null));
+            clock.Now.Returns(new DateTime(2020, 8, 8, 8, 8, 9));
+
+            // Act
+            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
+            var throttleResult = await netThrottler.ThrottleAsync("FilterKey1", 10, 10, 10);
+
+            // Assert
+            Assert.Equal(ThrottleResult.Allowed, throttleResult);
+            await cacheService.Received().GetAsync<DateTime>(Arg.Is("NetThrottlerTests_Block_FilterKey1"));
+            await cacheService.Received().GetAsync<ThrottleCounter>(Arg.Is("NetThrottlerTests_Throttle_FilterKey1"));
+            await cacheService.Received().SetAsync(
+                Arg.Is("NetThrottlerTests_Throttle_FilterKey1"),
+                Arg.Is<ThrottleCounter>(x => x.TotalRequests == 1 && x.Timestamp == new DateTime(2020, 8, 8, 8, 8, 9)),
+                Arg.Is<CacheItemOptions>(x => x.SlidingExpiration == TimeSpan.FromSeconds(10)));
+        }
+
+        [Fact]
+        public async Task ThrottleAsync_NotSetBlacklist_SecondRequest()
+        {
+            // Arrange
+            cacheService.GetAsync<DateTime>(Arg.Any<string>()).Returns(Task.FromResult(DateTime.MinValue));
+            cacheService.GetAsync<ThrottleCounter>(Arg.Any<string>()).Returns(Task.FromResult(new ThrottleCounter
+            {
+                Timestamp = new DateTime(2020, 8, 8, 8, 8, 8),
+                TotalRequests = 1
+            }));
+            clock.Now.Returns(new DateTime(2020, 8, 8, 8, 8, 9));
+
+            // Act
+            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
+            var throttleResult = await netThrottler.ThrottleAsync("FilterKey1", 10, 10, 10);
+
+            // Assert
+            Assert.Equal(ThrottleResult.Allowed, throttleResult);
+            await cacheService.Received().GetAsync<DateTime>(Arg.Is("NetThrottlerTests_Block_FilterKey1"));
+            await cacheService.Received().GetAsync<ThrottleCounter>(Arg.Is("NetThrottlerTests_Throttle_FilterKey1"));
+            await cacheService.Received().SetAsync(
+                Arg.Is("NetThrottlerTests_Throttle_FilterKey1"),
+                Arg.Is<ThrottleCounter>(x => x.TotalRequests == 2 && x.Timestamp == new DateTime(2020, 8, 8, 8, 8, 8)),
+                Arg.Is<CacheItemOptions>(x => x.SlidingExpiration == TimeSpan.FromSeconds(10)));
+        }
+
+        [Fact]
+        public async Task ThrottleAsync_SetBlacklist_IfReachMaxRequests()
         {
             // Arrange
             cacheService.GetAsync<DateTime>(Arg.Any<string>()).Returns(Task.FromResult(DateTime.MinValue));
@@ -57,10 +101,12 @@
             clock.Now.Returns(new DateTime(2020, 8, 8, 8, 8, 9));
 
             // Act
+            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
             var throttleResult = await netThrottler.ThrottleAsync("FilterKey1", 10, 10, 10);
 
             // Assert
             Assert.Equal(ThrottleResult.Blocked, throttleResult);
+            await cacheService.Received().GetAsync<DateTime>(Arg.Is("NetThrottlerTests_Block_FilterKey1"));
             await cacheService.Received().GetAsync<ThrottleCounter>(Arg.Is("NetThrottlerTests_Throttle_FilterKey1"));
             await cacheService.Received().SetAsync(
                 Arg.Is("NetThrottlerTests_Block_FilterKey1"),
@@ -68,44 +114,21 @@
                 Arg.Is<CacheItemOptions>(x => x.RelativeExpiration == TimeSpan.FromSeconds(10)));
         }
 
-        [Fact]
-        public async Task ThrottleAsync_NotSetBlacklist_IfBlockDurationIsLessOrEqualZero()
+        [Fact, CurrentHttpContext]
+        public async Task ThrottleAsync_ReturnAllowed_IfFilterIdentityIsNull()
         {
             // Arrange
-            cacheService.GetAsync<ThrottleCounter>(Arg.Any<string>()).Returns(Task.FromResult(new ThrottleCounter
-            {
-                Timestamp = DateTime.Now,
-                TotalRequests = 10
-            }));
+            
+            var throttlePolicy = Substitute.For<IThrottlePolicy>();
+            var filter = Substitute.For<IFilter>();
+            filter.GetIdentity(Arg.Any<HttpContext>()).Returns("");
 
             // Act
-            var throttleResult = await netThrottler.ThrottleAsync("FilterKey1", 10, 10, 0);
-
-            // Assert
-            Assert.Equal(ThrottleResult.Blocked, throttleResult);
-            await cacheService.Received().GetAsync<ThrottleCounter>(Arg.Is("NetThrottlerTests_Throttle_FilterKey1"));
-            await cacheService.DidNotReceive().SetAsync(
-                Arg.Is("NetThrottlerTests_Block_FilterKey1"),
-                Arg.Any<ThrottleCounter>(),
-                Arg.Any<CacheItemOptions>());
-        }
-
-        [Fact]
-        public async Task ThrottleAsync_ReturnsAllowed_IfNotReachMaxRequests()
-        {
-            // Arrange
-            cacheService.GetAsync<ThrottleCounter>(Arg.Any<string>()).Returns(Task.FromResult<ThrottleCounter>(null));
-
-            // Act
-            var throttleResult = await netThrottler.ThrottleAsync("FilterKey1", 10, 10, 10);
+            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
+            var throttleResult = await netThrottler.ThrottleAsync(HttpContext.Current, throttlePolicy, filter);
 
             // Assert
             Assert.Equal(ThrottleResult.Allowed, throttleResult);
-            await cacheService.Received().GetAsync<ThrottleCounter>(Arg.Is("NetThrottlerTests_Throttle_FilterKey1"));
-            await cacheService.Received().SetAsync(
-                Arg.Is("NetThrottlerTests_Throttle_FilterKey1"),
-                Arg.Is<ThrottleCounter>(x => x.TotalRequests == 1),
-                Arg.Is<CacheItemOptions>(o => o.SlidingExpiration == TimeSpan.FromSeconds(10)));
         }
     }
 }

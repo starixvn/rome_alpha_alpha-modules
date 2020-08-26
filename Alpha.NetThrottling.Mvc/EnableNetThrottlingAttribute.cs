@@ -7,6 +7,6 @@
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
     public class EnableNetThrottlingAttribute : ActionFilterAttribute
     {
-        public ThrottlePolicy Policy { get; set; }
+        public IThrottlePolicy Policy { get; set; }
     }
 }

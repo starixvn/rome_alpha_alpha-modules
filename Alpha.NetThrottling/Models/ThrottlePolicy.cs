@@ -1,15 +1,66 @@
 ﻿namespace Alpha.NetThrottling.Models
 {
-    public class ThrottlePolicy
+    using System;
+
+    public interface IThrottlePolicy
     {
-        public string Name { get; set; }
+        string Name { get; }
 
-        public int MaxRequests { get; set; }
+        int MaxRequests { get; }
 
-        public int ThrottleDuration { get; set; }
+        int ThrottleDuration { get; }
 
-        public int BlockDuration { get; set; }
+        int BlockDuration { get; }
+    }
 
-        public string Filter { get; set; }
+    public class ThrottlePolicy : IThrottlePolicy
+    {
+        public ThrottlePolicy(NetThrottlingKeyElement key)
+            : this(key.Name,
+                  key.MaxRequests,
+                  key.BlockDuration,
+                  key.ThrottleDuration)
+        {
+        }
+
+        public ThrottlePolicy(
+            string name,
+            int maxRequests,
+            int blockDuration,
+            int throttleDuration)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentNullException(nameof(name));
+            }
+
+            if (maxRequests <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(maxRequests));
+            }
+
+            if (blockDuration <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(blockDuration));
+            }
+
+            if (throttleDuration <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(throttleDuration));
+            }
+
+            Name = name;
+            MaxRequests = maxRequests;
+            BlockDuration = blockDuration;
+            ThrottleDuration = throttleDuration;
+        }
+
+        public string Name { get; private set; }
+
+        public int MaxRequests { get; private set; }
+
+        public int ThrottleDuration { get; private set; }
+
+        public int BlockDuration { get; private set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿namespace Alpha.NetThrottling.Mvc
 {
+    using Alpha.NetThrottling.Filters;
     using Alpha.NetThrottling.Models;
-    using Alpha.NetThrottling.Resolvers;
     using Alpha.NetThrottling.Utils;
     using Fanex.Caching;
     using System;
@@ -12,55 +12,53 @@
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
     public class NetThrottlingFilterAttribute : ActionFilterAttribute
     {
-        private readonly NetThrottlingConfiguration configuration;
-        private readonly ThrottlePolicy policy;
-        private readonly CacheService cache;
+        private readonly NetThrottlingKeyElement key;
+        private readonly IThrottleSetting throttleSetting;
+        private readonly CacheService cacheService;
         private readonly Clock clock;
-        private readonly IResolver resolver;
 
         public NetThrottlingFilterAttribute(string keyName)
             : this(keyName, null, null, null)
         {
         }
 
-        public NetThrottlingFilterAttribute(string keyName, NetThrottlingConfiguration configuration, CacheService cache, Clock clock)
+        public NetThrottlingFilterAttribute(string keyName, NetThrottlingConfiguration configuration, CacheService cacheService, Clock clock)
         {
-            this.configuration = configuration ?? NetThrottlingConfiguration.Current;
-            this.cache = cache ?? CacheFactory.CreateDefaultService();
+            configuration = configuration ?? NetThrottlingConfiguration.Current;
+            throttleSetting = new ThrottleSetting(configuration);
+            key = throttleSetting.GetKey(keyName);
+            
+            this.cacheService = cacheService ?? CacheFactory.CreateDefaultService();
             this.clock = clock ?? new SystemClock();
-            resolver = string.IsNullOrEmpty(this.configuration.Resolver) ? new DefaultResolver() : TypeFactory<IResolver>.Create(this.configuration.Resolver);
-            var key = this.configuration.Keys[keyName];
-            if (!key.Manual)
-            {
-                policy = Mapper.From(key);
-            }
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (policy == null)
+            if (key.Manual)
             {
+                base.OnActionExecuting(filterContext);
                 return;
             }
 
+            var filter = string.IsNullOrEmpty(key.Filter) ? null : TypeFactory<IFilter>.Create(key.Filter);
             var httpContext = HttpContext.Current;
-            var netThrotter = new NetThrottler(configuration, cache, clock);
+            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
             var applyingPolicy = GetApplyingPolicy(filterContext);
             if (applyingPolicy != null)
             {
-                var throttleResult = netThrotter.ThrottleAsync(httpContext, applyingPolicy).Result;
+                var throttleResult = netThrottler.ThrottleAsync(httpContext, applyingPolicy, filter).Result;
                 if (throttleResult == ThrottleResult.Blocked)
                 {
-                    resolver.Block(httpContext);
+                    throttleSetting.Resolver.Block(httpContext);
                 }
             }
 
             base.OnActionExecuting(filterContext);
         }
 
-        private ThrottlePolicy GetApplyingPolicy(ActionExecutingContext filterContext)
+        private IThrottlePolicy GetApplyingPolicy(ActionExecutingContext filterContext)
         {
-            ThrottlePolicy applyingPolicy = policy;
+            IThrottlePolicy applyingPolicy = new ThrottlePolicy(key);
 
             if (filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(typeof(EnableNetThrottlingAttribute), true))
             {
