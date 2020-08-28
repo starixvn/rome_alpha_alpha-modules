@@ -25,6 +25,11 @@
 
         public IEnumerable<NetThrottlingKeyElement> Keys { get; private set; }
 
+        public ThrottleSetting()
+            :this(NetThrottlingConfiguration.Default)
+        {
+        }
+
         public ThrottleSetting(string sectionName)
             :this(NetThrottlingConfiguration.Get(sectionName))
         {
