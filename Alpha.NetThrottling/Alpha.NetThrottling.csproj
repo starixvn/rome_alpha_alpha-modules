@@ -7,18 +7,18 @@
     <RepositoryUrl>https://gitlab.nexdev.net/rome/alpha/alpha.netthrottling</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<Deterministic>true</Deterministic>
-    <AssemblyVersion>1.0.3</AssemblyVersion>
-    <FileVersion>1.0.3</FileVersion>
+    <AssemblyVersion>1.0.4</AssemblyVersion>
+    <FileVersion>1.0.4</FileVersion>
     <RepositoryType>git</RepositoryType>
     <PackageTags>alpha net throttling</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <AssemblyName>Alpha.NetThrottling</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.Caching" Version="2.1.0" />
-    <PackageReference Include="Sunplus.Agent.Model.Base" Version="3.0.5.1" />
+    <ProjectReference Include="..\Sunplus.Agent.Model.Base\Sunplus.Agent.Model.Base.csproj" />
     <Reference Include="System.Configuration" />
 	<Reference Include="System.Web" />
   </ItemGroup>

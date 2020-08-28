@@ -6,83 +6,102 @@
     using Fanex.Caching;
     using System;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
 
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
     public class NetThrottlingFilterAttribute : ActionFilterAttribute
     {
-        private readonly NetThrottlingKeyElement key;
         private readonly IThrottleSetting throttleSetting;
-        private readonly CacheService cacheService;
-        private readonly Clock clock;
+        private readonly INetThrottler netThrottler;
 
-        public NetThrottlingFilterAttribute(string keyName)
-            : this(keyName, null, null, null)
+        public NetThrottlingFilterAttribute()
+            :this(NetThrottlingConfiguration.Default)
         {
         }
 
-        public NetThrottlingFilterAttribute(string keyName, NetThrottlingConfiguration configuration, CacheService cacheService, Clock clock)
+        public NetThrottlingFilterAttribute(string sectionName)
+            : this(NetThrottlingConfiguration.Get(sectionName))
         {
-            configuration = configuration ?? NetThrottlingConfiguration.Current;
+        }
+
+        public NetThrottlingFilterAttribute(NetThrottlingConfiguration configuration)
+            : this(configuration, null, null)
+        {
+        }
+
+        public NetThrottlingFilterAttribute(NetThrottlingConfiguration configuration, CacheService cacheService)
+            : this(configuration, cacheService, null)
+        {
+        }
+
+        public NetThrottlingFilterAttribute(NetThrottlingConfiguration configuration, CacheService cacheService, Clock clock)
+        {
             throttleSetting = new ThrottleSetting(configuration);
-            key = throttleSetting.GetKey(keyName);
-            
-            this.cacheService = cacheService ?? CacheFactory.CreateDefaultService();
-            this.clock = clock ?? new SystemClock();
+            cacheService = cacheService ?? CacheFactory.CreateDefaultService();
+            clock = clock ?? new SystemClock();
+            netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (key.Manual)
-            {
-                base.OnActionExecuting(filterContext);
-                return;
-            }
-
-            var filter = string.IsNullOrEmpty(key.Filter) ? null : TypeFactory<IFilter>.Create(key.Filter);
             var httpContext = HttpContext.Current;
-            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
-            var applyingPolicy = GetApplyingPolicy(filterContext);
-            if (applyingPolicy != null)
+            var throttleResult = ThrottleAsync(filterContext, httpContext).Result;
+            if (throttleResult == ThrottleResult.Blocked)
             {
-                var throttleResult = netThrottler.ThrottleAsync(httpContext, applyingPolicy, filter).Result;
-                if (throttleResult == ThrottleResult.Blocked)
-                {
-                    throttleSetting.Resolver.Block(httpContext);
-                }
+                throttleSetting.Resolver.Block(httpContext);
+                return;
             }
 
             base.OnActionExecuting(filterContext);
         }
 
-        private IThrottlePolicy GetApplyingPolicy(ActionExecutingContext filterContext)
+        private async Task<ThrottleResult> ThrottleAsync(ActionExecutingContext filterContext, HttpContext httpContext)
         {
-            IThrottlePolicy applyingPolicy = new ThrottlePolicy(key);
-
-            if (filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(typeof(EnableNetThrottlingAttribute), true))
+            foreach (var key in throttleSetting.Keys)
             {
-                var attr = (EnableNetThrottlingAttribute)filterContext.ActionDescriptor.ControllerDescriptor.GetCustomAttributes(typeof(EnableNetThrottlingAttribute), true).First();
-                applyingPolicy = attr.Policy;
+                if (key.IsMatchRequest(httpContext.Request))
+                {
+                    var throttlePolicy = GetThrottlePolicy(filterContext, key);
+                    if(throttlePolicy == null)
+                    {
+                        return ThrottleResult.Allowed;
+                    }
+
+                    var filter = TypeFactory<IFilter>.Create(key.Filter);
+                    return await netThrottler.ThrottleAsync(httpContext, throttlePolicy, filter);
+                }
             }
 
-            if (filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(typeof(DisableNetThrottlingAttribute), true))
+            return ThrottleResult.Allowed;
+        }
+
+        private IThrottlePolicy GetThrottlePolicy(ActionExecutingContext filterContext, NetThrottlingKeyElement key)
+        {
+            if (filterContext.ActionDescriptor.IsDefined(typeof(DisableNetThrottlingAttribute), true))
             {
-                applyingPolicy = null;
+                return null;
             }
 
             if (filterContext.ActionDescriptor.IsDefined(typeof(EnableNetThrottlingAttribute), true))
             {
                 var attr = (EnableNetThrottlingAttribute)filterContext.ActionDescriptor.GetCustomAttributes(typeof(EnableNetThrottlingAttribute), true).First();
-                applyingPolicy = attr.Policy;
+                return attr.Policy;
             }
 
-            if (filterContext.ActionDescriptor.IsDefined(typeof(DisableNetThrottlingAttribute), true))
+            if (filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(typeof(DisableNetThrottlingAttribute), true))
             {
-                applyingPolicy = null;
+                return null;
             }
 
-            return applyingPolicy;
+            if (filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(typeof(EnableNetThrottlingAttribute), true))
+            {
+                var attr = (EnableNetThrottlingAttribute)filterContext.ActionDescriptor.ControllerDescriptor.GetCustomAttributes(typeof(EnableNetThrottlingAttribute), true).First();
+                return attr.Policy;
+            }
+
+            return new ThrottlePolicy(key);
         }
     }
 }

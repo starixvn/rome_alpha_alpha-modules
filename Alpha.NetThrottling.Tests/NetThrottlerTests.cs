@@ -11,13 +11,13 @@
     using System.Web;
     using Xunit;
 
-    public class NetThrottlerTests : IClassFixture<NetThrottlingConfigurationFixture>
+    public class NetThrottlerTests
     {
         private readonly IThrottleSetting throttleSetting;
         private readonly CacheService cacheService;
         private readonly Clock clock;
 
-        public NetThrottlerTests(NetThrottlingConfigurationFixture fixture)
+        public NetThrottlerTests()
         {
             cacheService = Substitute.For<CacheService>();
             clock = Substitute.For<Clock>();
@@ -114,14 +114,16 @@
                 Arg.Is<CacheItemOptions>(x => x.RelativeExpiration == TimeSpan.FromSeconds(10)));
         }
 
-        [Fact, CurrentHttpContext]
-        public async Task ThrottleAsync_ReturnAllowed_IfFilterIdentityIsNull()
+        [Theory, CurrentHttpContext]
+        [InlineData("")]
+        [InlineData(null)]
+        public async Task ThrottleAsync_ReturnAllowed_IfFilterIdentityIsNullOrEmpty(string filterIdentity)
         {
             // Arrange
             
             var throttlePolicy = Substitute.For<IThrottlePolicy>();
             var filter = Substitute.For<IFilter>();
-            filter.GetIdentity(Arg.Any<HttpContext>()).Returns("");
+            filter.GetIdentity(Arg.Any<HttpContext>()).Returns(filterIdentity);
 
             // Act
             var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);

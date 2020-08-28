@@ -73,7 +73,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Utils\NetThrottlingConfigurationFixture.cs" />
     <Compile Include="NetThrottlerTests.cs" />
     <Compile Include="NetThrottlingHttpModuleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

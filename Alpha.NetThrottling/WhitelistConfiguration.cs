@@ -13,12 +13,17 @@
             }
         }
 
-        public static WhitelistConfiguration Current
+        public static WhitelistConfiguration Default
         {
             get
             {
-                return ConfigurationManager.GetSection("Alpha.NetThrottling.Whitelist") as WhitelistConfiguration;
+                return Get("Alpha.NetThrottling.Whitelist");
             }
+        }
+
+        public static WhitelistConfiguration Get(string sectionName)
+        {
+            return ConfigurationManager.GetSection(sectionName) as WhitelistConfiguration;
         }
     }
 }

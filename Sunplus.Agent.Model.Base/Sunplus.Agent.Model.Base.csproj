@@ -35,16 +35,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alpha.SubAccount, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Alpha.SubAccount.1.0.0.1\lib\net40\Alpha.SubAccount.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Fanex.Common, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Fanex.Products, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Products.1.0.0.5\lib\net461\Fanex.Products.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
@@ -86,6 +78,14 @@
     <None Include="_CreateNewNuGetPackage\DoNotModify\NuGet.exe" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Alpha.SubAccount\Alpha.SubAccount.csproj">
+      <Project>{c15bd223-4e21-46a6-bd52-768046cf60eb}</Project>
+      <Name>Alpha.SubAccount</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Products\Fanex.Products.csproj">
+      <Project>{d07d42d2-ec3e-4dcc-8ad7-7a9dbbf36d57}</Project>
+      <Name>Fanex.Products</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sunplus.Agent.Model.Definitions\Sunplus.Agent.Model.Definitions.csproj">
       <Project>{f420a91d-0660-4bd4-b63b-354b7df5ea4a}</Project>
       <Name>Sunplus.Agent.Model.Definitions</Name>

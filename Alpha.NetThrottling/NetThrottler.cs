@@ -36,14 +36,24 @@
         private readonly CacheService cacheService;
         private readonly Clock clock;
 
-        public NetThrottler() :
-            this(null, null, null)
+        public NetThrottler()
+            : this(null, null, null)
+        {
+        }
+
+        public NetThrottler(IThrottleSetting throttleSetting)
+            : this(throttleSetting, null, null)
+        {
+        }
+
+        public NetThrottler(IThrottleSetting throttleSetting, CacheService cacheService)
+            : this(throttleSetting, cacheService, null)
         {
         }
 
         public NetThrottler(IThrottleSetting throttleSetting, CacheService cacheService, Clock clock)
         {
-            this.throttleSetting = throttleSetting ?? new ThrottleSetting(NetThrottlingConfiguration.Current);
+            this.throttleSetting = throttleSetting ?? new ThrottleSetting(NetThrottlingConfiguration.Default);
             this.cacheService = cacheService ?? CacheFactory.CreateDefaultService();
             this.clock = clock ?? new SystemClock();
         }

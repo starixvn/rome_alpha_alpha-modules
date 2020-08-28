@@ -6,14 +6,19 @@
 
     public static class ConfigurationUtil
     {
-        public static NetThrottlingConfiguration LoadConfiguration(string file)
+        public static Configuration Load(string relativePath)
         {
             var configFileMap = new ExeConfigurationFileMap()
             {
-                ExeConfigFilename = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, file)
+                ExeConfigFilename = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath)
             };
-            var config = ConfigurationManager.OpenMappedExeConfiguration(configFileMap, ConfigurationUserLevel.None);
-            return config.GetSection("Alpha.NetThrottling") as NetThrottlingConfiguration;
+            return ConfigurationManager.OpenMappedExeConfiguration(configFileMap, ConfigurationUserLevel.None);
+        }
+
+        public static T Load<T>(string relativePath, string sectionName) where T: class
+        {
+            var configuration = Load(relativePath);
+            return configuration.GetSection(sectionName) as T;
         }
     }
 }

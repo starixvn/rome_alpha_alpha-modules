@@ -32,12 +32,17 @@
             }
         }
 
-        public static NetThrottlingConfiguration Current
+        public static NetThrottlingConfiguration Default
         {
             get
             {
-                return ConfigurationManager.GetSection("Alpha.NetThrottling") as NetThrottlingConfiguration;
+                return Get("Alpha.NetThrottling");
             }
+        }
+
+        public static NetThrottlingConfiguration Get(string sectionName)
+        {
+            return ConfigurationManager.GetSection(sectionName) as NetThrottlingConfiguration;
         }
     }
 
@@ -79,15 +84,6 @@
             get
             {
                 return (string)this["path"];
-            }
-        }
-
-        [ConfigurationProperty("manual", IsRequired = false, DefaultValue = false)]
-        public bool Manual
-        {
-            get
-            {
-                return (bool)this["manual"];
             }
         }
 

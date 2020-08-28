@@ -25,6 +25,11 @@
 
         public IEnumerable<NetThrottlingKeyElement> Keys { get; private set; }
 
+        public ThrottleSetting(string sectionName)
+            :this(NetThrottlingConfiguration.Get(sectionName))
+        {
+        }
+
         public ThrottleSetting(NetThrottlingConfiguration configuration)
         {
             CacheKeyPrefix = !string.IsNullOrWhiteSpace(configuration.Prefix)
@@ -43,7 +48,7 @@
 
         public NetThrottlingKeyElement GetKey(string name)
         {
-            return Keys.FirstOrDefault(key => key.Name == name);
+            return Keys.FirstOrDefault(k => k.Name == name);
         }
     }
 }

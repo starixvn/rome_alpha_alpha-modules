@@ -12,9 +12,9 @@
 
         static IEnumerable<int> ParseConfigurationCustIds()
         {
-            return string.IsNullOrWhiteSpace(WhitelistConfiguration.Current.CustIds) 
+            return string.IsNullOrWhiteSpace(WhitelistConfiguration.Default.CustIds) 
                 ? Enumerable.Empty<int>() 
-                : WhitelistConfiguration.Current.CustIds.Split(',').Select(int.Parse).ToList();
+                : WhitelistConfiguration.Default.CustIds.Split(',').Select(int.Parse).ToList();
         }
 
         public WhitelistSessionFilter()

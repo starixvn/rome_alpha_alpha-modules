@@ -11,19 +11,20 @@
     public class HomeController : Controller
     {
         private readonly LoginService loginService;
-        private readonly IThrottleSetting throttleSetting;
+        private readonly INetThrottler netThrottler;
         private readonly IThrottlePolicy throttlePolicy;
 
         public HomeController() :
-            this(null, null, null)
+            this(null, null)
         {
         }
 
-        public HomeController(LoginService loginService, IThrottleSetting throttleSetting, IThrottlePolicy throttlePolicy)
+        public HomeController(LoginService loginService, IThrottleSetting throttleSetting)
         {
             this.loginService = loginService ?? new LoginService();
-            this.throttleSetting = throttleSetting ?? new ThrottleSetting(NetThrottlingConfiguration.Current);
-            this.throttlePolicy = throttlePolicy ?? new ThrottlePolicy(this.throttleSetting.GetKey("Login"));
+            throttleSetting = throttleSetting ?? new ThrottleSetting("Alpha.NetThrottling.Manual");
+            netThrottler = new NetThrottler(throttleSetting);
+            throttlePolicy = new ThrottlePolicy(throttleSetting.GetKey("Login"));
         }
 
         public ActionResult Index()
@@ -47,7 +48,6 @@
         [HttpPost]
         public async Task<ActionResult> Login(LoginModel model)
         {
-            var netThrottler = new NetThrottler(throttleSetting, null, null);
             var filterIdentity = $"{model.Username}_{Request.GetClientIp()}";
             return await netThrottler.ThrottleAsync<ActionResult>(
                 async (success) =>

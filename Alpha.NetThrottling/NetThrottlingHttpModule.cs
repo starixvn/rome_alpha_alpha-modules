@@ -14,13 +14,27 @@
         private readonly IThrottleSetting throttleSetting;
 
         public NetThrottlingHttpModule()
-            : this(null, null, null)
+            : this(NetThrottlingConfiguration.Default, null, null)
+        {
+        }
+
+        public NetThrottlingHttpModule(string sectionName)
+            : this(NetThrottlingConfiguration.Get(sectionName))
+        {
+        }
+
+        public NetThrottlingHttpModule(NetThrottlingConfiguration configuration)
+            : this(configuration, null, null)
+        {
+        }
+
+        public NetThrottlingHttpModule(NetThrottlingConfiguration configuration, CacheService cacheService)
+            : this(configuration, cacheService, null)
         {
         }
 
         public NetThrottlingHttpModule(NetThrottlingConfiguration configuration, CacheService cacheService, Clock clock)
         {
-            configuration = configuration ?? NetThrottlingConfiguration.Current;
             throttleSetting = new ThrottleSetting(configuration);
             cacheService = cacheService ?? CacheFactory.CreateDefaultService();
             clock = clock ?? new SystemClock();
@@ -36,7 +50,6 @@
         {
             var wrapper = new EventHandlerTaskAsyncHelper(ThrottleRequest);
             context.AddOnBeginRequestAsync(wrapper.BeginEventHandler, wrapper.EndEventHandler);
-            context.AddOnAcquireRequestStateAsync(wrapper.BeginEventHandler, wrapper.EndEventHandler);
         }
 
         private async Task ThrottleRequest(object sender, EventArgs e)
@@ -53,10 +66,10 @@
         {
             foreach (var key in throttleSetting.Keys)
             {
-                if (!key.Manual && key.IsMatchRequest(context.Request))
+                if (key.IsMatchRequest(context.Request))
                 {
                     var throttlePolicy = new ThrottlePolicy(key);
-                    var filter = string.IsNullOrEmpty(key.Filter) ? null : TypeFactory<IFilter>.Create(key.Filter);
+                    var filter = TypeFactory<IFilter>.Create(key.Filter);
                     return await netThrottler.ThrottleAsync(context, throttlePolicy, filter);
                 }
             }
