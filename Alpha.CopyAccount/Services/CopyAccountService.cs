@@ -26,6 +26,9 @@
                 command.ActorUserLevel,
                 command.Username,
                 command.Password,
+                command.Phone,
+                command.MobilePhone,
+                command.Fax,
                 command.Credit,
                 command.MaxCredit,
                 command.SourceCustId,
@@ -37,7 +40,7 @@
 
             var response = restClient.Execute<CopyAccountResult>(request);
 
-            return response.Data;
+            return response?.Data;
         }
     }
 }
