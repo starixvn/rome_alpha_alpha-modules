@@ -25,6 +25,7 @@
                 command.ActorId,
                 command.ActorUserLevel,
                 command.Username,
+                command.Password,
                 command.Credit,
                 command.MaxCredit,
                 command.SourceCustId,

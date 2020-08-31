@@ -2,11 +2,12 @@
 {
     public class CopyAccountParams
     {
-        public CopyAccountParams(int actorId, byte actorUserLevel, string username, decimal credit, decimal maxCredit, int sourceCustId, string sourceUsername, string language, string iP, byte systemId, bool isQrCode)
+        public CopyAccountParams(int actorId, byte actorUserLevel, string username, string password, decimal credit, decimal maxCredit, int sourceCustId, string sourceUsername, string language, string iP, byte systemId, bool isQrCode)
         {
             ActorId = actorId;
             ActorUserLevel = actorUserLevel;
             Username = username;
+            Password = password;
             Credit = credit;
             MaxCredit = maxCredit;
             SourceCustId = sourceCustId;
@@ -16,6 +17,8 @@
             SystemId = systemId;
             IsQrCode = isQrCode;
         }
+
+        public string Password { get; }
 
         public int ActorId { get; }
 
