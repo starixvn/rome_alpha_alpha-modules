@@ -11,25 +11,33 @@
     public class HomeController : Controller
     {
         private readonly LoginService loginService;
-        private readonly INetThrottler netThrottler;
-        private readonly IThrottlePolicy throttlePolicy;
+        private readonly IThrottleSetting loginThrottleSetting;
+        private readonly INetThrottler loginNetThrottler;
+        private readonly IThrottlePolicy loginThrottlePolicy;
 
         public HomeController() :
             this(null, null)
         {
         }
 
-        public HomeController(LoginService loginService, IThrottleSetting throttleSetting)
+        public HomeController(LoginService loginService, IThrottleSetting loginThrottleSetting)
         {
             this.loginService = loginService ?? new LoginService();
-            throttleSetting = throttleSetting ?? new ThrottleSetting("Alpha.NetThrottling.Manual");
-            netThrottler = new NetThrottler(throttleSetting);
-            throttlePolicy = new ThrottlePolicy(throttleSetting.GetKey("Login"));
+            this.loginThrottleSetting = loginThrottleSetting ?? new ThrottleSetting("Alpha.NetThrottling.Manual");
+            loginNetThrottler = new NetThrottler(this.loginThrottleSetting);
+            loginThrottlePolicy = new ThrottlePolicy(this.loginThrottleSetting.GetKey("Login"));
         }
 
         public ActionResult Index()
         {
             return View();
+        }
+
+        public JsonResult Ajax(string username)
+        {
+            return Json(new {
+                username
+            });
         }
 
         public ActionResult About()
@@ -49,7 +57,7 @@
         public async Task<ActionResult> Login(LoginModel model)
         {
             var filterIdentity = $"{model.Username}_{Request.GetClientIp()}";
-            return await netThrottler.ThrottleAsync<ActionResult>(
+            return await loginNetThrottler.ThrottleAsync<ActionResult>(
                 async (success) =>
                 {
                     var user = loginService.Login(model);
@@ -64,8 +72,12 @@
                         return View();
                     }
                 },
-                () => RedirectToAction("Blocked", "Error"),
-                throttlePolicy,
+                () =>
+                {
+                    loginThrottleSetting.Resolver.Block(HttpContext);
+                    return View();
+                },
+                loginThrottlePolicy,
                 filterIdentity
             );
         }

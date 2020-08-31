@@ -55,22 +55,23 @@
         private async Task ThrottleRequest(object sender, EventArgs e)
         {
             var context = ((HttpApplication)sender).Context;
-            var throttleResult = await ThrottleAsync(context);
+            var contextBase = new HttpContextWrapper(context);
+            var throttleResult = await ThrottleAsync(contextBase);
             if (throttleResult == ThrottleResult.Blocked)
             {
-                throttleSetting.Resolver.Block(context);
+                throttleSetting.Resolver.Block(contextBase);
             }
         }
 
-        private async Task<ThrottleResult> ThrottleAsync(HttpContext context)
+        private async Task<ThrottleResult> ThrottleAsync(HttpContextBase httpContext)
         {
             foreach (var key in throttleSetting.Keys)
             {
-                if (key.IsMatchRequest(context.Request))
+                if (httpContext.Request.IsMatchRequest(key))
                 {
                     var throttlePolicy = new ThrottlePolicy(key);
                     var filter = TypeFactory<IFilter>.Create(key.Filter);
-                    return await netThrottler.ThrottleAsync(context, throttlePolicy, filter);
+                    return await netThrottler.ThrottleAsync(httpContext, throttlePolicy, filter);
                 }
             }
 

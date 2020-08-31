@@ -12,9 +12,10 @@
     {
         Task<ThrottleResult> ThrottleAsync(string filterKey, int maxRequests, int throttleDuration, int blockDuration);
 
-        Task<ThrottleResult> ThrottleAsync(HttpContext httpContext, IThrottlePolicy policy, IFilter filter);
+        Task<ThrottleResult> ThrottleAsync(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter);
 
         Task<TResult> ThrottleAsync<TResult>(
+            HttpContextBase httpContext,
             Func<Func<TResult, Task<TResult>>, Task<TResult>> work,
             Func<TResult> blocked,
             IThrottlePolicy policy,
@@ -127,7 +128,7 @@
             return ThrottleResult.Allowed;
         }
 
-        public async Task<ThrottleResult> ThrottleAsync(HttpContext httpContext, IThrottlePolicy policy, IFilter filter)
+        public async Task<ThrottleResult> ThrottleAsync(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter)
         {
             var filterIdentity = filter.GetIdentity(httpContext);
             if (string.IsNullOrEmpty(filterIdentity))
@@ -140,12 +141,13 @@
         }
 
         public async Task<TResult> ThrottleAsync<TResult>(
+            HttpContextBase httpContext,
             Func<Func<TResult, Task<TResult>>, Task<TResult>> work,
             Func<TResult> blocked,
             IThrottlePolicy policy,
             IFilter filter)
         {
-            var filterIdentity = filter.GetIdentity(HttpContext.Current);
+            var filterIdentity = filter.GetIdentity(httpContext);
             return await ThrottleAsync(work, blocked, policy, filterIdentity);
         }
 

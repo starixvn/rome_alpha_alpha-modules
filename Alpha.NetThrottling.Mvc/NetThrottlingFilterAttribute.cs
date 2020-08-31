@@ -7,7 +7,6 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
-    using System.Web;
     using System.Web.Mvc;
 
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
@@ -46,22 +45,22 @@
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var httpContext = HttpContext.Current;
-            var throttleResult = ThrottleAsync(filterContext, httpContext).Result;
+            var throttleResult = ThrottleAsync(filterContext).Result;
             if (throttleResult == ThrottleResult.Blocked)
             {
-                throttleSetting.Resolver.Block(httpContext);
+                throttleSetting.Resolver.Block(filterContext.HttpContext);
                 return;
             }
 
             base.OnActionExecuting(filterContext);
         }
 
-        private async Task<ThrottleResult> ThrottleAsync(ActionExecutingContext filterContext, HttpContext httpContext)
+        private async Task<ThrottleResult> ThrottleAsync(ActionExecutingContext filterContext)
         {
+            var httpContext = filterContext.HttpContext;
             foreach (var key in throttleSetting.Keys)
             {
-                if (key.IsMatchRequest(httpContext.Request))
+                if (httpContext.Request.IsMatchRequest(key))
                 {
                     var throttlePolicy = GetThrottlePolicy(filterContext, key);
                     if(throttlePolicy == null)

@@ -3,9 +3,9 @@
     using Alpha.NetThrottling.Resolvers;
     using System.Web;
 
-    public class DefaultResolver : IResolver
+    public class DefaultResolver : BaseResolver
     {
-        public void Block(HttpContext context)
+        public override void BlockNonAjaxRequest(HttpContextBase context)
         {
             var blockedUrl = $"~/blocked?path={context.Request.Path}";
             context.Response.Redirect(blockedUrl);

@@ -123,11 +123,11 @@
             
             var throttlePolicy = Substitute.For<IThrottlePolicy>();
             var filter = Substitute.For<IFilter>();
-            filter.GetIdentity(Arg.Any<HttpContext>()).Returns(filterIdentity);
+            filter.GetIdentity(Arg.Any<HttpContextBase>()).Returns(filterIdentity);
 
             // Act
             var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
-            var throttleResult = await netThrottler.ThrottleAsync(HttpContext.Current, throttlePolicy, filter);
+            var throttleResult = await netThrottler.ThrottleAsync(new HttpContextWrapper(HttpContext.Current), throttlePolicy, filter);
 
             // Assert
             Assert.Equal(ThrottleResult.Allowed, throttleResult);

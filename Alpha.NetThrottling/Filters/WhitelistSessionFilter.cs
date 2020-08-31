@@ -27,7 +27,7 @@
             this.custIds = custIds ?? configurationCustIds;
         }
 
-        public string GetIdentity(HttpContext httpContext)
+        public string GetIdentity(HttpContextBase httpContext)
         {
             var userSession = UserSessionFactory.Create();
             if (userSession == null)

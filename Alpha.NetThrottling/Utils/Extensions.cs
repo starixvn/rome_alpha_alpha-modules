@@ -12,7 +12,7 @@
 
         public static IPAddress GetClientIp(this HttpRequest request)
         {
-            return GetIPAddress(request.Headers["X-Forwarded-For"], request.UserHostAddress);
+            return GetClientIp(new HttpRequestWrapper(request));
         }
 
         private static IPAddress GetIPAddress(string header, string hostAddress)
@@ -34,6 +34,38 @@
                     return IPAddress.Loopback.MapToIPv4();
                 }
             }
+        }
+
+        public static bool IsMatchRequest(this HttpRequest request, NetThrottlingKeyElement key)
+        {
+            return IsMatchRequest(new HttpRequestWrapper(request), key);
+        }
+
+        public static bool IsMatchRequest(this HttpRequestBase request, NetThrottlingKeyElement key)
+        {
+            var isPathMatched = key.Path == "*" || key.Path == request.AppRelativeCurrentExecutionFilePath;
+            var isMethodMatched = key.Method == "*" || key.Method == request.HttpMethod;
+            return isPathMatched && isMethodMatched;
+        }
+
+        public static bool IsAjaxRequest(this HttpRequest request)
+        {
+            return IsAjaxRequest(new HttpRequestWrapper(request));
+        }
+
+        public static bool IsAjaxRequest(this HttpRequestBase request)
+        {
+            if (request["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return true;
+            }
+
+            if (request.Headers != null)
+            {
+                return request.Headers["X-Requested-With"] == "XMLHttpRequest";
+            }
+
+            return false;
         }
     }
 }

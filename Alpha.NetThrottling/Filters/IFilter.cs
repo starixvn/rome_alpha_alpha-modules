@@ -4,6 +4,6 @@
 
     public interface IFilter
     {
-        string GetIdentity(HttpContext httpContext);
+        string GetIdentity(HttpContextBase httpContext);
     }
 }

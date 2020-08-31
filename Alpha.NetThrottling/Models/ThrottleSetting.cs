@@ -40,7 +40,7 @@
             CacheKeyPrefix = !string.IsNullOrWhiteSpace(configuration.Prefix)
                 ? configuration.Prefix
                 : HttpContext.Current.ApplicationInstance.GetType().BaseType.Assembly.GetName().Name;
-            Resolver = string.IsNullOrEmpty(configuration.Resolver) ? new DefaultResolver() : TypeFactory<IResolver>.Create(configuration.Resolver);
+            Resolver = string.IsNullOrEmpty(configuration.Resolver) ? new BaseResolver() : TypeFactory<IResolver>.Create(configuration.Resolver);
             Keys = configuration.Keys.Cast<NetThrottlingKeyElement>();
         }
 
