@@ -21,22 +21,7 @@
         public CopyAccountResult Copy(CopyAccountParams command)
         {
             var request = new RestRequest("customer/copy", Method.POST);
-            request.AddJsonBody(new CopyAccountParams(
-                command.ActorId,
-                command.ActorUserLevel,
-                command.Username,
-                command.Password,
-                command.Phone,
-                command.MobilePhone,
-                command.Fax,
-                command.Credit,
-                command.MaxCredit,
-                command.SourceCustId,
-                command.SourceUsername,
-                command.Language,
-                command.IP,
-                command.SystemId,
-                command.IsQrCode));
+            request.AddJsonBody(command);
 
             var response = restClient.Execute<CopyAccountResult>(request);
 
