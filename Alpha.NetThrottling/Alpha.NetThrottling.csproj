@@ -17,7 +17,9 @@
     <AssemblyName>Alpha.NetThrottling</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Fanex.Caching" Version="2.1.0" />
+    <PackageReference Include="Fanex.Caching" Version="2.2.1" />
+    <PackageReference Include="Fanex.Caching.Redis" Version="2.2.1" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.1" />
     <ProjectReference Include="..\Sunplus.Agent.Model.Base\Sunplus.Agent.Model.Base.csproj" />
     <Reference Include="System.Configuration" />
 	<Reference Include="System.Web" />

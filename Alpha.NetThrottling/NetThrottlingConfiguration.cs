@@ -4,21 +4,30 @@
 
     public sealed class NetThrottlingConfiguration : ConfigurationSection
     {
-        [ConfigurationProperty("prefix", IsRequired = false, DefaultValue = null)]
-        public string Prefix
+        [ConfigurationProperty("applicationName", IsRequired = true)]
+        public string ApplicationName
         {
             get
             {
-                return (string)this["prefix"];
+                return (string)this["applicationName"];
             }
         }
 
-        [ConfigurationProperty("resolver")]
+        [ConfigurationProperty("resolver", IsRequired = true)]
         public string Resolver
         {
             get
             {
                 return (string)this["resolver"];
+            }
+        }
+
+        [ConfigurationProperty("redisConfigurationOptions", IsRequired = true)]
+        public string RedisConfigurationOptions
+        {
+            get
+            {
+                return (string)this["redisConfigurationOptions"];
             }
         }
 

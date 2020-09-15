@@ -1,12 +1,13 @@
 ﻿namespace Alpha.NetThrottling.WebTest.ThrottlingFilters
 {
     using Alpha.NetThrottling.Filters;
+    using Alpha.NetThrottling.Models;
     using Alpha.NetThrottling.Utils;
     using System.Web;
 
     public class LoginFilter : IFilter
     {
-        public string GetIdentity(HttpContextBase httpContext)
+        public CacheIdentity GetCacheIdentity(HttpContextBase httpContext)
         {
             var request = httpContext.Request;
             var clientIp = request.GetClientIp().ToString();
@@ -18,7 +19,7 @@
             }
 
             username = username.Trim().ToLowerInvariant();
-            return $"{clientIp}_{username}";
+            return CacheIdentity.PathAndKey(clientIp, username);
         }
     }
 }

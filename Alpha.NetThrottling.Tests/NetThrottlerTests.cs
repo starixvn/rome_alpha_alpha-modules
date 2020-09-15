@@ -14,15 +14,14 @@
     public class NetThrottlerTests
     {
         private readonly IThrottleSetting throttleSetting;
-        private readonly CacheService cacheService;
+        private readonly ICacheService cacheService;
         private readonly Clock clock;
 
         public NetThrottlerTests()
         {
-            cacheService = Substitute.For<CacheService>();
+            cacheService = Substitute.For<ICacheService>();
             clock = Substitute.For<Clock>();
             throttleSetting = Substitute.For<IThrottleSetting>();
-            throttleSetting.CacheKeyPrefix.Returns("NetThrottlerTests");
         }
 
         [Fact]
@@ -30,10 +29,12 @@
         {
             // Arrange
             cacheService.GetAsync<DateTime>(Arg.Any<string>()).Returns(Task.FromResult(new DateTime(2020, 8, 8, 8, 8, 8)));
+            var throttlePolicy = new ThrottlePolicy("Test", 10, 10, 10);
+            var cacheIdentity = new CacheIdentity("path_throttle_key", "path_block_key");
 
             // Act
             var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
-            var throttleResult = await netThrottler.ThrottleAsync("FilterKey1", 10, 10, 10);
+            var throttleResult = await netThrottler.ThrottleAsync(throttlePolicy, cacheIdentity);
 
             // Assert
             Assert.Equal(ThrottleResult.Blocked, throttleResult);
@@ -47,10 +48,12 @@
             cacheService.GetAsync<DateTime>(Arg.Any<string>()).Returns(Task.FromResult(DateTime.MinValue));
             cacheService.GetAsync<ThrottleCounter>(Arg.Any<string>()).Returns(Task.FromResult<ThrottleCounter>(null));
             clock.Now.Returns(new DateTime(2020, 8, 8, 8, 8, 9));
+            var throttlePolicy = new ThrottlePolicy("Test", 10, 10, 10);
+            var cacheIdentity = new CacheIdentity("path_throttle_key", "path_block_key");
 
             // Act
             var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
-            var throttleResult = await netThrottler.ThrottleAsync("FilterKey1", 10, 10, 10);
+            var throttleResult = await netThrottler.ThrottleAsync(throttlePolicy, cacheIdentity);
 
             // Assert
             Assert.Equal(ThrottleResult.Allowed, throttleResult);
@@ -73,10 +76,12 @@
                 TotalRequests = 1
             }));
             clock.Now.Returns(new DateTime(2020, 8, 8, 8, 8, 9));
+            var throttlePolicy = new ThrottlePolicy("Test", 10, 10, 10);
+            var cacheIdentity = new CacheIdentity("path_throttle_key", "path_block_key");
 
             // Act
             var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
-            var throttleResult = await netThrottler.ThrottleAsync("FilterKey1", 10, 10, 10);
+            var throttleResult = await netThrottler.ThrottleAsync(throttlePolicy, cacheIdentity);
 
             // Assert
             Assert.Equal(ThrottleResult.Allowed, throttleResult);
@@ -99,10 +104,12 @@
                 TotalRequests = 10
             }));
             clock.Now.Returns(new DateTime(2020, 8, 8, 8, 8, 9));
+            var throttlePolicy = new ThrottlePolicy("Test", 10, 10, 10);
+            var cacheIdentity = new CacheIdentity("path_throttle_key", "path_block_key");
 
             // Act
             var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
-            var throttleResult = await netThrottler.ThrottleAsync("FilterKey1", 10, 10, 10);
+            var throttleResult = await netThrottler.ThrottleAsync(throttlePolicy, cacheIdentity);
 
             // Assert
             Assert.Equal(ThrottleResult.Blocked, throttleResult);
@@ -120,10 +127,10 @@
         public async Task ThrottleAsync_ReturnAllowed_IfFilterIdentityIsNullOrEmpty(string filterIdentity)
         {
             // Arrange
-            
-            var throttlePolicy = Substitute.For<IThrottlePolicy>();
             var filter = Substitute.For<IFilter>();
-            filter.GetIdentity(Arg.Any<HttpContextBase>()).Returns(filterIdentity);
+            var throttlePolicy = new ThrottlePolicy("Test", 10, 10, 10);
+            var cacheIdentity = new CacheIdentity("path_throttle_key", "path_block_key");
+            filter.GetCacheIdentity(Arg.Any<HttpContextBase>()).Returns(cacheIdentity);
 
             // Act
             var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);

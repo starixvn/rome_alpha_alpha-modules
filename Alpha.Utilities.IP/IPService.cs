@@ -39,7 +39,7 @@
 
         private IEnumerable<IPRange> GetVNIPs()
         {
-            var cache = new CacheServiceImpl();
+            var cache = new CacheService();
 
             var vietnamIPs = cache.GetOrSet(
                 VNIPListCacheKey,

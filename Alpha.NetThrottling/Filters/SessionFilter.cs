@@ -1,12 +1,13 @@
 ﻿namespace Alpha.NetThrottling.Filters
 {
+    using Alpha.NetThrottling.Models;
     using System.Web;
 
     public class SessionFilter : IFilter
     {
-        public string GetIdentity(HttpContextBase httpContext)
+        public CacheIdentity GetCacheIdentity(HttpContextBase httpContext)
         {
-            return $"{httpContext.Request.Path}_{httpContext.Session.SessionID}";
+            return CacheIdentity.PathAndKey(httpContext.Request.Path, httpContext.Session.SessionID);
         }
     }
 }

@@ -10,9 +10,9 @@
 
     public interface INetThrottler
     {
-        Task<ThrottleResult> ThrottleAsync(string filterKey, int maxRequests, int throttleDuration, int blockDuration);
-
         Task<ThrottleResult> ThrottleAsync(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter);
+
+        Task<ThrottleResult> ThrottleAsync(IThrottlePolicy policy, CacheIdentity cacheIdentity);
 
         Task<TResult> ThrottleAsync<TResult>(
             HttpContextBase httpContext,
@@ -25,17 +25,13 @@
             Func<Func<TResult, Task<TResult>>, Task<TResult>> work,
             Func<TResult> blocked,
             IThrottlePolicy policy,
-            string filterIdentity);
+            CacheIdentity cacheIdentity);
     }
 
     public class NetThrottler : INetThrottler
     {
-        private const string BLOCK_PREFIX = "Block";
-        private const string THROTTLE_PREFIX = "Throttle";
-
-        private readonly IThrottleSetting throttleSetting;
-        private readonly CacheService cacheService;
-        private readonly Clock clock;
+        private readonly ICacheService cacheService;
+        private readonly IClock clock;
 
         public NetThrottler()
             : this(null, null, null)
@@ -47,43 +43,28 @@
         {
         }
 
-        public NetThrottler(IThrottleSetting throttleSetting, CacheService cacheService)
+        public NetThrottler(IThrottleSetting throttleSetting, ICacheService cacheService)
             : this(throttleSetting, cacheService, null)
         {
         }
 
-        public NetThrottler(IThrottleSetting throttleSetting, CacheService cacheService, Clock clock)
+        public NetThrottler(IThrottleSetting throttleSetting, ICacheService cacheService, IClock clock)
         {
-            this.throttleSetting = throttleSetting ?? new ThrottleSetting(NetThrottlingConfiguration.Default);
-            this.cacheService = cacheService ?? CacheFactory.CreateDefaultService();
-            this.clock = clock ?? new SystemClock();
+            throttleSetting = throttleSetting ?? new ThrottleSetting(NetThrottlingConfiguration.Default);
+            this.cacheService = cacheService ?? throttleSetting.CacheService;
+            this.clock = clock ?? new Clock();
         }
 
-        private string GenerateThrottleKey(string filterKey)
+        private async Task<bool> IsBlacklistAsync(string blockKey)
         {
-            return $"{throttleSetting.CacheKeyPrefix}_{THROTTLE_PREFIX}_{filterKey}";
+            var a = new DateTime();
+            cacheService.TryGet(blockKey, out a);
+            var (isHasValue, _) = await cacheService.TryGetAsync<DateTime>(blockKey);
+            return isHasValue;
         }
 
-        private string GenerateBlockKey(string filterKey)
+        private async Task AddBlacklistAsync(string blockKey, int blockDuration)
         {
-            return $"{throttleSetting.CacheKeyPrefix}_{BLOCK_PREFIX}_{filterKey}";
-        }
-
-        private async Task<bool> IsBlacklistAsync(string filterKey)
-        {
-            var blockKey = GenerateBlockKey(filterKey);
-            var blockValue = await cacheService.GetAsync<DateTime>(blockKey);
-            if (blockValue != clock.MinValue)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private async Task AddBlacklistAsync(string filterKey, int blockDuration)
-        {
-            var blockKey = GenerateBlockKey(filterKey);
             await cacheService.SetAsync(
                 blockKey,
                 clock.Now, new CacheItemOptions
@@ -92,16 +73,26 @@
                 });
         }
 
-        public async Task<ThrottleResult> ThrottleAsync(string filterKey, int maxRequests, int throttleDuration, int blockDuration)
+        public async Task<ThrottleResult> ThrottleAsync(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter)
         {
-            if (await IsBlacklistAsync(filterKey))
+            var cacheIdentity = filter.GetCacheIdentity(httpContext);
+            return await ThrottleAsync(policy, cacheIdentity);
+        }
+
+        public async Task<ThrottleResult> ThrottleAsync(IThrottlePolicy policy, CacheIdentity cacheIdentity)
+        {
+            if (cacheIdentity == null)
+            {
+                return ThrottleResult.Allowed;
+            }
+
+            if (await IsBlacklistAsync(cacheIdentity.BlockKey))
             {
                 return ThrottleResult.Blocked;
             }
 
-            var throttleKey = GenerateThrottleKey(filterKey);
-            var throttleCounter = await cacheService.GetAsync<ThrottleCounter>(throttleKey);
-            throttleCounter = throttleCounter == null || clock.Now > throttleCounter.Timestamp + TimeSpan.FromSeconds(throttleDuration)
+            var (isHasValue, throttleCounter) = await cacheService.TryGetAsync<ThrottleCounter>(cacheIdentity.ThrottleKey);
+            throttleCounter = !isHasValue || clock.Now > throttleCounter.Timestamp + TimeSpan.FromSeconds(policy.ThrottleDuration)
                 ? new ThrottleCounter
                 {
                     Timestamp = clock.Now,
@@ -113,31 +104,19 @@
                     TotalRequests = throttleCounter.TotalRequests + 1
                 };
 
-            if (throttleCounter.TotalRequests > maxRequests)
+            if (throttleCounter.TotalRequests > policy.MaxRequests)
             {
-                await AddBlacklistAsync(filterKey, blockDuration);
+                await AddBlacklistAsync(cacheIdentity.BlockKey, policy.BlockDuration);
                 return ThrottleResult.Blocked;
             }
 
             await cacheService.SetAsync(
-                throttleKey,
+                cacheIdentity.ThrottleKey,
                 throttleCounter, new CacheItemOptions
                 {
-                    SlidingExpiration = TimeSpan.FromSeconds(throttleDuration)
+                    SlidingExpiration = TimeSpan.FromSeconds(policy.ThrottleDuration)
                 });
             return ThrottleResult.Allowed;
-        }
-
-        public async Task<ThrottleResult> ThrottleAsync(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter)
-        {
-            var filterIdentity = filter.GetIdentity(httpContext);
-            if (string.IsNullOrEmpty(filterIdentity))
-            {
-                return ThrottleResult.Allowed;
-            }
-
-            var filterKey = $"{policy.Name}_{filterIdentity}";
-            return await ThrottleAsync(filterKey, policy.MaxRequests, policy.ThrottleDuration, policy.BlockDuration);
         }
 
         public async Task<TResult> ThrottleAsync<TResult>(
@@ -147,28 +126,27 @@
             IThrottlePolicy policy,
             IFilter filter)
         {
-            var filterIdentity = filter.GetIdentity(httpContext);
-            return await ThrottleAsync(work, blocked, policy, filterIdentity);
+            var cacheIdentity = filter.GetCacheIdentity(httpContext);
+            return await ThrottleAsync(work, blocked, policy, cacheIdentity);
         }
 
         public async Task<TResult> ThrottleAsync<TResult>(
             Func<Func<TResult, Task<TResult>>, Task<TResult>> work,
             Func<TResult> blocked,
             IThrottlePolicy policy,
-            string filterIdentity)
+            CacheIdentity cacheIdentity)
         {
-            var filterKey = $"{policy.Name}_{filterIdentity}";
-            if (await IsBlacklistAsync(filterKey))
+            if (await IsBlacklistAsync(cacheIdentity.BlockKey))
             {
                 return blocked();
             }
 
             async Task<TResult> success(TResult returnType)
             {
-                var throttleResult = await ThrottleAsync(filterKey, policy.MaxRequests, policy.ThrottleDuration, policy.BlockDuration);
+                var throttleResult = await ThrottleAsync(policy, cacheIdentity);
                 if (throttleResult == ThrottleResult.Blocked)
                 {
-                    await AddBlacklistAsync(filterKey, policy.BlockDuration);
+                    await AddBlacklistAsync(cacheIdentity.BlockKey, policy.BlockDuration);
                     return blocked();
                 }
 

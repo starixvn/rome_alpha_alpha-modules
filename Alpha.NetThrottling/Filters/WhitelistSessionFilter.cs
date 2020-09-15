@@ -1,5 +1,6 @@
 ﻿namespace Alpha.NetThrottling.Filters
 {
+    using Alpha.NetThrottling.Models;
     using Alpha.NetThrottling.Utils;
     using System.Collections.Generic;
     using System.Linq;
@@ -27,7 +28,7 @@
             this.custIds = custIds ?? configurationCustIds;
         }
 
-        public string GetIdentity(HttpContextBase httpContext)
+        public CacheIdentity GetCacheIdentity(HttpContextBase httpContext)
         {
             var userSession = UserSessionFactory.Create();
             if (userSession == null)
@@ -41,7 +42,7 @@
                 return null;
             }
 
-            return $"{httpContext.Request.Path}_{custId}";
+            return CacheIdentity.PathAndKey(httpContext.Request.Path, custId.ToString());
         }
     }
 }

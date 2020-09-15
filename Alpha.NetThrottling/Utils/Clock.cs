@@ -2,14 +2,14 @@
 {
     using System;
 
-    public interface Clock
+    public interface IClock
     {
         DateTime Now { get; }
 
         DateTime MinValue { get; }
     }
 
-    public class SystemClock : Clock
+    public class Clock : IClock
     {
         public DateTime Now => DateTime.Now;
 

@@ -9,13 +9,13 @@
 
     public class NetThrottlingHttpModuleTests
     {
-        private readonly CacheService cacheService;
+        private readonly ICacheService cacheService;
         private readonly Clock clock;
         private readonly HttpApplication httpApplication;
 
         public NetThrottlingHttpModuleTests()
         {
-            cacheService = Substitute.For<CacheService>();
+            cacheService = Substitute.For<ICacheService>();
             clock = Substitute.For<Clock>();
             httpApplication = Substitute.For<HttpApplication>();
         }

@@ -30,16 +30,16 @@
         {
         }
 
-        public NetThrottlingFilterAttribute(NetThrottlingConfiguration configuration, CacheService cacheService)
+        public NetThrottlingFilterAttribute(NetThrottlingConfiguration configuration, ICacheService cacheService)
             : this(configuration, cacheService, null)
         {
         }
 
-        public NetThrottlingFilterAttribute(NetThrottlingConfiguration configuration, CacheService cacheService, Clock clock)
+        public NetThrottlingFilterAttribute(NetThrottlingConfiguration configuration, ICacheService cacheService, IClock clock)
         {
             throttleSetting = new ThrottleSetting(configuration);
-            cacheService = cacheService ?? CacheFactory.CreateDefaultService();
-            clock = clock ?? new SystemClock();
+            cacheService = cacheService ?? throttleSetting.CacheService;
+            clock = clock ?? new Clock();
             netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
         }
 

@@ -17,6 +17,7 @@
     <AssemblyName>Alpha.NetThrottling.Mvc</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Fanex.Caching.Redis" Version="2.2.1" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.3" />
     <ProjectReference Include="..\Alpha.NetThrottling\Alpha.NetThrottling.csproj" />
     <Reference Include="Alpha.NetThrottling">

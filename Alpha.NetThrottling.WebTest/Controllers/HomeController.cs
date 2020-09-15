@@ -1,10 +1,10 @@
 ﻿namespace Alpha.NetThrottling.WebTest.Controllers
 {
     using Alpha.NetThrottling.Models;
-    using Alpha.NetThrottling.Utils;
     using Alpha.NetThrottling.WebTest.Constants;
     using Alpha.NetThrottling.WebTest.Models;
     using Alpha.NetThrottling.WebTest.Services;
+    using Alpha.NetThrottling.WebTest.ThrottlingFilters;
     using System.Threading.Tasks;
     using System.Web.Mvc;
 
@@ -56,8 +56,8 @@
         [HttpPost]
         public async Task<ActionResult> Login(LoginModel model)
         {
-            var filterIdentity = $"{model.Username}_{Request.GetClientIp()}";
             return await loginNetThrottler.ThrottleAsync<ActionResult>(
+                HttpContext,
                 async (success) =>
                 {
                     var user = loginService.Login(model);
@@ -78,7 +78,7 @@
                     return View();
                 },
                 loginThrottlePolicy,
-                filterIdentity
+                new LoginFilter()
             );
         }
     }
