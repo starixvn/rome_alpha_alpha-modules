@@ -28,7 +28,7 @@
             this.custIds = custIds ?? configurationCustIds;
         }
 
-        public CacheIdentity GetCacheIdentity(HttpContextBase httpContext)
+        public CacheIdentity GetCacheIdentity(HttpContextBase httpContext, IThrottlePolicy policy)
         {
             var userSession = UserSessionFactory.Create();
             if (userSession == null)
@@ -42,7 +42,7 @@
                 return null;
             }
 
-            return CacheIdentity.PathAndKey(httpContext.Request.Path, custId.ToString());
+            return CacheIdentity.From(httpContext.Request.Path, custId.ToString(), policy);
         }
     }
 }

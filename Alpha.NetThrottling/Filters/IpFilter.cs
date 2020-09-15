@@ -6,11 +6,11 @@
 
     public class IpFilter : IFilter
     {
-        public CacheIdentity GetCacheIdentity(HttpContextBase httpContext)
+        public CacheIdentity GetCacheIdentity(HttpContextBase httpContext, IThrottlePolicy policy)
         {
             var request = httpContext.Request;
             var clientIp = request.GetClientIp().ToString();
-            return CacheIdentity.PathAndKey(request.Path, clientIp);
+            return CacheIdentity.From(request.Path, clientIp, policy);
         }
     }
 }

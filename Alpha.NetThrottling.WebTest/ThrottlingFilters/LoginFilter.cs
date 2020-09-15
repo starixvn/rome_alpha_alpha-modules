@@ -7,7 +7,7 @@
 
     public class LoginFilter : IFilter
     {
-        public CacheIdentity GetCacheIdentity(HttpContextBase httpContext)
+        public CacheIdentity GetCacheIdentity(HttpContextBase httpContext, IThrottlePolicy policy)
         {
             var request = httpContext.Request;
             var clientIp = request.GetClientIp().ToString();
@@ -19,7 +19,7 @@
             }
 
             username = username.Trim().ToLowerInvariant();
-            return CacheIdentity.PathAndKey(clientIp, username);
+            return CacheIdentity.From(clientIp, username, policy);
         }
     }
 }

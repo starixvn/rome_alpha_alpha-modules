@@ -5,6 +5,6 @@
 
     public interface IFilter
     {
-        CacheIdentity GetCacheIdentity(HttpContextBase httpContext);
+        CacheIdentity GetCacheIdentity(HttpContextBase httpContext, IThrottlePolicy policy);
     }
 }

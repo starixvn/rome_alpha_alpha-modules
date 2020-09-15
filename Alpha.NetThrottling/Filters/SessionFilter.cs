@@ -5,9 +5,9 @@
 
     public class SessionFilter : IFilter
     {
-        public CacheIdentity GetCacheIdentity(HttpContextBase httpContext)
+        public CacheIdentity GetCacheIdentity(HttpContextBase httpContext, IThrottlePolicy policy)
         {
-            return CacheIdentity.PathAndKey(httpContext.Request.Path, httpContext.Session.SessionID);
+            return CacheIdentity.From(httpContext.Request.Path, httpContext.Session.SessionID, policy);
         }
     }
 }

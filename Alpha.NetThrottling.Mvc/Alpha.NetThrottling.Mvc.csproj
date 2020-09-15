@@ -7,14 +7,15 @@
     <RepositoryUrl>https://gitlab.nexdev.net/rome/alpha/alpha.netthrottling</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<Deterministic>true</Deterministic>
-    <AssemblyVersion>1.0.6</AssemblyVersion>
-    <FileVersion>1.0.6</FileVersion>
+    <AssemblyVersion>1.0.8</AssemblyVersion>
+    <FileVersion>1.0.8</FileVersion>
     <RepositoryType>git</RepositoryType>
     <PackageTags>alpha net throttling</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.0.6</Version>
+    <Version>1.0.8</Version>
     <AssemblyName>Alpha.NetThrottling.Mvc</AssemblyName>
+    <PackageReleaseNotes>Use redis cache</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.Caching.Redis" Version="2.2.1" />

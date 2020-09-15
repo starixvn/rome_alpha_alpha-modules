@@ -14,10 +14,12 @@
             BlockKey = blockKey;
         }
 
-        public static CacheIdentity PathAndKey(string path, string key)
+        public static CacheIdentity From(string path, string key, IThrottlePolicy policy)
         {
-            var throttleKey = $"{path}}}:{{{Constants.Throttle}}}:{{{key}";
-            var blockKey = $"{path}}}:{{{Constants.Block}}}:{{{key}";
+            var prefix = $"{policy.Name}}}:{{{path}}}";
+            var suffix = $"{{{key}";
+            var throttleKey = $"{prefix}:{{{Constants.Throttle}}}:{suffix}";
+            var blockKey = $"{prefix}:{{{Constants.Block}}}:{suffix}";
             return new CacheIdentity(throttleKey, blockKey);
         }
     }
