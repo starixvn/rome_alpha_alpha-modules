@@ -22,6 +22,15 @@
             }
         }
 
+        [ConfigurationProperty("redisConfigurationOptions", IsRequired = true)]
+        public string RedisConfigurationOptions
+        {
+            get
+            {
+                return (string)this["redisConfigurationOptions"];
+            }
+        }
+
         [ConfigurationProperty("keys", IsDefaultCollection = false)]
         [ConfigurationCollection(typeof(NetThrottlingKeyElement))]
         public NetThrottlingKeyCollection Keys

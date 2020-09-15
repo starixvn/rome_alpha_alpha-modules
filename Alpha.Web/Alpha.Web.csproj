@@ -21,6 +21,9 @@
     <PackageReference Include="Fanex.Common" Version="1.1.0.1" />
     <PackageReference Include="Fanex.Logging.Extensions.Web" Version="1.0.8" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.3" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sunplus.Agent.Model.Base\Sunplus.Agent.Model.Base.csproj" />

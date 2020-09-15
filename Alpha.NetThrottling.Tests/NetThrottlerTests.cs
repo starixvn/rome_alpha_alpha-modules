@@ -137,6 +137,8 @@
                 Arg.Is(DateTime.SpecifyKind(new DateTime(2020, 8, 8, 8, 8, 9), DateTimeKind.Utc)),
                 Arg.Is<CacheItemOptions>(x => x.RelativeExpiration == TimeSpan.FromSeconds(10)));
         }
+            var cacheIdentity = new CacheIdentity("path_throttle_key", "path_block_key");
+            filter.GetCacheIdentity(Arg.Any<HttpContextBase>()).Returns(cacheIdentity);
     }
     */
 }

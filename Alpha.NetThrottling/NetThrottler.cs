@@ -28,7 +28,6 @@
             Func<TResult> blocked,
             IThrottlePolicy policy,
             CacheIdentity cacheIdentity);
-
         Task<ThrottleResult> ThrottleAsync(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter);
 
         Task<ThrottleResult> ThrottleAsync(IThrottlePolicy policy, CacheIdentity cacheIdentity);
@@ -61,7 +60,6 @@
                 return ThrottleSetting.CacheService;
             }
         }
-
         public NetThrottler()
             : this(null, null, null)
         {
@@ -92,21 +90,12 @@
                 {
                     RelativeExpiration = TimeSpan.FromSeconds(blockDuration)
                 });
-        }
-
         public ThrottleResult Throttle(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter)
-        {
             var cacheIdentity = filter.GetCacheIdentity(httpContext, policy);
             return Throttle(policy, cacheIdentity);
-        }
-
         public ThrottleResult Throttle(IThrottlePolicy policy, CacheIdentity cacheIdentity)
-        {
             if (cacheIdentity == null)
-            {
                 return ThrottleResult.Allowed;
-            }
-
             try
             {
                 if (IsBlacklist(cacheIdentity.BlockKey))
@@ -269,12 +258,7 @@
                 return ThrottleResult.Allowed;
             }
             catch (Exception ex)
-            {
                 logger.Error(ex);
-                return ThrottleResult.Allowed;
-            }
-        }
-
         public async Task<TResult> ThrottleAsync<TResult>(
             HttpContextBase httpContext,
             Func<Func<TResult, Task<TResult>>, Task<TResult>> work,
