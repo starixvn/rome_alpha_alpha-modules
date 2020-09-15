@@ -47,7 +47,7 @@
             // Arrange
             cacheService.GetAsync<DateTime>(Arg.Any<string>()).Returns(Task.FromResult(DateTime.MinValue));
             cacheService.GetAsync<ThrottleCounter>(Arg.Any<string>()).Returns(Task.FromResult<ThrottleCounter>(null));
-            clock.Now.Returns(new DateTime(2020, 8, 8, 8, 8, 9));
+            clock.UtcNow.Returns(new DateTime(2020, 8, 8, 8, 8, 9));
             var throttlePolicy = new ThrottlePolicy("Test", 10, 10, 10);
             var cacheIdentity = new CacheIdentity("path_throttle_key", "path_block_key");
 
@@ -75,7 +75,7 @@
                 Timestamp = new DateTime(2020, 8, 8, 8, 8, 8),
                 TotalRequests = 1
             }));
-            clock.Now.Returns(new DateTime(2020, 8, 8, 8, 8, 9));
+            clock.UtcNow.Returns(new DateTime(2020, 8, 8, 8, 8, 9));
             var throttlePolicy = new ThrottlePolicy("Test", 10, 10, 10);
             var cacheIdentity = new CacheIdentity("path_throttle_key", "path_block_key");
 
@@ -103,7 +103,7 @@
                 Timestamp = new DateTime(2020, 8, 8, 8, 8, 8),
                 TotalRequests = 10
             }));
-            clock.Now.Returns(new DateTime(2020, 8, 8, 8, 8, 9));
+            clock.UtcNow.Returns(new DateTime(2020, 8, 8, 8, 8, 9));
             var throttlePolicy = new ThrottlePolicy("Test", 10, 10, 10);
             var cacheIdentity = new CacheIdentity("path_throttle_key", "path_block_key");
 

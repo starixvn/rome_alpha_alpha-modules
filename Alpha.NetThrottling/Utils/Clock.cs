@@ -4,15 +4,11 @@
 
     public interface IClock
     {
-        DateTime Now { get; }
-
-        DateTime MinValue { get; }
+        DateTime UtcNow { get; }
     }
 
     public class Clock : IClock
     {
-        public DateTime Now => DateTime.Now;
-
-        public DateTime MinValue => DateTime.MinValue;
+        public DateTime UtcNow => DateTime.UtcNow;
     }
 }

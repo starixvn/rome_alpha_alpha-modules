@@ -1,6 +1,7 @@
 ﻿namespace Alpha.NetThrottling.WebTest.Controllers
 {
     using Alpha.NetThrottling.Models;
+    using Alpha.NetThrottling.Mvc;
     using Alpha.NetThrottling.WebTest.Constants;
     using Alpha.NetThrottling.WebTest.Models;
     using Alpha.NetThrottling.WebTest.Services;
@@ -28,6 +29,7 @@
             loginThrottlePolicy = new ThrottlePolicy(this.loginThrottleSetting.GetKey("Login"));
         }
 
+        [DisableNetThrottling]
         public ActionResult Index()
         {
             return View();
@@ -35,7 +37,8 @@
 
         public JsonResult Ajax(string username)
         {
-            return Json(new {
+            return Json(new
+            {
                 username
             });
         }

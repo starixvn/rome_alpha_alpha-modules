@@ -12,7 +12,7 @@
             var request = httpContext.Request;
             var clientIp = request.GetClientIp().ToString();
 
-            var username = request.Form["txtUserName"];
+            var username = request.Form["Username"];
             if (string.IsNullOrWhiteSpace(username))
             {
                 return null;

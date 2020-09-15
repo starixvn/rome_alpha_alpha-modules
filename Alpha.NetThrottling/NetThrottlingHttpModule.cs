@@ -48,18 +48,18 @@
 
         public void Init(HttpApplication context)
         {
-            var wrapper = new EventHandlerTaskAsyncHelper(ThrottleRequest);
+            var wrapper = new EventHandlerTaskAsyncHelper(ThrottleRequestAsync);
             context.AddOnBeginRequestAsync(wrapper.BeginEventHandler, wrapper.EndEventHandler);
         }
 
-        private async Task ThrottleRequest(object sender, EventArgs e)
+        private async Task ThrottleRequestAsync(object sender, EventArgs e)
         {
-            var context = ((HttpApplication)sender).Context;
-            var contextBase = new HttpContextWrapper(context);
-            var throttleResult = await ThrottleAsync(contextBase);
+            var httpContext = ((HttpApplication)sender).Context;
+            var httpContextBase = new HttpContextWrapper(httpContext);
+            var throttleResult = await ThrottleAsync(httpContextBase);
             if (throttleResult == ThrottleResult.Blocked)
             {
-                throttleSetting.Resolver.Block(contextBase);
+                throttleSetting.Resolver.Block(httpContextBase);
             }
         }
 

@@ -16,7 +16,7 @@
         private readonly INetThrottler netThrottler;
 
         public NetThrottlingFilterAttribute()
-            :this(NetThrottlingConfiguration.Default)
+            : this(NetThrottlingConfiguration.Default)
         {
         }
 
@@ -63,13 +63,13 @@
                 if (httpContext.Request.IsMatchRequest(key))
                 {
                     var throttlePolicy = GetThrottlePolicy(filterContext, key);
-                    if(throttlePolicy == null)
+                    if (throttlePolicy == null)
                     {
                         return ThrottleResult.Allowed;
                     }
 
                     var filter = TypeFactory<IFilter>.Create(key.Filter);
-                    return await netThrottler.ThrottleAsync(httpContext, throttlePolicy, filter);
+                    return await netThrottler.ThrottleAsync(httpContext, throttlePolicy, filter).ConfigureAwait(false);
                 }
             }
 
