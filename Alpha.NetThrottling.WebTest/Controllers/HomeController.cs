@@ -6,7 +6,6 @@
     using Alpha.NetThrottling.WebTest.Models;
     using Alpha.NetThrottling.WebTest.Services;
     using Alpha.NetThrottling.WebTest.ThrottlingFilters;
-    using System.Threading.Tasks;
     using System.Web.Mvc;
 
     public class HomeController : Controller
@@ -57,32 +56,44 @@
         }
 
         [HttpPost]
-        public async Task<ActionResult> Login(LoginModel model)
+        public ActionResult Login(LoginModel model)
         {
-            return await loginNetThrottler.ThrottleAsync<ActionResult>(
-                HttpContext,
+            var currentHttpContext = System.Web.HttpContext.Current;
+            User loginUser = null;
+            var filter = new LoginFilter();
+            var result = loginNetThrottler.ThrottleAsync(
                 async (success) =>
                 {
-                    var user = loginService.Login(model);
-                    if (user != null)
+                    System.Web.HttpContext.Current = currentHttpContext;
+                    loginUser = loginService.Login(model);
+                    if (loginUser != null)
                     {
-                        Session[SessionConstants.USER] = user;
-                        return await success(RedirectToAction("Index", "Home"));
+                        return await success(ThrottleResult.Allowed);
                     }
                     else
                     {
-                        ViewBag.Message = "Wrong password";
-                        return View();
+                        return ThrottleResult.Allowed;
                     }
                 },
-                () =>
-                {
-                    loginThrottleSetting.Resolver.Block(HttpContext);
-                    return View();
-                },
+                () => ThrottleResult.Blocked,
                 loginThrottlePolicy,
-                new LoginFilter()
-            );
+                filter.GetCacheIdentity(HttpContext, loginThrottlePolicy)
+            ).Result;
+            if (result == ThrottleResult.Blocked)
+            {
+                ViewBag.Message = "Too many requests";
+                return View();
+            }
+
+            if (loginUser == null)
+            {
+                ViewBag.Message = "Wrong password";
+                return View();
+
+            }
+
+            Session[SessionConstants.USER] = loginUser;
+            return RedirectToAction("Index", "Home");
         }
     }
 }
