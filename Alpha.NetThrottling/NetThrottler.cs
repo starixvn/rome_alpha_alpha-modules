@@ -83,37 +83,44 @@
                 return ThrottleResult.Allowed;
             }
 
-            if (await IsBlacklistAsync(cacheIdentity.BlockKey).ConfigureAwait(false))
+            try
             {
-                return ThrottleResult.Blocked;
-            }
-
-            var (isHasValue, throttleCounter) = await cacheService.TryGetAsync<ThrottleCounter>(cacheIdentity.ThrottleKey).ConfigureAwait(false);
-            throttleCounter = !isHasValue || clock.UtcNow > throttleCounter.Timestamp + TimeSpan.FromSeconds(policy.ThrottleDuration)
-                ? new ThrottleCounter
+                if (await IsBlacklistAsync(cacheIdentity.BlockKey).ConfigureAwait(false))
                 {
-                    Timestamp = clock.UtcNow,
-                    TotalRequests = 1
+                    return ThrottleResult.Blocked;
                 }
-                : new ThrottleCounter
-                {
-                    Timestamp = throttleCounter.Timestamp,
-                    TotalRequests = throttleCounter.TotalRequests + 1
-                };
 
-            if (throttleCounter.TotalRequests > policy.MaxRequests)
-            {
-                await AddBlacklistAsync(cacheIdentity.BlockKey, policy.BlockDuration).ConfigureAwait(false);
-                return ThrottleResult.Blocked;
+                var (isHasValue, throttleCounter) = await cacheService.TryGetAsync<ThrottleCounter>(cacheIdentity.ThrottleKey).ConfigureAwait(false);
+                throttleCounter = !isHasValue || clock.UtcNow > throttleCounter.Timestamp + TimeSpan.FromSeconds(policy.ThrottleDuration)
+                    ? new ThrottleCounter
+                    {
+                        Timestamp = clock.UtcNow,
+                        TotalRequests = 1
+                    }
+                    : new ThrottleCounter
+                    {
+                        Timestamp = throttleCounter.Timestamp,
+                        TotalRequests = throttleCounter.TotalRequests + 1
+                    };
+
+                if (throttleCounter.TotalRequests > policy.MaxRequests)
+                {
+                    await AddBlacklistAsync(cacheIdentity.BlockKey, policy.BlockDuration).ConfigureAwait(false);
+                    return ThrottleResult.Blocked;
+                }
+
+                await cacheService.SetAsync(
+                    cacheIdentity.ThrottleKey,
+                    throttleCounter, new CacheItemOptions
+                    {
+                        SlidingExpiration = TimeSpan.FromSeconds(policy.ThrottleDuration)
+                    }).ConfigureAwait(false);
+                return ThrottleResult.Allowed;
             }
-
-            await cacheService.SetAsync(
-                cacheIdentity.ThrottleKey,
-                throttleCounter, new CacheItemOptions
-                {
-                    SlidingExpiration = TimeSpan.FromSeconds(policy.ThrottleDuration)
-                }).ConfigureAwait(false);
-            return ThrottleResult.Allowed;
+            catch
+            {
+                return ThrottleResult.Allowed;
+            }
         }
 
         public async Task<TResult> ThrottleAsync<TResult>(
@@ -133,29 +140,43 @@
             IThrottlePolicy policy,
             CacheIdentity cacheIdentity)
         {
-            if (cacheIdentity == null)
-            {
-                return await work(success).ConfigureAwait(false);
-            }
-
-            if (await IsBlacklistAsync(cacheIdentity.BlockKey).ConfigureAwait(false))
-            {
-                return blocked();
-            }
-
             async Task<TResult> success(TResult returnType)
             {
                 var throttleResult = await ThrottleAsync(policy, cacheIdentity).ConfigureAwait(false);
                 if (throttleResult == ThrottleResult.Blocked)
                 {
-                    await AddBlacklistAsync(cacheIdentity.BlockKey, policy.BlockDuration).ConfigureAwait(false);
-                    return blocked();
+                    try
+                    {
+                        await AddBlacklistAsync(cacheIdentity.BlockKey, policy.BlockDuration).ConfigureAwait(false);
+                        return blocked();
+                    }
+                    catch
+                    {
+                        return returnType;
+                    }
                 }
 
                 return returnType;
             }
 
-            return await work(success).ConfigureAwait(false);
+            if (cacheIdentity == null)
+            {
+                return await work(success).ConfigureAwait(false);
+            }
+
+            try
+            {
+                if (await IsBlacklistAsync(cacheIdentity.BlockKey).ConfigureAwait(false))
+                {
+                    return blocked();
+                }
+
+                return await work(success).ConfigureAwait(false);
+            }
+            catch
+            {
+                return await work(success).ConfigureAwait(false);
+            }
         }
     }
 }
