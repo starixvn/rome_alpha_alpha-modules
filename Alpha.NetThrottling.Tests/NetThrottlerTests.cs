@@ -16,11 +16,13 @@
         private readonly IThrottleSetting throttleSetting;
         private readonly ICacheService cacheService;
         private readonly IClock clock;
+        private readonly ILogger logger;
 
         public NetThrottlerTests()
         {
             cacheService = Substitute.For<ICacheService>();
             clock = Substitute.For<IClock>();
+            logger = Substitute.For<ILogger>();
             throttleSetting = Substitute.For<IThrottleSetting>();
         }
 
@@ -34,7 +36,7 @@
             filter.GetCacheIdentity(Arg.Any<HttpContextBase>(), Arg.Any<IThrottlePolicy>()).Returns(cacheIdentity);
 
             // Act
-            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
+            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock, logger);
             var throttleResult = await netThrottler.ThrottleAsync(new HttpContextWrapper(HttpContext.Current), throttlePolicy, filter);
 
             // Assert
@@ -50,7 +52,7 @@
             var cacheIdentity = new CacheIdentity("path_throttle_key", "path_block_key");
 
             // Act
-            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
+            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock, logger);
             var throttleResult = await netThrottler.ThrottleAsync(throttlePolicy, cacheIdentity);
 
             // Assert
@@ -69,7 +71,7 @@
             var cacheIdentity = new CacheIdentity("path_throttle_key", "path_block_key");
 
             // Act
-            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
+            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock, logger);
             var throttleResult = await netThrottler.ThrottleAsync(throttlePolicy, cacheIdentity);
 
             // Assert
@@ -97,7 +99,7 @@
             var cacheIdentity = new CacheIdentity("path_throttle_key", "path_block_key");
 
             // Act
-            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
+            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock, logger);
             var throttleResult = await netThrottler.ThrottleAsync(throttlePolicy, cacheIdentity);
 
             // Assert
@@ -125,7 +127,7 @@
             var cacheIdentity = new CacheIdentity("path_throttle_key", "path_block_key");
 
             // Act
-            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
+            var netThrottler = new NetThrottler(throttleSetting, cacheService, clock, logger);
             var throttleResult = await netThrottler.ThrottleAsync(throttlePolicy, cacheIdentity);
 
             // Assert

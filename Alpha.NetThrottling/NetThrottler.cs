@@ -32,27 +32,29 @@
     {
         private readonly ICacheService cacheService;
         private readonly IClock clock;
+        private readonly ILogger logger;
 
         public NetThrottler()
-            : this(null, null, null)
+            : this(null, null, null, null)
         {
         }
 
         public NetThrottler(IThrottleSetting throttleSetting)
-            : this(throttleSetting, null, null)
+            : this(throttleSetting, null, null, null)
         {
         }
 
-        public NetThrottler(IThrottleSetting throttleSetting, ICacheService cacheService)
-            : this(throttleSetting, cacheService, null)
+        public NetThrottler(IThrottleSetting throttleSetting, ICacheService cacheService, ILogger logger)
+            : this(throttleSetting, cacheService, null, null)
         {
         }
 
-        public NetThrottler(IThrottleSetting throttleSetting, ICacheService cacheService, IClock clock)
+        public NetThrottler(IThrottleSetting throttleSetting, ICacheService cacheService, IClock clock, ILogger logger)
         {
             throttleSetting = throttleSetting ?? new ThrottleSetting(NetThrottlingConfiguration.Default);
             this.cacheService = cacheService ?? throttleSetting.CacheService;
             this.clock = clock ?? new Clock();
+            this.logger = logger ?? Logger.DefaultInstance;
         }
 
         private async Task<bool> IsBlacklistAsync(string blockKey)
@@ -117,8 +119,9 @@
                     }).ConfigureAwait(false);
                 return ThrottleResult.Allowed;
             }
-            catch
+            catch (Exception ex)
             {
+                logger.Error(ex);
                 return ThrottleResult.Allowed;
             }
         }
@@ -150,8 +153,9 @@
                         await AddBlacklistAsync(cacheIdentity.BlockKey, policy.BlockDuration).ConfigureAwait(false);
                         return blocked();
                     }
-                    catch
+                    catch (Exception ex)
                     {
+                        logger.Error(ex);
                         return returnType;
                     }
                 }
@@ -173,8 +177,9 @@
 
                 return await work(success).ConfigureAwait(false);
             }
-            catch
+            catch (Exception ex)
             {
+                logger.Error(ex);
                 return await work(success).ConfigureAwait(false);
             }
         }

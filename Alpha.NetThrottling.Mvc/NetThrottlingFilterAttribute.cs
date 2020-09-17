@@ -26,21 +26,21 @@
         }
 
         public NetThrottlingFilterAttribute(NetThrottlingConfiguration configuration)
-            : this(configuration, null, null)
+            : this(configuration, null, null, null)
         {
         }
 
         public NetThrottlingFilterAttribute(NetThrottlingConfiguration configuration, ICacheService cacheService)
-            : this(configuration, cacheService, null)
+            : this(configuration, cacheService, null, null)
         {
         }
 
-        public NetThrottlingFilterAttribute(NetThrottlingConfiguration configuration, ICacheService cacheService, IClock clock)
+        public NetThrottlingFilterAttribute(NetThrottlingConfiguration configuration, ICacheService cacheService, IClock clock, ILogger logger)
         {
             throttleSetting = new ThrottleSetting(configuration);
             cacheService = cacheService ?? throttleSetting.CacheService;
             clock = clock ?? new Clock();
-            netThrottler = new NetThrottler(throttleSetting, cacheService, clock);
+            netThrottler = new NetThrottler(throttleSetting, cacheService, clock, logger);
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)

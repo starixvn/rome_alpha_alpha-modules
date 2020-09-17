@@ -10,13 +10,15 @@
     public class NetThrottlingHttpModuleTests
     {
         private readonly ICacheService cacheService;
-        private readonly Clock clock;
+        private readonly IClock clock;
+        private readonly ILogger logger;
         private readonly HttpApplication httpApplication;
 
         public NetThrottlingHttpModuleTests()
         {
             cacheService = Substitute.For<ICacheService>();
-            clock = Substitute.For<Clock>();
+            clock = Substitute.For<IClock>();
+            logger = Substitute.For<ILogger>();
             httpApplication = Substitute.For<HttpApplication>();
         }
 
@@ -25,7 +27,7 @@
         {
             // Arrange
             var configuration = ConfigurationUtil.Load<NetThrottlingConfiguration>("NetThrottlingHttpModuleTests.config", "Alpha.NetThrottling");
-            var module = new NetThrottlingHttpModule(configuration, cacheService, clock);
+            var module = new NetThrottlingHttpModule(configuration, cacheService, clock, logger);
 
             // Act
             module.Init(httpApplication);

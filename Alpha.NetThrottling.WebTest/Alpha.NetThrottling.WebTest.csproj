@@ -204,6 +204,10 @@
     <Content Include="Views\Error\Blocked.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Alpha.Logging\Alpha.Logging.csproj">
+      <Project>{A23B4240-E165-45D9-9301-0A35C3433E4B}</Project>
+      <Name>Alpha.Logging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Alpha.NetThrottling.Mvc\Alpha.NetThrottling.Mvc.csproj">
       <Project>{6c4c0234-6cf2-4aae-abb5-dba13a85c2fe}</Project>
       <Name>Alpha.NetThrottling.Mvc</Name>
