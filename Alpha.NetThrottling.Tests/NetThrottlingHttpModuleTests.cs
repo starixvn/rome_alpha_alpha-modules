@@ -4,6 +4,7 @@
     using Alpha.NetThrottling.Utils;
     using Fanex.Caching;
     using NSubstitute;
+    using System.Configuration;
     using System.Web;
     using Xunit;
 
@@ -26,6 +27,7 @@
         public void ThrottleRequest_Should_Invoke_AddOnBeginRequestAsync()
         {
             // Arrange
+            ConfigurationManager.AppSettings["RedisConfigurationOptions"] = "123";
             var configuration = ConfigurationUtil.Load<NetThrottlingConfiguration>("NetThrottlingHttpModuleTests.config", "Alpha.NetThrottling");
             var module = new NetThrottlingHttpModule(configuration, cacheService, clock, logger);
 

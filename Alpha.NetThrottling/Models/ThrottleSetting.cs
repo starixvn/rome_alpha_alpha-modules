@@ -6,6 +6,7 @@
     using Fanex.Caching.Redis;
     using StackExchange.Redis;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Linq;
 
     public interface IThrottleSetting
@@ -41,10 +42,11 @@
         {
             Resolver = string.IsNullOrEmpty(configuration.Resolver) ? new BaseResolver() : TypeFactory<IResolver>.Create(configuration.Resolver);
             Keys = configuration.Keys.Cast<NetThrottlingKeyElement>();
-            var configurationOptions = ConfigurationOptions.Parse(configuration.RedisConfigurationOptions);
+            var redisConfigurationString = ConfigurationManager.AppSettings[configuration.RedisConfigurationOptionsKey];
+            var configurationOptions = ConfigurationOptions.Parse(redisConfigurationString);
             var redisCacheOptions = new RedisCacheOptions
             {
-                ApplicationName = configuration.ApplicationName,
+                ApplicationName = configurationOptions.ClientName,
                 ConnectionOptions = configurationOptions
             };
             CacheService = new CacheService(new RedisCache(redisCacheOptions));
