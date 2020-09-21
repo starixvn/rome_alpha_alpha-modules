@@ -11,6 +11,7 @@
         RequiredSecurityCode = 5,
         NewFlowRequiredSecurityCode = 6,
         WrongSecurityCode = 9009,
-        RequireCaptcha = 9010
+        RequireCaptcha = 9010,
+        ProductUM = 90014
     }
 }
