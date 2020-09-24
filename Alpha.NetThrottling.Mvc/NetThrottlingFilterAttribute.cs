@@ -45,6 +45,12 @@
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+            if (filterContext.IsChildAction)
+            {
+                base.OnActionExecuting(filterContext);
+                return;
+            }
+
             var throttleResult = ThrottleAsync(filterContext).Result;
             if (throttleResult == ThrottleResult.Blocked)
             {
