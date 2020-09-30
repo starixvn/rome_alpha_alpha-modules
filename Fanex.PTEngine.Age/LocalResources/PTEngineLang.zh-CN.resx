@@ -2125,4 +2125,7 @@
   <data name="SpecialSMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
     <value>设置 最低投注 = 最高投注 = 单场限额= 0 即意味着您没有限制此账号的投注设定。&lt;br/&gt;为了防止限制会员进行投注，您可设置 最低投注 / 最高投注 / 单场限额为： 0 / 0.1 / 0.1 （仅适用于体育博彩）。</value>
   </data>
+  <data name="Symbol_OddsPercentage" xml:space="preserve">
+    <value>缅甸盘</value>
+  </data>
 </root>

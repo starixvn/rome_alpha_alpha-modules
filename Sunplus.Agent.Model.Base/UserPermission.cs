@@ -146,6 +146,14 @@ namespace Sunplus.Agent.Model.Entities.Permission
             }
         }
 
+        public static bool IsShowMyanmarOdds
+        {
+            get
+            {
+                return AppSettings.IsSupportMyanmarOdds && CurrentUserSession.IsMyanmarOdds;
+            }
+        }
+
         public static bool IsShowSuperLive
         {
             get

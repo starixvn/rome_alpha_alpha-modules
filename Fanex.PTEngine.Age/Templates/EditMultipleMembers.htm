@@ -114,6 +114,19 @@
                     <div class="commissionBlock2">
                         <select id="discountCS" name="discountCS" class="widthGroup"></select>
                     </div>
+                    <!--MyanmarOdds-->
+                    <div class="clearBlock">
+                        <div class="commissionBlock1">
+                            {static:LocalResources.PTEngineLang.Symbol_OddsPercentage}
+                        </div>
+                        <div class="commissionBlock2">
+                            <input type="text" id="text2" class="textBoxComm" disabled="true" data-bind="value: customer.commissionSetting.discountMyanmarOdds" />
+                        </div>
+                        <div class="commissionBlock2">
+                            <select id="oddsPercentage" name="discountMyanmarOdds" class="widthGroup"></select>
+                        </div>
+                    </div>
+                    <!--/MyanmarOdds-->
                 </div>
                 <div class="clearBlock">
                 </div>
@@ -153,6 +166,9 @@
             </div>
         </div>
     </form>
+    <script language="javascript" type="text/javascript">
+        var isShowMyanmarOdds = "{isShowMyanmarOdds}";
+    </script>
     <!--ScriptBlock-->
     <!--/ScriptBlock-->
 </body>
