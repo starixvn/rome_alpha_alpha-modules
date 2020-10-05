@@ -19,7 +19,7 @@
             }
 
             username = username.Trim().ToLowerInvariant();
-            return CacheIdentity.From(clientIp, username, policy);
+            return CacheIdentity.From(policy, new string[] { clientIp, username });
         }
     }
 }

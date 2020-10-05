@@ -1,6 +1,9 @@
 ﻿namespace Alpha.NetThrottling.Models
 {
     using Alpha.NetThrottling.Utils;
+    using Alpha.Web.Configurations;
+    using System;
+    using System.Linq;
 
     public class CacheIdentity
     {
@@ -14,10 +17,20 @@
             BlockKey = blockKey;
         }
 
-        public static CacheIdentity From(string path, string key, IThrottlePolicy policy)
+        public static CacheIdentity From(IThrottlePolicy policy, string[] keys)
         {
-            var prefix = $"{policy.Name}}}:{{{path}}}";
-            var suffix = $"{{{key}";
+            return From(policy.Name, AppSettings.SiteGroup, keys);
+        }
+
+        public static CacheIdentity From(string policyName, string siteGroup, string[] keys)
+        {
+            if (keys == null || !keys.Any())
+            {
+                throw new ArgumentNullException(nameof(keys));
+            }
+
+            var prefix = $"{policyName}}}:{{{siteGroup}}}";
+            var suffix = $"{{{string.Join("_", keys)}";
             var throttleKey = $"{prefix}:{{{Constants.Throttle}}}:{suffix}";
             var blockKey = $"{prefix}:{{{Constants.Block}}}:{suffix}";
             return new CacheIdentity(throttleKey, blockKey);

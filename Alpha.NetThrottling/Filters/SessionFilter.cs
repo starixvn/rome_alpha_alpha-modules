@@ -7,7 +7,7 @@
     {
         public CacheIdentity GetCacheIdentity(HttpContextBase httpContext, IThrottlePolicy policy)
         {
-            return CacheIdentity.From(httpContext.Request.Path, httpContext.Session.SessionID, policy);
+            return CacheIdentity.From(policy, new string[] { httpContext.Request.Path, httpContext.Session.SessionID });
         }
     }
 }

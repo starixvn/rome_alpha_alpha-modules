@@ -43,6 +43,7 @@
         private static DateTime? forceLoginNicknameDate;
         private static IDictionary<int, bool> forceLoginNicknameIgnoreList;
         private static DateTime? forceLoginNicknameDate4SubAccount;
+        private static string siteGroup;
 
         static AppSettings()
         {
@@ -92,6 +93,7 @@
 
             productConfigsFileRelativePath = ConfigurationManager.AppSettings["ProductConfigsFileRelativePath"];
             qrCodeMemberSiteLoginConfigsPath = ConfigurationManager.AppSettings["QRCodeMemberSiteLoginConfigs"];
+            siteGroup = ConfigurationManager.AppSettings["SiteGroup"];
 
             GetForceLoginNicknameConfiguration();
         }
@@ -151,6 +153,8 @@
         public static string QRCodeMemberSiteLoginConfigsPath => qrCodeMemberSiteLoginConfigsPath;
 
         public static string[] HideProductStatusSites => hideProductStatusSites;
+
+        public static string SiteGroup => siteGroup;
 
         private static void GetForceLoginNicknameConfiguration()
         {
