@@ -5,7 +5,6 @@
     using Alpha.NetThrottling.Utils;
     using Fanex.Caching;
     using System;
-    using System.Threading.Tasks;
     using System.Web;
 
     public class NetThrottlingHttpModule : IHttpModule
@@ -48,22 +47,21 @@
 
         public void Init(HttpApplication context)
         {
-            var wrapper = new EventHandlerTaskAsyncHelper(ThrottleRequestAsync);
-            context.AddOnBeginRequestAsync(wrapper.BeginEventHandler, wrapper.EndEventHandler);
+            context.BeginRequest += ThrottleRequest;
         }
 
-        private async Task ThrottleRequestAsync(object sender, EventArgs e)
+        private void ThrottleRequest(object sender, EventArgs e)
         {
             var httpContext = ((HttpApplication)sender).Context;
             var httpContextBase = new HttpContextWrapper(httpContext);
-            var throttleResult = await ThrottleAsync(httpContextBase);
+            var throttleResult = Throttle(httpContextBase);
             if (throttleResult == ThrottleResult.Blocked)
             {
                 throttleSetting.Resolver.Block(httpContextBase);
             }
         }
 
-        private async Task<ThrottleResult> ThrottleAsync(HttpContextBase httpContext)
+        private ThrottleResult Throttle(HttpContextBase httpContext)
         {
             foreach (var key in throttleSetting.Keys)
             {
@@ -71,7 +69,7 @@
                 {
                     var throttlePolicy = new ThrottlePolicy(key);
                     var filter = TypeFactory<IFilter>.Create(key.Filter);
-                    return await netThrottler.ThrottleAsync(httpContext, throttlePolicy, filter);
+                    return netThrottler.Throttle(httpContext, throttlePolicy, filter);
                 }
             }
 

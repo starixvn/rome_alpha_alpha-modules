@@ -42,7 +42,7 @@
                 return null;
             }
 
-            return CacheIdentity.From(policy, new string[] { httpContext.Request.Path, custId.ToString() });
+            return CacheIdentity.From(policy, new [] { httpContext.Request.Path, custId.ToString() });
         }
     }
 }

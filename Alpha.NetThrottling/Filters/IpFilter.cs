@@ -10,7 +10,7 @@
         {
             var request = httpContext.Request;
             var clientIp = request.GetClientIp().ToString();
-            return CacheIdentity.From(policy, new string[] { request.Path, clientIp });
+            return CacheIdentity.From(policy, new [] { request.Path, clientIp });
         }
     }
 }

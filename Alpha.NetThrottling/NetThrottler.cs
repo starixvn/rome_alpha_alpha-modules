@@ -10,6 +10,23 @@
 
     public interface INetThrottler
     {
+        ThrottleResult Throttle(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter);
+
+        ThrottleResult Throttle(IThrottlePolicy policy, CacheIdentity cacheIdentity);
+
+        TResult Throttle<TResult>(
+            HttpContextBase httpContext,
+            Func<Func<TResult, TResult>, TResult> work,
+            Func<TResult> blocked,
+            IThrottlePolicy policy,
+            IFilter filter);
+
+        TResult Throttle<TResult>(
+            Func<Func<TResult, TResult>, TResult> work,
+            Func<TResult> blocked,
+            IThrottlePolicy policy,
+            CacheIdentity cacheIdentity);
+
         Task<ThrottleResult> ThrottleAsync(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter);
 
         Task<ThrottleResult> ThrottleAsync(IThrottlePolicy policy, CacheIdentity cacheIdentity);
@@ -55,6 +72,133 @@
             this.cacheService = cacheService ?? throttleSetting.CacheService;
             this.clock = clock ?? new Clock();
             this.logger = logger ?? Logger.DefaultInstance;
+        }
+
+        private bool IsBlacklist(string blockKey)
+        {
+            return cacheService.Contain(blockKey);
+        }
+
+        private void AddBlacklist(string blockKey, int blockDuration)
+        {
+            cacheService.Set(
+                blockKey,
+                clock.UtcNow, new CacheItemOptions
+                {
+                    RelativeExpiration = TimeSpan.FromSeconds(blockDuration)
+                });
+        }
+
+        public ThrottleResult Throttle(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter)
+        {
+            var cacheIdentity = filter.GetCacheIdentity(httpContext, policy);
+            return Throttle(policy, cacheIdentity);
+        }
+
+        public ThrottleResult Throttle(IThrottlePolicy policy, CacheIdentity cacheIdentity)
+        {
+            if (cacheIdentity == null)
+            {
+                return ThrottleResult.Allowed;
+            }
+
+            try
+            {
+                if (IsBlacklist(cacheIdentity.BlockKey))
+                {
+                    return ThrottleResult.Blocked;
+                }
+
+                var isHasValue = cacheService.TryGet(cacheIdentity.ThrottleKey, out ThrottleCounter throttleCounter);
+                throttleCounter = !isHasValue || clock.UtcNow > throttleCounter.Timestamp + TimeSpan.FromSeconds(policy.ThrottleDuration)
+                    ? new ThrottleCounter
+                    {
+                        Timestamp = clock.UtcNow,
+                        TotalRequests = 1
+                    }
+                    : new ThrottleCounter
+                    {
+                        Timestamp = throttleCounter.Timestamp,
+                        TotalRequests = throttleCounter.TotalRequests + 1
+                    };
+
+                if (throttleCounter.TotalRequests > policy.MaxRequests)
+                {
+                    AddBlacklist(cacheIdentity.BlockKey, policy.BlockDuration);
+                    return ThrottleResult.Blocked;
+                }
+
+                cacheService.Set(
+                    cacheIdentity.ThrottleKey,
+                    throttleCounter, new CacheItemOptions
+                    {
+                        SlidingExpiration = TimeSpan.FromSeconds(policy.ThrottleDuration)
+                    });
+                return ThrottleResult.Allowed;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                return ThrottleResult.Allowed;
+            }
+        }
+
+        public TResult Throttle<TResult>(
+            HttpContextBase httpContext,
+            Func<Func<TResult, TResult>, TResult> work,
+            Func<TResult> blocked,
+            IThrottlePolicy policy,
+            IFilter filter)
+        {
+            var cacheIdentity = filter.GetCacheIdentity(httpContext, policy);
+            return Throttle(work, blocked, policy, cacheIdentity);
+        }
+
+        public TResult Throttle<TResult>(
+            Func<Func<TResult, TResult>, TResult> work,
+            Func<TResult> blocked,
+            IThrottlePolicy policy,
+            CacheIdentity cacheIdentity)
+        {
+            TResult success(TResult returnType)
+            {
+                var throttleResult = Throttle(policy, cacheIdentity);
+                if (throttleResult == ThrottleResult.Blocked)
+                {
+                    try
+                    {
+                        AddBlacklist(cacheIdentity.BlockKey, policy.BlockDuration);
+                        return blocked();
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex);
+                        return returnType;
+                    }
+                }
+
+                return returnType;
+            }
+
+            if (cacheIdentity == null)
+            {
+                return work(success);
+            }
+
+            try
+            {
+                if (IsBlacklist(cacheIdentity.BlockKey))
+                {
+                    return blocked();
+                }
+
+                return work(success);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                return work(success);
+            }
         }
 
         private async Task<bool> IsBlacklistAsync(string blockKey)

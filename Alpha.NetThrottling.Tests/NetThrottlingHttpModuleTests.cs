@@ -29,7 +29,7 @@
             // Arrange
             ConfigurationManager.AppSettings["RedisConfigurationOptions"] = "123";
             var configuration = ConfigurationUtil.Load<NetThrottlingConfiguration>("NetThrottlingHttpModuleTests.config", "Alpha.NetThrottling");
-            var module = new NetThrottlingHttpModule(configuration, cacheService, clock, logger);
+            var module = new NetThrottlingAsyncHttpModule(configuration, cacheService, clock, logger);
 
             // Act
             module.Init(httpApplication);

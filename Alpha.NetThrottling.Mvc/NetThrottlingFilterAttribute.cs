@@ -6,7 +6,6 @@
     using Fanex.Caching;
     using System;
     using System.Linq;
-    using System.Threading.Tasks;
     using System.Web.Mvc;
 
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
@@ -51,7 +50,7 @@
                 return;
             }
 
-            var throttleResult = ThrottleAsync(filterContext).Result;
+            var throttleResult = Throttle(filterContext);
             if (throttleResult == ThrottleResult.Blocked)
             {
                 throttleSetting.Resolver.Block(filterContext.HttpContext);
@@ -61,7 +60,7 @@
             base.OnActionExecuting(filterContext);
         }
 
-        private async Task<ThrottleResult> ThrottleAsync(ActionExecutingContext filterContext)
+        private ThrottleResult Throttle(ActionExecutingContext filterContext)
         {
             var httpContext = filterContext.HttpContext;
             foreach (var key in throttleSetting.Keys)
@@ -75,7 +74,7 @@
                     }
 
                     var filter = TypeFactory<IFilter>.Create(key.Filter);
-                    return await netThrottler.ThrottleAsync(httpContext, throttlePolicy, filter).ConfigureAwait(false);
+                    return netThrottler.Throttle(httpContext, throttlePolicy, filter);
                 }
             }
 

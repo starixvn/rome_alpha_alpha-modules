@@ -13,9 +13,10 @@
     <PackageTags>alpha net throttling</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.0.12-sitegroup-02</Version>
+    <Version>1.0.12-sitegroup-03</Version>
     <AssemblyName>Alpha.NetThrottling</AssemblyName>
-    <PackageReleaseNotes>change configuration</PackageReleaseNotes>
+    <PackageReleaseNotes>change configuration
+support sync function</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.Caching" Version="2.2.1" />
