@@ -29,17 +29,19 @@
         public IEnumerable<NetThrottlingKeyElement> Keys { get; private set; }
 
         public ThrottleSetting()
-            : this(NetThrottlingConfiguration.Default)
+            : this(null, null)
         {
         }
 
         public ThrottleSetting(string sectionName)
-            : this(NetThrottlingConfiguration.Get(sectionName))
+            : this(NetThrottlingConfiguration.Get(sectionName), null)
         {
         }
 
-        public ThrottleSetting(NetThrottlingConfiguration configuration)
+        public ThrottleSetting(NetThrottlingConfiguration configuration, ICacheServiceFactory cacheServiceFactory)
         {
+            configuration = configuration ?? NetThrottlingConfiguration.Default;
+            cacheServiceFactory = cacheServiceFactory ?? CacheServiceFactory.Default;
             Resolver = string.IsNullOrEmpty(configuration.Resolver) ? new BaseResolver() : TypeFactory<IResolver>.Create(configuration.Resolver);
             Keys = configuration.Keys.Cast<NetThrottlingKeyElement>();
             var redisConfigurationString = ConfigurationManager.AppSettings[configuration.RedisConfigurationOptionsKey];
@@ -49,7 +51,7 @@
                 ApplicationName = configurationOptions.ClientName,
                 ConnectionOptions = configurationOptions
             };
-            CacheService = new CacheService(new RedisCache(redisCacheOptions));
+            CacheService = cacheServiceFactory.Create(redisCacheOptions);
         }
 
         public ThrottleSetting(IResolver resolver, ICacheService cacheService, IEnumerable<NetThrottlingKeyElement> keys)

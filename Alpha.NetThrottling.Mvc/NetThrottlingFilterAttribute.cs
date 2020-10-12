@@ -3,7 +3,6 @@
     using Alpha.NetThrottling.Filters;
     using Alpha.NetThrottling.Models;
     using Alpha.NetThrottling.Utils;
-    using Fanex.Caching;
     using System;
     using System.Linq;
     using System.Web.Mvc;
@@ -11,35 +10,16 @@
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
     public class NetThrottlingFilterAttribute : ActionFilterAttribute
     {
-        private readonly IThrottleSetting throttleSetting;
         private readonly INetThrottler netThrottler;
 
         public NetThrottlingFilterAttribute()
-            : this(NetThrottlingConfiguration.Default)
+            : this(null)
         {
         }
 
-        public NetThrottlingFilterAttribute(string sectionName)
-            : this(NetThrottlingConfiguration.Get(sectionName))
+        public NetThrottlingFilterAttribute(INetThrottler netThrottler)
         {
-        }
-
-        public NetThrottlingFilterAttribute(NetThrottlingConfiguration configuration)
-            : this(configuration, null, null, null)
-        {
-        }
-
-        public NetThrottlingFilterAttribute(NetThrottlingConfiguration configuration, ICacheService cacheService)
-            : this(configuration, cacheService, null, null)
-        {
-        }
-
-        public NetThrottlingFilterAttribute(NetThrottlingConfiguration configuration, ICacheService cacheService, IClock clock, ILogger logger)
-        {
-            throttleSetting = new ThrottleSetting(configuration);
-            cacheService = cacheService ?? throttleSetting.CacheService;
-            clock = clock ?? new Clock();
-            netThrottler = new NetThrottler(throttleSetting, cacheService, clock, logger);
+            this.netThrottler = netThrottler ?? new NetThrottler();
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -53,7 +33,7 @@
             var throttleResult = Throttle(filterContext);
             if (throttleResult == ThrottleResult.Blocked)
             {
-                throttleSetting.Resolver.Block(filterContext.HttpContext);
+                netThrottler.ThrottleSetting.Resolver.Block(filterContext.HttpContext);
                 return;
             }
 
@@ -63,7 +43,7 @@
         private ThrottleResult Throttle(ActionExecutingContext filterContext)
         {
             var httpContext = filterContext.HttpContext;
-            foreach (var key in throttleSetting.Keys)
+            foreach (var key in netThrottler.ThrottleSetting.Keys)
             {
                 if (httpContext.Request.IsMatchRequest(key))
                 {

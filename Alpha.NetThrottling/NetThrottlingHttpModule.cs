@@ -3,41 +3,21 @@
     using Alpha.NetThrottling.Filters;
     using Alpha.NetThrottling.Models;
     using Alpha.NetThrottling.Utils;
-    using Fanex.Caching;
     using System;
     using System.Web;
 
     public class NetThrottlingHttpModule : IHttpModule
     {
         private readonly INetThrottler netThrottler;
-        private readonly IThrottleSetting throttleSetting;
 
         public NetThrottlingHttpModule()
-            : this(NetThrottlingConfiguration.Default, null, null, null)
+            : this(null)
         {
         }
 
-        public NetThrottlingHttpModule(string sectionName)
-            : this(NetThrottlingConfiguration.Get(sectionName))
+        public NetThrottlingHttpModule(INetThrottler netThrottler)
         {
-        }
-
-        public NetThrottlingHttpModule(NetThrottlingConfiguration configuration)
-            : this(configuration, null, null, null)
-        {
-        }
-
-        public NetThrottlingHttpModule(NetThrottlingConfiguration configuration, ICacheService cacheService)
-            : this(configuration, cacheService, null, null)
-        {
-        }
-
-        public NetThrottlingHttpModule(NetThrottlingConfiguration configuration, ICacheService cacheService, IClock clock, ILogger logger)
-        {
-            throttleSetting = new ThrottleSetting(configuration);
-            cacheService = cacheService ?? throttleSetting.CacheService;
-            clock = clock ?? new Clock();
-            netThrottler = new NetThrottler(throttleSetting, cacheService, clock, logger);
+            this.netThrottler = netThrottler ?? new NetThrottler();
         }
 
         public void Dispose()
@@ -57,13 +37,13 @@
             var throttleResult = Throttle(httpContextBase);
             if (throttleResult == ThrottleResult.Blocked)
             {
-                throttleSetting.Resolver.Block(httpContextBase);
+                netThrottler.ThrottleSetting.Resolver.Block(httpContextBase);
             }
         }
 
         private ThrottleResult Throttle(HttpContextBase httpContext)
         {
-            foreach (var key in throttleSetting.Keys)
+            foreach (var key in netThrottler.ThrottleSetting.Keys)
             {
                 if (httpContext.Request.IsMatchRequest(key))
                 {

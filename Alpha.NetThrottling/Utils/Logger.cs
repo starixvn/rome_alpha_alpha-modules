@@ -11,17 +11,11 @@
 
     public class Logger : ILogger
     {
+        public static readonly ILogger Default = new Logger();
+
         private readonly int LogTimeSpanMinutes = 5;
         private DateTime LastLogTime = DateTime.MinValue;
         private List<string> LastMessages = new List<string>();
-
-        public static ILogger DefaultInstance
-        {
-            get
-            {
-                return new Logger();
-            }
-        }
 
         public void Error(Exception ex)
         {

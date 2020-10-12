@@ -10,6 +10,8 @@
 
     public interface INetThrottler
     {
+        IThrottleSetting ThrottleSetting { get; }
+
         ThrottleResult Throttle(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter);
 
         ThrottleResult Throttle(IThrottlePolicy policy, CacheIdentity cacheIdentity);
@@ -47,41 +49,44 @@
 
     public class NetThrottler : INetThrottler
     {
-        private readonly ICacheService cacheService;
         private readonly IClock clock;
         private readonly ILogger logger;
 
+        public IThrottleSetting ThrottleSetting { get; private set; }
+
+        public ICacheService CacheService
+        {
+            get
+            {
+                return ThrottleSetting.CacheService;
+            }
+        }
+
         public NetThrottler()
-            : this(null, null, null, null)
+            : this(null, null, null)
         {
         }
 
         public NetThrottler(IThrottleSetting throttleSetting)
-            : this(throttleSetting, null, null, null)
+            : this(throttleSetting, null, null)
         {
         }
 
-        public NetThrottler(IThrottleSetting throttleSetting, ICacheService cacheService, ILogger logger)
-            : this(throttleSetting, cacheService, null, null)
+        public NetThrottler(IThrottleSetting throttleSetting, IClock clock, ILogger logger)
         {
-        }
-
-        public NetThrottler(IThrottleSetting throttleSetting, ICacheService cacheService, IClock clock, ILogger logger)
-        {
-            throttleSetting = throttleSetting ?? new ThrottleSetting(NetThrottlingConfiguration.Default);
-            this.cacheService = cacheService ?? throttleSetting.CacheService;
+            ThrottleSetting = throttleSetting ?? new ThrottleSetting();
             this.clock = clock ?? new Clock();
-            this.logger = logger ?? Logger.DefaultInstance;
+            this.logger = logger ?? Logger.Default;
         }
 
         private bool IsBlacklist(string blockKey)
         {
-            return cacheService.Contain(blockKey);
+            return CacheService.Contain(blockKey);
         }
 
         private void AddBlacklist(string blockKey, int blockDuration)
         {
-            cacheService.Set(
+            CacheService.Set(
                 blockKey,
                 clock.UtcNow, new CacheItemOptions
                 {
@@ -109,7 +114,7 @@
                     return ThrottleResult.Blocked;
                 }
 
-                var isHasValue = cacheService.TryGet(cacheIdentity.ThrottleKey, out ThrottleCounter throttleCounter);
+                var isHasValue = CacheService.TryGet(cacheIdentity.ThrottleKey, out ThrottleCounter throttleCounter);
                 throttleCounter = !isHasValue || clock.UtcNow > throttleCounter.Timestamp + TimeSpan.FromSeconds(policy.ThrottleDuration)
                     ? new ThrottleCounter
                     {
@@ -128,7 +133,7 @@
                     return ThrottleResult.Blocked;
                 }
 
-                cacheService.Set(
+                CacheService.Set(
                     cacheIdentity.ThrottleKey,
                     throttleCounter, new CacheItemOptions
                     {
@@ -203,12 +208,12 @@
 
         private async Task<bool> IsBlacklistAsync(string blockKey)
         {
-            return await cacheService.ContainAsync(blockKey).ConfigureAwait(false);
+            return await CacheService.ContainAsync(blockKey).ConfigureAwait(false);
         }
 
         private async Task AddBlacklistAsync(string blockKey, int blockDuration)
         {
-            await cacheService.SetAsync(
+            await CacheService.SetAsync(
                 blockKey,
                 clock.UtcNow, new CacheItemOptions
                 {
@@ -236,7 +241,7 @@
                     return ThrottleResult.Blocked;
                 }
 
-                var (isHasValue, throttleCounter) = await cacheService.TryGetAsync<ThrottleCounter>(cacheIdentity.ThrottleKey).ConfigureAwait(false);
+                var (isHasValue, throttleCounter) = await CacheService.TryGetAsync<ThrottleCounter>(cacheIdentity.ThrottleKey).ConfigureAwait(false);
                 throttleCounter = !isHasValue || clock.UtcNow > throttleCounter.Timestamp + TimeSpan.FromSeconds(policy.ThrottleDuration)
                     ? new ThrottleCounter
                     {
@@ -255,7 +260,7 @@
                     return ThrottleResult.Blocked;
                 }
 
-                await cacheService.SetAsync(
+                await CacheService.SetAsync(
                     cacheIdentity.ThrottleKey,
                     throttleCounter, new CacheItemOptions
                     {

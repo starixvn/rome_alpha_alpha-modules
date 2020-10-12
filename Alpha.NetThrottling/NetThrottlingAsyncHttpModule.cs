@@ -3,7 +3,6 @@
     using Alpha.NetThrottling.Filters;
     using Alpha.NetThrottling.Models;
     using Alpha.NetThrottling.Utils;
-    using Fanex.Caching;
     using System;
     using System.Threading.Tasks;
     using System.Web;
@@ -11,34 +10,15 @@
     public class NetThrottlingAsyncHttpModule : IHttpModule
     {
         private readonly INetThrottler netThrottler;
-        private readonly IThrottleSetting throttleSetting;
 
         public NetThrottlingAsyncHttpModule()
-            : this(NetThrottlingConfiguration.Default, null, null, null)
+            : this(null)
         {
         }
 
-        public NetThrottlingAsyncHttpModule(string sectionName)
-            : this(NetThrottlingConfiguration.Get(sectionName))
+        public NetThrottlingAsyncHttpModule(INetThrottler netThrottler)
         {
-        }
-
-        public NetThrottlingAsyncHttpModule(NetThrottlingConfiguration configuration)
-            : this(configuration, null, null, null)
-        {
-        }
-
-        public NetThrottlingAsyncHttpModule(NetThrottlingConfiguration configuration, ICacheService cacheService)
-            : this(configuration, cacheService, null, null)
-        {
-        }
-
-        public NetThrottlingAsyncHttpModule(NetThrottlingConfiguration configuration, ICacheService cacheService, IClock clock, ILogger logger)
-        {
-            throttleSetting = new ThrottleSetting(configuration);
-            cacheService = cacheService ?? throttleSetting.CacheService;
-            clock = clock ?? new Clock();
-            netThrottler = new NetThrottler(throttleSetting, cacheService, clock, logger);
+            this.netThrottler = netThrottler ?? new NetThrottler();
         }
 
         public void Dispose()
@@ -59,13 +39,13 @@
             var throttleResult = await ThrottleAsync(httpContextBase);
             if (throttleResult == ThrottleResult.Blocked)
             {
-                throttleSetting.Resolver.Block(httpContextBase);
+                netThrottler.ThrottleSetting.Resolver.Block(httpContextBase);
             }
         }
 
         private async Task<ThrottleResult> ThrottleAsync(HttpContextBase httpContext)
         {
-            foreach (var key in throttleSetting.Keys)
+            foreach (var key in netThrottler.ThrottleSetting.Keys)
             {
                 if (httpContext.Request.IsMatchRequest(key))
                 {
