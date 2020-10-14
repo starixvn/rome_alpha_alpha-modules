@@ -13,7 +13,7 @@
     <PackageTags>alpha net throttling</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.0.12-sitegroup-05</Version>
+    <Version>1.0.12</Version>
     <AssemblyName>Alpha.NetThrottling</AssemblyName>
     <PackageReleaseNotes>change configuration
 support sync function</PackageReleaseNotes>

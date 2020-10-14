@@ -13,7 +13,7 @@
     <PackageTags>alpha.web</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.0.7.5-sitegroup</Version>
+    <Version>1.0.7.5</Version>
     <AssemblyName>Alpha.Web</AssemblyName>
     <PackageReleaseNotes>add sitegroup</PackageReleaseNotes>
   </PropertyGroup>
