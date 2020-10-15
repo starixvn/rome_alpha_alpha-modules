@@ -13,15 +13,17 @@
     <PackageTags>Alpha.DNAide</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.0.0-init</Version>
+    <Version>1.0.0-init01</Version>
     <AssemblyName>Alpha.DNAide</AssemblyName>
     <PackageReleaseNotes></PackageReleaseNotes>
     <PackageId>Alpha.DNAide</PackageId>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="EnterpriseLibrary.Logging" Version="5.0.414" />
     <PackageReference Include="Fanex.Caching" Version="2.2.1" />
     <PackageReference Include="Fanex.Data" Version="0.5.404.59" />
     <PackageReference Include="ILogger" Version="1.0.0" />
+    <PackageReference Include="Microsoft.VisualBasic" Version="10.3.0" />
     <Reference Include="System.Configuration" />
 	<Reference Include="System.Web" />
   </ItemGroup>

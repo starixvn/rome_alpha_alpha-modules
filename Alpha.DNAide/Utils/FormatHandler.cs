@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Alpha.DNAide.Utils
+﻿namespace Alpha.DNAide.Utils
 {
+    using System;
+
     public static class FormatHandler
     {
         public const string CULT_NAME_ENG = "en-US";
@@ -61,6 +61,19 @@ namespace Alpha.DNAide.Utils
                 str = "Error";
             }
             return str;
+        }
+
+        public static string FormatNumber20(object obj, string culture)
+        {
+            if (Convert.IsDBNull(obj) || obj == null)
+            {
+                return "0";
+            }
+            if (culture == "vi-VN")
+            {
+                return string.Format("{0:#.##0,00}", obj);
+            }
+            return string.Format("{0:#,##0.00}", obj);
         }
     }
 }

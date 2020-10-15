@@ -15,12 +15,14 @@
         private static readonly bool useCache;
         private static readonly string _templateFolder;
         private readonly static ICacheService cache;
+        private readonly static Regex regexComment;
 
         static TemplateHandler()
         {
             TemplateHandler._templateFolder = (string.IsNullOrEmpty(ConfigurationManager.AppSettings["template_folder"]) ? "Templates" : ConfigurationManager.AppSettings["template_folder"]);
             TemplateHandler.useCache = ConfigurationManager.AppSettings["LocalTest"] == "0";
             TemplateHandler.cache = new CacheService(new MemoryCache(new MemoryCacheOptions()));
+            TemplateHandler.regexComment = new Regex("<!--[^>]*-->", RegexOptions.Compiled);
         }
 
         public static string TemplateFolder
@@ -174,6 +176,50 @@
                 return string.Empty;
             }
             return str.Substring(num + str1.Length, num1);
+        }
+
+        public static void CheckInBlock(ref string str, string tag, string content)
+        {
+            if (!string.IsNullOrEmpty(str) && !string.IsNullOrEmpty(tag) && !string.IsNullOrEmpty(content))
+            {
+                str = str.Replace(string.Concat("<!--", tag, "/-->"), content);
+            }
+        }
+
+        public static void RemoveComment(ref string content)
+        {
+            if (!string.IsNullOrEmpty(content))
+            {
+                content = TemplateHandler.regexComment.Replace(content, string.Empty);
+            }
+        }
+
+        public static string CheckOutBlock(ref string str, string tag)
+        {
+            return TemplateHandler.CheckOutBlock(ref str, tag, true);
+        }
+
+        public static string CheckOutBlock(ref string str, string tag, bool blockMarkup)
+        {
+            if (string.IsNullOrEmpty(str) || string.IsNullOrEmpty(tag))
+            {
+                return str;
+            }
+            string str1 = string.Concat("<!--", tag, "-->");
+            int num = str.IndexOf(str1);
+            if (num == -1)
+            {
+                return string.Empty;
+            }
+            int num1 = str.IndexOf(string.Concat("<!--/", tag, "-->"), num) - num - str1.Length;
+            if (num1 <= 0)
+            {
+                return string.Empty;
+            }
+            string str2 = str.Substring(num, num1 + 2 * str1.Length + 1);
+            str = (blockMarkup ? str.Replace(str2, string.Concat("<!--", tag, "/-->")) : str.Replace(str2, string.Empty));
+            str2 = str2.Substring(str1.Length, num1);
+            return str2;
         }
     }
 }

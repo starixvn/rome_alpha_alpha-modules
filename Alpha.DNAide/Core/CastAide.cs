@@ -7,7 +7,12 @@
     {
         public static bool AsBoolean(object value)
         {
-            return CastAide.AsBoolean(value, false, CultureInfo.CurrentCulture);
+            return AsBoolean(value, false, CultureInfo.CurrentCulture);
+        }
+
+        public static bool AsBoolean(object value, bool defaultValue)
+        {
+            return AsBoolean(value, defaultValue, CultureInfo.CurrentCulture);
         }
 
         public static bool AsBoolean(object value, bool defaultValue, IFormatProvider provider)
@@ -38,12 +43,12 @@
 
         public static int AsInt32(object value)
         {
-            return CastAide.AsInt32(value, 0, CultureInfo.CurrentCulture);
+            return AsInt32(value, 0, CultureInfo.CurrentCulture);
         }
 
         public static int AsInt32(object value, int defaultValue)
         {
-            return CastAide.AsInt32(value, defaultValue, CultureInfo.CurrentCulture);
+            return AsInt32(value, defaultValue, CultureInfo.CurrentCulture);
         }
 
         public static int AsInt32(object value, int defaultValue, IFormatProvider provider)
@@ -74,7 +79,12 @@
 
         public static double AsDouble(object value)
         {
-            return CastAide.AsDouble(value, 0, CultureInfo.CurrentCulture);
+            return AsDouble(value, 0, CultureInfo.CurrentCulture);
+        }
+
+        public static double AsDouble(object value, double defaultValue)
+        {
+            return AsDouble(value, defaultValue, CultureInfo.CurrentCulture);
         }
 
         public static double AsDouble(object value, double defaultValue, IFormatProvider provider)
@@ -105,12 +115,12 @@
 
         public static string AsString(object value)
         {
-            return CastAide.AsString(value, string.Empty, CultureInfo.CurrentCulture);
+            return AsString(value, string.Empty, CultureInfo.CurrentCulture);
         }
 
         public static string AsString(object value, string defaultValue)
         {
-            return CastAide.AsString(value, defaultValue, CultureInfo.CurrentCulture);
+            return AsString(value, defaultValue, CultureInfo.CurrentCulture);
         }
 
         public static string AsString(object value, string defaultValue, IFormatProvider provider)
@@ -137,12 +147,12 @@
 
         public static decimal AsDecimal(object value)
         {
-            return CastAide.AsDecimal(value, new decimal(0), CultureInfo.CurrentCulture);
+            return AsDecimal(value, new decimal(0), CultureInfo.CurrentCulture);
         }
 
         public static decimal AsDecimal(object value, decimal defaultValue)
         {
-            return CastAide.AsDecimal(value, defaultValue, CultureInfo.CurrentCulture);
+            return AsDecimal(value, defaultValue, CultureInfo.CurrentCulture);
         }
 
         public static decimal AsDecimal(object value, decimal defaultValue, IFormatProvider provider)
@@ -173,7 +183,7 @@
 
         public static short AsInt16(object value)
         {
-            return CastAide.AsInt16(value, 0, CultureInfo.CurrentCulture);
+            return AsInt16(value, 0, CultureInfo.CurrentCulture);
         }
 
         public static short AsInt16(object value, short defaultValue, IFormatProvider provider)

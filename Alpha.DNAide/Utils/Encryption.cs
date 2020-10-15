@@ -1,5 +1,6 @@
 ﻿namespace Alpha.DNAide.Utils
 {
+    using Microsoft.VisualBasic;
     using System;
     using System.IO;
     using System.Security.Cryptography;
@@ -12,6 +13,16 @@
             string[] decryptPWD = Encryption.GetDecryptPWD(connStr, "=");
             string str = Encryption.CfsDeCrypt(decryptPWD[1].Trim());
             return string.Concat(decryptPWD[0].Trim(), str, ";");
+        }
+
+        private static string CfsCode(string nWord)
+        {
+            string str = "";
+            for (int i = 1; i <= nWord.Length; i++)
+            {
+                str = string.Concat(str, Strings.Asc(Strings.Mid(nWord, i, 1)));
+            }
+            return Conversion.Hex(str);
         }
 
         public static string CfsDeCrypt(string strText)
@@ -36,6 +47,37 @@
                 str = exception.Message;
             }
             return str;
+        }
+
+        public static string CfsEnCode(string codeStr)
+        {
+            int num = 30;
+            int length = num - codeStr.Length;
+            if (length > 1)
+            {
+                for (int i = 1; i <= length; i++)
+                {
+                    codeStr = string.Concat(codeStr, Strings.Chr(21));
+                }
+            }
+            double num1 = 1;
+            for (int j = 1; j <= num; j++)
+            {
+                int num2 = num + Strings.Asc(Strings.Mid(codeStr, j, 1)) * j;
+                num1 *= (double)num2;
+            }
+            codeStr = num1.ToString();
+            string str = "";
+            for (int k = 1; k <= codeStr.Length; k++)
+            {
+                str = string.Concat(str, Encryption.CfsCode(Strings.Mid(codeStr, k, 3)));
+            }
+            string str1 = "";
+            for (int l = 20; l <= str.ToString().Length - 18; l += 2)
+            {
+                str1 = string.Concat(str1, Strings.Mid(str, l, 1));
+            }
+            return str1;
         }
 
         private static string[] GetDecryptPWD(string SourceString, string SearchString)
