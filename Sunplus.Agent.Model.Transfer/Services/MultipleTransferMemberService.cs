@@ -1,13 +1,15 @@
-﻿using Fanex.Logging;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Text;
+using Fanex.Caching;
+using Fanex.Logging;
 using Sunplus.Agent.Model.BL.Definitions;
 using Sunplus.Agent.Model.BL.Transfer;
 using Sunplus.Agent.Model.Transfer.Constants;
 using Sunplus.Agent.Model.Transfer.Extensions;
 using Sunplus.Agent.Model.Transfer.Models;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
 
 namespace Sunplus.Agent.Model.Transfer.Services
 {
@@ -27,7 +29,7 @@ namespace Sunplus.Agent.Model.Transfer.Services
 
         private string cacheKey;
 
-        public MultipleTransferMemberService(MultipleTransferMemberRequest multipleTransferMemberRequest)
+        public MultipleTransferMemberService(MultipleTransferMemberRequest multipleTransferMemberRequest, ICacheService cacheService)
         {
             request = multipleTransferMemberRequest;
             result = new TransferResult();
@@ -35,8 +37,8 @@ namespace Sunplus.Agent.Model.Transfer.Services
             dataTransfer = bo.GetDataTransfer(request.Status, request.UserName, request.IsYesterdayBalance);
             transferStatus = new TransferStatus();
             request.IsClose = GetStatus();
-            transferCacheService = new TransferCacheServiceImplement(multipleTransferMemberRequest.AdminId, multipleTransferMemberRequest.AdminName);
-            cacheKey = string.Format(TransferConstants.AgentTransferMemberListCache, request.AgentId);
+            transferCacheService = new TransferCacheServiceImplement(multipleTransferMemberRequest.AdminId, multipleTransferMemberRequest.AdminName, cacheService);
+            cacheKey = string.Format(TransferConstants.AgentTransferMemberListCache, ConfigurationManager.AppSettings["SiteGroup"], request.AgentId);
         }
 
         public TransferResult ProcessTransfer()

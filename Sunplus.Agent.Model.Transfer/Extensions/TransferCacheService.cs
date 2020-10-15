@@ -35,21 +35,22 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
     {
         private int _adminId;
         private string _adminName = "Agent";
-        private static readonly ICacheService cacheService = InitCacheService();
+        private readonly ICacheService cacheService;
 
-        public TransferCacheServiceImplement() : this(0, string.Empty)
+        public TransferCacheServiceImplement() : this(0, string.Empty, null)
         { }
 
-        public TransferCacheServiceImplement(int adminId, string adminName)
+        public TransferCacheServiceImplement(int adminId, string adminName, ICacheService cacheService)
         {
             _adminId = adminId;
             _adminName = adminName;
+            this.cacheService = cacheService ?? InitCacheService();
         }
 
         private static ICacheService InitCacheService()
         {
-            var redisConnectionString = ConfigurationManager.AppSettings["RedisConnectionString:Alpha.Transfer"];
-            var configurationOptions = ConfigurationOptions.Parse(redisConnectionString);
+            var redisConfigurationOptions = ConfigurationManager.AppSettings["RedisConfigurationOptions:Alpha.Transfer"];
+            var configurationOptions = ConfigurationOptions.Parse(redisConfigurationOptions);
             var redisCacheOptions = new RedisCacheOptions
             {
                 ApplicationName = configurationOptions.ClientName,
