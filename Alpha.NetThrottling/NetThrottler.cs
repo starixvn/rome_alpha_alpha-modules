@@ -12,6 +12,8 @@
     {
         IThrottleSetting ThrottleSetting { get; }
 
+        bool IsBlacklist(string blockKey);
+
         ThrottleResult Throttle(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter);
 
         ThrottleResult Throttle(IThrottlePolicy policy, CacheIdentity cacheIdentity);
@@ -28,6 +30,8 @@
             Func<TResult> blocked,
             IThrottlePolicy policy,
             CacheIdentity cacheIdentity);
+        Task<bool> IsBlacklistAsync(string blockKey);
+
         Task<ThrottleResult> ThrottleAsync(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter);
 
         Task<ThrottleResult> ThrottleAsync(IThrottlePolicy policy, CacheIdentity cacheIdentity);
@@ -77,7 +81,7 @@
             this.logger = logger ?? Logger.Default;
         }
 
-        private bool IsBlacklist(string blockKey)
+        public bool IsBlacklist(string blockKey)
         {
             return CacheService.Contain(blockKey);
         }
@@ -195,7 +199,7 @@
             }
         }
 
-        private async Task<bool> IsBlacklistAsync(string blockKey)
+        public async Task<bool> IsBlacklistAsync(string blockKey)
         {
             return await CacheService.ContainAsync(blockKey).ConfigureAwait(false);
         }
