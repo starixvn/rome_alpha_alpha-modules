@@ -13,7 +13,7 @@
     {
         IResolver Resolver { get; }
 
-        ICacheService CacheService { get; }
+        ICacheServiceWrapper CacheService { get; }
 
         IEnumerable<NetThrottlingKeyElement> Keys { get; }
 
@@ -24,7 +24,7 @@
     {
         public IResolver Resolver { get; private set; }
 
-        public ICacheService CacheService { get; private set; }
+        public ICacheServiceWrapper CacheService { get; private set; }
 
         public IEnumerable<NetThrottlingKeyElement> Keys { get; private set; }
 

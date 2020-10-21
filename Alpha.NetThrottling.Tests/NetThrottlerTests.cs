@@ -15,15 +15,13 @@
     {
         private readonly IThrottleSetting throttleSetting;
         private readonly IClock clock;
-        private readonly ILogger logger;
-        private readonly ICacheService cacheService;
+        private readonly ICacheServiceWrapper cacheService;
         private readonly INetThrottler netThrottler;
 
         public NetThrottlerTests()
         {
             clock = Substitute.For<IClock>();
-            logger = Substitute.For<ILogger>();
-            cacheService = Substitute.For<ICacheService>();
+            cacheService = Substitute.For<ICacheServiceWrapper>();
             throttleSetting = Substitute.For<IThrottleSetting>();
             throttleSetting.CacheService.Returns(cacheService);
             netThrottler = new NetThrottler();
