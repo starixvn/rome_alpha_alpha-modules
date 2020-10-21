@@ -96,6 +96,14 @@ namespace Sunplus.Agent.Model.BL.Definitions
             }
         }
 
+        public static bool IsSupportMyanmarOdds
+        {
+            get
+            {
+                return GetValue("IsShowMyanmarOdds") == "1";
+            }
+        }
+
         public static bool IsShowSportsbook2
         {
             get

@@ -82,9 +82,11 @@ namespace Fanex.PTEngine.Age
 			protected static string s53{get{return LocalResources.PTEngineLang.ClickToViewPTInfo;}}
 			protected static string s54 = "\"></a></div></div><div class=\"positionTaking\"><div id=\"ptGridContainer\"></div></div><div class=\"clearBlock\"></div><div class=\"pt7\"><div class=\"btnLeft\"><button data-bind='click: saveCustomer' accountpermisssion=\"[B]\" id=\"btnSubmitFooter\"class=\"btnMain\">";
 			protected string t0_actionName;
-			protected static string s55 = "</button></div></div></div></form>";
+			protected static string s55 = "</button></div></div></div></form><script language=\"javascript\" type=\"text/javascript\">var isShowMyanmarOdds = \"";
+			public string isShowMyanmarOdds = "{isShowMyanmarOdds}";
+			protected static string s56 = "\";</script>";
 			public SuperEditMember_ScriptBlock_Block ScriptBlock = new SuperEditMember_ScriptBlock_Block();
-			protected static string s56 = "</body></html>";
+			protected static string s57 = "</body></html>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -160,8 +162,10 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s54);
 					bd.Append(actionName);
 					bd.Append(s55);
-					if(null != ScriptBlock) ScriptBlock.ToString(ref bd);
+					bd.Append(isShowMyanmarOdds);
 					bd.Append(s56);
+					if(null != ScriptBlock) ScriptBlock.ToString(ref bd);
+					bd.Append(s57);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -184,17 +188,17 @@ namespace Fanex.PTEngine.Age
 
 		public class SuperEditMember_RemoveWhenIsMBCAccount_Block: Block
 		{
-			protected static string s57 = "<div class=\"alertwarning\">";
-			protected static string s58{get{return LocalResources.PTEngineLang.SpecialMemberUnlimitedBetSettingWarningMessage;}}
-			protected static string s59 = "</div>";
+			protected static string s58 = "<div class=\"alertwarning\">";
+			protected static string s59{get{return LocalResources.PTEngineLang.SpecialMemberUnlimitedBetSettingWarningMessage;}}
+			protected static string s60 = "</div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s57);
 					bd.Append(s58);
 					bd.Append(s59);
+					bd.Append(s60);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -202,17 +206,17 @@ namespace Fanex.PTEngine.Age
 
 		public class SuperEditMember_RemoveWhenIsSpecialAccount_Block: Block
 		{
-			protected static string s60 = "<div class=\"alertwarning\">";
-			protected static string s61{get{return LocalResources.PTEngineLang.MemberUnlimitedBetSettingWarningMessage;}}
-			protected static string s62 = "</div>";
+			protected static string s61 = "<div class=\"alertwarning\">";
+			protected static string s62{get{return LocalResources.PTEngineLang.MemberUnlimitedBetSettingWarningMessage;}}
+			protected static string s63 = "</div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s60);
 					bd.Append(s61);
 					bd.Append(s62);
+					bd.Append(s63);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -220,27 +224,28 @@ namespace Fanex.PTEngine.Age
 
 		public class SuperEditMember_CommissionBlock_Block: Block
 		{
-			protected static string s63 = "<div class=\"commission\"><div class=\"headerTab\">";
-			protected static string s64{get{return LocalResources.PTEngineLang.commission;}}
-			protected static string s65 = "</div><div class=\"clearBlock\"><div class=\"commissionViewBlock1 commissionHeader\"></div><div class=\"commissionViewBlock2 commissionHeader\">";
-			protected static string s66{get{return LocalResources.PTEngineLang.lblCommissionForMaster;}}
-			protected static string s67 = "</div><div class=\"commissionViewBlock2 commissionHeader\">";
-			protected static string s68{get{return LocalResources.PTEngineLang.lblCommissionForAgent;}}
-			protected static string s69 = "</div><div class=\"commissionViewBlock2 commissionHeader\">";
-			protected static string s70{get{return LocalResources.PTEngineLang.lblCommissionForMember;}}
-			protected static string s71 = "</div></div><div class=\"clearBlock\"><div class=\"commissionViewBlock1\">";
-			protected static string s72{get{return LocalResources.PTEngineLang.lblAsianHDC_OU_OE;}}
-			protected static string s73 = "</div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting2.playerDiscount\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.discount\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscount\"></span></div></div><div class=\"clearBlock\"><div class=\"commissionViewBlock1\">";
-			protected static string s74{get{return LocalResources.PTEngineLang.lbl1x2;}}
-			protected static string s75 = "</div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting2.playerDiscount1x2\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.discount1x2\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscount1x2\"></span></div></div><div class=\"clearBlock\"><div class=\"commissionViewBlock1\">";
-			protected static string s76{get{return LocalResources.PTEngineLang.lblOtherTypes;}}
-			protected static string s77 = "</div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting2.playerDiscountCs\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.discountCS\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscountCs\"></span></div></div><div class=\"clearBlock\"></div></div>";
+			protected static string s64 = "<div class=\"commission\"><div class=\"headerTab\">";
+			protected static string s65{get{return LocalResources.PTEngineLang.commission;}}
+			protected static string s66 = "</div><div class=\"clearBlock\"><div class=\"commissionViewBlock1 commissionHeader\"></div><div class=\"commissionViewBlock2 commissionHeader\">";
+			protected static string s67{get{return LocalResources.PTEngineLang.lblCommissionForMaster;}}
+			protected static string s68 = "</div><div class=\"commissionViewBlock2 commissionHeader\">";
+			protected static string s69{get{return LocalResources.PTEngineLang.lblCommissionForAgent;}}
+			protected static string s70 = "</div><div class=\"commissionViewBlock2 commissionHeader\">";
+			protected static string s71{get{return LocalResources.PTEngineLang.lblCommissionForMember;}}
+			protected static string s72 = "</div></div><div class=\"clearBlock\"><div class=\"commissionViewBlock1\">";
+			protected static string s73{get{return LocalResources.PTEngineLang.lblAsianHDC_OU_OE;}}
+			protected static string s74 = "</div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting2.playerDiscount\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.discount\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscount\"></span></div></div><div class=\"clearBlock\"><div class=\"commissionViewBlock1\">";
+			protected static string s75{get{return LocalResources.PTEngineLang.lbl1x2;}}
+			protected static string s76 = "</div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting2.playerDiscount1x2\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.discount1x2\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscount1x2\"></span></div></div><div class=\"clearBlock\"><div class=\"commissionViewBlock1\">";
+			protected static string s77{get{return LocalResources.PTEngineLang.lblOtherTypes;}}
+			protected static string s78 = "</div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting2.playerDiscountCs\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.discountCS\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscountCs\"></span></div></div>";
+			public SuperEditMember_CommissionBlock_MyanmarOdds_Block MyanmarOdds = new SuperEditMember_CommissionBlock_MyanmarOdds_Block();
+			protected static string s79 = "<div class=\"clearBlock\"></div></div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s63);
 					bd.Append(s64);
 					bd.Append(s65);
 					bd.Append(s66);
@@ -255,6 +260,27 @@ namespace Fanex.PTEngine.Age
 					bd.Append(s75);
 					bd.Append(s76);
 					bd.Append(s77);
+					bd.Append(s78);
+					if(null != MyanmarOdds) MyanmarOdds.ToString(ref bd);
+					bd.Append(s79);
+				}
+				if(IsAssigned){bd.Append(Value);}
+			}
+		}
+
+		public class SuperEditMember_CommissionBlock_MyanmarOdds_Block: Block
+		{
+			protected static string s80 = "<div class=\"clearBlock\"><div class=\"commissionViewBlock1\">";
+			protected static string s81{get{return LocalResources.PTEngineLang.Symbol_OddsPercentage;}}
+			protected static string s82 = "</div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting2.playerDiscountMyanmarOdds\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.discountMyanmarOdds\"></span></div><div class=\"commissionViewBlock2\"><span data-bind=\"text: customer.commissionSetting.playerDiscountMyanmarOdds\"></span></div></div>";
+			public override void ToString(ref StringBuilder bd)
+			{
+				if(!Visible) return;
+				if(RenderChild)
+				{
+					bd.Append(s80);
+					bd.Append(s81);
+					bd.Append(s82);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
