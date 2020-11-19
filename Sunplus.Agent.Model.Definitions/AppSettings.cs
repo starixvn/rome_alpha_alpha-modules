@@ -412,6 +412,15 @@ namespace Sunplus.Agent.Model.BL.Definitions
             }
         }
 
+        public static byte SettingStatus
+        {
+            get
+            {
+                byte.TryParse(GetValue("SettingStatus"), out byte settingStatus);
+                return settingStatus;
+            }
+        }
+
         /// <summary>
         /// Virtual application path.
         /// </summary>
