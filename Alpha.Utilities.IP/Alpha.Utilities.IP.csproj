@@ -20,5 +20,6 @@
   <ItemGroup>
     <PackageReference Include="Fanex.Caching" Version="2.2.1" />
 	<PackageReference Include="Fanex.Data.Repository" Version="1.0.2" />
+    <Compile Include="Models\FormatedIP.cs" />
   </ItemGroup>
 </Project>
