@@ -24,6 +24,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sunplus.Agent.Model.Base\Sunplus.Agent.Model.Base.csproj" />
+    <Compile Include="Models\AppSettingConstant.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Configuration" />

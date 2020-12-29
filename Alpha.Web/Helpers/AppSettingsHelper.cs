@@ -1,8 +1,8 @@
 ﻿namespace Alpha.Web.Helpers
 {
     using Alpha.Web.Configurations;
+    using Alpha.Web.Models;
     using System;
-    using System.Web;
 
     public static class AppSettingsHelper
     {
@@ -12,11 +12,23 @@
 
         public static bool HideProductStatusBySites(string site) =>
              Array.Exists(
-                 AppSettings.HideProductStatusSites, 
+                 AppSettings.HideProductStatusSites,
                  disallowedSite => disallowedSite.Equals(site, StringComparison.OrdinalIgnoreCase));
 
         public static string GetProductConfigsFileRelativePath() => AppSettings.ProductConfigsFileRelativePath;
 
         public static string GetQRCodeMemberSiteLoginConfigsPath() => AppSettings.QRCodeMemberSiteLoginConfigsPath;
+
+        public static bool GetAppSettingBooleanKey(AppSettingEnum settingKey)
+        {
+            switch (settingKey)
+            {
+                case AppSettingEnum.ShowOldCustomerList:
+                    return AppSettings.ShowOldCustomerList;
+
+                default:
+                    return false;
+            }
+        }
     }
 }

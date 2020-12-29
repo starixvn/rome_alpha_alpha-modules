@@ -45,6 +45,8 @@
         private static DateTime? forceLoginNicknameDate4SubAccount;
         private static string siteGroup;
 
+        private static readonly bool showOldCustomerList;
+
         static AppSettings()
         {
             enableKickOutWhenSessionInvalid = ConfigurationManager.AppSettings["EnableKickOutWhenSessionInvalid"] != null
@@ -94,6 +96,7 @@
             productConfigsFileRelativePath = ConfigurationManager.AppSettings["ProductConfigsFileRelativePath"];
             qrCodeMemberSiteLoginConfigsPath = ConfigurationManager.AppSettings["QRCodeMemberSiteLoginConfigs"];
             siteGroup = ConfigurationManager.AppSettings["SiteGroup"];
+            showOldCustomerList = ConfigurationManager.AppSettings["ShowOldCustomerList"] == "1";
 
             GetForceLoginNicknameConfiguration();
         }
@@ -135,7 +138,7 @@
         public static string HowToUseAppPath => howToUseAppPath;
 
         public static string TransferAppPath => transferAppPath;
-        
+
         public static string ViewLogsAppPath => viewLogsAppPath;
 
         public static DateTime? ForceLoginNicknameDate => forceLoginNicknameDate;
@@ -155,6 +158,7 @@
         public static string[] HideProductStatusSites => hideProductStatusSites;
 
         public static string SiteGroup => siteGroup;
+        public static bool ShowOldCustomerList => showOldCustomerList;
 
         private static void GetForceLoginNicknameConfiguration()
         {
