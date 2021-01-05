@@ -9,6 +9,7 @@ namespace Sunplus.Agent.Model.DL.Authorization
     using Auth;
     using Fanex.Common;
     using Fanex.Logging.Extensions.Web;
+    using Sunplus.Agent.Model.BL.Definitions;
     using Sunplus.Agent.Model.DL.Base;
     using Sunplus.Agent.Utilities;
 
@@ -647,7 +648,8 @@ namespace Sunplus.Agent.Model.DL.Authorization
             {
                 { "custid", custId },
                 { "adminid", adminId },
-                { "system", systemLogin }
+                { "system", systemLogin },
+                { "settingstatus", AppSettings. SettingStatus }
             };
 
             var result = ExecSpTable("Acc_CustomerSelStatus", parameters);
