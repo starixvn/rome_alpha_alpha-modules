@@ -21,7 +21,8 @@
                 { "ExTotalBetsForecast", ExTotalBetsForecastUrl},
                 { "HowToUse", HowToUseUrl},
                 { "AccountInfo", AccountInfoUrl},
-                { "ViewLog", ViewLogUrl }
+                { "ViewLog", ViewLogUrl },
+                { "Ng2", Ng2Url }
           };
 
         public static string GetMicroSiteUrl(string microSiteName, string virtualPath)
@@ -80,5 +81,9 @@
         [SuppressMessage("Microsoft.Design", "CA1055:UriReturnValuesShouldNotBeStrings", Justification = "Reviewed!")]
         public static string ViewLogUrl(string virtualPath = "~/")
             => AppPathHelper.GetAppPath(AppSettings.ViewLogsAppPath, virtualPath);
+
+        [SuppressMessage("Microsoft.Design", "CA1055:UriReturnValuesShouldNotBeStrings", Justification = "Reviewed!")]
+        public static string Ng2Url(string virtualPath = "~/")
+       => AppPathHelper.GetAppPath(AppSettings.Ng2AppPath, virtualPath);
     }
 }
