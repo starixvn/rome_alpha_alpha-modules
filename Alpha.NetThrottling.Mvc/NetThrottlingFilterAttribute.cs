@@ -17,7 +17,7 @@
         {
         }
 
-        public NetThrottlingFilterAttribute(INetThrottler netThrottler)
+        internal NetThrottlingFilterAttribute(INetThrottler netThrottler)
         {
             this.netThrottler = netThrottler ?? new NetThrottler();
         }

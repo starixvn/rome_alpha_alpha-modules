@@ -67,12 +67,12 @@
         {
         }
 
-        public NetThrottler(IThrottleSetting throttleSetting)
+        internal NetThrottler(IThrottleSetting throttleSetting)
             : this(throttleSetting, null, null)
         {
         }
 
-        public NetThrottler(IThrottleSetting throttleSetting, IClock clock, ILogger logger)
+        internal NetThrottler(IThrottleSetting throttleSetting, IClock clock, ILogger logger)
         {
             ThrottleSetting = throttleSetting ?? new ThrottleSetting();
             this.clock = clock ?? new Clock();

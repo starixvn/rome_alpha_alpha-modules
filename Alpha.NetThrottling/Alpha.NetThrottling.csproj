@@ -22,6 +22,7 @@ support sync function</PackageReleaseNotes>
     <PackageReference Include="Fanex.Caching" Version="2.2.1" />
     <PackageReference Include="Fanex.Caching.Redis" Version="2.2.1" />
     <PackageReference Include="Fanex.Logging.Extensions.Web" Version="1.0.8" />
+    <PackageReference Include="MessagePack" Version="1.7.3.4" />
     <ProjectReference Include="..\Alpha.Web\Alpha.Web.csproj" />
     <ProjectReference Include="..\Sunplus.Agent.Model.Base\Sunplus.Agent.Model.Base.csproj" />
     <Reference Include="System.Configuration" />

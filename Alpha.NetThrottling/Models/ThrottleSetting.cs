@@ -33,12 +33,12 @@
         {
         }
 
-        public ThrottleSetting(string sectionName)
+        internal ThrottleSetting(string sectionName)
             : this(NetThrottlingConfiguration.Get(sectionName), null)
         {
         }
 
-        public ThrottleSetting(NetThrottlingConfiguration configuration, ICacheServiceFactory cacheServiceFactory)
+        internal ThrottleSetting(NetThrottlingConfiguration configuration, ICacheServiceFactory cacheServiceFactory)
         {
             configuration = configuration ?? NetThrottlingConfiguration.Default;
             cacheServiceFactory = cacheServiceFactory ?? CacheServiceFactory.Default;
@@ -54,7 +54,7 @@
             CacheService = cacheServiceFactory.Create(redisCacheOptions);
         }
 
-        public ThrottleSetting(IResolver resolver, ICacheService cacheService, IEnumerable<NetThrottlingKeyElement> keys)
+        internal ThrottleSetting(IResolver resolver, ICacheService cacheService, IEnumerable<NetThrottlingKeyElement> keys)
         {
             Resolver = resolver;
             CacheService = cacheService;

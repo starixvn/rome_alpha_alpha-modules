@@ -23,8 +23,8 @@
         public HomeController(LoginService loginService, IThrottleSetting loginThrottleSetting)
         {
             this.loginService = loginService ?? new LoginService();
-            this.loginThrottleSetting = loginThrottleSetting ?? new ThrottleSetting("Alpha.NetThrottling.Manual");
-            loginNetThrottler = new NetThrottler(this.loginThrottleSetting);
+            this.loginThrottleSetting = loginThrottleSetting ?? new ThrottleSetting();
+            loginNetThrottler = new NetThrottler();
             loginThrottlePolicy = new ThrottlePolicy(this.loginThrottleSetting.GetKey("Login"));
         }
 
