@@ -13,7 +13,7 @@
     <PackageTags>alpha net throttling</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.0.12</Version>
+    <Version>1.0.14</Version>
     <AssemblyName>Alpha.NetThrottling.Mvc</AssemblyName>
     <PackageReleaseNotes>Use redis cache
 handle exception
