@@ -8,158 +8,329 @@
     using System.Threading.Tasks;
     using System.Web;
 
-    public class NetThrottler
+    public interface INetThrottler
     {
-        private const string BLOCK_PREFIX = "Block";
-        private const string THROTTLE_PREFIX = "Throttle";
+        IThrottleSetting ThrottleSetting { get; }
 
-        private readonly NetThrottlingConfiguration configuration;
+        ThrottleResult Throttle(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter);
 
-        private readonly CacheService cache;
+        ThrottleResult Throttle(IThrottlePolicy policy, CacheIdentity cacheIdentity);
+
+        TResult Throttle<TResult>(
+            HttpContextBase httpContext,
+            Func<Func<TResult, TResult>, TResult> work,
+            Func<TResult> blocked,
+            IThrottlePolicy policy,
+            IFilter filter);
+
+        TResult Throttle<TResult>(
+            Func<Func<TResult, TResult>, TResult> work,
+            Func<TResult> blocked,
+            IThrottlePolicy policy,
+            CacheIdentity cacheIdentity);
+
+        Task<ThrottleResult> ThrottleAsync(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter);
+
+        Task<ThrottleResult> ThrottleAsync(IThrottlePolicy policy, CacheIdentity cacheIdentity);
+
+        Task<TResult> ThrottleAsync<TResult>(
+            HttpContextBase httpContext,
+            Func<Func<TResult, Task<TResult>>, Task<TResult>> work,
+            Func<TResult> blocked,
+            IThrottlePolicy policy,
+            IFilter filter);
+
+        Task<TResult> ThrottleAsync<TResult>(
+            Func<Func<TResult, Task<TResult>>, Task<TResult>> work,
+            Func<TResult> blocked,
+            IThrottlePolicy policy,
+            CacheIdentity cacheIdentity);
+    }
+
+    public class NetThrottler : INetThrottler
+    {
+        private readonly IClock clock;
+        private readonly ILogger logger;
+
+        public IThrottleSetting ThrottleSetting { get; private set; }
+
+        public ICacheService CacheService
+        {
+            get
+            {
+                return ThrottleSetting.CacheService;
+            }
+        }
 
         public NetThrottler()
-            : this(null, null)
+            : this(null, null, null)
         {
         }
 
-        public NetThrottler(NetThrottlingConfiguration configuration, CacheService cache)
+        internal NetThrottler(IThrottleSetting throttleSetting)
+            : this(throttleSetting, null, null)
         {
-            this.configuration = configuration ?? NetThrottlingConfiguration.Current;
-            this.cache = cache ?? CacheFactory.CreateDefaultService();
         }
 
-        private string GenerateThrottleKey(string filterKey)
+        internal NetThrottler(IThrottleSetting throttleSetting, IClock clock, ILogger logger)
         {
-            return $"{configuration.Prefix}_{THROTTLE_PREFIX}_{filterKey}";
+            ThrottleSetting = throttleSetting ?? new ThrottleSetting();
+            this.clock = clock ?? new Clock();
+            this.logger = logger ?? Logger.Default;
         }
 
-        private string GenerateBlockKey(string filterKey)
+        private bool IsBlacklist(string blockKey)
         {
-            return $"{configuration.Prefix}_{BLOCK_PREFIX}_{filterKey}";
+            return CacheService.Contain(blockKey);
         }
 
-        private async Task<bool> IsBlacklistAsync(string filterKey)
+        private void AddBlacklist(string blockKey, int blockDuration)
         {
-            var blockKey = GenerateBlockKey(filterKey);
-            var blockValue = await cache.GetAsync<DateTime>(blockKey);
-            if (blockValue != DateTime.MinValue)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private async Task AddBlacklistAsync(string filterKey, int blockDuration)
-        {
-            var blockKey = GenerateBlockKey(filterKey);
-            await cache.SetAsync(
+            CacheService.Set(
                 blockKey,
-                DateTime.Now, new CacheItemOptions
+                clock.UtcNow, new CacheItemOptions
                 {
                     RelativeExpiration = TimeSpan.FromSeconds(blockDuration)
                 });
         }
 
-        public async Task<ThrottleResult> ThrottleAsync(HttpContext context)
+        public ThrottleResult Throttle(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter)
         {
-            var request = context.Request;
-            foreach (NetThrottlingKeyElement key in configuration.Keys)
-            {
-                if (key.Manual)
-                {
-                    continue;
-                }
-
-                var isPathMatched = key.Path == "*" || key.Path == request.AppRelativeCurrentExecutionFilePath;
-                var isMethodMatched = key.Method == "*" || key.Method == request.HttpMethod;
-                if (isPathMatched && isMethodMatched)
-                {
-                    return await ThrottleAsync(context, Mapper.From(key));
-                }
-            }
-
-            return ThrottleResult.Allowed;
+            var cacheIdentity = filter.GetCacheIdentity(httpContext, policy);
+            return Throttle(policy, cacheIdentity);
         }
 
-        public async Task<ThrottleResult> ThrottleAsync(string filterKey, int maxRequests, int throttleDuration, int blockDuration)
+        public ThrottleResult Throttle(IThrottlePolicy policy, CacheIdentity cacheIdentity)
         {
-            if (blockDuration != 0 && await IsBlacklistAsync(filterKey))
-            {
-                return ThrottleResult.Blocked;
-            }
-
-            var throttleKey = GenerateThrottleKey(filterKey);
-            var throttleCounter = await cache.GetAsync<ThrottleCounter>(throttleKey);
-            throttleCounter = throttleCounter == null || DateTime.Now > throttleCounter.Timestamp + TimeSpan.FromSeconds(throttleDuration)
-                ? new ThrottleCounter
-                {
-                    Timestamp = DateTime.Now,
-                    TotalRequests = 1
-                }
-                : new ThrottleCounter
-                {
-                    Timestamp = throttleCounter.Timestamp,
-                    TotalRequests = throttleCounter.TotalRequests + 1
-                };
-
-            if (throttleCounter.TotalRequests > maxRequests)
-            {
-                if (blockDuration != 0)
-                {
-                    await AddBlacklistAsync(filterKey, blockDuration);
-                }
-
-                return ThrottleResult.Blocked;
-            }
-
-            await cache.SetAsync(
-                throttleKey,
-                throttleCounter, new CacheItemOptions
-                {
-                    SlidingExpiration = TimeSpan.FromSeconds(throttleDuration)
-                });
-            return ThrottleResult.Allowed;
-        }
-
-        public async Task<ThrottleResult> ThrottleAsync(HttpContext httpContext, ThrottlePolicy policy)
-        {
-            var filter = TypeFactory<IFilter>.Create(policy.Filter);
-            var filterIdentity = filter.GetIdentity(httpContext);
-            if (string.IsNullOrEmpty(filterIdentity))
+            if (cacheIdentity == null)
             {
                 return ThrottleResult.Allowed;
             }
 
-            var filterKey = $"{policy.Name}_{filterIdentity}";
-            return await ThrottleAsync(filterKey, policy.MaxRequests, policy.ThrottleDuration, policy.BlockDuration);
+            try
+            {
+                if (IsBlacklist(cacheIdentity.BlockKey))
+                {
+                    return ThrottleResult.Blocked;
+                }
+
+                var isHasValue = CacheService.TryGet(cacheIdentity.ThrottleKey, out ThrottleCounter throttleCounter);
+                throttleCounter = !isHasValue || clock.UtcNow > throttleCounter.Timestamp + TimeSpan.FromSeconds(policy.ThrottleDuration)
+                    ? new ThrottleCounter
+                    {
+                        Timestamp = clock.UtcNow,
+                        TotalRequests = 1
+                    }
+                    : new ThrottleCounter
+                    {
+                        Timestamp = throttleCounter.Timestamp,
+                        TotalRequests = throttleCounter.TotalRequests + 1
+                    };
+
+                if (throttleCounter.TotalRequests > policy.MaxRequests)
+                {
+                    AddBlacklist(cacheIdentity.BlockKey, policy.BlockDuration);
+                    return ThrottleResult.Blocked;
+                }
+
+                CacheService.Set(
+                    cacheIdentity.ThrottleKey,
+                    throttleCounter, new CacheItemOptions
+                    {
+                        SlidingExpiration = TimeSpan.FromSeconds(policy.ThrottleDuration)
+                    });
+                return ThrottleResult.Allowed;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                return ThrottleResult.Allowed;
+            }
         }
 
-        public async Task<TResult> ThrottleAsync<TResult>(
-            Func<Func<TResult, Task<TResult>>, Task<TResult>> work,
+        public TResult Throttle<TResult>(
+            HttpContextBase httpContext,
+            Func<Func<TResult, TResult>, TResult> work,
             Func<TResult> blocked,
-            string filterIdentity,
-            ThrottlePolicy policy)
+            IThrottlePolicy policy,
+            IFilter filter)
         {
-            var filterKey = $"{policy.Name}_{filterIdentity}";
-            if (await IsBlacklistAsync(filterKey))
-            {
-                return blocked();
-            }
+            var cacheIdentity = filter.GetCacheIdentity(httpContext, policy);
+            return Throttle(work, blocked, policy, cacheIdentity);
+        }
 
-            async Task<TResult> success(TResult returnType)
+        public TResult Throttle<TResult>(
+            Func<Func<TResult, TResult>, TResult> work,
+            Func<TResult> blocked,
+            IThrottlePolicy policy,
+            CacheIdentity cacheIdentity)
+        {
+            TResult success(TResult returnType)
             {
-                var throttleResult = await ThrottleAsync(filterKey, policy.MaxRequests, policy.ThrottleDuration, policy.BlockDuration);
+                var throttleResult = Throttle(policy, cacheIdentity);
                 if (throttleResult == ThrottleResult.Blocked)
                 {
-                    await AddBlacklistAsync(filterKey, policy.BlockDuration);
-                    return blocked();
+                    try
+                    {
+                        AddBlacklist(cacheIdentity.BlockKey, policy.BlockDuration);
+                        return blocked();
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex);
+                        return returnType;
+                    }
                 }
 
                 return returnType;
             }
 
-            return await work(success);
+            if (cacheIdentity == null)
+            {
+                return work(success);
+            }
+
+            try
+            {
+                if (IsBlacklist(cacheIdentity.BlockKey))
+                {
+                    return blocked();
+                }
+
+                return work(success);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                return work(success);
+            }
+        }
+
+        private async Task<bool> IsBlacklistAsync(string blockKey)
+        {
+            return await CacheService.ContainAsync(blockKey).ConfigureAwait(false);
+        }
+
+        private async Task AddBlacklistAsync(string blockKey, int blockDuration)
+        {
+            await CacheService.SetAsync(
+                blockKey,
+                clock.UtcNow, new CacheItemOptions
+                {
+                    RelativeExpiration = TimeSpan.FromSeconds(blockDuration)
+                }).ConfigureAwait(false);
+        }
+
+        public async Task<ThrottleResult> ThrottleAsync(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter)
+        {
+            var cacheIdentity = filter.GetCacheIdentity(httpContext, policy);
+            return await ThrottleAsync(policy, cacheIdentity).ConfigureAwait(false);
+        }
+
+        public async Task<ThrottleResult> ThrottleAsync(IThrottlePolicy policy, CacheIdentity cacheIdentity)
+        {
+            if (cacheIdentity == null)
+            {
+                return ThrottleResult.Allowed;
+            }
+
+            try
+            {
+                if (await IsBlacklistAsync(cacheIdentity.BlockKey).ConfigureAwait(false))
+                {
+                    return ThrottleResult.Blocked;
+                }
+
+                var (isHasValue, throttleCounter) = await CacheService.TryGetAsync<ThrottleCounter>(cacheIdentity.ThrottleKey).ConfigureAwait(false);
+                throttleCounter = !isHasValue || clock.UtcNow > throttleCounter.Timestamp + TimeSpan.FromSeconds(policy.ThrottleDuration)
+                    ? new ThrottleCounter
+                    {
+                        Timestamp = clock.UtcNow,
+                        TotalRequests = 1
+                    }
+                    : new ThrottleCounter
+                    {
+                        Timestamp = throttleCounter.Timestamp,
+                        TotalRequests = throttleCounter.TotalRequests + 1
+                    };
+
+                if (throttleCounter.TotalRequests > policy.MaxRequests)
+                {
+                    await AddBlacklistAsync(cacheIdentity.BlockKey, policy.BlockDuration).ConfigureAwait(false);
+                    return ThrottleResult.Blocked;
+                }
+
+                await CacheService.SetAsync(
+                    cacheIdentity.ThrottleKey,
+                    throttleCounter, new CacheItemOptions
+                    {
+                        SlidingExpiration = TimeSpan.FromSeconds(policy.ThrottleDuration)
+                    }).ConfigureAwait(false);
+                return ThrottleResult.Allowed;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                return ThrottleResult.Allowed;
+            }
+        }
+
+        public async Task<TResult> ThrottleAsync<TResult>(
+            HttpContextBase httpContext,
+            Func<Func<TResult, Task<TResult>>, Task<TResult>> work,
+            Func<TResult> blocked,
+            IThrottlePolicy policy,
+            IFilter filter)
+        {
+            var cacheIdentity = filter.GetCacheIdentity(httpContext, policy);
+            return await ThrottleAsync(work, blocked, policy, cacheIdentity).ConfigureAwait(false);
+        }
+
+        public async Task<TResult> ThrottleAsync<TResult>(
+            Func<Func<TResult, Task<TResult>>, Task<TResult>> work,
+            Func<TResult> blocked,
+            IThrottlePolicy policy,
+            CacheIdentity cacheIdentity)
+        {
+            async Task<TResult> success(TResult returnType)
+            {
+                var throttleResult = await ThrottleAsync(policy, cacheIdentity).ConfigureAwait(false);
+                if (throttleResult == ThrottleResult.Blocked)
+                {
+                    try
+                    {
+                        await AddBlacklistAsync(cacheIdentity.BlockKey, policy.BlockDuration).ConfigureAwait(false);
+                        return blocked();
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex);
+                        return returnType;
+                    }
+                }
+
+                return returnType;
+            }
+
+            if (cacheIdentity == null)
+            {
+                return await work(success).ConfigureAwait(false);
+            }
+
+            try
+            {
+                if (await IsBlacklistAsync(cacheIdentity.BlockKey).ConfigureAwait(false))
+                {
+                    return blocked();
+                }
+
+                return await work(success).ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                return await work(success).ConfigureAwait(false);
+            }
         }
     }
 }

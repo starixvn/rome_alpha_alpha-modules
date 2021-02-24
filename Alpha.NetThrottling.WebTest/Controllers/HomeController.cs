@@ -1,33 +1,45 @@
 ﻿namespace Alpha.NetThrottling.WebTest.Controllers
 {
     using Alpha.NetThrottling.Models;
-    using Alpha.NetThrottling.Utils;
+    using Alpha.NetThrottling.Mvc;
     using Alpha.NetThrottling.WebTest.Constants;
     using Alpha.NetThrottling.WebTest.Models;
     using Alpha.NetThrottling.WebTest.Services;
-    using System.Threading.Tasks;
+    using Alpha.NetThrottling.WebTest.ThrottlingFilters;
     using System.Web.Mvc;
 
     public class HomeController : Controller
     {
-        private static ThrottlePolicy configurationLoginPolicy = Mapper.From(NetThrottlingConfiguration.Current.Keys["Login"]);
         private readonly LoginService loginService;
-        private readonly ThrottlePolicy loginPolicy;
+        private readonly IThrottleSetting loginThrottleSetting;
+        private readonly INetThrottler loginNetThrottler;
+        private readonly IThrottlePolicy loginThrottlePolicy;
 
         public HomeController() :
             this(null, null)
         {
         }
 
-        public HomeController(LoginService loginService, ThrottlePolicy loginPolicy)
+        public HomeController(LoginService loginService, IThrottleSetting loginThrottleSetting)
         {
             this.loginService = loginService ?? new LoginService();
-            this.loginPolicy = loginPolicy ?? configurationLoginPolicy;
+            this.loginThrottleSetting = loginThrottleSetting ?? new ThrottleSetting();
+            loginNetThrottler = new NetThrottler();
+            loginThrottlePolicy = new ThrottlePolicy(this.loginThrottleSetting.GetKey("Login"));
         }
 
+        [DisableNetThrottling]
         public ActionResult Index()
         {
             return View();
+        }
+
+        public JsonResult Ajax(string username)
+        {
+            return Json(new
+            {
+                username
+            });
         }
 
         public ActionResult About()
@@ -44,34 +56,44 @@
         }
 
         [HttpPost]
-        public async Task<ActionResult> Login(LoginModel model)
+        public ActionResult Login(LoginModel model)
         {
-            var netThrottler = new NetThrottler();
-            var filterIdentity = $"{model.Username}_{Request.GetClientIp()}";
-            return await netThrottler.ThrottleAsync<ActionResult>(
+            var currentHttpContext = System.Web.HttpContext.Current;
+            User loginUser = null;
+            var filter = new LoginFilter();
+            var result = loginNetThrottler.ThrottleAsync(
                 async (success) =>
                 {
-                    var user = loginService.Login(model);
-                    if (user != null)
+                    System.Web.HttpContext.Current = currentHttpContext;
+                    loginUser = loginService.Login(model);
+                    if (loginUser != null)
                     {
-                        Session[SessionConstants.USER] = user;
-                        return await success(RedirectToAction("Index", "Home"));
+                        return await success(ThrottleResult.Allowed);
                     }
                     else
                     {
-                        ViewBag.Message = "Wrong password";
-                        return View();
+                        return ThrottleResult.Allowed;
                     }
                 },
-                () => RedirectToAction("AccessDenied", "Home"),
-                filterIdentity,
-                loginPolicy
-            );
-        }
+                () => ThrottleResult.Blocked,
+                loginThrottlePolicy,
+                filter.GetCacheIdentity(HttpContext, loginThrottlePolicy)
+            ).Result;
+            if (result == ThrottleResult.Blocked)
+            {
+                ViewBag.Message = "Too many requests";
+                return View();
+            }
 
-        public ActionResult AccessDenied()
-        {
-            return View();
+            if (loginUser == null)
+            {
+                ViewBag.Message = "Wrong password";
+                return View();
+
+            }
+
+            Session[SessionConstants.USER] = loginUser;
+            return RedirectToAction("Index", "Home");
         }
     }
 }

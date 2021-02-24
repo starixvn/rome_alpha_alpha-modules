@@ -4,6 +4,8 @@
 
     public interface IResolver
     {
-        void Block(HttpContext context);
+        void Block();
+
+        void Block(HttpContextBase context);
     }
 }

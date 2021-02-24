@@ -4,6 +4,8 @@
 
     public class WhitelistConfiguration : ConfigurationSection
     {
+        public static readonly WhitelistConfiguration Default = Get("Alpha.NetThrottling.Whitelist");
+
         [ConfigurationProperty("custIds", IsRequired = true)]
         public string CustIds
         {
@@ -13,12 +15,9 @@
             }
         }
 
-        public static WhitelistConfiguration Current
+        public static WhitelistConfiguration Get(string sectionName)
         {
-            get
-            {
-                return ConfigurationManager.GetSection("Alpha.NetThrottling.Whitelist") as WhitelistConfiguration;
-            }
+            return ConfigurationManager.GetSection(sectionName) as WhitelistConfiguration;
         }
     }
 }

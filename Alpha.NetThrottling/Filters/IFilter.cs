@@ -1,9 +1,10 @@
 ﻿namespace Alpha.NetThrottling.Filters
 {
+    using Alpha.NetThrottling.Models;
     using System.Web;
 
     public interface IFilter
     {
-        string GetIdentity(HttpContext httpContext);
+        CacheIdentity GetCacheIdentity(HttpContextBase httpContext, IThrottlePolicy policy);
     }
 }

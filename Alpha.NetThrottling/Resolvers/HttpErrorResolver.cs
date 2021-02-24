@@ -2,13 +2,15 @@
 {
     using Alpha.NetThrottling.Resources;
     using Alpha.NetThrottling.Utils;
+    using Alpha.Web.Helpers;
     using System.Web;
 
-    public class HttpErrorResolver : IResolver
+    public class HttpErrorResolver : BaseResolver
     {
-        public void Block(HttpContext context)
+        public override void BlockNonAjaxRequest(HttpContextBase context)
         {
-            throw new HttpException(HttpStatusCodes.TooManyRequests, Lang.BlockedContent);
+            var blockedUrl = MicroSites.MainUrl($"~/error/blocked?path={context.Request.Path}");
+            context.Response.Redirect(blockedUrl);
         }
     }
 }

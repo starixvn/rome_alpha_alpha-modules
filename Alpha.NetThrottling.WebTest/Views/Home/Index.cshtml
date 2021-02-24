@@ -6,6 +6,21 @@
 
 @using (Html.BeginForm("Index", "Home", FormMethod.Post))
 {
-    <input name="txtUsername" />
+    <input id="txtUsername" name="Username" placeholder="Username" />
     <button type="submit">Post</button>
+    <button id="ajax" type="button">Post Ajax</button>
+}
+@section scripts{
+    <script>
+        $(function () {
+            $('#ajax').click(function () {
+                var username = $('#txtUsername').val();
+                $.post('/Home/Ajax', { username }, function (result) {
+                    console.log(result);
+                }).fail(function (e) {
+                    alert(e.statusText);
+                });
+            });
+        });
+    </script>
 }

@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <Description>Alpha Net Throttling</Description>
+    <Copyright>Starixsoft</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://gitlab.nexdev.net/rome/alpha/alpha.netthrottling</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<Deterministic>true</Deterministic>
+    <AssemblyVersion>1.0.12</AssemblyVersion>
+    <FileVersion>1.0.12</FileVersion>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>alpha net throttling</PackageTags>
+    <Authors>Starixsoft</Authors>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Version>1.0.14</Version>
+    <AssemblyName>Alpha.NetThrottling.Mvc</AssemblyName>
+    <PackageReleaseNotes>Use redis cache
+handle exception
+fix child action
+support sync function</PackageReleaseNotes>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Fanex.Caching.Redis" Version="2.2.1" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.3" />
+    <ProjectReference Include="..\Alpha.NetThrottling\Alpha.NetThrottling.csproj" />
+    <Reference Include="Alpha.NetThrottling">
+      <HintPath>..\Alpha.NetThrottling\bin\Debug\net461\Alpha.NetThrottling.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+	<Reference Include="System.Web" />
+  </ItemGroup>
+</Project>

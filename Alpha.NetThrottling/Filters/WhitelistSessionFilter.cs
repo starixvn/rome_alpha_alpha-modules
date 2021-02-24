@@ -1,5 +1,6 @@
 ﻿namespace Alpha.NetThrottling.Filters
 {
+    using Alpha.NetThrottling.Models;
     using Alpha.NetThrottling.Utils;
     using System.Collections.Generic;
     using System.Linq;
@@ -12,9 +13,9 @@
 
         static IEnumerable<int> ParseConfigurationCustIds()
         {
-            return string.IsNullOrWhiteSpace(WhitelistConfiguration.Current.CustIds) 
+            return string.IsNullOrWhiteSpace(WhitelistConfiguration.Default.CustIds) 
                 ? Enumerable.Empty<int>() 
-                : WhitelistConfiguration.Current.CustIds.Split(',').Select(int.Parse).ToList();
+                : WhitelistConfiguration.Default.CustIds.Split(',').Select(int.Parse).ToList();
         }
 
         public WhitelistSessionFilter()
@@ -27,7 +28,7 @@
             this.custIds = custIds ?? configurationCustIds;
         }
 
-        public string GetIdentity(HttpContext httpContext)
+        public CacheIdentity GetCacheIdentity(HttpContextBase httpContext, IThrottlePolicy policy)
         {
             var userSession = UserSessionFactory.Create();
             if (userSession == null)
@@ -41,7 +42,7 @@
                 return null;
             }
 
-            return $"{httpContext.Request.Path}_{custId}";
+            return CacheIdentity.From(policy, new [] { httpContext.Request.Path, userSession.UserName });
         }
     }
 }

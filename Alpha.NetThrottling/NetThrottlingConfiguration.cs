@@ -2,23 +2,23 @@
 {
     using System.Configuration;
 
-    public class NetThrottlingConfiguration : ConfigurationSection
+    public sealed class NetThrottlingConfiguration : ConfigurationSection
     {
-        [ConfigurationProperty("prefix", IsRequired = true)]
-        public string Prefix
-        {
-            get
-            {
-                return (string)this["prefix"];
-            }
-        }
-
-        [ConfigurationProperty("resolver")]
+        [ConfigurationProperty("resolver", IsRequired = true)]
         public string Resolver
         {
             get
             {
                 return (string)this["resolver"];
+            }
+        }
+
+        [ConfigurationProperty("redisConfigurationOptionsKey", IsRequired = true)]
+        public string RedisConfigurationOptionsKey
+        {
+            get
+            {
+                return (string)this["redisConfigurationOptionsKey"];
             }
         }
 
@@ -32,16 +32,21 @@
             }
         }
 
-        public static NetThrottlingConfiguration Current
+        public static NetThrottlingConfiguration Default
         {
             get
             {
-                return ConfigurationManager.GetSection("Alpha.NetThrottling") as NetThrottlingConfiguration;
+                return Get("Alpha.NetThrottling");
             }
+        }
+
+        public static NetThrottlingConfiguration Get(string sectionName)
+        {
+            return ConfigurationManager.GetSection(sectionName) as NetThrottlingConfiguration;
         }
     }
 
-    public class NetThrottlingKeyCollection : ConfigurationElementCollection
+    public sealed class NetThrottlingKeyCollection : ConfigurationElementCollection
     {
         public new NetThrottlingKeyElement this[string name]
         {
@@ -62,7 +67,7 @@
         }
     }
 
-    public class NetThrottlingKeyElement : ConfigurationElement
+    public sealed class NetThrottlingKeyElement : ConfigurationElement
     {
         [ConfigurationProperty("name", IsKey = true, IsRequired = true)]
         public string Name
@@ -79,15 +84,6 @@
             get
             {
                 return (string)this["path"];
-            }
-        }
-
-        [ConfigurationProperty("manual", IsRequired = false)]
-        public bool Manual
-        {
-            get
-            {
-                return (bool)this["manual"];
             }
         }
 
