@@ -580,7 +580,7 @@
     <value>ประตูรวมทั้งหมด</value>
   </data>
   <data name="lblTotalAgentActiveClosed" xml:space="preserve">
-    <value>สถานะของAgent ทั้งหมด/การแข่งขันถูกระงับ</value>
+    <value>สถานะของAgent ทั้งหมด/ถูกระงับ</value>
   </data>
   <data name="lblTotalAgentCredit" xml:space="preserve">
     <value>ยอดรวมเครดิตของ agent ทั้งหมด</value>
@@ -592,7 +592,7 @@
     <value>จำนวนรวมในบัญชี ของตัวแทนหลัก</value>
   </data>
   <data name="lblTotalMemberActiveClosed" xml:space="preserve">
-    <value>สถานะของสมาชิกทั้งหมด/การแข่งขันถูกระงับ</value>
+    <value>สถานะของสมาชิกทั้งหมด/ถูกระงับ</value>
   </data>
   <data name="lblTotalMemberCredit" xml:space="preserve">
     <value>ยอดรวมเครดิตทั้งหมดของสมาชิก</value>
@@ -781,10 +781,10 @@
     <value>สูงสุด</value>
   </data>
   <data name="suspend" xml:space="preserve">
-    <value>การแข่งขันถูกระงับ</value>
+    <value>ถูกระงับ</value>
   </data>
   <data name="suspended" xml:space="preserve">
-    <value>การแข่งขันถูกระงับ</value>
+    <value>ถูกระงับ</value>
   </data>
   <data name="Tennis" xml:space="preserve">
     <value>เทนนิส</value>
