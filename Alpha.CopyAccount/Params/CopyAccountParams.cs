@@ -9,8 +9,6 @@
             string actorSubAccName,
             string username,
             string password,
-            string firstName,
-            string lastName,
             string phone,
             string mobilePhone,
             string fax,
@@ -21,7 +19,9 @@
             string language,
             string iP,
             byte systemId,
-            bool isQrCode)
+            bool isQrCode,
+            string firstName = null,
+            string lastName = null)
         {
             ActorId = actorId;
             ActorUserLevel = actorUserLevel;
