@@ -82,6 +82,7 @@
     <Compile Include="App_Start\Configuration.cs" />
     <Compile Include="Authentications\HmacAuthenticator.cs" />
     <Compile Include="Models\CopyAccountResult.cs" />
+    <Compile Include="Params\CheckLimitNewDownlineParam.cs" />
     <Compile Include="Params\CopyAccountParams.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CopyAccountService.cs" />
