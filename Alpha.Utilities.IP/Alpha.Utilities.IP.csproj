@@ -6,7 +6,7 @@
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl></RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<Deterministic>true</Deterministic>
+    <Deterministic>true</Deterministic>
     <AssemblyVersion>1.0.2</AssemblyVersion>
     <FileVersion>1.0.2</FileVersion>
     <RepositoryType>git</RepositoryType>
@@ -19,10 +19,6 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.Caching" Version="2.2.1" />
-	<PackageReference Include="Fanex.Data.Repository" Version="1.0.2" />
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
-    </Reference>
-    <Compile Include="Models\FormatedIP.cs" />
+    <PackageReference Include="Fanex.Data.Repository" Version="1.0.2" />
   </ItemGroup>
 </Project>
