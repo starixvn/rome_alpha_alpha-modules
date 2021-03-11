@@ -6,7 +6,7 @@
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl></RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<Deterministic>true</Deterministic>
+    <Deterministic>true</Deterministic>
     <AssemblyVersion>1.0.2</AssemblyVersion>
     <FileVersion>1.0.2</FileVersion>
     <RepositoryType>git</RepositoryType>
@@ -19,6 +19,6 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.Caching" Version="2.2.1" />
-	<PackageReference Include="Fanex.Data.Repository" Version="1.0.2" />
+    <PackageReference Include="Fanex.Data.Repository" Version="1.0.2" />
   </ItemGroup>
 </Project>

@@ -1,21 +1,24 @@
 ﻿namespace Alpha.Utilities.IP
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Net;
     using Criteria;
     using Fanex.Caching;
     using Fanex.Data.Repository;
     using Model;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net;
+    using System.Text.RegularExpressions;
 
     public interface IPService
     {
         bool IsVNIP(string ipAddress);
+        FormatedIP FormatIP(string ip, bool isAdminCanViewVNIP);
     }
 
     public class IPServiceImpl : IPService
     {
+        private const string IPValidateRegex = @"(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)";
         private const string VNIPListCacheKey = "Alpha.BetLists.Service.IPService.VNIPList";
         private readonly IDynamicRepository dynamicRepository;
 
@@ -35,6 +38,27 @@
             var ipVnRange = GetVNIPs();
 
             return ipVnRange.Any(ip => ip.From <= ipNumber && ipNumber <= ip.To);
+        }
+
+        public FormatedIP FormatIP(string ip, bool isAdminCanViewVNIP)
+        {
+            if (!IsValidIP(ip))
+            {
+                return new FormatedIP(ip, false);
+            }
+
+            Regex regex = new Regex(IPValidateRegex);
+            if (!regex.IsMatch(ip, 0))
+            {
+                return new FormatedIP(ip, false);
+            }
+
+            if (IsVNIP(ip) && !isAdminCanViewVNIP)
+            {
+                return new FormatedIP(string.Empty, false);
+            }
+
+            return new FormatedIP(ip, true);
         }
 
         private IEnumerable<IPRange> GetVNIPs()
@@ -61,6 +85,13 @@
             }
 
             return 0;
+        }
+
+        private static bool IsValidIP(string ipAddress)
+        {
+            IPAddress parsedIpAddress;
+            return !string.IsNullOrWhiteSpace(ipAddress)
+                && IPAddress.TryParse(ipAddress, out parsedIpAddress);
         }
     }
 }

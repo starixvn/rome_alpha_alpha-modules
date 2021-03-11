@@ -6,7 +6,7 @@
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://gitlab.nexdev.net/rome/alpha/alpha.web</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<Deterministic>true</Deterministic>
+    <Deterministic>true</Deterministic>
     <AssemblyVersion>1.0.7.5</AssemblyVersion>
     <FileVersion>1.0.7.5</FileVersion>
     <RepositoryType>git</RepositoryType>
@@ -27,6 +27,6 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Configuration" />
-	<Reference Include="System.Web" />
+    <Reference Include="System.Web" />
   </ItemGroup>
 </Project>

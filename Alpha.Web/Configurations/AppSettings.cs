@@ -21,6 +21,7 @@
         private static string memberInfoAppPath;
         private static string messageAppPath;
         private static string accountInfoAppPath;
+        private static string ng2AppPath;
 
         private static string staticResourcesVersion;
         private static string googleAnalyticUrl;
@@ -44,6 +45,8 @@
         private static IDictionary<int, bool> forceLoginNicknameIgnoreList;
         private static DateTime? forceLoginNicknameDate4SubAccount;
         private static string siteGroup;
+
+        private static readonly bool showOldCustomerList;
 
         static AppSettings()
         {
@@ -71,6 +74,7 @@
             memberInfoAppPath = ConfigurationManager.AppSettings["MemberInfoAppPath"] ?? "site-memberinfo";
             messageAppPath = ConfigurationManager.AppSettings["MessageAppPath"] ?? "site-message";
             accountInfoAppPath = ConfigurationManager.AppSettings["AccountInfoAppPath"] ?? "site-accountinfo";
+            ng2AppPath = ConfigurationManager.AppSettings["NG2SiteVirtualPath"] ?? "site-ng2";
 
             staticResourcesVersion = ConfigurationManager.AppSettings["AssetsApp:StaticResourcesVersion"] ?? "100";
 
@@ -94,6 +98,7 @@
             productConfigsFileRelativePath = ConfigurationManager.AppSettings["ProductConfigsFileRelativePath"];
             qrCodeMemberSiteLoginConfigsPath = ConfigurationManager.AppSettings["QRCodeMemberSiteLoginConfigs"];
             siteGroup = ConfigurationManager.AppSettings["SiteGroup"];
+            showOldCustomerList = ConfigurationManager.AppSettings["ShowOldCustomerList"] == "1";
 
             GetForceLoginNicknameConfiguration();
         }
@@ -135,8 +140,10 @@
         public static string HowToUseAppPath => howToUseAppPath;
 
         public static string TransferAppPath => transferAppPath;
-        
+
         public static string ViewLogsAppPath => viewLogsAppPath;
+
+        public static string Ng2AppPath => ng2AppPath;
 
         public static DateTime? ForceLoginNicknameDate => forceLoginNicknameDate;
 
@@ -155,6 +162,7 @@
         public static string[] HideProductStatusSites => hideProductStatusSites;
 
         public static string SiteGroup => siteGroup;
+        public static bool ShowOldCustomerList => showOldCustomerList;
 
         private static void GetForceLoginNicknameConfiguration()
         {
