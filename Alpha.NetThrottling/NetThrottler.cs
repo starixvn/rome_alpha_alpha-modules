@@ -92,12 +92,7 @@
         {
         }
 
-        internal NetThrottler(IThrottleSetting throttleSetting)
-            : this(throttleSetting, null)
-        {
-        }
-
-        internal NetThrottler(IThrottleSetting throttleSetting, IClock clock, ILogger logger)
+        internal NetThrottler(IThrottleSetting throttleSetting, IClock clock)
         {
             ThrottleSetting = throttleSetting ?? new ThrottleSetting();
             this.clock = clock ?? new Clock();
@@ -126,6 +121,8 @@
                 {
                     RelativeExpiration = TimeSpan.FromSeconds(policy.BlockDuration)
                 });
+        }
+
         public TimeSpan GetBlockRemainingTime(IThrottlePolicy policy, CacheIdentity cacheIdentity)
         {
             var isHasValue = CacheService.TryGet(cacheIdentity.BlockKey, out DateTime blockTime);
@@ -140,6 +137,7 @@
         }
 
         public ThrottleResult Throttle(HttpContextBase httpContext, IThrottlePolicy policy, IFilter filter)
+        {
             return Throttle(httpContext, policy, filter, false);
         }
 
@@ -147,7 +145,9 @@
         {
             var cacheIdentity = filter.GetCacheIdentity(httpContext, policy);
             return Throttle(policy, cacheIdentity, blockImmediately);
+        }
         public ThrottleResult Throttle(IThrottlePolicy policy, CacheIdentity cacheIdentity)
+        {
             return Throttle(policy, cacheIdentity, false);
         }
 

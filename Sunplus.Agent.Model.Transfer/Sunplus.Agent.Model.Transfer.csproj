@@ -22,11 +22,9 @@
     <PackageReference Include="Fanex.Caching.Redis" Version="2.2.1" />
     <PackageReference Include="Fanex.Data" Version="0.5.404.59" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+    <PackageReference Include="Sunplus.Agent.Model.Definitions" Version="3.0.3.4" />
     <ProjectReference Include="..\Alpha.Web\Alpha.Web.csproj" />
     <ProjectReference Include="..\Sunplus.Agent.Model.DataAccessLibrary\Sunplus.Agent.Model.DataAccessLibrary.csproj" />
-    <Reference Include="Sunplus.Agent.Model.Definitions, Version=3.0.3.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sunplus.Agent.Model.Definitions.3.0.3.4\lib\net40\Sunplus.Agent.Model.Definitions.dll</HintPath>
-    <Reference Include="System.Configuration" />
 	<Reference Include="System.Web" />
   </ItemGroup>
 </Project>

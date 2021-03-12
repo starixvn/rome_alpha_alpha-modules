@@ -54,7 +54,7 @@
             CacheService = cacheServiceFactory.Create(redisCacheOptions);
         }
 
-        internal ThrottleSetting(IResolver resolver, ICacheService cacheService, IEnumerable<NetThrottlingKeyElement> keys)
+        internal ThrottleSetting(IResolver resolver, ICacheServiceWrapper cacheService, IEnumerable<NetThrottlingKeyElement> keys)
         {
             Resolver = resolver;
             CacheService = cacheService;
