@@ -127,9 +127,6 @@
       <HintPath>..\packages\Fanex.Products.1.0.0.5\lib\net461\Fanex.Products.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Security.SpamFilter, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Security.SpamFilter.1.0.2-beta01\lib\net40\Fanex.Security.SpamFilter.dll</HintPath>
-    </Reference>
     <Reference Include="HandHistoryLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CasinoLibrary.2.0.3.38621\lib\net40\HandHistoryLibrary.dll</HintPath>
       <Private>True</Private>
@@ -317,7 +314,6 @@
     <Compile Include="Repositories\Authentication\IAuthenticationRepository.cs" />
     <Compile Include="Services\Authentication\AuthenticationService.cs" />
     <Compile Include="Services\Authentication\IAuthenticationService.cs" />
-    <Compile Include="SpamFilter\UserFilter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

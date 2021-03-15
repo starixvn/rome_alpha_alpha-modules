@@ -157,9 +157,6 @@
       <HintPath>..\packages\Fanex.Security.Captcha.1.0.1\lib\net40\Fanex.Security.Captcha.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Security.SpamFilter, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Security.SpamFilter.1.0.2-beta01\lib\net40\Fanex.Security.SpamFilter.dll</HintPath>
-    </Reference>
     <Reference Include="HandHistoryLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CasinoLibrary.2.0.3.38621\lib\net40\HandHistoryLibrary.dll</HintPath>
       <Private>True</Private>
@@ -352,12 +349,6 @@
     <Compile Include="JsonError.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TplHandlerSecurity.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TplHandlerSpamFilter.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TplPageSpamFilter.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Validation.cs" />
