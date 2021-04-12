@@ -197,11 +197,10 @@ namespace Sunplus.Agent.Model.Entities.Permission
                     return IsShowCasino;
                 case 8: // Keno
                     return IsShowKenoSetting;
-                case 12: // Gold Deluxe
-                    return IsShowGoldDeluxeSettingForCredit;
                 case 16: // SP2
                     return IsShowSportsbook2;
                 case 5: // Virtual Sports
+                case 12: // Gold Deluxe
                 case 44: // RNG Lottery
                     return IsEnableProduct(productId);
                 default:
