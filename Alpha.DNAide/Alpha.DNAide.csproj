@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <Description>Alpha.DNAide</Description>
+    <Copyright>Starixsoft</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://gitlab.nexdev.net/rome/alpha/Alpha.DNAide</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<Deterministic>true</Deterministic>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Alpha.DNAide</PackageTags>
+    <Authors>Starixsoft</Authors>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Version>1.0.0-init01</Version>
+    <AssemblyName>Alpha.DNAide</AssemblyName>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageId>Alpha.DNAide</PackageId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="EnterpriseLibrary.Logging" Version="5.0.414" />
+    <PackageReference Include="Fanex.Caching" Version="2.2.1" />
+    <PackageReference Include="Fanex.Data" Version="0.5.404.59" />
+    <PackageReference Include="ILogger" Version="1.0.0" />
+    <PackageReference Include="Microsoft.VisualBasic" Version="10.3.0" />
+    <Reference Include="System.Configuration" />
+	<Reference Include="System.Web" />
+  </ItemGroup>
+</Project>

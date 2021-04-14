@@ -1,11 +1,15 @@
-﻿using Enyim.Caching.Memcached.Results;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Threading;
+using System.Web.Configuration;
+using Fanex.Caching;
+using Fanex.Caching.Redis;
 using Fanex.Logging;
 using Newtonsoft.Json;
+using StackExchange.Redis;
 using Sunplus.Agent.Model.BL.Definitions;
 using Sunplus.Agent.Model.Transfer.Models;
-using Sunplus.Agent.Utilities.Extension;
-using System.Collections.Generic;
-using System.Threading;
 
 namespace Sunplus.Agent.Model.Transfer.Extensions
 {
@@ -31,35 +35,50 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
     public class TransferCacheServiceImplement : TransferCacheService
     {
         private int _adminId;
-
         private string _adminName = "Agent";
+        private readonly ICacheService cacheService;
 
-        public TransferCacheServiceImplement() : this(0, string.Empty)
+        public TransferCacheServiceImplement() : this(0, string.Empty, null)
         { }
 
-        public TransferCacheServiceImplement(int adminId, string adminName)
+        public TransferCacheServiceImplement(int adminId, string adminName, ICacheService cacheService)
         {
             _adminId = adminId;
             _adminName = adminName;
+            this.cacheService = cacheService ?? InitCacheService();
+        }
+
+        private static ICacheService InitCacheService()
+        {
+            var redisConfigurationOptions = WebConfigurationManager.AppSettings["RedisConfigurationOptions:Alpha.Transfer"];
+            var configurationOptions = ConfigurationOptions.Parse(redisConfigurationOptions);
+            var redisCacheOptions = new RedisCacheOptions
+            {
+                ApplicationName = configurationOptions.ClientName,
+                ConnectionOptions = configurationOptions
+            };
+
+            return new CacheService(new RedisCache(redisCacheOptions));
         }
 
         public List<TransferCacheModel> Get(string cacheKey)
         {
-            string value = CacheExtension.Get<string>(cacheKey);
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                return null;
-            }
+            string value = cacheService.Get<string>(cacheKey);
 
-            return JsonConvert.DeserializeObject<List<TransferCacheModel>>(value);
+            return string.IsNullOrWhiteSpace(value)
+                ? null
+                : JsonConvert.DeserializeObject<List<TransferCacheModel>>(value);
         }
 
         public bool Set(string cacheKey, List<TransferCacheModel> value)
         {
-            var result = CacheExtension.Set(cacheKey, JsonConvert.SerializeObject(value), AppSettings.MultipleTransferCacheTimeOut);
+            var cachePolicy = new CacheItemOptions()
+                .SetAbsoluteExpiration(TimeSpan.FromSeconds(AppSettings.MultipleTransferCacheTimeOut));
+            cacheService.Set(cacheKey, JsonConvert.SerializeObject(value), cachePolicy);
+
             if (AppSettings.EnableTransferLogInfo)
             {
-                LogService.Info(InfoMessageFormat(value, result), AppSettings.TransferLogCategory);
+                LogService.Info(InfoMessageFormat(value), AppSettings.TransferLogCategory);
             }
 
             if (!CompareAfterSet(cacheKey, value))
@@ -73,7 +92,7 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
 
         public void Remove(string cacheKey)
         {
-            CacheExtension.Remove(cacheKey);
+            cacheService.Remove(cacheKey);
         }
 
         public TransferCacheModel CacheContains(List<TransferCacheModel> listTransferCacheModel, int custId)
@@ -174,9 +193,9 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
         }
 
         private string ErrorMessageFormat(List<TransferCacheModel> value)
-            => $"[Agent Transfer Process] Couchbase cannot set value: {JsonConvert.SerializeObject(value)}";
+            => $"[Agent Transfer Process] Redis cannot set value: {JsonConvert.SerializeObject(value)}";
 
-        private string InfoMessageFormat(List<TransferCacheModel> value, IStoreOperationResult result)
-            => $"[Agent Transfer Process - PID: {Thread.CurrentThread.ManagedThreadId}] {_adminName}({_adminId}) set couchbase value to: {JsonConvert.SerializeObject(value)}; CAS: {JsonConvert.SerializeObject(result)}";
+        private string InfoMessageFormat(List<TransferCacheModel> value)
+            => $"[Agent Transfer Process - PID: {Thread.CurrentThread.ManagedThreadId}] {_adminName}({_adminId}) set redis value to: {JsonConvert.SerializeObject(value)}";
     }
 }

@@ -13,7 +13,7 @@
     {
         IResolver Resolver { get; }
 
-        ICacheService CacheService { get; }
+        ICacheServiceWrapper CacheService { get; }
 
         IEnumerable<NetThrottlingKeyElement> Keys { get; }
 
@@ -24,7 +24,7 @@
     {
         public IResolver Resolver { get; private set; }
 
-        public ICacheService CacheService { get; private set; }
+        public ICacheServiceWrapper CacheService { get; private set; }
 
         public IEnumerable<NetThrottlingKeyElement> Keys { get; private set; }
 
@@ -54,7 +54,7 @@
             CacheService = cacheServiceFactory.Create(redisCacheOptions);
         }
 
-        internal ThrottleSetting(IResolver resolver, ICacheService cacheService, IEnumerable<NetThrottlingKeyElement> keys)
+        internal ThrottleSetting(IResolver resolver, ICacheServiceWrapper cacheService, IEnumerable<NetThrottlingKeyElement> keys)
         {
             Resolver = resolver;
             CacheService = cacheService;

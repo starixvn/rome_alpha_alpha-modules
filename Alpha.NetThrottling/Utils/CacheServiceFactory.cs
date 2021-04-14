@@ -6,21 +6,21 @@
 
     public interface ICacheServiceFactory
     {
-        ICacheService Create(RedisCacheOptions options);
+        ICacheServiceWrapper Create(RedisCacheOptions options);
     }
 
     public class CacheServiceFactory : ICacheServiceFactory
     {
         public static readonly ICacheServiceFactory Default = new CacheServiceFactory();
-        private readonly Dictionary<string, ICacheService> cacheServices = new Dictionary<string, ICacheService>();
+        private readonly Dictionary<string, ICacheServiceWrapper> cacheServices = new Dictionary<string, ICacheServiceWrapper>();
 
-        public ICacheService Create(RedisCacheOptions options)
+        public ICacheServiceWrapper Create(RedisCacheOptions options)
         {
             if (!cacheServices.ContainsKey(options.ApplicationName))
             {
                 lock (cacheServices)
                 {
-                    var cacheService = new CacheService(new RedisCache(options));
+                    var cacheService = new CacheServiceWrapper(new CacheService(new RedisCache(options)));
                     cacheServices.Add(options.ApplicationName, cacheService);
                     return cacheService;
                 }
