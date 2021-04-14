@@ -2441,4 +2441,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   <data name="uncomfirmedSetting" xml:space="preserve">
     <value>Chưa Thiết Lập</value>
   </data>
+  <data name="locked" xml:space="preserve">
+    <value>Đã Khoá</value>
+  </data>
 </root>

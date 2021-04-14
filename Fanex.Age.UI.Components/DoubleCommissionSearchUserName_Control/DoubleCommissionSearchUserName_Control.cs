@@ -13,7 +13,8 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
             {UIComponentsLang.open, 1},
             {UIComponentsLang.suspended, 2},
             {UIComponentsLang.closed, 3},
-            {UIComponentsLang.disabled, 4}
+            {UIComponentsLang.disabled, 4},
+            {UIComponentsLang.locked, 5}
         };
 
         Dictionary<object, int> dcommFilterDict = new Dictionary<object, int>() { 

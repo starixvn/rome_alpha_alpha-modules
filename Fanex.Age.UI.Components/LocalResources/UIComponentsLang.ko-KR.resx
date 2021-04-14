@@ -2445,4 +2445,7 @@ Please use the form below to set your Security Code now.</value>
   <data name="uncomfirmedSetting" xml:space="preserve">
     <value>Unconfirmed Setting</value>
   </data>
+  <data name="locked" xml:space="preserve">
+    <value>Locked</value>
+  </data>
 </root>

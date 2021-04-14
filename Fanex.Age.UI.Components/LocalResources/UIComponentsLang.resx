@@ -2454,4 +2454,7 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="uncomfirmedSetting" xml:space="preserve">
     <value>Unconfirmed Setting</value>
   </data>
+  <data name="locked" xml:space="preserve">
+    <value>Locked</value>
+  </data>
 </root>

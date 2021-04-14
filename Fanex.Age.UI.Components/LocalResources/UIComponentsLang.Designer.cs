@@ -4197,6 +4197,15 @@ namespace Fanex.Age.UI.Components.LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Locked.
+        /// </summary>
+        internal static string locked {
+            get {
+                return ResourceManager.GetString("locked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         internal static string Login {
