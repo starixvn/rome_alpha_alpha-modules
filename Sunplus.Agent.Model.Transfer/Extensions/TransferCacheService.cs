@@ -37,6 +37,7 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
         private int _adminId;
         private string _adminName = "Agent";
         private readonly ICacheService cacheService;
+        private static readonly object lockObject = new object();
 
         public TransferCacheServiceImplement() : this(0, string.Empty, null)
         { }
@@ -63,36 +64,45 @@ namespace Sunplus.Agent.Model.Transfer.Extensions
 
         public List<TransferCacheModel> Get(string cacheKey)
         {
-            string value = cacheService.Get<string>(cacheKey);
+            lock (lockObject)
+            {
+                string value = cacheService.Get<string>(cacheKey);
 
-            return string.IsNullOrWhiteSpace(value)
-                ? null
-                : JsonConvert.DeserializeObject<List<TransferCacheModel>>(value);
+                return string.IsNullOrWhiteSpace(value)
+                    ? null
+                    : JsonConvert.DeserializeObject<List<TransferCacheModel>>(value);
+            }
         }
 
         public bool Set(string cacheKey, List<TransferCacheModel> value)
         {
-            var cachePolicy = new CacheItemOptions()
-                .SetAbsoluteExpiration(TimeSpan.FromSeconds(AppSettings.MultipleTransferCacheTimeOut));
-            cacheService.Set(cacheKey, JsonConvert.SerializeObject(value), cachePolicy);
-
-            if (AppSettings.EnableTransferLogInfo)
+            lock (lockObject)
             {
-                LogService.Info(InfoMessageFormat(value), AppSettings.TransferLogCategory);
-            }
+                var cachePolicy = new CacheItemOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromSeconds(AppSettings.MultipleTransferCacheTimeOut));
+                cacheService.Set(cacheKey, JsonConvert.SerializeObject(value), cachePolicy);
 
-            if (!CompareAfterSet(cacheKey, value))
-            {
-                LogService.Error(ErrorMessageFormat(value));
-                return false;
-            }
+                if (AppSettings.EnableTransferLogInfo)
+                {
+                    LogService.Info(InfoMessageFormat(value), AppSettings.TransferLogCategory);
+                }
 
-            return true;
+                if (!CompareAfterSet(cacheKey, value))
+                {
+                    LogService.Error(ErrorMessageFormat(value));
+                    return false;
+                }
+
+                return true;
+            }
         }
 
         public void Remove(string cacheKey)
         {
-            cacheService.Remove(cacheKey);
+            lock (lockObject)
+            {
+                cacheService.Remove(cacheKey);
+            }
         }
 
         public TransferCacheModel CacheContains(List<TransferCacheModel> listTransferCacheModel, int custId)
