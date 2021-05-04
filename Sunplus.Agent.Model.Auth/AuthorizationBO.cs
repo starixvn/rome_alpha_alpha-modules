@@ -19,6 +19,7 @@
     public class AuthorizationBO : Base.BOBase
     {
         private AuthorizationDAO dao = new AuthorizationDAO();
+        private readonly bool isDisabledDuplicationLogin = ConfigurationManager.AppSettings["DisabledCheckDuplicationLogin"] == "1";
 
         public AuthorizationBO(string netSessionId)
             : base(netSessionId)
@@ -136,11 +137,13 @@
                 outputs["subpageaccess"] = pageAccess;
             }
 
-            int onUserId;
-            int serverId = (int)outputs["serverid"];
-            int subAccId = (int)outputs["subaccid"];
-            this.dao.Acc_Checkin(custId, subAccId, userSession.NetSessionId, serverId, requestInfo["loginip"].ToString(), out onUserId);
-            outputs.Add("on_userid", onUserId);
+            if (!isDisabledDuplicationLogin)
+            {
+                int serverId = (int)outputs["serverid"];
+                int subAccId = (int)outputs["subaccid"];
+                this.dao.Acc_Checkin(custId, subAccId, userSession.NetSessionId, serverId, requestInfo["loginip"].ToString(), out int onUserId);
+                outputs.Add("on_userid", onUserId);
+            }
 
             this.GetCustomerStatus(custId, 0, ref outputs);
 
@@ -217,10 +220,12 @@
                 outputs.Remove("subusername");
             }
 
-            int onUserId;
-            int serverId = (int)outputs["serverid"];
-            this.dao.Acc_Checkin(custId, subAccId, userSession.NetSessionId, serverId, requestInfo["loginip"].ToString(), out onUserId);
-            outputs.Add("on_userid", onUserId);
+            if (!isDisabledDuplicationLogin)
+            {
+                int serverId = (int)outputs["serverid"];
+                this.dao.Acc_Checkin(custId, subAccId, userSession.NetSessionId, serverId, requestInfo["loginip"].ToString(), out int onUserId);
+                outputs.Add("on_userid", onUserId);
+            }
 
             this.GetCustomerStatus(custId, 0, ref outputs);
 
@@ -287,10 +292,12 @@
                 outputs.Remove("subusername");
             }
 
-            int onUserId;
-            int serverId = (int)outputs["serverid"];
-            this.dao.Acc_Checkin(custId, subAccId, userSession.NetSessionId, serverId, requestInfo["loginip"].ToString(), out onUserId);
-            outputs.Add("on_userid", onUserId);
+            if (!isDisabledDuplicationLogin)
+            {
+                int serverId = (int)outputs["serverid"];
+                this.dao.Acc_Checkin(custId, subAccId, userSession.NetSessionId, serverId, requestInfo["loginip"].ToString(), out int onUserId);
+                outputs.Add("on_userid", onUserId);
+            }
 
             this.GetCustomerStatus(custId, 0, ref outputs);
 
@@ -386,13 +393,14 @@
             outputs.Add("subaccid", 0); // Sub-account always be zero in internal login case
             outputs.Add("subaccname", string.Empty);
 
-            int onUserId;
-            int serverId = (int)outputs["serverid"];
-            int subAccId = (int)outputs["subaccid"];
-            this.dao.Acc_Checkin(custId, -adminId, userSession.NetSessionId, serverId, requestInfo["loginip"].ToString(), out onUserId);
+            if (!isDisabledDuplicationLogin)
+            {
+                int serverId = (int)outputs["serverid"];
+                this.dao.Acc_Checkin(custId, -adminId, userSession.NetSessionId, serverId, requestInfo["loginip"].ToString(), out int onUserId);
 
-            // on_userid already existed in internal login case
-            outputs["on_userid"] = onUserId;
+                // on_userid already existed in internal login case
+                outputs["on_userid"] = onUserId;
+            }
 
             this.GetCustomerStatus(custId, adminId, ref outputs, systemLogin);
 
@@ -419,6 +427,11 @@
         /// </summary>
         public void SignOut(string reason = null)
         {
+            if (isDisabledDuplicationLogin)
+            {
+                return;
+            }
+
             this.dao.Acc_CheckOut(
                 CurrentSession.OnUserId,
                 CurrentSession.SubAccId > 0 ? CurrentSession.SubUserName : CurrentSession.UserName,
