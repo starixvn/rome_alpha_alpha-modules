@@ -14,9 +14,9 @@
             {
                 if (functionDataSource == null)
                 {
-                    var functionDataSource = new Dictionary<string, FunctionElement>(StringComparer.OrdinalIgnoreCase);
                     var partialUMSection = ConfigurationManager.GetSection("PartialUMSection") as PartialUMSection;
 
+                    functionDataSource = new Dictionary<string, FunctionElement>(StringComparer.OrdinalIgnoreCase);
                     foreach (FunctionElement function in partialUMSection.FunctionCollection)
                     {
                         foreach (SettingElement setting in function.SettingCollection)
@@ -36,7 +36,5 @@
 
             return functionElement;
         }
-
-        internal static bool IsUMFunction(string settingKey) => FunctionDataSource.ContainsKey(settingKey);
     }
 }
