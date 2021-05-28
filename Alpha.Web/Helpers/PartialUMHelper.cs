@@ -7,14 +7,11 @@
 
     public static class PartialUMHelper
     {
-        public static bool IsUMSpName(string functionName, string spName)
-            => PartialUMSettings.GetUMSps(functionName)
-            .Select(sp => sp.Name)
-            .Contains(spName, StringComparer.CurrentCultureIgnoreCase);
+        public static bool IsUMFunction(string settingKey) => PartialUMSettings.IsUMFunction(settingKey);
 
-        public static FunctionModel GetUMFunction(string functionName)
+        public static FunctionModel GetUMFunction(string settingKey)
         {
-            var function = PartialUMSettings.GetUMFunction(functionName);
+            var function = PartialUMSettings.GetUMFunction(settingKey);
             return new FunctionModel(function.Name, function.UMFrom, function.UMTo);
         }
     }

@@ -2,22 +2,31 @@
 {
     using System.Collections.Generic;
     using System.Configuration;
-    using System.Linq;
 
     public static class PartialUMSettings
     {
         private static PartialUMSection partialUMSection
             = ConfigurationManager.GetSection("PartialUMSection") as PartialUMSection;
 
-        public static IEnumerable<SettingElement> GetUMSps(string functionName)
+        private static Dictionary<string, FunctionElement> FunctionDataSource
         {
-            return (
-                from SettingElement element
-                in partialUMSection.FunctionCollection[functionName].SettingCollection
-                select element);
+            get
+            {
+                var functionDataSource = new Dictionary<string, FunctionElement>();
+                foreach (FunctionElement function in partialUMSection.FunctionCollection)
+                {
+                    foreach (SettingElement setting in function.SettingCollection)
+                    {
+                        functionDataSource.Add(setting.SettingKey, function);
+                    }
+                }
+
+                return functionDataSource;
+            }
         }
 
-        public static FunctionElement GetUMFunction(string functionName)
-            => partialUMSection.FunctionCollection[functionName];
+        public static FunctionElement GetUMFunction(string settingKey) => FunctionDataSource[settingKey];
+
+        public static bool IsUMFunction(string settingKey) => FunctionDataSource.ContainsKey(settingKey);
     }
 }

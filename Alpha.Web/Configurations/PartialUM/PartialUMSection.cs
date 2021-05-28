@@ -50,18 +50,18 @@
     {
         protected override ConfigurationElement CreateNewElement() => new SettingElement();
 
-        protected override object GetElementKey(ConfigurationElement element) => ((SettingElement)element).Name;
+        protected override object GetElementKey(ConfigurationElement element) => ((SettingElement)element).SettingKey;
 
         public new SettingElement this[string key] => (SettingElement)BaseGet(key);
     }
 
     public sealed class SettingElement : ConfigurationElement
     {
-        [ConfigurationProperty("Name", IsKey = true, IsRequired = true)]
-        public string Name
+        [ConfigurationProperty("SettingKey", IsKey = true, IsRequired = true)]
+        public string SettingKey
         {
-            get => this["Name"].ToString();
-            set => this["Name"] = value;
+            get => this["SettingKey"].ToString();
+            set => this["SettingKey"] = value;
         }
     }
 }
