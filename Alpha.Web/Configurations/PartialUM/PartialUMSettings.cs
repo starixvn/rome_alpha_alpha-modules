@@ -7,17 +7,22 @@
     {
         private static PartialUMSection partialUMSection
             = ConfigurationManager.GetSection("PartialUMSection") as PartialUMSection;
+        private static Dictionary<string, FunctionElement> functionDataSource;
 
         private static Dictionary<string, FunctionElement> FunctionDataSource
         {
             get
             {
-                var functionDataSource = new Dictionary<string, FunctionElement>();
-                foreach (FunctionElement function in partialUMSection.FunctionCollection)
+                if (functionDataSource == null)
                 {
-                    foreach (SettingElement setting in function.SettingCollection)
+                    var functionDataSource = new Dictionary<string, FunctionElement>();
+
+                    foreach (FunctionElement function in partialUMSection.FunctionCollection)
                     {
-                        functionDataSource.Add(setting.SettingKey, function);
+                        foreach (SettingElement setting in function.SettingCollection)
+                        {
+                            functionDataSource.Add(setting.SettingKey, function);
+                        }
                     }
                 }
 
