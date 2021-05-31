@@ -184,7 +184,10 @@
 
             session.DisplayNickName = session.IsNickname ? session.NickName : session.UserName;
 
-            session.OnUserId = (int)values["on_userid"];
+            if (values.Contains("on_userid") && values["on_userid"] != null && values["on_userid"] != DBNull.Value)
+            {
+                session.OnUserId = int.Parse(values["on_userid"].ToString());
+            }
 
             SetProductStatus(session, values);
             SetProductStatusToDictionary(session, values);
