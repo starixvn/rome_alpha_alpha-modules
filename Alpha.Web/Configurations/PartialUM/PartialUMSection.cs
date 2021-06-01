@@ -27,18 +27,25 @@
             set => this["Name"] = value;
         }
 
-        [ConfigurationProperty("UMFrom", IsRequired = true)]
+        [ConfigurationProperty("UMFrom", IsRequired = false, DefaultValue = "")]
         public string UMFrom
         {
             get => this["UMFrom"].ToString();
             set => this["UMFrom"] = value;
         }
 
-        [ConfigurationProperty("UMTo", IsRequired = true)]
+        [ConfigurationProperty("UMTo", IsRequired = false, DefaultValue = "")]
         public string UMTo
         {
             get => this["UMTo"].ToString();
             set => this["UMTo"] = value;
+        }
+
+        [ConfigurationProperty("IsActive", IsRequired = false, DefaultValue = false)]
+        public bool IsActive
+        {
+            get => (bool)this["IsActive"];
+            set => this["IsActive"] = value;
         }
 
         [ConfigurationProperty("", IsDefaultCollection = true)]
@@ -62,6 +69,13 @@
         {
             get => this["SettingKey"].ToString();
             set => this["SettingKey"] = value;
+        }
+
+        [ConfigurationProperty("SpName", IsRequired = false, DefaultValue = "")]
+        public string SpName
+        {
+            get => this["SpName"].ToString();
+            set => this["SpName"] = value;
         }
     }
 }

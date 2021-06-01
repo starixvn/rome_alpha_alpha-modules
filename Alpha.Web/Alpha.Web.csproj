@@ -13,7 +13,7 @@
     <PackageTags>alpha.web</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.0.8.4-PartialUMReportBetlist05</Version>
+    <Version>1.0.8.5-PartialUM</Version>
     <AssemblyName>Alpha.Web</AssemblyName>
     <PackageReleaseNotes>155755 - Partial UM report/bet list</PackageReleaseNotes>
   </PropertyGroup>
