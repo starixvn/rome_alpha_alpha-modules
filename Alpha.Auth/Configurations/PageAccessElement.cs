@@ -65,6 +65,13 @@
         {
             get { return (bool)this["isviewedbygroupheadline"]; }
             set { this["isviewedbygroupheadline"] = value; }
-        }        
+        }
+
+        [ConfigurationProperty("isallowedcrossline", DefaultValue = true, IsRequired = false, IsKey = false)]
+        public bool IsAllowedCrossLevel
+        {
+            get { return (bool)this["isallowedcrosslevel"]; }
+            set { this["isallowedcrosslevel"] = value; }
+        }
     }
 }

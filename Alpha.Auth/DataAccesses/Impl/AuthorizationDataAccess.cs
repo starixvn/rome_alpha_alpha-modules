@@ -82,7 +82,7 @@
             }
         }
 
-        public BelongingInfo IsBelonging(int custId, int currentCustId, int subAccountId, long transId)
+        public BelongingInfo IsBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal)
         {
             dynamic parameters = new Hashtable
             {
@@ -106,12 +106,12 @@
                 return new BelongingInfo
                 {
                     RoleId = Converter.To<byte>(outputs["roleid"]),
-                    IsActive = Converter.ToBool(outputs["isactive"])
+                    IsActive = Converter.ToBool(outputs["isactive"]) || isInternal
                 };
             }
         }
 
-        public bool IsCustomerConsolidatedGroupBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal)
+        public BelongingInfo IsCustomerConsolidatedGroupBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal)
         {
             dynamic parameters = new Hashtable();
 
@@ -130,11 +130,15 @@
             {
                 objectDb.ExecuteNonQuery(parameters);
                 var outputs = objectDb.GetOuputParams();
-                return Converter.To<byte>(outputs["roleid"]) > 0 && (isInternal ? true : Converter.ToBool(outputs["isactive"]));
+                return new BelongingInfo
+                {
+                    RoleId = Converter.To<byte>(outputs["roleid"]),
+                    IsActive = Converter.ToBool(outputs["isactive"]) || isInternal
+                };
             }
         }
 
-        public bool IsMultipleCustomersBelonging(string custIds, int currentCustId, int subAccountId, bool isInternal)
+        public BelongingInfo IsMultipleCustomersBelonging(string custIds, int currentCustId, int subAccountId, bool isInternal)
         {
             dynamic parameters = new Hashtable
             {
@@ -149,7 +153,11 @@
             {
                 objectDb.ExecuteNonQuery(parameters);
                 var outputs = objectDb.GetOuputParams();
-                return Converter.To<byte>(outputs["roleid"]) > 0 && (isInternal || Converter.ToBool(outputs["isactive"]));
+                return new BelongingInfo
+                {
+                    RoleId = Converter.To<byte>(outputs["roleid"]),
+                    IsActive = Converter.ToBool(outputs["isactive"]) || isInternal
+                };
             }
         }
 

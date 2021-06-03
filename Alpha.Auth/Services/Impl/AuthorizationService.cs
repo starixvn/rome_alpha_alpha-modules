@@ -111,15 +111,21 @@
                 return pageAccess.IsAllowToDoByThemselves;
             }
 
-            if (pageAccess.IsViewedByGroupHeadline
-                && _authDataAccess.IsCustomerConsolidatedGroupBelonging(
+            if (pageAccess.IsViewedByGroupHeadline)
+            {
+                var belongingInfoGroupHeadline = _authDataAccess.IsCustomerConsolidatedGroupBelonging(
                     _requestContext.CustId,
                     _requestContext.UserSession.CustId,
                     _requestContext.UserSession.SubAccId,
                     _requestContext.TransId,
-                    _requestContext.UserSession.IsInternal))
-            {
-                return true;
+                    _requestContext.UserSession.IsInternal);
+
+                if (_requestContext.UserSession.RoleId - belongingInfoGroupHeadline.RoleId > 1 && !pageAccess.IsAllowedCrossLevel)
+                {
+                    return false;
+                }
+
+                return belongingInfoGroupHeadline.IsActive;
             }
 
             return _requestContext.IsDataStoreInDataWarehouse
@@ -127,17 +133,17 @@
                     _requestContext.CustId,
                     _requestContext.UserSession.CustId,
                     _requestContext.TransId)
-
-                : IsBelonging(_requestContext);
+                : IsBelonging(_requestContext, pageAccess);
         }
 
-        internal bool IsBelonging(IRequestContext requestContext)
+        internal bool IsBelonging(IRequestContext requestContext, PageAccessElement pageAccess)
         {
             var belongingInfo = _authDataAccess.IsBelonging(
                     requestContext.CustId,
                     requestContext.UserSession.CustId,
                     requestContext.UserSession.SubAccId,
-                    requestContext.TransId);
+                    requestContext.TransId,
+                    requestContext.UserSession.IsInternal);
 
             if (belongingInfo.RoleId == 0
                 || belongingInfo.RoleId >= requestContext.UserSession.RoleId)
@@ -145,9 +151,9 @@
                 return false;
             }
 
-            if (requestContext.UserSession.IsInternal)
+            if (requestContext.UserSession.RoleId - belongingInfo.RoleId > 1 && !pageAccess.IsAllowedCrossLevel)
             {
-                return true;
+                return false;
             }
 
             return belongingInfo.IsActive;
