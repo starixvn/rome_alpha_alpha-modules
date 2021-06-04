@@ -11,5 +11,8 @@
         public int RoleId { get; }
 
         public bool IsActive { get; }
+
+        public bool IsCrossLevel(byte uplineRoleId)
+            => uplineRoleId - RoleId > 1;
     }
 }

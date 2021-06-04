@@ -327,7 +327,7 @@
                                     if (pageElement.IsViewedByGroupHeadline)
                                     {
                                         var belongingResultConsolidation = _authenticationRepsitory.Age_Rpt_CustomerConsolidatedGroup_CheckBelonging(custId, _currentUserSession.CustId, _currentUserSession.SubAccId, transId, _currentUserSession.IsInternal);
-                                        if (_currentUserSession.RoleId - belongingResultConsolidation.RoleId > 1 && !pageElement.IsAllowedCrossLevel)
+                                        if (belongingResultConsolidation.IsCrossLevel(_currentUserSession.RoleId) && !pageElement.IsAllowedCrossLevel)
                                         {
                                             return false;
                                         }
@@ -342,7 +342,7 @@
 
                                     var belongingResult =_authenticationRepsitory.Age_CustomerSelCheckBelonging(custId, _currentUserSession.CustId, _currentUserSession.SubAccId, transId, _currentUserSession.IsInternal);
 
-                                    if (_currentUserSession.RoleId - belongingResult.RoleId > 1 && !pageElement.IsAllowedCrossLevel)
+                                    if (belongingResult.IsCrossLevel(_currentUserSession.RoleId) && !pageElement.IsAllowedCrossLevel)
                                     {
                                         return false;
                                     }

@@ -102,11 +102,12 @@
             {
                 objectDb.ExecuteNonQuery(parameters);
                 var outputs = objectDb.GetOuputParams();
+                var roleId = Converter.To<byte>(outputs["roleid"]);
 
                 return new BelongingInfo
                 {
-                    RoleId = Converter.To<byte>(outputs["roleid"]),
-                    IsActive = Converter.ToBool(outputs["isactive"]) || isInternal
+                    RoleId = roleId,
+                    IsActive = isInternal || roleId > 0 && Converter.ToBool(outputs["isactive"])
                 };
             }
         }
@@ -130,10 +131,12 @@
             {
                 objectDb.ExecuteNonQuery(parameters);
                 var outputs = objectDb.GetOuputParams();
+                var roleId = Converter.To<byte>(outputs["roleid"]);
+
                 return new BelongingInfo
                 {
-                    RoleId = Converter.To<byte>(outputs["roleid"]),
-                    IsActive = Converter.ToBool(outputs["isactive"]) || isInternal
+                    RoleId = roleId,
+                    IsActive = isInternal || roleId > 0 && Converter.ToBool(outputs["isactive"])
                 };
             }
         }
@@ -153,10 +156,12 @@
             {
                 objectDb.ExecuteNonQuery(parameters);
                 var outputs = objectDb.GetOuputParams();
+                var roleId = Converter.To<byte>(outputs["roleid"]);
+
                 return new BelongingInfo
                 {
-                    RoleId = Converter.To<byte>(outputs["roleid"]),
-                    IsActive = Converter.ToBool(outputs["isactive"]) || isInternal
+                    RoleId = roleId,
+                    IsActive = isInternal || roleId > 0 && Converter.ToBool(outputs["isactive"])
                 };
             }
         }

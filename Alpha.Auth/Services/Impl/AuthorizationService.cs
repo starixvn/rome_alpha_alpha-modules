@@ -120,7 +120,7 @@
                     _requestContext.TransId,
                     _requestContext.UserSession.IsInternal);
 
-                if (_requestContext.UserSession.RoleId - belongingInfoGroupHeadline.RoleId > 1 && !pageAccess.IsAllowedCrossLevel)
+                if (belongingInfoGroupHeadline.IsCrossLevel(_requestContext.UserSession.RoleId) && !pageAccess.IsAllowedCrossLevel)
                 {
                     return false;
                 }
@@ -151,7 +151,7 @@
                 return false;
             }
 
-            if (requestContext.UserSession.RoleId - belongingInfo.RoleId > 1 && !pageAccess.IsAllowedCrossLevel)
+            if (belongingInfo.IsCrossLevel(requestContext.UserSession.RoleId) && !pageAccess.IsAllowedCrossLevel)
             {
                 return false;
             }
