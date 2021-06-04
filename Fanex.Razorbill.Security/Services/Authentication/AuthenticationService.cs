@@ -25,7 +25,6 @@
         private string _subAccountPermissionSessionKey = "Fanex.Razorbill.Security.Services.Authentication.CheckingCustomerPermission";
         private IUserSession _currentUserSession;
         private IAuthenticationRepository _authenticationRepsitory;
-        private IUserSession _userSession;
 
         private string _urlRequest;
         private object _blockStatus = new object();
@@ -303,8 +302,8 @@
                             foreach (PageAccessElement pageElement in pageAccess)
                             {
                                 if (pageElement.IsCheckUpline
-                                    && (UserSession.Current.CustId != uplineId
-                                    || (UserSession.Current.RoleId != uplineRoleId && uplineRoleId > 0)))
+                                    && (_currentUserSession.CustId != uplineId
+                                    || (_currentUserSession.RoleId != uplineRoleId && uplineRoleId > 0)))
                                 {
                                     return false;
                                 }
@@ -315,28 +314,40 @@
                                 // - and current requesting url not in special list: allow customers to update by themselves
                                 if (custId != 0 && pageElement.IsCheckBelonging)
                                 {
-                                    if (!pageElement.IsAllowToDoByThemselves && UserSession.Current.CustId == custId)
+                                    if (!pageElement.IsAllowToDoByThemselves && _currentUserSession.CustId == custId)
                                     {
                                         return false;
                                     }
 
-                                    if (pageElement.IsAllowToDoByThemselves && UserSession.Current.CustId == custId)
+                                    if (pageElement.IsAllowToDoByThemselves && _currentUserSession.CustId == custId)
                                     {
                                         return true;
                                     }
 
-                                    var netSessionId = HttpContext.Current.Session.SessionID;
-                                    _userSession = UserSessionService.GetUserSessionInstance(netSessionId);
-
-                                    if (pageElement.IsViewedByGroupHeadline
-                                        && _authenticationRepsitory.Age_Rpt_CustomerConsolidatedGroup_CheckBelonging(custId, _userSession.CustId, _userSession.SubAccId, transId, _userSession.IsInternal))
+                                    if (pageElement.IsViewedByGroupHeadline)
                                     {
-                                        return true;
+                                        var belongingResultConsolidation = _authenticationRepsitory.Age_Rpt_CustomerConsolidatedGroup_CheckBelonging(custId, _currentUserSession.CustId, _currentUserSession.SubAccId, transId, _currentUserSession.IsInternal);
+                                        if (_currentUserSession.RoleId - belongingResultConsolidation.RoleId > 1 && !pageElement.IsAllowedCrossLevel)
+                                        {
+                                            return false;
+                                        }
+
+                                        return belongingResultConsolidation.IsActive;
                                     }
 
-                                    return isDataWarehouse
-                                        ? _authenticationRepsitory.Age_CustomerSelCheckBelonging_OLD(custId, _userSession.CustId, transId)
-                                        : _authenticationRepsitory.Age_CustomerSelCheckBelonging(custId, _userSession.CustId, _userSession.SubAccId, transId, _userSession.IsInternal);
+                                    if (isDataWarehouse)
+                                    {
+                                        return _authenticationRepsitory.Age_CustomerSelCheckBelonging_OLD(custId, _currentUserSession.CustId, transId);
+                                    }
+
+                                    var belongingResult =_authenticationRepsitory.Age_CustomerSelCheckBelonging(custId, _currentUserSession.CustId, _currentUserSession.SubAccId, transId, _currentUserSession.IsInternal);
+
+                                    if (_currentUserSession.RoleId - belongingResult.RoleId > 1 && !pageElement.IsAllowedCrossLevel)
+                                    {
+                                        return false;
+                                    }
+
+                                    return belongingResult.IsActive;
                                 }
                             }
 
@@ -456,7 +467,9 @@
 
         public bool IsMultipleCustomersBelonging(string custIds)
         {
-            return _authenticationRepsitory.IsMultipleCustomersBelonging(custIds, _currentUserSession.CustId, _currentUserSession.SubAccId, _currentUserSession.IsInternal);
+            return _authenticationRepsitory
+                .IsMultipleCustomersBelonging(custIds, _currentUserSession.CustId, _currentUserSession.SubAccId, _currentUserSession.IsInternal)
+                .IsActive;
         }
     }
 }
