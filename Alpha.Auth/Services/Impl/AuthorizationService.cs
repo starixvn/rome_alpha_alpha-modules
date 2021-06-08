@@ -145,8 +145,13 @@
                     requestContext.TransId,
                     requestContext.UserSession.IsInternal);
 
-            if (belongingInfo.RoleId == 0
-                || belongingInfo.RoleId >= requestContext.UserSession.RoleId)
+            if (belongingInfo.RoleId == 0 || 
+                belongingInfo.RoleId > requestContext.UserSession.RoleId)
+            {
+                return false;
+            }
+
+            if (belongingInfo.RoleId == requestContext.UserSession.RoleId && !pageAccess.IsAllowToDoByThemselves)
             {
                 return false;
             }
