@@ -42,7 +42,7 @@
                 return null;
             }
 
-            return CacheIdentity.From(policy, new [] { httpContext.Request.Path, httpContext.Session.SessionID });
+            return CacheIdentity.From(policy, new [] { httpContext.Request.Path, userSession.UserName, userSession.SubUserName });
         }
     }
 }
