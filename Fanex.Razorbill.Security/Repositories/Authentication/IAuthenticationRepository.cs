@@ -1,10 +1,14 @@
-﻿namespace Fanex.Razorbill.Security.Repositories.Authentication
+﻿using Fanex.Razorbill.Security.Entities;
+
+namespace Fanex.Razorbill.Security.Repositories.Authentication
 {
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public interface IAuthenticationRepository
     {
+        ClosedLockedStatus CheckClosedOrLockedStatus(int customerId, int subAccountId);
+
         bool CheckingCustomerStatus(int customerId, int subAccountId);
 
         string GetSubAccountPermission(int subAccountId);

@@ -36,9 +36,11 @@
 
             if (!string.IsNullOrWhiteSpace(AuthorizationSection.Instance.KickoutUrl))
             {
-                if (!authorizationService.IsAccountActive())
+                var accountStatus = authorizationService.GetAccountStatus();
+
+                if (accountStatus != null && (accountStatus.IsClosed || accountStatus.IsLocked))
                 {
-                    KickoutUser(filterContext, "AccountClosed");
+                    KickoutUser(filterContext, accountStatus.IsClosed ? "AccountClosed" : "AccountLocked");
                     return;
                 }
 

@@ -7,6 +7,8 @@
     /// </summary>
     public interface IAuthenticationService
     {
+        ClosedLockedStatus CheckClosedOrLockedStatus();
+
         bool CheckingClosedStatus();
 
         CustomerPermissionResult CheckingCustomerPermission(int custId, long transId, bool isDataWarehouse);

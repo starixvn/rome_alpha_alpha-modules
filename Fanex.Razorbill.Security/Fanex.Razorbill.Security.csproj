@@ -300,6 +300,7 @@
     <Compile Include="Customer\CustomerSettingRenovation\CustomerSettingClientRegistration.cs" />
     <Compile Include="Customer\GoldDeluxeAuthorizationService.cs" />
     <Compile Include="Encryption\Encryptor.cs" />
+    <Compile Include="Entities\ClosedLockedStatus.cs" />
     <Compile Include="Entities\CustomerPermissionResult.cs" />
     <Compile Include="Entities\Result.cs" />
     <Compile Include="Entities\UserRole.cs" />

@@ -20,6 +20,7 @@
     /// </summary>
     public class AuthorizationService : IAuthorizationService
     {
+        private const string AccountStatusCacheKey = "Alpha.Auth.CustContext.AccountStatusCacheKey_{0}_{1}";
         private const string IsCustomerActiveCacheKey = "Alpha.Auth.CustContext.IsCustomerActiveCacheKey_{0}_{1}";
         private const string RecheckInCacheKey = "Alpha.Auth.CustContext.RecheckInCacheKey_{0}_{1}_{2}";
         private readonly int _cachedExpireTime;
@@ -40,6 +41,21 @@
             _requestContext = requestContext ?? new RequestContext();
             _authorizationSection = authorizationSection ?? AuthorizationSection.Instance;
             _cachedExpireTime = _authorizationSection.CachedExpireTime;
+        }
+
+        public AccountStatus GetAccountStatus()
+        {
+            if (_requestContext.UserSession.IsInternal)
+            {
+                return new AccountStatus(true, 0);
+            }
+
+            var accountStatus = _cachingService.GetOrAdd(
+                string.Format(AccountStatusCacheKey, _requestContext.UserSession.CustId, _requestContext.UserSession.SubAccId),
+                () => _authDataAccess.GetAccountStatus(_requestContext.UserSession.CustId, _requestContext.UserSession.SubAccId),
+                _cachedExpireTime);
+
+            return accountStatus;
         }
 
         public bool IsAccountActive()
