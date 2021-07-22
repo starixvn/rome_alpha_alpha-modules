@@ -4,6 +4,8 @@
 
     public interface IAuthorizationDataAccess
     {
+        AccountStatus GetAccountStatus(int customerId, int subAccountId);
+
         bool IsActive(int customerId, int subAccountId);
 
         string GetSubAccountPermission(int subAccountId);

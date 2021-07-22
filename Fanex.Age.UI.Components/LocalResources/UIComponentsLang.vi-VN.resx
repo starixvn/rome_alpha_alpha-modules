@@ -371,10 +371,10 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Click to view PT Info</value>
   </data>
   <data name="close" xml:space="preserve">
-    <value>Khóa</value>
+    <value>Đóng</value>
   </data>
   <data name="closed" xml:space="preserve">
-    <value>Bị khóa</value>
+    <value>Bị đóng</value>
   </data>
   <data name="coinsize" xml:space="preserve">
     <value>Coin Size</value>
@@ -410,10 +410,10 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
     <value>Bạn có chắc sẻ thu hồi tất cả hạn mức tín dụng của thành viên này</value>
   </data>
   <data name="confirmCloseDownline" xml:space="preserve">
-    <value>Bạn có chắc muốn khóa thành viên này?\nKhuyến cáo: tất cả cấp dưới của tài khoản này cũng sẽ bị khóa?</value>
+    <value>Bạn có chắc muốn đóng thành viên này?\nKhuyến cáo: tất cả cấp dưới của tài khoản này cũng sẽ bị đóng?</value>
   </data>
   <data name="confirmCloseMem" xml:space="preserve">
-    <value>Bạn có chắc muốn thay đổi trạng thái "Khóa" của thành viên này không?</value>
+    <value>Bạn có chắc muốn thay đổi trạng thái "Đóng" của thành viên này không?</value>
   </data>
   <data name="confirmDisableDoubleComm" xml:space="preserve">
     <value>"Bạn có chắc muốn khóa chức năng Nhân đôi hoa hồng với những cá cược bị thua trong Sportbooks của tài khoản này không?\n\n Cảnh báo, tất cả những thành viên cấp dưới trực thuộc tài khoản này sẽ đều bị khóa chức năng đó!"</value>
@@ -1002,7 +1002,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Thay đổi mật khẩu</value>
   </data>
   <data name="lblClosed" xml:space="preserve">
-    <value>Bị khóa</value>
+    <value>Bị đóng</value>
   </data>
   <data name="lblCommissionByBettype" xml:space="preserve">
     <value>Hoa hồng theo loại cược</value>
@@ -1026,7 +1026,7 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
     <value>Bạn có chắc sẻ thu hồi hạn mức tín dụng của tài khoản { tên đăng nhập } này?</value>
   </data>
   <data name="lblConfirmClosed" xml:space="preserve">
-    <value>Tài khoản của bạn đã bị khóa, bạn buộc phải đăng xuất .Vui lòng liên hệ với cấp trên của bạn để được hỗ trợ</value>
+    <value>Tài khoản của bạn đã bị đóng, bạn buộc phải đăng xuất .Vui lòng liên hệ với cấp trên của bạn để được hỗ trợ</value>
   </data>
   <data name="lblconfirmclosesubacc" xml:space="preserve">
     <value>Tài khoản phụ không được cấp phép</value>
@@ -1426,10 +1426,10 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>TG</value>
   </data>
   <data name="lblTotalActiveClosedSuspended" xml:space="preserve">
-    <value>Tổng số tài khoản đang Hoạt Động/Khóa/Đình Chỉ</value>
+    <value>Tổng số tài khoản đang Hoạt Động/Đóng/Đình Chỉ</value>
   </data>
   <data name="lblTotalAgentActiveClosed" xml:space="preserve">
-    <value>Số tài khoản Agent hiện đang: Kích hoạt/Khóa/Đình chỉ</value>
+    <value>Số tài khoản Agent hiện đang: Kích hoạt/Đóng/Đình chỉ</value>
   </data>
   <data name="lblTotalAgentCredit" xml:space="preserve">
     <value>Tổng mức tín dụng của Agent</value>
@@ -1450,7 +1450,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Tổng mức tín dụng của Master</value>
   </data>
   <data name="lblTotalMemberActiveClosed" xml:space="preserve">
-    <value>Số tài khoản Member hiện đang: Kích hoạt/Khóa/Đình chỉ</value>
+    <value>Số tài khoản Member hiện đang: Kích hoạt/Đóng/Đình chỉ</value>
   </data>
   <data name="lblTotalMemberCredit" xml:space="preserve">
     <value>Tổng mức tín dụng của Member</value>
@@ -2061,7 +2061,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Trạng thái</value>
   </data>
   <data name="statusclosed" xml:space="preserve">
-    <value>Trạng thái bị khóa</value>
+    <value>Trạng thái bị đóng</value>
   </data>
   <data name="strConfirmDisableCS" xml:space="preserve">
     <value>Cảnh báo!!!  Bạn có chắc muốn chặn thành viên này chơi Casino và tất cả những thành viên cấp dưới trực thuộc thành viên đó?</value>
@@ -2274,7 +2274,7 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Cập nhật  thiết lập về thành viên thất bại</value>
   </data>
   <data name="UplineHasClosed" xml:space="preserve">
-    <value>Cấp trên đã bị khóa</value>
+    <value>Cấp trên đã bị đóng</value>
   </data>
   <data name="UplineHasSuspended" xml:space="preserve">
     <value>Cấp trên đã bị đình chỉ</value>
@@ -2440,5 +2440,8 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   </data>
   <data name="uncomfirmedSetting" xml:space="preserve">
     <value>Chưa Thiết Lập</value>
+  </data>
+  <data name="locked" xml:space="preserve">
+    <value>Bị khoá</value>
   </data>
 </root>

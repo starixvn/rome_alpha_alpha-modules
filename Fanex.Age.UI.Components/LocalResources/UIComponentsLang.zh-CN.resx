@@ -2446,4 +2446,7 @@
   <data name="uncomfirmedSetting" xml:space="preserve">
     <value>未确认设定</value>
   </data>
+  <data name="locked" xml:space="preserve">
+    <value>已锁定</value>
+  </data>
 </root>

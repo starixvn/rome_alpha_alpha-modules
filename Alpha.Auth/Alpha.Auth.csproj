@@ -140,6 +140,7 @@
     <Compile Include="Configurations\DeniedPageElement.cs" />
     <Compile Include="Configurations\PageAccessElement.cs" />
     <Compile Include="Filters\CheckBelongingFilter.cs" />
+    <Compile Include="Models\AccountStatus.cs" />
     <Compile Include="Models\BelongingInfo.cs" />
     <Compile Include="Models\IRequestContext.cs" />
     <Compile Include="Models\KickoutInfo.cs" />

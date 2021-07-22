@@ -8,9 +8,7 @@
     using System.Diagnostics.CodeAnalysis;
     using Auth;
     using Fanex.Logging.Extensions.Web;
-    using Sunplus.Agent.Model.BL.Casino;
     using Sunplus.Agent.Model.BL.MemberInfo.SecurityCode;
-    using Sunplus.Agent.Model.Common;
     using Sunplus.Agent.Model.DL.Authorization;
     using Sunplus.Agent.Model.Entities;
 
@@ -100,20 +98,6 @@
                 {
                     ExceptionHandler.Handle(ex, TraceEventType.Information);
                     userSession.IsPasswordExpired = false;
-                }
-
-                if (errCode == 108)
-                {
-                    try
-                    {
-                        // Close status need to synchronize to Casino if login failed 5 times
-                        CasinoBO casino = new CasinoBO(NetSessionId);
-                        casino.Customer.UpdateCustClosedWrongPwd(custId, true, AgentIPFormat.GetClientIP());
-                    }
-                    catch (Exception ex)
-                    {
-                        ExceptionHandler.Handle(ex, TraceEventType.Information);
-                    }
                 }
 
                 return false;

@@ -4,12 +4,34 @@
     using System.Collections;
     using Fanex.Common;
     using Fanex.Data;
+    using Fanex.Razorbill.Security.Entities;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public class AuthenticationRepository : IAuthenticationRepository
     {
+        public ClosedLockedStatus CheckClosedOrLockedStatus(int customerId, int subAccountId)
+        {
+            using (var db = new ObjectDb("Age_CustomerStatusSel"))
+            {
+                db.AssignParamValues(new Hashtable
+                {
+                    ["custid"] = customerId,
+                    ["subaccid"] = subAccountId,
+                    ["isactive"] = false,
+                    ["locked"] = 0,
+                });
+
+                db.ExecuteNonQuery();
+                var ouputParams = db.GetOuputParams();
+
+                return new ClosedLockedStatus(
+                    Convert.ToBoolean(ouputParams["isactive"]),
+                    Convert.ToByte(ouputParams["locked"]));
+            }
+        }
+
         /// <summary>
         /// Checking customer status.
         /// </summary>

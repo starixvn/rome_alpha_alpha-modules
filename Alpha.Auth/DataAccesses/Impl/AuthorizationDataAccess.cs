@@ -8,6 +8,25 @@
 
     public class AuthorizationDataAccess : IAuthorizationDataAccess
     {
+        public AccountStatus GetAccountStatus(int customerId, int subAccountId)
+        {
+            using (var db = new ObjectDb("Age_CustomerStatusSel"))
+            {
+                db.ExecuteNonQuery(new Hashtable
+                {
+                    ["custid"] = customerId,
+                    ["subaccid"] = subAccountId,
+                    ["isactive"] = false,
+                    ["locked"] = 0
+                });
+                var ouputParams = db.GetOuputParams();
+
+                return new AccountStatus(
+                    Convert.ToBoolean(ouputParams["isactive"]),
+                    Convert.ToByte(ouputParams["locked"]));
+            }
+        }
+
         public bool IsActive(int customerId, int subAccountId)
         {
             using (var objectDb = new ObjectDb("Age_CustomerStatusSel"))

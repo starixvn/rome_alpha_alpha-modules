@@ -6,6 +6,7 @@
     using System.Text.RegularExpressions;
     using System.Web;
     using Fanex.Common;
+    using Fanex.Razorbill.Security.Configurations;
     //using Fanex.Razorbill.Module.Common.Configurations;
     using Fanex.Razorbill.Security.Configurations.AuthenticationSection;
     using Fanex.Razorbill.Security.Entities;
@@ -13,13 +14,13 @@
     using Sunplus.Agent.Model.BL;
     using Sunplus.Agent.Model.BL.Authorization;
     using Sunplus.Agent.Model.Entities;
-    using Fanex.Razorbill.Security.Configurations;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public class AuthenticationService : IAuthenticationService
     {
+        private string _customerClosedOrLockedSessionKey = "Fanex.Razorbill.Security.Services.Authentication.CheckClosedOrLockedStatus";
         private string _customerClosedStatusSessionKey = "Fanex.Razorbill.Security.Services.Authentication.CheckingClosedStatus";
         private string _subAccountPermissionSessionKey = "Fanex.Razorbill.Security.Services.Authentication.CheckingCustomerPermission";
         private IUserSession _currentUserSession;
@@ -36,7 +37,20 @@
         {
             _currentUserSession = UserSessionService.GetUserSessionInstance(HttpContext.Current.Session.SessionID);
             _authenticationRepsitory = new AuthenticationRepository();
-           _urlRequest = urlRequest;
+            _urlRequest = urlRequest;
+        }
+
+        public DateTime? CustomerClosedOrLockedStatus
+        {
+            get
+            {
+                return (DateTime?)HttpContext.Current.Session[string.Format("{0}_{1}", HttpContext.Current.Session.SessionID, _customerClosedOrLockedSessionKey)];
+            }
+
+            set
+            {
+                HttpContext.Current.Session[string.Format("{0}_{1}", HttpContext.Current.Session.SessionID, _customerClosedOrLockedSessionKey)] = value;
+            }
         }
 
         public string CustomerCurrentStatus
@@ -62,6 +76,40 @@
             set
             {
                 HttpContext.Current.Session[string.Format("{0}_{1}", HttpContext.Current.Session.SessionID, _subAccountPermissionSessionKey)] = value;
+            }
+        }
+
+        public ClosedLockedStatus CheckClosedOrLockedStatus()
+        {
+            lock (_blockStatus)
+            {
+                if (HttpContext.Current.Session == null)
+                {
+                    return new ClosedLockedStatus(isActive: false);
+                }
+
+                if (IgnoreSpecialFileTypes())
+                {
+                    return new ClosedLockedStatus();
+                }
+
+                var closedOrLockedStatusInSesssion = CustomerClosedOrLockedStatus;
+
+                if (closedOrLockedStatusInSesssion != null && closedOrLockedStatusInSesssion >= DateTime.Now)
+                {
+                    return new ClosedLockedStatus();
+                }
+
+                var closedOrLockedStatus = _authenticationRepsitory.CheckClosedOrLockedStatus(_currentUserSession.CustId, _currentUserSession.SubAccId);
+
+                if (closedOrLockedStatus.IsClosed || closedOrLockedStatus.IsLocked)
+                {
+                    return closedOrLockedStatus;
+                }
+
+                CustomerClosedOrLockedStatus = DateTime.Now.AddSeconds(Converter.ToInt(ConfigurationManager.AppSettings["CustomerStatusExpireTime"]));
+
+                return new ClosedLockedStatus();
             }
         }
 
