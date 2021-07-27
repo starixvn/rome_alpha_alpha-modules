@@ -120,25 +120,24 @@ namespace Sunplus.Agent.Model.BL.Transfer
         {
             TransferDAO dao = new TransferDAO();
 
-            bool? closed = null, suspended = null, enabled = null;
+            string custStatus = string.Empty;
 
             switch (status)
             {
                 case 1:
-                    closed = false;
+                    custStatus = "Open";
                     break;
                 case 2:
-                    suspended = true;
+                    custStatus = "Suspended";
                     break;
                 case 3:
-                    closed = true;
+                    custStatus = "Closed";
+                    break;
+                case 4:
+                    custStatus = "Disabled";
                     break;
                 default:
-                    if (status != 0)
-                    {
-                        enabled = false;
-                    }
-
+                    custStatus = "All";
                     break;
             }
 
@@ -146,9 +145,7 @@ namespace Sunplus.Agent.Model.BL.Transfer
             {
                 return dao.Age_Transfer_SelList_Ag(
                     CurrentSession.CustId,
-                    closed,
-                    suspended,
-                    enabled,
+                    custStatus,
                     pageIndex,
                     pagesize,
                     ref totalPages,
@@ -161,9 +158,7 @@ namespace Sunplus.Agent.Model.BL.Transfer
             {
                 return dao.Age_Transfer_SelList_MAg(
                     CurrentSession.CustId,
-                    closed,
-                    suspended,
-                    enabled,
+                    custStatus,
                     pageIndex,
                     pagesize,
                     ref totalPages,
@@ -176,9 +171,7 @@ namespace Sunplus.Agent.Model.BL.Transfer
             {
                 return dao.Age_Transfer_SelList_SAg(
                     CurrentSession.CustId,
-                    closed,
-                    suspended,
-                    enabled,
+                    custStatus,
                     pageIndex,
                     pagesize,
                     ref totalPages,

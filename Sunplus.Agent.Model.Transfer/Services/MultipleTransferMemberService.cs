@@ -151,10 +151,10 @@ namespace Sunplus.Agent.Model.Transfer.Services
                     _status = "Open";
                     break;
                 case 2:
-                    _status = "Suspend";
+                    _status = "Suspended";
                     break;
                 case 3:
-                    _status = "Close";
+                    _status = "Closed";
                     break;
                 default:
                     _status = "Disabled";
