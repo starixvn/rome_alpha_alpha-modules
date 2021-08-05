@@ -140,9 +140,7 @@ namespace Sunplus.Agent.Model.DL.Transfer
         /// <returns>Return table. When login is agent</returns>
         public DataTable Age_Transfer_SelList_Ag(
             int custid,
-            bool? closed,
-            bool? suspended,
-            bool? enabled,
+            string custStatus,
             int pageIndex,
             int pageSize,
             ref int totalPages,
@@ -159,9 +157,7 @@ namespace Sunplus.Agent.Model.DL.Transfer
                 { "username", userName },
                 { "isyesterdaybalance", isYesterdayBalance },
                 { "isallowtotalbalance", isAllowedTotalBalTrans },
-                { "closed", closed },
-                { "suspended", suspended },
-                { "enabled", enabled }
+                { "custstatus", custStatus }
             };
 
             var rs = ExecSp("Age_Transfer_SelList_Ag", htb);
@@ -186,9 +182,7 @@ namespace Sunplus.Agent.Model.DL.Transfer
         /// <returns>Return table. When login is master</returns>
         public DataTable Age_Transfer_SelList_MAg(
             int custid,
-            bool? closed,
-            bool? suspended,
-            bool? enabled,
+            string custStatus,
             int pageIndex,
             int pageSize,
             ref int totalPages,
@@ -205,9 +199,7 @@ namespace Sunplus.Agent.Model.DL.Transfer
                 { "username", userName },
                 { "isyesterdaybalance", isYesterdayBalance },
                 { "isallowtotalbalance", isAllowedTotalBalTrans },
-                { "closed", closed },
-                { "suspended", suspended },
-                { "enabled", enabled }
+                { "custstatus", custStatus }
             };
 
             var rs = ExecSp("Age_Transfer_SelList_MAg", htb);
@@ -232,9 +224,7 @@ namespace Sunplus.Agent.Model.DL.Transfer
         /// <returns>Return table. When login is super</returns>
         public DataTable Age_Transfer_SelList_SAg(
             int custid,
-            bool? closed,
-            bool? suspended,
-            bool? enabled,
+            string custStatus,
             int pageIndex,
             int pageSize,
             ref int totalPages,
@@ -251,9 +241,7 @@ namespace Sunplus.Agent.Model.DL.Transfer
                 { "username", userName },
                 { "isyesterdaybalance", isYesterdayBalance },
                 { "isallowtotalbalance", isAllowedTotalBalTrans },
-                { "closed", closed },
-                { "suspended", suspended },
-                { "enabled", enabled }
+                { "custstatus", custStatus }
             };
 
             var rs = ExecSp("Age_Transfer_SelList_SAg", htb);
