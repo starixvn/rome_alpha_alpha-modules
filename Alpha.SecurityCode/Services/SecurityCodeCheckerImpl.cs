@@ -14,31 +14,45 @@
                 return false;
             }
 
-            if (!SecurityCodeSessionManager.SecurityCodeSession.IsEnabledOtp 
+            if (!SecurityCodeSessionManager.SecurityCodeSession.IsEnabledOtp
                 && !IsEnableSecurityCode())
             {
                 return false;
             }
 
-            return IsRequiredSecurity(relativePath);
+            if (string.IsNullOrWhiteSpace(relativePath))
+            {
+                return false;
+            }
+
+            return IsRequiredSecurity(relativePath)
+                || IsRequiredSecurityCodeInBetLists(relativePath)
+                || IsRequiredSecurityCodeInStatement(relativePath);
         }
 
         private bool IsRequiredSecurity(string relativePath)
         {
-            if (!string.IsNullOrWhiteSpace(relativePath))
+            var relativePathToLower = relativePath.ToLower();
+            foreach (var url in AppSettings.SecurityCodeConfig.Paths)
             {
-                var relativePathToLower = relativePath.ToLower();
-                foreach (var url in AppSettings.SecurityCodeConfig.Paths)
+                if (relativePathToLower.Contains(url.ToLower()))
                 {
-                    if (relativePathToLower.Contains(url.ToLower()))
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
 
             return false;
         }
+
+        private bool IsRequiredSecurityCodeInBetLists(string relativePath)
+            => SecurityCodeSessionManager.SecurityCodeSession.IsEnabledSecurityCodeInBetLists
+            && AppSettings.SecurityCodeConfig.BetListsPaths.Any(
+                url => relativePath.IndexOf(url, StringComparison.OrdinalIgnoreCase) >= 0);
+
+        private bool IsRequiredSecurityCodeInStatement(string relativePath)
+            => SecurityCodeSessionManager.SecurityCodeSession.IsEnabledSecurityCodeInStatement
+            && AppSettings.SecurityCodeConfig.StatementPaths.Any(
+                url => relativePath.IndexOf(url, StringComparison.OrdinalIgnoreCase) >= 0);
 
         private bool ByPassSecurity()
         {

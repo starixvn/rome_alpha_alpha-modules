@@ -55,6 +55,8 @@ namespace Sunplus.Agent.Model.Entities
         private const string SECURITYCODERESULT = "SECURITYCODERESULT";
         private const string SHOWSECURITYCODEPOPUP = "SHOWSECURITYCODEPOPUP";
         private const string SECURITYCODETOKEN = "SECURITYCODETOKEN";
+        private const string ISENABLEDSECURITYCODEINBETLISTS = "ISENABLEDSECURITYCODEINBETLISTS";
+        private const string ISENABLEDSECURITYCODEINSTATEMENT = "ISENABLEDSECURITYCODEINSTATEMENT";
 
         private const string ISNICKNAMELOGINONLY = "ISNICKNAMELOGINONLY";
         private const string ISADMINCANVIEWVNIP = "ISADMINCANVIEWVNIP";
@@ -803,6 +805,34 @@ namespace Sunplus.Agent.Model.Entities
             set
             {
                 this.SetProperty(SECURITYCODETOKEN, value);
+            }
+        }
+
+        public bool IsEnabledSecurityCodeInBetLists
+        {
+            get
+            {
+                var value = GetProperty(ISENABLEDSECURITYCODEINBETLISTS);
+                return null == value ? false : (bool)value;
+            }
+
+            set
+            {
+                SetProperty(ISENABLEDSECURITYCODEINBETLISTS, value);
+            }
+        }
+
+        public bool IsEnabledSecurityCodeInStatement
+        {
+            get
+            {
+                var value = GetProperty(ISENABLEDSECURITYCODEINSTATEMENT);
+                return null == value ? false : (bool)value;
+            }
+
+            set
+            {
+                SetProperty(ISENABLEDSECURITYCODEINSTATEMENT, value);
             }
         }
 

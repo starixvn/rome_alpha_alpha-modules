@@ -71,6 +71,12 @@
             }
         }
 
+        public bool IsEnabledSecurityCodeInBetLists
+            => UserSession.Current.IsEnabledSecurityCodeInBetLists;
+
+        public bool IsEnabledSecurityCodeInStatement
+            => UserSession.Current.IsEnabledSecurityCodeInStatement;
+
         #region helper methods
 
         private static object GetProperty(string key)

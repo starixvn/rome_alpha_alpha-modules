@@ -13,5 +13,9 @@
         string UserSite { get; }
 
         bool IsEnabledOtp { get; set; }
+
+        bool IsEnabledSecurityCodeInBetLists { get; }
+
+        bool IsEnabledSecurityCodeInStatement { get; }
     }
 }

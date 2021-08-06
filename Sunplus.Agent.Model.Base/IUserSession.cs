@@ -319,6 +319,10 @@ namespace Sunplus.Agent.Model.Entities
 
         string SecurityCodeToken { get; set; }
 
+        bool IsEnabledSecurityCodeInBetLists { get; set; }
+
+        bool IsEnabledSecurityCodeInStatement { get; set; }
+
         #endregion Logged-in informations
 
         #region Casino

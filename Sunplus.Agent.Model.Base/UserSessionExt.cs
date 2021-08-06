@@ -618,6 +618,32 @@
             }
         }
 
+        public bool IsEnabledSecurityCodeInBetLists
+        {
+            get
+            {
+                return UserSession.Current.IsEnabledSecurityCodeInBetLists;
+            }
+
+            set
+            {
+                UserSession.Current.IsEnabledSecurityCodeInBetLists = value;
+            }
+        }
+
+        public bool IsEnabledSecurityCodeInStatement
+        {
+            get
+            {
+                return UserSession.Current.IsEnabledSecurityCodeInStatement;
+            }
+
+            set
+            {
+                UserSession.Current.IsEnabledSecurityCodeInStatement = value;
+            }
+        }
+
         public string Site
         {
             get

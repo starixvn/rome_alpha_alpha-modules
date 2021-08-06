@@ -12,6 +12,12 @@
         [DataMember(Name = "paths")]
         public IEnumerable<string> Paths { get; set; }
 
+        [DataMember(Name = "betListsPaths")]
+        public IEnumerable<string> BetListsPaths { get; set; }
+
+        [DataMember(Name = "statementPaths")]
+        public IEnumerable<string> StatementPaths { get; set; }
+
         [DataMember(Name = "sites", IsRequired = false)]
         public IEnumerable<string> Sites { get; set; }
 
