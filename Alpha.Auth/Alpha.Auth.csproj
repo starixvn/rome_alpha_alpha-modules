@@ -139,6 +139,7 @@
     <Compile Include="Configurations\PageAccessCollection.cs" />
     <Compile Include="Configurations\DeniedPageElement.cs" />
     <Compile Include="Configurations\PageAccessElement.cs" />
+    <Compile Include="Constants\KickOutReasonConst.cs" />
     <Compile Include="Filters\CheckBelongingFilter.cs" />
     <Compile Include="Models\AccountStatus.cs" />
     <Compile Include="Models\BelongingInfo.cs" />

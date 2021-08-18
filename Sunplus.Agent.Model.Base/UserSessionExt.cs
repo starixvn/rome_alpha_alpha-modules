@@ -765,6 +765,18 @@
             set => UserSession.Current.IndirectUsername = value;
         }
 
+        public bool IsOfferProtectedMode
+        {
+            get => UserSession.Current.IsOfferProtectedMode;
+            set => UserSession.Current.IsOfferProtectedMode = value;
+        }
+
+        public bool IsProtectedMode
+        {
+            get => UserSession.Current.IsProtectedMode;
+            set => UserSession.Current.IsProtectedMode = value;
+        }
+
         public bool GetDisabledProduct(int productId)
         {
             return UserSession.Current.GetDisabledProduct(productId);

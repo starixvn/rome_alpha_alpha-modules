@@ -16,6 +16,24 @@
         public byte KickOutReason { get; }
 
         public string KickOutReasonResourceKey
-            => KickOutReason == 1 ? "KickoutByForceChangePassword" : "DuplicationLogin";
+        {
+            get
+            {
+                const byte ResetPasswordForceKickout = 1;
+                const byte ProtectedModeForceKickout = 2;
+
+                switch (KickOutReason)
+                {
+                    case ResetPasswordForceKickout:
+                        return "KickoutByForceChangePassword";
+
+                    case ProtectedModeForceKickout:
+                        return "KickoutByProtectedMode";
+
+                    default:
+                        return "DuplicationLogin";
+                }
+            }
+        }
     }
 }

@@ -5,6 +5,7 @@
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Security;
+    using Alpha.Auth.Constants;
     using Configurations;
     using Services.Impl;
     using Web.Helpers;
@@ -50,7 +51,7 @@
 
                     if (kickOutInfo.IsKickedOut)
                     {
-                        KickoutUser(filterContext, kickOutInfo.KickOutReason == 1 ? "KickoutByForceChangePassword" : "DuplicationLogin");
+                        KickoutUser(filterContext, GetKickoutReasonMessage(kickOutInfo.KickOutReason));
                     }
                 }
             }
@@ -106,6 +107,21 @@
             else
             {
                 filterContext.Result = new RedirectResult(MicroSites.MainUrl($"{AuthorizationSection.Instance.KickoutUrl}?reason={message}"));
+            }
+        }
+
+        private static string GetKickoutReasonMessage(byte kickOutReason)
+        {
+            switch (kickOutReason)
+            {
+                case KickOutReasonConst.ResetPasswordForceKickout:
+                    return "KickoutByForceChangePassword";
+
+                case KickOutReasonConst.ProtectedModeForceKickout:
+                    return "KickoutByProtectedMode";
+
+                default:
+                    return "DuplicationLogin";
             }
         }
     }

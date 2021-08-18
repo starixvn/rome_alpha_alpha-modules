@@ -531,6 +531,10 @@ namespace Sunplus.Agent.Model.Entities
 
         string IndirectUsername { get; set; }
 
+        bool IsOfferProtectedMode { get; set; }
+
+        bool IsProtectedMode { get; set; }
+
         T GetProperty<T>(string propertyName);
 
         void SetProperty(string propertyName, object value);
