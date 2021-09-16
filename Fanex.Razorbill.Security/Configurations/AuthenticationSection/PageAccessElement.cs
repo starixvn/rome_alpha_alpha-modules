@@ -80,5 +80,12 @@
             get { return (bool)this["ischeckupline"]; }
             set { this["ischeckupline"] = value; }
         }
+
+        [ConfigurationProperty("isallowedcrosslevel", DefaultValue = true, IsRequired = false, IsKey = false)]
+        public bool IsAllowedCrossLevel
+        {
+            get { return (bool)this["isallowedcrosslevel"]; }
+            set { this["isallowedcrosslevel"] = value; }
+        }
     }
 }

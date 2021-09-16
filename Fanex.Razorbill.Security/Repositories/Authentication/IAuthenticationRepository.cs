@@ -15,11 +15,11 @@ namespace Fanex.Razorbill.Security.Repositories.Authentication
 
         bool Age_CustomerSelCheckBelonging_OLD(int custId, int currentCustId, long transId);
 
-        bool Age_CustomerSelCheckBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal);
+        BelongingResult Age_CustomerSelCheckBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal);
 
-        bool Age_Rpt_CustomerConsolidatedGroup_CheckBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal);
+        BelongingResult Age_Rpt_CustomerConsolidatedGroup_CheckBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal);
 
-        bool IsMultipleCustomersBelonging(
+        BelongingResult IsMultipleCustomersBelonging(
             string custIds,
             int currentCustId,
             int subAccountId,

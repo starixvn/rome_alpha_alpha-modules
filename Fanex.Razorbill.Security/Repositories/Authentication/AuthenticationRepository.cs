@@ -98,7 +98,7 @@
             return isBelonging;
         }
 
-        public bool Age_CustomerSelCheckBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal)
+        public BelongingResult Age_CustomerSelCheckBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal)
         {
             Hashtable parameters = new Hashtable();
 
@@ -113,19 +113,21 @@
             parameters.Add("roleid", 0);
             parameters.Add("isactive", true);
 
-            var isBelonging = false;
             using (var objectDb = new ObjectDb("Age_CustomerSelCheckBelonging"))
             {
                 objectDb.AssignParamValues(parameters);
                 objectDb.ExecuteNonQuery();
                 var outputs = objectDb.GetOuputParams();
-                isBelonging = Converter.To<byte>(outputs["roleid"]) > 0 && (isInternal ? true : Converter.ToBool(outputs["isactive"]));
-            }
+                var roleId = Converter.To<byte>(outputs["roleid"]);
 
-            return isBelonging;
+                return new BelongingResult(
+                    roleId,
+                    isInternal || roleId > 0 && Converter.ToBool(outputs["isactive"])
+                );
+            }
         }
 
-        public bool Age_Rpt_CustomerConsolidatedGroup_CheckBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal)
+        public BelongingResult Age_Rpt_CustomerConsolidatedGroup_CheckBelonging(int custId, int currentCustId, int subAccountId, long transId, bool isInternal)
         {
             Hashtable parameters = new Hashtable();
 
@@ -140,19 +142,21 @@
             parameters.Add("roleid", 0);
             parameters.Add("isactive", true);
 
-            var isBelonging = false;
             using (var objectDb = new ObjectDb("Age_Rpt_CustomerConsolidatedGroup_CheckBelonging"))
             {
                 objectDb.AssignParamValues(parameters);
                 objectDb.ExecuteNonQuery();
                 var outputs = objectDb.GetOuputParams();
-                isBelonging = Converter.To<byte>(outputs["roleid"]) > 0 && (isInternal ? true : Converter.ToBool(outputs["isactive"]));
-            }
+                var roleId = Converter.To<byte>(outputs["roleid"]);
 
-            return isBelonging;
+                return new BelongingResult(
+                    roleId,
+                    isInternal || roleId > 0 && Converter.ToBool(outputs["isactive"])
+                );
+            }
         }
 
-        public bool IsMultipleCustomersBelonging(string custIds, int currentCustId, int subAccountId, bool isInternal)
+        public BelongingResult IsMultipleCustomersBelonging(string custIds, int currentCustId, int subAccountId, bool isInternal)
         {
             dynamic parameters = new Hashtable
             {
@@ -167,7 +171,12 @@
             {
                 objectDb.ExecuteNonQuery(parameters);
                 var outputs = objectDb.GetOuputParams();
-                return Converter.To<byte>(outputs["roleid"]) > 0 && (isInternal || Converter.ToBool(outputs["isactive"]));
+                var roleId = Converter.To<byte>(outputs["roleid"]);
+
+                return new BelongingResult(
+                    roleId,
+                    isInternal || roleId > 0 && Converter.ToBool(outputs["isactive"])
+                );
             }
         }
     }
