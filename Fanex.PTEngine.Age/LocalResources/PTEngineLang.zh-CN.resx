@@ -2114,16 +2114,24 @@
     <value>对于电子竞技占成数设置，请使用体育博彩2功能</value>
   </data>
   <data name="MemberUnlimitedBetSettingWarningMessage" xml:space="preserve">
-    <value>输入最低投注/ 最高投注/ 单场限额/ (单粒球最高投注)：0 / 0 / 0 / (0) 可限制会员进行投注此产品。</value>
+    <value>输入所有投注设置栏位= 0防止会员進行投注。</value>
   </data>
   <data name="SMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
-    <value>设置最低投注 = 最高投注 = 单场限额 = (单粒球最高投注) = 0 即代表没有限制此账号的投注设定。&lt;br/&gt;倘若欲限制会员进行投注，您可设置 最低投注 / 最高投注 / 单场限额 /(单粒球最高投注) ： 0 / 0.1 / 0.1/ 0.1</value>
+    <value>
+      输入所有投注设置栏位= 0 表示您对该账号的投注设置没有限制。&lt;br/&gt;
+      为防止会员进行投注，设置最低投注 = 0，其他栏位= 0.1。&lt;br/&gt;
+      更新上线的投注设置可会减少所有下线的投注设置，以确保下线们不能大于上线的投注设置。
+    </value>
   </data>
   <data name="SpecialMemberUnlimitedBetSettingWarningMessage" xml:space="preserve">
-    <value>设置 最低投注 / 最高投注 / 单场限额 为 0 / 0 / 0 可防止限制会员进行投注此产品。（仅适用于体育博彩）。</value>
+    <value>输入所有投注设置栏位 = 0 防止会员進行投注。（仅适用于体育博彩）。</value>
   </data>
   <data name="SpecialSMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
-    <value>设置 最低投注 = 最高投注 = 单场限额= 0 即意味着您没有限制此账号的投注设定。&lt;br/&gt;为了防止限制会员进行投注，您可设置 最低投注 / 最高投注 / 单场限额为： 0 / 0.1 / 0.1 （仅适用于体育博彩）。</value>
+    <value>
+      输入所有投注设置栏位= 0 表示您对该账号的投注设置没有限制。&lt;br/&gt;
+      为防止会员进行投注，设置最低投注 = 0，其他栏位= 0.1。 （仅适用于体育博彩）。&lt;br/&gt;
+      更新上线的投注设置可会减少所有下线的投注设置，以确保下线们不大于上线的投注设置。
+    </value>
   </data>
   <data name="Symbol_OddsPercentage" xml:space="preserve">
     <value>缅甸盘</value>

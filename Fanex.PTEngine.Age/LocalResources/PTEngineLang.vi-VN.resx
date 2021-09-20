@@ -2113,15 +2113,23 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Vui lòng dùng Sportsbook 2 để thiết lập Giới Hạn Cược và PT cho E-Sports</value>
   </data>
   <data name="MemberUnlimitedBetSettingWarningMessage" xml:space="preserve">
-    <value>Để ngăn không cho Member đặt cược, hãy thiết lập giá trị Cược nhỏ nhất / Cược lớn nhất/ Cược tối đa cho 1 trận/ (Cược tối đa cho 1 lượt banh) là 0 / 0 / 0 / (0)</value>
+    <value>Inputting all fields of bet setting = 0 to prevent members from playing the game.</value>
   </data>
   <data name="SMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
-    <value>Cược nhỏ nhất = Cược lớn nhất = Cược tối đa cho 1 trận = (Cược tối đa cho 1 lượt banh) = 0, nghĩa là bạn sẽ không giới hạn mức cược cho tài khoản này.&lt;br/&gt;Để ngăn không cho Member đặt cược, hãy thiết lập giá trị Cược nhỏ nhất / Cược lớn nhất/ Cược tối đa cho 1 trận/ (Cược tối đa cho 1 lượt banh) là 0 / 0.1 / 0.1 / (0.1)</value>
+    <value>
+      Inputting all fields of bet setting = 0 means you do not set limit to the bet setting of this account.&lt;br/&gt;
+      To prevent members from playing the game, set Min Bet = 0 and other fields = 0.1.&lt;br/&gt;
+      Updating upline's bet setting might decrease all downlines' bet settings to ensure that they are not greater than upline's bet setting.
+    </value>
   </data>
   <data name="SpecialMemberUnlimitedBetSettingWarningMessage" xml:space="preserve">
-    <value>Để ngăn không cho Member đặt cược, hãy thiết lập giá trị Cược Nhỏ Nhất / Cược Lớn Nhất/ Cược Tối Đa Cho 1 Trận là 0 / 0 / 0 (chỉ dành cho Cược Thể Thao).</value>
+    <value>Inputting all fields of bet setting = 0 to prevent members from playing the game (for Sportsbook only).</value>
   </data>
   <data name="SpecialSMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
-    <value>Cược Nhỏ Nhất = Cược Lớn Nhất = Cược Tối Đa Cho 1 Trận = 0, nghĩa là bạn sẽ không giới hạn mức cược cho tài khoản này.&lt;br/&gt;Để ngăn không cho Member đặt cược, hãy thiết lập giá trị Cược Nhỏ Nhất / Cược Lớn Nhất/ Cược Tối Đa Cho 1 Trận là 0 / 0.1 / 0.1 (chỉ dành cho Cược Thể Thao).</value>
+    <value>
+      Inputting all fields of bet setting = 0 means you do not set limit to the bet setting of this account.&lt;br/&gt;
+      To prevent members from playing the game, set Min Bet = 0 and other fields = 0.1 (for Sportsbook only).&lt;br/&gt;
+      Updating upline's bet setting might decrease all downlines' bet settings to ensure that they are not greater than upline's bet setting.
+    </value>
   </data>
 </root>
