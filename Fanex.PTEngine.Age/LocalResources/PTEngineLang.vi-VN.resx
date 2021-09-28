@@ -2113,15 +2113,23 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
     <value>Vui lòng dùng Sportsbook 2 để thiết lập Giới Hạn Cược và PT cho E-Sports</value>
   </data>
   <data name="MemberUnlimitedBetSettingWarningMessage" xml:space="preserve">
-    <value>Để ngăn không cho Member đặt cược, hãy thiết lập giá trị Cược nhỏ nhất / Cược lớn nhất/ Cược tối đa cho 1 trận/ (Cược tối đa cho 1 lượt banh) là 0 / 0 / 0 / (0)</value>
+    <value>Nhập tất cả giá trị của giới hạn cược = 0 để ngăn không cho Member đặt cược.</value>
   </data>
   <data name="SMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
-    <value>Cược nhỏ nhất = Cược lớn nhất = Cược tối đa cho 1 trận = (Cược tối đa cho 1 lượt banh) = 0, nghĩa là bạn sẽ không giới hạn mức cược cho tài khoản này.&lt;br/&gt;Để ngăn không cho Member đặt cược, hãy thiết lập giá trị Cược nhỏ nhất / Cược lớn nhất/ Cược tối đa cho 1 trận/ (Cược tối đa cho 1 lượt banh) là 0 / 0.1 / 0.1 / (0.1)</value>
+    <value>
+      Nhập tất cả giá trị của giới hạn cược = 0 nghĩa là bạn sẽ không giới hạn mức cược cho tài khoản này.&lt;br/&gt;
+      Để ngăn không cho Member đặt cược, hãy thiết lập Cược Nhỏ Nhất = 0 và các giá trị khác = 0.1.&lt;br/&gt;
+      Cập nhật giới hạn cược của cấp trên có thể giảm giới hạn cược của tất cả cấp dưới, nhằm đảm bảo giới hạn cược của cấp dưới không lớn hơn của cấp trên.
+    </value>
   </data>
   <data name="SpecialMemberUnlimitedBetSettingWarningMessage" xml:space="preserve">
-    <value>Để ngăn không cho Member đặt cược, hãy thiết lập giá trị Cược Nhỏ Nhất / Cược Lớn Nhất/ Cược Tối Đa Cho 1 Trận là 0 / 0 / 0 (chỉ dành cho Cược Thể Thao).</value>
+    <value>Nhập tất cả giá trị của giới hạn cược = 0 để ngăn không cho Member đặt cược (chỉ áp dụng cho Sportsbook).</value>
   </data>
   <data name="SpecialSMAUnlimitedBetSettingWarningMessage" xml:space="preserve">
-    <value>Cược Nhỏ Nhất = Cược Lớn Nhất = Cược Tối Đa Cho 1 Trận = 0, nghĩa là bạn sẽ không giới hạn mức cược cho tài khoản này.&lt;br/&gt;Để ngăn không cho Member đặt cược, hãy thiết lập giá trị Cược Nhỏ Nhất / Cược Lớn Nhất/ Cược Tối Đa Cho 1 Trận là 0 / 0.1 / 0.1 (chỉ dành cho Cược Thể Thao).</value>
+    <value>
+      Nhập tất cả giá trị của giới hạn cược = 0 nghĩa là bạn sẽ không giới hạn mức cược cho tài khoản này.&lt;br/&gt;
+      Để ngăn không cho Member đặt cược, hãy thiết lập Cược Nhỏ Nhất = 0 và các giá trị khác = 0.1 (chỉ áp dụng cho Sportsbook).&lt;br/&gt;
+      Cập nhật giới hạn cược của cấp trên có thể giảm giới hạn cược của tất cả cấp dưới, nhằm đảm bảo giới hạn cược của cấp dưới không lớn hơn của cấp trên.
+    </value>
   </data>
 </root>
