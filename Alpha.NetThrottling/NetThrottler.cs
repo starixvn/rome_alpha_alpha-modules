@@ -87,14 +87,14 @@
                 return ThrottleSetting.CacheService;
             }
         }
-        public NetThrottler()
-            : this(null, null)
+        public NetThrottler(bool isUsedRedis)
+            : this(null, null, isUsedRedis)
         {
         }
 
-        internal NetThrottler(IThrottleSetting throttleSetting, IClock clock)
+        internal NetThrottler(IThrottleSetting throttleSetting, IClock clock, bool isUsedRedis)
         {
-            ThrottleSetting = throttleSetting ?? new ThrottleSetting();
+            ThrottleSetting = throttleSetting ?? new ThrottleSetting(isUsedRedis);
             this.clock = clock ?? new Clock();
         }
 
