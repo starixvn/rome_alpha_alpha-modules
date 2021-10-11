@@ -792,9 +792,6 @@ Warning, all members under this agent can't place outright bet!</value>
   <data name="HttpError_404" xml:space="preserve">
     <value>Page not found, please check the address</value>
   </data>
-  <data name="HttpError_Default" xml:space="preserve">
-    <value>Sorry, there was an unexpected issue on the server. Please seek help from our customer support. [{0}]</value>
-  </data>
   <data name="ImgLogOut" xml:space="preserve">
     <value>Log Out</value>
   </data>

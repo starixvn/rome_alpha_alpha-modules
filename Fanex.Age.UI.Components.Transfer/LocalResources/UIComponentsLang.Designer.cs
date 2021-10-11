@@ -2089,15 +2089,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sorry, there was an unexpected issue on the server. Please seek help from our customer support. [{0}].
-        /// </summary>
-        internal static string HttpError_Default {
-            get {
-                return ResourceManager.GetString("HttpError_Default", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Log Out.
         /// </summary>
         internal static string ImgLogOut {

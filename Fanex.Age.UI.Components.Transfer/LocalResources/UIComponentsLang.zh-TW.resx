@@ -987,9 +987,6 @@
   <data name="HttpError_404" xml:space="preserve">
     <value>此網頁不存在，請檢查網址</value>
   </data>
-  <data name="HttpError_Default" xml:space="preserve">
-    <value>哎喲..因為系統故障所以您會身在此處，請向管理層聯繫吧</value>
-  </data>
   <data name="mainmenu" xml:space="preserve">
     <value>主要目錄</value>
   </data>
