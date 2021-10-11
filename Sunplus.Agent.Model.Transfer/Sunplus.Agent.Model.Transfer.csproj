@@ -7,13 +7,13 @@
     <RepositoryUrl>https://gitlab.nexdev.net/rome/alpha/Sunplus.Agent.Model.Transfer</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<Deterministic>true</Deterministic>
-    <AssemblyVersion>3.0.1.5</AssemblyVersion>
-    <FileVersion>3.0.1.5</FileVersion>
+    <AssemblyVersion>3.0.1.6</AssemblyVersion>
+    <FileVersion>3.0.1.6</FileVersion>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Sunplus.Agent.Model.Transfer</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>3.0.1.5</Version>
+    <Version>3.0.1.6</Version>
     <AssemblyName>Sunplus.Agent.Model.Transfer</AssemblyName>
     <PackageReleaseNotes>Update transfer status hotfix - 158813-TransferAllHotfix</PackageReleaseNotes>
   </PropertyGroup>

@@ -46,7 +46,7 @@ namespace Sunplus.Agent.Model.DL.Transfer
             catch (FormatException ex)
             {
                 ExceptionHandler.Handle(ex, TraceEventType.Information);
-                errMsg = "Oops... you are here because of a system error, please notify the administrators!";
+                errMsg = "Sorry, there was an unexpected issue on the server. Please seek help from our customer support. [5001]";
                 return -1;
             }
 

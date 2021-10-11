@@ -1763,7 +1763,7 @@ namespace Fanex.PTEngine.Age.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Oops... you are here because of a system error, please notify the administrators.
+        ///   Looks up a localized string similar to Sorry, there was an unexpected issue on the server. Please seek help from our customer support. [{0}].
         /// </summary>
         internal static string HttpError_Default {
             get {
