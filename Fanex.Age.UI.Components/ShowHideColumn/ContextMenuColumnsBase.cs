@@ -7,10 +7,10 @@
 */
 
 using System;
+using System.Linq;
 using Fanex.Age.UI;
 using Fanex.Age.UI.Components.ShowHideColumn;
 using Sunplus.Agent.Utilities;
-using System.Linq;
 
 /// <summary>
 /// Base class for renderring context menu to show/hide columns.

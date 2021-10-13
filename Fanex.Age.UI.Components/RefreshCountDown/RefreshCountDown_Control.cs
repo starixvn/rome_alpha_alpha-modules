@@ -25,7 +25,6 @@ namespace Fanex.Age.UI.Components
         public RefreshCountDown_Control(int initCountDown, String refreshCountDownId, String refreshFunc)
         {
             _RefreshCountDownTemplate = new RefreshCountDown_Template();
-
             _RefreshCountDownTemplate.initCountDown = initCountDown.ToString();
             _RefreshCountDownTemplate.RefreshCountDownId = refreshCountDownId;
             _RefreshCountDownTemplate.CountDownRefreshFunc = refreshFunc;

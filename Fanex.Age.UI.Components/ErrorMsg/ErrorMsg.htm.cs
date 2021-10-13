@@ -36,11 +36,9 @@ namespace Fanex.Age.UI.Components
 
 		public class ErrorMsg_ExternalResources_Block: Block
 		{
-			protected static string s1 = "<link href=\"";
-			protected static string s2{get{return AbsoluteUrl("App_Themes/Apo/Components/ErrorMsg/ErrorMsgNew.min.css", TplSettings.Question);}}
-			protected static string s3 = "\" rel=\"stylesheet\" type=\"text/css\" /><script src=\"";
-			protected static string s4{get{return AbsoluteUrl("ErrorMsg/ErrorMsg.js", TplSettings.Question);}}
-			protected static string s5 = "\" type=\"text/javascript\"></script>";
+			protected static string s1 = "<script src=\"";
+			protected static string s2{get{return AbsoluteUrl("ErrorMsg/ErrorMsg.js", TplSettings.Question);}}
+			protected static string s3 = "\" type=\"text/javascript\"></script>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
@@ -49,8 +47,6 @@ namespace Fanex.Age.UI.Components
 					bd.Append(s1);
 					bd.Append(s2);
 					bd.Append(s3);
-					bd.Append(s4);
-					bd.Append(s5);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}

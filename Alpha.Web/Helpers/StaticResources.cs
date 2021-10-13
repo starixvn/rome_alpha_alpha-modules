@@ -7,7 +7,9 @@
     using System.Reflection;
     using System.Web;
     using System.Web.Configuration;
+    using Alpha.Web.Models;
     using Configurations;
+    using Sunplus.Agent.Model.Entities;
 
     public static class StaticResources
     {
@@ -93,6 +95,39 @@
             return RenderStyleWithMedia(maxDeviceWidth, styleHtml);
         }
 
+        public static IHtmlString RenderStylesWithDarkMode(params string[] paths)
+        {
+            var darkModeName = GetDarkModeName();
+            var styleHtml = string.Join(
+                string.Empty,
+                paths.Select(path => VirtualPathUtility.ToAbsolute($"{path}{darkModeName}{minText}.css?v={staticResourcesVersion}")));
+
+            return RenderStyle(styleHtml);
+        }
+
+        public static IHtmlString RenderStylesWithRoleAndDarkMode(params string[] paths)
+        {
+            var userSession = GetCurrentUserSession();
+            var darkModeName = userSession.DarkModeName;
+            var roleName = Enumeration.FromValue<UserLevel>(userSession.RoleId).DisplayName.ToLowerInvariant();
+
+            var styleHtml = string.Join(
+                string.Empty,
+                paths.Select(path => VirtualPathUtility.ToAbsolute($"{path}{roleName}{darkModeName}{minText}.css?v={staticResourcesVersion}")));
+
+            return RenderStyle(styleHtml);
+        }
+
+        public static IHtmlString RenderStylesWithMediaDarkMode(int maxDeviceWidth, params string[] paths)
+        {
+            var darkModeName = GetDarkModeName();
+            var styleHtml = string.Join(
+                string.Empty,
+                paths.Select(path => VirtualPathUtility.ToAbsolute($"{path}{darkModeName}{minText}.css?v={staticResourcesVersion}")));
+
+            return RenderStyleWithMedia(maxDeviceWidth, styleHtml);
+        }
+
         [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible", Justification = "Reviewed!")]
         public static class AssetScripts
         {
@@ -123,6 +158,34 @@
 
                 return RenderStyle($"{AppSettings.AssetAppPath}{path}{minText}.css{version}");
             }
+
+            public static IHtmlString RenderWithDarkMode(params string[] paths)
+            {
+                var darkModeName = GetDarkModeName();
+
+                return RenderStyle(paths.Select(path => $"{AppSettings.AssetAppPath}{path}{darkModeName}{minText}.css?v={staticResourcesVersion}").ToArray());
+            }
+
+            public static IHtmlString RenderWithRoleAndDarkMode(params string[] paths)
+            {
+                var userSession = GetCurrentUserSession();
+                var darkModeName = userSession.DarkModeName;
+                var roleName = Enumeration.FromValue<UserLevel>(userSession.RoleId).DisplayName.ToLowerInvariant();
+
+                return RenderStyle(paths.Select(path => $"{AppSettings.AssetAppPath}{path}{roleName}{darkModeName}{minText}.css?v={staticResourcesVersion}").ToArray());
+            }
+
+            public static IHtmlString RenderCommonWithDarkMode(string path)
+            {
+                var darkModeName = GetDarkModeName();
+                var version = !string.IsNullOrEmpty(AppSettings.StaticResourcesVersion) ? $"?v={AppSettings.StaticResourcesVersion}" : string.Empty;
+
+                return RenderStyle($"{AppSettings.AssetAppPath}{path}{darkModeName}{minText}.css{version}");
+            }
         }
+
+        private static string GetDarkModeName() => GetCurrentUserSession().DarkModeName;
+
+        private static IUserSession GetCurrentUserSession() => UserSession.Current;
     }
 }

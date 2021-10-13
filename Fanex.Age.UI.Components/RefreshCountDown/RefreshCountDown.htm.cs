@@ -21,10 +21,10 @@ namespace Fanex.Age.UI.Components
 			protected static string s3 = "</ul></div><script type=\"text/javascript\">var refreshCountDownId = \"";
 			public string RefreshCountDownId = "{RefreshCountDownId}";
 			protected static string s4 = "\";var initCountDown = ";
-			public string initCountDown = "{initCountDown}";
+			public string  initCountDown  = "{ initCountDown }";
 			protected static string s5 = ";var loadingTxt = \"<span class='miniloading'>";
 			protected static string s6{get{return LocalResources.UIComponentsLang.loading;}}
-			protected static string s7 = "</span>\";var countDownRefreshFunc=\"";
+			protected static string s7 = "</span>\";var countDownRefreshFunc = \"";
 			public string CountDownRefreshFunc = "{CountDownRefreshFunc}";
 			protected static string s8 = "()\";</script>";
 			public override void ToString(ref StringBuilder bd)
@@ -40,7 +40,7 @@ namespace Fanex.Age.UI.Components
 					bd.Append(s3);
 					bd.Append(RefreshCountDownId);
 					bd.Append(s4);
-					bd.Append(initCountDown);
+					bd.Append( initCountDown );
 					bd.Append(s5);
 					bd.Append(s6);
 					bd.Append(s7);
@@ -60,9 +60,9 @@ namespace Fanex.Age.UI.Components
 
 		public class RefreshCountDown_ExternalResources_Block: Block
 		{
-			protected static string s9 = "<link href=\"";
-			protected static string s10{get{return AbsoluteUrl("App_Themes/Apo/Components/RefreshCountDown/RefreshCountDown.min.css", TplSettings.Question);}}
-			protected static string s11 = "\" rel=\"stylesheet\" type=\"text/css\" /><script src=\"";
+			protected static string s9 = "<link href=\"../App_Themes/Apo/Components/RefreshCountDown/RefreshCountDown";
+			protected static string s10{get{return Sunplus.Agent.Model.Entities.UserSession.Current.DarkModeName;}}
+			protected static string s11 = ".min.css\" rel=\"stylesheet\" type=\"text/css\" /><script src=\"";
 			protected static string s12{get{return AbsoluteUrl("RefreshCountDown/RefreshCountDown.js", TplSettings.Question);}}
 			protected static string s13 = "\" type=\"text/javascript\"></script>";
 			public override void ToString(ref StringBuilder bd)

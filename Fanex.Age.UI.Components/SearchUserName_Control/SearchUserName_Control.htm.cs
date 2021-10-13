@@ -13,7 +13,6 @@ namespace Fanex.Age.UI.Components
 	{
 		public class SearchUserName_Control_Template : Template
 		{
-			public SearchUserName_Control_ExternalResources_Block ExternalResources = new SearchUserName_Control_ExternalResources_Block();
 			protected static string s0 = "<table id=\"tblSearch\"><tr><td>";
 			public string username = "{username}";
 			protected static string s1 = "</td><td><input type=\"text\" class=\"";
@@ -44,7 +43,6 @@ namespace Fanex.Age.UI.Components
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					if(null != ExternalResources) ExternalResources.ToString(ref bd);
 					bd.Append(s0);
 					bd.Append(username);
 					bd.Append(s1);
@@ -82,49 +80,27 @@ namespace Fanex.Age.UI.Components
 
 		}
 
-		public class SearchUserName_Control_ExternalResources_Block: Block
+		public class SearchUserName_Control_option_Block: Block
 		{
-			protected static string s15 = "<link href=\"";
-			protected static string s16{get{return AbsoluteUrl("App_Themes/Apo/Components/SearchUserName_Control/SearchUserName_Control.min.css", TplSettings.Question);}}
-			protected static string s17 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
-			protected static string s18{get{return AbsoluteUrl("App_Themes/Apo/Components/SearchUserName_Control/styles.min.css", TplSettings.Question);}}
-			protected static string s19 = "\" rel=\"stylesheet\" type=\"text/css\" />";
+			protected static string s15 = "<option value=\"";
+			public string optionValue = "{optionValue}";
+			protected static string s16 = "\" ";
+			public string selected = "{selected}";
+			protected static string s17 = ">";
+			public string optionText = "{optionText}";
+			protected static string s18 = "</option>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
 					bd.Append(s15);
-					bd.Append(s16);
-					bd.Append(s17);
-					bd.Append(s18);
-					bd.Append(s19);
-				}
-				if(IsAssigned){bd.Append(Value);}
-			}
-		}
-
-		public class SearchUserName_Control_option_Block: Block
-		{
-			protected static string s20 = "<option value=\"";
-			public string optionValue = "{optionValue}";
-			protected static string s21 = "\" ";
-			public string selected = "{selected}";
-			protected static string s22 = ">";
-			public string optionText = "{optionText}";
-			protected static string s23 = "</option>";
-			public override void ToString(ref StringBuilder bd)
-			{
-				if(!Visible) return;
-				if(RenderChild)
-				{
-					bd.Append(s20);
 					bd.Append(optionValue);
-					bd.Append(s21);
+					bd.Append(s16);
 					bd.Append(selected);
-					bd.Append(s22);
+					bd.Append(s17);
 					bd.Append(optionText);
-					bd.Append(s23);
+					bd.Append(s18);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -132,29 +108,29 @@ namespace Fanex.Age.UI.Components
 
 		public class SearchUserName_Control_CheckingFilter_Block: Block
 		{
-			protected static string s24 = "<div id=\"box_checking_filter\"> <input type=\"checkbox\" id=\"";
+			protected static string s19 = "<div id=\"box_checking_filter\"> <input type=\"checkbox\" id=\"";
 			public string chkId = "{chkId}";
-			protected static string s25 = "\" name=\"";
+			protected static string s20 = "\" name=\"";
 			protected string t1_chkId;
-			protected static string s26 = "\" onclick=\"CheckingFilter();\" ";
+			protected static string s21 = "\" onclick=\"CheckingFilter();\" ";
 			public string ischecked = "{ischecked}";
-			protected static string s27 = " /> ";
+			protected static string s22 = " /> ";
 			public string CheckBoxText = "{CheckBoxText}";
-			protected static string s28 = "</div>";
+			protected static string s23 = "</div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s24);
+					bd.Append(s19);
 					bd.Append(chkId);
-					bd.Append(s25);
+					bd.Append(s20);
 					bd.Append(chkId);
-					bd.Append(s26);
+					bd.Append(s21);
 					bd.Append(ischecked);
-					bd.Append(s27);
+					bd.Append(s22);
 					bd.Append(CheckBoxText);
-					bd.Append(s28);
+					bd.Append(s23);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}

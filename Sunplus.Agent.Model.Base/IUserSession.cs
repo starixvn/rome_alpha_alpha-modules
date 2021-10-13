@@ -531,6 +531,8 @@ namespace Sunplus.Agent.Model.Entities
 
         string IndirectUsername { get; set; }
 
+        string DarkModeName { get; set; }
+
         bool IsOfferProtectedMode { get; set; }
 
         bool IsProtectedMode { get; set; }

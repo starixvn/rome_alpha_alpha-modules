@@ -812,6 +812,12 @@
             UserSession.Current.SetSyncedProduct(productId, value);
         }
 
+        public string DarkModeName
+        {
+            get => UserSession.Current.DarkModeName;
+            set => UserSession.Current.DarkModeName = value;
+        }
+
         public T GetProperty<T>(string propertyName)
         {
             return UserSession.Current.GetProperty<T>(propertyName);

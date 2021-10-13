@@ -21,6 +21,8 @@
 
         public ActionResult Index()
         {
+            ViewData["DarkModeName"] = UserSession.Current.DarkModeName;
+
             return View("~/Areas/Company/Views/ContactUs/Index.cshtml");
         }
 

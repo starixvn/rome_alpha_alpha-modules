@@ -20,6 +20,9 @@
         {
             bundles.Add(new StyleBundle("~/App_Themes/Apo/Company/ContactUsStyles").Include(
                 "~/App_Themes/Apo/Company/ContactUs.css"));
+
+            bundles.Add(new StyleBundle("~/App_Themes/Apo/Company/ContactUsStyles-dark").Include(
+                "~/App_Themes/Apo/Company/ContactUs-dark.css"));
         }
     }
 }
