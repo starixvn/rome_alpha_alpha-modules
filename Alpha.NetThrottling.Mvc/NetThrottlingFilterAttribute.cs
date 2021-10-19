@@ -12,14 +12,14 @@
     {
         private readonly INetThrottler netThrottler;
 
-        public NetThrottlingFilterAttribute()
-            : this(null)
+        public NetThrottlingFilterAttribute(bool isUsedRedis)
+            : this(null, isUsedRedis)
         {
         }
 
-        internal NetThrottlingFilterAttribute(INetThrottler netThrottler)
+        internal NetThrottlingFilterAttribute(INetThrottler netThrottler, bool isUsedRedis)
         {
-            this.netThrottler = netThrottler ?? new NetThrottler();
+            this.netThrottler = netThrottler ?? new NetThrottler(isUsedRedis);
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)

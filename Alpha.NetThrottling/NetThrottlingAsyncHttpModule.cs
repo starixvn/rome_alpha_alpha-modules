@@ -11,14 +11,14 @@
     {
         private readonly INetThrottler netThrottler;
 
-        public NetThrottlingAsyncHttpModule()
-            : this(null)
+        public NetThrottlingAsyncHttpModule(bool isUsedRedis)
+            : this(null, isUsedRedis)
         {
         }
 
-        public NetThrottlingAsyncHttpModule(INetThrottler netThrottler)
+        public NetThrottlingAsyncHttpModule(INetThrottler netThrottler, bool isUsedRedis)
         {
-            this.netThrottler = netThrottler ?? new NetThrottler();
+            this.netThrottler = netThrottler ?? new NetThrottler(isUsedRedis);
         }
 
         public void Dispose()

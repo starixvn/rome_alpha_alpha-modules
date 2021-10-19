@@ -7,6 +7,32 @@
 
     public class SecurityCodeCheckerImpl : SecurityCodeChecker
     {
+        public bool IsRequiredSecurityCode(bool isBetLists, bool isStatement)
+        {
+            if (ByPassSecurity())
+            {
+                return false;
+            }
+
+            if (!SecurityCodeSessionManager.SecurityCodeSession.IsEnabledOtp
+                && !IsEnableSecurityCode())
+            {
+                return false;
+            }
+
+            if (isBetLists && SecurityCodeSessionManager.SecurityCodeSession.IsEnabledSecurityCodeInBetLists)
+            {
+                return true;
+            }
+
+            if (isStatement && SecurityCodeSessionManager.SecurityCodeSession.IsEnabledSecurityCodeInStatement)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public bool IsRequiredSecurityCode(string relativePath)
         {
             if (ByPassSecurity())

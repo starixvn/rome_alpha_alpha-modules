@@ -28,17 +28,12 @@
 
         public IEnumerable<NetThrottlingKeyElement> Keys { get; private set; }
 
-        public ThrottleSetting()
-            : this(null, null)
+        public ThrottleSetting(bool isUsedRedis)
+            : this(null, null, isUsedRedis)
         {
         }
 
-        internal ThrottleSetting(string sectionName)
-            : this(NetThrottlingConfiguration.Get(sectionName), null)
-        {
-        }
-
-        internal ThrottleSetting(NetThrottlingConfiguration configuration, ICacheServiceFactory cacheServiceFactory)
+        internal ThrottleSetting(NetThrottlingConfiguration configuration, ICacheServiceFactory cacheServiceFactory, bool isUsedRedis)
         {
             configuration = configuration ?? NetThrottlingConfiguration.Default;
             cacheServiceFactory = cacheServiceFactory ?? CacheServiceFactory.Default;
@@ -51,14 +46,15 @@
                 ApplicationName = configurationOptions.ClientName,
                 ConnectionOptions = configurationOptions
             };
-            CacheService = cacheServiceFactory.Create(redisCacheOptions);
-        }
 
-        internal ThrottleSetting(IResolver resolver, ICacheServiceWrapper cacheService, IEnumerable<NetThrottlingKeyElement> keys)
-        {
-            Resolver = resolver;
-            CacheService = cacheService;
-            Keys = keys;
+            if (isUsedRedis)
+            {
+                CacheService = cacheServiceFactory.Create(redisCacheOptions);
+            }
+            else
+            {
+                CacheService = cacheServiceFactory.Create();
+            }
         }
 
         public NetThrottlingKeyElement GetKey(string name)
