@@ -23,7 +23,7 @@
             ConfigurationManager.AppSettings["RedisConfigurationOptions"] = "123";
 
             // Act
-            var module = new NetThrottlingAsyncHttpModule(netThrottler);
+            var module = new NetThrottlingAsyncHttpModule(netThrottler, isUsedRedis: true);
             module.Init(httpApplication);
 
             // Assert

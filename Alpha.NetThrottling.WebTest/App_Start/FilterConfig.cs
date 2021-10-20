@@ -7,7 +7,7 @@ namespace Alpha.NetThrottling.WebTest
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new NetThrottlingFilterAttribute());
+            filters.Add(new NetThrottlingFilterAttribute(isUsedRedis: true));
             filters.Add(new HandleErrorAttribute());
         }
     }
