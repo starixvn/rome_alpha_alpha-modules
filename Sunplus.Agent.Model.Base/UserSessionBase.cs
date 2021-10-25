@@ -111,6 +111,9 @@ namespace Sunplus.Agent.Model.Entities
         private const string IndirectSubAccIdSessionKey = "IndirectSubAccId";
         private const string IndirectUsernameSessionKey = "IndirectUsername";
 
+        private const string ISOFFERPROTECTEDMODESESSIONKEY = "ISOFFERPROTECTEDMODE";
+        private const string ISPROTECTEDMODESESSIONKEY = "ISPROTECTEDMODE";
+
         #endregion Contructors
 
         #region Misc
@@ -1323,6 +1326,18 @@ namespace Sunplus.Agent.Model.Entities
         {
             get => GetProperty<string>(IndirectUsernameSessionKey);
             set => SetProperty(IndirectUsernameSessionKey, value);
+        }
+
+        public bool IsOfferProtectedMode
+        {
+            get => GetProperty<bool>(ISOFFERPROTECTEDMODESESSIONKEY);
+            set => SetProperty(ISOFFERPROTECTEDMODESESSIONKEY, value);
+        }
+
+        public bool IsProtectedMode
+        {
+            get => GetProperty<bool>(ISPROTECTEDMODESESSIONKEY);
+            set => SetProperty(ISPROTECTEDMODESESSIONKEY, value);
         }
 
         public T GetProperty<T>(string propertyName)
