@@ -27,4 +27,33 @@
     <ProjectReference Include="..\Sunplus.Agent.Model.DataAccessLibrary\Sunplus.Agent.Model.DataAccessLibrary.csproj" />
 	<Reference Include="System.Web" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AppResources\TransferError.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TransferError.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="AppResources\TransferError.vi-VN.resx">
+      <LastGenOutput>TransferError.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AppResources\TransferError.th-TH.resx">
+      <LastGenOutput>TransferError.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AppResources\TransferError.zh-TW.resx">
+      <LastGenOutput>TransferError.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AppResources\TransferError.zh-CN.resx">
+      <LastGenOutput>TransferError.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AppResources\TransferError.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TransferError.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

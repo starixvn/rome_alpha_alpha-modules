@@ -6,6 +6,7 @@ namespace Sunplus.Agent.Model.DL.Transfer
     using System.Diagnostics;
     using Fanex.Logging.Extensions.Web;
     using Sunplus.Agent.Model.DL.Base;
+    using Sunplus.Agent.Model.Transfer.AppResources;
 
     [Obsolete("Should rename to Sunplus.Agent.Model.Transfer")]
     public class TransferDAO : DAOBase
@@ -46,7 +47,7 @@ namespace Sunplus.Agent.Model.DL.Transfer
             catch (FormatException ex)
             {
                 ExceptionHandler.Handle(ex, TraceEventType.Information);
-                errMsg = "Sorry, there was an unexpected issue on the server. Please seek help from our customer support. [5001]";
+                errMsg = TransferError.FormatError;
                 return -1;
             }
 
