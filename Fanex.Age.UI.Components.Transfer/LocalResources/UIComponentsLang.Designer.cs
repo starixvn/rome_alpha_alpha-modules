@@ -2089,15 +2089,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Oops... you are here because of a system error, please notify the administrators.
-        /// </summary>
-        internal static string HttpError_Default {
-            get {
-                return ResourceManager.GetString("HttpError_Default", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Log Out.
         /// </summary>
         internal static string ImgLogOut {

@@ -867,9 +867,6 @@
   <data name="HttpError_404" xml:space="preserve">
     <value>此网页不存在，请检查网址</value>
   </data>
-  <data name="HttpError_Default" xml:space="preserve">
-    <value>哎哟..因为系统故障所以您会身在此处，请向管理层联系吧</value>
-  </data>
   <data name="mainmenu" xml:space="preserve">
     <value>主要目录</value>
   </data>

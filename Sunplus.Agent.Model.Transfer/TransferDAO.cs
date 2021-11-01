@@ -6,6 +6,7 @@ namespace Sunplus.Agent.Model.DL.Transfer
     using System.Diagnostics;
     using Fanex.Logging.Extensions.Web;
     using Sunplus.Agent.Model.DL.Base;
+    using Sunplus.Agent.Model.Transfer.AppResources;
 
     [Obsolete("Should rename to Sunplus.Agent.Model.Transfer")]
     public class TransferDAO : DAOBase
@@ -46,7 +47,7 @@ namespace Sunplus.Agent.Model.DL.Transfer
             catch (FormatException ex)
             {
                 ExceptionHandler.Handle(ex, TraceEventType.Information);
-                errMsg = "Oops... you are here because of a system error, please notify the administrators!";
+                errMsg = TransferError.FormatError;
                 return -1;
             }
 

@@ -7,13 +7,13 @@
     <RepositoryUrl>https://gitlab.nexdev.net/rome/alpha/Sunplus.Agent.Model.Transfer</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<Deterministic>true</Deterministic>
-    <AssemblyVersion>3.0.1.5</AssemblyVersion>
-    <FileVersion>3.0.1.5</FileVersion>
+    <AssemblyVersion>3.0.1.6</AssemblyVersion>
+    <FileVersion>3.0.1.6</FileVersion>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Sunplus.Agent.Model.Transfer</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>3.0.1.5</Version>
+    <Version>3.0.1.6</Version>
     <AssemblyName>Sunplus.Agent.Model.Transfer</AssemblyName>
     <PackageReleaseNotes>Update transfer status hotfix - 158813-TransferAllHotfix</PackageReleaseNotes>
   </PropertyGroup>
@@ -26,5 +26,34 @@
     <ProjectReference Include="..\Alpha.Web\Alpha.Web.csproj" />
     <ProjectReference Include="..\Sunplus.Agent.Model.DataAccessLibrary\Sunplus.Agent.Model.DataAccessLibrary.csproj" />
 	<Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AppResources\TransferError.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TransferError.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="AppResources\TransferError.vi-VN.resx">
+      <LastGenOutput>TransferError.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AppResources\TransferError.th-TH.resx">
+      <LastGenOutput>TransferError.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AppResources\TransferError.zh-TW.resx">
+      <LastGenOutput>TransferError.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AppResources\TransferError.zh-CN.resx">
+      <LastGenOutput>TransferError.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AppResources\TransferError.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TransferError.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

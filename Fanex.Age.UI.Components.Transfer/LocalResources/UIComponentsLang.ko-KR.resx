@@ -993,9 +993,6 @@
   <data name="HttpError_404" xml:space="preserve">
     <value>페이지를 찾을 수 없습니다. 주소를 확인해 주시기 바랍니다.</value>
   </data>
-  <data name="HttpError_Default" xml:space="preserve">
-    <value>죄송합니다. 시스템에러가 발생했습니다. 관리자에게 문의 바랍니다.</value>
-  </data>
   <data name="mainmenu" xml:space="preserve">
     <value>메인 메뉴</value>
   </data>
