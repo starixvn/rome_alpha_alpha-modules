@@ -1,6 +1,6 @@
 ﻿namespace Alpha.Utilities.IP.Model
 {
-    public class IPRange
+    public class Ipv4Range
     {
         public double From { get; set; }
 

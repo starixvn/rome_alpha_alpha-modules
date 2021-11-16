@@ -7,15 +7,15 @@
     <RepositoryUrl></RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Deterministic>true</Deterministic>
-    <AssemblyVersion>1.0.2</AssemblyVersion>
-    <FileVersion>1.0.2</FileVersion>
+    <AssemblyVersion>1.0.3.2</AssemblyVersion>
+    <FileVersion>1.0.3.2</FileVersion>
     <RepositoryType>git</RepositoryType>
     <PackageTags>alpha net throttling</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.0.2-caching</Version>
+    <Version>1.0.3.2</Version>
     <AssemblyName>Alpha.Utilities.IP</AssemblyName>
-    <PackageReleaseNotes>Update fanex caching</PackageReleaseNotes>
+    <PackageReleaseNotes>- Implement Ipv6 (#90903)</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.Caching" Version="2.2.1" />
