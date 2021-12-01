@@ -1,16 +1,15 @@
 ﻿namespace Sunplus.Agent.Model.BL.Authorization
 {
+    using Auth;
+    using Fanex.Logging.Extensions.Web;
+    using Sunplus.Agent.Model.DL.Authorization;
+    using Sunplus.Agent.Model.Entities;
     using System;
     using System.Collections;
     using System.Configuration;
     using System.Data;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
-    using Auth;
-    using Fanex.Logging.Extensions.Web;
-    using Sunplus.Agent.Model.BL.MemberInfo.SecurityCode;
-    using Sunplus.Agent.Model.DL.Authorization;
-    using Sunplus.Agent.Model.Entities;
 
     [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
     [Obsolete("Should rename to Sunplus.Agent.Model.Auth")]
@@ -581,8 +580,6 @@
             return false;
         }
 
-        #region ViewLogDependencies
-
         public bool IsUsernameBelong(string userName, int uplineId, out int custId, out bool isSubAcc)
         {
             // lewin DO NOT check belonging
@@ -618,10 +615,6 @@
             return hasPermission;
         }
 
-        #endregion ViewLogDependencies
-
-        #region Search&Copy
-
         /// <summary>
         /// Check if userName is belong to uplineId.
         /// Author: Jeff
@@ -644,38 +637,6 @@
             custId = dao.Age_CustomerSelCheckBelonging_ByUsername(userName, uplineId, out isSubAcc, out roleId);
             return custId > 0;
         }
-
-        #endregion Search&Copy
-
-        #region Security code
-
-        /// <summary>
-        /// Change security code of current customer
-        /// </summary>
-        /// <param name="safeCode"></param>
-        /// <param name="ip"></param>
-        /// <param name="errMsg"></param>
-        /// <returns></returns>
-        public int ChangeSecurityCode(string safeCode, string ip, out string errMsg)
-        {
-            SecurityCodeBO bo = new SecurityCodeBO(NetSessionId);
-            return bo.ChangeSecurityCode(safeCode, ip, out errMsg);
-        }
-
-        /// <summary>
-        /// Check security code in DB
-        /// </summary>
-        /// <param name="safeCode"></param>
-        /// <param name="ip"></param>
-        /// <param name="errMsg"></param>
-        /// <returns></returns>
-        public int CheckSecurityCode(string safeCode, string ip, out string errMsg, bool isSessionSaving)
-        {
-            SecurityCodeBO bo = new SecurityCodeBO(NetSessionId);
-            return bo.CheckSecurityCode(safeCode, ip, out errMsg, isSessionSaving);
-        }
-
-        #endregion Security code
 
         public KickoutInfo Recheckin(int onlineUserId)
             => dao.Recheckin(onlineUserId);
