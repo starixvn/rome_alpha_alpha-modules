@@ -318,12 +318,6 @@
   <data name="confirmDisableESportsDownline" xml:space="preserve">
     <value>Are you sure you want to disable E-Sports on this customer and all downlines?</value>
   </data>
-  <data name="confirmDisableGoldDeluxe" xml:space="preserve">
-    <value>Are you sure you want to disable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="confirmDisableGoldDeluxeMultiple" xml:space="preserve">
-    <value>WARNING!!! Are you sure you want to disable Gold Deluxe on this customer and all downlines?</value>
-  </data>
   <data name="confirmDisableMAutoPT" xml:space="preserve">
     <value>Bạn có chắc muốn tắt tính năng Auto PT đối với Master này?</value>
   </data>
@@ -341,12 +335,6 @@
   </data>
   <data name="confirmDisableVirtualSportsDownline" xml:space="preserve">
     <value>Bạn có muốn chặn thành viên này chơi Virtual Sports?</value>
-  </data>
-  <data name="confirmEnableGoldDeluxe" xml:space="preserve">
-    <value>Are you sure you want to enable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="confirmEnableGoldDeluxeMultiple" xml:space="preserve">
-    <value>Do you want to enable Gold Deluxe for this customer?</value>
   </data>
   <data name="confirmEnableMAutoPT" xml:space="preserve">
     <value>Bạn có muốn cho phép Master này sử dụng chức năng Auto PT?</value>
@@ -474,9 +462,6 @@
   <data name="edit" xml:space="preserve">
     <value>Tùy chỉnh</value>
   </data>
-  <data name="editGoldDeluxe" xml:space="preserve">
-    <value>Edit Gold Deluxe</value>
-  </data>
   <data name="editKeno" xml:space="preserve">
     <value>Edit RNG Keno</value>
   </data>
@@ -485,9 +470,6 @@
   </data>
   <data name="editMultipleDoubleComm" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt giá trị Nhân Đôi hoa hồng</value>
-  </data>
-  <data name="editMultipleGoldDeluxe" xml:space="preserve">
-    <value>Edit Multiple Gold Deluxe</value>
   </data>
   <data name="editMultipleVirtualSports" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho Virtual Sports</value>
@@ -515,9 +497,6 @@
   </data>
   <data name="enableuktote" xml:space="preserve">
     <value>UK Tote</value>
-  </data>
-  <data name="Enable_Gold_Deluxe" xml:space="preserve">
-    <value>Enable Gold Deluxe</value>
   </data>
   <data name="EnterMemberInfo" xml:space="preserve">
     <value>Điền thông tin</value>
@@ -615,9 +594,6 @@
   </data>
   <data name="go" xml:space="preserve">
     <value>Go</value>
-  </data>
-  <data name="GoldDeluxe" xml:space="preserve">
-    <value>Gold Deluxe</value>
   </data>
   <data name="Golf" xml:space="preserve">
     <value>Đánh Golf</value>
@@ -1916,9 +1892,6 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   </data>
   <data name="updateaccount" xml:space="preserve">
     <value>Cập nhật tài khoản</value>
-  </data>
-  <data name="updateGoldDeluxeFailed" xml:space="preserve">
-    <value>Updated unsuccessfully because Gold Deluxe status has been disabled at upline</value>
   </data>
   <data name="updatesuccessfull" xml:space="preserve">
     <value>Câp nhật thành công</value>

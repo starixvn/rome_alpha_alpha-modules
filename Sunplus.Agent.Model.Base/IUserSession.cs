@@ -351,14 +351,6 @@ namespace Sunplus.Agent.Model.Entities
 
         #endregion Keno
 
-        #region GoldDeluxe
-
-        bool IsHideGoldDeluxe { get; set; }
-
-        bool DisableGoldDeluxe { get; set; }
-
-        #endregion GoldDeluxe
-
         #region Sportsbook2
 
         bool IsHideSportsbook2 { get; set; }

@@ -77,19 +77,6 @@
             }
         }
 
-        public bool DisableGoldDeluxe
-        {
-            get
-            {
-                return UserSession.Current.DisableGoldDeluxe;
-            }
-
-            set
-            {
-                UserSession.Current.DisableGoldDeluxe = value;
-            }
-        }
-
         public bool DisableSportsbook2
         {
             get
@@ -236,19 +223,6 @@
             set
             {
                 UserSession.Current.IsForcedSecurityCode = value;
-            }
-        }
-
-        public bool IsHideGoldDeluxe
-        {
-            get
-            {
-                return UserSession.Current.IsHideGoldDeluxe;
-            }
-
-            set
-            {
-                UserSession.Current.IsHideGoldDeluxe = value;
             }
         }
 

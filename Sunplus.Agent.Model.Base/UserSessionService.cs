@@ -223,10 +223,7 @@
 
             session.IsNumberGameDisabled = GetProductStatus("disablenumber", values, true);
 
-            session.IsHideKeno = GetProductStatus("hidekeno", values, true);
-
-            session.IsHideGoldDeluxe = GetProductStatus("hidegolddeluxe", values, true);
-            session.DisableGoldDeluxe = GetProductStatus("disablegolddeluxe", values, true);
+            session.IsHideKeno = GetProductStatus("hidekeno", values, true);       
 
             session.IsHideSportsbook2 = GetProductStatus("hidemuaythai", values, true);
             session.DisableSportsbook2 = GetProductStatus("disablemuaythai", values, true);
@@ -241,8 +238,6 @@
             ProductManager.SetProductsStatusToSession(values);           
             session.SetDisabledProduct(ProductIdConstants.NumberGame, GetProductStatus("disablenumber", values, true));
             session.SetHideProduct(ProductIdConstants.Keno, GetProductStatus("hidekeno", values, true));
-            session.SetHideProduct(ProductIdConstants.GoldDeluxe, GetProductStatus("hidegolddeluxe", values, true));
-            session.SetDisabledProduct(ProductIdConstants.GoldDeluxe, GetProductStatus("disablegolddeluxe", values, true));
             session.SetHideProduct(ProductIdConstants.Sportsbook2, GetProductStatus("hidemuaythai", values, true));
             session.SetDisabledProduct(ProductIdConstants.Sportsbook2, GetProductStatus("disablemuaythai", values, true));
             session.SetSyncedProduct(ProductIdConstants.LiveCasino, GetProductStatus("syncedlivecasino", values, true));

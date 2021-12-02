@@ -86,15 +86,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
             {
                 return GetValue("EnableDoubleCommission") == "1";
             }
-        }
-
-        public static bool IsShowGoldDeluxeSettingForCredit
-        {
-            get
-            {
-                return GetValue("IsShowGoldDeluxeSettingForCredit") == "1";
-            }
-        }
+        }      
 
         public static bool IsSupportMyanmarOdds
         {

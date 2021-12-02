@@ -81,9 +81,6 @@ namespace Sunplus.Agent.Model.Entities
 
         private const string ISHIDEKENO = "ISHIDEKENO";
 
-        private const string ISHIDEGOLDDELUXE = "ISHIDEGOLDDELUXE";
-        private const string DISABLEGOLDDELUXE = "DISABLEGOLDDELUXE";
-
         private const string ISLIMITHOSTPERMISSIONONSUBACCOUNTFUNCTION = "ISLIMITHOSTPERMISSIONONSUBACCOUNTFUNCTION";
 
         private const string ISDISABLEDESPORTS = "ISDISABLEDESPORTS";
@@ -908,38 +905,6 @@ namespace Sunplus.Agent.Model.Entities
         }
 
         #endregion Keno
-
-        #region GoldDeluxe
-
-        public bool IsHideGoldDeluxe
-        {
-            get
-            {
-                object value = this.GetProperty(ISHIDEGOLDDELUXE);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISHIDEGOLDDELUXE, value);
-            }
-        }
-
-        public bool DisableGoldDeluxe
-        {
-            get
-            {
-                object value = this.GetProperty(DISABLEGOLDDELUXE);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(DISABLEGOLDDELUXE, value);
-            }
-        }
-
-        #endregion GoldDeluxe
 
         #region Sportsbook2
 

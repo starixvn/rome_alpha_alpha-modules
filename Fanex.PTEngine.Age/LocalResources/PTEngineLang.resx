@@ -318,12 +318,6 @@
   <data name="confirmDisableESportsDownline" xml:space="preserve">
     <value>Are you sure you want to disable E-Sports on this customer and all downlines?</value>
   </data>
-  <data name="confirmDisableGoldDeluxe" xml:space="preserve">
-    <value>Are you sure you want to disable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="confirmDisableGoldDeluxeMultiple" xml:space="preserve">
-    <value>WARNING!!! Are you sure you want to disable Gold Deluxe on this customer and all downlines?</value>
-  </data>
   <data name="confirmDisableMAutoPT" xml:space="preserve">
     <value>Are you sure you want to disable auto position taking feature of this master?</value>
   </data>
@@ -345,12 +339,6 @@ Warning, all members under this agent can't place outright bet!</value>
   <data name="confirmDisableVirtualSportsDownline" xml:space="preserve">
     <value>Are you sure you want to disable Virtual Sports on this customer and all downlines?</value>
     <comment>Alert</comment>
-  </data>
-  <data name="confirmEnableGoldDeluxe" xml:space="preserve">
-    <value>Are you sure you want to enable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="confirmEnableGoldDeluxeMultiple" xml:space="preserve">
-    <value>Do you want to enable Gold Deluxe for this customer?</value>
   </data>
   <data name="confirmEnableMAutoPT" xml:space="preserve">
     <value>Are you sure you want to enable auto position taking feature of this master?</value>
@@ -478,9 +466,6 @@ Warning, all members under this agent can't place outright bet!</value>
   <data name="edit" xml:space="preserve">
     <value>Edit</value>
   </data>
-  <data name="editGoldDeluxe" xml:space="preserve">
-    <value>Edit Gold Deluxe</value>
-  </data>
   <data name="editKeno" xml:space="preserve">
     <value>Edit RNG Keno</value>
   </data>
@@ -489,9 +474,6 @@ Warning, all members under this agent can't place outright bet!</value>
   </data>
   <data name="editMultipleDoubleComm" xml:space="preserve">
     <value>Edit Multiple Double Comm</value>
-  </data>
-  <data name="editMultipleGoldDeluxe" xml:space="preserve">
-    <value>Edit Multiple Gold Deluxe</value>
   </data>
   <data name="editMultipleVirtualSports" xml:space="preserve">
     <value>Edit Multiple Virtual Sports</value>
@@ -519,9 +501,6 @@ Warning, all members under this agent can't place outright bet!</value>
   </data>
   <data name="enableuktote" xml:space="preserve">
     <value>Enable UK Tote</value>
-  </data>
-  <data name="Enable_Gold_Deluxe" xml:space="preserve">
-    <value>Enable Gold Deluxe</value>
   </data>
   <data name="EnterMemberInfo" xml:space="preserve">
     <value>Enter Information</value>
@@ -618,9 +597,6 @@ Warning, all members under this agent can't place outright bet!</value>
   </data>
   <data name="go" xml:space="preserve">
     <value>Go</value>
-  </data>
-  <data name="GoldDeluxe" xml:space="preserve">
-    <value>Gold Deluxe</value>
   </data>
   <data name="Golf" xml:space="preserve">
     <value>Golf</value>
@@ -1921,9 +1897,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   </data>
   <data name="updateaccount" xml:space="preserve">
     <value>Update Account</value>
-  </data>
-  <data name="updateGoldDeluxeFailed" xml:space="preserve">
-    <value>Updated unsuccessfully because Gold Deluxe status has been disabled at upline</value>
   </data>
   <data name="updatesuccessfull" xml:space="preserve">
     <value>Updated successfully</value>

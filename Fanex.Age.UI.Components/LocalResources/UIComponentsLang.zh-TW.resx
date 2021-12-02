@@ -2355,33 +2355,6 @@
   <data name="ContactUs" xml:space="preserve">
     <value>聯絡我們</value>
   </data>
-  <data name="GoldDeluxe" xml:space="preserve">
-    <value>GD真人娛樂場</value>
-  </data>
-  <data name="editGoldDeluxe" xml:space="preserve">
-    <value>修改GD真人娛樂場</value>
-  </data>
-  <data name="confirmDisableGoldDeluxe" xml:space="preserve">
-    <value>Are you sure you want to disable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="confirmDisableGoldDeluxeMultiple" xml:space="preserve">
-    <value>WARNING!!! Are you sure you want to disable Gold Deluxe on this customer and all downlines?</value>
-  </data>
-  <data name="confirmEnableGoldDeluxe" xml:space="preserve">
-    <value>Are you sure you want to enable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="confirmEnableGoldDeluxeMultiple" xml:space="preserve">
-    <value>Do you want to enable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="Enable_Gold_Deluxe" xml:space="preserve">
-    <value>啟用GD真人娛樂場</value>
-  </data>
-  <data name="updateGoldDeluxeFailed" xml:space="preserve">
-    <value>更新不成功因GD真人娛樂場已被上线禁用</value>
-  </data>
-  <data name="editMultipleGoldDeluxe" xml:space="preserve">
-    <value>修改多重GD真人娛樂場</value>
-  </data>
   <data name="lblNotAskSecCodeAgain" xml:space="preserve">
     <value>Don't ask me again in this session</value>
   </data>

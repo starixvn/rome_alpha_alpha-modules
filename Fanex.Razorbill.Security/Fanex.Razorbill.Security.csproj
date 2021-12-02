@@ -94,10 +94,6 @@
     <Reference Include="Fanex.Data, Version=0.5.404.59, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Data.0.5.404.59\lib\net40\Fanex.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.GoldDeluxe.CoreSetting, Version=1.0.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.GoldDeluxe.Setting.1.0.1.6\lib\net461\Fanex.GoldDeluxe.CoreSetting.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Fanex.Logging, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Logging.2.0.1\lib\net461\Fanex.Logging.dll</HintPath>
     </Reference>
@@ -250,7 +246,6 @@
     <Compile Include="Configurations\WebAppSettings.cs" />
     <Compile Include="Customer\AuthenticateCustomer.cs" />
     <Compile Include="Customer\CustomerSettingRenovation\CustomerSettingClientRegistration.cs" />
-    <Compile Include="Customer\GoldDeluxeAuthorizationService.cs" />
     <Compile Include="Encryption\Encryptor.cs" />
     <Compile Include="Entities\ClosedLockedStatus.cs" />
     <Compile Include="Entities\BelongingResult.cs" />

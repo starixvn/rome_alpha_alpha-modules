@@ -134,12 +134,6 @@ namespace Sunplus.Agent.Model.BL.Definitions
         _1st_Total_Goal = 126,
         _1st_First_Goal_Last_Goal = 127,
 
-        // Gold Deluxe.
-        GoldDeluxeBaccarat = 1701,
-        GoldDeluxeRoulette = 1702,
-        GoldDeluxeParlayBaccarat = 1703,
-        ChargeCommission = 500,
-
         // AllBet.
         AllBetRangeStart = 2401,
         AllBetRangeEnd = 2499,
