@@ -40,14 +40,6 @@ namespace Sunplus.Agent.Model.Entities.Permission
             }
         }
 
-        public static bool IsShowCasino // Already offer for 789y site
-        {
-            get
-            {
-                return CurrentUserSession.GetSyncedProduct(ProductIdConstants.RNGCasino);
-            }
-        }
-
         public static string CreditNeutralSite
         {
             get { return UserPermission.creditNeutralSite; }
@@ -192,9 +184,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
                 case 1: // sportsbook
                     return true;
                 case 3: // Number Game
-                    return IsShowNumberGame;
-                case 6: // Casino
-                    return IsShowCasino;
+                    return IsShowNumberGame;               
                 case 8: // Keno
                     return IsShowKenoSetting;
                 case 16: // SP2

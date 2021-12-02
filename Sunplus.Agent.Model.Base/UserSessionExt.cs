@@ -151,33 +151,7 @@
             {
                 UserSession.Current.IsBelongTo9Currency = value;
             }
-        }
-
-        public bool IsCasinoDisabled
-        {
-            get
-            {
-                return UserSession.Current.IsCasinoDisabled;
-            }
-
-            set
-            {
-                UserSession.Current.IsCasinoDisabled = value;
-            }
-        }
-
-        public bool IsCasinoSync
-        {
-            get
-            {
-                return UserSession.Current.IsCasinoSync;
-            }
-
-            set
-            {
-                UserSession.Current.IsCasinoSync = value;
-            }
-        }
+        }      
 
         public bool IsDisabledAutoMPT
         {
@@ -409,20 +383,7 @@
             {
                 UserSession.Current.IsNicknameLoginOnly = value;
             }
-        }
-
-        public bool IsNotCurrencyCasino
-        {
-            get
-            {
-                return UserSession.Current.IsNotCurrencyCasino;
-            }
-
-            set
-            {
-                UserSession.Current.IsNotCurrencyCasino = value;
-            }
-        }
+        }       
 
         public bool IsNumberGameDisabled
         {

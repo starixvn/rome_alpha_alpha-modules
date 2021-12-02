@@ -38,8 +38,6 @@
 
         bool IsSubAcc { get; }
 
-        bool IsSyncedCasino { get; }
-
         bool EnableYesterdayTransfer { get; }
 
         Dictionary<string,object> DynamicParams { get; }

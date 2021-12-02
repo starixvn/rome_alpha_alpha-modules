@@ -633,14 +633,14 @@ namespace Sunplus.Agent.Model.DL.Authorization
         /// <summary>
         ///     Get some extra informations of a customer: [bool DisableHorseracing, bool DisableFI, bool DisableAutoMPT, int
         ///     SRecommend, MRecommend, ARecommend, int
-        ///     IsAdminCanViewVNIP,Suspend,Closed,AutoSuspend,SyncCasino,DisableCasino,DisableOutright,IsInternal].
+        ///     IsAdminCanViewVNIP,Suspend,Closed,AutoSuspend,IsInternal].
         /// </summary>
         /// <param name="custId"></param>
         /// <param name="adminId"></param>
         /// <param name="systemLogin"></param>
         /// <returns>
-        ///     [bool disablehorseracing, bool disablefi, bool disableautompt, int srecommend, mrecommend, arecommend, int
-        ///     isadmincanviewvnip,suspend,closed,autosuspend,synccasino,disablecasino,disableoutright,isinternal]
+        ///     [bool disableautompt, int srecommend, mrecommend, arecommend, int
+        ///     isadmincanviewvnip,suspend,closed,autosuspend,isinternal]
         /// </returns>
         public DataTable Acc_CustomerSelStatus(int custId, int adminId, string systemLogin = "NAP")
         {

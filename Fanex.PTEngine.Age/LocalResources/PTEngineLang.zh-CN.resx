@@ -957,9 +957,6 @@
   <data name="sessionID" xml:space="preserve">
     <value>注册号会议</value>
   </data>
-  <data name="casinoPositionTaking" xml:space="preserve">
-    <value>娱乐城占成数(%)</value>
-  </data>
   <data name="lblAG" xml:space="preserve">
     <value>代理</value>
   </data>
@@ -1001,18 +998,6 @@
   </data>
   <data name="usernameunavailable" xml:space="preserve">
     <value>账号不正确！</value>
-  </data>
-  <data name="lblEnableCS" xml:space="preserve">
-    <value>开启娱乐城</value>
-  </data>
-  <data name="strConfirmDisableCS" xml:space="preserve">
-    <value>警告!!! 您确定要关闭此账号的游乐场？</value>
-  </data>
-  <data name="strConfirmEnableCS" xml:space="preserve">
-    <value>您是否要开启赌场给于所有下线？</value>
-  </data>
-  <data name="updateCS" xml:space="preserve">
-    <value>更新娱乐城设定</value>
   </data>
   <data name="lblAccumulatedWinLoss" xml:space="preserve">
     <value>累计转移金额</value>
@@ -1070,9 +1055,6 @@
   </data>
   <data name="currentstatustransaction" xml:space="preserve">
     <value>现有全部交易状态</value>
-  </data>
-  <data name="lblCasinoHandHistory" xml:space="preserve">
-    <value>赌场游戏历史</value>
   </data>
   <data name="transferredamount" xml:space="preserve">
     <value>转移金额</value>
@@ -1140,17 +1122,8 @@
   <data name="lblPositionTakingSuper" xml:space="preserve">
     <value>超级总代理占成数</value>
   </data>
-  <data name="lbleditcasino" xml:space="preserve">
-    <value>修改娱乐城</value>
-  </data>
-  <data name="lblAlertDisableCSMember" xml:space="preserve">
-    <value>您确定要就这个客户关闭娱乐城吗？</value>
-  </data>
   <data name="lblNormal" xml:space="preserve">
     <value>一般</value>
-  </data>
-  <data name="editmultcs" xml:space="preserve">
-    <value>修改多重娱乐城</value>
   </data>
   <data name="apr" xml:space="preserve">
     <value>4月</value>
@@ -1194,9 +1167,6 @@
   <data name="PM" xml:space="preserve">
     <value>下午</value>
   </data>
-  <data name="synccasino" xml:space="preserve">
-    <value>娱乐城同步校准</value>
-  </data>
   <data name="allowautopt" xml:space="preserve">
     <value>允许自动占成</value>
   </data>
@@ -1232,12 +1202,6 @@
   </data>
   <data name="accdisabled" xml:space="preserve">
     <value>这个帐号禁用</value>
-  </data>
-  <data name="casinodownlines" xml:space="preserve">
-    <value>下线前启用</value>
-  </data>
-  <data name="casinodownlinesdisabled" xml:space="preserve">
-    <value>全部下线将被关闭</value>
   </data>
   <data name="and" xml:space="preserve">
     <value>和</value>
@@ -1968,7 +1932,8 @@
     <value>旧保安码</value>
   </data>
   <data name="alertOldSecCodeEmpty" xml:space="preserve">
-    <value>请输入您的旧保安码。</value>
+    <value>Casino
+casino</value>
   </data>
   <data name="alertSecCodeChangedOK" xml:space="preserve">
     <value>您已成功更改您的保安码。</value>

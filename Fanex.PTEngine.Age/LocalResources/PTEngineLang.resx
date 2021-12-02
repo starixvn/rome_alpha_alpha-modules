@@ -264,15 +264,6 @@
   <data name="casino" xml:space="preserve">
     <value>Casino</value>
   </data>
-  <data name="casinodownlines" xml:space="preserve">
-    <value>Previous enabled downlines</value>
-  </data>
-  <data name="casinodownlinesdisabled" xml:space="preserve">
-    <value>Casino downlines will be disabled as well</value>
-  </data>
-  <data name="casinoPositionTaking" xml:space="preserve">
-    <value>Casino Position Taking (%)</value>
-  </data>
   <data name="city" xml:space="preserve">
     <value>City</value>
   </data>
@@ -492,9 +483,6 @@ Warning, all members under this agent can't place outright bet!</value>
   </data>
   <data name="editKeno" xml:space="preserve">
     <value>Edit RNG Keno</value>
-  </data>
-  <data name="editmultcs" xml:space="preserve">
-    <value>Edit Multiple Casino</value>
   </data>
   <data name="editmultfinance" xml:space="preserve">
     <value>Edit Multiple Finance's PT</value>
@@ -809,9 +797,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="lblAgOutst" xml:space="preserve">
     <value>Ag. Outstanding</value>
   </data>
-  <data name="lblAlertDisableCSMember" xml:space="preserve">
-    <value>Are you sure you want to disable Casino on this customer?</value>
-  </data>
   <data name="lblAlertDisableSATote" xml:space="preserve">
     <value>WARNING!!! Are you sure you want to disable SA Tote on this customer and all downlines?</value>
   </data>
@@ -853,9 +838,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   </data>
   <data name="lblCashBalance" xml:space="preserve">
     <value>Cash Balance</value>
-  </data>
-  <data name="lblCasinoHandHistory" xml:space="preserve">
-    <value>Casino Hand History</value>
   </data>
   <data name="lblChangePassword" xml:space="preserve">
     <value>Change Password</value>
@@ -938,9 +920,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="lbleditbetsetting" xml:space="preserve">
     <value>Edit Bet Setting</value>
   </data>
-  <data name="lbleditcasino" xml:space="preserve">
-    <value>Edit Casino</value>
-  </data>
   <data name="lbleditcomm" xml:space="preserve">
     <value>Edit Commission</value>
   </data>
@@ -955,9 +934,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   </data>
   <data name="lblEditSB" xml:space="preserve">
     <value>Edit Sportsbook</value>
-  </data>
-  <data name="lblEnableCS" xml:space="preserve">
-    <value>Enable Casino</value>
   </data>
   <data name="lblEnableNumber" xml:space="preserve">
     <value>Enable Number Game</value>
@@ -1766,9 +1742,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="status" xml:space="preserve">
     <value>Status</value>
   </data>
-  <data name="strConfirmDisableCS" xml:space="preserve">
-    <value>WARNING!!! Are you sure you want to disable Casino on this customer and all downlines?</value>
-  </data>
   <data name="strConfirmDisableDoubleCommMember" xml:space="preserve">
     <value>Are you sure you want to turn OFF Double Commission feature for Sportsbook's Losing tickets on this customer?</value>
   </data>
@@ -1780,9 +1753,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   </data>
   <data name="strConfirmDisableVirtualSports" xml:space="preserve">
     <value>WARNING!!! Are you sure you want to disable Virtual Sports on this customer and all downlines?</value>
-  </data>
-  <data name="strConfirmEnableCS" xml:space="preserve">
-    <value>Do you want to enable Casino for this customer?</value>
   </data>
   <data name="strConfirmEnableDoubleComm" xml:space="preserve">
     <value>Are you sure you want to allow Double Commission feature for Sportsbook's Losing tickets on this customer?</value>
@@ -1846,9 +1816,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   </data>
   <data name="sync" xml:space="preserve">
     <value>Synchronize</value>
-  </data>
-  <data name="synccasino" xml:space="preserve">
-    <value>Sync Casino</value>
   </data>
   <data name="tablecurrency" xml:space="preserve">
     <value>Table currency</value>
@@ -1954,9 +1921,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   </data>
   <data name="updateaccount" xml:space="preserve">
     <value>Update Account</value>
-  </data>
-  <data name="updateCS" xml:space="preserve">
-    <value>Update Casino Setting</value>
   </data>
   <data name="updateGoldDeluxeFailed" xml:space="preserve">
     <value>Updated unsuccessfully because Gold Deluxe status has been disabled at upline</value>

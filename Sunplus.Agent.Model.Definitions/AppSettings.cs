@@ -377,18 +377,7 @@ namespace Sunplus.Agent.Model.BL.Definitions
             {
                 return int.Parse(GetValue("VirtualDirectory")) != 0;
             }
-        }
-
-        /// <summary>
-        /// DisabledCasino in config.
-        /// </summary>
-        public static bool DisabledCasino
-        {
-            get
-            {
-                return int.Parse(GetValue("DisabledCasino")) != 0;
-            }
-        }
+        }       
 
         /// <summary>
         /// DisabledAutoMaster in cofig.

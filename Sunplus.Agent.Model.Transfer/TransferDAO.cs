@@ -258,8 +258,6 @@ namespace Sunplus.Agent.Model.DL.Transfer
                 { "custid", custid },
                 { "isallowtotalbalance", isAllowedTotalBalanceTransfer },
                 { "username", string.Empty },
-                { "synccasino", 0 },
-                { "disablecasino", 0 },
                 { "cashbalance", 0 },
                 { "oustanding", 0 },
                 { "givencredit", 0 },

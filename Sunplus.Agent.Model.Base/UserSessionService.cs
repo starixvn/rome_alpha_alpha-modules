@@ -78,13 +78,9 @@
         /// int adminid,
         /// string accusername,
         /// string loginip,
-        /// bool isallowhrcurrency,
-        /// bool iscasinodisabled,
-        /// bool iscasinosync,
+        /// bool isallowhrcurrency,      
         /// bool disablenumber,
-        /// int on_userid,
-        /// bool disablehorseracing,
-        /// bool disablefi,
+        /// int on_userid,      
         /// bool disableautompt,
         /// int srecommend,
         /// bool isadmincanviewvnip,
@@ -223,9 +219,7 @@
         }
 
         private static void SetProductStatus(UserSessionBase session, Hashtable values)
-        {
-            session.IsCasinoDisabled = (bool)values["iscasinodisabled"];
-            session.IsCasinoSync = (bool)values["iscasinosync"];
+        {          
 
             session.IsNumberGameDisabled = GetProductStatus("disablenumber", values, true);
 
@@ -244,9 +238,7 @@
 
         private static void SetProductStatusToDictionary(UserSessionBase session, Hashtable values)
         {
-            ProductManager.SetProductsStatusToSession(values);
-            session.SetDisabledProduct(ProductIdConstants.RNGCasino, (bool)values["iscasinodisabled"]);
-            session.SetSyncedProduct(ProductIdConstants.RNGCasino, (bool)values["iscasinosync"]);
+            ProductManager.SetProductsStatusToSession(values);           
             session.SetDisabledProduct(ProductIdConstants.NumberGame, GetProductStatus("disablenumber", values, true));
             session.SetHideProduct(ProductIdConstants.Keno, GetProductStatus("hidekeno", values, true));
             session.SetHideProduct(ProductIdConstants.GoldDeluxe, GetProductStatus("hidegolddeluxe", values, true));

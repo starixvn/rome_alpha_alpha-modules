@@ -969,21 +969,6 @@
   <data name="usernameunavailable" xml:space="preserve">
     <value>사용자 이름을 사용할수 없습니다.</value>
   </data>
-  <data name="lblEnableCS" xml:space="preserve">
-    <value>카지노 활성화</value>
-  </data>
-  <data name="strConfirmDisableCS" xml:space="preserve">
-    <value>주위!! 이 고객과 모든 하위라인의 카지노게임을 비활성화하시겠습니까?</value>
-  </data>
-  <data name="strConfirmEnableCS" xml:space="preserve">
-    <value>모든 고객과 하위라인의 카지노게임을 활성화하시겠습니까?</value>
-  </data>
-  <data name="casinoPositionTaking" xml:space="preserve">
-    <value>카지노 포지션(%)</value>
-  </data>
-  <data name="updateCS" xml:space="preserve">
-    <value>카지노 업데이트 설정</value>
-  </data>
   <data name="lblSA" xml:space="preserve">
     <value>SA</value>
   </data>
@@ -1071,9 +1056,6 @@
   <data name="currentstatustransaction" xml:space="preserve">
     <value>최근 모든거래 상태</value>
   </data>
-  <data name="lblCasinoHandHistory" xml:space="preserve">
-    <value>카지노결과내역</value>
-  </data>
   <data name="transferredamount" xml:space="preserve">
     <value>전송된 금액</value>
   </data>
@@ -1140,17 +1122,8 @@
   <data name="lblPositionTakingSuper" xml:space="preserve">
     <value>슈퍼 포지션 설정</value>
   </data>
-  <data name="lbleditcasino" xml:space="preserve">
-    <value>카지노 수정</value>
-  </data>
-  <data name="lblAlertDisableCSMember" xml:space="preserve">
-    <value>이 고객의 카지노게임을 비활성화하시겠습니까?</value>
-  </data>
   <data name="lblNormal" xml:space="preserve">
     <value>일반</value>
-  </data>
-  <data name="editmultcs" xml:space="preserve">
-    <value> 멀티플 카지노 수정하기</value>
   </data>
   <data name="apr" xml:space="preserve">
     <value>4월</value>
@@ -1194,9 +1167,6 @@
   <data name="PM" xml:space="preserve">
     <value>PM</value>
   </data>
-  <data name="synccasino" xml:space="preserve">
-    <value>동기화된 카지노</value>
-  </data>
   <data name="allowautopt" xml:space="preserve">
     <value>자동 포지션 설정 허가</value>
   </data>
@@ -1232,12 +1202,6 @@
   </data>
   <data name="accdisabled" xml:space="preserve">
     <value>이 계정은 실행하실수없는 계정입니다.</value>
-  </data>
-  <data name="casinodownlines" xml:space="preserve">
-    <value>이전 하부라인를 활성화합니다.</value>
-  </data>
-  <data name="casinodownlinesdisabled" xml:space="preserve">
-    <value>카지노 하부라인도 비활성화합니다.</value>
   </data>
   <data name="and" xml:space="preserve">
     <value>and</value>

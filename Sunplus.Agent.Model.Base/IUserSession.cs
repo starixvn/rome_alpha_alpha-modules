@@ -323,38 +323,7 @@ namespace Sunplus.Agent.Model.Entities
 
         bool IsEnabledSecurityCodeInStatement { get; set; }
 
-        #endregion Logged-in informations
-
-        #region Casino
-
-        /// <summary>
-        /// Disabled casino status of logged-in user.
-        /// </summary>
-        bool IsCasinoDisabled
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Synchronized casino status of logged-in user.
-        /// </summary>
-        bool IsCasinoSync
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// True that mean current currency is casino currency.
-        /// </summary>
-        bool IsNotCurrencyCasino
-        {
-            get;
-            set;
-        }
-
-        #endregion Casino       
+        #endregion Logged-in informations             
 
         #region VirtualSports
 

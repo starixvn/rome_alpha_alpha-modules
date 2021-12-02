@@ -31,14 +31,7 @@
             AuthorizationDAO dao = new AuthorizationDAO();
             dao.Acc_CheckOut(onUserId, userName, nickName, roleId, serverId);
         }
-
-        public bool IsSynchronized(int custId)
-        {
-            Hashtable outputs = new Hashtable();
-            this.GetCustomerStatus(custId, CurrentSession.AdminId, ref outputs);
-
-            return (bool)outputs["synccasino"];
-        }
+      
 
         /// <summary>
         /// Customer sign-in system and get necessary informations.
@@ -386,12 +379,7 @@
             }
 
             this.GetCustomerStatus(custId, adminId, ref outputs, systemLogin);
-
-            // Cast un-unique fields with normal SignIn
-            outputs.Add("iscasinodisabled", outputs["casinodisable"]);
-            outputs.Remove("casinodisable");
-            outputs.Add("iscasinosync", outputs["casinosync"]);
-            outputs.Remove("casinosync");
+           
             outputs.Add("adminid", adminId);
 
             bool isShowConsolidated = ConfigurationManager.AppSettings["EnableConsolidatedReport"] == "1" && this.IsShownConsilatedReport(custId);
@@ -458,7 +446,7 @@
 
         /// <summary>
         /// Get some extra informations of a customer.
-        /// [bool disablehorseracing, bool disablefi, bool disableautompt, int srecommend, int mrecommend, int recommend, int isadmincanviewvnip,suspend,closed,autosuspend,synccasino,disablecasino,disableoutright,IsInternal].
+        /// [bool disableautompt, int srecommend, int mrecommend, int recommend, int isadmincanviewvnip,suspend,closed,autosuspend,IsInternal].
         /// </summary>
         /// <param name="custId"></param>
         /// <param name="adminId"></param>
