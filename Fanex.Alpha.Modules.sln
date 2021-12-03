@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Age.Utility", "Fanex.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.PTEngine.Age", "Fanex.PTEngine.Age\Fanex.PTEngine.Age.csproj", "{2D00F742-F9FF-4649-AAF5-51F1229CB5A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Razorbill.Module.Company", "Fanex.Razorbill.Module.Company\Fanex.Razorbill.Module.Company.csproj", "{F6F0FBDE-43F4-4B6C-BA8D-3B26F6FAF701}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Razorbill.Security", "Fanex.Razorbill.Security\Fanex.Razorbill.Security.csproj", "{95108A2C-7101-44A2-B9C5-3F1B6DB37E8F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunplus.Agent.Model.Auth", "Sunplus.Agent.Model.Auth\Sunplus.Agent.Model.Auth.csproj", "{D16BEC82-9EAD-4ED5-9875-18C5035333AD}"
@@ -31,11 +29,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunplus.Agent.Model.IpForma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunplus.Agent.Model.Messages", "Sunplus.Agent.Model.Messages\Sunplus.Agent.Model.Messages.csproj", "{059B92E4-0545-4AA3-AEBF-E6D3D566A0BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunplus.Agent.Model.Transfer", "Sunplus.Agent.Model.Transfer\Sunplus.Agent.Model.Transfer.csproj", "{EA7ECC48-11F5-4968-8EE4-1E270C9503B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sunplus.Agent.Model.Transfer", "Sunplus.Agent.Model.Transfer\Sunplus.Agent.Model.Transfer.csproj", "{EA7ECC48-11F5-4968-8EE4-1E270C9503B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunplus.Agent.UI.ScoreMap", "Sunplus.Agent.UI.Scoremap\Sunplus.Agent.UI.ScoreMap.csproj", "{DFE39BB5-0B6A-4EE0-86BA-FFAC6BEEFA3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunplus.Agent.Utilities", "Sunplus.Agent.Utilities\Sunplus.Agent.Utilities.csproj", "{016F274C-1F76-450B-B80D-E7FB59BE6A2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sunplus.Agent.Utilities", "Sunplus.Agent.Utilities\Sunplus.Agent.Utilities.csproj", "{016F274C-1F76-450B-B80D-E7FB59BE6A2B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sunplus.Agent", "Sunplus.Agent", "{DD2F2521-65E2-47CD-A12C-5B4B818EAEB9}"
 EndProject
@@ -113,7 +111,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.CopyAccount", "Alpha.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alpha.NetThrottling.Mvc", "Alpha.NetThrottling.Mvc\Alpha.NetThrottling.Mvc.csproj", "{99B1EF53-CADD-4FA4-9B3B-C6D0B0E04334}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.DNAide", "Alpha.DNAide\Alpha.DNAide.csproj", "{1BE29446-3B17-4702-9450-5A84507D3404}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alpha.DNAide", "Alpha.DNAide\Alpha.DNAide.csproj", "{1BE29446-3B17-4702-9450-5A84507D3404}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -164,14 +162,6 @@ Global
 		{2D00F742-F9FF-4649-AAF5-51F1229CB5A1}.Debug-NAP|Any CPU.Build.0 = Debug|Any CPU
 		{2D00F742-F9FF-4649-AAF5-51F1229CB5A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D00F742-F9FF-4649-AAF5-51F1229CB5A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F6F0FBDE-43F4-4B6C-BA8D-3B26F6FAF701}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F6F0FBDE-43F4-4B6C-BA8D-3B26F6FAF701}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F6F0FBDE-43F4-4B6C-BA8D-3B26F6FAF701}.Debug-Alpha|Any CPU.ActiveCfg = Debug|Any CPU
-		{F6F0FBDE-43F4-4B6C-BA8D-3B26F6FAF701}.Debug-Alpha|Any CPU.Build.0 = Debug|Any CPU
-		{F6F0FBDE-43F4-4B6C-BA8D-3B26F6FAF701}.Debug-NAP|Any CPU.ActiveCfg = Debug|Any CPU
-		{F6F0FBDE-43F4-4B6C-BA8D-3B26F6FAF701}.Debug-NAP|Any CPU.Build.0 = Debug|Any CPU
-		{F6F0FBDE-43F4-4B6C-BA8D-3B26F6FAF701}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F6F0FBDE-43F4-4B6C-BA8D-3B26F6FAF701}.Release|Any CPU.Build.0 = Release|Any CPU
 		{95108A2C-7101-44A2-B9C5-3F1B6DB37E8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{95108A2C-7101-44A2-B9C5-3F1B6DB37E8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95108A2C-7101-44A2-B9C5-3F1B6DB37E8F}.Debug-Alpha|Any CPU.ActiveCfg = Debug|Any CPU
@@ -510,7 +500,6 @@ Global
 		{5AE0953A-9566-4F55-A4C6-D7C3AF09B112} = {B0039864-7DF1-4AC1-9367-571915A28E62}
 		{1CE66B65-C500-48C9-9DA9-5ACE16F12B16} = {B0039864-7DF1-4AC1-9367-571915A28E62}
 		{2D00F742-F9FF-4649-AAF5-51F1229CB5A1} = {B0039864-7DF1-4AC1-9367-571915A28E62}
-		{F6F0FBDE-43F4-4B6C-BA8D-3B26F6FAF701} = {9EDDB460-C8A7-4419-B2FF-AB41AA670726}
 		{95108A2C-7101-44A2-B9C5-3F1B6DB37E8F} = {9EDDB460-C8A7-4419-B2FF-AB41AA670726}
 		{D16BEC82-9EAD-4ED5-9875-18C5035333AD} = {DD2F2521-65E2-47CD-A12C-5B4B818EAEB9}
 		{C745E27C-B090-4643-A349-C8C63546AD04} = {DD2F2521-65E2-47CD-A12C-5B4B818EAEB9}
