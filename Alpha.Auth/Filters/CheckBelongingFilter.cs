@@ -72,7 +72,7 @@
             }
             else
             {
-                filterContext.Result = new RedirectResult(MicroSites.OldMainUrl(FormsAuthentication.LoginUrl));
+                filterContext.Result = new RedirectResult(filterContext.HttpContext.Response.ApplyAppPathModifier(FormsAuthentication.LoginUrl));
             }
 
             var session = filterContext.HttpContext.Session;
