@@ -533,6 +533,8 @@ namespace Sunplus.Agent.Model.Entities
 
         string DarkModeName { get; set; }
 
+        string AssetAppPath { get; set; }
+
         bool IsOfferProtectedMode { get; set; }
 
         bool IsProtectedMode { get; set; }

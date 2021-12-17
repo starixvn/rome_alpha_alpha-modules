@@ -111,7 +111,8 @@ namespace Sunplus.Agent.Model.Entities
         private const string IndirectSubAccIdSessionKey = "IndirectSubAccId";
         private const string IndirectUsernameSessionKey = "IndirectUsername";
 
-        private const string DarkModeNameSessionKey = "DarkModeName";
+        private const string DARKMODENAMESESSIONKEY = "DARKMODENAME";
+        private const string ASSETAPPPATHSESSIONKEY = "ASSETAPPPATH";
 
         private const string ISOFFERPROTECTEDMODESESSIONKEY = "ISOFFERPROTECTEDMODE";
         private const string ISPROTECTEDMODESESSIONKEY = "ISPROTECTEDMODE";
@@ -1344,8 +1345,14 @@ namespace Sunplus.Agent.Model.Entities
 
         public string DarkModeName
         {
-            get => GetProperty<string>(DarkModeNameSessionKey) ?? string.Empty;
-            set => SetProperty(DarkModeNameSessionKey, value);
+            get => GetProperty<string>(DARKMODENAMESESSIONKEY) ?? string.Empty;
+            set => SetProperty(DARKMODENAMESESSIONKEY, value);
+        }
+
+        public string AssetAppPath
+        {
+            get => GetProperty<string>(ASSETAPPPATHSESSIONKEY) ?? string.Empty;
+            set => SetProperty(ASSETAPPPATHSESSIONKEY, value);
         }
 
         public T GetProperty<T>(string propertyName)

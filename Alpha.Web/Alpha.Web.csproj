@@ -13,7 +13,7 @@
     <PackageTags>alpha.web</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.0.8.8-dark01</Version>
+    <Version>1.0.8.8-dark02</Version>
     <AssemblyName>Alpha.Web</AssemblyName>
     <PackageReleaseNotes>151816 - Suppor night mode</PackageReleaseNotes>
   </PropertyGroup>
