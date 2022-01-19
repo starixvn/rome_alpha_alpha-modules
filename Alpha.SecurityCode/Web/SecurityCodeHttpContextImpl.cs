@@ -62,20 +62,26 @@
 
         public void RedirectToVerifySecurityCodePage()
         {
-            var request = HttpContext.Current.Request;
-            var response = HttpContext.Current.Response;
+            var httpContext = HttpContext.Current;
+            var request = httpContext.Request;
+            var response = httpContext.Response;
             if (request.Headers != null && request.Headers["Content-type"] == "application/x-www-form-urlencoded")
             {
                 response.Redirect(this.securityCodePathBuilder.BuildVerifyingSecurityCodePath(), true);
             }
             else
             {
-                var rawUrl = HttpContext.Current.Request.RawUrl;
+                var rawUrl = request.RawUrl;
 
-                if (HttpContext.Current.Session.IsCookieless)
+                if (httpContext.Session.IsCookieless)
                 {
                     // Modify Url with session id in it
                     rawUrl = response.ApplyAppPathModifier(rawUrl);
+
+                    if (securityCodePathBuilder.IsStandaloneReports())
+                    {
+                        rawUrl = $"{request.Url.Scheme}://{request.Url.Authority}{rawUrl}";
+                    }
                 }
 
                 response.Redirect(this.securityCodePathBuilder.BuildVerifyingSecurityCodePath(rawUrl), true);

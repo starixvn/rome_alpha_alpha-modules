@@ -10,6 +10,7 @@
         //// security code
         private const string IsAlreadyInputSecurityCodeKey = "SecurityCodeSession.IsAlreadyInputSecurityCodeKey";
         private const string IsEnabledOtpKey = "SecurityCodeSession.IsEnabledOtp";
+        private const string MainDomainKey = "MainDomain";
 
         public bool IsAlreadyInputSecurityCode
         {
@@ -76,6 +77,8 @@
 
         public bool IsEnabledSecurityCodeInStatement
             => UserSession.Current.IsEnabledSecurityCodeInStatement;
+
+        public string MainDomain => (string)GetProperty(MainDomainKey);
 
         #region helper methods
 
