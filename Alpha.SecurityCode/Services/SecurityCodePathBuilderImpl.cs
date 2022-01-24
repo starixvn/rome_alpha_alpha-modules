@@ -1,6 +1,5 @@
 ﻿namespace Alpha.SecurityCode.Services
 {
-    using System;
     using System.Collections.Generic;
     using System.Configuration;
     using System.Linq;
@@ -39,7 +38,7 @@
                     + $"redirectUrl={HttpUtility.UrlEncode(redirectUrl)}";
             }
 
-            var scRootPath = IsStandaloneReports()
+            var scRootPath = AppSettings.SecurityCodeConfig.IsStandaloneSite
                 ? BuildRootPath()
                 : BuildRootPath(rootPath, appVirtualPath);
 
@@ -52,10 +51,6 @@
                 ? AppSettings.SecurityCodeConfig.VerifyingOtpPath
                 : AppSettings.SecurityCodeConfig.VerifyingSecurityCodePath;
         }
-
-        public bool IsStandaloneReports()
-            => !string.IsNullOrWhiteSpace(SecurityCodeSessionManager.SecurityCodeSession.MainDomain)
-            && HttpRuntime.AppDomainAppVirtualPath.Equals(ConfigurationManager.AppSettings["ReportsAppPath"], StringComparison.OrdinalIgnoreCase);
 
         private string BuildRootPath(string rootPath = null, string appVirtualPath = null)
         {

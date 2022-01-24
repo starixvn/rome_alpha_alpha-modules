@@ -3,6 +3,7 @@
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Web;
+    using Alpha.SecurityCode.Configurations;
     using Services;
 
     public class SecurityCodeHttpContextImpl : SecurityCodeHttpContext
@@ -64,8 +65,10 @@
         {
             var httpContext = HttpContext.Current;
             var request = httpContext.Request;
+            var requestHeaders = request.Headers;
             var response = httpContext.Response;
-            if (request.Headers != null && request.Headers["Content-type"] == "application/x-www-form-urlencoded")
+
+            if (requestHeaders != null && requestHeaders["Content-type"] == "application/x-www-form-urlencoded")
             {
                 response.Redirect(this.securityCodePathBuilder.BuildVerifyingSecurityCodePath(), true);
             }
@@ -78,9 +81,9 @@
                     // Modify Url with session id in it
                     rawUrl = response.ApplyAppPathModifier(rawUrl);
 
-                    if (securityCodePathBuilder.IsStandaloneReports())
+                    if (AppSettings.SecurityCodeConfig.IsStandaloneSite)
                     {
-                        rawUrl = $"{request.Url.Scheme}://{request.Url.Authority}{rawUrl}";
+                        rawUrl = $"https://{requestHeaders["Host"]}{rawUrl}";
                     }
                 }
 

@@ -13,7 +13,5 @@
             IDictionary<string, string> queryStringItems = null,
             string rootPath = null,
             string appVirtualPath = null);
-
-        bool IsStandaloneReports();
     }
 }
