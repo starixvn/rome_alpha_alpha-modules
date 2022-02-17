@@ -2,6 +2,7 @@ namespace Sunplus.Agent.Model.Common
 {
     using System;
     using System.Web;
+    using Fanex.Logging.Extensions.Web;
     using Sunplus.Agent.Model.Entities;
     using Sunplus.Core.Common.IPs;
 
@@ -44,7 +45,18 @@ namespace Sunplus.Agent.Model.Common
             var ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"]
                 ?? HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
 
-            string[] ips = string.IsNullOrEmpty(ip) ? new string[] { string.Empty } : ip.Split(',');
+            if (string.IsNullOrWhiteSpace(ip))
+            {
+                ExceptionHandler.Handle(new System.Exception("After login: ip is null or empty"), System.Diagnostics.TraceEventType.Error);
+            }
+
+            if (!string.IsNullOrWhiteSpace(ip) && !ip.Equals("::1") && string.IsNullOrWhiteSpace(ip.Split(',')[0]))
+            {
+                ExceptionHandler.Handle(new System.Exception("After login: HTTP_X_FORWARDED_FOR ip is null or empty"), System.Diagnostics.TraceEventType.Error);
+            }
+
+            var ips = string.IsNullOrWhiteSpace(ip) || ip.Equals("::1") || string.IsNullOrWhiteSpace(ip.Split(',')[0]) ? 
+                new[] { "127.0.0.1" } : ip.Split(',');
 
             return ips;
         }
