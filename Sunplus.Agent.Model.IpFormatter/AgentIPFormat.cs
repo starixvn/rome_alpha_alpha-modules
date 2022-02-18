@@ -50,13 +50,13 @@ namespace Sunplus.Agent.Model.Common
                 ExceptionHandler.Handle(new System.Exception("After login: ip is null or empty"), System.Diagnostics.TraceEventType.Error);
             }
 
-            if (!string.IsNullOrWhiteSpace(ip) && !ip.Equals("::1") && string.IsNullOrWhiteSpace(ip.Split(',')[0]))
+            var ips = string.IsNullOrWhiteSpace(ip) || ip.Equals("::1") ?
+                new[] { "127.0.0.1" } : ip.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (string.IsNullOrWhiteSpace(ips[0]))
             {
                 ExceptionHandler.Handle(new System.Exception("After login: HTTP_X_FORWARDED_FOR ip is null or empty"), System.Diagnostics.TraceEventType.Error);
             }
-
-            var ips = string.IsNullOrWhiteSpace(ip) || ip.Equals("::1") || string.IsNullOrWhiteSpace(ip.Split(',')[0]) ? 
-                new[] { "127.0.0.1" } : ip.Split(',');
 
             return ips;
         }
@@ -64,7 +64,7 @@ namespace Sunplus.Agent.Model.Common
         public static string GetClientIP()
         {
             string[] ips = GetClientIPs();
-            return ips[0];
+            return ips[0].Trim();
         }
     }
 }
