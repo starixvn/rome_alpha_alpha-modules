@@ -97,9 +97,10 @@
 
         public static IHtmlString RenderStylesWithDarkMode(params string[] paths)
         {
+            var darkModeName = GetDarkModeName();
             var styleHtml = string.Join(
                 string.Empty,
-                paths.Select(path => VirtualPathUtility.ToAbsolute($"{path}{DarkModeName}{minText}.css?v={staticResourcesVersion}")));
+                paths.Select(path => VirtualPathUtility.ToAbsolute($"{path}{darkModeName}{minText}.css?v={staticResourcesVersion}")));
 
             return RenderStyle(styleHtml);
         }
@@ -107,20 +108,21 @@
         public static IHtmlString RenderStylesWithRoleAndDarkMode(params string[] paths)
         {
             var userSession = GetCurrentUserSession();
-            var roleName = Enumeration.FromValue<UserLevel>(userSession.RoleId).DisplayName.ToLowerInvariant();
-
+            var roleName = GetRoleName(userSession);
+            var darkModeName = GetDarkModeName(userSession);
             var styleHtml = string.Join(
                 string.Empty,
-                paths.Select(path => VirtualPathUtility.ToAbsolute($"{path}{roleName}{userSession.DarkModeName}{minText}.css?v={staticResourcesVersion}")));
+                paths.Select(path => VirtualPathUtility.ToAbsolute($"{path}{roleName}{darkModeName}{minText}.css?v={staticResourcesVersion}")));
 
             return RenderStyle(styleHtml);
         }
 
         public static IHtmlString RenderStylesWithMediaDarkMode(int maxDeviceWidth, params string[] paths)
         {
+            var darkModeName = GetDarkModeName();
             var styleHtml = string.Join(
                 string.Empty,
-                paths.Select(path => VirtualPathUtility.ToAbsolute($"{path}{DarkModeName}{minText}.css?v={staticResourcesVersion}")));
+                paths.Select(path => VirtualPathUtility.ToAbsolute($"{path}{darkModeName}{minText}.css?v={staticResourcesVersion}")));
 
             return RenderStyleWithMedia(maxDeviceWidth, styleHtml);
         }
@@ -130,14 +132,17 @@
         {
             public static IHtmlString Render(params string[] paths)
             {
-                return RenderScript(paths.Select(path => $"{AssetAppPath}{path}{minText}.js?v={staticResourcesVersion}").ToArray());
+                var assetAppPath = GetAssetAppPath();
+
+                return RenderScript(paths.Select(path => $"{assetAppPath}{path}{minText}.js?v={staticResourcesVersion}").ToArray());
             }
 
             public static IHtmlString RenderCommon(string path)
             {
+                var assetAppPath = GetAssetAppPath();
                 var version = !string.IsNullOrEmpty(AppSettings.StaticResourcesVersion) ? $"?v={AppSettings.StaticResourcesVersion}" : string.Empty;
 
-                return RenderScript($"{AssetAppPath}{path}{minText}.js{version}");
+                return RenderScript($"{assetAppPath}{path}{minText}.js{version}");
             }
         }
 
@@ -146,43 +151,68 @@
         {
             public static IHtmlString Render(params string[] paths)
             {
-                return RenderStyle(paths.Select(path => $"{AssetAppPath}{path}{minText}.css?v={staticResourcesVersion}").ToArray());
+                var assetAppPath = GetAssetAppPath();
+
+                return RenderStyle(paths.Select(path => $"{assetAppPath}{path}{minText}.css?v={staticResourcesVersion}").ToArray());
             }
 
             public static IHtmlString RenderCommon(string path)
             {
+                var assetAppPath = GetAssetAppPath();
                 var version = !string.IsNullOrEmpty(AppSettings.StaticResourcesVersion) ? $"?v={AppSettings.StaticResourcesVersion}" : string.Empty;
 
-                return RenderStyle($"{AssetAppPath}{path}{minText}.css{version}");
+                return RenderStyle($"{assetAppPath}{path}{minText}.css{version}");
             }
 
             public static IHtmlString RenderWithDarkMode(params string[] paths)
             {
                 var userSession = GetCurrentUserSession();
+                var assetAppPath = GetAssetAppPath(userSession);
+                var darkModeName = GetDarkModeName(userSession);
 
-                return RenderStyle(paths.Select(path => $"{userSession.AssetAppPath}{path}{userSession.DarkModeName}{minText}.css?v={staticResourcesVersion}").ToArray());
+                return RenderStyle(paths.Select(path => $"{assetAppPath}{path}{darkModeName}{minText}.css?v={staticResourcesVersion}").ToArray());
             }
 
             public static IHtmlString RenderWithRoleAndDarkMode(params string[] paths)
             {
                 var userSession = GetCurrentUserSession();
-                var roleName = Enumeration.FromValue<UserLevel>(userSession.RoleId).DisplayName.ToLowerInvariant();
+                var assetAppPath = GetAssetAppPath(userSession);
+                var roleName = GetRoleName(userSession);
+                var darkModeName = GetDarkModeName(userSession);
 
-                return RenderStyle(paths.Select(path => $"{userSession.AssetAppPath}{path}{roleName}{userSession.DarkModeName}{minText}.css?v={staticResourcesVersion}").ToArray());
+                return RenderStyle(paths.Select(path => $"{assetAppPath}{path}{roleName}{darkModeName}{minText}.css?v={staticResourcesVersion}").ToArray());
             }
 
             public static IHtmlString RenderCommonWithDarkMode(string path)
             {
                 var userSession = GetCurrentUserSession();
-                var version = !string.IsNullOrEmpty(AppSettings.StaticResourcesVersion) ? $"?v={AppSettings.StaticResourcesVersion}" : string.Empty;
+                var assetAppPath = GetAssetAppPath(userSession);
+                var darkModeName = GetDarkModeName(userSession); var version = !string.IsNullOrEmpty(AppSettings.StaticResourcesVersion) ? $"?v={AppSettings.StaticResourcesVersion}" : string.Empty;
 
-                return RenderStyle($"{userSession.AssetAppPath}{path}{userSession.DarkModeName}{minText}.css{version}");
+                return RenderStyle($"{assetAppPath}{path}{darkModeName}{minText}.css{version}");
             }
         }
 
-        private static string AssetAppPath => GetCurrentUserSession().AssetAppPath;
+        private static string GetAssetAppPath(IUserSession userSession = null)
+        {
+            //userSession = userSession ?? GetCurrentUserSession();
 
-        private static string DarkModeName => GetCurrentUserSession().DarkModeName;
+            return AppSettings.AssetAppPath; //userSession.AssetAppPath;
+        }
+
+        private static string GetRoleName(IUserSession userSession = null)
+        {
+            userSession = userSession ?? GetCurrentUserSession();
+
+            return Enumeration.FromValue<UserLevel>(userSession.RoleId).DisplayName.ToLowerInvariant();
+        }
+
+        private static string GetDarkModeName(IUserSession userSession = null)
+        {
+            userSession = userSession ?? GetCurrentUserSession();
+
+            return AppSettings.IsOfferDarkMode ? userSession.DarkModeName : string.Empty;
+        }
 
         private static IUserSession GetCurrentUserSession() => UserSession.Current;
     }

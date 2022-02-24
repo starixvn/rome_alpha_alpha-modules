@@ -60,21 +60,21 @@ namespace Fanex.Age.UI.Components
 
 		public class RefreshCountDown_ExternalResources_Block: Block
 		{
-			protected static string s9 = "<link href=\"../App_Themes/Apo/Components/RefreshCountDown/RefreshCountDown";
-			protected static string s10{get{return Sunplus.Agent.Model.Entities.UserSession.Current.DarkModeName;}}
-			protected static string s11 = ".min.css\" rel=\"stylesheet\" type=\"text/css\" /><script src=\"";
-			protected static string s12{get{return AbsoluteUrl("RefreshCountDown/RefreshCountDown.js", TplSettings.Question);}}
-			protected static string s13 = "\" type=\"text/javascript\"></script>";
+			protected static string s9 = "<link href='../App_Themes/Apo/Components/RefreshCountDown/RefreshCountDown";
+			public string DarkModeName = "{DarkModeName}";
+			protected static string s10 = ".min.css' rel=\"stylesheet\" type=\"text/css\" /><script src=\"";
+			protected static string s11{get{return AbsoluteUrl("RefreshCountDown/RefreshCountDown.js", TplSettings.Question);}}
+			protected static string s12 = "\" type=\"text/javascript\"></script>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
 					bd.Append(s9);
+					bd.Append(DarkModeName);
 					bd.Append(s10);
 					bd.Append(s11);
 					bd.Append(s12);
-					bd.Append(s13);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -82,27 +82,27 @@ namespace Fanex.Age.UI.Components
 
 		public class RefreshCountDown_Seconds_Block: Block
 		{
-			protected static string s14 = "<li id=\"option";
+			protected static string s13 = "<li id=\"option";
 			public string i = "{i}";
-			protected static string s15 = "\" class=\"menuitem ";
+			protected static string s14 = "\" class=\"menuitem ";
 			public string OptionClass = "{OptionClass}";
-			protected static string s16 = "\" onclick=\"CountDownRefresh_SaveOption(this.id);\">";
+			protected static string s15 = "\" onclick=\"CountDownRefresh_SaveOption(this.id);\">";
 			public string SecondNum = "{SecondNum}";
-			protected static string s17{get{return LocalResources.UIComponentsLang.sec;}}
-			protected static string s18 = "</li>";
+			protected static string s16{get{return LocalResources.UIComponentsLang.sec;}}
+			protected static string s17 = "</li>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s14);
+					bd.Append(s13);
 					bd.Append(i);
-					bd.Append(s15);
+					bd.Append(s14);
 					bd.Append(OptionClass);
-					bd.Append(s16);
+					bd.Append(s15);
 					bd.Append(SecondNum);
+					bd.Append(s16);
 					bd.Append(s17);
-					bd.Append(s18);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
