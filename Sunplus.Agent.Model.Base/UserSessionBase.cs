@@ -111,6 +111,9 @@ namespace Sunplus.Agent.Model.Entities
         private const string IndirectSubAccIdSessionKey = "IndirectSubAccId";
         private const string IndirectUsernameSessionKey = "IndirectUsername";
 
+        private const string DARKMODENAMESESSIONKEY = "DARKMODENAME";
+        private const string ASSETAPPPATHSESSIONKEY = "ASSETAPPPATH";
+
         private const string ISOFFERPROTECTEDMODESESSIONKEY = "ISOFFERPROTECTEDMODE";
         private const string ISPROTECTEDMODESESSIONKEY = "ISPROTECTEDMODE";
 
@@ -945,7 +948,7 @@ namespace Sunplus.Agent.Model.Entities
         }
 
         #endregion Virtual Sports
-        
+
         #region Keno
 
         public bool IsHideKeno
@@ -1027,7 +1030,7 @@ namespace Sunplus.Agent.Model.Entities
         }
 
         #endregion Sportsbook2
-     
+
         /// <summary>
         /// Disabled Number Game status of logged-in user.
         /// </summary>
@@ -1340,11 +1343,23 @@ namespace Sunplus.Agent.Model.Entities
             set => SetProperty(ISPROTECTEDMODESESSIONKEY, value);
         }
 
+        public string DarkModeName
+        {
+            get => GetProperty<string>(DARKMODENAMESESSIONKEY) ?? string.Empty;
+            set => SetProperty(DARKMODENAMESESSIONKEY, value);
+        }
+
+        public string AssetAppPath
+        {
+            get => GetProperty<string>(ASSETAPPPATHSESSIONKEY) ?? string.Empty;
+            set => SetProperty(ASSETAPPPATHSESSIONKEY, value);
+        }
+
         public T GetProperty<T>(string propertyName)
         {
             var value = GetProperty(propertyName);
 
-            return value == null ?  default(T): (T)value;
+            return value == null ? default(T) : (T)value;
         }
 
         public void SetProperty(string propertyName, object value)
@@ -1389,7 +1404,7 @@ namespace Sunplus.Agent.Model.Entities
         private object GetProperty(string name)
         {
             return HttpContext.Current.Session[this.asNetSessionId + HYPHEN + name];
-        }        
+        }
 
         #endregion Controller
     }

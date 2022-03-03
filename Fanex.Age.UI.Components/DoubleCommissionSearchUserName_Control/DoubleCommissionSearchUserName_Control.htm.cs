@@ -13,7 +13,6 @@ namespace Fanex.Age.UI.Components
 	{
 		public class DoubleCommissionSearchUserName_Control_Template : Template
 		{
-			public DoubleCommissionSearchUserName_Control_ExternalResources_Block ExternalResources = new DoubleCommissionSearchUserName_Control_ExternalResources_Block();
 			protected static string s0 = "<table id=\"tblSearch\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td>";
 			public string username = "{username}";
 			protected static string s1 = "</td><td><input type=\"text\" class=\"";
@@ -47,7 +46,6 @@ namespace Fanex.Age.UI.Components
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					if(null != ExternalResources) ExternalResources.ToString(ref bd);
 					bd.Append(s0);
 					bd.Append(username);
 					bd.Append(s1);
@@ -88,49 +86,27 @@ namespace Fanex.Age.UI.Components
 
 		}
 
-		public class DoubleCommissionSearchUserName_Control_ExternalResources_Block: Block
+		public class DoubleCommissionSearchUserName_Control_statusOption_Block: Block
 		{
-			protected static string s16 = "<link href=\"";
-			protected static string s17{get{return AbsoluteUrl("App_Themes/Apo/Components/DoubleCommissionSearchUserName_Control/SearchUserName_Control.min.css", TplSettings.Question);}}
-			protected static string s18 = "\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"";
-			protected static string s19{get{return AbsoluteUrl("App_Themes/Apo/Components/DoubleCommissionSearchUserName_Control/styles.min.css", TplSettings.Question);}}
-			protected static string s20 = "\" rel=\"stylesheet\" type=\"text/css\" />";
+			protected static string s16 = "<option value=\"";
+			public string optionValue = "{optionValue}";
+			protected static string s17 = "\" ";
+			public string selected = "{selected}";
+			protected static string s18 = ">";
+			public string optionText = "{optionText}";
+			protected static string s19 = "</option>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
 					bd.Append(s16);
-					bd.Append(s17);
-					bd.Append(s18);
-					bd.Append(s19);
-					bd.Append(s20);
-				}
-				if(IsAssigned){bd.Append(Value);}
-			}
-		}
-
-		public class DoubleCommissionSearchUserName_Control_statusOption_Block: Block
-		{
-			protected static string s21 = "<option value=\"";
-			public string optionValue = "{optionValue}";
-			protected static string s22 = "\" ";
-			public string selected = "{selected}";
-			protected static string s23 = ">";
-			public string optionText = "{optionText}";
-			protected static string s24 = "</option>";
-			public override void ToString(ref StringBuilder bd)
-			{
-				if(!Visible) return;
-				if(RenderChild)
-				{
-					bd.Append(s21);
 					bd.Append(optionValue);
-					bd.Append(s22);
+					bd.Append(s17);
 					bd.Append(selected);
-					bd.Append(s23);
+					bd.Append(s18);
 					bd.Append(optionText);
-					bd.Append(s24);
+					bd.Append(s19);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -138,21 +114,21 @@ namespace Fanex.Age.UI.Components
 
 		public class DoubleCommissionSearchUserName_Control_DCom_Block: Block
 		{
-			protected static string s25 = "<span class=\"dcommFilterHead\">";
+			protected static string s20 = "<span class=\"dcommFilterHead\">";
 			public string doublecommission = "{doublecommission}";
-			protected static string s26 = "</span><select id=\"dcommFilter\" name=\"dcommFilter\">";
+			protected static string s21 = "</span><select id=\"dcommFilter\" name=\"dcommFilter\">";
 			public DoubleCommissionSearchUserName_Control_DCom_dCommOption_Block dCommOption = new DoubleCommissionSearchUserName_Control_DCom_dCommOption_Block();
-			protected static string s27 = "</select>";
+			protected static string s22 = "</select>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s25);
+					bd.Append(s20);
 					bd.Append(doublecommission);
-					bd.Append(s26);
+					bd.Append(s21);
 					if(null != dCommOption) dCommOption.ToString(ref bd);
-					bd.Append(s27);
+					bd.Append(s22);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -160,25 +136,25 @@ namespace Fanex.Age.UI.Components
 
 		public class DoubleCommissionSearchUserName_Control_DCom_dCommOption_Block: Block
 		{
-			protected static string s28 = "<option value=\"";
+			protected static string s23 = "<option value=\"";
 			public string optionValue = "{optionValue}";
-			protected static string s29 = "\" ";
+			protected static string s24 = "\" ";
 			public string selected = "{selected}";
-			protected static string s30 = ">";
+			protected static string s25 = ">";
 			public string optionText = "{optionText}";
-			protected static string s31 = "</option>";
+			protected static string s26 = "</option>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s28);
+					bd.Append(s23);
 					bd.Append(optionValue);
-					bd.Append(s29);
+					bd.Append(s24);
 					bd.Append(selected);
-					bd.Append(s30);
+					bd.Append(s25);
 					bd.Append(optionText);
-					bd.Append(s31);
+					bd.Append(s26);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -186,21 +162,21 @@ namespace Fanex.Age.UI.Components
 
 		public class DoubleCommissionSearchUserName_Control_UnconfirmSetting_Block: Block
 		{
-			protected static string s32 = "<span class=\"dcommFilterHead\">";
+			protected static string s27 = "<span class=\"dcommFilterHead\">";
 			public string unconfirmSetting = "{unconfirmSetting}";
-			protected static string s33 = "</span><select id=\"unconfirmSettingFilter\" name=\"unconfirmSettingFilter\">";
+			protected static string s28 = "</span><select id=\"unconfirmSettingFilter\" name=\"unconfirmSettingFilter\">";
 			public DoubleCommissionSearchUserName_Control_UnconfirmSetting_unconfirmSettingOption_Block unconfirmSettingOption = new DoubleCommissionSearchUserName_Control_UnconfirmSetting_unconfirmSettingOption_Block();
-			protected static string s34 = "</select>";
+			protected static string s29 = "</select>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s32);
+					bd.Append(s27);
 					bd.Append(unconfirmSetting);
-					bd.Append(s33);
+					bd.Append(s28);
 					if(null != unconfirmSettingOption) unconfirmSettingOption.ToString(ref bd);
-					bd.Append(s34);
+					bd.Append(s29);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -208,25 +184,25 @@ namespace Fanex.Age.UI.Components
 
 		public class DoubleCommissionSearchUserName_Control_UnconfirmSetting_unconfirmSettingOption_Block: Block
 		{
-			protected static string s35 = "<option value=\"";
+			protected static string s30 = "<option value=\"";
 			public string optionValue = "{optionValue}";
-			protected static string s36 = "\" ";
+			protected static string s31 = "\" ";
 			public string selected = "{selected}";
-			protected static string s37 = ">";
+			protected static string s32 = ">";
 			public string optionText = "{optionText}";
-			protected static string s38 = "</option>";
+			protected static string s33 = "</option>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s35);
+					bd.Append(s30);
 					bd.Append(optionValue);
-					bd.Append(s36);
+					bd.Append(s31);
 					bd.Append(selected);
-					bd.Append(s37);
+					bd.Append(s32);
 					bd.Append(optionText);
-					bd.Append(s38);
+					bd.Append(s33);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -234,29 +210,29 @@ namespace Fanex.Age.UI.Components
 
 		public class DoubleCommissionSearchUserName_Control_CheckingFilter_Block: Block
 		{
-			protected static string s39 = "<div id=\"box_checking_filter\"> <input type=\"checkbox\" id=\"";
+			protected static string s34 = "<div id=\"box_checking_filter\"> <input type=\"checkbox\" id=\"";
 			public string chkId = "{chkId}";
-			protected static string s40 = "\" name=\"";
+			protected static string s35 = "\" name=\"";
 			protected string t1_chkId;
-			protected static string s41 = "\" onclick=\"CheckingFilter();\" ";
+			protected static string s36 = "\" onclick=\"CheckingFilter();\" ";
 			public string ischecked = "{ischecked}";
-			protected static string s42 = " /> ";
+			protected static string s37 = " /> ";
 			public string CheckBoxText = "{CheckBoxText}";
-			protected static string s43 = "</div>";
+			protected static string s38 = "</div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s39);
+					bd.Append(s34);
 					bd.Append(chkId);
-					bd.Append(s40);
+					bd.Append(s35);
 					bd.Append(chkId);
-					bd.Append(s41);
+					bd.Append(s36);
 					bd.Append(ischecked);
-					bd.Append(s42);
+					bd.Append(s37);
 					bd.Append(CheckBoxText);
-					bd.Append(s43);
+					bd.Append(s38);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}

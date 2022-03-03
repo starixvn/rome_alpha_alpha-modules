@@ -179,7 +179,9 @@ namespace Fanex.Age.UI.Components.DoubleCommissionSearchUserName_Control
 
         public static implicit operator string(DoubleCommissionSearchUserName value) => value.ToString();
 
-        public void HideLinkedResources() => tpl.ExternalResources = null;
+        public void HideLinkedResources()
+        {
+        }
 
         public override string ToString() => tpl.ToString();
 

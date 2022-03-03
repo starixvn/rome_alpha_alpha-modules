@@ -101,6 +101,7 @@
             showOldCustomerList = ConfigurationManager.AppSettings["ShowOldCustomerList"] == "1";
 
             GetForceLoginNicknameConfiguration();
+            IsOfferDarkMode = "1" == ConfigurationManager.AppSettings["IsOfferDarkMode"];
         }
 
         public static string OldMainAppPath => oldMainAppPath;
@@ -183,5 +184,7 @@
                 ? default(DateTime?)
                 : DateTime.ParseExact(forceLoginNicknameDate4SubAccountValue, "dd/MM/yyyy", null);
         }
+
+        public static bool IsOfferDarkMode { get; }
     }
 }

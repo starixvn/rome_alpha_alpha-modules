@@ -13,31 +13,27 @@ namespace Fanex.Age.UI.Components
 	{
 		public class PagingHeader_Template : Template
 		{
-			protected static string s0 = "<link href=\"";
-			protected static string s1{get{return AbsoluteUrl("App_Themes/Apo/Components/PagingHeader/PagingHeader.min.css", TplSettings.Question);}}
-			protected static string s2 = "\" rel=\"stylesheet\" type=\"text/css\" /><table id=\"tblHeader\"><tr><td class=\"bgleft\">";
+			protected static string s0 = "<table id=\"tblHeader\"><tr><td class=\"bgleft\">";
 			public PagingHeader_selected_Block selected = new PagingHeader_selected_Block();
 			public PagingHeader_button_Block button = new PagingHeader_button_Block();
-			protected static string s3 = "</td><td class=\"bgcenter\">";
+			protected static string s1 = "</td><td class=\"bgcenter\">";
 			public string pagingControl = "{pagingControl}";
-			protected static string s4 = "</td><td class=\"bgright\">";
+			protected static string s2 = "</td><td class=\"bgright\">";
 			public string selPageSize = "{selPageSize}";
-			protected static string s5 = "</td></tr></table>";
+			protected static string s3 = "</td></tr></table>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
 					bd.Append(s0);
-					bd.Append(s1);
-					bd.Append(s2);
 					if(null != selected) selected.ToString(ref bd);
 					if(null != button) button.ToString(ref bd);
-					bd.Append(s3);
+					bd.Append(s1);
 					bd.Append(pagingControl);
-					bd.Append(s4);
+					bd.Append(s2);
 					bd.Append(selPageSize);
-					bd.Append(s5);
+					bd.Append(s3);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -52,31 +48,31 @@ namespace Fanex.Age.UI.Components
 
 		public class PagingHeader_selected_Block: Block
 		{
-			protected static string s6{get{return LocalResources.UIComponentsLang.select;}}
-			protected static string s7 = " : <a href=\"#\" id=\"chkAll\" onclick=\"";
+			protected static string s4{get{return LocalResources.UIComponentsLang.select;}}
+			protected static string s5 = " : <a href=\"#\" id=\"chkAll\" onclick=\"";
 			public string function_all = "{function_all}";
-			protected static string s8 = "\">";
-			protected static string s9{get{return LocalResources.UIComponentsLang.all;}}
-			protected static string s10 = "</a> | <a href=\"#\" id=\"chkNone\" onclick=\"";
+			protected static string s6 = "\">";
+			protected static string s7{get{return LocalResources.UIComponentsLang.all;}}
+			protected static string s8 = "</a> | <a href=\"#\" id=\"chkNone\" onclick=\"";
 			public string function_none = "{function_none}";
-			protected static string s11 = "\">";
-			protected static string s12{get{return LocalResources.UIComponentsLang.none;}}
-			protected static string s13 = "</a>";
+			protected static string s9 = "\">";
+			protected static string s10{get{return LocalResources.UIComponentsLang.none;}}
+			protected static string s11 = "</a>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
+					bd.Append(s4);
+					bd.Append(s5);
+					bd.Append(function_all);
 					bd.Append(s6);
 					bd.Append(s7);
-					bd.Append(function_all);
 					bd.Append(s8);
+					bd.Append(function_none);
 					bd.Append(s9);
 					bd.Append(s10);
-					bd.Append(function_none);
 					bd.Append(s11);
-					bd.Append(s12);
-					bd.Append(s13);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -84,17 +80,17 @@ namespace Fanex.Age.UI.Components
 
 		public class PagingHeader_button_Block: Block
 		{
-			protected static string s14 = "<div id=\"bttTransfer\" class=\"btnSubmit\" onclick=\"ShowFrmTransferMulti(this,'divTransferMulti');\">";
+			protected static string s12 = "<div id=\"bttTransfer\" class=\"btnSubmit\" onclick=\"ShowFrmTransferMulti(this,'divTransferMulti');\">";
 			public string ButtonText = "{ButtonText}";
-			protected static string s15 = "</div>";
+			protected static string s13 = "</div>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s14);
+					bd.Append(s12);
 					bd.Append(ButtonText);
-					bd.Append(s15);
+					bd.Append(s13);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}

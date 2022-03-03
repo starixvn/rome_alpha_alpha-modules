@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Web;
 using TplCore.Element;
 using Fanex.Age.UI.Components.RefreshCountDown;
+using System.Configuration;
+using Sunplus.Agent.Model.Entities;
 
 /// <summary>
 /// Generate refresh count down control
@@ -25,10 +27,12 @@ namespace Fanex.Age.UI.Components
         public RefreshCountDown_Control(int initCountDown, String refreshCountDownId, String refreshFunc)
         {
             _RefreshCountDownTemplate = new RefreshCountDown_Template();
-
             _RefreshCountDownTemplate.initCountDown = initCountDown.ToString();
             _RefreshCountDownTemplate.RefreshCountDownId = refreshCountDownId;
             _RefreshCountDownTemplate.CountDownRefreshFunc = refreshFunc;
+
+            var darkModeName = "1" == ConfigurationManager.AppSettings["IsOfferDarkMode"] ? UserSession.Current.DarkModeName : string.Empty;
+            _RefreshCountDownTemplate.ExternalResources.DarkModeName = darkModeName;
 
             int i = 0;
             int[] mins = GenerateCountDownOption(initCountDown);

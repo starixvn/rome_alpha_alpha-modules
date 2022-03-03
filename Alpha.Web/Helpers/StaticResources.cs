@@ -7,7 +7,9 @@
     using System.Reflection;
     using System.Web;
     using System.Web.Configuration;
+    using Alpha.Web.Models;
     using Configurations;
+    using Sunplus.Agent.Model.Entities;
 
     public static class StaticResources
     {
@@ -93,19 +95,54 @@
             return RenderStyleWithMedia(maxDeviceWidth, styleHtml);
         }
 
+        public static IHtmlString RenderStylesWithDarkMode(params string[] paths)
+        {
+            var darkModeName = GetDarkModeName();
+            var styleHtml = string.Join(
+                string.Empty,
+                paths.Select(path => VirtualPathUtility.ToAbsolute($"{path}{darkModeName}{minText}.css?v={staticResourcesVersion}")));
+
+            return RenderStyle(styleHtml);
+        }
+
+        public static IHtmlString RenderStylesWithRoleAndDarkMode(params string[] paths)
+        {
+            var userSession = GetCurrentUserSession();
+            var roleName = GetRoleName(userSession);
+            var darkModeName = GetDarkModeName(userSession);
+            var styleHtml = string.Join(
+                string.Empty,
+                paths.Select(path => VirtualPathUtility.ToAbsolute($"{path}{roleName}{darkModeName}{minText}.css?v={staticResourcesVersion}")));
+
+            return RenderStyle(styleHtml);
+        }
+
+        public static IHtmlString RenderStylesWithMediaDarkMode(int maxDeviceWidth, params string[] paths)
+        {
+            var darkModeName = GetDarkModeName();
+            var styleHtml = string.Join(
+                string.Empty,
+                paths.Select(path => VirtualPathUtility.ToAbsolute($"{path}{darkModeName}{minText}.css?v={staticResourcesVersion}")));
+
+            return RenderStyleWithMedia(maxDeviceWidth, styleHtml);
+        }
+
         [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible", Justification = "Reviewed!")]
         public static class AssetScripts
         {
             public static IHtmlString Render(params string[] paths)
             {
-                return RenderScript(paths.Select(path => $"{AppSettings.AssetAppPath}{path}{minText}.js?v={staticResourcesVersion}").ToArray());
+                var assetAppPath = GetAssetAppPath();
+
+                return RenderScript(paths.Select(path => $"{assetAppPath}{path}{minText}.js?v={staticResourcesVersion}").ToArray());
             }
 
             public static IHtmlString RenderCommon(string path)
             {
+                var assetAppPath = GetAssetAppPath();
                 var version = !string.IsNullOrEmpty(AppSettings.StaticResourcesVersion) ? $"?v={AppSettings.StaticResourcesVersion}" : string.Empty;
 
-                return RenderScript($"{AppSettings.AssetAppPath}{path}{minText}.js{version}");
+                return RenderScript($"{assetAppPath}{path}{minText}.js{version}");
             }
         }
 
@@ -114,15 +151,69 @@
         {
             public static IHtmlString Render(params string[] paths)
             {
-                return RenderStyle(paths.Select(path => $"{AppSettings.AssetAppPath}{path}{minText}.css?v={staticResourcesVersion}").ToArray());
+                var assetAppPath = GetAssetAppPath();
+
+                return RenderStyle(paths.Select(path => $"{assetAppPath}{path}{minText}.css?v={staticResourcesVersion}").ToArray());
             }
 
             public static IHtmlString RenderCommon(string path)
             {
+                var assetAppPath = GetAssetAppPath();
                 var version = !string.IsNullOrEmpty(AppSettings.StaticResourcesVersion) ? $"?v={AppSettings.StaticResourcesVersion}" : string.Empty;
 
-                return RenderStyle($"{AppSettings.AssetAppPath}{path}{minText}.css{version}");
+                return RenderStyle($"{assetAppPath}{path}{minText}.css{version}");
+            }
+
+            public static IHtmlString RenderWithDarkMode(params string[] paths)
+            {
+                var userSession = GetCurrentUserSession();
+                var assetAppPath = GetAssetAppPath(userSession);
+                var darkModeName = GetDarkModeName(userSession);
+
+                return RenderStyle(paths.Select(path => $"{assetAppPath}{path}{darkModeName}{minText}.css?v={staticResourcesVersion}").ToArray());
+            }
+
+            public static IHtmlString RenderWithRoleAndDarkMode(params string[] paths)
+            {
+                var userSession = GetCurrentUserSession();
+                var assetAppPath = GetAssetAppPath(userSession);
+                var roleName = GetRoleName(userSession);
+                var darkModeName = GetDarkModeName(userSession);
+
+                return RenderStyle(paths.Select(path => $"{assetAppPath}{path}{roleName}{darkModeName}{minText}.css?v={staticResourcesVersion}").ToArray());
+            }
+
+            public static IHtmlString RenderCommonWithDarkMode(string path)
+            {
+                var userSession = GetCurrentUserSession();
+                var assetAppPath = GetAssetAppPath(userSession);
+                var darkModeName = GetDarkModeName(userSession); var version = !string.IsNullOrEmpty(AppSettings.StaticResourcesVersion) ? $"?v={AppSettings.StaticResourcesVersion}" : string.Empty;
+
+                return RenderStyle($"{assetAppPath}{path}{darkModeName}{minText}.css{version}");
             }
         }
+
+        private static string GetAssetAppPath(IUserSession userSession = null)
+        {
+            //userSession = userSession ?? GetCurrentUserSession();
+
+            return AppSettings.AssetAppPath; //userSession.AssetAppPath;
+        }
+
+        private static string GetRoleName(IUserSession userSession = null)
+        {
+            userSession = userSession ?? GetCurrentUserSession();
+
+            return Enumeration.FromValue<UserLevel>(userSession.RoleId).DisplayName.ToLowerInvariant();
+        }
+
+        private static string GetDarkModeName(IUserSession userSession = null)
+        {
+            userSession = userSession ?? GetCurrentUserSession();
+
+            return AppSettings.IsOfferDarkMode ? userSession.DarkModeName : string.Empty;
+        }
+
+        private static IUserSession GetCurrentUserSession() => UserSession.Current;
     }
 }

@@ -88,7 +88,6 @@ namespace Fanex.Age.UI.Components
 
         public void HideLinkedResources()
         {
-            tpl.ExternalResources = null;
         }
 
         public override string ToString()

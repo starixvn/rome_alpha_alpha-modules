@@ -21,10 +21,10 @@ namespace Fanex.Age.UI.Components
 			protected static string s3 = "</ul></div><script type=\"text/javascript\">var refreshCountDownId = \"";
 			public string RefreshCountDownId = "{RefreshCountDownId}";
 			protected static string s4 = "\";var initCountDown = ";
-			public string initCountDown = "{initCountDown}";
+			public string  initCountDown  = "{ initCountDown }";
 			protected static string s5 = ";var loadingTxt = \"<span class='miniloading'>";
 			protected static string s6{get{return LocalResources.UIComponentsLang.loading;}}
-			protected static string s7 = "</span>\";var countDownRefreshFunc=\"";
+			protected static string s7 = "</span>\";var countDownRefreshFunc = \"";
 			public string CountDownRefreshFunc = "{CountDownRefreshFunc}";
 			protected static string s8 = "()\";</script>";
 			public override void ToString(ref StringBuilder bd)
@@ -40,7 +40,7 @@ namespace Fanex.Age.UI.Components
 					bd.Append(s3);
 					bd.Append(RefreshCountDownId);
 					bd.Append(s4);
-					bd.Append(initCountDown);
+					bd.Append( initCountDown );
 					bd.Append(s5);
 					bd.Append(s6);
 					bd.Append(s7);
@@ -60,21 +60,21 @@ namespace Fanex.Age.UI.Components
 
 		public class RefreshCountDown_ExternalResources_Block: Block
 		{
-			protected static string s9 = "<link href=\"";
-			protected static string s10{get{return AbsoluteUrl("App_Themes/Apo/Components/RefreshCountDown/RefreshCountDown.min.css", TplSettings.Question);}}
-			protected static string s11 = "\" rel=\"stylesheet\" type=\"text/css\" /><script src=\"";
-			protected static string s12{get{return AbsoluteUrl("RefreshCountDown/RefreshCountDown.js", TplSettings.Question);}}
-			protected static string s13 = "\" type=\"text/javascript\"></script>";
+			protected static string s9 = "<link href='../App_Themes/Apo/Components/RefreshCountDown/RefreshCountDown";
+			public string DarkModeName = "{DarkModeName}";
+			protected static string s10 = ".min.css' rel=\"stylesheet\" type=\"text/css\" /><script src=\"";
+			protected static string s11{get{return AbsoluteUrl("RefreshCountDown/RefreshCountDown.js", TplSettings.Question);}}
+			protected static string s12 = "\" type=\"text/javascript\"></script>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
 					bd.Append(s9);
+					bd.Append(DarkModeName);
 					bd.Append(s10);
 					bd.Append(s11);
 					bd.Append(s12);
-					bd.Append(s13);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
@@ -82,27 +82,27 @@ namespace Fanex.Age.UI.Components
 
 		public class RefreshCountDown_Seconds_Block: Block
 		{
-			protected static string s14 = "<li id=\"option";
+			protected static string s13 = "<li id=\"option";
 			public string i = "{i}";
-			protected static string s15 = "\" class=\"menuitem ";
+			protected static string s14 = "\" class=\"menuitem ";
 			public string OptionClass = "{OptionClass}";
-			protected static string s16 = "\" onclick=\"CountDownRefresh_SaveOption(this.id);\">";
+			protected static string s15 = "\" onclick=\"CountDownRefresh_SaveOption(this.id);\">";
 			public string SecondNum = "{SecondNum}";
-			protected static string s17{get{return LocalResources.UIComponentsLang.sec;}}
-			protected static string s18 = "</li>";
+			protected static string s16{get{return LocalResources.UIComponentsLang.sec;}}
+			protected static string s17 = "</li>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					bd.Append(s14);
+					bd.Append(s13);
 					bd.Append(i);
-					bd.Append(s15);
+					bd.Append(s14);
 					bd.Append(OptionClass);
-					bd.Append(s16);
+					bd.Append(s15);
 					bd.Append(SecondNum);
+					bd.Append(s16);
 					bd.Append(s17);
-					bd.Append(s18);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}

@@ -13,7 +13,6 @@ namespace Fanex.Age.UI.Components
 	{
 		public class ContextMenuColumns_Control_Template : Template
 		{
-			public ContextMenuColumns_Control_ExternalResources_Block ExternalResources = new ContextMenuColumns_Control_ExternalResources_Block();
 			protected static string s0 = "<div id=\"PopupCtx\" class=\"divMenuPopup\"><table id=\"Popup\" cols=\"";
 			public string columns = "{columns}";
 			protected static string s1 = "\">";
@@ -28,7 +27,6 @@ namespace Fanex.Age.UI.Components
 				if(!Visible) return;
 				if(RenderChild)
 				{
-					if(null != ExternalResources) ExternalResources.ToString(ref bd);
 					bd.Append(s0);
 					bd.Append(columns);
 					bd.Append(s1);
@@ -50,65 +48,47 @@ namespace Fanex.Age.UI.Components
 
 		}
 
-		public class ContextMenuColumns_Control_ExternalResources_Block: Block
+		public class ContextMenuColumns_Control_checkbox_Block: Block
 		{
-			protected static string s5 = "<link href=\"";
-			protected static string s6{get{return AbsoluteUrl("App_Themes/Apo/Components/ShowHideColumn/ContextMenuColumns_Control.min.css", TplSettings.Question);}}
-			protected static string s7 = "\" rel=\"stylesheet\" type=\"text/css\" />";
+			protected static string s5 = "<tr><td><input class=\"padding\" onclick=\"onChangeColumn('";
+			public string colName = "{colName}";
+			protected static string s6 = "', 'chk_";
+			protected string t0_colName;
+			protected static string s7 = "', '";
+			public string colId = "{colId}";
+			protected static string s8 = "', '";
+			public string colspan = "{colspan}";
+			protected static string s9 = "', ";
+			public string showLcs = "{showLcs}";
+			protected static string s10 = ");\" type=\"checkbox\" id=\"chk_";
+			protected string t1_colName;
+			protected static string s11 = "\" /><label for=\"chk_";
+			protected string t2_colName;
+			protected static string s12 = "\"><span class=\"padding\">";
+			public string text = "{text}";
+			protected static string s13 = "</span></label></td></tr>";
 			public override void ToString(ref StringBuilder bd)
 			{
 				if(!Visible) return;
 				if(RenderChild)
 				{
 					bd.Append(s5);
+					bd.Append(colName);
 					bd.Append(s6);
+					bd.Append(colName);
 					bd.Append(s7);
-				}
-				if(IsAssigned){bd.Append(Value);}
-			}
-		}
-
-		public class ContextMenuColumns_Control_checkbox_Block: Block
-		{
-			protected static string s8 = "<tr><td><input class=\"padding\" onclick=\"onChangeColumn('";
-			public string colName = "{colName}";
-			protected static string s9 = "', 'chk_";
-			protected string t0_colName;
-			protected static string s10 = "', '";
-			public string colId = "{colId}";
-			protected static string s11 = "', '";
-			public string colspan = "{colspan}";
-			protected static string s12 = "', ";
-			public string showLcs = "{showLcs}";
-			protected static string s13 = ");\" type=\"checkbox\" id=\"chk_";
-			protected string t1_colName;
-			protected static string s14 = "\" /><label for=\"chk_";
-			protected string t2_colName;
-			protected static string s15 = "\"><span class=\"padding\">";
-			public string text = "{text}";
-			protected static string s16 = "</span></label></td></tr>";
-			public override void ToString(ref StringBuilder bd)
-			{
-				if(!Visible) return;
-				if(RenderChild)
-				{
-					bd.Append(s8);
-					bd.Append(colName);
-					bd.Append(s9);
-					bd.Append(colName);
-					bd.Append(s10);
 					bd.Append(colId);
-					bd.Append(s11);
+					bd.Append(s8);
 					bd.Append(colspan);
-					bd.Append(s12);
+					bd.Append(s9);
 					bd.Append(showLcs);
-					bd.Append(s13);
+					bd.Append(s10);
 					bd.Append(colName);
-					bd.Append(s14);
+					bd.Append(s11);
 					bd.Append(colName);
-					bd.Append(s15);
+					bd.Append(s12);
 					bd.Append(text);
-					bd.Append(s16);
+					bd.Append(s13);
 				}
 				if(IsAssigned){bd.Append(Value);}
 			}
