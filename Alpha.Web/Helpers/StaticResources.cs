@@ -195,9 +195,12 @@
 
         private static string GetAssetAppPath(IUserSession userSession = null)
         {
-            //userSession = userSession ?? GetCurrentUserSession();
+            userSession = userSession ?? GetCurrentUserSession();
+            var assetAppPath = userSession.AssetAppPath;
 
-            return AppSettings.AssetAppPath; //userSession.AssetAppPath;
+            return string.IsNullOrWhiteSpace(assetAppPath)
+                ? AppSettings.AssetAppPath
+                : assetAppPath;
         }
 
         private static string GetRoleName(IUserSession userSession = null)
