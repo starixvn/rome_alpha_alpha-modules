@@ -34,6 +34,11 @@
 
             if (!string.IsNullOrWhiteSpace(redirectUrl))
             {
+                if (AppSettings.SecurityCodeConfig.IsStandaloneSite || !string.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["Report:Domain"]))
+                {
+                    redirectUrl = $"/{ConfigurationManager.AppSettings["Report:Routing"].TrimEnd('/')}{redirectUrl}";
+                }
+
                 queryString += (string.IsNullOrWhiteSpace(queryString) ? "?" : string.Empty)
                     + $"redirectUrl={HttpUtility.UrlEncode(redirectUrl)}";
             }
