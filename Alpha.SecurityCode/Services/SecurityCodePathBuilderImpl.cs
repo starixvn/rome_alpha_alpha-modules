@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Web;
     using Configurations;
+    using Sunplus.Agent.Model.Entities;
     using Web;
 
     public class SecurityCodePathBuilderImpl : SecurityCodePathBuilder
@@ -34,9 +35,9 @@
 
             if (!string.IsNullOrWhiteSpace(redirectUrl))
             {
-                if (AppSettings.SecurityCodeConfig.IsStandaloneSite || !string.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["Report:Domain"]))
+                if (AppSettings.SecurityCodeConfig.IsStandaloneSite)
                 {
-                    redirectUrl = $"/{ConfigurationManager.AppSettings["Report:Routing"].TrimEnd('/')}{redirectUrl}";
+                    redirectUrl = $"/{(UserSession.Current.GetProperty<string>("Report_Routing") ?? string.Empty).TrimEnd('/')}{redirectUrl}";
                 }
 
                 queryString += (string.IsNullOrWhiteSpace(queryString) ? "?" : string.Empty)

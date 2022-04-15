@@ -1,11 +1,11 @@
 ﻿namespace Alpha.SecurityCode.Web
 {
     using System;
-    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Web;
     using Alpha.SecurityCode.Configurations;
     using Services;
+    using Sunplus.Agent.Model.Entities;
 
     public class SecurityCodeHttpContextImpl : SecurityCodeHttpContext
     {
@@ -82,9 +82,9 @@
                     // Modify Url with session id in it
                     rawUrl = response.ApplyAppPathModifier(rawUrl);
 
-                    if (AppSettings.SecurityCodeConfig.IsStandaloneSite || !string.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["Report:Domain"]))
+                    if (AppSettings.SecurityCodeConfig.IsStandaloneSite)
                     {
-                        rawUrl = $"https://{requestHeaders["Host"]}/{ConfigurationManager.AppSettings["Report:Routing"].TrimEnd('/')}{rawUrl}";
+                        rawUrl = $"https://{requestHeaders["Host"]}/{(UserSession.Current.GetProperty<string>("Report_Routing") ?? string.Empty).TrimEnd('/')}{rawUrl}";
                     }
                 }
 
