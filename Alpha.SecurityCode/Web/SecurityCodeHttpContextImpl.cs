@@ -84,7 +84,7 @@
 
                     if (AppSettings.SecurityCodeConfig.IsStandaloneSite)
                     {
-                        rawUrl = $"https://{requestHeaders["Host"]}/{(UserSession.Current.GetProperty<string>("Report_Routing") ?? string.Empty).TrimEnd('/')}{rawUrl}";
+                        rawUrl = $"//{requestHeaders["Host"]}/{(UserSession.Current.GetProperty<string>("Report_Routing") ?? string.Empty).TrimEnd('/')}{rawUrl}";
                     }
                 }
 
