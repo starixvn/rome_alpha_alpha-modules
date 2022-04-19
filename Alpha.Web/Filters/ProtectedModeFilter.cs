@@ -48,7 +48,7 @@
             }
             else
             {
-                filterContext.Result = new RedirectResult(MicroSites.OldMainUrl(FormsAuthentication.LoginUrl));
+                filterContext.Result = new RedirectResult(filterContext.RequestContext.HttpContext.Response.ApplyAppPathModifier(FormsAuthentication.LoginUrl));
             }
 
             TerminateSession(httpContext.Session);
