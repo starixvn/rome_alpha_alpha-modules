@@ -8,6 +8,7 @@
     using Alpha.Auth.Constants;
     using Configurations;
     using Services.Impl;
+    using Sunplus.Agent.Model.Entities;
     using Web.Helpers;
 
     /// <summary>
@@ -59,6 +60,7 @@
 
         private void UnAuthorization(AuthorizationContext filterContext)
         {
+            var isStandaloneReport = !string.IsNullOrWhiteSpace(UserSession.Current.GetProperty<string>("MainDomain"));
             HttpResponseBase response = filterContext.HttpContext.Response;
 
             if (filterContext.HttpContext.Request.IsAjaxRequest())
@@ -72,15 +74,25 @@
             }
             else
             {
-                filterContext.Result = new RedirectResult(filterContext.HttpContext.Response.ApplyAppPathModifier(FormsAuthentication.LoginUrl));
+                if (!isStandaloneReport)
+                {
+                    filterContext.Result = new RedirectResult(filterContext.HttpContext.Response.ApplyAppPathModifier(FormsAuthentication.LoginUrl));
+                }
+                else
+                {
+                    filterContext.Result = new EmptyResult();
+                }
             }
 
-            var session = filterContext.HttpContext.Session;
-            session.Clear();
-            session.Abandon();
-            if (!session.IsCookieless)
+            if (!isStandaloneReport)
             {
-                FormsAuthentication.SignOut();
+                var session = filterContext.HttpContext.Session;
+                session.Clear();
+                session.Abandon();
+                if (!session.IsCookieless)
+                {
+                    FormsAuthentication.SignOut();
+                }
             }
         }
 
@@ -106,7 +118,19 @@
             }
             else
             {
-                filterContext.Result = new RedirectResult(MicroSites.MainUrl($"{AuthorizationSection.Instance.KickoutUrl}?reason={message}"));
+                var isStandaloneReport = !string.IsNullOrWhiteSpace(UserSession.Current.GetProperty<string>("MainDomain"));
+
+                if (isStandaloneReport)
+                {
+                    if (!message.Equals("DuplicationLogin", StringComparison.OrdinalIgnoreCase))
+                    {
+                        filterContext.Result = new EmptyResult();
+                    }
+                }
+                else
+                {
+                    filterContext.Result = new RedirectResult(MicroSites.MainUrl($"{AuthorizationSection.Instance.KickoutUrl}?reason={message}"));
+                }
             }
         }
 
