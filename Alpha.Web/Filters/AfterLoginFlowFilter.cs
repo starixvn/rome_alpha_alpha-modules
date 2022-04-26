@@ -10,9 +10,20 @@
     public sealed class AfterLoginFlowFilter : ActionFilterAttribute
     {
         private readonly IUserSession userSession = new UserSessionExt();
+        private readonly bool isAuthorizedChecking;
+
+        public AfterLoginFlowFilter(bool isAuthorizedChecking = true)
+        {
+            this.isAuthorizedChecking = isAuthorizedChecking;
+        }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+            if (!isAuthorizedChecking)
+            {
+                return;
+            }
+
             base.OnActionExecuting(filterContext);
 
             if (IsValidSession(filterContext))

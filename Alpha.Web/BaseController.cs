@@ -21,10 +21,15 @@
             MessageId = "0", Justification = "Reviewed!")]
         protected override void OnAuthorization(AuthorizationContext filterContext)
         {
+            if (filterContext.RequestContext.HttpContext.Request.Url.AbsolutePath.EndsWith("/Auth"))
+            {
+                return;
+            }
+
             base.OnAuthorization(filterContext);
 
             var isAuthenticated = AppSettings.IsIntegrationTest ||
-                (filterContext.HttpContext.User.Identity.IsAuthenticated && UserSession.Current.UserId > 0);
+                (filterContext.HttpContext.Request.IsAuthenticated && UserSession.Current.UserId > 0);
 
             if (!isAuthenticated)
             {
@@ -48,7 +53,20 @@
             }
             else
             {
-                filterContext.Result = new RedirectResult(MicroSites.OldMainUrl(FormsAuthentication.LoginUrl));
+                var pathAndQuery = filterContext.HttpContext.Request.Url.PathAndQuery;
+                if (!string.IsNullOrWhiteSpace(pathAndQuery))
+                {
+                    pathAndQuery = $"?ReturnUrl={pathAndQuery}";
+                }
+
+                if (!string.IsNullOrWhiteSpace(UserSession.Current.GetProperty<string>("MainDomain")))
+                {
+                    filterContext.Result = new RedirectResult(filterContext.HttpContext.Response.ApplyAppPathModifier($"{FormsAuthentication.LoginUrl}{pathAndQuery}"));
+                }
+                else
+                {
+                    filterContext.Result = new RedirectResult(MicroSites.OldMainUrl(FormsAuthentication.LoginUrl));
+                }
             }
         }
 

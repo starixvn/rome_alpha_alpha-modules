@@ -17,8 +17,25 @@
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
     public class CheckBelongingFilter : AuthorizeAttribute
     {
+        private readonly bool isAuthorizedChecking;
+
+        public CheckBelongingFilter(bool isAuthorizedChecking = true)
+        {
+            this.isAuthorizedChecking = isAuthorizedChecking;
+        }
+
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
+            if (!isAuthorizedChecking)
+            {
+                return;
+            }
+
+            if (filterContext.RequestContext.HttpContext.Request.Url.AbsolutePath.EndsWith("/Auth"))
+            {
+                return;
+            }
+
             base.OnAuthorization(filterContext);
             var authorizationService = new AuthorizationService();
             if (AuthorizationSection.Instance.EnableCheckBelonging)
@@ -60,7 +77,8 @@
 
         private void UnAuthorization(AuthorizationContext filterContext)
         {
-            var isStandaloneReport = !string.IsNullOrWhiteSpace(UserSession.Current.GetProperty<string>("MainDomain"));
+            var reportDomain = UserSession.Current.GetProperty<string>("MainDomain");
+            var isStandaloneReport = !string.IsNullOrWhiteSpace(reportDomain);
             HttpResponseBase response = filterContext.HttpContext.Response;
 
             if (filterContext.HttpContext.Request.IsAjaxRequest())
@@ -80,7 +98,7 @@
                 }
                 else
                 {
-                    filterContext.Result = new EmptyResult();
+                    filterContext.Result = new RedirectResult(reportDomain + MicroSites.OldMainUrl() + "/Error.aspx");
                 }
             }
 
@@ -118,13 +136,18 @@
             }
             else
             {
-                var isStandaloneReport = !string.IsNullOrWhiteSpace(UserSession.Current.GetProperty<string>("MainDomain"));
+                var mainDomain = UserSession.Current.GetProperty<string>("MainDomain");
+                var isStandaloneReport = !string.IsNullOrWhiteSpace(mainDomain);
 
                 if (isStandaloneReport)
                 {
                     if (!message.Equals("DuplicationLogin", StringComparison.OrdinalIgnoreCase))
                     {
-                        filterContext.Result = new EmptyResult();
+                        filterContext.Result = new RedirectResult(mainDomain + MicroSites.OldMainUrl() + "/Error.aspx");
+                    }
+                    else
+                    {
+                        filterContext.Result = new RedirectResult($"{mainDomain}{MicroSites.MainUrl()}{AuthorizationSection.Instance.KickoutUrl.TrimStart('~')}?reason={message}");
                     }
                 }
                 else
