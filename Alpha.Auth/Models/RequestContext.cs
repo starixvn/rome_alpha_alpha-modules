@@ -13,6 +13,7 @@
         private const string RNGCasinoArea = "CustomerSetting/Casino";
         private string _url;
         private int _custId = 0;
+        private string _custIds = string.Empty;
 
         public RequestContext() : this(null)
         {
@@ -121,6 +122,46 @@
             }
         }
 
+        public string CustIds
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(_custIds))
+                {
+                    return _custIds;
+                }
+
+                var custIdsQueryStringParamNames = AuthorizationSection.Instance.CustIdsQueryStringParamNames;
+                var request = HttpContext.Current.Request;
+
+                foreach (string custIdQueryStringParamName in custIdsQueryStringParamNames)
+                {
+                    if (string.IsNullOrWhiteSpace(custIdQueryStringParamName))
+                    {
+                        continue;
+                    }
+
+                    if (!string.IsNullOrEmpty(request[custIdQueryStringParamName]))
+                    {
+                        _custIds = request[custIdQueryStringParamName];
+                        if (!string.IsNullOrEmpty(_custIds))
+                        {
+                            _custIds = _custIds.Replace(',', '^');
+                            break;
+                        }
+
+                        _custIds = request.Form[custIdQueryStringParamName];
+                        if (!string.IsNullOrEmpty(_custIds))
+                        {
+                            _custIds = _custIds.Replace(',', '^');
+                            break;
+                        }
+                    }
+                }
+
+                return _custIds;
+            }
+        }
         public IUserSession UserSession
         {
             get

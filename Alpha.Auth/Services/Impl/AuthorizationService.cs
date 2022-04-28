@@ -87,11 +87,23 @@
                 {
                     foreach (PageAccessElement pageAccess in groupPageAccess.PageAccesses)
                     {
-                        if (currentUrl.Contains(pageAccess.Url.ToUpperInvariant())
-                            && _requestContext.CustId != 0
+                        if (currentUrl.Contains(pageAccess.Url.ToUpperInvariant())                            
                             && pageAccess.IsCheckBelonging)
                         {
-                            return IsBelongingOnPage(pageAccess);
+                            if(_requestContext.CustId != 0)
+                            {
+                                return IsBelongingOnPage(pageAccess);
+                            }
+
+                            if(!string.IsNullOrEmpty(_requestContext.CustIds))
+                            {
+                                return _authDataAccess.IsMultipleCustomersBelonging(
+                                    _requestContext.CustIds,
+                                    _requestContext.UserSession.CustId,
+                                    _requestContext.UserSession.SubAccId,
+                                    _requestContext.UserSession.IsInternal)
+                                    .IsActive;
+                            }
                         }
                     }
                 }
