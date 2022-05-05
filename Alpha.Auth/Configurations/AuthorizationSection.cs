@@ -12,6 +12,7 @@
 
         private static IEnumerable<GroupPageAccessElement> groupPageAccesses = instance?.GroupPageAccesses.Cast<GroupPageAccessElement>();
 
+        private static string[] custIdsQueryStringParamNames;
         private static string[] custIdQueryStringParamNames;
         private static string[] custIdJsonParamNames;
         private static string[] splitedIgnoreUrls;
@@ -57,12 +58,22 @@
 
         [ConfigurationProperty(
             "custIdQueryStringParamNameMapping",
-            DefaultValue = "custid,CustId,custId,targetCustId,id,cid,recommend,mrecommend,idagent,masterId,agentId,idAgent,idMaster,ibccustid,ACustID",
+            DefaultValue = "custid,CustId,custId,targetCustId,id,cid,recommend,mrecommend,idagent,masterId,MasterId,AgentId,agentId,idAgent,idMaster,ibccustid,ACustID",
             IsRequired = false)]
         public string CustIdQueryStringParamNameMapping
         {
             get { return (string)this["custIdQueryStringParamNameMapping"]; }
             set { this["custIdQueryStringParamNameMapping"] = value; }
+        }
+
+        [ConfigurationProperty(
+            "custIdsQueryStringParamNameMapping",
+            DefaultValue = "SearchAccountIds,custids,CustIds,custIds,targetCustIds,ids,cids,recommends,mrecommends,idagents,masterIds,agentIds,idAgents,idMasters,ibccustids,ACustIDs",
+            IsRequired = false)]
+        public string CustIdsQueryStringParamNameMapping
+        {
+            get { return (string)this["custIdsQueryStringParamNameMapping"]; }
+            set { this["custIdsQueryStringParamNameMapping"] = value; }
         }
 
         public string[] CustIdQueryStringParamNames
@@ -77,6 +88,21 @@
                 }
 
                 return custIdQueryStringParamNames;
+            }
+        }
+
+        public string[] CustIdsQueryStringParamNames
+        {
+            get
+            {
+                if (custIdsQueryStringParamNames == null)
+                {
+#pragma warning disable S2696 // Instance members should not write to "static" fields
+                    custIdsQueryStringParamNames = CustIdsQueryStringParamNameMapping.Split(',');
+#pragma warning restore S2696 // Instance members should not write to "static" fields
+                }
+
+                return custIdsQueryStringParamNames;
             }
         }
 

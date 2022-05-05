@@ -12,6 +12,8 @@
 
         int CustId { get; }
 
+        string CustIds { get; }
+
         IUserSession UserSession { get; }
     }
 }
