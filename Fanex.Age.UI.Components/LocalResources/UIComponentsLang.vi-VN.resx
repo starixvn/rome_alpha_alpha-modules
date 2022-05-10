@@ -352,15 +352,6 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
   <data name="casino" xml:space="preserve">
     <value>Casino</value>
   </data>
-  <data name="casinodownlines" xml:space="preserve">
-    <value>Những cấp dưới được phép chơi</value>
-  </data>
-  <data name="casinodownlinesdisabled" xml:space="preserve">
-    <value>Những thành viên cấp dưới trực thuộc cũng sẽ bị chặn Casino</value>
-  </data>
-  <data name="casinoPositionTaking" xml:space="preserve">
-    <value>PT (%) của Casino</value>
-  </data>
   <data name="city" xml:space="preserve">
     <value>Thành phố</value>
   </data>
@@ -421,12 +412,6 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
   <data name="confirmDisableESportsDownline" xml:space="preserve">
     <value>Are you sure you want to disable E-Sports on this customer and all downlines?</value>
   </data>
-  <data name="confirmDisableGoldDeluxe" xml:space="preserve">
-    <value>Are you sure you want to disable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="confirmDisableGoldDeluxeMultiple" xml:space="preserve">
-    <value>WARNING!!! Are you sure you want to disable Gold Deluxe on this customer and all downlines?</value>
-  </data>
   <data name="confirmDisableMAutoPT" xml:space="preserve">
     <value>Bạn có chắc muốn tắt tính năng Auto PT đối với Master này?</value>
   </data>
@@ -444,12 +429,6 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
   </data>
   <data name="confirmDisableVirtualSportsDownline" xml:space="preserve">
     <value>Bạn có muốn chặn thành viên này chơi Virtual Sports?</value>
-  </data>
-  <data name="confirmEnableGoldDeluxe" xml:space="preserve">
-    <value>Are you sure you want to enable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="confirmEnableGoldDeluxeMultiple" xml:space="preserve">
-    <value>Do you want to enable Gold Deluxe for this customer?</value>
   </data>
   <data name="confirmEnableMAutoPT" xml:space="preserve">
     <value>Bạn có muốn cho phép Master này sử dụng chức năng Auto PT?</value>
@@ -589,23 +568,14 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
   <data name="edit" xml:space="preserve">
     <value>Tùy chỉnh</value>
   </data>
-  <data name="editGoldDeluxe" xml:space="preserve">
-    <value>Edit Gold Deluxe</value>
-  </data>
   <data name="editKeno" xml:space="preserve">
     <value>Edit RNG Keno</value>
-  </data>
-  <data name="editmultcs" xml:space="preserve">
-    <value>Tùy chỉnh đồng loạt cho Casino</value>
   </data>
   <data name="editmultfinance" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho Finance</value>
   </data>
   <data name="editMultipleDoubleComm" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt giá trị Nhân Đôi hoa hồng</value>
-  </data>
-  <data name="editMultipleGoldDeluxe" xml:space="preserve">
-    <value>Edit Multiple Gold Deluxe</value>
   </data>
   <data name="editMultipleVirtualSports" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho Virtual Sports</value>
@@ -633,9 +603,6 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
   </data>
   <data name="enableuktote" xml:space="preserve">
     <value>UK Tote</value>
-  </data>
-  <data name="Enable_Gold_Deluxe" xml:space="preserve">
-    <value>Enable Gold Deluxe</value>
   </data>
   <data name="EnterMemberInfo" xml:space="preserve">
     <value>Điền thông tin</value>
@@ -735,9 +702,6 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
   </data>
   <data name="go" xml:space="preserve">
     <value>Go</value>
-  </data>
-  <data name="GoldDeluxe" xml:space="preserve">
-    <value>Gold Deluxe</value>
   </data>
   <data name="Golf" xml:space="preserve">
     <value>Đánh Golf</value>
@@ -935,9 +899,6 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
   <data name="lblAgOutst" xml:space="preserve">
     <value>Số  tiền chưa xử lý của Ag</value>
   </data>
-  <data name="lblAlertDisableCSMember" xml:space="preserve">
-    <value>Bạn có chắc muốn chặn thành viên này chơi Casino</value>
-  </data>
   <data name="lblAlertDisableSATote" xml:space="preserve">
     <value>Cảnh báo: Bạn có muốn chặn thành viên này chơi SA Tote và tất cả những thành viên cấp dưới trực thuộc </value>
   </data>
@@ -991,9 +952,6 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
   </data>
   <data name="lblCashBalance" xml:space="preserve">
     <value>Số dư tài khoản</value>
-  </data>
-  <data name="lblCasinoHandHistory" xml:space="preserve">
-    <value>Nhật ký Casino</value>
   </data>
   <data name="lblChangePassword" xml:space="preserve">
     <value>Thay đổi mật khẩu</value>
@@ -1091,9 +1049,6 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
   <data name="lbleditbetsetting" xml:space="preserve">
     <value>Tùy chỉnh thiết lập về giới hạn cược</value>
   </data>
-  <data name="lbleditcasino" xml:space="preserve">
-    <value>Casino</value>
-  </data>
   <data name="lbleditcomm" xml:space="preserve">
     <value>Tùy chỉnh giá tri hoa hồng</value>
   </data>
@@ -1108,9 +1063,6 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
   </data>
   <data name="lblEditSB" xml:space="preserve">
     <value>Sportsbook</value>
-  </data>
-  <data name="lblEnableCS" xml:space="preserve">
-    <value>Cho phép Casino</value>
   </data>
   <data name="lblEnableKeno" xml:space="preserve">
     <value>Enable RNG Keno</value>
@@ -2060,9 +2012,6 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   <data name="statusclosed" xml:space="preserve">
     <value>Trạng thái bị đóng</value>
   </data>
-  <data name="strConfirmDisableCS" xml:space="preserve">
-    <value>Cảnh báo!!!  Bạn có chắc muốn chặn thành viên này chơi Casino và tất cả những thành viên cấp dưới trực thuộc thành viên đó?</value>
-  </data>
   <data name="strConfirmDisableDoubleCommMember" xml:space="preserve">
     <value>Bạn có chắc muốn tắt chức năng Nhân đôi hoa hồng đối với  những cá cược bi thua trong Sportbooks  của thành viên này không?</value>
   </data>
@@ -2074,9 +2023,6 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   </data>
   <data name="strConfirmDisableVirtualSports" xml:space="preserve">
     <value>Cảnh báo!!!  Bạn có chắc muốn chặn thành viên này chơi Virtual Sports và tất cả những thành viên cấp dưới trực thuộc thành viên đó?</value>
-  </data>
-  <data name="strConfirmEnableCS" xml:space="preserve">
-    <value>Bạn có muốn cho phép thành viên này chơi Casino?</value>
   </data>
   <data name="strConfirmEnableDoubleComm" xml:space="preserve">
     <value>Bạn có chắc muốn cho phép sử dụng chức năng Nhân đôi hoa hồng đối với những cá cược bị thua trong Sportbooks của tài khoản này không?</value>
@@ -2146,9 +2092,6 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   </data>
   <data name="sync" xml:space="preserve">
     <value>Đồng bộ hóa</value>
-  </data>
-  <data name="synccasino" xml:space="preserve">
-    <value>Đồng bộ hóa Casino</value>
   </data>
   <data name="tablecurrency" xml:space="preserve">
     <value>Bảng tiền tệ</value>
@@ -2257,12 +2200,6 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   </data>
   <data name="updateaccount" xml:space="preserve">
     <value>Cập nhật tài khoản</value>
-  </data>
-  <data name="updateCS" xml:space="preserve">
-    <value>Cập nhật những thiết lập của Casino</value>
-  </data>
-  <data name="updateGoldDeluxeFailed" xml:space="preserve">
-    <value>Updated unsuccessfully because Gold Deluxe status has been disabled at upline</value>
   </data>
   <data name="updatesuccessfull" xml:space="preserve">
     <value>Câp nhật thành công</value>

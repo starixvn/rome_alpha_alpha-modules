@@ -1089,9 +1089,6 @@
   <data name="SB" xml:space="preserve">
     <value>SB</value>
   </data>
-  <data name="casinoPositionTaking" xml:space="preserve">
-    <value>Casino Position Taking (%)</value>
-  </data>
   <data name="lblAG" xml:space="preserve">
     <value>AG</value>
   </data>
@@ -1151,18 +1148,6 @@
   </data>
   <data name="usernameunavailable" xml:space="preserve">
     <value>Username unavailable!</value>
-  </data>
-  <data name="lblEnableCS" xml:space="preserve">
-    <value>Enable Casino</value>
-  </data>
-  <data name="strConfirmDisableCS" xml:space="preserve">
-    <value>WARNING!!!  Are you sure you want to disable Casino on this customer and all it's downlines?</value>
-  </data>
-  <data name="strConfirmEnableCS" xml:space="preserve">
-    <value>Do you want to enable Casino for all customer's downlines also?</value>
-  </data>
-  <data name="updateCS" xml:space="preserve">
-    <value>Update Casino Setting</value>
   </data>
   <data name="lblAccumulatedWinLoss" xml:space="preserve">
     <value>Accumulated transferable amount</value>
@@ -1254,9 +1239,6 @@
   <data name="currentstatustransaction" xml:space="preserve">
     <value>Current Status All Transactions</value>
   </data>
-  <data name="lblCasinoHandHistory" xml:space="preserve">
-    <value>Casino Hand History</value>
-  </data>
   <data name="transferredamount" xml:space="preserve">
     <value>Transferred Amount</value>
   </data>
@@ -1344,15 +1326,6 @@
   <data name="lblNormal" xml:space="preserve">
     <value>Normal</value>
   </data>
-  <data name="lbleditcasino" xml:space="preserve">
-    <value>Edit Casino</value>
-  </data>
-  <data name="lblAlertDisableCSMember" xml:space="preserve">
-    <value>Are you sure you want to disable Casino on this customer?</value>
-  </data>
-  <data name="editmultcs" xml:space="preserve">
-    <value>Edit Multiple Casino</value>
-  </data>
   <data name="apr" xml:space="preserve">
     <value>Apr</value>
   </data>
@@ -1395,9 +1368,6 @@
   <data name="PM" xml:space="preserve">
     <value>PM</value>
   </data>
-  <data name="synccasino" xml:space="preserve">
-    <value>Synchronize Casino</value>
-  </data>
   <data name="allowautopt" xml:space="preserve">
     <value>Allow Auto PT</value>
   </data>
@@ -1436,12 +1406,6 @@
   </data>
   <data name="accdisabled" xml:space="preserve">
     <value>This account was disabled</value>
-  </data>
-  <data name="casinodownlines" xml:space="preserve">
-    <value>Previous enabled downlines</value>
-  </data>
-  <data name="casinodownlinesdisabled" xml:space="preserve">
-    <value>Casino downlines will be disabled as well</value>
   </data>
   <data name="and" xml:space="preserve">
     <value>and</value>
@@ -2379,33 +2343,6 @@ Please use the form below to set your Security Code now.</value>
   </data>
   <data name="ContactUs" xml:space="preserve">
     <value>Contact Us</value>
-  </data>
-  <data name="GoldDeluxe" xml:space="preserve">
-    <value>Gold Deluxe</value>
-  </data>
-  <data name="editGoldDeluxe" xml:space="preserve">
-    <value>Edit Gold Deluxe</value>
-  </data>
-  <data name="confirmDisableGoldDeluxe" xml:space="preserve">
-    <value>Are you sure you want to disable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="confirmDisableGoldDeluxeMultiple" xml:space="preserve">
-    <value>WARNING!!! Are you sure you want to disable Gold Deluxe on this customer and all downlines?</value>
-  </data>
-  <data name="confirmEnableGoldDeluxe" xml:space="preserve">
-    <value>Are you sure you want to enable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="confirmEnableGoldDeluxeMultiple" xml:space="preserve">
-    <value>Do you want to enable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="Enable_Gold_Deluxe" xml:space="preserve">
-    <value>Enable Gold Deluxe</value>
-  </data>
-  <data name="updateGoldDeluxeFailed" xml:space="preserve">
-    <value>Updated unsuccessfully because Gold Deluxe status has been disabled at upline</value>
-  </data>
-  <data name="editMultipleGoldDeluxe" xml:space="preserve">
-    <value>Edit Multiple Gold Deluxe</value>
   </data>
   <data name="lblNotAuthorized" xml:space="preserve">
     <value>You are not authorized on this function</value>

@@ -40,14 +40,6 @@ namespace Sunplus.Agent.Model.Entities.Permission
             }
         }
 
-        public static bool IsShowCasino // Already offer for 789y site
-        {
-            get
-            {
-                return CurrentUserSession.GetSyncedProduct(ProductIdConstants.RNGCasino);
-            }
-        }
-
         public static string CreditNeutralSite
         {
             get { return UserPermission.creditNeutralSite; }
@@ -78,14 +70,6 @@ namespace Sunplus.Agent.Model.Entities.Permission
             get
             {
                 return AppSettings.IsEnableKeno && !CurrentUserSession.IsHideKeno;
-            }
-        }
-
-        public static bool IsShowGoldDeluxeSettingForCredit
-        {
-            get
-            {
-                return AppSettings.IsShowGoldDeluxeSettingForCredit && !CurrentUserSession.GetHideProduct(ProductIdConstants.GoldDeluxe);
             }
         }
 
@@ -192,15 +176,12 @@ namespace Sunplus.Agent.Model.Entities.Permission
                 case 1: // sportsbook
                     return true;
                 case 3: // Number Game
-                    return IsShowNumberGame;
-                case 6: // Casino
-                    return IsShowCasino;
+                    return IsShowNumberGame;               
                 case 8: // Keno
                     return IsShowKenoSetting;
                 case 16: // SP2
                     return IsShowSportsbook2;
                 case 5: // Virtual Sports
-                case 12: // Gold Deluxe
                 case 44: // RNG Lottery
                     return IsEnableProduct(productId);
                 default:

@@ -59,7 +59,6 @@ namespace Sunplus.Agent.Model.BL.Definitions
         VirtualCycling  = 185,
         VirtualTennis = 186,
         Others = 1000,
-        GoldDeluxe = 255,
         AllBet = 211,
         Voidbridge = 212,
         FishingWorld = 219,

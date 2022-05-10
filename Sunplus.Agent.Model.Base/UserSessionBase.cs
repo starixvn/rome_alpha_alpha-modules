@@ -62,10 +62,7 @@ namespace Sunplus.Agent.Model.Entities
         private const string ISADMINCANVIEWVNIP = "ISADMINCANVIEWVNIP";
         private const string ISNICKNAME = "ISNICKNAME";
         private const string ISSHOWCONSOLIDATEDREPORT = "ISSHOWCONSOLIDATEDREPORT";
-        private const string ISSHOWBETCHOICELIMIT = "ISSHOWBETCHOICELIMIT";
-        private const string ISCASINODISABLED = "ISCASINODISABLED";
-        private const string ISCASINOSYNC = "ISCASINOSYNC";
-        private const string ISNOTCURRENCYCASINO = "ISNOTCURRENCYCASINO";
+        private const string ISSHOWBETCHOICELIMIT = "ISSHOWBETCHOICELIMIT";      
         private const string ISNUMBERGAMEDISABLED = "ISNUMBERGAMEDISABLED";
 
         private const string ISDOUBLECOMMLOSING = "DOUBLECOMMLOSING";
@@ -83,9 +80,6 @@ namespace Sunplus.Agent.Model.Entities
         private const string LANGUAGE = "LANGUAGE";
 
         private const string ISHIDEKENO = "ISHIDEKENO";
-
-        private const string ISHIDEGOLDDELUXE = "ISHIDEGOLDDELUXE";
-        private const string DISABLEGOLDDELUXE = "DISABLEGOLDDELUXE";
 
         private const string ISLIMITHOSTPERMISSIONONSUBACCOUNTFUNCTION = "ISLIMITHOSTPERMISSIONONSUBACCOUNTFUNCTION";
 
@@ -842,62 +836,7 @@ namespace Sunplus.Agent.Model.Entities
             }
         }
 
-        #endregion Logged-in informations
-
-        #region Casino
-
-        /// <summary>
-        /// Disabled casino status of logged-in user.
-        /// </summary>
-        public bool IsCasinoDisabled
-        {
-            get
-            {
-                object value = this.GetProperty(ISCASINODISABLED);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISCASINODISABLED, value);
-            }
-        }
-
-        /// <summary>
-        /// Synchronized casino status of logged-in user.
-        /// </summary>
-        public bool IsCasinoSync
-        {
-            get
-            {
-                object value = this.GetProperty(ISCASINOSYNC);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISCASINOSYNC, value);
-            }
-        }
-
-        /// <summary>
-        /// True that mean current currency is casino currency.
-        /// </summary>
-        public bool IsNotCurrencyCasino
-        {
-            get
-            {
-                object value = this.GetProperty(ISNOTCURRENCYCASINO);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISNOTCURRENCYCASINO, value);
-            }
-        }
-
-        #endregion Casino           
+        #endregion Logged-in informations            
 
         #region Double Comm Losing
 
@@ -966,38 +905,6 @@ namespace Sunplus.Agent.Model.Entities
         }
 
         #endregion Keno
-
-        #region GoldDeluxe
-
-        public bool IsHideGoldDeluxe
-        {
-            get
-            {
-                object value = this.GetProperty(ISHIDEGOLDDELUXE);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISHIDEGOLDDELUXE, value);
-            }
-        }
-
-        public bool DisableGoldDeluxe
-        {
-            get
-            {
-                object value = this.GetProperty(DISABLEGOLDDELUXE);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(DISABLEGOLDDELUXE, value);
-            }
-        }
-
-        #endregion GoldDeluxe
 
         #region Sportsbook2
 

@@ -960,9 +960,6 @@
   <data name="sessionID" xml:space="preserve">
     <value>วาระ ไอดี</value>
   </data>
-  <data name="casinoPositionTaking" xml:space="preserve">
-    <value>แบ่งสู้ในคาสิโน</value>
-  </data>
   <data name="lblAG" xml:space="preserve">
     <value>เอเย่น</value>
   </data>
@@ -1004,18 +1001,6 @@
   </data>
   <data name="usernameunavailable" xml:space="preserve">
     <value>ชื่อผู้ใช้ไม่มีอยู่</value>
-  </data>
-  <data name="lblEnableCS" xml:space="preserve">
-    <value>เปิดใช้งานคาสิโน</value>
-  </data>
-  <data name="strConfirmDisableCS" xml:space="preserve">
-    <value>คำเตือน  คุณแน่ใจหรือว่าจะทำการปิดยูเซอร์ และดาวน์ไลน์ทั้งหมดของยูเซอร์นี้</value>
-  </data>
-  <data name="strConfirmEnableCS" xml:space="preserve">
-    <value>คุณต้องการเปิดการใช้งานคาสิโนให้กับลูดค้าทั้งหมดและดาวน์ไลน์ทั้งหมดหรือไม่</value>
-  </data>
-  <data name="updateCS" xml:space="preserve">
-    <value>อัพเดทการตั้งค่าของคาสิโน</value>
   </data>
   <data name="lblAccumulatedWinLoss" xml:space="preserve">
     <value>โอนเงินยอดสะสมทั้งหมด</value>
@@ -1070,9 +1055,6 @@
   </data>
   <data name="currentstatustransaction" xml:space="preserve">
     <value>สถานะปัจจุบันของธุรกรรมทั้งหมด</value>
-  </data>
-  <data name="lblCasinoHandHistory" xml:space="preserve">
-    <value>ประวัติเกมคาสิโน</value>
   </data>
   <data name="transferredamount" xml:space="preserve">
     <value>ยอดโอนเงินทั้งหมด</value>
@@ -1140,17 +1122,8 @@
   <data name="lblPositionTakingSuper" xml:space="preserve">
     <value>แบ่งสู้ของซุปเปรอ์</value>
   </data>
-  <data name="lbleditcasino" xml:space="preserve">
-    <value>แก้ไขคาสิโน</value>
-  </data>
-  <data name="lblAlertDisableCSMember" xml:space="preserve">
-    <value>คุณแน่ใจหรือว่าจะปิดการใช้งานคาสิโนของลูกค้าท่านนี้</value>
-  </data>
   <data name="lblNormal" xml:space="preserve">
     <value>ธรรมดา</value>
-  </data>
-  <data name="editmultcs" xml:space="preserve">
-    <value>แก้ไขคาสิโนหลายฝ่าย</value>
   </data>
   <data name="apr" xml:space="preserve">
     <value>เม.ย.</value>
@@ -1194,9 +1167,6 @@
   <data name="PM" xml:space="preserve">
     <value>บ่าย</value>
   </data>
-  <data name="synccasino" xml:space="preserve">
-    <value>คาสิโนตรงกัน</value>
-  </data>
   <data name="allowautopt" xml:space="preserve">
     <value>อนุญาตให้มีแบ่งสู้อัตโนมัติ</value>
   </data>
@@ -1232,12 +1202,6 @@
   </data>
   <data name="accdisabled" xml:space="preserve">
     <value>บัญชีนี้ได้ถูกปิดไปแล้ว</value>
-  </data>
-  <data name="casinodownlines" xml:space="preserve">
-    <value>ดาวน์ไลน์ที่เปิดการใช้งานก่อนหน้านี้</value>
-  </data>
-  <data name="casinodownlinesdisabled" xml:space="preserve">
-    <value>คาสินโนของดาวน์ไลน์ก็จะปิดการใช้งาน</value>
   </data>
   <data name="and" xml:space="preserve">
     <value>และ</value>
@@ -2036,33 +2000,6 @@
   </data>
   <data name="ContactUs" xml:space="preserve">
     <value>ติดต่อเรา</value>
-  </data>
-  <data name="GoldDeluxe" xml:space="preserve">
-    <value>Gold Deluxe</value>
-  </data>
-  <data name="editGoldDeluxe" xml:space="preserve">
-    <value>Edit Gold Deluxe</value>
-  </data>
-  <data name="editMultipleGoldDeluxe" xml:space="preserve">
-    <value>Edit Multiple Gold Deluxe</value>
-  </data>
-  <data name="confirmDisableGoldDeluxe" xml:space="preserve">
-    <value>Are you sure you want to disable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="confirmDisableGoldDeluxeMultiple" xml:space="preserve">
-    <value>WARNING!!! Are you sure you want to disable Gold Deluxe on this customer and all downlines?</value>
-  </data>
-  <data name="confirmEnableGoldDeluxe" xml:space="preserve">
-    <value>Are you sure you want to enable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="confirmEnableGoldDeluxeMultiple" xml:space="preserve">
-    <value>Do you want to enable Gold Deluxe for this customer?</value>
-  </data>
-  <data name="Enable_Gold_Deluxe" xml:space="preserve">
-    <value>Enable Gold Deluxe</value>
-  </data>
-  <data name="updateGoldDeluxeFailed" xml:space="preserve">
-    <value>Updated unsuccessfully because Gold Deluxe status has been disabled at upline</value>
   </data>
   <data name="ConfirmSecurityCode" xml:space="preserve">
     <value>Confirm Security Code</value>

@@ -10,7 +10,6 @@
     public class RequestContext : IRequestContext
     {
         private readonly IRequestAnalyst RequestAnalyst;
-        private const string RNGCasinoArea = "CustomerSetting/Casino";
         private string _url;
         private int _custId = 0;
         private string _custIds = string.Empty;
@@ -32,11 +31,6 @@
                 if (string.IsNullOrWhiteSpace(_url))
                 {
                     _url = HttpContext.Current.Request.AppRelativeCurrentExecutionFilePath.Substring(2);
-
-                    if (IsRNGCasinoUri())
-                    {
-                        return GetRnGCasinoUri().Remove(0, 1).ToLower();
-                    }
                 }
 
                 return _url;
@@ -168,22 +162,6 @@
             {
                 return UserSessionService.GetUserSessionInstance(HttpContext.Current.Session.SessionID);
             }
-        }       
-
-        private bool IsRNGCasinoUri()
-        {
-            var url = HttpContext.Current.Request.Path.ToString();
-
-            return url.IndexOf(RNGCasinoArea, StringComparison.OrdinalIgnoreCase) != -1;
-        }
-
-        private string GetRnGCasinoUri()
-        {
-            var routeData = HttpContext.Current.Request.RequestContext.RouteData;
-            var controller = routeData.Values["controller"];
-            var action = routeData.Values["action"];
-
-            return string.Format("/{0}/{1}/{2}", RNGCasinoArea, controller, action);
-        }
+        }  
     }
 }
