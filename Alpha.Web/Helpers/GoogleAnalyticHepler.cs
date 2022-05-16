@@ -54,7 +54,17 @@
             }
 
             return new HtmlString(@"<noscript><iframe src='https://www.googletagmanager.com/ns.html?id=" + gtagId + 
-                                    " height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>");
+                                    "' height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>");
+        }
+
+        public static HtmlString GtagScript()
+        {
+            return RenderGtagScript(AppSettings.GoogleAnalyticId);
+        }
+
+        public static HtmlString GtagNoScript()
+        {
+            return RenderGtagNoScript(AppSettings.GoogleAnalyticId);
         }
     }
 }
