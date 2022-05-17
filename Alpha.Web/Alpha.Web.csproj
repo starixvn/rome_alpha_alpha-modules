@@ -13,7 +13,7 @@
     <PackageTags>alpha.web</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.1-gtag01</Version>
+    <Version>1.1.0</Version>
     <AssemblyName>Alpha.Web</AssemblyName>
     <PackageReleaseNotes>000000 - Support Render Gtag Manager</PackageReleaseNotes>
   </PropertyGroup>
