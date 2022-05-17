@@ -7,15 +7,15 @@
     <RepositoryUrl>https://gitlab.nexdev.net/rome/alpha/alpha.web</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Deterministic>true</Deterministic>
-    <AssemblyVersion>1.0.8.9</AssemblyVersion>
-    <FileVersion>1.0.8.9</FileVersion>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
     <RepositoryType>git</RepositoryType>
     <PackageTags>alpha.web</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.0.8.9-cdn01</Version>
+    <Version>1.1.0</Version>
     <AssemblyName>Alpha.Web</AssemblyName>
-    <PackageReleaseNotes>158143 - Support CDN for assets</PackageReleaseNotes>
+    <PackageReleaseNotes>000000 - Support Render Gtag Manager</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.Common" Version="1.1.0.1" />
