@@ -7,15 +7,15 @@
     <RepositoryUrl>https://gitlab.nexdev.net/rome/alpha/alpha.web</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Deterministic>true</Deterministic>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
+    <AssemblyVersion>1.1.0.1</AssemblyVersion>
+    <FileVersion>1.1.0.1</FileVersion>
     <RepositoryType>git</RepositoryType>
     <PackageTags>alpha.web</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.1.0</Version>
+    <Version>1.1.0.1</Version>
     <AssemblyName>Alpha.Web</AssemblyName>
-    <PackageReleaseNotes>000000 - Support Render Gtag Manager</PackageReleaseNotes>
+    <PackageReleaseNotes>165346 - Separate report site</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.Common" Version="1.1.0.1" />
