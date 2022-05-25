@@ -10,7 +10,7 @@
     public sealed class AfterLoginFlowFilter : ActionFilterAttribute
     {
         private readonly IUserSession userSession = new UserSessionExt();
-        private readonly bool isAuthorizedChecking;
+        private bool isAuthorizedChecking;
 
         public AfterLoginFlowFilter(bool isAuthorizedChecking = true)
         {
@@ -19,6 +19,12 @@
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+            if (filterContext.RequestContext.HttpContext.Request.IsAuthenticated
+                   && !isAuthorizedChecking)
+            {
+                isAuthorizedChecking = true;
+            }
+
             if (!isAuthorizedChecking)
             {
                 return;

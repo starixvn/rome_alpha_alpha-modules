@@ -1,6 +1,7 @@
 ﻿namespace Alpha.Auth.Filters
 {
     using System;
+    using System.Configuration;
     using System.Net;
     using System.Web;
     using System.Web.Mvc;
@@ -17,7 +18,7 @@
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
     public class CheckBelongingFilter : AuthorizeAttribute
     {
-        private readonly bool isAuthorizedChecking;
+        private bool isAuthorizedChecking;
 
         public CheckBelongingFilter(bool isAuthorizedChecking = true)
         {
@@ -26,6 +27,12 @@
 
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
+            if (filterContext.RequestContext.HttpContext.Request.IsAuthenticated
+                && !isAuthorizedChecking)
+            {
+                isAuthorizedChecking = true;
+            }
+
             if (!isAuthorizedChecking)
             {
                 return;
@@ -77,8 +84,7 @@
 
         private void UnAuthorization(AuthorizationContext filterContext)
         {
-            var reportDomain = UserSession.Current.GetProperty<string>("MainDomain");
-            var isStandaloneReport = !string.IsNullOrWhiteSpace(reportDomain);
+            var isStandaloneReport = ConfigurationManager.AppSettings["IsStandaloneReport"] == "1";
             HttpResponseBase response = filterContext.HttpContext.Response;
 
             if (filterContext.HttpContext.Request.IsAjaxRequest())
@@ -98,6 +104,7 @@
                 }
                 else
                 {
+                    var reportDomain = UserSession.Current.GetProperty<string>("MainDomain");
                     filterContext.Result = new RedirectResult(reportDomain + MicroSites.OldMainUrl() + "/Error.aspx");
                 }
             }
@@ -136,11 +143,10 @@
             }
             else
             {
-                var mainDomain = UserSession.Current.GetProperty<string>("MainDomain");
-                var isStandaloneReport = !string.IsNullOrWhiteSpace(mainDomain);
-
+                var isStandaloneReport = ConfigurationManager.AppSettings["IsStandaloneReport"] == "1";
                 if (isStandaloneReport)
                 {
+                    var mainDomain = UserSession.Current.GetProperty<string>("MainDomain");
                     if (!message.Equals("DuplicationLogin", StringComparison.OrdinalIgnoreCase))
                     {
                         filterContext.Result = new RedirectResult(mainDomain + MicroSites.OldMainUrl() + "/Error.aspx");

@@ -60,8 +60,7 @@
                     pathAndQuery = $"?ReturnUrl={pathAndQuery}";
                 }
 
-                if (!string.IsNullOrWhiteSpace(UserSession.Current.GetProperty<string>("MainDomain")) || 
-                    ConfigurationManager.AppSettings["IsStandaloneReport"] == "1")
+                if (ConfigurationManager.AppSettings["IsStandaloneReport"] == "1")
                 {
                     filterContext.Result = new RedirectResult(filterContext.HttpContext.Response.ApplyAppPathModifier($"{FormsAuthentication.LoginUrl}{pathAndQuery}"));
                 }

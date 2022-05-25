@@ -10,7 +10,7 @@
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
     public sealed class ProtectedModeFilter : AuthorizeAttribute
     {
-        private readonly bool isAuthorizedChecking;
+        private bool isAuthorizedChecking;
 
         public ProtectedModeFilter(bool isAuthorizedChecking = true)
         {
@@ -19,6 +19,13 @@
 
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
+            if (filterContext.RequestContext.HttpContext.Request.IsAuthenticated
+                   && !isAuthorizedChecking)
+            {
+                isAuthorizedChecking = true;
+            }
+
+
             if (!isAuthorizedChecking)
             {
                 return;
