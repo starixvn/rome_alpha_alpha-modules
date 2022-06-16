@@ -105,7 +105,7 @@
                 else
                 {
                     var reportDomain = UserSession.Current.GetProperty<string>("MainDomain");
-                    filterContext.Result = new RedirectResult(reportDomain + MicroSites.OldMainUrl() + "/Error.aspx");
+                    filterContext.Result = new RedirectResult(reportDomain + "/ex-main/Error.aspx");
                 }
             }
 
@@ -149,7 +149,7 @@
                     var mainDomain = UserSession.Current.GetProperty<string>("MainDomain");
                     if (!message.Equals("DuplicationLogin", StringComparison.OrdinalIgnoreCase))
                     {
-                        filterContext.Result = new RedirectResult(mainDomain + MicroSites.OldMainUrl() + "/Error.aspx");
+                        filterContext.Result = new RedirectResult(mainDomain + MicroSites.OldMainUrl("~/Error.aspx"));
                     }
                     else
                     {

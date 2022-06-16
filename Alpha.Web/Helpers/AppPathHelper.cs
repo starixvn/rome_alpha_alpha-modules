@@ -32,7 +32,15 @@
             }
 
             var appPath = context.Response.ApplyAppPathModifier(virtualPath);
-            appPath = Regex.Replace(appPath, getAppDomainVirtualPath(), appName, RegexOptions.IgnoreCase);
+            var appDomainPath = getAppDomainVirtualPath();
+            if (!appDomainPath.Equals("/", StringComparison.OrdinalIgnoreCase))
+            {
+                appPath = Regex.Replace(appPath, appDomainPath, appName, RegexOptions.IgnoreCase);
+            }
+            else
+            {
+                appPath = $"{appName}{appPath}";
+            }
 
             return appPath;
         }
