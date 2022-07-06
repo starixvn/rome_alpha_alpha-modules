@@ -13,7 +13,7 @@
     <PackageTags>alpha net throttling</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.1.0.1-beta1</Version>
+    <Version>1.1.0.1</Version>
     <AssemblyName>Alpha.NetThrottling</AssemblyName>
     <PackageReleaseNotes>expose isBlacklist</PackageReleaseNotes>
   </PropertyGroup>
