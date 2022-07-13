@@ -100,9 +100,9 @@
 
             UserSessionBase session = userSession as UserSessionBase;
 
-            session.CustId = (int)values["custid"];
+            session.CustId = Convert.ToInt32(values["custid"]);
             session.UserName = (values["username"] as string).ToUpperInvariant().Trim();
-            session.SubAccId = (int)values["subaccid"];
+            session.SubAccId = Convert.ToInt32(values["subaccid"]);
 
             session.SubUserName = values["subaccname"] as string;
             session.SubPageAccess = (PageAccess)(values["subpageaccess"] as string);
@@ -115,11 +115,11 @@
             session.Site = values["site"] as string;
 
             session.Currency = values["currency"] as string;
-            session.CurrencyId = (int)values["currencyid"];
-            session.RoleId = (byte)(int)values["roleid"];
-            session.ServerId = (int)values["serverid"];
+            session.CurrencyId = Convert.ToInt32(values["currencyid"]);
+            session.RoleId = Convert.ToByte(values["roleid"]);
+            session.ServerId = Convert.ToInt32(values["serverid"]);
 
-            session.AdminId = (int)values["adminid"];
+            session.AdminId = Convert.ToInt32(values["adminid"]);
             session.AdminName = values["accusername"] as string;
 
             session.IsLogged = session.IsInternal || !(bool)values["isfirstlogin"];
@@ -191,9 +191,9 @@
             setUserStatusAction(session, values);
 
             session.IsDisabledAutoMPT = (bool)values["disableautompt"];
-            session.SRecommendId = (int)values["srecommend"];
-            session.MRecommendId = (int)values["mrecommend"];
-            session.ARecommendId = (int)values["arecommend"];
+            session.SRecommendId = Convert.ToInt32(values["srecommend"]);
+            session.MRecommendId = Convert.ToInt32(values["mrecommend"]);
+            session.ARecommendId = Convert.ToInt32(values["arecommend"]);
             session.IsAdminCanViewVNIP = (bool)values["isadmincanviewvnip"];
             session.IsAllowedTotalBalanceTransfer = (bool)values["isallowedtotalbalancetransfer"];
             session.IsShowConsolidatedReport = (bool)values["isshowconsolidated"];

@@ -17,5 +17,7 @@
         bool IsEnabledSecurityCodeInBetLists { get; }
 
         bool IsEnabledSecurityCodeInStatement { get; }
+
+        string MainDomain { get; }
     }
 }

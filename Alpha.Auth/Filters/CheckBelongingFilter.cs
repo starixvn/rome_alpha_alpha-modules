@@ -1,6 +1,7 @@
 ﻿namespace Alpha.Auth.Filters
 {
     using System;
+    using System.Configuration;
     using System.Net;
     using System.Web;
     using System.Web.Mvc;
@@ -8,6 +9,7 @@
     using Alpha.Auth.Constants;
     using Configurations;
     using Services.Impl;
+    using Sunplus.Agent.Model.Entities;
     using Web.Helpers;
 
     /// <summary>
@@ -16,8 +18,31 @@
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
     public class CheckBelongingFilter : AuthorizeAttribute
     {
+        private bool isAuthorizedChecking;
+
+        public CheckBelongingFilter(bool isAuthorizedChecking = true)
+        {
+            this.isAuthorizedChecking = isAuthorizedChecking;
+        }
+
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
+            if (filterContext.RequestContext.HttpContext.Request.IsAuthenticated
+                && !isAuthorizedChecking)
+            {
+                isAuthorizedChecking = true;
+            }
+
+            if (!isAuthorizedChecking)
+            {
+                return;
+            }
+
+            if (filterContext.RequestContext.HttpContext.Request.Url.AbsolutePath.EndsWith("/Auth"))
+            {
+                return;
+            }
+
             base.OnAuthorization(filterContext);
             var authorizationService = new AuthorizationService();
             if (AuthorizationSection.Instance.EnableCheckBelonging)
@@ -59,6 +84,7 @@
 
         private void UnAuthorization(AuthorizationContext filterContext)
         {
+            var isStandaloneReport = ConfigurationManager.AppSettings["IsStandaloneReport"] == "1";
             HttpResponseBase response = filterContext.HttpContext.Response;
 
             if (filterContext.HttpContext.Request.IsAjaxRequest())
@@ -72,15 +98,26 @@
             }
             else
             {
-                filterContext.Result = new RedirectResult(MicroSites.OldMainUrl(FormsAuthentication.LoginUrl));
+                if (!isStandaloneReport)
+                {
+                    filterContext.Result = new RedirectResult(filterContext.HttpContext.Response.ApplyAppPathModifier(FormsAuthentication.LoginUrl));
+                }
+                else
+                {
+                    var reportDomain = UserSession.Current.GetProperty<string>("MainDomain");
+                    filterContext.Result = new RedirectResult(reportDomain + "/ex-main/Error.aspx");
+                }
             }
 
-            var session = filterContext.HttpContext.Session;
-            session.Clear();
-            session.Abandon();
-            if (!session.IsCookieless)
+            if (!isStandaloneReport)
             {
-                FormsAuthentication.SignOut();
+                var session = filterContext.HttpContext.Session;
+                session.Clear();
+                session.Abandon();
+                if (!session.IsCookieless)
+                {
+                    FormsAuthentication.SignOut();
+                }
             }
         }
 
@@ -106,7 +143,23 @@
             }
             else
             {
-                filterContext.Result = new RedirectResult(MicroSites.MainUrl($"{AuthorizationSection.Instance.KickoutUrl}?reason={message}"));
+                var isStandaloneReport = ConfigurationManager.AppSettings["IsStandaloneReport"] == "1";
+                if (isStandaloneReport)
+                {
+                    var mainDomain = UserSession.Current.GetProperty<string>("MainDomain");
+                    if (!message.Equals("DuplicationLogin", StringComparison.OrdinalIgnoreCase))
+                    {
+                        filterContext.Result = new RedirectResult(mainDomain + MicroSites.OldMainUrl("~/Error.aspx"));
+                    }
+                    else
+                    {
+                        filterContext.Result = new RedirectResult($"{mainDomain}{MicroSites.MainUrl()}{AuthorizationSection.Instance.KickoutUrl.TrimStart('~')}?reason={message}");
+                    }
+                }
+                else
+                {
+                    filterContext.Result = new RedirectResult(MicroSites.MainUrl($"{AuthorizationSection.Instance.KickoutUrl}?reason={message}"));
+                }
             }
         }
 

@@ -3,7 +3,9 @@
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Web;
+    using Alpha.SecurityCode.Configurations;
     using Services;
+    using Sunplus.Agent.Model.Entities;
 
     public class SecurityCodeHttpContextImpl : SecurityCodeHttpContext
     {
@@ -62,20 +64,28 @@
 
         public void RedirectToVerifySecurityCodePage()
         {
-            var request = HttpContext.Current.Request;
-            var response = HttpContext.Current.Response;
-            if (request.Headers != null && request.Headers["Content-type"] == "application/x-www-form-urlencoded")
+            var httpContext = HttpContext.Current;
+            var request = httpContext.Request;
+            var requestHeaders = request.Headers;
+            var response = httpContext.Response;
+
+            if (requestHeaders != null && requestHeaders["Content-type"] == "application/x-www-form-urlencoded")
             {
                 response.Redirect(this.securityCodePathBuilder.BuildVerifyingSecurityCodePath(), true);
             }
             else
             {
-                var rawUrl = HttpContext.Current.Request.RawUrl;
+                var rawUrl = request.RawUrl;
 
-                if (HttpContext.Current.Session.IsCookieless)
+                if (httpContext.Session.IsCookieless)
                 {
                     // Modify Url with session id in it
                     rawUrl = response.ApplyAppPathModifier(rawUrl);
+
+                    if (AppSettings.SecurityCodeConfig.IsStandaloneSite)
+                    {
+                        rawUrl = $"//{requestHeaders["Host"]}/{(UserSession.Current.GetProperty<string>("Report_Routing") ?? string.Empty).TrimEnd('/')}{rawUrl}";
+                    }
                 }
 
                 response.Redirect(this.securityCodePathBuilder.BuildVerifyingSecurityCodePath(rawUrl), true);

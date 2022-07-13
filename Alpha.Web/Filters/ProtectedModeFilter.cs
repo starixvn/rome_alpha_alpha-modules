@@ -10,8 +10,27 @@
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
     public sealed class ProtectedModeFilter : AuthorizeAttribute
     {
+        private bool isAuthorizedChecking;
+
+        public ProtectedModeFilter(bool isAuthorizedChecking = true)
+        {
+            this.isAuthorizedChecking = isAuthorizedChecking;
+        }
+
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
+            if (filterContext.RequestContext.HttpContext.Request.IsAuthenticated
+                   && !isAuthorizedChecking)
+            {
+                isAuthorizedChecking = true;
+            }
+
+
+            if (!isAuthorizedChecking)
+            {
+                return;
+            }
+
             base.OnAuthorization(filterContext);
 
             if (filterContext.Result is HttpUnauthorizedResult)
@@ -48,7 +67,7 @@
             }
             else
             {
-                filterContext.Result = new RedirectResult(MicroSites.OldMainUrl(FormsAuthentication.LoginUrl));
+                filterContext.Result = new RedirectResult(filterContext.RequestContext.HttpContext.Response.ApplyAppPathModifier(FormsAuthentication.LoginUrl));
             }
 
             TerminateSession(httpContext.Session);

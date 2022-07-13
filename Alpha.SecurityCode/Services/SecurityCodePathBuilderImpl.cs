@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Web;
     using Configurations;
+    using Sunplus.Agent.Model.Entities;
     using Web;
 
     public class SecurityCodePathBuilderImpl : SecurityCodePathBuilder
@@ -34,11 +35,20 @@
 
             if (!string.IsNullOrWhiteSpace(redirectUrl))
             {
+                if (AppSettings.SecurityCodeConfig.IsStandaloneSite)
+                {
+                    redirectUrl = $"/{(UserSession.Current.GetProperty<string>("Report_Routing") ?? string.Empty).TrimEnd('/')}{redirectUrl}";
+                }
+
                 queryString += (string.IsNullOrWhiteSpace(queryString) ? "?" : string.Empty)
                     + $"redirectUrl={HttpUtility.UrlEncode(redirectUrl)}";
             }
 
-            return BuildRootPath(rootPath, appVirtualPath) + BuildSecurityCheckingPath() + queryString;
+            var scRootPath = AppSettings.SecurityCodeConfig.IsStandaloneSite
+                ? BuildRootPath()
+                : BuildRootPath(rootPath, appVirtualPath);
+
+            return $"{scRootPath}{BuildSecurityCheckingPath()}{queryString}";
         }
 
         private string BuildSecurityCheckingPath()
@@ -54,7 +64,7 @@
 
             if (string.IsNullOrWhiteSpace(AppSettings.SecurityCodeConfig.SiteMainApp))
             {
-                if (!AppSettings.SecurityCodeConfig.IsSiteMain 
+                if (!AppSettings.SecurityCodeConfig.IsSiteMain
                     && ConfigurationManager.AppSettings["MainAppPath"] != null)
                 {
                     AppSettings.SecurityCodeConfig.SiteMainApp = ConfigurationManager.AppSettings["MainAppPath"];
@@ -66,6 +76,13 @@
             }
 
             return rootPath.Replace(appVirtualPath ?? HttpRuntime.AppDomainAppVirtualPath, AppSettings.SecurityCodeConfig.SiteMainApp);
+        }
+
+        private string BuildRootPath()
+        {
+            AppSettings.SecurityCodeConfig.SiteMainApp = AppSettings.SecurityCodeConfig.SiteMainApp ?? ConfigurationManager.AppSettings["MainAppPath"];
+
+            return $"{SecurityCodeSessionManager.SecurityCodeSession.MainDomain}{AppSettings.SecurityCodeConfig.SiteMainApp}/";
         }
     }
 }

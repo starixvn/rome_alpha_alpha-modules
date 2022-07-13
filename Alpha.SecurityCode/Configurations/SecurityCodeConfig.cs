@@ -35,5 +35,8 @@
 
         [DataMember(Name = "isSiteMain")]
         public bool IsSiteMain { get; set; }
+
+        [DataMember(Name = "isStandaloneSite")]
+        public bool IsStandaloneSite { get; set; }
     }
 }

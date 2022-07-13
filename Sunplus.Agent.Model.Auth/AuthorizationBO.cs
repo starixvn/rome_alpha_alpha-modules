@@ -130,6 +130,8 @@
             bool isShowBetChoiceLimit = IsShownBetChoiceLimit(custId);
             outputs.Add("isShowBetChoiceLimit", isShowBetChoiceLimit);
 
+            userSession.SetProperty("outputs", outputs);
+
             UserSessionService.SetUserSessionValues(CurrentSession, outputs, setUserStatusAction);
 
             return result;
@@ -212,6 +214,8 @@
             bool isShowBetChoiceLimit = IsShownBetChoiceLimit(custId);
             outputs.Add("isShowBetChoiceLimit", isShowBetChoiceLimit);
 
+            userSession.SetProperty("outputs", outputs);
+
             UserSessionService.SetUserSessionValues(CurrentSession, outputs, setUserStatusAction);
 
             return errCode == 0;
@@ -283,6 +287,8 @@
 
             bool isShowBetChoiceLimit = IsShownBetChoiceLimit(custId);
             outputs.Add("isShowBetChoiceLimit", isShowBetChoiceLimit);
+
+            userSession.SetProperty("outputs", outputs);
 
             UserSessionService.SetUserSessionValues(CurrentSession, outputs, setUserStatusAction);
 
@@ -387,6 +393,8 @@
 
             bool isShowBetChoiceLimit = IsShownBetChoiceLimit(custId);
             outputs.Add("isShowBetChoiceLimit", isShowBetChoiceLimit);
+
+            userSession.SetProperty("outputs", outputs);
 
             UserSessionService.SetUserSessionValues(CurrentSession, outputs, setUserStatusAction);
 
