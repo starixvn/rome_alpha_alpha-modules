@@ -1,8 +1,8 @@
-﻿namespace Alpha.Web.Exceptions
+﻿namespace Alpha.PartialUM.Exceptions
 {
     using System;
 
-    public class PartialUMException : Exception
+    public sealed class PartialUMException : Exception
     {
         public PartialUMException(string umFrom, string umTo)
         {
