@@ -176,12 +176,12 @@
 
             if (values.Contains("nicknameloginonly"))
             {
-                session.IsNicknameLoginOnly = !string.IsNullOrEmpty(values["nicknameloginonly"].ToString()) && (bool)values["nicknameloginonly"];
+                session.IsNicknameLoginOnly = !string.IsNullOrEmpty(values["nicknameloginonly"] + string.Empty) && (bool)values["nicknameloginonly"];
             }
 
             if (values.Contains("isnickname"))
             {
-                session.IsNickname = !string.IsNullOrEmpty(values["isnickname"].ToString()) && (bool)values["isnickname"];
+                session.IsNickname = !string.IsNullOrEmpty(values["isnickname"] + string.Empty) && (bool)values["isnickname"];
             }
 
             session.DisplayNickName = session.IsNickname ? session.NickName : session.UserName;
