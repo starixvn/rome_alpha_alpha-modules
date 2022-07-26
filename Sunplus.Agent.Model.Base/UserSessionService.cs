@@ -100,29 +100,35 @@
 
             UserSessionBase session = userSession as UserSessionBase;
 
-            session.CustId = Convert.ToInt32(values["custid"]);
-            session.UserName = (values["username"] as string).ToUpperInvariant().Trim();
-            session.SubAccId = Convert.ToInt32(values["subaccid"]);
-
-            session.SubUserName = values["subaccname"] as string;
-            session.SubPageAccess = (PageAccess)(values["subpageaccess"] as string);
-            if (!session.IsSubAcc)
+            try
             {
-                session.SubPageAccess.SetFullPermission();
+                session.CustId = Convert.ToInt32(values["custid"]);
+                session.UserName = (values["username"] as string)?.ToUpperInvariant().Trim();
+                session.SubAccId = Convert.ToInt32(values["subaccid"]);
+
+                session.SubUserName = values["subaccname"] as string;
+                session.SubPageAccess = (PageAccess)(values["subpageaccess"] as string) ?? new PageAccess();
+                if (!session.IsSubAcc)
+                {
+                    session.SubPageAccess.SetFullPermission();
+                }
+
+                session.SiteName = values["sitename"] as string;
+                session.Site = values["site"] as string;
+
+                session.Currency = values["currency"] as string;
+                session.CurrencyId = Convert.ToInt32(values["currencyid"]);
+                session.RoleId = Convert.ToByte(values["roleid"]);
+                session.ServerId = Convert.ToInt32(values["serverid"]);
+
+                session.AdminId = Convert.ToInt32(values["adminid"]);
+                session.AdminName = values["accusername"] as string;
+
+                session.IsLogged = session.IsInternal || !Convert.ToBoolean(values["isfirstlogin"]);
             }
-
-            session.SiteName = values["sitename"] as string;
-            session.Site = values["site"] as string;
-
-            session.Currency = values["currency"] as string;
-            session.CurrencyId = Convert.ToInt32(values["currencyid"]);
-            session.RoleId = Convert.ToByte(values["roleid"]);
-            session.ServerId = Convert.ToInt32(values["serverid"]);
-
-            session.AdminId = Convert.ToInt32(values["adminid"]);
-            session.AdminName = values["accusername"] as string;
-
-            session.IsLogged = session.IsInternal || !(bool)values["isfirstlogin"];
+            catch
+            {
+            }
 
             try
             {
