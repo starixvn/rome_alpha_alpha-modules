@@ -30,6 +30,11 @@
                 return;
             }
 
+            if (filterContext.RequestContext.HttpContext.Request.Url.AbsolutePath.EndsWith("/Auth"))
+            {
+                return;
+            }
+
             base.OnActionExecuting(filterContext);
 
             if (IsValidSession(filterContext))
