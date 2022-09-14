@@ -87,15 +87,18 @@
                 {
                     foreach (PageAccessElement pageAccess in groupPageAccess.PageAccesses)
                     {
-                        if (currentUrl.Contains(pageAccess.Url.ToUpperInvariant())                            
+                        if (currentUrl.Contains(pageAccess.Url.ToUpperInvariant())
                             && pageAccess.IsCheckBelonging)
                         {
-                            if(_requestContext.CustId != 0)
+                            if (_requestContext.CustId != 0)
                             {
-                                return IsBelongingOnPage(pageAccess);
+                                return pageAccess.IsSupportedAutoFollowBetTool
+                                    && _requestContext.UserSession.AutoFollowBetIsDummyAgent
+                                    ? true
+                                    : IsBelongingOnPage(pageAccess);
                             }
 
-                            if(!string.IsNullOrEmpty(_requestContext.CustIds))
+                            if (!string.IsNullOrEmpty(_requestContext.CustIds))
                             {
                                 return _authDataAccess.IsMultipleCustomersBelonging(
                                     _requestContext.CustIds,
@@ -157,7 +160,7 @@
                     requestContext.TransId,
                     requestContext.UserSession.IsInternal);
 
-            if (belongingInfo.RoleId == 0 || 
+            if (belongingInfo.RoleId == 0 ||
                 belongingInfo.RoleId > requestContext.UserSession.RoleId)
             {
                 return false;
@@ -178,7 +181,7 @@
 
         public bool IsAuthorized(string url = null)
         {
-            url = url ?? _requestContext.Url;            
+            url = url ?? _requestContext.Url;
 
             if (string.IsNullOrEmpty(url))
             {

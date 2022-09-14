@@ -73,5 +73,12 @@
             get { return (bool)this["isallowedcrosslevel"]; }
             set { this["isallowedcrosslevel"] = value; }
         }
+
+        [ConfigurationProperty("issupportedautofollowbettool", DefaultValue = false, IsRequired = false, IsKey = false)]
+        public bool IsSupportedAutoFollowBetTool
+        {
+            get { return (bool)this["issupportedautofollowbettool"]; }
+            set { this["issupportedautofollowbettool"] = value; }
+        }
     }
 }

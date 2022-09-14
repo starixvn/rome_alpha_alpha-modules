@@ -500,6 +500,8 @@ namespace Sunplus.Agent.Model.Entities
 
         bool IsProtectedMode { get; set; }
 
+        bool AutoFollowBetIsDummyAgent { get; set; }
+
         T GetProperty<T>(string propertyName);
 
         void SetProperty(string propertyName, object value);
