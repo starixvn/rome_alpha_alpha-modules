@@ -104,8 +104,11 @@
                 }
                 else
                 {
-                    var reportDomain = UserSession.Current.GetProperty<string>("MainDomain");
-                    filterContext.Result = new RedirectResult(reportDomain + "/ex-main/Error.aspx");
+                    var mainDomain = UserSession.Current.GetProperty<string>("MainDomain");
+                    var cookieless = filterContext.RequestContext.HttpContext.Session.IsCookieless ?
+                        $"/(S({filterContext.RequestContext.HttpContext.Session.SessionID}))" : string.Empty;
+
+                    filterContext.Result = new RedirectResult($"{mainDomain}/ex-main{cookieless}/Error.aspx");
                 }
             }
 
