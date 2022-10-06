@@ -1,9 +1,9 @@
-﻿namespace Alpha.Web.Filters
+﻿namespace Alpha.PartialUM.Filters
 {
     using System;
     using System.Net;
     using System.Web.Mvc;
-    using Alpha.Web.Exceptions;
+    using Alpha.PartialUM.Exceptions;
     using Alpha.Web.Helpers;
 
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
@@ -12,9 +12,7 @@
         private readonly bool isRedirect;
 
         public PartialUMExceptionFilter(bool isRedirect = false)
-        {
-            this.isRedirect = isRedirect;
-        }
+            => this.isRedirect = isRedirect;
 
         public void OnException(ExceptionContext filterContext)
         {
