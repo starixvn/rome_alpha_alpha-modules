@@ -111,6 +111,8 @@ namespace Sunplus.Agent.Model.Entities
         private const string ISOFFERPROTECTEDMODESESSIONKEY = "ISOFFERPROTECTEDMODE";
         private const string ISPROTECTEDMODESESSIONKEY = "ISPROTECTEDMODE";
 
+        public const string AUTOFOLLOWBETISDUMMYAGENTSESSIONKEY = "AUTOFOLLOWBETISDUMMYAGENT";
+
         #endregion Contructors
 
         #region Misc
@@ -1260,6 +1262,12 @@ namespace Sunplus.Agent.Model.Entities
         {
             get => GetProperty<string>(ASSETAPPPATHSESSIONKEY) ?? string.Empty;
             set => SetProperty(ASSETAPPPATHSESSIONKEY, value);
+        }
+
+        public bool AutoFollowBetIsDummyAgent
+        {
+            get => GetProperty<bool>(AUTOFOLLOWBETISDUMMYAGENTSESSIONKEY);
+            set => SetProperty(AUTOFOLLOWBETISDUMMYAGENTSESSIONKEY, value);
         }
 
         public T GetProperty<T>(string propertyName)

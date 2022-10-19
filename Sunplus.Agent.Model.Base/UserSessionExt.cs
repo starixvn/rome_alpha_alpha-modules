@@ -759,6 +759,12 @@
             set => UserSession.Current.AssetAppPath = value;
         }
 
+        public bool AutoFollowBetIsDummyAgent
+        {
+            get => UserSession.Current.AutoFollowBetIsDummyAgent;
+            set => UserSession.Current.AutoFollowBetIsDummyAgent = value;
+        }
+
         public T GetProperty<T>(string propertyName)
         {
             return UserSession.Current.GetProperty<T>(propertyName);
