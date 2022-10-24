@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <DependsOnNETStandard>false</DependsOnNETStandard>
     <TargetFramework>net461</TargetFramework>
     <Description>Alpha Net Throttling</Description>
     <Copyright>Starixsoft</Copyright>

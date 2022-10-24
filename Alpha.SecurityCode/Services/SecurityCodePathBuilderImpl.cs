@@ -37,7 +37,14 @@
             {
                 if (AppSettings.SecurityCodeConfig.IsStandaloneSite)
                 {
-                    redirectUrl = $"/{(UserSession.Current.GetProperty<string>("Report_Routing") ?? string.Empty).TrimEnd('/')}{redirectUrl}";
+                    if (HttpContext.Current.Session.IsCookieless)
+                    {
+                        redirectUrl = $"{redirectUrl.Replace("/site-reports", string.Empty)}";
+                    }
+                    else
+                    {
+                        redirectUrl = $"/{(UserSession.Current.GetProperty<string>("Report_Routing") ?? string.Empty).TrimEnd('/')}{redirectUrl}";
+                    }
                 }
 
                 queryString += (string.IsNullOrWhiteSpace(queryString) ? "?" : string.Empty)
@@ -81,8 +88,9 @@
         private string BuildRootPath()
         {
             AppSettings.SecurityCodeConfig.SiteMainApp = AppSettings.SecurityCodeConfig.SiteMainApp ?? ConfigurationManager.AppSettings["MainAppPath"];
+            var cookieless = HttpContext.Current.Session.IsCookieless ? $"/(S({UserSession.Current.GetProperty<string>("MainSessionID")}))" : string.Empty;
 
-            return $"{SecurityCodeSessionManager.SecurityCodeSession.MainDomain}{AppSettings.SecurityCodeConfig.SiteMainApp}/";
+            return $"{SecurityCodeSessionManager.SecurityCodeSession.MainDomain}{AppSettings.SecurityCodeConfig.SiteMainApp}{cookieless}/";
         }
     }
 }
