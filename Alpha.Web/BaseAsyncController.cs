@@ -1,5 +1,6 @@
 ﻿namespace Alpha.Web
 {
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Text;
@@ -21,6 +22,11 @@
             MessageId = "0", Justification = "Reviewed!")]
         protected override void OnAuthorization(AuthorizationContext filterContext)
         {
+            if (filterContext.RequestContext.HttpContext.Request.Url.AbsolutePath.EndsWith("/Auth"))
+            {
+                return;
+            }
+
             base.OnAuthorization(filterContext);
 
             var isAuthenticated = AppSettings.IsIntegrationTest ||
@@ -48,7 +54,20 @@
             }
             else
             {
-                filterContext.Result = new RedirectResult(MicroSites.OldMainUrl(FormsAuthentication.LoginUrl));
+                var pathAndQuery = filterContext.HttpContext.Request.Url.PathAndQuery;
+                if (!string.IsNullOrWhiteSpace(pathAndQuery))
+                {
+                    pathAndQuery = $"?ReturnUrl={pathAndQuery}";
+                }
+
+                if (ConfigurationManager.AppSettings["IsStandaloneReport"] == "1")
+                {
+                    filterContext.Result = new RedirectResult(filterContext.HttpContext.Response.ApplyAppPathModifier($"{FormsAuthentication.LoginUrl}{pathAndQuery}"));
+                }
+                else
+                {
+                    filterContext.Result = new RedirectResult(MicroSites.OldMainUrl(FormsAuthentication.LoginUrl));
+                }
             }
         }
 
