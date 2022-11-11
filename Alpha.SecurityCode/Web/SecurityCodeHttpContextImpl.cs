@@ -1,6 +1,7 @@
 ﻿namespace Alpha.SecurityCode.Web
 {
     using System;
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Web;
     using Alpha.SecurityCode.Configurations;
@@ -84,7 +85,8 @@
 
                     if (AppSettings.SecurityCodeConfig.IsStandaloneSite)
                     {
-                        rawUrl = $"//{requestHeaders["Host"]}/{(UserSession.Current.GetProperty<string>("Report_Routing") ?? string.Empty).TrimEnd('/')}{rawUrl}";
+                        var routing = ConfigurationManager.AppSettings["Routing"];
+                        rawUrl = $"//{requestHeaders["Host"]}/{routing?.TrimEnd('/')}{rawUrl}";
                     }
                 }
 

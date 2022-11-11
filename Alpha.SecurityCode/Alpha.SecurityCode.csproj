@@ -96,6 +96,7 @@
     <Compile Include="Configurations\AppSettings.cs" />
     <Compile Include="Configurations\SecurityCodeConfig.cs" />
     <Compile Include="Filters\SecurityCodeFilter.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="HttpModules\SecurityCodeHttpModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SecurityCodeChecker.cs" />
