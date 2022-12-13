@@ -280,13 +280,17 @@
                 return new KickoutInfo(true);
             }
 
-            var kickoutInfo = _cachingService.GetOrAdd(
-                string.Format(RecheckInCacheKey, _requestContext.UserSession.CustId, _requestContext.UserSession.SubAccId, onlineUserId),
-                () =>
+            var key = string.Format(RecheckInCacheKey, _requestContext.UserSession.CustId, _requestContext.UserSession.SubAccId, onlineUserId);
+            var kickoutInfo = _cachingService.Get<KickoutInfo>(key);
+
+            if (kickoutInfo == null)
+            {
+                kickoutInfo = _authDataAccess.IsKickedOut(onlineUserId);
+                if (!kickoutInfo.IsKickedOut)
                 {
-                    return _authDataAccess.IsKickedOut(onlineUserId);
-                },
-                _cachedExpireTime);
+                    _cachingService.Set(key, kickoutInfo, _cachedExpireTime);
+                }
+            }
 
             return kickoutInfo;
         }

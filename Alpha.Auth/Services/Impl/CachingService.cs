@@ -28,6 +28,18 @@
             }
         }
 
+        public T Get<T>(string key)
+        {
+            var value = CacheManager.Get(key);
+
+            if (value == null)
+            {
+                return default(T);
+            }
+
+            return (T)value;
+        }
+
         public T GetOrAdd<T>(string key, Func<T> addItem, int expiredSeconds = 30)
         {
             var value = CacheManager.Get(key);
@@ -51,6 +63,22 @@
             }
 
             return default(T);
+        }
+
+        public void Set(string key, object value, int expiredSeconds = 30)
+        {
+            CacheManager.Set(
+                    key,
+                    value,
+                    new CacheItemPolicy
+                    {
+                        AbsoluteExpiration = DateTime.Now.AddSeconds(expiredSeconds)
+                    });
+        }
+
+        public void Remove(string key)
+        {
+            CacheManager.Remove(key);
         }
     }
 }
