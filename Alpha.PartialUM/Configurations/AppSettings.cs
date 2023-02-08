@@ -8,11 +8,8 @@
         {
             var appSettings = ConfigurationManager.AppSettings;
 
-            SiteGroup = appSettings["SiteGroup"];
             PartialUMReportsBetListsCacheInSeconds = ToInt(appSettings["PartialUM:ReportsBetListsCacheInSeconds"], 15);
         }
-
-        public static string SiteGroup { get; }
 
         public static int PartialUMReportsBetListsCacheInSeconds { get; }
 

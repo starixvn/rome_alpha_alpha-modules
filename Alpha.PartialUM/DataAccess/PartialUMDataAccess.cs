@@ -9,16 +9,16 @@
 
     public interface IPartialUMDataAccess
     {
-        IEnumerable<UMInfo> GetUMInfoList(string market);
+        IEnumerable<UMInfo> GetUMInfoList(string siteName);
     }
 
     public class PartialUMDataAccess : IPartialUMDataAccess
     {
-        public IEnumerable<UMInfo> GetUMInfoList(string market)
+        public IEnumerable<UMInfo> GetUMInfoList(string siteName)
         {
             var inputParams = new Hashtable
             {
-                ["marketname"] = market
+                ["siteName"] = siteName
             };
 
             using (var db = ObjectDbFactory.CreateInstance("Acc_CheckUM_ByReport"))
