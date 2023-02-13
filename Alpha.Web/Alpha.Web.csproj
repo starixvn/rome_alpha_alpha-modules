@@ -7,13 +7,13 @@
     <RepositoryUrl>https://gitlab.nexdev.net/rome/alpha/alpha.web</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Deterministic>true</Deterministic>
-    <AssemblyVersion>1.1.0.6</AssemblyVersion>
-    <FileVersion>1.1.0.6</FileVersion>
+    <AssemblyVersion>1.1.0.9</AssemblyVersion>
+    <FileVersion>1.1.0.9</FileVersion>
     <RepositoryType>git</RepositoryType>
     <PackageTags>alpha.web</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.1.0.6-beta01</Version>
+    <Version>1.1.0.9</Version>
     <AssemblyName>Alpha.Web</AssemblyName>
     <PackageReleaseNotes>165346 - Arrange for bet list</PackageReleaseNotes>
   </PropertyGroup>
