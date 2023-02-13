@@ -7,15 +7,15 @@
     <RepositoryUrl>https://gitlab.nexdev.net/rome/alpha/alpha.web</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Deterministic>true</Deterministic>
-    <AssemblyVersion>1.1.0.5</AssemblyVersion>
-    <FileVersion>1.1.0.5</FileVersion>
+    <AssemblyVersion>1.1.0.9</AssemblyVersion>
+    <FileVersion>1.1.0.9</FileVersion>
     <RepositoryType>git</RepositoryType>
     <PackageTags>alpha.web</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.1.0.5-beta01</Version>
+    <Version>1.1.0.9</Version>
     <AssemblyName>Alpha.Web</AssemblyName>
-    <PackageReleaseNotes>175809- Partial UM</PackageReleaseNotes>
+    <PackageReleaseNotes>165346 - Arrange for bet list</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.Common" Version="1.1.0.1" />

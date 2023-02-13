@@ -37,13 +37,14 @@
             {
                 if (AppSettings.SecurityCodeConfig.IsStandaloneSite)
                 {
+                    var routing = ConfigurationManager.AppSettings["Routing"];
                     if (HttpContext.Current.Session.IsCookieless)
                     {
-                        redirectUrl = $"{redirectUrl.Replace("/site-reports", string.Empty)}";
+                        redirectUrl = $"{redirectUrl.Replace(routing, string.Empty)}";
                     }
                     else
                     {
-                        redirectUrl = $"/{(UserSession.Current.GetProperty<string>("Report_Routing") ?? string.Empty).TrimEnd('/')}{redirectUrl}";
+                        redirectUrl = $"/{routing?.TrimEnd('/')}{redirectUrl}";
                     }
                 }
 
