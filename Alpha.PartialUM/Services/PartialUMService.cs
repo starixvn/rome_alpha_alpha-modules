@@ -9,10 +9,13 @@
     using Alpha.PartialUM.Helpers;
     using Alpha.PartialUM.Models;
     using Fanex.Caching;
+    using Sunplus.Agent.Model.Entities;
 
     public interface IPartialUMService
     {
         void ThrowIfUM(string settingKey);
+
+        void ThrowIfUM(string settingKey, string siteName);
     }
 
     public class PartialUMService : IPartialUMService
@@ -23,6 +26,9 @@
             => this.partialUMDataAccess = partialUMDataAccess;
 
         public void ThrowIfUM(string settingKey)
+            => ThrowIfUM(settingKey, UserSession.Current.Site);
+
+        public void ThrowIfUM(string settingKey, string siteName)
         {
             var functionNames = PartialUMSectionHelper.GetFunctionNames(settingKey);
             if (!functionNames.Any())
@@ -30,7 +36,7 @@
                 return;
             }
 
-            var umInfoDictionary = GetUMInfoDictionary();
+            var umInfoDictionary = GetUMInfoDictionary(siteName);
             if (umInfoDictionary.Count == 0)
             {
                 return;
@@ -45,16 +51,16 @@
             }
         }
 
-        private IDictionary<string, UMInfo> GetUMInfoDictionary()
+        private IDictionary<string, UMInfo> GetUMInfoDictionary(string siteName)
             => ConfiguredCacheService
                 .GetOrSet(
-                $"Alpha.PartialUM.Services.MinimizedUM.{AppSettings.SiteGroup}",
-                () => GetUMInfoDictionaryFromDB(AppSettings.SiteGroup),
+                $"Alpha.PartialUM.Services.MinimizedUM.SiteName-{siteName}",
+                () => GetUMInfoDictionaryFromDB(siteName),
                 new CacheItemOptions().SetAbsoluteExpiration(TimeSpan.FromSeconds(AppSettings.PartialUMReportsBetListsCacheInSeconds)));
 
-        private IDictionary<string, UMInfo> GetUMInfoDictionaryFromDB(string siteGroup)
+        private IDictionary<string, UMInfo> GetUMInfoDictionaryFromDB(string siteName)
         {
-            var umInfoList = partialUMDataAccess.GetUMInfoList(siteGroup);
+            var umInfoList = partialUMDataAccess.GetUMInfoList(siteName);
             var umInfoDictionary = new Dictionary<string, UMInfo>(StringComparer.OrdinalIgnoreCase);
 
             foreach (var item in umInfoList)
