@@ -1582,9 +1582,6 @@
   <data name="wintype" xml:space="preserve">
     <value>獎金類型</value>
   </data>
-  <data name="numbergame" xml:space="preserve">
-    <value>數字游戲</value>
-  </data>
   <data name="firstlastoddeven" xml:space="preserve">
     <value>第一球/最後一球 單/雙</value>
   </data>
@@ -1597,26 +1594,14 @@
   <data name="mixsports" xml:space="preserve">
     <value>混合體育過關</value>
   </data>
-  <data name="numbergamecomm" xml:space="preserve">
-    <value>百練賽遊戲傭金</value>
-  </data>
   <data name="lblDateAndTime" xml:space="preserve">
     <value>日期和時間</value>
-  </data>
-  <data name="game" xml:space="preserve">
-    <value>數字游戲</value>
   </data>
   <data name="high" xml:space="preserve">
     <value>高限額</value>
   </data>
   <data name="low" xml:space="preserve">
     <value>普通限額</value>
-  </data>
-  <data name="confirmDisableNumberGameDownline" xml:space="preserve">
-    <value>您確定你需要禁用客戶和所有下線的數字游戲嗎？</value>
-  </data>
-  <data name="confirmDisableNumberGame" xml:space="preserve">
-    <value>您確定你需要禁用客戶的數字游戲嗎？</value>
   </data>
   <data name="confirmUnSuspended" xml:space="preserve">
     <value>您確定要更改這個客戶暫停狀態嗎？所有下線將取消暫停.</value>
@@ -1650,9 +1635,6 @@
   </data>
   <data name="UplineHasSuspended" xml:space="preserve">
     <value>上線賬號已被暫停。</value>
-  </data>
-  <data name="numbergameno" xml:space="preserve">
-    <value>數字遊戲編號</value>
   </data>
   <data name="lblNo" xml:space="preserve">
     <value>無</value>
@@ -2304,12 +2286,6 @@
   <data name="VirtualGreyhounds" xml:space="preserve">
     <value>虛擬賽狗</value>
   </data>
-  <data name="Keno" xml:space="preserve">
-    <value>快樂彩</value>
-  </data>
-  <data name="lblEnableKeno" xml:space="preserve">
-    <value>快樂彩</value>
-  </data>
   <data name="VirtualCycling" xml:space="preserve">
     <value>虚拟自行车</value>
   </data>
@@ -2324,9 +2300,6 @@
   </data>
   <data name="SCommPercent" xml:space="preserve">
     <value>SComm%</value>
-  </data>
-  <data name="editKeno" xml:space="preserve">
-    <value>修改快樂彩</value>
   </data>
   <data name="ESports" xml:space="preserve">
     <value>電子遊戲</value>
@@ -2345,9 +2318,6 @@
   </data>
   <data name="ViewDataFromDate" xml:space="preserve">
     <value>您可查看報表數據從 {0}.</value>
-  </data>
-  <data name="editmultkeno" xml:space="preserve">
-    <value>修改多重快樂彩</value>
   </data>
   <data name="detailtooltip" xml:space="preserve">
     <value>Click to view result detail</value>

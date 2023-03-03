@@ -226,19 +226,6 @@
             }
         }
 
-        public bool IsHideKeno
-        {
-            get
-            {
-                return UserSession.Current.IsHideKeno;
-            }
-
-            set
-            {
-                UserSession.Current.IsHideKeno = value;
-            }
-        }
-
         public bool IsHideSportsbook2
         {
             get
@@ -356,14 +343,6 @@
             set
             {
                 UserSession.Current.IsNicknameLoginOnly = value;
-            }
-        }       
-
-        public bool IsNumberGameDisabled
-        {
-            get
-            {
-                return UserSession.Current.IsNumberGameDisabled;
             }
         }
 

@@ -64,14 +64,6 @@ namespace Sunplus.Agent.Model.BL.Definitions
             }
         }
 
-        public static bool IsEnableKeno
-        {
-            get
-            {
-                return GetValue("EnableKeno") == "1";
-            }
-        }
-
         public static bool IsEnableMemberWinLimit
         {
             get
@@ -474,52 +466,6 @@ namespace Sunplus.Agent.Model.BL.Definitions
             }
         }
 
-        /// <summary>
-        /// Show or Hide all functions of Number Game Only
-        /// </summary>
-        ///
-        public static bool DisabledNumberGame
-        {
-            get
-            {
-                return int.Parse(GetValue("Disabled_NumberGame")) == 1;
-            }
-        }
-
-        /// <summary>
-        /// Show or Hide Number Group bettype in Number Game
-        /// </summary>
-        public static bool EnableNumberGroup
-        {
-            get
-            {
-                return ConfigurationManager.AppSettings["EnableNumberGroup"] == "1";
-            }
-        }
-
-        /// <summary>
-        /// Show or Hide Commssion Number Game
-        /// </summary>
-        public static bool DisabledNumberGameCommission
-        {
-            get
-            {
-                return int.Parse(GetValue("Disabled_NumberCommission")) == 1;
-            }
-        }
-
-        /// <summary>
-        /// Disabled and Enabled Number Game status
-        /// </summary>
-        public static bool DisableNumberGameStatus
-        {
-            get
-            {
-                return int.Parse(GetValue("Disabled_NumberGameStatus")) == 1;
-            }
-        }
-
-        /// <summary>
         /// Show and Hide Parlay Mixed Sports
         /// </summary>
         public static bool IsShowMixedSport
