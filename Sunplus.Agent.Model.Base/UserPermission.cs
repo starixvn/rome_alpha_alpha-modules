@@ -11,21 +11,12 @@ namespace Sunplus.Agent.Model.Entities.Permission
     [Obsolete("Should rename to Sunplus.Agent.Model.Base")]
     public class UserPermission : IEntity
     {
-        private static string neutralSite = "789y,"; // Seperate by comma
-        private static string creditNeutralSite = "789y,"; // Seperate by comma
-        
         public static bool IsShowNumberGroup
         {
             get
             {
                 return AppSettings.EnableNumberGroup;
             }
-        }
-
-        public static string NeutralSite
-        {
-            get { return UserPermission.neutralSite; }
-            set { UserPermission.neutralSite = value; }
         }
 
         /// <summary>
@@ -35,15 +26,8 @@ namespace Sunplus.Agent.Model.Entities.Permission
         {
             get
             {
-                return AppSettings.IsNeutralSite ||
-                    (CurrentUserSession.Site != null && neutralSite.IndexOf(CurrentUserSession.Site, 0, StringComparison.CurrentCultureIgnoreCase) != -1);
+                return AppSettings.IsNeutralSite || !AppSettings.IsSiteLabel789y;
             }
-        }
-
-        public static string CreditNeutralSite
-        {
-            get { return UserPermission.creditNeutralSite; }
-            set { UserPermission.creditNeutralSite = value; }
         }
 
         public static bool IsShowNumberGame
@@ -52,7 +36,7 @@ namespace Sunplus.Agent.Model.Entities.Permission
             {
                 // Offer for CreditNeutral
                 return (!IsNeutral ||
-                    (CurrentUserSession.Site != null && creditNeutralSite.IndexOf(CurrentUserSession.Site, 0, StringComparison.CurrentCultureIgnoreCase) != -1))
+                    !AppSettings.IsSiteLabel789y)
                     && !AppSettings.DisabledNumberGame;
             }
         }

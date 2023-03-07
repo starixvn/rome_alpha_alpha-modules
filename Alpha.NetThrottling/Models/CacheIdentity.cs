@@ -19,17 +19,17 @@
 
         public static CacheIdentity From(IThrottlePolicy policy, string[] keys)
         {
-            return From(policy.Name, AppSettings.SiteGroup, keys);
+            return From(policy.Name, AppSettings.SiteLabel, keys);
         }
 
-        public static CacheIdentity From(string policyName, string siteGroup, string[] keys)
+        public static CacheIdentity From(string policyName, string siteLabel, string[] keys)
         {
             if (keys == null || !keys.Any())
             {
                 throw new ArgumentNullException(nameof(keys));
             }
 
-            var prefix = $"{policyName}}}:{{{siteGroup}}}";
+            var prefix = $"{policyName}}}:{{{siteLabel}}}";
             var suffix = $"{{{string.Join("_", keys)}";
             var throttleKey = $"{prefix}:{{{Constants.Throttle}}}:{suffix}";
             var blockKey = $"{prefix}:{{{Constants.Block}}}:{suffix}";
