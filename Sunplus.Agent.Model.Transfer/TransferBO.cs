@@ -32,6 +32,7 @@ namespace Sunplus.Agent.Model.BL.Transfer
 
             if (CurrentSession.IsAgent)
             {
+                var isAllDayBalanceTransfer = dao.IsAllDayBalanceTransfer(CurrentSession.CustId);
                 return dao.Age_Transfer_Ins_Ag(
                        custId,
                        CurrentSession.UserName,
@@ -42,7 +43,7 @@ namespace Sunplus.Agent.Model.BL.Transfer
                        isFullTransfer,
                        AppSettings.AllowedListSuperAccounts,
                        CurrentSession.LangKey,
-                       CurrentSession.IsAllDayBalTransfer,
+                       isAllDayBalanceTransfer,
                        out errMsg);
             }
 
@@ -92,6 +93,7 @@ namespace Sunplus.Agent.Model.BL.Transfer
                 status = string.Empty;
             }
 
+            var isAllDayBalanceTransfer = dao.IsAllDayBalanceTransfer(CurrentSession.CustId);
             return dao.Age_Transfer_InsClearBalance_Ag(
                 toCustIds,
                 CurrentSession.SubAccId,
@@ -101,7 +103,7 @@ namespace Sunplus.Agent.Model.BL.Transfer
                 status,
                 CurrentSession.LangKey,
                 AppSettings.AllowedListSuperAccounts,
-                CurrentSession.IsAllDayBalTransfer,
+                isAllDayBalanceTransfer,
                 out errMsg);
         }
 
@@ -230,5 +232,8 @@ namespace Sunplus.Agent.Model.BL.Transfer
                 CurrentSession.LangKey,
                 ip);
         }
+
+        public bool IsAllDayBalanceTransfer(int custId)
+            => new TransferDAO().IsAllDayBalanceTransfer(custId);
     }
 }

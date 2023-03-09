@@ -480,8 +480,6 @@ namespace Sunplus.Agent.Model.Entities
             set;
         }
 
-        bool IsAllDayBalTransfer { get; }
-
         bool IsShowSkipForceChangePassword { get; set; }
 
         bool IsIndirectLoggedIn { get; }

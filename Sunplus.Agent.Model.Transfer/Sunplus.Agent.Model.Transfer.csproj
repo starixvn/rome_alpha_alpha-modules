@@ -8,15 +8,15 @@
     <RepositoryUrl>https://gitlab.nexdev.net/rome/alpha/Sunplus.Agent.Model.Transfer</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<Deterministic>true</Deterministic>
-    <AssemblyVersion>3.0.1.6</AssemblyVersion>
-    <FileVersion>3.0.1.6</FileVersion>
+    <AssemblyVersion>3.0.1.8</AssemblyVersion>
+    <FileVersion>3.0.1.8</FileVersion>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Sunplus.Agent.Model.Transfer</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>3.0.1.6</Version>
+    <Version>3.0.1.8-removeIsADBT</Version>
     <AssemblyName>Sunplus.Agent.Model.Transfer</AssemblyName>
-    <PackageReleaseNotes>Update transfer status hotfix - 158813-TransferAllHotfix</PackageReleaseNotes>
+    <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.Caching" Version="2.2.1" />
