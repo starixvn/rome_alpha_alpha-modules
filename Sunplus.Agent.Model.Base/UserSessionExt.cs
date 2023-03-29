@@ -656,14 +656,6 @@
             }
         }
 
-        public bool IsAllDayBalTransfer
-        {
-            get
-            {
-                return UserSession.Current.IsAllDayBalTransfer;
-            }
-        }
-
         public bool IsShowSkipForceChangePassword
         {
             get

@@ -220,8 +220,6 @@
             {
                 session.IsLimitedHostPermisionOnSubAccountFunction = false;
             }
-
-            session.IsAllDayBalTransfer = values.ContainsKey("isalldaybaltransfer") && (bool)values["isalldaybaltransfer"];
         }
 
         private static void SetProductStatus(UserSessionBase session, Hashtable values)

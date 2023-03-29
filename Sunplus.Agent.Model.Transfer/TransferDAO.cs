@@ -329,5 +329,12 @@ namespace Sunplus.Agent.Model.DL.Transfer
 
             return ExecSpHashtable("Acc_CustomerUpdTransferOption", parameters);
         }
+
+        public bool IsAllDayBalanceTransfer(int custId)
+        {
+            var datatable = ExecSpTable("Age_GetIsAllDayBalTransfer", new Hashtable { ["custid"] = custId });
+
+            return datatable.Rows.Count > 0 && Convert.ToBoolean(datatable.Rows[0]["IsAllDayBalTransfer"]);
+        }
     }
 }

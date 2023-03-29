@@ -96,8 +96,6 @@ namespace Sunplus.Agent.Model.Entities
 
         private const string USERLOGINIP = "USERLOGINIP";
 
-        private const string ISALLDAYBALTRANSFER = "ISALLDAYBALTRANSFER";
-
         private const string ISSHOWSKIPFORCECHANGPASSWORD = "ISSHOWSKIPFORCECHANGPASSWORD";
         private string asNetSessionId;
 
@@ -1187,20 +1185,6 @@ namespace Sunplus.Agent.Model.Entities
             set
             {
                 this.SetProperty("ISINTERNALWEBVPN", value);
-            }
-        }
-
-        public bool IsAllDayBalTransfer
-        {
-            get
-            {
-                object property = GetProperty(ISALLDAYBALTRANSFER);
-                return property != null && (bool)property;
-            }
-
-            set
-            {
-                SetProperty(ISALLDAYBALTRANSFER, value);
             }
         }
 
