@@ -38,7 +38,7 @@ namespace Sunplus.Agent.Model.Transfer.Services
             transferStatus = new TransferStatus();
             request.IsClose = GetStatus();
             transferCacheService = new TransferCacheServiceImplement(multipleTransferMemberRequest.AdminId, multipleTransferMemberRequest.AdminName, cacheService);
-            cacheKey = string.Format(TransferConstants.AgentTransferMemberListCache, Alpha.Web.Configurations.AppSettings.SiteGroup, request.AgentId);
+            cacheKey = string.Format(TransferConstants.AgentTransferMemberListCache, Alpha.Web.Configurations.AppSettings.SiteLabel, request.AgentId);
         }
 
         public TransferResult ProcessTransfer()

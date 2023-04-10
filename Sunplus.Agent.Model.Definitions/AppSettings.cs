@@ -733,5 +733,24 @@ namespace Sunplus.Agent.Model.BL.Definitions
                 return GetValue("TransferLogCategory");
             }
         }
+
+        public static string SiteLabel
+        {
+            get
+            {
+                return GetValue("SiteLabel");
+            }
+        }
+
+        public static string SiteLabel789y
+        {
+            get
+            {
+                return GetValue("SiteLabel789y");
+            }
+        }
+
+        public static bool IsSiteLabel789y => SiteLabel.Equals(SiteLabel789y);
+
     }
 }
