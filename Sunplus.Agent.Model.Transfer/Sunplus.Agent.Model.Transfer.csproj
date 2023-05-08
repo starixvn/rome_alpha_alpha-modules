@@ -23,7 +23,7 @@
     <PackageReference Include="Fanex.Caching.Redis" Version="2.2.1" />
     <PackageReference Include="Fanex.Data" Version="0.5.404.59" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
-    <PackageReference Include="Sunplus.Agent.Model.Definitions" Version="3.0.3.7-removeNG006" />
+    <PackageReference Include="Sunplus.Agent.Model.Definitions" Version="3.0.3.7" />
     <ProjectReference Include="..\Alpha.Web\Alpha.Web.csproj" />
     <ProjectReference Include="..\Sunplus.Agent.Model.DataAccessLibrary\Sunplus.Agent.Model.DataAccessLibrary.csproj" />
 	<Reference Include="System.Web" />
