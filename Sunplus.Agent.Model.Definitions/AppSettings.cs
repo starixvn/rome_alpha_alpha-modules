@@ -466,6 +466,17 @@ namespace Sunplus.Agent.Model.BL.Definitions
             }
         }
 
+        /// <summary>
+        /// Show or Hide all functions of Number Game Only
+        /// </summary>
+        ///
+        public static bool DisabledNumberGame
+        {
+            get
+            {
+                return int.Parse(GetValue("Disabled_NumberGame")) == 1;
+            }
+        }
         /// Show and Hide Parlay Mixed Sports
         /// </summary>
         public static bool IsShowMixedSport

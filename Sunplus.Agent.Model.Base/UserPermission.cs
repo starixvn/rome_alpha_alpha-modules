@@ -22,6 +22,16 @@ namespace Sunplus.Agent.Model.Entities.Permission
             }
         }
 
+        public static bool IsShowNumberGame
+        {
+            get
+            {
+                // Offer for CreditNeutral
+                return (!IsNeutral ||
+                    !AppSettings.IsSiteLabel789y)
+                    && !AppSettings.DisabledNumberGame;
+            }
+        }
         public static bool IsShowMixedSport
         {
             get
