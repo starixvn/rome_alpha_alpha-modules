@@ -1393,9 +1393,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="wintype" xml:space="preserve">
     <value>Win Type</value>
   </data>
-  <data name="numbergame" xml:space="preserve">
-    <value>Number Game</value>
-  </data>
   <data name="firstlastoddeven" xml:space="preserve">
     <value>1st/Last O/E</value>
   </data>
@@ -1408,23 +1405,11 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   <data name="mixsports" xml:space="preserve">
     <value>Mix Sports Parlay</value>
   </data>
-  <data name="numbergamecomm" xml:space="preserve">
-    <value>Number Game Comm</value>
-  </data>
-  <data name="game" xml:space="preserve">
-    <value>Number Game</value>
-  </data>
   <data name="high" xml:space="preserve">
     <value>High</value>
   </data>
   <data name="low" xml:space="preserve">
     <value>Low</value>
-  </data>
-  <data name="confirmDisableNumberGameDownline" xml:space="preserve">
-    <value>Are you sure you want to disable Number Game on this customer and all downlines?</value>
-  </data>
-  <data name="confirmDisableNumberGame" xml:space="preserve">
-    <value>Are you sure you want to disable Number Game on this customer?</value>
   </data>
   <data name="confirmUnSuspended" xml:space="preserve">
     <value>Are you sure you want to change Suspend status for this customer? All downlines will be un-suspended as well.</value>
@@ -1455,9 +1440,6 @@ Note: Country and city information is provided by IP2Location™ and DNSstuff wh
   </data>
   <data name="UplineHasSuspended" xml:space="preserve">
     <value>Upline has been suspended</value>
-  </data>
-  <data name="numbergameno" xml:space="preserve">
-    <value>Number Game No</value>
   </data>
   <data name="lblNo" xml:space="preserve">
     <value>No</value>
@@ -1975,17 +1957,11 @@ Notes: your password is cAsE sEnSiTiVe</value>
   <data name="VirtualGreyhounds" xml:space="preserve">
     <value>仮想グレーハウンドレース</value>
   </data>
-  <data name="Keno" xml:space="preserve">
-    <value>RNG Keno</value>
-  </data>
   <data name="VirtualCycling" xml:space="preserve">
     <value>가상온라인 사이클링</value>
   </data>
   <data name="VirtualSpeedway" xml:space="preserve">
     <value>가상온라인 오토바이경주</value>
-  </data>
-  <data name="editKeno" xml:space="preserve">
-    <value>Edit RNG Keno</value>
   </data>
   <data name="ACommPercent" xml:space="preserve">
     <value>AComm%</value>
@@ -2016,9 +1992,6 @@ Notes: your password is cAsE sEnSiTiVe</value>
   </data>
   <data name="detailtooltip" xml:space="preserve">
     <value>Click to view result detail</value>
-  </data>
-  <data name="editmultkeno" xml:space="preserve">
-    <value>Edit Multiple Keno</value>
   </data>
   <data name="ContactUs" xml:space="preserve">
     <value>Contact Us</value>

@@ -1582,9 +1582,6 @@
   <data name="wintype" xml:space="preserve">
     <value>Win Type</value>
   </data>
-  <data name="numbergame" xml:space="preserve">
-    <value>เกมหมายเลข</value>
-  </data>
   <data name="firstlastoddeven" xml:space="preserve">
     <value>ลูกแรกหรือลูกท้ายสุด คี่/คู่</value>
   </data>
@@ -1597,9 +1594,6 @@
   <data name="mixsports" xml:space="preserve">
     <value>กีฬาบอลชุด</value>
   </data>
-  <data name="numbergamecomm" xml:space="preserve">
-    <value>เกมหมายเลข คอมมิชั่น</value>
-  </data>
   <data name="lblDateAndTime" xml:space="preserve">
     <value>วันและเวลา</value>
   </data>
@@ -1611,12 +1605,6 @@
   </data>
   <data name="low" xml:space="preserve">
     <value>Low</value>
-  </data>
-  <data name="confirmDisableNumberGameDownline" xml:space="preserve">
-    <value>คุณแน่ใจหรือว่าต้องการปิดเกมหมายเลข ของลูกค้ารายนี้ และดาวน์ไลน์ทั้งหมด?</value>
-  </data>
-  <data name="confirmDisableNumberGame" xml:space="preserve">
-    <value>คุณแน่ใจหรือว่าต้องการปิดเกมหมายเลข ของลูกค้ารายนี้?</value>
   </data>
   <data name="confirmUnSuspended" xml:space="preserve">
     <value>คุณแน่ใจหรือว่าต้องการเปลี่ยนสถานะเป็นระงับการใช้งานให้กับลูกค้าท่านนี้?  คำเตือน : ดาวน์ไลน์ทั้งหมดไม่สามารถยกเลิกการระงับการใช้งานได้</value>
@@ -1650,9 +1638,6 @@
   </data>
   <data name="UplineHasSuspended" xml:space="preserve">
     <value>อัพไลน์ได้ถูกระงับการใช้งาน</value>
-  </data>
-  <data name="numbergameno" xml:space="preserve">
-    <value>เกมหมายเลข เลขที่</value>
   </data>
   <data name="lblNo" xml:space="preserve">
     <value>ไม่</value>
@@ -2271,15 +2256,6 @@ Please use the form below to set your Security Code now.</value>
   <data name="VirtualGreyhounds" xml:space="preserve">
     <value>แข่งเกรย์ฮาวด์ออนไลน์</value>
   </data>
-  <data name="Keno" xml:space="preserve">
-    <value>คีโน</value>
-  </data>
-  <data name="lblEnableKeno" xml:space="preserve">
-    <value>คีโน</value>
-  </data>
-  <data name="editKeno" xml:space="preserve">
-    <value>Edit RNG Keno</value>
-  </data>
   <data name="VirtualCycling" xml:space="preserve">
     <value>แข่งจักรยานออนไลน์</value>
   </data>
@@ -2312,9 +2288,6 @@ Please use the form below to set your Security Code now.</value>
   </data>
   <data name="ViewDataFromDate" xml:space="preserve">
     <value>ท่านสามารถดูรายงานข้อมูลได้จาก {0}.</value>
-  </data>
-  <data name="editmultkeno" xml:space="preserve">
-    <value>แก้ไขคีโน่หลายทาง</value>
   </data>
   <data name="detailtooltip" xml:space="preserve">
     <value>Click to view result detail</value>

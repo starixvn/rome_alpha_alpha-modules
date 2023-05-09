@@ -341,16 +341,6 @@ namespace Sunplus.Agent.Model.Entities
 
         #endregion VirtualSports        
 
-        #region Keno
-
-        bool IsHideKeno
-        {
-            get;
-            set;
-        }
-
-        #endregion Keno
-
         #region Sportsbook2
 
         bool IsHideSportsbook2 { get; set; }
@@ -368,15 +358,6 @@ namespace Sunplus.Agent.Model.Entities
         }
 
         #endregion Double Commission
-
-        /// <summary>
-        /// Disabled Number Game status of logged-in user.
-        /// </summary>
-        bool IsNumberGameDisabled
-        {
-            get;
-        }       
-
         #region PostionTaking
 
         bool IsDisabledAutoMPT

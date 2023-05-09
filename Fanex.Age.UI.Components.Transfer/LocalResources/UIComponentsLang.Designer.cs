@@ -19,7 +19,7 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class UIComponentsLang {
@@ -954,24 +954,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to disable Number Game on this customer?.
-        /// </summary>
-        internal static string confirmDisableNumberGame {
-            get {
-                return ResourceManager.GetString("confirmDisableNumberGame", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to disable Number Game on this customer and all downlines?.
-        /// </summary>
-        internal static string confirmDisableNumberGameDownline {
-            get {
-                return ResourceManager.GetString("confirmDisableNumberGameDownline", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to disallow outright betting for this customer?
         ///Warning, all members under this agent can&apos;t place outright bet!.
         /// </summary>
@@ -1414,15 +1396,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit RNG Keno.
-        /// </summary>
-        internal static string editKeno {
-            get {
-                return ResourceManager.GetString("editKeno", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Edit Multiple Finance&apos;s PT.
         /// </summary>
         internal static string editmultfinance {
@@ -1455,15 +1428,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         internal static string editMultipleVirtualSports {
             get {
                 return ResourceManager.GetString("editMultipleVirtualSports", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edit Multiple RNG Keno.
-        /// </summary>
-        internal static string editmultkeno {
-            get {
-                return ResourceManager.GetString("editmultkeno", resourceCulture);
             }
         }
         
@@ -2177,15 +2141,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         internal static string jungleWildMode {
             get {
                 return ResourceManager.GetString("jungleWildMode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to RNG Keno.
-        /// </summary>
-        internal static string Keno {
-            get {
-                return ResourceManager.GetString("Keno", resourceCulture);
             }
         }
         
@@ -2915,15 +2870,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         internal static string lblEditSB {
             get {
                 return ResourceManager.GetString("lblEditSB", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enable RNG Keno.
-        /// </summary>
-        internal static string lblEnableKeno {
-            get {
-                return ResourceManager.GetString("lblEnableKeno", resourceCulture);
             }
         }
         
@@ -4807,33 +4753,6 @@ namespace Fanex.Age.UI.Components.Transfer.LocalResources {
         internal static string Numberdownlines {
             get {
                 return ResourceManager.GetString("Numberdownlines", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Number Game.
-        /// </summary>
-        internal static string numbergame {
-            get {
-                return ResourceManager.GetString("numbergame", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Number Game Comm.
-        /// </summary>
-        internal static string numbergamecomm {
-            get {
-                return ResourceManager.GetString("numbergamecomm", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Number Game No.
-        /// </summary>
-        internal static string numbergameno {
-            get {
-                return ResourceManager.GetString("numbergameno", resourceCulture);
             }
         }
         

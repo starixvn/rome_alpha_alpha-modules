@@ -63,7 +63,6 @@ namespace Sunplus.Agent.Model.Entities
         private const string ISNICKNAME = "ISNICKNAME";
         private const string ISSHOWCONSOLIDATEDREPORT = "ISSHOWCONSOLIDATEDREPORT";
         private const string ISSHOWBETCHOICELIMIT = "ISSHOWBETCHOICELIMIT";      
-        private const string ISNUMBERGAMEDISABLED = "ISNUMBERGAMEDISABLED";
 
         private const string ISDOUBLECOMMLOSING = "DOUBLECOMMLOSING";
 
@@ -78,8 +77,6 @@ namespace Sunplus.Agent.Model.Entities
         private const string ISALLOWEDTOTALBALANCETRANSFER = "ISALLOWEDTOTALBALANCETRANSFER";
 
         private const string LANGUAGE = "LANGUAGE";
-
-        private const string ISHIDEKENO = "ISHIDEKENO";
 
         private const string ISLIMITHOSTPERMISSIONONSUBACCOUNTFUNCTION = "ISLIMITHOSTPERMISSIONONSUBACCOUNTFUNCTION";
 
@@ -888,24 +885,6 @@ namespace Sunplus.Agent.Model.Entities
 
         #endregion Virtual Sports
 
-        #region Keno
-
-        public bool IsHideKeno
-        {
-            get
-            {
-                object value = this.GetProperty(ISHIDEKENO);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISHIDEKENO, value);
-            }
-        }
-
-        #endregion Keno
-
         #region Sportsbook2
 
         public bool IsHideSportsbook2
@@ -937,24 +916,7 @@ namespace Sunplus.Agent.Model.Entities
         }
 
         #endregion Sportsbook2
-
-        /// <summary>
-        /// Disabled Number Game status of logged-in user.
-        /// </summary>
-        public bool IsNumberGameDisabled
-        {
-            get
-            {
-                object value = this.GetProperty(ISNUMBERGAMEDISABLED);
-                return (null == value) ? false : (bool)value;
-            }
-
-            set
-            {
-                this.SetProperty(ISNUMBERGAMEDISABLED, value);
-            }
-        }
-
+        
         #region PostionTaking
 
         public bool IsDisabledAutoMPT

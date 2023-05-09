@@ -1375,9 +1375,6 @@
   <data name="wintype" xml:space="preserve">
     <value>奖金类型</value>
   </data>
-  <data name="numbergame" xml:space="preserve">
-    <value>数字游戏</value>
-  </data>
   <data name="firstlastoddeven" xml:space="preserve">
     <value>第一球/最后一球 单/双</value>
   </data>
@@ -1390,23 +1387,11 @@
   <data name="mixsports" xml:space="preserve">
     <value>混合体育过关</value>
   </data>
-  <data name="numbergamecomm" xml:space="preserve">
-    <value>百练赛游戏佣金</value>
-  </data>
-  <data name="game" xml:space="preserve">
-    <value>数字游戏</value>
-  </data>
   <data name="high" xml:space="preserve">
     <value>高限额</value>
   </data>
   <data name="low" xml:space="preserve">
     <value>普通限额</value>
-  </data>
-  <data name="confirmDisableNumberGameDownline" xml:space="preserve">
-    <value>您确定你需要禁用客户和所有下线的数字游戏吗？</value>
-  </data>
-  <data name="confirmDisableNumberGame" xml:space="preserve">
-    <value>您确定你需要禁用客户的数字游戏吗？</value>
   </data>
   <data name="confirmUnSuspended" xml:space="preserve">
     <value>您确定要更改这个客户暂停状态吗？所有下线将取消暂停.</value>
@@ -1437,9 +1422,6 @@
   </data>
   <data name="UplineHasSuspended" xml:space="preserve">
     <value>上线账号已被暂停。</value>
-  </data>
-  <data name="numbergameno" xml:space="preserve">
-    <value>数字游戏编号</value>
   </data>
   <data name="lblNo" xml:space="preserve">
     <value>无</value>
@@ -1985,9 +1967,6 @@ casino</value>
   <data name="VirtualGreyhounds" xml:space="preserve">
     <value>虚拟赛狗</value>
   </data>
-  <data name="Keno" xml:space="preserve">
-    <value>快乐彩</value>
-  </data>
   <data name="VirtualCycling" xml:space="preserve">
     <value>虛擬自行車</value>
   </data>
@@ -2002,9 +1981,6 @@ casino</value>
   </data>
   <data name="SCommPercent" xml:space="preserve">
     <value>SComm%</value>
-  </data>
-  <data name="editKeno" xml:space="preserve">
-    <value>修改快乐彩</value>
   </data>
   <data name="ESports" xml:space="preserve">
     <value>电子游戏</value>
@@ -2023,9 +1999,6 @@ casino</value>
   </data>
   <data name="ViewDataFromDate" xml:space="preserve">
     <value>您可查看报表数据从 {0}.</value>
-  </data>
-  <data name="editmultkeno" xml:space="preserve">
-    <value>修改多重快乐彩</value>
   </data>
   <data name="detailtooltip" xml:space="preserve">
     <value>Click to view result detail</value>

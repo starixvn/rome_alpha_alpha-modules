@@ -415,12 +415,6 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
   <data name="confirmDisableMAutoPT" xml:space="preserve">
     <value>Bạn có chắc muốn tắt tính năng Auto PT đối với Master này?</value>
   </data>
-  <data name="confirmDisableNumberGame" xml:space="preserve">
-    <value>Bạn có chắc muốn chặn thành viên này chơi Number Game?</value>
-  </data>
-  <data name="confirmDisableNumberGameDownline" xml:space="preserve">
-    <value>Bạn có chắc sẽ không cho thành viên này chơi Number Game và tất cả những thành viên cấp dưới trực thuộc</value>
-  </data>
   <data name="confirmDisableOutright" xml:space="preserve">
     <value>Bạn có muốn chặn thành viên này chơi " Cược thắng" \nKhuyến cáo tất cả những thành viên cấp dưới trực thuộc Agent này đều bị cấm</value>
   </data>
@@ -568,9 +562,6 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
   <data name="edit" xml:space="preserve">
     <value>Tùy chỉnh</value>
   </data>
-  <data name="editKeno" xml:space="preserve">
-    <value>Edit RNG Keno</value>
-  </data>
   <data name="editmultfinance" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho Finance</value>
   </data>
@@ -579,9 +570,6 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
   </data>
   <data name="editMultipleVirtualSports" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho Virtual Sports</value>
-  </data>
-  <data name="editmultkeno" xml:space="preserve">
-    <value>Edit Multiple RNG Keno</value>
   </data>
   <data name="editmultsportbook" xml:space="preserve">
     <value>Tùy chỉnh đồng loạt cho Sportsbook</value>
@@ -681,9 +669,6 @@ Vui lòng điền vào mẫu phía dưới để thiết lập giá trị cho M�
   </data>
   <data name="FunctionTurnOffError" xml:space="preserve">
     <value>Our server is too busy at the moment so this function is turned off temporarily. Please try again later and sorry for the inconvenience.</value>
-  </data>
-  <data name="game" xml:space="preserve">
-    <value>Number Game</value>
   </data>
   <data name="games" xml:space="preserve">
     <value>Games</value>
@@ -817,9 +802,6 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
   </data>
   <data name="jungleWildMode" xml:space="preserve">
     <value>Jungle Wild Mode</value>
-  </data>
-  <data name="Keno" xml:space="preserve">
-    <value>RNG Keno</value>
   </data>
   <data name="last" xml:space="preserve">
     <value>Cuối cùng</value>
@@ -1063,9 +1045,6 @@ Lưu ý:Thông tin về Quốc gia, Thành Phố được cung cấp bởi  IP2L
   </data>
   <data name="lblEditSB" xml:space="preserve">
     <value>Sportsbook</value>
-  </data>
-  <data name="lblEnableKeno" xml:space="preserve">
-    <value>Enable RNG Keno</value>
   </data>
   <data name="lblEnableNumber" xml:space="preserve">
     <value>Cho phép Number Game</value>
@@ -1705,15 +1684,6 @@ Ví dụ: không cho phép 123456, 456789, 765432, v.v.</value>
   </data>
   <data name="Numberdownlines" xml:space="preserve">
     <value>Thành viên cấp dưới trực thuộc</value>
-  </data>
-  <data name="numbergame" xml:space="preserve">
-    <value>Number Game</value>
-  </data>
-  <data name="numbergamecomm" xml:space="preserve">
-    <value>Number Game Comm</value>
-  </data>
-  <data name="numbergameno" xml:space="preserve">
-    <value>Number Game No</value>
   </data>
   <data name="numberGroup" xml:space="preserve">
     <value>Number Wheel</value>

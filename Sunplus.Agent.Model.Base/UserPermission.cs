@@ -11,14 +11,6 @@ namespace Sunplus.Agent.Model.Entities.Permission
     [Obsolete("Should rename to Sunplus.Agent.Model.Base")]
     public class UserPermission : IEntity
     {
-        public static bool IsShowNumberGroup
-        {
-            get
-            {
-                return AppSettings.EnableNumberGroup;
-            }
-        }
-
         /// <summary>
         /// Indicate logged-in customer is neutral or not.
         /// </summary>
@@ -40,20 +32,11 @@ namespace Sunplus.Agent.Model.Entities.Permission
                     && !AppSettings.DisabledNumberGame;
             }
         }
-
         public static bool IsShowMixedSport
         {
             get
             {
                 return AppSettings.IsShowMixedSport;
-            }
-        }
-
-        public static bool IsShowKenoSetting
-        {
-            get
-            {
-                return AppSettings.IsEnableKeno && !CurrentUserSession.IsHideKeno;
             }
         }
 
@@ -70,14 +53,6 @@ namespace Sunplus.Agent.Model.Entities.Permission
             get
             {
                 return AppSettings.IsEnableDoubleCommission && CurrentUserSession.IsDoubleCommLosing;
-            }
-        }
-
-        public static bool EnableKeno
-        {
-            get
-            {
-                return AppSettings.IsEnableKeno && !CurrentUserSession.IsHideKeno;
             }
         }
 
@@ -159,10 +134,6 @@ namespace Sunplus.Agent.Model.Entities.Permission
             {
                 case 1: // sportsbook
                     return true;
-                case 3: // Number Game
-                    return IsShowNumberGame;               
-                case 8: // Keno
-                    return IsShowKenoSetting;
                 case 16: // SP2
                     return IsShowSportsbook2;
                 case 5: // Virtual Sports
