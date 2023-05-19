@@ -897,6 +897,18 @@ namespace Sunplus.Agent.Model.DL.Authorization
             return Converter.To<bool>(dataTable.Rows[0][0]);
         }
 
+        public dynamic GetSiteDBConfig(int custId)
+        {
+            var parameters = new Hashtable
+            {
+                { "custid", custId }
+            };
+
+            var dataTable = ExecSpTable("Acc_SiteDBConfigSel", parameters);
+
+            return new { AGIP = dataTable.Rows[0]["AGIP"], SiteDBGroupId = dataTable.Rows[0]["SiteDBGroupID"] };
+        }
+
         public KickoutInfo Recheckin(int onlineUserId)
         {
             if (onlineUserId <= 0)

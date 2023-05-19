@@ -736,6 +736,18 @@
             set => UserSession.Current.AutoFollowBetIsDummyAgent = value;
         }
 
+        public string AGIP
+        {
+            get => UserSession.Current.AGIP;
+            set => UserSession.Current.AGIP = value;
+        }
+
+        public int SiteDBGroupId
+        {
+            get => UserSession.Current.SiteDBGroupId;
+            set => UserSession.Current.SiteDBGroupId = value;
+        }
+
         public T GetProperty<T>(string propertyName)
         {
             return UserSession.Current.GetProperty<T>(propertyName);

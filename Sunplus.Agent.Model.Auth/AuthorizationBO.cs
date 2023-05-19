@@ -131,6 +131,9 @@
             outputs.Add("isShowBetChoiceLimit", isShowBetChoiceLimit);
 
             userSession.SetProperty("outputs", outputs);
+            var siteDB = dao.GetSiteDBConfig(custId);
+            outputs.Add("AGIP", siteDB.AGIP);
+            outputs.Add("SiteDBGroupId", siteDB.SiteDBGroupId);
 
             UserSessionService.SetUserSessionValues(CurrentSession, outputs, setUserStatusAction);
 
@@ -215,6 +218,9 @@
             outputs.Add("isShowBetChoiceLimit", isShowBetChoiceLimit);
 
             userSession.SetProperty("outputs", outputs);
+            var siteDB = dao.GetSiteDBConfig(custId);
+            outputs.Add("AGIP", siteDB.AGIP);
+            outputs.Add("SiteDBGroupId", siteDB.SiteDBGroupId);
 
             UserSessionService.SetUserSessionValues(CurrentSession, outputs, setUserStatusAction);
 
@@ -289,6 +295,9 @@
             outputs.Add("isShowBetChoiceLimit", isShowBetChoiceLimit);
 
             userSession.SetProperty("outputs", outputs);
+            var siteDB = dao.GetSiteDBConfig(custId);
+            outputs.Add("AGIP", siteDB.AGIP);
+            outputs.Add("SiteDBGroupId", siteDB.SiteDBGroupId);
 
             UserSessionService.SetUserSessionValues(CurrentSession, outputs, setUserStatusAction);
 
@@ -395,6 +404,9 @@
             outputs.Add("isShowBetChoiceLimit", isShowBetChoiceLimit);
 
             userSession.SetProperty("outputs", outputs);
+            var siteDB = dao.GetSiteDBConfig(custId);
+            outputs.Add("AGIP", siteDB.AGIP);
+            outputs.Add("SiteDBGroupId", siteDB.SiteDBGroupId);
 
             UserSessionService.SetUserSessionValues(CurrentSession, outputs, setUserStatusAction);
 
