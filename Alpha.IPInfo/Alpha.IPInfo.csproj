@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Starixsoft</Authors>
+    <Company>Starixsoft</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fanex.Caching" Version="2.2.2" />
+  </ItemGroup>
+
+</Project>
