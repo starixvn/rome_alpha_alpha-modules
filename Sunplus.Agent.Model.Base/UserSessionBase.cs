@@ -1220,7 +1220,7 @@ namespace Sunplus.Agent.Model.Entities
 
         public string AGIP
         {
-            get => GetProperty<string>(AGIPSESSIONKEY) ?? string.Empty;
+            get => GetProperty<string>(AGIPSESSIONKEY) ?? ConfigurationManager.AppSettings["DBTXN_IP"];
             set => SetProperty(AGIPSESSIONKEY, value);
         }
 

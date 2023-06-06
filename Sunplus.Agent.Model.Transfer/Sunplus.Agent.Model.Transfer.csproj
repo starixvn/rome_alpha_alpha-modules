@@ -8,15 +8,15 @@
     <RepositoryUrl>https://gitlab.nexdev.net/rome/alpha/Sunplus.Agent.Model.Transfer</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<Deterministic>true</Deterministic>
-    <AssemblyVersion>3.0.1.9</AssemblyVersion>
-    <FileVersion>3.0.1.9</FileVersion>
+    <AssemblyVersion>3.0.2.1</AssemblyVersion>
+    <FileVersion>3.0.2.1</FileVersion>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Sunplus.Agent.Model.Transfer</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>3.0.1.9</Version>
+    <Version>3.0.2.1-scaleout-04</Version>
     <AssemblyName>Sunplus.Agent.Model.Transfer</AssemblyName>
-    <PackageReleaseNotes>181596-splite site</PackageReleaseNotes>
+    <PackageReleaseNotes>Support scale out DBTran for credit sites (#181595)</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.Caching" Version="2.2.1" />
