@@ -62,9 +62,6 @@ namespace Sunplus.Agent.Model.BL.Definitions
         AllBet = 211,
         Voidbridge = 212,
         FishingWorld = 219,
-        // NG2.
-        NG2Start = 213,
-        NG2End = 220,
         SaGaming = 244
     }
 }
