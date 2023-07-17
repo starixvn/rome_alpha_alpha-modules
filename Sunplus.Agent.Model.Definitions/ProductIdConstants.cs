@@ -20,7 +20,6 @@
         public const int BBIN = 47;
         public const int Voidbridge = 22;
 
-        public const int NG2 = 23;
 
         public const int FishingWorld = 24;
 

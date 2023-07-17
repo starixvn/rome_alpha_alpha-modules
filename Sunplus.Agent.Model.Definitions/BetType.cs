@@ -142,10 +142,6 @@ namespace Sunplus.Agent.Model.BL.Definitions
         VoidbridgeRangeStart = 4001,
         VoidbridgeRangeEnd = 7999,
 
-        // NG2.
-        NG2Start = 2501,
-        NG2End = 2699,
-
         // Fishing World
         FishingWorldStart = 1011,
         FishingWorldEnd = 1020,
