@@ -107,6 +107,8 @@ namespace Sunplus.Agent.Model.Entities
         private const string ISPROTECTEDMODESESSIONKEY = "ISPROTECTEDMODE";
 
         public const string AUTOFOLLOWBETISDUMMYAGENTSESSIONKEY = "AUTOFOLLOWBETISDUMMYAGENT";
+        private const string AGIPSESSIONKEY = "AGIP";
+        private const string SITEDBGROUPIDSESSIONKEY = "SITEDBGROUPID";
 
         #endregion Contructors
 
@@ -1214,6 +1216,18 @@ namespace Sunplus.Agent.Model.Entities
         {
             get => GetProperty<bool>(AUTOFOLLOWBETISDUMMYAGENTSESSIONKEY);
             set => SetProperty(AUTOFOLLOWBETISDUMMYAGENTSESSIONKEY, value);
+        }
+
+        public string AGIP
+        {
+            get => GetProperty<string>(AGIPSESSIONKEY) ?? ConfigurationManager.AppSettings["DBTXN_IP"];
+            set => SetProperty(AGIPSESSIONKEY, value);
+        }
+
+        public int SiteDBGroupId
+        {
+            get => GetProperty<int>(SITEDBGROUPIDSESSIONKEY);
+            set => SetProperty(SITEDBGROUPIDSESSIONKEY, value);
         }
 
         public T GetProperty<T>(string propertyName)

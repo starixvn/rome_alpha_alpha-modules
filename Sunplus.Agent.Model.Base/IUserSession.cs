@@ -481,6 +481,10 @@ namespace Sunplus.Agent.Model.Entities
 
         bool AutoFollowBetIsDummyAgent { get; set; }
 
+        string AGIP { get; set; }
+
+        int SiteDBGroupId { get; set; }
+
         T GetProperty<T>(string propertyName);
 
         void SetProperty(string propertyName, object value);

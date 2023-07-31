@@ -204,7 +204,8 @@
             session.IsAllowedTotalBalanceTransfer = (bool)values["isallowedtotalbalancetransfer"];
             session.IsShowConsolidatedReport = (bool)values["isshowconsolidated"];
             session.IsShowBetChoiceLimit = (bool)values["isShowBetChoiceLimit"];
-
+            session.AGIP = values["AGIP"].ToString();
+            session.SiteDBGroupId = Convert.ToInt32(values["SiteDBGroupId"]);
             if (AppSettings.IsSupportMyanmarOdds)
             {
                 session.IsMyanmarOdds = Converter.ToBool(values["ismyanmarodds"]);

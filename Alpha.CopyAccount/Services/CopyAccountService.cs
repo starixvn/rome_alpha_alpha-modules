@@ -31,6 +31,7 @@
         {
             var request = new RestRequest(copyResource, Method.POST);
             request.AddJsonBody(command);
+            request.AddHeader("X-SiteDBServer", command.SiteDBGroupIp);
 
             var response = restClient.Execute<CopyAccountResult>(request);
 
@@ -41,6 +42,7 @@
         {
             var request = new RestRequest(copyResource, Method.POST);
             request.AddJsonBody(command);
+            request.AddHeader("X-SiteDBServer", command.SiteDBGroupIp);
 
             var response = await restClient.ExecuteTaskAsync<CopyAccountResult>(request);
 
