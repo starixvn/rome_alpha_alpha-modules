@@ -21,6 +21,7 @@
             byte systemId,
             bool isQrCode,
             string siteDBGroupIp,
+            string actorUsername,
             string firstName = null,
             string lastName = null)
         {
@@ -44,6 +45,7 @@
             SystemId = systemId;
             IsQrCode = isQrCode;
             SiteDBGroupIp = siteDBGroupIp;
+            ActorUsername = actorUsername;
         }
 
         public int ActorId { get; }
@@ -85,5 +87,7 @@
         public bool IsQrCode { get; }
 
         public string SiteDBGroupIp { get; }
+
+        public string ActorUsername { get; }
     }
 }
