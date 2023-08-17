@@ -7,7 +7,7 @@
     {
         public static IPAddress GetClientIp(this HttpRequestBase request)
         {
-            return GetIPAddress(request.Headers["X-Forwarded-For"], request.UserHostAddress);
+            return GetIPAddress(request.UserHostAddress);
         }
 
         public static IPAddress GetClientIp(this HttpRequest request)
@@ -15,24 +15,29 @@
             return GetClientIp(new HttpRequestWrapper(request));
         }
 
-        private static IPAddress GetIPAddress(string header, string hostAddress)
+        private static IPAddress GetIPAddress(string hostAddress)
         {
-            if (string.IsNullOrEmpty(header))
+            var request = HttpContext.Current.Request;
+            var actualIP = request.Headers["X-Actual-IP"];
+
+            actualIP = string.IsNullOrWhiteSpace(actualIP) ?
+                request.ServerVariables["HTTP_X_FORWARDED_FOR"] : actualIP;
+
+            actualIP = string.IsNullOrWhiteSpace(actualIP) ?
+               hostAddress : actualIP;
+
+            actualIP = string.IsNullOrWhiteSpace(actualIP) || actualIP.Equals("localhost") || actualIP.Equals("::1") ?
+                "127.0.0.1" : actualIP;
+
+            string[] ipAddress = actualIP.Split(',');
+            string[] ipparts = ipAddress[0].Split(':');
+            if (IPAddress.TryParse(ipparts[0], out IPAddress ipFromHeader))
             {
-                return IPAddress.Parse(hostAddress).MapToIPv4();
+                return ipFromHeader.MapToIPv4();
             }
             else
             {
-                string[] ipAddress = header.Split(',');
-                string[] ipparts = ipAddress[0].Split(':');
-                if (IPAddress.TryParse(ipparts[0], out IPAddress ipFromHeader))
-                {
-                    return ipFromHeader.MapToIPv4();
-                }
-                else
-                {
-                    return IPAddress.Loopback.MapToIPv4();
-                }
+                return IPAddress.Loopback.MapToIPv4();
             }
         }
 

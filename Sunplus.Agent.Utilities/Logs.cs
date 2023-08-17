@@ -180,8 +180,17 @@ namespace Sunplus.Agent.Utilities
 
         private static string CustomerIp()
         {
-            var ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"] ?? HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
-            return ip.Equals("::1") ? "127.0.0.1" : (string.IsNullOrEmpty(ip) ? "127.0.0.1" : ip.Split(',')[0]);
+            var request = HttpContext.Current.Request;
+            var actualIP = request.Headers["X-Actual-IP"];
+
+            actualIP = string.IsNullOrWhiteSpace(actualIP) ?
+                request.ServerVariables["HTTP_X_FORWARDED_FOR"] : actualIP;
+
+            actualIP = string.IsNullOrWhiteSpace(actualIP) ?
+                request.ServerVariables["REMOTE_ADDR"] : actualIP;
+
+            return string.IsNullOrWhiteSpace(actualIP) || actualIP.Equals("localhost") || actualIP.Equals("::1") ?
+                "127.0.0.1" : actualIP.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)[0].Trim();
         }
         #endregion LogService members and Helper methods
     }
