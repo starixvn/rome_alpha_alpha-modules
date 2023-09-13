@@ -2,7 +2,6 @@ namespace Sunplus.Agent.Model.Common
 {
     using System;
     using System.Web;
-    using Fanex.Logging.Extensions.Web;
     using Sunplus.Agent.Model.Entities;
     using Sunplus.Core.Common.IPs;
 
@@ -42,23 +41,17 @@ namespace Sunplus.Agent.Model.Common
 
         public static string[] GetClientIPs()
         {
-            var ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"]
-                ?? HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            var request = HttpContext.Current.Request;
+            var actualIP = request.Headers["X-Actual-IP"];
 
-            if (string.IsNullOrWhiteSpace(ip))
-            {
-                ExceptionHandler.Handle(new System.Exception("After login: ip is null or empty"), System.Diagnostics.TraceEventType.Error);
-            }
+            actualIP = string.IsNullOrWhiteSpace(actualIP) ?
+                request.ServerVariables["HTTP_X_FORWARDED_FOR"] : actualIP;
 
-            var ips = string.IsNullOrWhiteSpace(ip) || ip.Equals("::1") ?
-                new[] { "127.0.0.1" } : ip.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            actualIP = string.IsNullOrWhiteSpace(actualIP) ?
+                request.ServerVariables["REMOTE_ADDR"] : actualIP;
 
-            if (string.IsNullOrWhiteSpace(ips[0]))
-            {
-                ExceptionHandler.Handle(new System.Exception("After login: HTTP_X_FORWARDED_FOR ip is null or empty"), System.Diagnostics.TraceEventType.Error);
-            }
-
-            return ips;
+            return string.IsNullOrWhiteSpace(actualIP) || actualIP.Equals("localhost") || actualIP.Equals("::1") ?
+                new[] { "127.0.0.1" } : actualIP.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
         }
 
         public static string GetClientIP()

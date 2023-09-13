@@ -7,15 +7,15 @@
     <RepositoryUrl>https://gitlab.nexdev.net/rome/alpha/Sunplus.Agent.Utilities</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<Deterministic>true</Deterministic>
-    <AssemblyVersion>3.0.2</AssemblyVersion>
-    <FileVersion>3.0.2</FileVersion>
+    <AssemblyVersion>3.1.0.1</AssemblyVersion>
+    <FileVersion>3.1.0.1</FileVersion>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Sunplus.Agent.Utilities</PackageTags>
     <Authors>Starixsoft</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>3.0.2-removeCouchbase</Version>
+    <Version>3.1.0.1-beta01</Version>
     <AssemblyName>Sunplus.Agent.Utilities</AssemblyName>
-    <PackageReleaseNotes>Remove couchbase</PackageReleaseNotes>
+    <PackageReleaseNotes>192703 - Alpha - Capture user's real IP</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.Logging" Version="2.0.1" />
