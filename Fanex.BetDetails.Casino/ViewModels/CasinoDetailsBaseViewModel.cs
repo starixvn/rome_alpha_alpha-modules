@@ -11,9 +11,9 @@
     {
         private static readonly IDictionary<UserLevels, int> TotalColumnByViewLevel = new Dictionary<UserLevels, int>
         {
-            { UserLevels.Agent, 8 },
-            { UserLevels.Master, 9 },
-            { UserLevels.Super, 10 }
+            { UserLevels.Agent, 9 },
+            { UserLevels.Master, 10 },
+            { UserLevels.Super, 11 }
         };
 
         public CasinoDetailsBaseViewModel(
