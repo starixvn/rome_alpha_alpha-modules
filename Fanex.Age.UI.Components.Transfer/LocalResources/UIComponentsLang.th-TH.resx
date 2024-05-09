@@ -322,7 +322,7 @@
     <value>ชื่อ และ รหัสที่ใช้ในการเข้าระบบไม่ถูกต้อง</value>
   </data>
   <data name="ip" xml:space="preserve">
-    <value>รหัสของเครื่องคอมพิวเตอร์ที่ใช้</value>
+    <value>ไอพี</value>
   </data>
   <data name="last" xml:space="preserve">
     <value>หน้าสุดท้าย</value>
