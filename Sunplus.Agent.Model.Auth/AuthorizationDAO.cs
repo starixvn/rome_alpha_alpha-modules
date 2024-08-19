@@ -904,9 +904,9 @@ namespace Sunplus.Agent.Model.DL.Authorization
                 { "custid", custId }
             };
 
-            var dataTable = ExecSpTable("Acc_SiteDBConfigSel", parameters);
+            var dataTable = ExecSpTable("Acc_ServerDBConfigSel", parameters);
 
-            return new { AGIP = dataTable.Rows[0]["AGIP"], SiteDBGroupId = dataTable.Rows[0]["SiteDBGroupID"] };
+            return new { AGIP = dataTable.Rows[0]["AGIP"], SiteDBGroupId = dataTable.Rows[0]["SiteDBGroupID"], CustDBGroupId = dataTable.Rows[0]["CustDBGroupID"] };
         }
 
         public KickoutInfo Recheckin(int onlineUserId)
