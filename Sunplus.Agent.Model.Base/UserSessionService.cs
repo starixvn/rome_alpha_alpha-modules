@@ -206,6 +206,7 @@
             session.IsShowBetChoiceLimit = (bool)values["isShowBetChoiceLimit"];
             session.AGIP = values["AGIP"].ToString();
             session.SiteDBGroupId = Convert.ToInt32(values["SiteDBGroupId"]);
+            session.CustDBGroupId = Convert.ToInt32(values["CustDBGroupId"]);
             if (AppSettings.IsSupportMyanmarOdds)
             {
                 session.IsMyanmarOdds = Converter.ToBool(values["ismyanmarodds"]);

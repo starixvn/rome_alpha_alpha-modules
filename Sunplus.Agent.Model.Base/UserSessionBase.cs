@@ -109,6 +109,7 @@ namespace Sunplus.Agent.Model.Entities
         public const string AUTOFOLLOWBETISDUMMYAGENTSESSIONKEY = "AUTOFOLLOWBETISDUMMYAGENT";
         private const string AGIPSESSIONKEY = "AGIP";
         private const string SITEDBGROUPIDSESSIONKEY = "SITEDBGROUPID";
+        private const string CUSTDBGROUPIDSESSIONKEY = "CUSTDBGROUPID";
 
         #endregion Contructors
 
@@ -1228,6 +1229,12 @@ namespace Sunplus.Agent.Model.Entities
         {
             get => GetProperty<int>(SITEDBGROUPIDSESSIONKEY);
             set => SetProperty(SITEDBGROUPIDSESSIONKEY, value);
+        }
+
+        public int CustDBGroupId
+        {
+            get => GetProperty<int>(CUSTDBGROUPIDSESSIONKEY);
+            set => SetProperty(CUSTDBGROUPIDSESSIONKEY, value);
         }
 
         public T GetProperty<T>(string propertyName)
